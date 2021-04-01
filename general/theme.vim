@@ -36,8 +36,9 @@ hi TabLineFill       guibg=NONE                  ctermfg=NONE  ctermbg=NONE     
 hi TabLine           guibg=NONE                  ctermfg=NONE  ctermbg=NONE      cterm=NONE
 hi TabLineSel        guibg=Yellow guifg=#8fbcbb  ctermfg=Black ctermbg=NONE    cterm=NONE
 hi SignColumn        guibg=NONE
-" hi Comment                                                      cterm=italic
-" hi Conditional                                                  cterm=italic,bold
+hi LineNr            guibg=NONE
+hi Comment                                                      cterm=italic
+hi Conditional                                                  cterm=italic,bold
 hi VertSplit         guibg=NONE guifg=#8fbcbb
 hi Pmenu             ctermfg=0 ctermbg=13 guibg=NONE
 
