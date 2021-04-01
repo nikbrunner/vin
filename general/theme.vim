@@ -10,28 +10,21 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-" gruvbox-material
+" gruvbox-material mods
 let g:gruvbox_contrast_dark="medium"
 let g:gruvbox_material_background = 'medium'
 
-" nord
+" nord mods
 let g:nord_bold = 1
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 
-" let g:airline_theme='base16'
-" colorscheme gruvbox-material
-
-" let g:airline_theme='codedark'
-" colorscheme codedark
-
-let g:airline_theme='sol'
- colorscheme darcula
-"
-" let g:airline_theme='sol'
-"  colorscheme morning
+let g:airline_theme='codedark'
+colorscheme codedark
 
 hi Normal            guibg=NONE                  ctermbg=NONE
+hi NonText           guibg=NONE                  ctermbg=NONE
+hi EndOfBuffer       guibg=NONE                  ctermbg=NONE
 hi TabLineFill       guibg=NONE                  ctermfg=NONE  ctermbg=NONE      cterm=NONE
 hi TabLine           guibg=NONE                  ctermfg=NONE  ctermbg=NONE      cterm=NONE
 hi TabLineSel        guibg=Yellow guifg=#8fbcbb  ctermfg=Black ctermbg=NONE    cterm=NONE
@@ -39,7 +32,6 @@ hi SignColumn        guibg=NONE
 hi LineNr            guibg=NONE
 hi Comment                                                      cterm=italic
 hi Conditional                                                  cterm=italic,bold
-hi VertSplit         guibg=NONE guifg=#8fbcbb
 hi Pmenu             ctermfg=0 ctermbg=13 guibg=NONE
 
 augroup nord-theme-overrides

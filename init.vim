@@ -16,7 +16,7 @@ source $HOME/.config/nvim/plugins/vim-airline.vim
 source $HOME/.config/nvim/plugins/vim-taboo.vim
 source $HOME/.config/nvim/plugins/vim-colorizer.vim
 source $HOME/.config/nvim/plugins/vim-pencil.vim
-" source $HOME/.config/nvim/plugins/vim-treesitter.vim
+source $HOME/.config/nvim/plugins/vim-treesitter.vim
 
 " maps
 source $HOME/.config/nvim/general/theme.vim
