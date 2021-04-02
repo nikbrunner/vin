@@ -9,20 +9,17 @@ endif
 
 call plug#begin()
     " themes
-    Plug 'arcticicestudio/nord-vim'
     Plug 'sainnhe/gruvbox-material'
-    Plug 'gruvbox-community/gruvbox'
-    Plug 'drewtempelmeyer/palenight.vim'
-    Plug 'arcticicestudio/nord-tmux'
     Plug 'tomasiser/vim-code-dark'
-    Plug 'mkitt/tabline.vim'
     Plug 'ryanoasis/vim-devicons'
     Plug 'doums/darcula'
-    Plug 'vwxyutarooo/nerdtree-devicons-syntax'
+    Plug 'gilgigilgil/anderson.vim'
+    Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 
-    " appearence
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'mkitt/tabline.vim'
+    Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 
     " general workflow 
     Plug 'tpope/vim-commentary'

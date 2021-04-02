@@ -19,8 +19,9 @@ let g:nord_bold = 1
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 
-let g:airline_theme='codedark'
-colorscheme codedark
+
+let g:airline_theme='sol'
+colorscheme anderson
 
 hi Normal            guibg=NONE                  ctermbg=NONE
 hi NonText           guibg=NONE                  ctermbg=NONE

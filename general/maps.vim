@@ -144,18 +144,11 @@ if has("mac") || has("gui_macvim") || has("gui_mac")
   nnoremap <leader>cd :let @*=expand("%:p:h")<CR>
 endif
 
-" centers the current pane as the middle 2 of 4 imaginary columns
-" should be called in a window with a single pane
+" Easy log
+nnoremap cll                      oconsole.log("LINE: <C-r>=line('.')<Esc>",)<Esc>O<Esc>jf,a
 
- function CenterPane()
-   lefta vnew
-   wincmd w
-   exec 'vertical resize '. string(&columns * 0.65)
- endfunction
+" Refactor Add Braces to convert function to explicit return 
+nnoremap rab                      f(da(i{}<Esc>i<CR><Esc>Oreturn <Esc>p:w<CR>
 
-" optionally map it to a key:
- nnoremap <leader>c :call CenterPane()<cr>
-
-" Easy console.log
-" nnoremap cll                      oconsole.log("LINE: <C-r>=line('.')<Esc>","")<Esc>F"i
-nnoremap cll                      oconsole.log("LINE: <C-r>=line('.')<Esc>","")<Esc>O<Esc>j3f"a
+" Refactor Remove Braces to convert function to implicit return
+nnoremap rrb                      f(da(kf{va{p:w<CR>

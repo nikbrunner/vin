@@ -20,8 +20,8 @@ set hidden
 set noswapfile
 set nobackup
 set lazyredraw
-set nocursorline
-" set cursorline
+" set nocursorline
+set cursorline
 " set cursorcolumn
 " set undofile
 " set undodir=~/.vim/undodir

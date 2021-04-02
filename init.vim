@@ -21,3 +21,4 @@ source $HOME/.config/nvim/plugins/vim-treesitter.vim
 " maps
 source $HOME/.config/nvim/general/theme.vim
 source $HOME/.config/nvim/general/maps.vim
+
