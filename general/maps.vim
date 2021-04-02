@@ -30,6 +30,9 @@ nnoremap <silent><leader>=                   <C-w><C-=>
 nnoremap <silent><S-Tab>                     :tabprevious<CR>
 nnoremap <silent><Tab>                       :tabnext<CR>
 
+" Switch between two buffers
+nnoremap <leader><leader>                    <C-^>
+
 " Go to tab by number
 nnoremap <leader>1                           1gt
 nnoremap <leader>2                           2gt
@@ -152,3 +155,6 @@ endif
 
 " optionally map it to a key:
  nnoremap <leader>c :call CenterPane()<cr>
+
+" Easy console.log
+nnoremap gll oconsole.log("LINE: <C-r>=line('.')<Esc>","")<Esc>F"i
