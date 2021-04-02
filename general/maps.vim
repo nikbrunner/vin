@@ -14,6 +14,10 @@ nnoremap <silent>Q                           :Bdelete menu<CR>
 
 nnoremap <C-a>                               ggVG
 
+" Neoscroll
+nnoremap <silent><C-d>                       :lua require('neoscroll').scroll(vim.wo.scroll, true, 8)<CR>
+nnoremap <silent><C-u>                       :lua require('neoscroll').scroll(-vim.wo.scroll, true, 8)<CR>
+
 " Sessions
 nnoremap <silent><leader>ps                  :Obsess<CR>
 
@@ -23,6 +27,8 @@ nnoremap <silent><leader>j                   :sp<CR><C-W><C-j>
 
 " Resize panes
 nnoremap <silent>H                           :vertical:resize +5<CR>
+nnoremap <silent>J                           :resize +5<CR>
+nnoremap <silent>K                           :resize -5<CR>
 nnoremap <silent>L                           :vertical:resize -5<CR>
 nnoremap <silent><leader>=                   <C-w><C-=>
 
@@ -63,6 +69,16 @@ nnoremap <C-f>                               <cmd>Telescope live_grep<CR>
 nnoremap <C-e>                               <cmd>Telescope buffers<CR>
 nnoremap <leader>fh                          <cmd>Telescope help_tags<CR>
 
+" spectre
+nnoremap <leader>S :lua require('spectre').open()<CR>
+
+"search current word
+vnoremap <leader>S :lua require('spectre').open_visual()<CR>
+nnoremap <leader>Sw viw:lua require('spectre').open_visual()<CR>
+
+"  search in current file
+nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
+
 " emmet
 let g:user_emmet_leader_key=                 '<C-y>'
 
@@ -78,7 +94,7 @@ nnoremap <leader>gm                          :MerginalToggle<CR>
 nnoremap <leader>u                           :UndotreeShow<CR>
 
 " setup mapping to call :LazyGit
-nnoremap ª                                   :LazyGit<CR>
+nnoremap <leader>lg                          :LazyGit<CR>
 
 " git-gutter
 nmap ˚                                       <Plug>(GitGutterPrevHunk)
@@ -88,6 +104,9 @@ nmap ghu                                     <Plug>(GitGutterUndoHunk)
 
 " goyo
 nnoremap <silent><leader>z                       :Goyo<CR>
+
+" md preview
+nmap <leader>md                              <Plug>MarkdownPreviewToggle
 
 " coc
 nmap <silent> gd                             <Plug>(coc-definition)

@@ -10,18 +10,14 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-" gruvbox-material mods
-let g:gruvbox_contrast_dark="medium"
-let g:gruvbox_material_background = 'medium'
+" let g:airline_theme='spaceduck'
+" colorscheme spaceduck
 
-" nord mods
-let g:nord_bold = 1
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
+let g:airline_theme='codedark'
+colorscheme codedark
 
-
-let g:airline_theme='sol'
-colorscheme anderson
+" let g:airline_theme='base16'
+" colorscheme anderson
 
 hi Normal            guibg=NONE                  ctermbg=NONE
 hi NonText           guibg=NONE                  ctermbg=NONE
@@ -29,17 +25,12 @@ hi EndOfBuffer       guibg=NONE                  ctermbg=NONE
 hi TabLineFill       guibg=NONE                  ctermfg=NONE  ctermbg=NONE      cterm=NONE
 hi TabLine           guibg=NONE                  ctermfg=NONE  ctermbg=NONE      cterm=NONE
 hi TabLineSel        guibg=Yellow guifg=#8fbcbb  ctermfg=Black ctermbg=NONE    cterm=NONE
-hi SignColumn        guibg=NONE
+" hi SignColumn        guibg=NONE
 hi LineNr            guibg=NONE
+hi CursorLine        guibg=Grey20
 hi Comment                                                      cterm=italic
 hi Conditional                                                  cterm=italic,bold
 hi Pmenu             ctermfg=0 ctermbg=13 guibg=NONE
-
-augroup nord-theme-overrides
-  autocmd!
-  " Use 'nord7' as foreground color for Vim comment titles.
-  autocmd ColorScheme nord highlight vimCommentTitle ctermfg=14 guifg=#8FBCBB
-augroup END
 
 " Switching themes
 map <F6>             :colorscheme darcula <bar> let g:airline_theme='sol' <bar> set background=dark<CR>

@@ -9,10 +9,10 @@ endif
 
 call plug#begin()
     " themes
-    Plug 'sainnhe/gruvbox-material'
     Plug 'tomasiser/vim-code-dark'
     Plug 'ryanoasis/vim-devicons'
     Plug 'doums/darcula'
+    Plug 'sainnhe/gruvbox-material'
     Plug 'gilgigilgil/anderson.vim'
     Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 
@@ -34,10 +34,14 @@ call plug#begin()
     Plug 'gcmt/taboo.vim'
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'reedes/vim-pencil'
+    Plug 'mhinz/vim-startify'
+    Plug 'karb94/neoscroll.nvim'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
  
     " file management
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
+    Plug 'windwp/nvim-spectre'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'airblade/vim-rooter'
     Plug 'preservim/nerdtree'
