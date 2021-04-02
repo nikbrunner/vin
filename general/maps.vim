@@ -157,4 +157,5 @@ endif
  nnoremap <leader>c :call CenterPane()<cr>
 
 " Easy console.log
-nnoremap gll oconsole.log("LINE: <C-r>=line('.')<Esc>","")<Esc>F"i
+" nnoremap cll                      oconsole.log("LINE: <C-r>=line('.')<Esc>","")<Esc>F"i
+nnoremap cll                      oconsole.log("LINE: <C-r>=line('.')<Esc>","")<Esc>O<Esc>j3f"a
