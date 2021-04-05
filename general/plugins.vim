@@ -11,7 +11,6 @@ call plug#begin()
     " themes
     Plug 'tomasiser/vim-code-dark'
     Plug 'doums/darcula'
-    Plug 'sainnhe/gruvbox-material'
     Plug 'morhetz/gruvbox'
     Plug 'ryanoasis/vim-devicons'
 

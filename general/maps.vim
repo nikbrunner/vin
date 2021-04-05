@@ -1,4 +1,3 @@
-" general remaps
 let mapleader = " "
 
 " Unmaps
@@ -9,17 +8,18 @@ nnoremap <leader><C-r>                       :source ~/.config/nvim/init.vim<CR>
 
 nnoremap <silent><CR>                        :wa<CR>
 nnoremap <leader>qo                          :wa<CR>:only<CR>
-nnoremap <leader>q                           :q!<CR>
-nnoremap <silent>Q                           :Bdelete menu<CR>
-
-nnoremap <C-a>                               ggVG
+nnoremap <leader>qq                          :q!<CR>
 
 " Neoscroll
+" I've disabled everything else
 nnoremap <silent><C-d>                       :lua require('neoscroll').scroll(vim.wo.scroll, true, 8)<CR>
 nnoremap <silent><C-u>                       :lua require('neoscroll').scroll(-vim.wo.scroll, true, 8)<CR>
 
 " Sessions
 nnoremap <silent><leader>ps                  :Obsess<CR>
+
+" Startify
+nnoremap <silent><leader>s                   :Startify<CR>
 
 " New splits
 nnoremap <silent><leader>l                   :vsp<CR><C-W><C-l>
@@ -35,6 +35,8 @@ nnoremap <silent><leader>=                   <C-w><C-=>
 " Nav Tab
 nnoremap <silent><S-Tab>                     :tabprevious<CR>
 nnoremap <silent><Tab>                       :tabnext<CR>
+nnoremap <leader>-                           :tabm -1<CR>
+nnoremap <leader>+                           :tabm +1<CR>
 
 " Switch between two buffers
 nnoremap <leader><leader>                    <C-^>
@@ -51,7 +53,7 @@ nnoremap <leader>8                           8gt
 nnoremap <leader>9                           9gt
 
 " nerdtree
-nnoremap <expr>¡                             g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+nnoremap <expr><M-1>                         g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 
 " ranger
 nnoremap <leader>f                           :EditVifm .<CR>
@@ -66,6 +68,7 @@ nnoremap <leader>p                           :PrettierAsync<CR>
 " telescope
 nnoremap <C-p>                               <cmd>Telescope find_files<CR>
 nnoremap <C-f>                               <cmd>Telescope live_grep<CR>
+nnoremap <C-s>                               <cmd>Telescope grep_string<CR>
 nnoremap <C-e>                               <cmd>Telescope buffers<CR>
 nnoremap <leader>fh                          <cmd>Telescope help_tags<CR>
 

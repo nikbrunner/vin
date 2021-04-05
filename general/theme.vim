@@ -17,9 +17,6 @@ let g:gruvbox_material_enable_italic = 1
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_menu_selection_background = 'yellow'
 
-" let g:airline_theme='gruvbox'
-" colorscheme gruvbox-material
-
 let g:airline_theme='codedark'
 colorscheme codedark
 
