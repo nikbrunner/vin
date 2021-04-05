@@ -53,10 +53,10 @@ nnoremap <leader>8                           8gt
 nnoremap <leader>9                           9gt
 
 " nerdtree
-nnoremap <expr><M-1>                         g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+nnoremap <expr>¡                             g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 
 " ranger
-nnoremap <leader>f                           :EditVifm .<CR>
+nnoremap <silent><leader>n                   :EditVifm .<CR>
 
 " tabs
 nnoremap <leader>to                          :TabooOpen<Space>
