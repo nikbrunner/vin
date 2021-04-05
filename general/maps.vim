@@ -92,8 +92,6 @@ nnoremap <leader>gl                          :GV<CR>
 nnoremap <leader>gb                          :GV!<CR>
 nnoremap <leader>gm                          :MerginalToggle<CR>
 nnoremap <leader>u                           :UndotreeShow<CR>
-
-" setup mapping to call :LazyGit
 nnoremap <leader>lg                          :LazyGit<CR>
 
 " git-gutter

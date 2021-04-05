@@ -1,3 +1,5 @@
+" Source for keywords: https://pintovim.dev/
+
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -10,27 +12,37 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-" let g:airline_theme='spaceduck'
-" colorscheme spaceduck
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_enable_italic = 1
+let g:gruvbox_material_enable_bold = 1
+let g:gruvbox_material_menu_selection_background = 'yellow'
+
+" let g:airline_theme='gruvbox'
+" colorscheme gruvbox-material
 
 let g:airline_theme='codedark'
 colorscheme codedark
 
-" let g:airline_theme='base16'
-" colorscheme anderson
+" Remove backgrounds
+hi Normal                         guibg=NONE
+hi NonText                        guibg=NONE
+hi EndOfBuffer                    guibg=NONE
+hi TabLineFill                    guibg=NONE
+hi TabLine                        guibg=NONE
+hi VertSplit                      guibg=NONE
+hi SignColumn                     guibg=NONE
+hi LineNr                         guibg=NONE
+" hi CursorLine                     guibg=Grey20
 
-hi Normal            guibg=NONE                  ctermbg=NONE
-hi NonText           guibg=NONE                  ctermbg=NONE
-hi EndOfBuffer       guibg=NONE                  ctermbg=NONE
-hi TabLineFill       guibg=NONE                  ctermfg=NONE  ctermbg=NONE      cterm=NONE
-hi TabLine           guibg=NONE                  ctermfg=NONE  ctermbg=NONE      cterm=NONE
-hi TabLineSel        guibg=Yellow guifg=#8fbcbb  ctermfg=Black ctermbg=NONE    cterm=NONE
-" hi SignColumn        guibg=NONE
-hi LineNr            guibg=NONE
-hi CursorLine        guibg=Grey20
-hi Comment                                                      cterm=italic
-hi Conditional                                                  cterm=italic,bold
-hi Pmenu             ctermfg=0 ctermbg=13 guibg=NONE
+" Typograpic adjustments
+hi Comment                         gui=italic
+hi Conditional                     gui=italic
+hi Statement                       gui=italic,bold
+hi typescriptVariable              gui=italic,bold
+hi typescriptImport                gui=italic,bold
+hi typescriptExport                gui=italic,bold
+hi typescriptTypeReference         gui=italic,bold
+hi typescriptInterfaceName         gui=italic,bold
 
 " Switching themes
 map <F6>             :colorscheme darcula <bar> let g:airline_theme='sol' <bar> set background=dark<CR>

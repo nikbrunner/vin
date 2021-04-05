@@ -10,11 +10,10 @@ endif
 call plug#begin()
     " themes
     Plug 'tomasiser/vim-code-dark'
-    Plug 'ryanoasis/vim-devicons'
     Plug 'doums/darcula'
     Plug 'sainnhe/gruvbox-material'
-    Plug 'gilgigilgil/anderson.vim'
-    Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+    Plug 'morhetz/gruvbox'
+    Plug 'ryanoasis/vim-devicons'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
