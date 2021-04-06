@@ -11,4 +11,8 @@ This is my personal **Neovim** config on which I am working on from time to time
 
 The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for improved Syntax Highlighting.
 
+## Todo
 
+- [ ] Convert to NeoVim native LSP
+- [ ] Convert to LUA
+- [ ] Research Scss auto-completion/LSP

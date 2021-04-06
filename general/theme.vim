@@ -40,6 +40,7 @@ hi typescriptImport                gui=italic,bold
 hi typescriptExport                gui=italic,bold
 hi typescriptTypeReference         gui=italic,bold
 hi typescriptInterfaceName         gui=italic,bold
+hi typescriptPredefinedType        gui=italic
 
 " Switching themes
 map <F6>             :colorscheme darcula <bar> let g:airline_theme='sol' <bar> set background=dark<CR>
