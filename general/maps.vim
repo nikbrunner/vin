@@ -169,11 +169,13 @@ nnoremap rab                      f(da(i{}<Esc>i<CR><Esc>Oreturn <Esc>p:w<CR>
 " Refactor Remove Braces to convert function to implicit return
 nnoremap rrb                      f(da(kf{va{p:w<CR>
 
+command BuffOnly                 %bdelete|edit #|normal `"
+
 " Quickfix workflow
-nnoremap <leader>qf               :grep
+nnoremap <leader>qf               :Ack<Space> 
+nnoremap <leader>qo               :Ack<CR>
 nnoremap <leader>qn               :cnext<CR>
 nnoremap <leader>qp               :cprev<CR> 
-nnoremap <leader>qo               :copen<CR>
 
 " When using `dd` in the quickfix list, remove the item from the quickfix list.
 function! RemoveQFItem()
