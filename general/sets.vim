@@ -38,8 +38,10 @@ set signcolumn=yes
 set wildmode=longest,list,full
 set splitbelow splitright
 
-set grepprg=internal
-set wildignore+=node_modules/**,out/**,build/**
+if executable("rg") 
+    set grepprg=rg\ --vimgrep 
+endif
+set wildignore+=node_modules/**,out/**,build/**,.next/**
 
 set encoding=UTF-8
 let $LANG='en_US.UTF-8'
