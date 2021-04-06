@@ -27,7 +27,7 @@ call plug#begin()
     Plug 'chaoren/vim-wordmotion'
     Plug 'djoshea/vim-autoread'
     Plug 'machakann/vim-highlightedyank'
-    Plug 'terryma/vim-multiple-cursors'
+    Plug 'mg979/vim-visual-multi', {'branch': 'master'}
     Plug 'vifm/vifm.vim'
     Plug 'gcmt/taboo.vim'
     Plug 'norcalli/nvim-colorizer.lua'
