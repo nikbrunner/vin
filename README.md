@@ -16,4 +16,10 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
 - [ ] Convert to NeoVim native LSP
 - [ ] Convert to LUA
 - [ ] Research Scss auto-completion/LSP
-- [ ] Lazygit: Configure edit with editor
+
+### Lazygit
+
+- [ ] Configure edit with editor
+- [ ] Setup config files for CLI and VimPlugin
+  - [CLI](https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md)
+  - [VimPlugin](https://github.com/kdheepak/lazygit.nvim)
