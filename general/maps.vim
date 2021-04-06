@@ -86,8 +86,8 @@ nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
 let g:user_emmet_leader_key=                 '<C-y>'
 
 " git-fugitive
-nnoremap <leader>gs                          :Git<CR> \| :resize 25<CR>
-nnoremap <leader>go                          :Git<CR> \| <C-w>k \| :q<CR> \| :TabooRename Git<CR> \| :echo "Git set up. :)"<CR> \| <cmd>Telescope find_files<CR>
+nnoremap <leader>gs                          :Git<CR>\|:resize 25<CR>
+nnoremap <leader>go                          :Git<CR>\|<C-w>k\|:q<CR>\|:TabooRename Git<CR>\|:NERDTreeToggle<CR>\|:tabnew<CR>\|:Telescope find_files<CR>
 nnoremap <leader>gc                          :Gcommit<CR>
 nnoremap <leader>gpu                         :Git push<CR>
 nnoremap <leader>gpl                         :Git pull<CR>
