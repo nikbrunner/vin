@@ -38,5 +38,8 @@ set signcolumn=yes
 set wildmode=longest,list,full
 set splitbelow splitright
 
+set grepprg=internal
+set wildignore+=node_modules/**,out/**,build/**
+
 set encoding=UTF-8
 let $LANG='en_US.UTF-8'

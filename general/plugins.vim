@@ -39,7 +39,6 @@ call plug#begin()
     " file management
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'windwp/nvim-spectre'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'airblade/vim-rooter'
     Plug 'preservim/nerdtree'
@@ -58,7 +57,7 @@ call plug#begin()
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'idanarye/vim-merginal'
     Plug 'junegunn/gv.vim'
-    Plug 'kdheepak/lazygit.nvim'
+    " Plug 'kdheepak/lazygit.nvim'
 
     " window managment
     Plug 'christoomey/vim-tmux-navigator'

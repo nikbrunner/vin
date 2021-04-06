@@ -6,10 +6,6 @@ nnoremap Q <nop>
 " source, save, quit
 nnoremap <leader><C-r>                       :source ~/.config/nvim/init.vim<CR>
 
-nnoremap <silent><CR>                        :wa<CR>
-nnoremap <leader>qo                          :wa<CR>:only<CR>
-nnoremap <leader>qq                          :q!<CR>
-
 " Neoscroll
 " I've disabled everything else
 nnoremap <silent><C-d>                       :lua require('neoscroll').scroll(vim.wo.scroll, true, 8)<CR>
@@ -70,7 +66,7 @@ nnoremap <C-p>                               <cmd>Telescope find_files<CR>
 nnoremap <C-f>                               <cmd>Telescope live_grep<CR>
 nnoremap <C-s>                               <cmd>Telescope grep_string<CR>
 nnoremap <C-e>                               <cmd>Telescope buffers<CR>
-nnoremap <leader>fh                          <cmd>Telescope help_tags<CR>
+nnoremap <leader>ht                          <cmd>Telescope help_tags<CR>
 
 " spectre
 nnoremap <leader>S :lua require('spectre').open()<CR>
@@ -114,8 +110,8 @@ nmap <silent> gd                             <Plug>(coc-definition)
 nmap <silent> gy                             <Plug>(coc-type-definition)
 nmap <silent> gi                             <Plug>(coc-implementation)
 nmap <silent> gr                             <Plug>(coc-references)
-nmap <silent> ca                             <Plug>(coc-codeaction)
-nmap <silent> ≥                          <Plug>(coc-fix-current)
+nmap <silent> <M-CR>                         <Plug>(coc-codeaction)
+nmap <silent> ≥                              <Plug>(coc-fix-current)
 nmap <silent> <F2>                           <Plug>(coc-rename)
 nmap <silent> gh                             :call <SID>show_documentation()<CR>
 inoremap <silent><expr><c-space>             coc#refresh()
@@ -172,3 +168,23 @@ nnoremap rab                      f(da(i{}<Esc>i<CR><Esc>Oreturn <Esc>p:w<CR>
 
 " Refactor Remove Braces to convert function to implicit return
 nnoremap rrb                      f(da(kf{va{p:w<CR>
+
+" Quickfix workflow
+nnoremap <leader>qf               :grep
+nnoremap <leader>qn               :cnext<CR>
+nnoremap <leader>qp               :cprev<CR> 
+nnoremap <leader>qo               :copen<CR>
+
+" When using `dd` in the quickfix list, remove the item from the quickfix list.
+function! RemoveQFItem()
+  let curqfidx = line('.') - 1
+  let qfall = getqflist()
+  call remove(qfall, curqfidx)
+  call setqflist(qfall, 'r')
+  execute curqfidx + 1 . "cfirst"
+  :copen
+endfunction
+:command! RemoveQFItem :call RemoveQFItem()
+
+" Use map <buffer> to only map dd in the quickfix window. Requires +localmap
+autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>
