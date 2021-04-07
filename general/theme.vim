@@ -12,10 +12,6 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-let g:airline_theme='codedark'
-colorscheme codedark
-" colorscheme base16-default-dark
-
 " Remove backgrounds
 hi Normal                         guibg=NONE
 hi NonText                        guibg=NONE
@@ -27,7 +23,10 @@ hi SignColumn                     guibg=NONE
 hi LineNr                         guibg=NONE
 
 " Typograpic adjustments
-function! Customize_CodeDark()
+function! SetCodeDark()
+  set background=dark
+  colorscheme codedark
+  let g:airline_theme='codedark'
   hi Comment                         gui=italic
   hi Conditional                     gui=italic
   hi Statement                       gui=italic,bold
@@ -39,7 +38,10 @@ function! Customize_CodeDark()
   hi typescriptPredefinedType        gui=italic
 endfunction
 
-function! Customize_Base16()
+function! SetBase16()
+  set background=dark
+  colorscheme base16-default-dark
+  let g:airline_theme='base16'
   hi Comment                         gui=italic
   hi Conditional                     gui=italic
   hi Statement                       gui=italic,bold
@@ -51,14 +53,7 @@ function! Customize_Base16()
   hi typescriptPredefinedType        gui=italic
 endfunction
 
-if (g:colors_name == "codedark")
-  call Customize_CodeDark()
-endif
+call SetCodeDark()
 
-if (g:colors_name == "base16-default-dark")
-  call Customize_Base16()
-endif
-
-" Switching themes
-map <F6>             :colorscheme codedark <bar> let g:airline_theme='codedark' <bar> set background=dark<bar> call Customize_CodeDark()<CR>
-map <F7>             :colorscheme base16-default-dark <bar> let g:airline_theme='base16' <bar> set background=dark<bar> call Customize_Base16()<CR>
+map <F6>             :call SetCodeDark()<CR>
+map <F7>             :call SetBase16()<CR>
