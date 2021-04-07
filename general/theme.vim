@@ -26,11 +26,12 @@ function! SetCodeDark()
   hi Conditional                     gui=italic
   hi Statement                       gui=italic,bold
   hi typescriptVariable              gui=italic,bold
+  hi typescriptInterfaceName         gui=bold
+  hi typescriptInterfaceKeyword      gui=italic,bold
+  hi typescriptTypeReference         gui=italic,bold
+  hi typescriptPredefinedType        gui=italic
   hi typescriptImport                gui=italic,bold
   hi typescriptExport                gui=italic,bold
-  hi typescriptTypeReference         gui=italic,bold
-  hi typescriptInterfaceName         gui=italic,bold
-  hi typescriptPredefinedType        gui=italic
 endfunction
 
 function! SetBase16()
