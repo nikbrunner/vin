@@ -63,13 +63,11 @@ nnoremap <leader>p                           :PrettierAsync<CR>
 
 " telescope
 nnoremap <C-p>                               <cmd>Telescope find_files<CR>
+nnoremap <leader>pw                          :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <C-f>                               <cmd>Telescope live_grep<CR>
 nnoremap <C-s>                               <cmd>Telescope grep_string<CR>
 nnoremap <C-e>                               <cmd>Telescope buffers<CR>
 nnoremap <leader>ht                          <cmd>Telescope help_tags<CR>
-
-" spectre
-nnoremap <leader>S :lua require('spectre').open()<CR>
 
 "search current word
 vnoremap <leader>S :lua require('spectre').open_visual()<CR>
@@ -174,8 +172,39 @@ command BuffOnly                 %bdelete|edit #|normal `"
 " Quickfix workflow
 nnoremap <leader>qf               :Ack<Space> 
 nnoremap <leader>qo               :Ack<CR>
-nnoremap <leader>qn               :cnext<CR>
-nnoremap <leader>qp               :cprev<CR> 
+nnoremap <leader>qn               :cnext<CR>zz
+nnoremap <leader>qp               :cprev<CR>zz
+
+nnoremap <leader>lo               :lopen<CR>
+nnoremap <leader>ln               :lnext<CR>zz
+nnoremap <leader>lp               :lprev<CR>zz
+
+nnoremap <C-q>                    :call ToggleQFList(1)<CR>
+nnoremap <leader>q                :call ToggleQFList(0)<CR>
+
+let g:the_primeagen_qf_l = 0
+let g:the_primeagen_qf_g = 0
+
+fun! ToggleQFList(global)
+    if a:global
+        if g:the_primeagen_qf_g == 1
+            let g:the_primeagen_qf_g = 0
+            cclose
+        else
+            let g:the_primeagen_qf_g = 1
+            copen
+        end
+    else
+        if g:the_primeagen_qf_l == 1
+            let g:the_primeagen_qf_l = 0
+            lclose
+        else
+            let g:the_primeagen_qf_l = 1
+            lopen
+        end
+    endif
+endfun
+
 
 " When using `dd` in the quickfix list, remove the item from the quickfix list.
 function! RemoveQFItem()

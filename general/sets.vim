@@ -28,6 +28,7 @@ set cursorline
 set incsearch
 set nohlsearch
 set scrolloff=16
+set tags=tags
 set nocompatible
 set mouse=a
 set foldmethod=indent
