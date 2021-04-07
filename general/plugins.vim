@@ -56,12 +56,11 @@ call plug#begin()
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
     Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'idanarye/vim-merginal'
     Plug 'junegunn/gv.vim'
     " Plug 'kdheepak/lazygit.nvim'
 
     " window managment
-    Plug 'christoomey/vim-tmux-navigator'
+    " Plug 'christoomey/vim-tmux-navigator'
 
     " language
     Plug 'pangloss/vim-javascript'    " JavaScript support

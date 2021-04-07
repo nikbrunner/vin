@@ -24,5 +24,10 @@ source $HOME/.config/nvim/plugins/vim-gitignore.vim
 
 " maps
 source $HOME/.config/nvim/general/theme.vim
-source $HOME/.config/nvim/general/maps.vim
+source $HOME/.config/nvim/general/maps/div.vim
+source $HOME/.config/nvim/general/maps/quickfix.vim
+source $HOME/.config/nvim/general/maps/coc.vim
+source $HOME/.config/nvim/general/maps/git.vim
+source $HOME/.config/nvim/general/maps/telescope.vim
+source $HOME/.config/nvim/general/maps/nav.vim
 

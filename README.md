@@ -16,6 +16,7 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
 - [ ] Convert to NeoVim native LSP
 - [ ] Convert to LUA
 - [ ] Research Scss auto-completion/LSP
+- [x] Split maps 
 
 ### Lazygit
 
