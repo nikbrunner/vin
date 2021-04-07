@@ -10,13 +10,14 @@ endif
 call plug#begin()
     " themes
     Plug 'tomasiser/vim-code-dark'
-    Plug 'doums/darcula'
-    Plug 'morhetz/gruvbox'
-    Plug 'ryanoasis/vim-devicons'
+    Plug 'chriskempson/base16-vim'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+
     Plug 'mkitt/tabline.vim'
+
+    Plug 'ryanoasis/vim-devicons'
     Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 
     " general workflow 
@@ -56,11 +57,6 @@ call plug#begin()
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
     Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'junegunn/gv.vim'
-    " Plug 'kdheepak/lazygit.nvim'
-
-    " window managment
-    " Plug 'christoomey/vim-tmux-navigator'
 
     " language
     Plug 'pangloss/vim-javascript'    " JavaScript support

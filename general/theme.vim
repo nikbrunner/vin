@@ -12,13 +12,9 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_enable_italic = 1
-let g:gruvbox_material_enable_bold = 1
-let g:gruvbox_material_menu_selection_background = 'yellow'
-
 let g:airline_theme='codedark'
 colorscheme codedark
+" colorscheme base16-default-dark
 
 " Remove backgrounds
 hi Normal                         guibg=NONE
@@ -29,19 +25,40 @@ hi TabLine                        guibg=NONE
 hi VertSplit                      guibg=NONE
 hi SignColumn                     guibg=NONE
 hi LineNr                         guibg=NONE
-" hi CursorLine                     guibg=Grey20
 
 " Typograpic adjustments
-hi Comment                         gui=italic
-hi Conditional                     gui=italic
-hi Statement                       gui=italic,bold
-hi typescriptVariable              gui=italic,bold
-hi typescriptImport                gui=italic,bold
-hi typescriptExport                gui=italic,bold
-hi typescriptTypeReference         gui=italic,bold
-hi typescriptInterfaceName         gui=italic,bold
-hi typescriptPredefinedType        gui=italic
+function! Customize_CodeDark()
+  hi Comment                         gui=italic
+  hi Conditional                     gui=italic
+  hi Statement                       gui=italic,bold
+  hi typescriptVariable              gui=italic,bold
+  hi typescriptImport                gui=italic,bold
+  hi typescriptExport                gui=italic,bold
+  hi typescriptTypeReference         gui=italic,bold
+  hi typescriptInterfaceName         gui=italic,bold
+  hi typescriptPredefinedType        gui=italic
+endfunction
+
+function! Customize_Base16()
+  hi Comment                         gui=italic
+  hi Conditional                     gui=italic
+  hi Statement                       gui=italic,bold
+  hi typescriptVariable              gui=italic,bold
+  hi typescriptImport                gui=italic,bold guifg=#f7ca88
+  hi typescriptExport                gui=italic,bold
+  hi typescriptTypeReference         gui=italic,bold
+  hi typescriptInterfaceName         gui=italic,bold
+  hi typescriptPredefinedType        gui=italic
+endfunction
+
+if (g:colors_name == "codedark")
+  call Customize_CodeDark()
+endif
+
+if (g:colors_name == "base16-default-dark")
+  call Customize_Base16()
+endif
 
 " Switching themes
-map <F6>             :colorscheme darcula <bar> let g:airline_theme='sol' <bar> set background=dark<CR>
-map <F7>             :colorscheme morning <bar> let g:airline_theme='sol' <bar> set background=dark<CR>
+map <F6>             :colorscheme codedark <bar> let g:airline_theme='codedark' <bar> set background=dark<bar> call Customize_CodeDark()<CR>
+map <F7>             :colorscheme base16-default-dark <bar> let g:airline_theme='base16' <bar> set background=dark<bar> call Customize_Base16()<CR>
