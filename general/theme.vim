@@ -58,14 +58,7 @@ function! SetBase16()
   hi typescriptInterfaceKeyword      gui=italic,bold guifg=#86c1b9
   hi typescriptPredefinedType        gui=italic      guifg=#86c1b9
 endfunction
-" #7cafc2
-" #86c1b9
-" #a1b56c
-" #ab4642
-" #a16946 
-" #dc9656
-" #f7ca88
-" #ba8baf
+
 map <F6>             :call SetCodeDark()<CR>
 map <F7>             :call SetBase16()<CR>
 
