@@ -1,8 +1,7 @@
-" Quickfix workflow =======================================================
+" Quickfix workflow
 nnoremap <C-q>                    :call ToggleQFList(1)<CR>
 " nnoremap <leader>qq                :call ToggleQFList(0)<CR> " I am not shure why i should need this 
 
-nnoremap <leader>qf               :Ack<Space> 
 nnoremap <leader>qo               :Ack<CR>
 nnoremap <leader>qn               :cnext<CR>zz
 nnoremap <leader>qp               :cprev<CR>zz
@@ -49,3 +48,9 @@ endfunction
 
 " Use map <buffer> to only map dd in the quickfix window. Requires +localmap
 autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>
+
+" On every buffer change trigger CocDiagnostics and populate locationlist
+augroup COC_DIAGNOSTICS
+    autocmd!
+    autocmd BufWrite,BufEnter,InsertLeave call CocDiagnostics()
+augroup END

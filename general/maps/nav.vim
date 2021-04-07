@@ -3,6 +3,10 @@ nnoremap <silent><leader>l                   :vsp<CR><C-W><C-l>
 nnoremap <silent><leader>j                   :sp<CR><C-W><C-j>
 
 " Nav splits
+nnoremap <C-h>                               <C-w>h
+nnoremap <C-j>                               <C-w>j
+nnoremap <C-k>                               <C-w>k
+nnoremap <C-l>                               <C-w>l
 
 " Resize panes
 nnoremap <silent>H                           :vertical:resize +5<CR>

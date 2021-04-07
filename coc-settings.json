@@ -9,6 +9,9 @@
     "typescript.tsx",
     "graphql"
   ],
-  "eslint.quiet": false,
-  "prettier.disableSuccessMessage": true
+  "eslint.quiet": true,
+  "prettier.disableSuccessMessage": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false
 }
