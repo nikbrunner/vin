@@ -9,6 +9,6 @@
     "typescript.tsx",
     "graphql"
   ],
-  "eslint.quiet": true,
+  "eslint.quiet": false,
   "prettier.disableSuccessMessage": true
 }
