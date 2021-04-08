@@ -58,6 +58,7 @@ call plug#begin()
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
     Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'kdheepak/lazygit.nvim'
 
     " language
     Plug 'pangloss/vim-javascript'    " JavaScript support
