@@ -1,5 +1,7 @@
 syntax on
 
+set encoding=UTF-8
+let $LANG='en_US.UTF-8'
 set clipboard+=unnamedplus
 set guioptions-=e
 set termguicolors
@@ -45,6 +47,3 @@ endif
 " wildignore is now set dynamically via a dedicated script which get sourced
 " in init.vim
 " set wildignore+=node_modules/**,out/**,build/**,.next/**
-
-set encoding=UTF-8
-let $LANG='en_US.UTF-8'
