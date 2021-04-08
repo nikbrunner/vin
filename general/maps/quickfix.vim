@@ -68,7 +68,7 @@ command! Todo call        s:todo()
 " maps
 nnoremap <C-q>            :call ToggleQFList(1)<CR>
 
-nnoremap qo               :Ack<Space> 
+nnoremap qf               :Ack<Space> 
 nnoremap qt               :Todo<CR>
 nnoremap qn               :cnext<CR>zz
 nnoremap qp               :cprev<CR>zz
