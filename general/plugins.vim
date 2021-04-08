@@ -45,7 +45,7 @@ call plug#begin()
     Plug 'nvim-telescope/telescope-fzy-native.nvim'
     Plug 'airblade/vim-rooter'
     Plug 'preservim/nerdtree'
-    Plug 'git@github.com:mbbill/undotree.git'
+    Plug 'mbbill/undotree'
 
     " LSP
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
