@@ -59,8 +59,19 @@ function! SetBase16()
   hi typescriptPredefinedType        gui=italic      guifg=#86c1b9
 endfunction
 
-map <F6>             :call SetCodeDark()<CR>
-map <F7>             :call SetBase16()<CR>
+function! SetGitHub()
+  set background=light
+  colorscheme github
+  let g:airline_theme = "github"
+  let g:github_colors_soft = 1
+  let g:lightline = { 'colorscheme': 'github' }
+  hi Comment                         gui=italic
+endfunction
+
+
+map <F5>             :call SetCodeDark()<CR>
+map <F6>             :call SetBase16()<CR>
+map <F7>             :call SetGitHub()<CR>
 
 " Initial Theme
 call SetCodeDark()
