@@ -2,13 +2,13 @@
 nnoremap <C-q>                    :call ToggleQFList(1)<CR>
 " nnoremap <leader>qq                :call ToggleQFList(0)<CR> " I am not shure why i should need this 
 
-nnoremap <leader>qo               :Ack<CR>
-nnoremap <leader>qn               :cnext<CR>zz
-nnoremap <leader>qp               :cprev<CR>zz
+nnoremap qo               :Ack<Space> 
+nnoremap qn               :cnext<CR>zz
+nnoremap qp               :cprev<CR>zz
 
-nnoremap <leader>lo               :lopen<CR>
-nnoremap <leader>ln               :lnext<CR>zz
-nnoremap <leader>lp               :lprev<CR>zz
+nnoremap lo               :lopen<CR>
+nnoremap ln               :lnext<CR>zz
+nnoremap lp               :lprev<CR>zz
 
 
 let g:the_primeagen_qf_l = 0
