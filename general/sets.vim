@@ -20,6 +20,8 @@ set hidden
 set noswapfile
 set nobackup
 set lazyredraw
+set complete+=kspell
+set completeopt=menuone,longest
 " set nocursorline
 set cursorline
 " set cursorcolumn

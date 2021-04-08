@@ -31,4 +31,3 @@ source $HOME/.config/nvim/general/maps/coc.vim
 source $HOME/.config/nvim/general/maps/git.vim
 source $HOME/.config/nvim/general/maps/telescope.vim
 source $HOME/.config/nvim/general/maps/nav.vim
-
