@@ -1,16 +1,4 @@
 " Quickfix workflow
-nnoremap <C-q>                    :call ToggleQFList(1)<CR>
-" nnoremap <leader>qq                :call ToggleQFList(0)<CR> " I am not shure why i should need this 
-
-nnoremap qo               :Ack<Space> 
-nnoremap qn               :cnext<CR>zz
-nnoremap qp               :cprev<CR>zz
-
-nnoremap lo               :lopen<CR>
-nnoremap ln               :lnext<CR>zz
-nnoremap lp               :lprev<CR>zz
-
-
 let g:the_primeagen_qf_l = 0
 let g:the_primeagen_qf_g = 0
 
@@ -55,7 +43,7 @@ augroup COC_DIAGNOSTICS
     autocmd BufWrite,BufEnter,InsertLeave call CocDiagnostics()
 augroup END
 
-" Add all TODO items to the quickfix list relative to where you opened Vim.
+" TodoODO items to the quickfix list relative to where you opened Vim.
 function! s:todo() abort
   let entries = []
   for cmd in ['git grep -niIw -e TODO -e FIXME 2> /dev/null',
@@ -75,4 +63,16 @@ function! s:todo() abort
   endif
 endfunction
 
-command! Todo call s:todo()
+command! Todo call        s:todo()
+
+" maps
+nnoremap <C-q>            :call ToggleQFList(1)<CR>
+
+nnoremap qo               :Ack<Space> 
+nnoremap qt               :Todo<CR>
+nnoremap qn               :cnext<CR>zz
+nnoremap qp               :cprev<CR>zz
+
+nnoremap <leader>lo       :lopen<CR>
+nnoremap <leader>ln       :lnext<CR>zz
+nnoremap <leader>lp       :lprev<CR>zz

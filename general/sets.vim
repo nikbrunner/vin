@@ -30,6 +30,7 @@ set cursorline
 set incsearch
 set nohlsearch
 set scrolloff=16
+set shortmess+=c
 set tags=tags
 set nocompatible
 set mouse=a
