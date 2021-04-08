@@ -9,7 +9,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-function! SetCodeDark()
+function! SetThemeCodeDark()
   set background=dark
   colorscheme codedark
   let g:airline_theme='codedark'
@@ -34,7 +34,7 @@ function! SetCodeDark()
   hi typescriptExport                gui=italic,bold
 endfunction
 
-function! SetBase16()
+function! SetThemeBase16()
   set background=dark
   colorscheme base16-default-dark
   let g:airline_theme='base16'
@@ -59,19 +59,24 @@ function! SetBase16()
   hi typescriptPredefinedType        gui=italic      guifg=#86c1b9
 endfunction
 
-function! SetGitHub()
+function! SetThemeGitHub()
   set background=light
   colorscheme github
   let g:airline_theme = "github"
   let g:github_colors_soft = 1
-  let g:lightline = { 'colorscheme': 'github' }
   hi Comment                         gui=italic
 endfunction
 
+function! SetThemePaper()
+  set background=light
+  colorscheme paper
+  let g:airline_theme = "sol"
+endfunction
 
-map <F5>             :call SetCodeDark()<CR>
-map <F6>             :call SetBase16()<CR>
-map <F7>             :call SetGitHub()<CR>
+map <F5>             :call SetThemeCodeDark()<CR>
+map <F6>             :call SetThemeBase16()<CR>
+map <F7>             :call SetThemeGitHub()<CR>
+map <F8>             :call SetThemePaper()<CR>
 
 " Initial Theme
-call SetCodeDark()
+call SetThemeBase16()

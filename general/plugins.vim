@@ -12,6 +12,7 @@ call plug#begin()
     Plug 'tomasiser/vim-code-dark'
     Plug 'chriskempson/base16-vim'
     Plug 'cormacrelf/vim-colors-github'
+    Plug 'yorickpeterse/vim-paper'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
