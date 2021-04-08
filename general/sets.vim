@@ -20,13 +20,9 @@ set hidden
 set noswapfile
 set nobackup
 set lazyredraw
-set complete+=kspell
-set completeopt=menuone,longest
 " set nocursorline
 set cursorline
 " set cursorcolumn
-" set undofile
-" set undodir=~/.vim/undodir
 set incsearch
 set nohlsearch
 set scrolloff=16
@@ -45,6 +41,9 @@ set splitbelow splitright
 if executable("rg") 
     set grepprg=rg\ --vimgrep 
 endif
+
+" wildignore is now set dynamically via a dedicated script which get sourced
+" in init.vim
 " set wildignore+=node_modules/**,out/**,build/**,.next/**
 
 set encoding=UTF-8
