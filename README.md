@@ -20,7 +20,7 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
 
 ### Lazygit
 
-- [ ] Configure edit with editor
-- [ ] Setup config files for CLI and VimPlugin
+- [x] Configure edit with editor
+- [x] Setup config files for CLI and VimPlugin
   - [CLI](https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md)
   - [VimPlugin](https://github.com/kdheepak/lazygit.nvim)
