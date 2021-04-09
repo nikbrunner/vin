@@ -55,7 +55,7 @@ function! SetThemeBase16()
   hi typescriptExport                gui=italic,bold guifg=#a1b56c 
   hi typescriptTypeReference         gui=italic,bold guifg=#86c1b9
   hi typescriptInterfaceName         gui=bold        guifg=#86c1b9
-  hi typescriptInterfaceKeyword      gui=italic,bold guifg=#86c1b9
+  hi typescriptInterfaceKeyword      gui=italic,bold guifg=#7cafc2
   hi typescriptPredefinedType        gui=italic      guifg=#86c1b9
 endfunction
 
