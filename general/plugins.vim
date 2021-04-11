@@ -13,6 +13,7 @@ call plug#begin()
     Plug 'chriskempson/base16-vim'
     Plug 'cormacrelf/vim-colors-github'
     Plug 'yorickpeterse/vim-paper'
+    Plug 'arcticicestudio/nord-vim'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -53,7 +54,6 @@ call plug#begin()
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " Language
-    Plug 'sheerun/vim-polyglot'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
     " git

@@ -34,6 +34,32 @@ function! SetThemeCodeDark()
   hi typescriptExport                gui=italic,bold
 endfunction
 
+function! SetThemeNord()
+  set background=dark
+  colorscheme nord
+  let g:airline_theme='nord'
+  hi Normal                          guibg=#2E3440
+  hi NonText                         guibg=#2E3440
+  hi EndOfBuffer                     guibg=#2E3440
+  hi TabLineFill                     guibg=NONE
+  hi TabLine                         guibg=NONE
+  hi VertSplit                       guibg=NONE
+  hi SignColumn                      guibg=NONE
+  hi LineNr                          guibg=NONE
+  hi SignColumn                      guibg=NONE
+  hi Comment                         gui=italic
+  hi Conditional                     gui=italic
+  hi Statement                       gui=italic,bold
+  hi typescriptVariable              gui=italic,bold guifg=#f1c264
+  hi typescriptInterfaceName         gui=bold        guifg=#8fbcbb
+  hi typescriptInterfaceKeyword      gui=italic,bold guifg=#f1c264
+  hi typescriptTypeReference         gui=italic,bold guifg=#8fbcbb
+  hi typescriptPredefinedType        gui=italic      guifg=#8fbcbb
+  hi typescriptImport                gui=italic,bold guifg=#f1c264
+  hi typescriptExport                gui=italic,bold guifg=#f1c264
+  hi typescriptBlock                                 guifg=#8FBCBB
+endfunction
+
 function! SetThemeBase16()
   set background=dark
   colorscheme base16-default-dark
@@ -79,4 +105,4 @@ map <F7>             :call SetThemeGitHub()<CR>
 map <F8>             :call SetThemePaper()<CR>
 
 " Initial Theme
-call SetThemeBase16()
+call SetThemeCodeDark()
