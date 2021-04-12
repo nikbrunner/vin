@@ -93,22 +93,10 @@ function! SetThemeGitHub()
   hi Comment                         gui=italic
 endfunction
 
-function! SetThemePaper()
-  set background=light
-  colorscheme paper
-  let g:airline_theme = "sol"
-endfunction
-
-map <F5>                :call SetThemeCodeDark()<CR>
-map <F6>                :call SetThemeBase16()<CR>
-map <F7>                :call SetThemeGitHub()<CR>
-map <F8>                :call SetThemePaper()<CR>
-
-command! ThemeCodeDark  :call SetThemeCodeDark()
-command! ThemeBase16    :call SetThemeBase16()
-command! ThemeGitHub    :call SetThemeGitHub()
-command! ThemePaper     :call SetThemePaper()
-command! ThemeNord      :call SetThemeNord()
+command! SetThemeCodeDark  :call SetThemeCodeDark()
+command! SetThemeBase16    :call SetThemeBase16()
+command! SetThemeGitHub    :call SetThemeGitHub()
+command! SetThemeNord      :call SetThemeNord()
 
 " Initial Theme
 call SetThemeCodeDark()
