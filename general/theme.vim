@@ -99,10 +99,16 @@ function! SetThemePaper()
   let g:airline_theme = "sol"
 endfunction
 
-map <F5>             :call SetThemeCodeDark()<CR>
-map <F6>             :call SetThemeBase16()<CR>
-map <F7>             :call SetThemeGitHub()<CR>
-map <F8>             :call SetThemePaper()<CR>
+map <F5>                :call SetThemeCodeDark()<CR>
+map <F6>                :call SetThemeBase16()<CR>
+map <F7>                :call SetThemeGitHub()<CR>
+map <F8>                :call SetThemePaper()<CR>
+
+command! ThemeCodeDark  :call SetThemeCodeDark()<CR>
+command! ThemeBase16    :call SetThemeBase16()<CR>
+command! ThemeGitHub    :call SetThemeGitHub()<CR>
+command! ThemePaper     :call SetThemePaper()<CR>
+command! ThemeNord      :call SetThemePaper()<CR>
 
 " Initial Theme
 call SetThemeCodeDark()
