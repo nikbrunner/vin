@@ -24,3 +24,7 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
 - [x] Setup config files for CLI and VimPlugin
   - [CLI](https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md)
   - [VimPlugin](https://github.com/kdheepak/lazygit.nvim)
+
+### Telescope
+
+- [ ] **Research:** `.gitignore` settings 

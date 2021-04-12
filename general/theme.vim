@@ -99,4 +99,4 @@ command! SetThemeGitHub    :call SetThemeGitHub()
 command! SetThemeNord      :call SetThemeNord()
 
 " Initial Theme
-call SetThemeCodeDark()
+call SetThemeBase16()
