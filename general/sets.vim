@@ -37,7 +37,7 @@ set foldlevel=10
 set cmdheight=1
 set timeoutlen=750
 set signcolumn=yes
-set wildmode=longest,list,full
+" set wildmode=longest,list,full
 set splitbelow splitright
 
 if executable("rg") 
