@@ -1,4 +1,4 @@
-let g:NERDTreeIgnore=                        ['^node_modules$', '.vscode', '.idea']
+let g:NERDTreeIgnore=                        ['^node_modules$', '.vscode', '.idea', '.git']
 let g:NERDTreeGitStatusWithFlags=            1
 let g:NERDTreeGitStatusNodeColorization=     1
 let g:NERDTreeShowHidden=                    1
