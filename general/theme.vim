@@ -108,7 +108,7 @@ command! ThemeCodeDark  :call SetThemeCodeDark()
 command! ThemeBase16    :call SetThemeBase16()
 command! ThemeGitHub    :call SetThemeGitHub()
 command! ThemePaper     :call SetThemePaper()
-command! ThemeNord      :call SetThemePaper()
+command! ThemeNord      :call SetThemeNord()
 
 " Initial Theme
 call SetThemeCodeDark()
