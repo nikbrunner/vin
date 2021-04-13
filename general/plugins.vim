@@ -13,6 +13,8 @@ call plug#begin()
     Plug 'chriskempson/base16-vim'
     Plug 'cormacrelf/vim-colors-github'
     Plug 'arcticicestudio/nord-vim'
+    Plug 'rktjmp/lush.nvim'
+    Plug 'metalelf0/jellybeans-nvim'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'

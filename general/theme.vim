@@ -60,6 +60,32 @@ function! SetThemeNord()
   hi typescriptBlock                                 guifg=#8FBCBB
 endfunction
 
+function! SetThemeJellyBeans()
+  set background=dark
+  colorscheme jellybeans-nvim
+  let g:airline_theme='jellybeans'
+  hi Normal                          guibg=NONE
+  hi NonText                         guibg=NONE
+  hi EndOfBuffer                     guibg=NONE
+  hi TabLineFill                     guibg=NONE
+  hi TabLine                         guibg=NONE
+  hi VertSplit                       guibg=NONE
+  hi SignColumn                      guibg=NONE
+  hi LineNr                          guibg=NONE
+  hi SignColumn                      guibg=NONE
+  hi Comment                         gui=italic
+  hi Conditional                     gui=italic
+  hi Statement                       gui=italic,bold
+  hi typescriptVariable              gui=italic,bold guifg=#c6b6ee
+  hi typescriptInterfaceName         gui=bold        guifg=#f1c264
+  hi typescriptInterfaceKeyword      gui=italic,bold guifg=#8197bf
+  hi typescriptTypeReference         gui=italic,bold guifg=#c6b6ee
+  hi typescriptPredefinedType        gui=italic      guifg=#ffb964
+  hi typescriptImport                gui=italic,bold guifg=#799d6a
+  hi typescriptExport                gui=italic,bold guifg=#799d6a
+  hi typescriptBlock                                 guifg=#f1c264
+endfunction
+
 function! SetThemeBase16()
   set background=dark
   colorscheme base16-default-dark
@@ -93,10 +119,11 @@ function! SetThemeGitHub()
   hi Comment                         gui=italic
 endfunction
 
-command! SetThemeCodeDark  :call SetThemeCodeDark()
-command! SetThemeBase16    :call SetThemeBase16()
-command! SetThemeGitHub    :call SetThemeGitHub()
-command! SetThemeNord      :call SetThemeNord()
+command! SetThemeCodeDark        :call SetThemeCodeDark()
+command! SetThemeBase16          :call SetThemeBase16()
+command! SetThemeGitHub          :call SetThemeGitHub()
+command! SetThemeNord            :call SetThemeNord()
+command! SetThemeJellyBeans      :call SetThemeJellyBeans()
 
 " Initial Theme
-call SetThemeBase16()
+call SetThemeJellyBeans()
