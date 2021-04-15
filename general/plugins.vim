@@ -41,6 +41,7 @@ call plug#begin()
     Plug 'karb94/neoscroll.nvim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
     Plug 'mileszs/ack.vim'
+    Plug 'mattn/emmet-vim'
  
     " file management
     Plug 'nvim-lua/popup.nvim'

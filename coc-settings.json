@@ -7,11 +7,13 @@
     "json",
     "javascriptreact",
     "typescript.tsx",
+    "scss",
+    "sass",
     "graphql"
   ],
   "eslint.quiet": true,
   "prettier.disableSuccessMessage": true,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualText": true,
-  "diagnostic.virtualTextCurrentLineOnly": false
+  "diagnostic.virtualTextCurrentLineOnly": true
 }

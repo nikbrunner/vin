@@ -126,4 +126,4 @@ command! SetThemeNord            :call SetThemeNord()
 command! SetThemeJellyBeans      :call SetThemeJellyBeans()
 
 " Initial Theme
-call SetThemeJellyBeans()
+call SetThemeCodeDark()
