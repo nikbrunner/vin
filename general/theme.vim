@@ -9,6 +9,25 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
+function! SetThemeDefault()
+  set background=dark
+  colorscheme default
+  let g:airline_theme='base16'
+  hi Normal                          guibg=NONE
+  hi NonText                         guibg=NONE
+  hi EndOfBuffer                     guibg=NONE
+  hi TabLineFill                     guibg=NONE
+  hi TabLine                         guibg=NONE
+  hi VertSplit                       guibg=NONE
+  hi SignColumn                      guibg=NONE
+  hi LineNr                          guibg=NONE
+  hi SignColumn                      guibg=NONE
+  hi Comment                         gui=italic
+  hi Conditional                     gui=italic
+  hi Statement                       gui=italic,bold
+endfunction
+
+
 function! SetThemeCodeDark()
   set background=dark
   colorscheme codedark
@@ -119,6 +138,7 @@ function! SetThemeGitHub()
   hi Comment                         gui=italic
 endfunction
 
+command! SetThemeDefault         :call SetThemeDefault()
 command! SetThemeCodeDark        :call SetThemeCodeDark()
 command! SetThemeBase16          :call SetThemeBase16()
 command! SetThemeGitHub          :call SetThemeGitHub()
