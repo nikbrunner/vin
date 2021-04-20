@@ -32,7 +32,6 @@ call plug#begin()
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-obsession'
     Plug 'tpope/vim-surround'
-    Plug 'junegunn/goyo.vim'
     Plug 'chaoren/vim-wordmotion'
     Plug 'djoshea/vim-autoread'
     Plug 'machakann/vim-highlightedyank'

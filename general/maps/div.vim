@@ -24,9 +24,6 @@ nnoremap <leader>p                           :PrettierAsync<CR>
 " emmet
 let g:user_emmet_leader_key=                 '<C-y>'
 
-" goyo
-nnoremap <silent><leader>z                   :Goyo<CR>
-
 " md preview
 nmap <leader>md                              <Plug>MarkdownPreviewToggle
 

@@ -5,12 +5,8 @@ source    $HOME/.config/nvim/general/sets.vim
 source    $HOME/.config/nvim/general/plugins.vim
 
 " plugins
-source    $HOME/.config/nvim/plug-config/vim-fzf.vim
-source    $HOME/.config/nvim/plug-config/vim-gitgutter.vim
 source    $HOME/.config/nvim/plug-config/vim-coc.vim
 source    $HOME/.config/nvim/plug-config/vim-highlightedyank.vim
-source    $HOME/.config/nvim/plug-config/vim-devicons.vim
-source    $HOME/.config/nvim/plug-config/vim-goyo.vim
 source    $HOME/.config/nvim/plug-config/vim-taboo.vim
 source    $HOME/.config/nvim/plug-config/vim-colorizer.vim
 source    $HOME/.config/nvim/plug-config/vim-pencil.vim
