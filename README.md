@@ -13,18 +13,18 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
 
 ## Todo
 
-- [x] Split maps 
 - [ ] Convert to NeoVim native LSP
 - [ ] Convert to LUA
 - [ ] Research Scss auto-completion/LSP
 
-### Lazygit
-
-- [x] Configure edit with editor
-- [x] Setup config files for CLI and VimPlugin
-  - [CLI](https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md)
-  - [VimPlugin](https://github.com/kdheepak/lazygit.nvim)
-
 ### Telescope
 
 - [ ] **Research:** `.gitignore` settings 
+
+### Mappings
+
+I want to agregate all mappings regarding `next` and `previous`.
+
+- qn/qp for Quickfix Entries
+- ln/lp for LocList Entries
+- gn/gp for git hunks

@@ -39,6 +39,10 @@ nnoremap <leader>9                           9gt
 nnoremap <leader>to                          :TabooOpen<Space>
 nnoremap <leader>tn                          :TabooRename<Space>
 
+"buffer
+nnoremap bp                                  :bprevious<CR>
+nnoremap bn                                  :bNext<CR>
+
 " Neoscroll (I've disabled everything else) 
 nnoremap <silent><C-d>                       :lua require('neoscroll').scroll(vim.wo.scroll, true, 8)<CR>
 nnoremap <silent><C-u>                       :lua require('neoscroll').scroll(-vim.wo.scroll, true, 8)<CR>

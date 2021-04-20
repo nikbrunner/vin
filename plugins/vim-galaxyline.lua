@@ -63,7 +63,7 @@ gls.left[5] = {
         provider = function()
             return ""
         end,
-        separator = " ",
+        separator = "",
         highlight = {colors.lightbg, colors.bg}
     }
 }
