@@ -12,8 +12,8 @@ nnoremap <silent><leader>ps                  :Obsess<CR>
 " Startify
 nnoremap <silent><leader>s                   :Startify<CR>
 
-" nerdtree
-nnoremap <expr>¡                             g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+" tree
+nnoremap ¡ :NvimTreeToggle<CR>
 
 " ranger
 nnoremap <silent><leader>n                   :EditVifm .<CR>

@@ -8,7 +8,6 @@ source    $HOME/.config/nvim/general/plugins.vim
 source    $HOME/.config/nvim/plugins/vim-fzf.vim
 source    $HOME/.config/nvim/plugins/vim-gitgutter.vim
 source    $HOME/.config/nvim/plugins/vim-coc.vim
-source    $HOME/.config/nvim/plugins/vim-nerdtree.vim
 source    $HOME/.config/nvim/plugins/vim-highlightedyank.vim
 source    $HOME/.config/nvim/plugins/vim-devicons.vim
 source    $HOME/.config/nvim/plugins/vim-goyo.vim
