@@ -1,4 +1,4 @@
-require'bufferline'.setup {
+require('bufferline').setup {
   options = {
     view = "default",
     numbers = "ordinal",

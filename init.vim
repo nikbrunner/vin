@@ -11,7 +11,6 @@ source    $HOME/.config/nvim/plugins/vim-coc.vim
 source    $HOME/.config/nvim/plugins/vim-highlightedyank.vim
 source    $HOME/.config/nvim/plugins/vim-devicons.vim
 source    $HOME/.config/nvim/plugins/vim-goyo.vim
-source    $HOME/.config/nvim/plugins/vim-airline.vim
 source    $HOME/.config/nvim/plugins/vim-taboo.vim
 source    $HOME/.config/nvim/plugins/vim-colorizer.vim
 source    $HOME/.config/nvim/plugins/vim-pencil.vim
@@ -24,6 +23,7 @@ source    $HOME/.config/nvim/plugins/vim-nvimtree.vim
 luafile   $HOME/.config/nvim/plugins/vim-treesitter.lua
 luafile   $HOME/.config/nvim/plugins/vim-telescope.lua
 luafile   $HOME/.config/nvim/plugins/vim-bufferline.lua
+luafile   $HOME/.config/nvim/plugins/vim-galaxyline.lua
 
 " maps
 source    $HOME/.config/nvim/general/theme.vim

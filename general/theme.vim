@@ -12,7 +12,6 @@ endif
 function! SetThemeDefault()
   set background=dark
   colorscheme default
-  let g:airline_theme='base16'
   hi Normal                          guibg=NONE
   hi NonText                         guibg=NONE
   hi EndOfBuffer                     guibg=NONE
@@ -30,7 +29,6 @@ endfunction
 function! SetThemeCodeDark()
   set background=dark
   colorscheme codedark
-  let g:airline_theme='codedark'
   hi Normal                          guibg=NONE
   hi NonText                         guibg=NONE
   hi EndOfBuffer                     guibg=NONE
@@ -55,13 +53,11 @@ endfunction
 function! SetThemeTokyoNight()
   set background=dark
   colorscheme tokyonight
-  let g:airline_theme = "base16"
 endfunction
 
 function! SetThemeNord()
   set background=dark
   colorscheme nord
-  let g:airline_theme='nord'
   hi Normal                          guibg=#2E3440
   hi NonText                         guibg=#2E3440
   hi EndOfBuffer                     guibg=#2E3440
@@ -87,7 +83,6 @@ endfunction
 function! SetThemeJellyBeans()
   set background=dark
   colorscheme jellybeans-nvim
-  let g:airline_theme='jellybeans'
   hi Normal                          guibg=NONE
   hi NonText                         guibg=NONE
   hi EndOfBuffer                     guibg=NONE
@@ -113,7 +108,6 @@ endfunction
 function! SetThemeBase16()
   set background=dark
   colorscheme base16-default-dark
-  let g:airline_theme='base16'
   hi Normal                          guibg=NONE
   hi NonText                         guibg=NONE
   hi EndOfBuffer                     guibg=NONE
@@ -138,7 +132,6 @@ endfunction
 function! SetThemeGitHub()
   set background=light
   colorscheme github
-  let g:airline_theme = "github"
   let g:github_colors_soft = 1
   hi Comment                         gui=italic
 endfunction

@@ -51,8 +51,7 @@ call plug#begin()
     Plug 'mkitt/tabline.vim'
     Plug 'gcmt/taboo.vim'
     Plug 'akinsho/nvim-bufferline.lua'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
  
     " LSP
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
