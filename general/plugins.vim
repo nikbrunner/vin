@@ -47,8 +47,8 @@ call plug#begin()
     Plug 'MattesGroeger/vim-bookmarks'
 
     " tab & bufferline
-    Plug 'mkitt/tabline.vim'
-    Plug 'gcmt/taboo.vim'
+    " Plug 'mkitt/tabline.vim'
+    " Plug 'gcmt/taboo.vim'
     Plug 'akinsho/nvim-bufferline.lua'
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
  
