@@ -21,8 +21,12 @@ call plug#begin()
     Plug 'vim-airline/vim-airline-themes'
 
     Plug 'mkitt/tabline.vim'
+    Plug 'gcmt/taboo.vim'
 
     Plug 'ryanoasis/vim-devicons'
+    Plug 'kyazdani42/nvim-web-devicons'
+
+    " Plug 'akinsho/nvim-bufferline.lua'
     Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 
     " general workflow 
@@ -35,7 +39,6 @@ call plug#begin()
     Plug 'machakann/vim-highlightedyank'
     Plug 'mg979/vim-visual-multi', {'branch': 'master'}
     Plug 'vifm/vifm.vim'
-    Plug 'gcmt/taboo.vim'
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'reedes/vim-pencil'
     Plug 'mhinz/vim-startify'
@@ -43,6 +46,7 @@ call plug#begin()
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
     Plug 'mileszs/ack.vim'
     Plug 'mattn/emmet-vim'
+    Plug 'MattesGroeger/vim-bookmarks'
  
     " file management
     Plug 'nvim-lua/popup.nvim'

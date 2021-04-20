@@ -23,6 +23,7 @@ source    $HOME/.config/nvim/plugins/vim-gitignore.vim
 source    $HOME/.config/nvim/plugins/vim-lazygit.vim
 luafile   $HOME/.config/nvim/plugins/vim-treesitter.lua
 luafile   $HOME/.config/nvim/plugins/vim-telescope.lua
+luafile   $HOME/.config/nvim/plugins/vim-bufferline.lua
 
 " maps
 source    $HOME/.config/nvim/general/theme.vim
