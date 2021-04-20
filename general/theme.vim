@@ -27,7 +27,6 @@ function! SetThemeDefault()
   hi Statement                       gui=italic,bold
 endfunction
 
-
 function! SetThemeCodeDark()
   set background=dark
   colorscheme codedark
@@ -51,6 +50,12 @@ function! SetThemeCodeDark()
   hi typescriptPredefinedType        gui=italic
   hi typescriptImport                gui=italic,bold
   hi typescriptExport                gui=italic,bold
+endfunction
+
+function! SetThemeTokyoNight()
+  set background=dark
+  colorscheme tokyonight
+  let g:airline_theme = "base16"
 endfunction
 
 function! SetThemeNord()

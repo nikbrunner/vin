@@ -15,6 +15,7 @@ call plug#begin()
     Plug 'arcticicestudio/nord-vim'
     Plug 'rktjmp/lush.nvim'
     Plug 'metalelf0/jellybeans-nvim'
+    Plug 'folke/tokyonight.nvim'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
