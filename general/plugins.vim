@@ -8,7 +8,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-    " themes
+    " appearence
     Plug 'tomasiser/vim-code-dark'
     Plug 'chriskempson/base16-vim'
     Plug 'cormacrelf/vim-colors-github'
@@ -16,18 +16,16 @@ call plug#begin()
     Plug 'rktjmp/lush.nvim'
     Plug 'metalelf0/jellybeans-nvim'
     Plug 'folke/tokyonight.nvim'
-
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-
-    Plug 'mkitt/tabline.vim'
-    Plug 'gcmt/taboo.vim'
-
-    Plug 'ryanoasis/vim-devicons'
     Plug 'kyazdani42/nvim-web-devicons'
 
-    " Plug 'akinsho/nvim-bufferline.lua'
-    Plug 'vwxyutarooo/nerdtree-devicons-syntax'
+    " file management
+    Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope-fzy-native.nvim'
+    Plug 'airblade/vim-rooter'
+    Plug 'mbbill/undotree'
 
     " general workflow 
     Plug 'tpope/vim-commentary'
@@ -47,16 +45,14 @@ call plug#begin()
     Plug 'mileszs/ack.vim'
     Plug 'mattn/emmet-vim'
     Plug 'MattesGroeger/vim-bookmarks'
- 
-    " file management
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
-    Plug 'nvim-telescope/telescope-fzy-native.nvim'
-    Plug 'airblade/vim-rooter'
-    Plug 'preservim/nerdtree'
-    Plug 'mbbill/undotree'
 
+    " tab & bufferline
+    Plug 'mkitt/tabline.vim'
+    Plug 'gcmt/taboo.vim'
+    Plug 'akinsho/nvim-bufferline.lua'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+ 
     " LSP
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -66,7 +62,6 @@ call plug#begin()
     " git
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'kdheepak/lazygit.nvim'
 
     " language

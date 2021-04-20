@@ -21,6 +21,7 @@ source    $HOME/.config/nvim/plugins/vim-neoscroll.vim
 source    $HOME/.config/nvim/plugins/vim-markdown-preview.vim
 source    $HOME/.config/nvim/plugins/vim-gitignore.vim
 source    $HOME/.config/nvim/plugins/vim-lazygit.vim
+source    $HOME/.config/nvim/plugins/vim-nvimtree.vim
 luafile   $HOME/.config/nvim/plugins/vim-treesitter.lua
 luafile   $HOME/.config/nvim/plugins/vim-telescope.lua
 luafile   $HOME/.config/nvim/plugins/vim-bufferline.lua
