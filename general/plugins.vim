@@ -17,6 +17,7 @@ call plug#begin()
     Plug 'metalelf0/jellybeans-nvim'
     Plug 'folke/tokyonight.nvim'
     Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'ryanoasis/vim-devicons'
 
     " file management
     Plug 'kyazdani42/nvim-tree.lua'
