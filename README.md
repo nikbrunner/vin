@@ -17,10 +17,6 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
 - [ ] Convert to LUA
 - [ ] Research Scss auto-completion/LSP
 
-### Telescope
-
-- [ ] **Research:** `.gitignore` settings 
-
 ### Mappings
 
 I want to agregate all mappings regarding `next` and `previous`.
