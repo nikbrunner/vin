@@ -18,7 +18,7 @@ source    $HOME/.config/nvim/plug-config/vim-lazygit.vim
 source    $HOME/.config/nvim/plug-config/vim-nvimtree.vim
 luafile   $HOME/.config/nvim/plug-config/vim-treesitter.lua
 luafile   $HOME/.config/nvim/plug-config/vim-telescope.lua
-luafile   $HOME/.config/nvim/plug-config/vim-bufferline.lua
+" luafile   $HOME/.config/nvim/plug-config/vim-bufferline.lua
 luafile   $HOME/.config/nvim/plug-config/vim-galaxyline.lua
 
 " maps
