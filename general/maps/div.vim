@@ -33,7 +33,7 @@ if has("mac") || has("gui_macvim") || has("gui_mac")
   nnoremap <leader>cp                        :let @*=expand("%")<CR>
 
   " absolute path  (/something/src/foo.txt)
-  nnoremap <leader>cP :let @*=expand("%:p")<CR>
+  nnoremap <leader>cP                        :let @*=expand("%:p")<CR>
 
   " filename       (foo.txt)
   nnoremap <leader>cf                        :let @*=expand("%:t")<CR>

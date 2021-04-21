@@ -9,27 +9,10 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-function! SetThemeDefault()
-  set background=dark
-  colorscheme default
-  hi Normal                          guibg=NONE
-  hi NonText                         guibg=NONE
-  hi EndOfBuffer                     guibg=NONE
-  hi TabLineFill                     guibg=NONE
-  hi TabLine                         guibg=NONE
-  hi VertSplit                       guibg=NONE
-  hi SignColumn                      guibg=NONE
-  hi LineNr                          guibg=NONE
-  hi SignColumn                      guibg=NONE
-  hi Comment                         gui=italic
-  hi Conditional                     gui=italic
-  hi Statement                       gui=italic,bold
-endfunction
-
 function! SetThemeCodeDark()
   set background=dark
-  colorscheme codedark
-  hi Normal                          guibg=NONE
+  colorscheme nvcode
+  hi Normal                          guibg=NONE     guifg=#c9d1d9
   hi NonText                         guibg=NONE
   hi EndOfBuffer                     guibg=NONE
   hi TabLineFill                     guibg=NONE
@@ -41,43 +24,15 @@ function! SetThemeCodeDark()
   hi Comment                         gui=italic
   hi Conditional                     gui=italic
   hi Statement                       gui=italic,bold
-  hi typescriptVariable              gui=italic,bold
-  hi typescriptInterfaceName         gui=bold
-  hi typescriptInterfaceKeyword      gui=italic,bold
-  hi typescriptTypeReference         gui=italic,bold
-  hi typescriptPredefinedType        gui=italic
-  hi typescriptImport                gui=italic,bold
-  hi typescriptExport                gui=italic,bold
-endfunction
-
-function! SetThemeTokyoNight()
-  set background=dark
-  colorscheme tokyonight
-endfunction
-
-function! SetThemeNord()
-  set background=dark
-  colorscheme nord
-  hi Normal                          guibg=#2E3440
-  hi NonText                         guibg=#2E3440
-  hi EndOfBuffer                     guibg=#2E3440
-  hi TabLineFill                     guibg=NONE
-  hi TabLine                         guibg=NONE
-  hi VertSplit                       guibg=NONE
-  hi SignColumn                      guibg=NONE
-  hi LineNr                          guibg=NONE
-  hi SignColumn                      guibg=NONE
-  hi Comment                         gui=italic
-  hi Conditional                     gui=italic
-  hi Statement                       gui=italic,bold
-  hi typescriptVariable              gui=italic,bold guifg=#f1c264
-  hi typescriptInterfaceName         gui=bold        guifg=#8fbcbb
-  hi typescriptInterfaceKeyword      gui=italic,bold guifg=#f1c264
-  hi typescriptTypeReference         gui=italic,bold guifg=#8fbcbb
-  hi typescriptPredefinedType        gui=italic      guifg=#8fbcbb
-  hi typescriptImport                gui=italic,bold guifg=#f1c264
-  hi typescriptExport                gui=italic,bold guifg=#f1c264
-  hi typescriptBlock                                 guifg=#8FBCBB
+  hi typescriptVariable              gui=italic,bold guifg=#9cdcfe
+  hi typescriptVariableDeclaration   gui=italic,bold guifg=#9cdcfe
+  hi typescriptInterfaceName         gui=bold        guifg=#4ec9b0
+  hi typescriptInterfaceKeyword      gui=italic,bold guifg=#569cd6
+  hi typescriptTypeReference         gui=italic,bold guifg=#4ec9b0
+  hi typescriptPredefinedType        gui=italic      guifg=#4ec9b0
+  hi typescriptImport                gui=italic,bold guifg=#c586c0
+  hi typescriptExport                gui=italic,bold guifg=#c586c0
+  hi typescriptBlock                                 guifg=#f1c264
 endfunction
 
 function! SetThemeJellyBeans()
@@ -105,43 +60,17 @@ function! SetThemeJellyBeans()
   hi typescriptBlock                                 guifg=#f1c264
 endfunction
 
-function! SetThemeBase16()
-  set background=dark
-  colorscheme base16-default-dark
-  hi Normal                          guibg=NONE
-  hi NonText                         guibg=NONE
-  hi EndOfBuffer                     guibg=NONE
-  hi TabLineFill                     guibg=NONE
-  hi TabLine                         guibg=NONE
-  hi VertSplit                       guibg=NONE
-  hi SignColumn                      guibg=NONE
-  hi LineNr                          guibg=NONE
-  hi SignColumn                      guibg=NONE
-  hi Comment                         gui=italic
-  hi Conditional                     gui=italic
-  hi Statement                       gui=italic,bold
-  hi typescriptVariable              gui=italic,bold guifg=#7cafc2
-  hi typescriptImport                gui=italic,bold guifg=#ab4642
-  hi typescriptExport                gui=italic,bold guifg=#a1b56c 
-  hi typescriptTypeReference         gui=italic,bold guifg=#86c1b9
-  hi typescriptInterfaceName         gui=bold        guifg=#86c1b9
-  hi typescriptInterfaceKeyword      gui=italic,bold guifg=#7cafc2
-  hi typescriptPredefinedType        gui=italic      guifg=#86c1b9
-endfunction
-
 function! SetThemeGitHub()
   set background=light
   colorscheme github
-  let g:github_colors_soft = 1
   hi Comment                         gui=italic
+  " I wanted to adjust CursorColor here, but I needed to set it from
+  " kitty.conf
 endfunction
 
-command! SetThemeDefault         :call SetThemeDefault()
 command! SetThemeCodeDark        :call SetThemeCodeDark()
-command! SetThemeBase16          :call SetThemeBase16()
-command! SetThemeGitHub          :call SetThemeGitHub()
-command! SetThemeNord            :call SetThemeNord()
 command! SetThemeJellyBeans      :call SetThemeJellyBeans()
+command! SetThemeGitHub          :call SetThemeGitHub()
 
 " Initial Theme
 call SetThemeCodeDark()

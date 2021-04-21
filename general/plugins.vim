@@ -9,13 +9,10 @@ endif
 
 call plug#begin()
     " appearence
-    Plug 'tomasiser/vim-code-dark'
-    Plug 'chriskempson/base16-vim'
+    Plug 'christianchiarulli/nvcode-color-schemes.vim'
     Plug 'cormacrelf/vim-colors-github'
-    Plug 'arcticicestudio/nord-vim'
-    Plug 'rktjmp/lush.nvim'
     Plug 'metalelf0/jellybeans-nvim'
-    Plug 'folke/tokyonight.nvim'
+    Plug 'rktjmp/lush.nvim'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'ryanoasis/vim-devicons'
 
