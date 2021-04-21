@@ -12,8 +12,8 @@ nnoremap <silent><leader>ps                  :Obsess<CR>
 " Startify
 nnoremap <silent><leader>s                   :Startify<CR>
 
-" tree
-nnoremap ¡ :NvimTreeToggle<CR>
+" nvim-tree
+nnoremap <C-b>                               :NvimTreeToggle<CR>
 
 " ranger
 nnoremap <silent><leader>n                   :EditVifm .<CR>
