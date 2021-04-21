@@ -42,17 +42,17 @@ call plug#begin()
     Plug 'mileszs/ack.vim'
     Plug 'mattn/emmet-vim'
     Plug 'MattesGroeger/vim-bookmarks'
+    Plug 'numtostr/FTerm.nvim'
 
-    " tab & bufferline
+    " tab & lines
     Plug 'mkitt/tabline.vim'
     Plug 'gcmt/taboo.vim'
-    " Plug 'akinsho/nvim-bufferline.lua'
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
  
     " LSP
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-    " Language
+    " Syntax
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
     " git
