@@ -54,3 +54,5 @@ nnoremap rrb                                 f(da(kf{va{p:w<CR>
 " Close all buffers except current
 command! BuffOnly                             %bdelete|edit #|normal `"
 
+nnoremap v{                                   ^vf{%
+nnoremap v(                                   ^vf(%

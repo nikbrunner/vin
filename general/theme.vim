@@ -24,7 +24,7 @@ function! SetThemeCodeDark()
   hi Comment                         gui=italic
   hi Conditional                     gui=italic
   hi Statement                       gui=italic,bold
-  hi typescriptVariable              gui=italic,bold guifg=#9cdcfe
+  hi typescriptVariable              gui=italic,bold guifg=#569cd6
   hi typescriptVariableDeclaration   gui=italic,bold guifg=#9cdcfe
   hi typescriptInterfaceName         gui=bold        guifg=#4ec9b0
   hi typescriptInterfaceKeyword      gui=italic,bold guifg=#569cd6

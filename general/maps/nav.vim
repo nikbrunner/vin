@@ -21,6 +21,8 @@ nnoremap <silent><Tab>                       :tabnext<CR>
 nnoremap <leader>-                           :tabm -1<CR>
 nnoremap <leader>+                           :tabm +1<CR>
 
+" nnoremap <leader>m                           <C-w>|
+
 " Switch between two buffers
 nnoremap <leader><leader>                    <C-^>
 
@@ -38,16 +40,6 @@ nnoremap <leader>9                           9gt
 " tabs
 nnoremap <leader>to                          :TabooOpen<Space>
 nnoremap <leader>tn                          :TabooRename<Space>
-
-nnoremap <silent>bn                          :BufferLineCycleNext<CR>
-nnoremap <silent>bp                          :BufferLineCyclePrev<CR>
-
-nnoremap <silent>≥                           :BufferLineMoveNext<CR>
-nnoremap <silent>≤                           :BufferLineMovePrev<CR>
-
-nnoremap <silent>be                          :BufferLineSortByExtension<CR>
-
-nnoremap <silent> gb                         :BufferLinePick<CR>
 
 " Neoscroll (I've disabled everything else) 
 nnoremap <silent><C-d>                       :lua require('neoscroll').scroll(vim.wo.scroll, true, 8)<CR>
