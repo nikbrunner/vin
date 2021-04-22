@@ -43,6 +43,7 @@ call plug#begin()
     Plug 'mattn/emmet-vim'
     Plug 'MattesGroeger/vim-bookmarks'
     Plug 'numtostr/FTerm.nvim'
+    Plug 'gennaro-tedesco/nvim-peekup'
 
     " tab & lines
     Plug 'mkitt/tabline.vim'
