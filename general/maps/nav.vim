@@ -9,20 +9,19 @@ nnoremap <C-k>                               <C-w>k
 nnoremap <C-l>                               <C-w>l
 
 " Resize panes
-nnoremap <silent>H                           :vertical:resize +5<CR>
-nnoremap <silent>J                           :resize +5<CR>
-nnoremap <silent>K                           :resize -5<CR>
-nnoremap <silent>L                           :vertical:resize -5<CR>
+nnoremap <silent>H                           :vertical:resize +10<CR>
+nnoremap <silent>J                           :resize +10<CR>
+nnoremap <silent>K                           :resize -10<CR>
+nnoremap <silent>L                           :vertical:resize -10<CR>
 nnoremap <leader>=                           <C-w>=
 nnoremap <leader>x                           <C-w>x
+nnoremap <leader>m                           <C-w>\| <C-w>_
 
 " Nav Tab
 nnoremap <silent><S-Tab>                     :tabprevious<CR>
 nnoremap <silent><Tab>                       :tabnext<CR>
 nnoremap <leader>-                           :tabm -1<CR>
 nnoremap <leader>+                           :tabm +1<CR>
-
-" nnoremap <leader>m                           <C-w>|
 
 " Switch between two buffers
 nnoremap <leader><leader>                    <C-^>
