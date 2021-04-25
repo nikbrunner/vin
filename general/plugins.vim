@@ -53,6 +53,7 @@ call plug#begin()
     Plug 'hrsh7th/nvim-compe'
     Plug 'glepnir/lspsaga.nvim'
     Plug 'folke/lsp-trouble.nvim'
+    Plug 'kosayoda/nvim-lightbulb'
 
     " Syntax
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}

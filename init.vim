@@ -21,6 +21,7 @@ luafile   $HOME/.config/nvim/plug-config/bufferline.lua
 luafile   $HOME/.config/nvim/plug-config/gitsigns.lua
 luafile   $HOME/.config/nvim/plug-config/compe.lua
 luafile   $HOME/.config/nvim/plug-config/trouble.lua
+luafile   $HOME/.config/nvim/plug-config/lightbulb.lua
 
 source    $HOME/.config/nvim/plug-config/lsp/nvim-lsp.vim
 luafile   $HOME/.config/nvim/plug-config/lsp/lspsaga.lua
