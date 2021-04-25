@@ -21,17 +21,23 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
 
 ### Mappings
 
+### n/p
+
 I want to agregate all mappings regarding `next` and `previous`.
 
 - qn/qp for Quickfix Entries
 - ln/lp for LocList Entries
 - gn/gp for git hunks
 
+### Plugins
+
+- [ ] Put PlugIn mappings in corresponding `plug-config` folder
+
 ### Todo Today
 
-- [ ] GitHub Dark Theme
+- [x] GitHub Dark Theme
   - Adjust TS Highlights
-- [ ] Remove `vim-` from plug-config files
+- [x] Remove `vim-` from plug-config files
 - [ ] [NeoVim Native LSP](https://www.chrisatmachine.com/Neovim/27-native-lsp/)
 - [ ] Research Scss auto-completion/LSP
 - [ ] Fix Minimap

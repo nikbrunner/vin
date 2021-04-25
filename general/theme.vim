@@ -80,15 +80,14 @@ function! SetThemeGitHubDark()
   hi Comment                         gui=italic
   hi Conditional                     gui=italic
   hi Statement                       gui=italic,bold
-  hi typescriptVariable              gui=italic,bold guifg=#569cd6
+  hi typescriptVariable              gui=italic,bold guifg=#ff7b72
   hi typescriptVariableDeclaration   gui=italic,bold guifg=#9cdcfe
-  hi typescriptInterfaceName         gui=bold        guifg=#4ec9b0
-  hi typescriptInterfaceKeyword      gui=italic,bold guifg=#569cd6
-  hi typescriptTypeReference         gui=italic,bold guifg=#4ec9b0
-  hi typescriptPredefinedType        gui=italic      guifg=#4ec9b0
-  hi typescriptImport                gui=italic,bold guifg=#c586c0
-  hi typescriptExport                gui=italic,bold guifg=#c586c0
-  hi typescriptBlock                                 guifg=#f1c264
+  hi typescriptInterfaceName         gui=bold        guifg=#3fb950
+  hi typescriptInterfaceKeyword      gui=italic,bold guifg=#ff7b72
+  hi typescriptTypeReference         gui=italic,bold guifg=#3fb950
+  hi typescriptPredefinedType        gui=italic      guifg=#3fb950
+  hi typescriptImport                gui=italic,bold guifg=#ff7b72
+  hi typescriptExport                gui=italic,bold guifg=#ff7b72
 endfunction
 
 command! SetThemeNvCode          :call SetThemeNvCode()
