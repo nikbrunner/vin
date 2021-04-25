@@ -17,11 +17,11 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
 
 ## Todo
 
-- [ ] Convert to LUA
-
 ### Mappings
 
-### n/p
+- [ ] Figure out piping/escaping in Neovim with Lua
+
+#### n/p
 
 I want to agregate all mappings regarding `next` and `previous`.
 
@@ -29,9 +29,13 @@ I want to agregate all mappings regarding `next` and `previous`.
 - ln/lp for LocList Entries
 - gn/gp for git hunks
 
+- [ ] Convert `quickfix.vim` to lua
+
 ### Plugins
 
-- [ ] Put PlugIn mappings in corresponding `plug-config` folder
+- [x] Put PlugIn mappings in corresponding `plug-config` folder
+- [ ] [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
+  - [ ] Fix Git Symbols ( This works not really atm.)
 
 ### Todo Today
 
@@ -39,12 +43,13 @@ I want to agregate all mappings regarding `next` and `previous`.
   - Adjust TS Highlights
 - [x] Remove `vim-` from plug-config files
 - [x] Better Tab/BufferLine 
+- [x] Convert general bindings to lua
+- [x] [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
+- [x] Check Window Commands
+  - Maximize/Restore(Equalize)
+  - Restore Equlize after new Buffer
 - [ ] [NeoVim Native LSP](https://www.chrisatmachine.com/Neovim/27-native-lsp/)
 - [ ] Research Scss auto-completion/LSP
 - [ ] Fix Minimap
 - [ ] [LSP Trouble](https://github.com/folke/lsp-trouble.nvim)
-- [ ] [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
 - [ ] [LSP Saga](https://github.com/glepnir/lspsaga.nvim)
-- [ ] Check Window Commands
-  - Maximize/Restore(Equalize)
-  - Restore Equlize after new Buffer

@@ -8,10 +8,3 @@ nnoremap <leader>gl                          :GV<CR>
 nnoremap <leader>gb                          :GV!<CR>
 nnoremap <leader>u                           :UndotreeShow<CR>
 nnoremap <leader>lg                          :LazyGit<CR>
-
-" git-gutter
-nmap gp                                       <Plug>(GitGutterPrevHunk)
-nmap gn                                       <Plug>(GitGutterNextHunk)
-nmap ghs                                      <Plug>(GitGutterStageHunk)
-nmap ghu                                      <Plug>(GitGutterUndoHunk)
-

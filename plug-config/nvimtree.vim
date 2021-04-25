@@ -19,4 +19,6 @@ let g:nvim_tree_group_empty = 0 " 0 by default, compact folders that only contai
 let g:nvim_tree_lsp_diagnostics = 0 "0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
 let g:nvim_tree_special_files = [ 'README.md', 'Makefile', 'MAKEFILE' ] " List of filenames that gets highlighted with NvimTreeSpecialFile
 
-highlight NvimTreeFolderIcon guibg=blue
+hi NvimTreeFolderIcon guibg=blue
+
+nnoremap <silent><C-b>                       :NvimTreeToggle<CR>

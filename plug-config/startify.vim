@@ -39,3 +39,6 @@ let g:webdevicons_enable_startify = 1
 function! StartifyEntryFormat()
     return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
 endfunction
+
+" maps
+nnoremap <silent><leader>s                   :Startify<CR>

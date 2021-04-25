@@ -34,7 +34,6 @@ call plug#begin()
     Plug 'djoshea/vim-autoread'
     Plug 'machakann/vim-highlightedyank'
     Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-    Plug 'vifm/vifm.vim'
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'reedes/vim-pencil'
     Plug 'mhinz/vim-startify'
@@ -47,8 +46,6 @@ call plug#begin()
     Plug 'gennaro-tedesco/nvim-peekup'
 
     " tab & lines
-    Plug 'mkitt/tabline.vim'
-    Plug 'gcmt/taboo.vim'
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
     Plug 'akinsho/nvim-bufferline.lua'
  
@@ -59,8 +56,9 @@ call plug#begin()
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
     " git
-    Plug 'tpope/vim-fugitive'
-    Plug 'airblade/vim-gitgutter'
+    " Plug 'tpope/vim-fugitive'
+    " Plug 'airblade/vim-gitgutter'
+    Plug 'lewis6991/gitsigns.nvim'
     Plug 'kdheepak/lazygit.nvim'
 
     " language
