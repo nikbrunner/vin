@@ -1,4 +1,6 @@
-" LSP config (the mappings used in the default file don't quite work right)
+" https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+
+" Some of these are also defined in lspsaga.vim
 nnoremap <silent> gd         <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gD         <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gr         <cmd>lua vim.lsp.buf.references()<CR>

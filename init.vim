@@ -1,7 +1,6 @@
 source    $HOME/.config/nvim/general/sets.vim
 source    $HOME/.config/nvim/general/plugins.vim
 
-source    $HOME/.config/nvim/plug-config/coc.vim
 source    $HOME/.config/nvim/plug-config/highlightedyank.vim
 source    $HOME/.config/nvim/plug-config/colorizer.vim
 source    $HOME/.config/nvim/plug-config/pencil.vim
