@@ -4,7 +4,7 @@ let mapleader = " "
 nnoremap Q <nop>
 
 " source, save, quit
-nnoremap <leader><C-r>                       :source ~/.config/nvim/init.vim<CR>
+nnoremap <leader><C-r>                       :source ~/.config/nvim/init.vim<CR>\|:echo "NeoVim Config reloaded!"<CR>
 
 " Sessions
 nnoremap <silent><leader>ps                  :Obsess<CR>
@@ -13,13 +13,13 @@ nnoremap <silent><leader>ps                  :Obsess<CR>
 nnoremap <silent><leader>s                   :Startify<CR>
 
 " nvim-tree
-nnoremap <C-b>                               :NvimTreeToggle<CR>
+nnoremap <silent><C-b>                       :NvimTreeToggle<CR>
 
 " ranger
 nnoremap <silent><leader>n                   :EditVifm .<CR>
 
 " prettier
-nnoremap <leader>p                           :PrettierAsync<CR>
+nnoremap <silent><leader>p                   :PrettierAsync<CR>
 
 " emmet
 let g:user_emmet_leader_key=                 '<C-y>'
@@ -46,10 +46,10 @@ endif
 nnoremap cll                                 oconsole.log("LINE: <C-r>=line('.')<Esc>",)<Esc>O<Esc>jf,a
 
 " Refactor Add Braces to convert function to explicit return 
-nnoremap rab                                 f(da(i{}<Esc>i<CR><Esc>Oreturn <Esc>p:w<CR>
+nnoremap <leader>rab                         f(da(i{}<Esc>i<CR><Esc>Oreturn <Esc>p:w<CR>
 
 " Refactor Remove Braces to convert function to implicit return
-nnoremap rrb                                 f(da(kf{va{p:w<CR>
+nnoremap <leader>rrb                         f(da(kf{va{p:w<CR>
 
 " Close all buffers except current
 command! BuffOnly                             %bdelete|edit #|normal `"

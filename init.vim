@@ -17,6 +17,7 @@ source    $HOME/.config/nvim/plug-config/vim-gitignore.vim
 source    $HOME/.config/nvim/plug-config/vim-lazygit.vim
 source    $HOME/.config/nvim/plug-config/vim-nvimtree.vim
 source    $HOME/.config/nvim/plug-config/peekup.vim
+source    $HOME/.config/nvim/plug-config/minimap.vim
 luafile   $HOME/.config/nvim/plug-config/vim-treesitter.lua
 luafile   $HOME/.config/nvim/plug-config/vim-telescope.lua
 luafile   $HOME/.config/nvim/plug-config/vim-galaxyline.lua

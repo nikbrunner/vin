@@ -14,6 +14,7 @@ nnoremap <silent>J                           :resize +5<CR>
 nnoremap <silent>K                           :resize -5<CR>
 nnoremap <silent>L                           :vertical:resize -5<CR>
 nnoremap <leader>=                           <C-w>=
+nnoremap <leader>x                           <C-w>x
 
 " Nav Tab
 nnoremap <silent><S-Tab>                     :tabprevious<CR>

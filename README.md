@@ -24,3 +24,13 @@ I want to agregate all mappings regarding `next` and `previous`.
 - qn/qp for Quickfix Entries
 - ln/lp for LocList Entries
 - gn/gp for git hunks
+
+### Todo Today
+
+[Pocket](https://getpocket.com/my-list)
+
+- [ ] LSP Trouble
+- [ ] Git Signs
+- [ ] LSP Saga
+- [ ] GitHub Dark Theme
+  - Adjust TS Highlights

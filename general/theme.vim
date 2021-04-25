@@ -9,7 +9,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-function! SetThemeCodeDark()
+function! SetThemeNvCode()
   set background=dark
   colorscheme nvcode
   hi Normal                          guibg=NONE     guifg=#c9d1d9
@@ -60,7 +60,7 @@ function! SetThemeJellyBeans()
   hi typescriptBlock                                 guifg=#f1c264
 endfunction
 
-function! SetThemeGitHub()
+function! SetThemeGitHubLight()
   set background=light
   colorscheme github
   hi Comment                         gui=italic
@@ -68,9 +68,28 @@ function! SetThemeGitHub()
   " kitty.conf
 endfunction
 
-command! SetThemeCodeDark        :call SetThemeCodeDark()
+function! SetThemeGitHubDark()
+  set background=dark
+  colorscheme github_dark
+  hi Comment                         gui=italic
+  hi Conditional                     gui=italic
+  hi Statement                       gui=italic,bold
+  hi typescriptVariable              gui=italic,bold guifg=#569cd6
+  hi typescriptVariableDeclaration   gui=italic,bold guifg=#9cdcfe
+  hi typescriptInterfaceName         gui=bold        guifg=#4ec9b0
+  hi typescriptInterfaceKeyword      gui=italic,bold guifg=#569cd6
+  hi typescriptTypeReference         gui=italic,bold guifg=#4ec9b0
+  hi typescriptPredefinedType        gui=italic      guifg=#4ec9b0
+  hi typescriptImport                gui=italic,bold guifg=#c586c0
+  hi typescriptExport                gui=italic,bold guifg=#c586c0
+  hi typescriptBlock                                 guifg=#f1c264
+endfunction
+
+command! SetThemeNvCode          :call SetThemeNvCode()
 command! SetThemeJellyBeans      :call SetThemeJellyBeans()
-command! SetThemeGitHub          :call SetThemeGitHub()
+command! SetThemeGitHubLight     :call SetThemeGitHubLight()
+command! SetThemeGitHubDark     :call SetThemeGitHubDark()
 
 " Initial Theme
-call SetThemeCodeDark()
+" call SetThemeNvCode()
+call SetThemeGitHubDark()
