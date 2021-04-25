@@ -50,9 +50,10 @@ call plug#begin()
     Plug 'akinsho/nvim-bufferline.lua'
  
     " LSP
-    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
+    Plug 'glepnir/lspsaga.nvim'
+    Plug 'folke/lsp-trouble.nvim'
 
     " Syntax
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}

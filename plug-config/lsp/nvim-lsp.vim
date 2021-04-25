@@ -16,5 +16,7 @@ autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.scss lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.vim lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)
 
 lua require'lspconfig'.tsserver.setup{}
