@@ -38,6 +38,7 @@ I want to agregate all mappings regarding `next` and `previous`.
 - [x] GitHub Dark Theme
   - Adjust TS Highlights
 - [x] Remove `vim-` from plug-config files
+- [x] Better Tab/BufferLine 
 - [ ] [NeoVim Native LSP](https://www.chrisatmachine.com/Neovim/27-native-lsp/)
 - [ ] Research Scss auto-completion/LSP
 - [ ] Fix Minimap
@@ -47,4 +48,3 @@ I want to agregate all mappings regarding `next` and `previous`.
 - [ ] Check Window Commands
   - Maximize/Restore(Equalize)
   - Restore Equlize after new Buffer
-- [ ] Better Tab/BufferLine 

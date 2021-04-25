@@ -1,6 +1,6 @@
 " New splits
-nnoremap <silent><leader>l                   :vsp<CR><C-W><C-l>
-nnoremap <silent><leader>j                   :sp<CR><C-W><C-j>
+nnoremap <silent><leader>l                   :vsp<CR><C-W><C-l>\|<C-w>=
+nnoremap <silent><leader>j                   :sp<CR><C-W><C-j>\|<C-w>=
 
 " Nav splits
 nnoremap <C-h>                               <C-w>h

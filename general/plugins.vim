@@ -50,6 +50,7 @@ call plug#begin()
     Plug 'mkitt/tabline.vim'
     Plug 'gcmt/taboo.vim'
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+    Plug 'akinsho/nvim-bufferline.lua'
  
     " LSP
     Plug 'neoclide/coc.nvim', {'branch': 'release'}

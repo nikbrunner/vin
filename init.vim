@@ -22,6 +22,7 @@ luafile   $HOME/.config/nvim/plug-config/treesitter.lua
 luafile   $HOME/.config/nvim/plug-config/telescope.lua
 luafile   $HOME/.config/nvim/plug-config/galaxyline.lua
 luafile   $HOME/.config/nvim/plug-config/ftterm.lua
+luafile   $HOME/.config/nvim/plug-config/bufferline.lua
 
 " maps
 source    $HOME/.config/nvim/general/theme.vim
