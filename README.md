@@ -13,9 +13,7 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
 
 ## Todo
 
-- [ ] Convert to NeoVim native LSP
 - [ ] Convert to LUA
-- [ ] Research Scss auto-completion/LSP
 
 ### Mappings
 
@@ -27,10 +25,15 @@ I want to agregate all mappings regarding `next` and `previous`.
 
 ### Todo Today
 
-[Pocket](https://getpocket.com/my-list)
-
-- [ ] LSP Trouble
-- [ ] Git Signs
-- [ ] LSP Saga
 - [ ] GitHub Dark Theme
   - Adjust TS Highlights
+- [ ] Remove `vim-` from plug-config files
+- [ ] [NeoVim Native LSP](https://www.chrisatmachine.com/Neovim/27-native-lsp/)
+- [ ] Research Scss auto-completion/LSP
+- [ ] Fix Minimap
+- [ ] [LSP Trouble](https://github.com/folke/lsp-trouble.nvim)
+- [ ] [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
+- [ ] [LSP Saga](https://github.com/glepnir/lspsaga.nvim)
+- [ ] Check Window Commands
+  - Maximize/Restore(Equalize)
+  - Restore Equlize after new Buffer
