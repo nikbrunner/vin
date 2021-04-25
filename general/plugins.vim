@@ -42,7 +42,6 @@ call plug#begin()
     Plug 'mileszs/ack.vim'
     Plug 'mattn/emmet-vim'
     Plug 'MattesGroeger/vim-bookmarks'
-    Plug 'numtostr/FTerm.nvim'
     Plug 'gennaro-tedesco/nvim-peekup'
 
     " tab & lines

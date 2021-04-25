@@ -18,7 +18,6 @@ source    $HOME/.config/nvim/plug-config/prettier.vim
 luafile   $HOME/.config/nvim/plug-config/treesitter.lua
 luafile   $HOME/.config/nvim/plug-config/telescope.lua
 luafile   $HOME/.config/nvim/plug-config/galaxyline.lua
-luafile   $HOME/.config/nvim/plug-config/ftterm.lua
 luafile   $HOME/.config/nvim/plug-config/bufferline.lua
 luafile   $HOME/.config/nvim/plug-config/gitsigns.lua
 luafile   $HOME/.config/nvim/plug-config/compe.lua
