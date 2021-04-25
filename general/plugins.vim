@@ -50,14 +50,14 @@ call plug#begin()
     Plug 'akinsho/nvim-bufferline.lua'
  
     " LSP
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-compe'
 
     " Syntax
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
     " git
-    " Plug 'tpope/vim-fugitive'
-    " Plug 'airblade/vim-gitgutter'
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'kdheepak/lazygit.nvim'
 

@@ -48,8 +48,8 @@ I want to agregate all mappings regarding `next` and `previous`.
 - [x] Check Window Commands
   - Maximize/Restore(Equalize)
   - Restore Equlize after new Buffer
-- [ ] [NeoVim Native LSP](https://www.chrisatmachine.com/Neovim/27-native-lsp/)
-- [ ] Research Scss auto-completion/LSP
+- [x] [NeoVim Native LSP](https://www.chrisatmachine.com/Neovim/27-native-lsp/)
+- [x] Research Scss auto-completion/LSP
 - [ ] Fix Minimap
 - [ ] [LSP Trouble](https://github.com/folke/lsp-trouble.nvim)
 - [ ] [LSP Saga](https://github.com/glepnir/lspsaga.nvim)
