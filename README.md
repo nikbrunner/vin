@@ -34,8 +34,8 @@ I want to agregate all mappings regarding `next` and `previous`.
 ### Plugins
 
 - [x] Put PlugIn mappings in corresponding `plug-config` folder
-- [ ] [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
-  - [ ] Fix Git Symbols ( This works not really atm.)
+- [x] [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
+  - [x] Fix Git Symbols ( This works not really atm.)
 
 ### Todo Today
 
@@ -51,4 +51,4 @@ I want to agregate all mappings regarding `next` and `previous`.
 - [x] [NeoVim Native LSP](https://www.chrisatmachine.com/Neovim/27-native-lsp/)
 - [x] Research Scss auto-completion/LSP
 - [x] [LSP Trouble](https://github.com/folke/lsp-trouble.nvim)
-- [ ] [LSP Saga](https://github.com/glepnir/lspsaga.nvim)
+- [x] [LSP Saga](https://github.com/glepnir/lspsaga.nvim)
