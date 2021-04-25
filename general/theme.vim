@@ -71,6 +71,12 @@ endfunction
 function! SetThemeGitHubDark()
   set background=dark
   colorscheme github_dark
+  hi TabLineFill                     guibg=NONE
+  hi TabLine                         guibg=NONE
+  hi VertSplit                       guibg=NONE
+  hi SignColumn                      guibg=NONE
+  hi LineNr                          guibg=NONE
+  hi SignColumn                      guibg=NONE
   hi Comment                         gui=italic
   hi Conditional                     gui=italic
   hi Statement                       gui=italic,bold

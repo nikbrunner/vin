@@ -11,6 +11,10 @@ This is my personal **Neovim** config on which I am working on from time to time
 
 The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for improved Syntax Highlighting.
 
+## Links
+
+- [Awesome NeoVim](https://github.com/rockerBOO/awesome-neovim)
+
 ## Todo
 
 - [ ] Convert to LUA
@@ -37,3 +41,4 @@ I want to agregate all mappings regarding `next` and `previous`.
 - [ ] Check Window Commands
   - Maximize/Restore(Equalize)
   - Restore Equlize after new Buffer
+- [ ] Better Tab/BufferLine 
