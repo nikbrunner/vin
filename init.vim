@@ -13,15 +13,18 @@ source    $HOME/.config/nvim/plug-config/nvimtree.vim
 source    $HOME/.config/nvim/plug-config/peekup.vim
 source    $HOME/.config/nvim/plug-config/emmet.vim
 source    $HOME/.config/nvim/plug-config/prettier.vim
+source    $HOME/.config/nvim/plug-config/ultisnips.vim
+source    $HOME/.config/nvim/plug-config/barbar.vim
 
 luafile   $HOME/.config/nvim/plug-config/treesitter.lua
 luafile   $HOME/.config/nvim/plug-config/telescope.lua
 luafile   $HOME/.config/nvim/plug-config/galaxyline.lua
-luafile   $HOME/.config/nvim/plug-config/bufferline.lua
 luafile   $HOME/.config/nvim/plug-config/gitsigns.lua
 luafile   $HOME/.config/nvim/plug-config/compe.lua
 luafile   $HOME/.config/nvim/plug-config/trouble.lua
 luafile   $HOME/.config/nvim/plug-config/lightbulb.lua
+luafile   $HOME/.config/nvim/plug-config/autopairs.lua
+luafile   $HOME/.config/nvim/plug-config/autotags.lua
 
 source    $HOME/.config/nvim/plug-config/lsp/lsp-config.vim
 luafile   $HOME/.config/nvim/plug-config/lsp/lspsaga.lua

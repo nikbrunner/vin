@@ -8,6 +8,14 @@ require'nvim-treesitter.configs'.setup {
   },
   ensure_installed = { 
     'javascript', 
-    'typescript'
+    'typescript',
+    'html',
+    'css',
+    'scss',
+  },
+  autopairs = { enable = true },
+  rainbow = {
+    enable = true,
+    extended_mode = true
   }
 }

@@ -9,7 +9,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-function! SetThemeNvCode()
+function! SetThemeDarkPlus()
   set background=dark
   colorscheme nvcode
   hi Normal                          guibg=NONE     guifg=#c9d1d9
@@ -101,6 +101,9 @@ endfunction
 function! SetThemeGitHubDark()
   set background=dark
   colorscheme github_dark
+  hi Normal                          guibg=NONE
+  hi NonText                         guibg=NONE
+  hi EndOfBuffer                     guibg=NONE
   hi TabLineFill                     guibg=NONE
   hi TabLine                         guibg=NONE
   hi VertSplit                       guibg=NONE
@@ -117,16 +120,16 @@ function! SetThemeGitHubDark()
   hi typescriptTypeReference         gui=italic,bold guifg=#3fb950
   hi typescriptPredefinedType        gui=italic      guifg=#3fb950
   hi typescriptImport                gui=italic,bold guifg=#ff7b72
-  hi typescriptExport                gui=italic,bold guifg=#ff7b72
+  " Tags look flat and gray
 endfunction
 
-command! SetThemeNvCode          :call SetThemeNvCode()
+command! SetThemeDarkPlus        :call SetThemeDarkPlus()
 command! SetThemeJellyBeans      :call SetThemeJellyBeans()
 command! SetThemeGitHubLight     :call SetThemeGitHubLight()
-command! SetThemeGitHubDark     :call SetThemeGitHubDark()
+command! SetThemeGitHubDark      :call SetThemeGitHubDark()
 
 " Initial Theme
-" call SetThemeNvCode()
+call SetThemeDarkPlus()
 " call SetThemeJellyBeans()
 " call SetThemeTokyoDark()
-call SetThemeGitHubDark()
+" call SetThemeGitHubDark()

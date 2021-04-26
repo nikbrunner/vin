@@ -34,6 +34,6 @@ require("trouble").setup {
   use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
 }
 
-vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>LspTroubleToggle<cr>",
+vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>LspTroubleToggle<cr>",
   {silent = true, noremap = true}
 )

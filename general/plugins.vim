@@ -42,12 +42,19 @@ call plug#begin()
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
     Plug 'mileszs/ack.vim'
     Plug 'mattn/emmet-vim'
-    Plug 'MattesGroeger/vim-bookmarks'
+    " Plug 'MattesGroeger/vim-bookmarks'
     Plug 'gennaro-tedesco/nvim-peekup'
+    Plug 'SirVer/ultisnips'
+    Plug 'mlaursen/vim-react-snippets'
+    Plug 'windwp/nvim-autopairs'
+    Plug 'windwp/nvim-ts-autotag'
+    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+    Plug 'p00f/nvim-ts-rainbow'
+    Plug 'Xuyuanp/scrollbar.nvim'
 
     " tab & lines
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
-    Plug 'akinsho/nvim-bufferline.lua'
+    Plug 'romgrk/barbar.nvim'
  
     " LSP
     Plug 'neovim/nvim-lspconfig'
@@ -70,6 +77,5 @@ call plug#begin()
 
     " formater
     Plug 'prettier/vim-prettier', { 'do': 'npm install' }
-    " Plug 'mhartington/formatter.nvim'
 
  call plug#end()

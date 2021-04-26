@@ -14,6 +14,7 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
 ## Links
 
 - [Awesome NeoVim](https://github.com/rockerBOO/awesome-neovim)
+- [Another good React/TS config](https://github.com/ecosse3/nvim)
 
 ## Todo
 
@@ -36,6 +37,7 @@ I want to agregate all mappings regarding `next` and `previous`.
 - [x] Put PlugIn mappings in corresponding `plug-config` folder
 - [x] [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
   - [x] Fix Git Symbols ( This works not really atm.)
+- [ ] Fix Prettier/Formating
 
 ### Todo Today
 
