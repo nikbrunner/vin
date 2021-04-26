@@ -23,7 +23,7 @@ luafile   $HOME/.config/nvim/plug-config/compe.lua
 luafile   $HOME/.config/nvim/plug-config/trouble.lua
 luafile   $HOME/.config/nvim/plug-config/lightbulb.lua
 
-source    $HOME/.config/nvim/plug-config/lsp/nvim-lsp.vim
+source    $HOME/.config/nvim/plug-config/lsp/lsp-config.vim
 luafile   $HOME/.config/nvim/plug-config/lsp/lspsaga.lua
 luafile   $HOME/.config/nvim/plug-config/lsp/css.lua
 luafile   $HOME/.config/nvim/plug-config/lsp/ts.lua

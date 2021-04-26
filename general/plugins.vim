@@ -69,5 +69,6 @@ call plug#begin()
 
     " formater
     Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+    " Plug 'mhartington/formatter.nvim'
 
  call plug#end()

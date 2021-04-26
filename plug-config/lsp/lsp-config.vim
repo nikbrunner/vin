@@ -11,14 +11,14 @@ nnoremap <silent> ep         <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> en         <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 " auto-format
-autocmd BufWritePre *.html lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.css lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.scss lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.vim lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre *.html lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre *.css lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre *.scss lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre *.vim lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)
 
 lua require'lspconfig'.tsserver.setup{}
