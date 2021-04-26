@@ -12,6 +12,7 @@ call plug#begin()
     Plug 'christianchiarulli/nvcode-color-schemes.vim'
     Plug 'cormacrelf/vim-colors-github'
     Plug 'lewis6991/github_dark.nvim'
+    Plug 'tiagovla/tokyodark.nvim'
     Plug 'metalelf0/jellybeans-nvim'
     Plug 'rktjmp/lush.nvim'
     Plug 'kyazdani42/nvim-web-devicons'
