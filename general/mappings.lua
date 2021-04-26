@@ -21,7 +21,7 @@ vim.api.nvim_set_keymap('n', 'J', ':resize +10<CR>', { noremap = true, silent = 
 vim.api.nvim_set_keymap('n', 'K', ':resize -10<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'L', ':vertical:resize -10<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>=', '<C-w>=', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>x', '<C-w>x', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>x', '<C-w>x', { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('n', '<leader>m', '<C-w>\\|<C-w>_', { noremap = true, silent = true })
 
 -- tabs

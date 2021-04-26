@@ -14,7 +14,7 @@ require('bufferline').setup {
     tab_size = 18,
     show_tab_indicators = true,
     show_buffer_close_icons = true,
-    separator_style = "slant",
+    separator_style = "thick",
     always_show_bufferline = false,
   }
 }

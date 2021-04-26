@@ -67,4 +67,4 @@ vim.api.nvim_set_keymap('n', '<C-e>', '<cmd>Telescope buffers<CR>', { noremap = 
 
 vim.api.nvim_set_keymap('n', '<leader>fw', ':lua require("telescope.builtin").grep_string { search = vim.fn.expand("<cword>") }<CR>', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope git_status<CR>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-g>', '<cmd>Telescope git_status<CR>', { noremap = true, silent = true})
