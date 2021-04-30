@@ -44,7 +44,7 @@ augroup COC_DIAGNOSTICS
 augroup END
 
 " TodoODO items to the quickfix list relative to where you opened Vim.
-function! s:todo() abort
+function! s:todolist() abort
   let entries = []
   for cmd in ['git grep -niIw -e TODO -e FIXME 2> /dev/null',
             \ 'grep -rniIw -e TODO -e FIXME . 2> /dev/null']
@@ -63,13 +63,13 @@ function! s:todo() abort
   endif
 endfunction
 
-command! Todo call        s:todo()
+command! Todolist call        s:todolist()
 
 " maps
 nnoremap <C-q>            :call ToggleQFList(1)<CR>
 
 nnoremap qf               :Ack<Space> 
-nnoremap qt               :Todo<CR>
+nnoremap qt               :Todolist<CR>
 nnoremap qn               :cnext<CR>zz
 nnoremap qp               :cprev<CR>zz
 
