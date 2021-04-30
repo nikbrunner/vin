@@ -72,7 +72,3 @@ nnoremap qf               :Ack<Space>
 nnoremap qt               :Todolist<CR>
 nnoremap qn               :cnext<CR>zz
 nnoremap qp               :cprev<CR>zz
-
-nnoremap <leader>lo       :lopen<CR>
-nnoremap <leader>ln       :lnext<CR>zz
-nnoremap <leader>lp       :lprev<CR>zz
