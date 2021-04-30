@@ -50,7 +50,6 @@ call plug#begin()
     Plug 'windwp/nvim-ts-autotag'
     Plug 'p00f/nvim-ts-rainbow'
     Plug 'Xuyuanp/scrollbar.nvim'
-    Plug 'vimwiki/vimwiki'
     Plug 'vuciv/vim-bujo'
     Plug 'codota/tabnine-vim'
     Plug 'RRethy/vim-illuminate'
@@ -72,11 +71,6 @@ call plug#begin()
     " git
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'kdheepak/lazygit.nvim'
-
-    " language
-    Plug 'pangloss/vim-javascript'    " JavaScript support
-    Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
-    Plug 'HerringtonDarkholme/yats.vim'
 
     " formater
     Plug 'prettier/vim-prettier', { 'do': 'npm install' }
