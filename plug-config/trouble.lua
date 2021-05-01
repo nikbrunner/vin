@@ -36,12 +36,6 @@ require("trouble").setup {
 
 local remap = vim.api.nvim_set_keymap
 
-remap("n", "<leader>ee", "<cmd>LspTroubleToggle<cr>",
-  {silent = true, noremap = true}
-)
-remap("n", "<leader>en", ":lnext<CR>zz",
-  {silent = true, noremap = true}
-)
-remap("n", "<leader>ep", ":lprev<CR>zz",
-  {silent = true, noremap = true}
-)
+remap("n", "<F8>", "<cmd>LspTroubleToggle<cr>", {silent = true, noremap = true})
+remap("n", "<leader>en", ":lnext<CR>zz", {silent = true, noremap = true})
+remap("n", "<leader>ep", ":lprev<CR>zz", {silent = true, noremap = true})

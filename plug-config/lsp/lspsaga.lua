@@ -4,7 +4,6 @@ saga.init_lsp_saga {
   border_style = "round"
 }
 
-
 vim.api.nvim_set_keymap('n', 'gR', ':Lspsaga lsp_finder<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', 'gh', ':Lspsaga hover_doc<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', 'gp', ':Lspsaga preview_definition<CR>', { silent = true })

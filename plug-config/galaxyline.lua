@@ -136,6 +136,44 @@ gls.left[i] = {
     }
 }
 
+local checkwidth = function()
+    local squeeze_width = vim.fn.winwidth(0) / 2
+    if squeeze_width > 40 then
+        return true
+    end
+    return false
+end
+
+i = i + 1
+gls.left[i] = {
+    DiffAdd = {
+        provider = "DiffAdd",
+        condition = checkwidth,
+        icon = icons.diff.add,
+        highlight = {colors.green, colors.line_bg}
+    }
+}
+
+i = i + 1
+gls.left[i] = {
+    DiffModified = {
+        provider = "DiffModified",
+        condition = checkwidth,
+        icon = icons.diff.modified,
+        highlight = {colors.blue, colors.line_bg}
+    }
+}
+
+i = i + 1
+gls.left[i] = {
+    DiffRemove = {
+        provider = "DiffRemove",
+        condition = checkwidth,
+        icon = icons.diff.remove,
+        highlight = {colors.red, colors.line_bg}
+    }
+}
+
 i = i + 1
 gls.left[i] = {
     DiagnosticError = {
