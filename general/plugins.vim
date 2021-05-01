@@ -50,9 +50,8 @@ call plug#begin()
     Plug 'windwp/nvim-ts-autotag'
     Plug 'p00f/nvim-ts-rainbow'
     Plug 'Xuyuanp/scrollbar.nvim'
-    Plug 'vuciv/vim-bujo'
-    " Plug 'codota/tabnine-vim'
     Plug 'RRethy/vim-illuminate'
+    Plug 'marcushwz/nvim-workbench'
 
     " tab & lines
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
