@@ -51,7 +51,7 @@ call plug#begin()
     Plug 'p00f/nvim-ts-rainbow'
     Plug 'Xuyuanp/scrollbar.nvim'
     Plug 'vuciv/vim-bujo'
-    Plug 'codota/tabnine-vim'
+    " Plug 'codota/tabnine-vim'
     Plug 'RRethy/vim-illuminate'
 
     " tab & lines
