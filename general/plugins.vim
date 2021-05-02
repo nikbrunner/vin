@@ -70,6 +70,7 @@ call plug#begin()
     " git
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'kdheepak/lazygit.nvim'
+    Plug 'sindrets/diffview.nvim'
 
     " formater
     Plug 'prettier/vim-prettier', { 'do': 'npm install' }
