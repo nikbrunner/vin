@@ -15,6 +15,7 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
 
 - [Awesome NeoVim](https://github.com/rockerBOO/awesome-neovim)
 - [Another good React/TS config](https://github.com/ecosse3/nvim)
+- [Another one](https://github.com/lucastrvsn/dot/tree/master/.config/nvim)
 
 ## Todo
 
@@ -38,6 +39,8 @@ I want to agregate all mappings regarding `next` and `previous`.
 
 ### Plugins
 
-- [ ] Fix Prettier/Formating
+- [x] Fix Prettier/Formating
+  - https://github.com/mhartington/formatter.nvim
+  - https://github.com/fsouza/prettierd
 - [ ] Setup Workbench
 

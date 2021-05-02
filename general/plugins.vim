@@ -24,7 +24,7 @@ call plug#begin()
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzy-native.nvim'
-    Plug 'airblade/vim-rooter'
+    Plug 'oberblastmeister/rooter.nvim'
     Plug 'mbbill/undotree'
 
     " general workflow 
@@ -73,5 +73,6 @@ call plug#begin()
 
     " formater
     Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+    Plug 'mhartington/formatter.nvim'
 
  call plug#end()
