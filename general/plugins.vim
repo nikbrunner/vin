@@ -11,7 +11,7 @@ call plug#begin()
     " appearence
     Plug 'christianchiarulli/nvcode-color-schemes.vim'
     Plug 'cormacrelf/vim-colors-github'
-    Plug 'lewis6991/github_dark.nvim'
+    Plug '1612492/github.vim'
     Plug 'tiagovla/tokyodark.nvim'
     Plug 'metalelf0/jellybeans-nvim'
     Plug 'rktjmp/lush.nvim'

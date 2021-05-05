@@ -100,27 +100,12 @@ endfunction
 
 function! SetThemeGitHubDark()
   set background=dark
-  colorscheme github_dark
-  hi Normal                          guibg=NONE
-  hi NonText                         guibg=NONE
+  colorscheme github
   hi EndOfBuffer                     guibg=NONE
-  hi TabLineFill                     guibg=NONE
-  hi TabLine                         guibg=NONE
   hi VertSplit                       guibg=NONE
-  hi SignColumn                      guibg=NONE
-  hi LineNr                          guibg=NONE
-  hi SignColumn                      guibg=NONE
   hi Comment                         gui=italic
   hi Conditional                     gui=italic
   hi Statement                       gui=italic,bold
-  hi typescriptVariable              gui=italic,bold guifg=#ff7b72
-  hi typescriptVariableDeclaration   gui=italic,bold guifg=#9cdcfe
-  hi typescriptInterfaceName         gui=bold        guifg=#3fb950
-  hi typescriptInterfaceKeyword      gui=italic,bold guifg=#ff7b72
-  hi typescriptTypeReference         gui=italic,bold guifg=#3fb950
-  hi typescriptPredefinedType        gui=italic      guifg=#3fb950
-  hi typescriptImport                gui=italic,bold guifg=#ff7b72
-  " Tags look flat and gray
 endfunction
 
 command! SetThemeDarkPlus        :call SetThemeDarkPlus()
@@ -129,7 +114,7 @@ command! SetThemeGitHubLight     :call SetThemeGitHubLight()
 command! SetThemeGitHubDark      :call SetThemeGitHubDark()
 
 " Initial Theme
-call SetThemeDarkPlus()
-" call SetThemeJellyBeans()
+" call SetThemeDarkPlus()
+call SetThemeJellyBeans()
 " call SetThemeTokyoDark()
 " call SetThemeGitHubDark()
