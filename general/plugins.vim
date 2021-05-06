@@ -48,7 +48,7 @@ call plug#begin()
     Plug 'mlaursen/vim-react-snippets'
     Plug 'windwp/nvim-autopairs'
     Plug 'windwp/nvim-ts-autotag'
-    Plug 'p00f/nvim-ts-rainbow'
+    " Plug 'p00f/nvim-ts-rainbow'
     Plug 'Xuyuanp/scrollbar.nvim'
     Plug 'RRethy/vim-illuminate'
     Plug 'marcushwz/nvim-workbench'
