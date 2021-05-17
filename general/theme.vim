@@ -60,16 +60,9 @@ function! SetThemeJellyBeans()
   hi typescriptBlock                                 guifg=#f1c264
 endfunction
 
-function! SetThemeTokyoDark()
+function! SetThemeNord()
   set background=dark
-  colorscheme tokyodark
-  let g:tokyodark_transparent_background = 1
-  let g:tokyodark_enable_italic_comment = 1
-  let g:tokyodark_enable_italic = 1
-  let g:tokyodark_color_gamma = "1.0"
-  hi Normal                          guibg=NONE
-  hi NonText                         guibg=NONE
-  hi EndOfBuffer                     guibg=NONE
+  colorscheme nord
 endfunction
 
 
@@ -103,8 +96,8 @@ command! SetThemeGitHubLight     :call SetThemeGitHubLight()
 command! SetThemeGitHubDark      :call SetThemeGitHubDark()
 
 " Initial Theme
-call SetThemeDarkPlus()
+" call SetThemeDarkPlus()
+call SetThemeNord()
 " call SetThemeDefault()
 " call SetThemeJellyBeans()
-" call SetThemeTokyoDark()
 " call SetThemeGitHubDark()
