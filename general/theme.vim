@@ -63,6 +63,9 @@ endfunction
 function! SetThemeNord()
   set background=dark
   colorscheme nord
+  hi Normal                          guibg=NONE
+  hi NonText                         guibg=NONE
+  hi EndOfBuffer                     guibg=NONE
 endfunction
 
 
@@ -77,6 +80,7 @@ endfunction
 function! SetThemeGitHubDark()
   set background=dark
   colorscheme github
+  hi Normal                          guibg=NONE
   hi EndOfBuffer                     guibg=NONE
   hi VertSplit                       guibg=NONE
   hi Comment                         gui=italic
@@ -96,8 +100,8 @@ command! SetThemeGitHubLight     :call SetThemeGitHubLight()
 command! SetThemeGitHubDark      :call SetThemeGitHubDark()
 
 " Initial Theme
-" call SetThemeDarkPlus()
-call SetThemeNord()
+call SetThemeDarkPlus()
+" call SetThemeNord()
 " call SetThemeDefault()
 " call SetThemeJellyBeans()
 " call SetThemeGitHubDark()
