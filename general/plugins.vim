@@ -52,6 +52,7 @@ call plug#begin()
     Plug 'Xuyuanp/scrollbar.nvim'
     Plug 'RRethy/vim-illuminate'
     Plug 'marcushwz/nvim-workbench'
+    Plug 'folke/zen-mode.nvim'
 
     " tab & lines
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}

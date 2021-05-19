@@ -29,6 +29,7 @@ luafile   $HOME/.config/nvim/plug-config/autopairs.lua
 luafile   $HOME/.config/nvim/plug-config/autotags.lua
 luafile   $HOME/.config/nvim/plug-config/formatter.lua
 luafile   $HOME/.config/nvim/plug-config/rooter.lua
+luafile   $HOME/.config/nvim/plug-config/zen-mode.lua
 " luafile   $HOME/.config/nvim/plug-config/nord.lua
 
 " lsp 
