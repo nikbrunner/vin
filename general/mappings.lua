@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 
 local remap = vim.api.nvim_set_keymap
 
-remap('n', 'Q', '<NOP>', { noremap = true, silent = true })
+remap('n', 'Q', 'gqq', { noremap = true, silent = true })
 
 remap('n', '<leader><C-r>', ':source ~/.config/nvim/init.vim<CR>\\ :echo "NeoVim Config reloaded!"<CR>', { noremap = true })
 
