@@ -13,7 +13,6 @@ call plug#begin()
     Plug 'cormacrelf/vim-colors-github'
     Plug '1612492/github.vim'
     Plug 'shaunsingh/nord.nvim'
-    Plug 'metalelf0/jellybeans-nvim'
     Plug 'rktjmp/lush.nvim'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'ryanoasis/vim-devicons'
