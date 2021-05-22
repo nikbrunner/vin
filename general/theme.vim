@@ -35,21 +35,34 @@ function! SetThemeDarkPlus()
   hi typescriptBlock                                 guifg=#f1c264
 endfunction
 
-function! SetThemeNord()
+function! SetThemeDarcula()
   set background=dark
-  colorscheme nord
-  hi Normal                          guibg=NONE
-  hi NonText                         guibg=NONE
-  hi EndOfBuffer                     guibg=NONE
+  colorscheme darcula-solid
+  hi Normal                          guibg=#22272e
+  hi NonText                         guibg=#22272e
+  hi EndOfBuffer                     guibg=#22272e
+  hi SignColumn                      guibg=NONE
+  hi VertSplit                       guibg=NONE
+  hi TabLineFill                     guibg=NONE
+  hi TabLine                         guibg=NONE
+  hi Comment                         gui=italic
+  hi Conditional                     gui=italic
+  hi Statement                       gui=italic,bold
+  hi typescriptVariable              gui=italic,bold guifg=#CD7832
+  hi typescriptVariableDeclaration   gui=italic,bold guifg=#569cd6
+  hi typescriptInterfaceName         gui=bold        guifg=#6E4A82
+  hi typescriptInterfaceKeyword      gui=italic,bold guifg=#CD7832
+  hi typescriptTypeReference         gui=italic,bold guifg=#6E4A82
+  hi typescriptPredefinedType        gui=italic      guifg=#6E4A82
+  hi typescriptImport                gui=italic,bold guifg=#CD7832
+  hi typescriptExport                gui=italic,bold guifg=#CD7832
+  hi typescriptBlock                                 guifg=#FFC66B
 endfunction
-
 
 function! SetThemeGitHubLight()
   set background=light
   colorscheme github
   hi Comment                         gui=italic
-  " I wanted to adjust CursorColor here, but I needed to set it from
-  " kitty.conf
 endfunction
 
 function! SetThemeGitHubDark()
@@ -70,11 +83,12 @@ endfunction
 
 
 command! SetThemeDarkPlus        :call SetThemeDarkPlus()
+command! SetThemeDarcula         :call SetThemeDarcula()
 command! SetThemeGitHubLight     :call SetThemeGitHubLight()
 command! SetThemeGitHubDark      :call SetThemeGitHubDark()
 
 " Initial Theme
-call SetThemeDarkPlus()
-" call SetThemeNord()
+" call SetThemeDarkPlus()
+call SetThemeGitHubDark()
+" call SetThemeDarcula()
 " call SetThemeDefault()
-" call SetThemeGitHubDark()

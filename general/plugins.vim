@@ -8,27 +8,23 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-    " appearence
-    Plug 'christianchiarulli/nvcode-color-schemes.vim'
-    Plug 'cormacrelf/vim-colors-github'
-    Plug '1612492/github.vim'
-    Plug 'shaunsingh/nord.nvim'
+    " appereance
     Plug 'rktjmp/lush.nvim'
+    Plug 'briones-gabriel/darcula-solid.nvim'
+    Plug '1612492/github.vim'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-    " file management
-    Plug 'kyazdani42/nvim-tree.lua'
+    " workflow
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
     Plug 'oberblastmeister/rooter.nvim'
     Plug 'mbbill/undotree'
-
-    " general workflow 
     Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-obsession'
     Plug 'tpope/vim-surround'
     Plug 'chaoren/vim-wordmotion'
     Plug 'djoshea/vim-autoread'
@@ -47,25 +43,20 @@ call plug#begin()
     Plug 'mlaursen/vim-react-snippets'
     Plug 'windwp/nvim-autopairs'
     Plug 'windwp/nvim-ts-autotag'
-    " Plug 'p00f/nvim-ts-rainbow'
-    Plug 'Xuyuanp/scrollbar.nvim'
     Plug 'RRethy/vim-illuminate'
-    Plug 'marcushwz/nvim-workbench'
     Plug 'folke/zen-mode.nvim'
+    Plug 'kyazdani42/nvim-tree.lua'
 
     " tab & lines
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
-    Plug 'romgrk/barbar.nvim'
+    " Plug 'romgrk/barbar.nvim'
  
-    " LSP
+    " lsp
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
     Plug 'glepnir/lspsaga.nvim'
     Plug 'folke/lsp-trouble.nvim'
     Plug 'kosayoda/nvim-lightbulb'
-
-    " Syntax
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
     " git
     Plug 'lewis6991/gitsigns.nvim'
@@ -75,5 +66,4 @@ call plug#begin()
     " formater
     Plug 'prettier/vim-prettier', { 'do': 'npm install' }
     Plug 'mhartington/formatter.nvim'
-
  call plug#end()

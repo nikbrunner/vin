@@ -22,6 +22,7 @@ let g:startify_bookmarks = [
             \ '~/.config/limelight/limelightrc',
             \ '~/.config/kitty/kitty.conf',
             \ '~/.config/karabiner/karabiner.json',
+            \ '~/Library/Application\ Support/jesseduffield/lazygit/config.yml',
             \ ]
 
 let g:startify_lists = [

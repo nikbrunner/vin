@@ -1,14 +1,14 @@
 " https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 
 " Some of these are also defined in lspsaga.vim
-nnoremap <silent> gd         <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gD         <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gr         <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> gi         <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gd                 <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD                 <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gr                 <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gi                 <cmd>lua vim.lsp.buf.implementation()<CR>
 " nnoremap <silent> gh         <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gs         <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> ep         <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <silent> en         <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent> gs                 <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <leader>ep         <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> <leader>en         <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 " auto-format
 " autocmd BufWritePre *.html lua vim.lsp.buf.formatting_sync(nil, 100)

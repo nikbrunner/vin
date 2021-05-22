@@ -1,4 +1,4 @@
-" " geometry configuration
+" geometry configuration
 lua require('nvim-peekup.config').geometry["height"] = 0.8
 lua require('nvim-peekup.config').geometry["wrap"] = false
 

@@ -15,7 +15,7 @@ source    $HOME/.config/nvim/plug-config/peekup.vim
 source    $HOME/.config/nvim/plug-config/emmet.vim
 source    $HOME/.config/nvim/plug-config/prettier.vim
 source    $HOME/.config/nvim/plug-config/ultisnips.vim
-source    $HOME/.config/nvim/plug-config/barbar.vim
+" source    $HOME/.config/nvim/plug-config/barbar.vim
 
 " lua plugins
 luafile   $HOME/.config/nvim/plug-config/treesitter.lua
@@ -30,7 +30,6 @@ luafile   $HOME/.config/nvim/plug-config/autotags.lua
 luafile   $HOME/.config/nvim/plug-config/formatter.lua
 luafile   $HOME/.config/nvim/plug-config/rooter.lua
 luafile   $HOME/.config/nvim/plug-config/zen-mode.lua
-" luafile   $HOME/.config/nvim/plug-config/nord.lua
 
 " lsp 
 source    $HOME/.config/nvim/plug-config/lsp/lsp-config.vim

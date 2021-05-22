@@ -6,19 +6,35 @@ local fileinfo = require('galaxyline.provider_fileinfo')
 
 gl.short_line_list = {'NvimTree', 'vista', 'dbui', 'packer', 'startify'}
 
+-- NVCode/DarkPlus
+-- local colors = {
+--     bg = '#22272e',
+--     section_bg = '#3D434F',
+--     fg = '#f8f8f2',
+--     grey = "#545454",
+--     blue = '#8be9fd',
+--     yellow = '#ffc44c',
+--     orange = '#ffae57',
+--     red = '#ff5555',
+--     magenta = '#ff79c6',
+--     cyan = '#59c2ff',
+--     green = '#39d353'
+-- }
+
+-- Darcula
 local colors = {
     bg = '#22272e',
     section_bg = '#3D434F',
     fg = '#f8f8f2',
-    grey = "#545454",
-
-    blue = '#8be9fd',
-    yellow = '#ffc44c',
-    orange = '#ffae57',
-    red = '#ff5555',
-    magenta = '#ff79c6',
-    cyan = '#59c2ff',
-    green = '#39d353'
+    grey = '#545454',
+    blue = '#75A8F0',
+    yellow = '#FFC66B',
+    orange = '#CD7832',
+    red = '#E74946',
+    magenta = '#D194C7',
+    purple = '#6E4A82',
+    cyan = '#299999',
+    green = '#8FA867'
 }
 
 local mode_color = function()
@@ -107,8 +123,12 @@ gls.left[i] = {
                 v = 'VISUAL ',
                 R = 'REPLACE'
             }
-            vim.api.nvim_command('hi GalaxyViMode guifg=' .. mode_color() .. ' gui=bold')
-            return '  ' .. alias[vim.fn.mode()]
+            if (alias[vim.fn.mode()] == nil or alias[vim.fn.mode()] == '') then
+              return ""
+            else 
+              vim.api.nvim_command('hi GalaxyViMode guifg=' .. mode_color() .. ' gui=bold')
+              return '  ' .. alias[vim.fn.mode()]
+            end
         end,
         highlight = {colors.bg, colors.bg},
         separator = icons.sep.left,

@@ -18,3 +18,4 @@ nnoremap <silent> <C-s>             :BufferPick<CR>
 " Sort automatically by...
 nnoremap <silent> <Space>bd         :BufferOrderByDirectory<CR>
 nnoremap <silent> <Space>bl         :BufferOrderByLanguage<CR>
+
