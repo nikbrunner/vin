@@ -22,19 +22,35 @@ gl.short_line_list = {'NvimTree', 'vista', 'dbui', 'packer', 'startify'}
 -- }
 
 -- Darcula
+-- local colors = {
+--     bg = '#22272e',
+--     section_bg = '#3D434F',
+--     fg = '#f8f8f2',
+--     grey = '#545454',
+--     blue = '#75A8F0',
+--     yellow = '#FFC66B',
+--     orange = '#CD7832',
+--     red = '#E74946',
+--     magenta = '#D194C7',
+--     purple = '#6E4A82',
+--     cyan = '#299999',
+--     green = '#8FA867'
+-- }
+
+-- GitHub Dark
 local colors = {
-    bg = '#22272e',
-    section_bg = '#3D434F',
-    fg = '#f8f8f2',
-    grey = '#545454',
-    blue = '#75A8F0',
-    yellow = '#FFC66B',
+    bg = '#0d1117',
+    section_bg = '#2D333B',
+    fg = '#ADBAC7',
+    grey = '#2D333B',
+    blue = '#6CB6FF',
+    yellow = '#DAAA3F',
     orange = '#CD7832',
-    red = '#E74946',
-    magenta = '#D194C7',
+    red = '#F47067',
+    magenta = '#DCBDFB',
     purple = '#6E4A82',
-    cyan = '#299999',
-    green = '#8FA867'
+    cyan = '#96D0FF',
+    green = '#8DDB8C'
 }
 
 local mode_color = function()
