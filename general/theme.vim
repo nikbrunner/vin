@@ -43,8 +43,9 @@ function! SetThemeDarcula()
   hi EndOfBuffer                     guibg=#22272e
   hi SignColumn                      guibg=NONE
   hi VertSplit                       guibg=NONE
-  hi TabLineFill                     guibg=NONE
-  hi TabLine                         guibg=NONE
+  " hi TabLineFill                     guibg=NONE
+  " hi TabLine                         guibg=NONE
+  " hi TabLine                         guibg=NONE
   hi Comment                         gui=italic
   hi Conditional                     gui=italic
   hi Statement                       gui=italic,bold
@@ -71,6 +72,14 @@ function! SetThemeGitHubDark()
   hi Normal                          guibg=NONE
   hi EndOfBuffer                     guibg=NONE
   hi VertSplit                       guibg=NONE
+  hi TabLineFill                     guibg=#0d1117
+  hi BufferCurrent                                 guifg=#8DDB8C
+  hi BufferInactive                  guibg=#2D333B
+  hi BufferInactiveMod               guibg=#2D333B
+  hi BufferInactiveSign              guibg=#2D333B
+  hi BufferInactiveTarget            guibg=#2D333B
+  hi BufferTabpageFill               guibg=#0d1117
+  hi BufferTabpages                  guibg=#0d1117
   hi Comment                         gui=italic
   hi Conditional                     gui=italic
   hi Statement                       gui=italic,bold

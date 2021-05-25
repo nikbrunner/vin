@@ -49,7 +49,7 @@ call plug#begin()
 
     " tab & lines
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
-    " Plug 'romgrk/barbar.nvim'
+    Plug 'romgrk/barbar.nvim'
  
     " lsp
     Plug 'neovim/nvim-lspconfig'
