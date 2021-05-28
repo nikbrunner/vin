@@ -39,6 +39,7 @@ set timeoutlen=750
 set signcolumn=yes
 " set wildmode=longest,list,full
 set splitbelow splitright
+set fillchars=eob:\ ,
 
 if executable("rg") 
     set grepprg=rg\ --vimgrep 
