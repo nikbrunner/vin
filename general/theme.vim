@@ -72,6 +72,7 @@ function! SetThemeGitHubDark()
   hi Normal                          guibg=NONE
   hi EndOfBuffer                     guibg=NONE
   hi VertSplit                       guibg=NONE
+  hi SignColumn                      guibg=NONE
   hi TabLineFill                     guibg=#0d1117
   hi BufferCurrent                                 guifg=#8DDB8C
   hi BufferInactive                  guibg=#2D333B

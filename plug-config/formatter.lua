@@ -58,12 +58,6 @@ require('formatter').setup({
   }
 })
 
-
--- vim.api.nvim_command [[augroup Format]]
--- vim.api.nvim_comand [[autocmd! * <buffer>]]
--- vim.api.nvim_command [[autocmd BufWritePost <buffer> FormatWrite]]
--- vim.api.nvim_command [[augroup END]]
-
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!

@@ -13,7 +13,6 @@ source    $HOME/.config/nvim/plug-config/lazygit.vim
 source    $HOME/.config/nvim/plug-config/nvimtree.vim
 source    $HOME/.config/nvim/plug-config/peekup.vim
 source    $HOME/.config/nvim/plug-config/emmet.vim
-source    $HOME/.config/nvim/plug-config/prettier.vim
 source    $HOME/.config/nvim/plug-config/ultisnips.vim
 source    $HOME/.config/nvim/plug-config/barbar.vim
 
