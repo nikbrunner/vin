@@ -25,6 +25,7 @@ set lazyredraw
 " set nocursorline
 set cursorline
 " set cursorcolumn
+" set colorcolumn=25,50,75,100 
 set incsearch
 set nohlsearch
 set scrolloff=16

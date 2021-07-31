@@ -12,6 +12,7 @@ call plug#begin()
     Plug 'rktjmp/lush.nvim'
     Plug 'briones-gabriel/darcula-solid.nvim'
     Plug '1612492/github.vim'
+    Plug 'projekt0n/github-nvim-theme'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'ryanoasis/vim-devicons'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -34,7 +35,6 @@ call plug#begin()
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'reedes/vim-pencil'
     Plug 'mhinz/vim-startify'
-    Plug 'karb94/neoscroll.nvim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
     Plug 'mileszs/ack.vim'
     Plug 'mattn/emmet-vim'
