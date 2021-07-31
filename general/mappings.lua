@@ -1,6 +1,7 @@
 local remap = vim.api.nvim_set_keymap
 local options = { noremap = true, silent = true };
 
+-- TODO Remap keys with a key map like here in lunar.vim (https://github.com/ChristianChiarulli/LunarVim/blob/rolling/lua/keymappings.lua)
 -- vim:leader
 vim.g.mapleader = " "
 
@@ -64,6 +65,7 @@ remap('n', 'v(', '^vf(%', options)
 
 -- vim:plug
 -- ldp-config
+-- TODO: It is probably redundant to call <cmd>lua in a .lua file. Check this out
 remap('n', 'gd',         '<cmd>lua vim.lsp.buf.definition()<CR>', options)
 remap('n', 'gD',         '<cmd>lua vim.lsp.buf.declaration()<CR>', options)
 remap('n', 'gr',         '<cmd>lua vim.lsp.buf.references()<CR>', options)
@@ -72,10 +74,20 @@ remap('n', 'gs',         '<cmd>lua vim.lsp.buf.signature_help()<CR>', options)
 remap('n', '<leader>ep', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', options)
 remap('n', '<leader>en', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', options)
 
--- lsp-saga
+  -- lsp-saga
 remap('n', 'gR',         ':Lspsaga lsp_finder<CR>', options)
 remap('n', 'gh',         ':Lspsaga hover_doc<CR>', options)
 remap('n', 'gp',         ':Lspsaga preview_definition<CR>', options)
 remap('n', '<F2>',       ':Lspsaga rename<CR>', options)
 remap('n', '<M-CR>',     ':Lspsaga code_action<CR>', options)
 remap('v', '<M-CR>',     ':Lspsaga range_code_action<CR>', options)
+
+-- barbar
+remap('n', '≤',          ':BufferPrevious<CR>', options)
+remap('n', '≥',           ':BufferNext<CR>', options)
+remap('n', '¯',          ':BufferMovePrevious<CR>', options)
+remap('n', '˘',          ':BufferMoveNext<CR>', options)
+remap('n', '<leader>qo', ':BufferCloseAllButCurrent<CR>', options)
+remap('n', '<C-s>',      ':BufferPick<CR>', options)
+remap('n', '<leader>bd', ':BufferOrderByDirectory<CR>', options)
+remap('n', '<leader>bl', ':BufferOrderByLanguage<CR>', options)
