@@ -3,7 +3,6 @@ source    $HOME/.config/nvim/general/plugins.vim
 
 " vim plugins
 source    $HOME/.config/nvim/plug-config/highlightedyank.vim
-source    $HOME/.config/nvim/plug-config/colorizer.vim
 source    $HOME/.config/nvim/plug-config/pencil.vim
 source    $HOME/.config/nvim/plug-config/startify.vim
 source    $HOME/.config/nvim/plug-config/markdown-preview.vim
@@ -27,6 +26,7 @@ luafile   $HOME/.config/nvim/plug-config/formatter.lua
 luafile   $HOME/.config/nvim/plug-config/rooter.lua
 luafile   $HOME/.config/nvim/plug-config/zen-mode.lua
 luafile   $HOME/.config/nvim/plug-config/github-nvim.lua
+luafile   $HOME/.config/nvim/plug-config/colorizer.lua
 
 " lsp 
 luafile   $HOME/.config/nvim/plug-config/lsp/ts.lua
