@@ -1,4 +1,3 @@
-
 filetype plugin on
 
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -9,9 +8,6 @@ endif
 
 call plug#begin()
     " appereance
-    Plug 'rktjmp/lush.nvim'
-    Plug 'briones-gabriel/darcula-solid.nvim'
-    Plug '1612492/github.vim'
     Plug 'projekt0n/github-nvim-theme'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'ryanoasis/vim-devicons'
@@ -22,8 +18,6 @@ call plug#begin()
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzy-native.nvim'
-    Plug 'sudormrfbin/cheatsheet.nvim'
-
     Plug 'oberblastmeister/rooter.nvim'
     Plug 'mbbill/undotree'
     Plug 'tpope/vim-commentary'
@@ -33,11 +27,9 @@ call plug#begin()
     Plug 'machakann/vim-highlightedyank'
     Plug 'mg979/vim-visual-multi', {'branch': 'master'}
     Plug 'norcalli/nvim-colorizer.lua'
-    Plug 'reedes/vim-pencil'
     Plug 'mhinz/vim-startify'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
     Plug 'mileszs/ack.vim'
-    Plug 'mattn/emmet-vim'
     Plug 'MattesGroeger/vim-bookmarks'
     Plug 'gennaro-tedesco/nvim-peekup'
     Plug 'SirVer/ultisnips'
@@ -57,9 +49,8 @@ call plug#begin()
     Plug 'hrsh7th/nvim-compe'
     Plug 'glepnir/lspsaga.nvim'
     Plug 'folke/lsp-trouble.nvim'
-    Plug 'kosayoda/nvim-lightbulb'
 
-    " git
+    " git/scm
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'kdheepak/lazygit.nvim'
     Plug 'sindrets/diffview.nvim'

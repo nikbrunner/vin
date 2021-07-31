@@ -64,11 +64,3 @@ function! s:todolist() abort
 endfunction
 
 command! Todolist call        s:todolist()
-
-" maps
-nnoremap <C-q>            :call ToggleQFList(1)<CR>
-
-nnoremap qf               :Ack<Space> 
-nnoremap qt               :Todolist<CR>
-nnoremap qn               :cnext<CR>zz
-nnoremap qp               :cprev<CR>zz

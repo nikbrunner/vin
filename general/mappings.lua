@@ -10,7 +10,7 @@ remap(
   'n', 
   '<leader><C-r>', 
   ':source ~/.config/nvim/init.vim<CR>\\ :echo "NeoVim Config reloaded!"<CR>', 
-  { noremap = true }
+  options
 )
 
 -- vim:adjust or expand defaults
@@ -18,6 +18,17 @@ remap('n', 'H', '^',    options)
 remap('n', 'L', '$',    options)
 remap('n', 'Y', 'y$',   options)
 remap('n', '<leader><leader>', '<C-^>', options)
+remap('n', 'n', 'nzzzv', options)
+remap('n', 'N', 'Nzzzv', options)
+remap('n', 'J', 'mzJ`z', options)
+
+remap('i', ',', ',<c-g>u', options)
+remap('i', '.', '.<c-g>u', options)
+remap('i', '!', '!<c-g>u', options)
+remap('i', '?', '?<c-g>u', options)
+
+remap('v', 'J', ':m +1<CR>gv=gv', options)
+remap('v', 'K', ':m -2<CR>gv=gv', options)
 
 -- vim:splits
 remap('n', '<leader>l',  ':vsp<CR><C-W><C-l>', options)
@@ -63,14 +74,20 @@ remap('n', '<leader>rrb', 'f(da(kf{va{p:w<CR>', options)
 remap('n', 'v{', '^vf{%', options)
 remap('n', 'v(', '^vf(%', options)
 
+-- quickfix
+remap('n', '<C-q>',      ':call ToggleQFList(1)<CR>', options)
+remap('n', 'qf',         ':Ack<Space>', options) 
+remap('n', 'qt',         ':Todolist<CR>', options)
+remap('n', 'qn',         ':cnext<CR>zz', options)
+remap('n', 'qp',         ':cprev<CR>zz', options)
+
 -- vim:plug
--- ldp-config
+-- lsp-config
 -- TODO: It is probably redundant to call <cmd>lua in a .lua file. Check this out
 remap('n', 'gd',         '<cmd>lua vim.lsp.buf.definition()<CR>', options)
 remap('n', 'gD',         '<cmd>lua vim.lsp.buf.declaration()<CR>', options)
 remap('n', 'gr',         '<cmd>lua vim.lsp.buf.references()<CR>', options)
 remap('n', 'gi',         '<cmd>lua vim.lsp.buf.implementation()<CR>', options)
-remap('n', 'gs',         '<cmd>lua vim.lsp.buf.signature_help()<CR>', options)
 remap('n', '<leader>ep', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', options)
 remap('n', '<leader>en', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', options)
 
@@ -84,10 +101,27 @@ remap('v', '<M-CR>',     ':Lspsaga range_code_action<CR>', options)
 
 -- barbar
 remap('n', '≤',          ':BufferPrevious<CR>', options)
-remap('n', '≥',           ':BufferNext<CR>', options)
+remap('n', '≥',          ':BufferNext<CR>', options)
 remap('n', '¯',          ':BufferMovePrevious<CR>', options)
 remap('n', '˘',          ':BufferMoveNext<CR>', options)
 remap('n', '<leader>qo', ':BufferCloseAllButCurrent<CR>', options)
 remap('n', '<C-s>',      ':BufferPick<CR>', options)
 remap('n', '<leader>bd', ':BufferOrderByDirectory<CR>', options)
 remap('n', '<leader>bl', ':BufferOrderByLanguage<CR>', options)
+
+-- telescope
+remap('n', '<C-p>',      '<cmd>Telescope find_files<CR>', options)
+remap('n', '<C-f>',      '<cmd>Telescope live_grep<CR>', options)
+remap('n', '<C-e>',      '<cmd>Telescope buffers<CR>', options)
+remap('n', '<leader>fw', ':lua require("telescope.builtin").grep_string { search = vim.fn.expand("<cword>") }<CR>', options)
+remap('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', options)
+remap('n', '<C-g>',      '<cmd>Telescope git_status<CR>', options)
+
+-- diffview
+remap('n', '<leader>dv', ':DiffviewOpen<CR>', options)
+
+-- lazygit
+remap('n', 'gs',         ':LazyGit<CR>', options)
+
+-- nvim-tree
+remap('n', '<C-b>', ':NvimTreeToggle<CR>', options)
