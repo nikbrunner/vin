@@ -14,6 +14,7 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
 ## Research
 ### Lua
 - [ ] Study [nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide)
+- [ ] Study [Another Guide](https://alpha2phi.medium.com/neovim-init-lua-e80f4f136030)
 - [ ] Study [neovim-init](https://oroques.dev/notes/neovim-init/)
 
 ## Todo
@@ -33,7 +34,6 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
   - [x] `general/spellcheck`
   - [ ] `general/plugins`
     - Only possible with a lua package manager
-    - Setup [packer.nvim](https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/)
 
 ### Plugins
 #### Installed
