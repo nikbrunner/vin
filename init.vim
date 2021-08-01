@@ -1,6 +1,5 @@
 source    $HOME/.config/nvim/core/plugins.vim
 " luafile   $HOME/.config/nvim/core/plugins.lua
-" luafile   $HOME/.config/nvim/plugin/packer_compiled.lua
 
 luafile   $HOME/.config/nvim/core/plugs/lsp/ts.lua
 luafile   $HOME/.config/nvim/core/plugs/lsp/css.lua
@@ -30,4 +29,3 @@ luafile   $HOME/.config/nvim/core/plugs/highlightedyank.lua
 luafile   $HOME/.config/nvim/core/autocmd.lua
 luafile   $HOME/.config/nvim/core/opts.lua
 luafile   $HOME/.config/nvim/core/maps.lua
-
