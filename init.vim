@@ -1,40 +1,33 @@
-source    $HOME/.config/nvim/general/sets.vim
-source    $HOME/.config/nvim/general/plugins.vim
+source    $HOME/.config/nvim/core/plugins.vim
+" luafile   $HOME/.config/nvim/core/plugins.lua
+" luafile   $HOME/.config/nvim/plugin/packer_compiled.lua
 
-" vim plugins
-source    $HOME/.config/nvim/plug-config/highlightedyank.vim
-source    $HOME/.config/nvim/plug-config/startify.vim
-source    $HOME/.config/nvim/plug-config/markdown-preview.vim
-source    $HOME/.config/nvim/plug-config/gitignore.vim
-source    $HOME/.config/nvim/plug-config/lazygit.vim
-source    $HOME/.config/nvim/plug-config/nvimtree.vim
-" source    $HOME/.config/nvim/plug-config/peekup.vim
-source    $HOME/.config/nvim/plug-config/ultisnips.vim
+luafile   $HOME/.config/nvim/core/plugs/lsp/ts.lua
+luafile   $HOME/.config/nvim/core/plugs/lsp/css.lua
+luafile   $HOME/.config/nvim/core/plugs/lsp/bash.lua
 
-" lua plugins
-luafile   $HOME/.config/nvim/plug-config/treesitter.lua
-luafile   $HOME/.config/nvim/plug-config/telescope.lua
-luafile   $HOME/.config/nvim/plug-config/galaxyline.lua
-luafile   $HOME/.config/nvim/plug-config/gitsigns.lua
-luafile   $HOME/.config/nvim/plug-config/compe.lua
-luafile   $HOME/.config/nvim/plug-config/trouble.lua
-luafile   $HOME/.config/nvim/plug-config/autopairs.lua
-luafile   $HOME/.config/nvim/plug-config/autotags.lua
-luafile   $HOME/.config/nvim/plug-config/formatter.lua
-luafile   $HOME/.config/nvim/plug-config/rooter.lua
-luafile   $HOME/.config/nvim/plug-config/zen-mode.lua
-luafile   $HOME/.config/nvim/plug-config/github-nvim.lua
-luafile   $HOME/.config/nvim/plug-config/colorizer.lua
-luafile   $HOME/.config/nvim/plug-config/peekup.lua
+luafile   $HOME/.config/nvim/core/plugs/lsp/lspsaga.lua
+luafile   $HOME/.config/nvim/core/plugs/treesitter.lua
+luafile   $HOME/.config/nvim/core/plugs/telescope.lua
+luafile   $HOME/.config/nvim/core/plugs/galaxyline.lua
+luafile   $HOME/.config/nvim/core/plugs/gitsigns.lua
+luafile   $HOME/.config/nvim/core/plugs/compe.lua
+luafile   $HOME/.config/nvim/core/plugs/trouble.lua
+luafile   $HOME/.config/nvim/core/plugs/autopairs.lua
+luafile   $HOME/.config/nvim/core/plugs/autotags.lua
+luafile   $HOME/.config/nvim/core/plugs/formatter.lua
+luafile   $HOME/.config/nvim/core/plugs/rooter.lua
+luafile   $HOME/.config/nvim/core/plugs/zen-mode.lua
+luafile   $HOME/.config/nvim/core/plugs/github-nvim.lua
+luafile   $HOME/.config/nvim/core/plugs/colorizer.lua
+luafile   $HOME/.config/nvim/core/plugs/peekup.lua
+luafile   $HOME/.config/nvim/core/plugs/dashboard.lua
+luafile   $HOME/.config/nvim/core/plugs/nvimtree.lua
+luafile   $HOME/.config/nvim/core/plugs/ultisnips.lua
+luafile   $HOME/.config/nvim/core/plugs/lazygit.lua
+luafile   $HOME/.config/nvim/core/plugs/highlightedyank.lua
 
-" lsp 
-luafile   $HOME/.config/nvim/plug-config/lsp/ts.lua
-luafile   $HOME/.config/nvim/plug-config/lsp/css.lua
-luafile   $HOME/.config/nvim/plug-config/lsp/bash.lua
-luafile   $HOME/.config/nvim/plug-config/lsp/lspsaga.lua
+luafile   $HOME/.config/nvim/core/autocmd.lua
+luafile   $HOME/.config/nvim/core/opts.lua
+luafile   $HOME/.config/nvim/core/maps.lua
 
-" mappings and settings
-source    $HOME/.config/nvim/general/autocmd.vim
-source    $HOME/.config/nvim/general/spellcheck.vim
-source    $HOME/.config/nvim/general/quickfix.vim
-luafile   $HOME/.config/nvim/general/mappings.lua

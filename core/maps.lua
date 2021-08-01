@@ -2,10 +2,10 @@ local remap = vim.api.nvim_set_keymap
 local options = { noremap = true, silent = true };
 
 -- TODO Remap keys with a key map like here in lunar.vim (https://github.com/ChristianChiarulli/LunarVim/blob/rolling/lua/keymappings.lua)
--- vim:leader
+-- leader
 vim.g.mapleader = " "
 
--- vim:reload
+-- reload
 remap(
   'n', 
   '<leader><C-r>', 
@@ -13,7 +13,7 @@ remap(
   options
 )
 
--- vim:adjust or expand defaults
+-- adjust or expand defaults
 remap('n', 'H', '^',    options)
 remap('n', 'L', '$',    options)
 remap('n', 'Y', 'y$',   options)
@@ -30,7 +30,7 @@ remap('i', '?', '?<c-g>u', options)
 remap('v', 'J', ':m +1<CR>gv=gv', options)
 remap('v', 'K', ':m -2<CR>gv=gv', options)
 
--- vim:splits
+-- splits
 remap('n', '<leader>l',  ':vsp<CR><C-W><C-l>', options)
 remap('n', '<leader>j',  ':sp<CR><C-W><C-j>', options)
 remap('n', '<C-h>',      '<C-w>h', options)
@@ -38,11 +38,11 @@ remap('n', '<C-j>',      '<C-w>j', options)
 remap('n', '<C-k>',      '<C-w>k', options)
 remap('n', '<C-l>',      '<C-w>l', options)
 
--- vim:resize
+-- resize
 remap('n', '<leader>=',  '<C-w>=', options)
 remap('n', '<leader>m',  '<C-w>|', options)
 
--- vim:tabs
+-- tabs
 remap('n', '<TAB>',      ':tabnext<CR>', options)
 remap('n', '<S-TAB>',    ':tabprevious<CR>', options)
 remap('n', '<leader>-',  ':tabm -1<CR>', options)
@@ -60,7 +60,7 @@ remap('n', '<leader>7',  '7gt', options)
 remap('n', '<leader>8',  '8gt', options)
 remap('n', '<leader>9',  '9gt', options)
 
--- vim:custom
+-- custom
 -- console.log()
 remap('n', 'cll', 'oconsole.log("LINE: <C-r>=line(\'.\')<Esc>",);<Esc>O<Esc>jf,a ', options)
 
@@ -113,9 +113,11 @@ remap('n', '<leader>bl', ':BufferOrderByLanguage<CR>', options)
 remap('n', '<C-p>',      '<cmd>Telescope find_files<CR>', options)
 remap('n', '<C-f>',      '<cmd>Telescope live_grep<CR>', options)
 remap('n', '<C-e>',      '<cmd>Telescope buffers<CR>', options)
+remap('n', '<C-y>',      '<cmd>Telescope oldfiles<CR>', options)
 remap('n', '<leader>fw', ':lua require("telescope.builtin").grep_string { search = vim.fn.expand("<cword>") }<CR>', options)
 remap('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', options)
 remap('n', '<C-g>',      '<cmd>Telescope git_status<CR>', options)
+remap('n', '<leader>i',  '<cmd>Telescope ultisnips<CR>', options)
 
 -- diffview
 remap('n', '<leader>dv', ':DiffviewOpen<CR>', options)
@@ -124,4 +126,15 @@ remap('n', '<leader>dv', ':DiffviewOpen<CR>', options)
 remap('n', 'gs',         ':LazyGit<CR>', options)
 
 -- nvim-tree
-remap('n', '<C-b>', ':NvimTreeToggle<CR>', options)
+remap('n', '<C-b>',      ':NvimTreeToggle<CR>', options)
+
+-- dashboard
+remap('n', '<leader>ss', ':<C-u>SessionSave<CR>', options)
+remap('n', '<leader>sl', ':<C-u>SessionLoad<CR>', options)
+
+-- compe
+remap('s', '<Tab>',      'v:lua.tab_complete()', {expr = true})
+remap('i', '<S-Tab>',    'v:lua.s_tab_complete()', {expr = true})
+
+-- zen
+remap('n', '<leader>z', ':ZenMode<CR>', options)

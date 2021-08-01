@@ -7,43 +7,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-    " appereance
-    Plug 'projekt0n/github-nvim-theme'
-    Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-    " workflow
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
-    Plug 'nvim-telescope/telescope-fzy-native.nvim'
-    Plug 'oberblastmeister/rooter.nvim'
-    Plug 'mbbill/undotree'
-    Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-surround'
-    Plug 'chaoren/vim-wordmotion'
-    Plug 'djoshea/vim-autoread'
-    Plug 'machakann/vim-highlightedyank'
-    Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-    Plug 'norcalli/nvim-colorizer.lua'
-    Plug 'mhinz/vim-startify'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
-    Plug 'mileszs/ack.vim'
-    Plug 'MattesGroeger/vim-bookmarks'
-    Plug 'gennaro-tedesco/nvim-peekup'
-    Plug 'SirVer/ultisnips'
-    Plug 'mlaursen/vim-react-snippets'
-    Plug 'windwp/nvim-autopairs'
-    Plug 'windwp/nvim-ts-autotag'
-    Plug 'RRethy/vim-illuminate'
-    Plug 'folke/zen-mode.nvim'
-    Plug 'kyazdani42/nvim-tree.lua'
-
-    " tab & lines
-    Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
-    Plug 'romgrk/barbar.nvim'
- 
     " lsp
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
@@ -55,6 +18,41 @@ call plug#begin()
     Plug 'kdheepak/lazygit.nvim'
     Plug 'sindrets/diffview.nvim'
 
+    " appereance
+    Plug 'projekt0n/github-nvim-theme'
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+    " workflow
+    Plug 'fhill2/telescope-ultisnips.nvim'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope-fzy-native.nvim'
+    Plug 'oberblastmeister/rooter.nvim'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-surround'
+    Plug 'chaoren/vim-wordmotion'
+    Plug 'djoshea/vim-autoread'
+    Plug 'machakann/vim-highlightedyank'
+    Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+    Plug 'norcalli/nvim-colorizer.lua'
+    Plug 'glepnir/dashboard-nvim'
+    Plug 'mileszs/ack.vim'
+    Plug 'MattesGroeger/vim-bookmarks'
+    Plug 'gennaro-tedesco/nvim-peekup'
+    Plug 'SirVer/ultisnips'
+    Plug 'mlaursen/vim-react-snippets'
+    Plug 'windwp/nvim-autopairs'
+    Plug 'windwp/nvim-ts-autotag'
+    Plug 'RRethy/vim-illuminate'
+    Plug 'folke/zen-mode.nvim'
+    Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+    Plug 'romgrk/barbar.nvim'
+    Plug 'kevinhwang91/nvim-bqf'
+ 
     " formater
     Plug 'prettier/vim-prettier', { 'do': 'npm install' }
     Plug 'mhartington/formatter.nvim'
