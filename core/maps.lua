@@ -136,5 +136,10 @@ remap('n', '<leader>sl', ':<C-u>SessionLoad<CR>', options)
 remap('s', '<Tab>',      'v:lua.tab_complete()', {expr = true})
 remap('i', '<S-Tab>',    'v:lua.s_tab_complete()', {expr = true})
 
+-- trouble
+remap("n", "<F8>", "<cmd>LspTroubleToggle<cr>", {silent = true, noremap = true})
+remap("n", "<leader>en", ":lnext<CR>zz", {silent = true, noremap = true})
+remap("n", "<leader>ep", ":lprev<CR>zz", {silent = true, noremap = true})
+
 -- zen
 remap('n', '<leader>z', ':ZenMode<CR>', options)

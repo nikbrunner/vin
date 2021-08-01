@@ -33,7 +33,7 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
   - [x] `general/spellcheck`
   - [ ] `general/plugins`
     - Only possible with a lua package manager
-    - Setup packer.nvim https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/
+    - Setup [packer.nvim](https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/)
 
 ### Plugins
 #### Installed
@@ -75,3 +75,4 @@ hi typescriptBlock                                 guifg=#FFC66B
 - [x] Move all keybinds to `mappings.lua`
 - [x] Zen
 - [x] Try out [Telescope UltiSnips](https://github.com/fhill2/telescope-ultisnips.nvim)
+- [x] Setup mappings for trouble

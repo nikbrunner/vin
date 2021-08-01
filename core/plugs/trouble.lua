@@ -33,9 +33,3 @@ require("trouble").setup {
   },
  use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
 }
-
-local remap = vim.api.nvim_set_keymap
-
-remap("n", "<F8>", "<cmd>LspTroubleToggle<cr>", {silent = true, noremap = true})
-remap("n", "<leader>en", ":lnext<CR>zz", {silent = true, noremap = true})
-remap("n", "<leader>ep", ":lprev<CR>zz", {silent = true, noremap = true})
