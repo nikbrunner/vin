@@ -11,11 +11,14 @@ This is my personal **Neovim** config on which I am working on from time to time
 
 The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for improved Syntax Highlighting.
 
-## Research
+## Links
 ### Lua
 - [ ] Study [nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide)
 - [ ] Study [Another Guide](https://alpha2phi.medium.com/neovim-init-lua-e80f4f136030)
 - [ ] Study [neovim-init](https://oroques.dev/notes/neovim-init/)
+
+### Configs
+- [ ] [brainfucksec/neovim-lua](https://github.com/brainfucksec/neovim-lua)
 
 ## Todo
 ### Keybinds
