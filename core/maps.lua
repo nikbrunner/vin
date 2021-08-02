@@ -74,6 +74,13 @@ remap('n', '<leader>rrb', 'f(da(kf{va{p:w<CR>', options)
 remap('n', 'v{', '^vf{%', options)
 remap('n', 'v(', '^vf(%', options)
 
+-- copy full path
+remap('n', '<leader>cf', ':let @+ = expand("%:p")<CR>', options);
+-- copy relative path
+remap('n', '<leader>cp', ':let @+ = expand("%")<CR>', options);
+-- copy file name
+remap('n', '<leader>cn', ':let @+ = expand("%:t")<CR>', options);
+
 -- quickfix
 remap('n', '<C-q>',      ':call ToggleQFList(1)<CR>', options)
 remap('n', 'qf',         ':Ack<Space>', options) 
