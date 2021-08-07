@@ -6,6 +6,12 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true
   },
+  autotag = {
+    enable = false
+  },
+  autopairs = { 
+    enable = true 
+  },
   ensure_installed = { 
     'javascript', 
     'typescript',
@@ -13,7 +19,6 @@ require'nvim-treesitter.configs'.setup {
     'css',
     'scss',
   },
-  autopairs = { enable = true },
   rainbow = {
     enable = true,
     extended_mode = true
