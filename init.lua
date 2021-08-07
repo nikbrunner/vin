@@ -13,7 +13,6 @@ require "paq" {
   -- appereance
   'projekt0n/github-nvim-theme';
   'kyazdani42/nvim-web-devicons';
-  'ryanoasis/vim-devicons';
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' };
 
   -- workflow
@@ -24,18 +23,10 @@ require "paq" {
   'oberblastmeister/rooter.nvim';
   'tpope/vim-commentary';
   'tpope/vim-surround';
-  'chaoren/vim-wordmotion';
-  'djoshea/vim-autoread';
   'machakann/vim-highlightedyank';
   { 'mg979/vim-visual-multi', branch = 'master' };
   'norcalli/nvim-colorizer.lua';
   'glepnir/dashboard-nvim';
-  'mileszs/ack.vim';
-  'MattesGroeger/vim-bookmarks';
-  'gennaro-tedesco/nvim-peekup';
-  'mlaursen/vim-react-snippets';
-  'windwp/nvim-autopairs';
-  'windwp/nvim-ts-autotag';
   'RRethy/vim-illuminate';
   'folke/zen-mode.nvim';
   'kyazdani42/nvim-tree.lua';
@@ -56,8 +47,6 @@ require("lsp/bash")
 require("lsp/css")
 require("lsp/ts")
 
-require("plugs/autopairs");
-require("plugs/autotags");
 require("plugs/bqf");
 require("plugs/colorizer");
 require("plugs/compe");
@@ -70,7 +59,6 @@ require("plugs/highlightedyank");
 require("plugs/lazygit");
 require("plugs/lspsaga")
 require("plugs/nvimtree");
-require("plugs/peekup");
 require("plugs/rooter");
 require("plugs/telescope");
 require("plugs/treesitter");
