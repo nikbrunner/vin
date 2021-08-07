@@ -1,43 +1,4 @@
-require "paq" {
-  'savq/paq-nvim';
-  'neovim/nvim-lspconfig';
-  'hrsh7th/nvim-compe';
-  'glepnir/lspsaga.nvim';
-  'folke/lsp-trouble.nvim';
-
-  -- git/scm
-  'lewis6991/gitsigns.nvim';
-  'kdheepak/lazygit.nvim';
-  'sindrets/diffview.nvim';
-
-  -- appereance
-  'projekt0n/github-nvim-theme';
-  'kyazdani42/nvim-web-devicons';
-  { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' };
-
-  -- workflow
-  'nvim-lua/popup.nvim';
-  'nvim-lua/plenary.nvim';
-  'nvim-telescope/telescope.nvim';
-  'nvim-telescope/telescope-fzy-native.nvim';
-  'oberblastmeister/rooter.nvim';
-  'tpope/vim-commentary';
-  'tpope/vim-surround';
-  'machakann/vim-highlightedyank';
-  { 'mg979/vim-visual-multi', branch = 'master' };
-  'norcalli/nvim-colorizer.lua';
-  'glepnir/dashboard-nvim';
-  'RRethy/vim-illuminate';
-  'folke/zen-mode.nvim';
-  'kyazdani42/nvim-tree.lua';
-  { 'glepnir/galaxyline.nvim' , branch = 'main' };
-  'romgrk/barbar.nvim';
-  'kevinhwang91/nvim-bqf';
-
-  -- formater
-  { 'prettier/vim-prettier', run = 'npm install' };
-  'mhartington/formatter.nvim';
-}
+require("plugins");
 
 require("autocmd");
 require("maps");
@@ -47,20 +8,20 @@ require("lsp/bash")
 require("lsp/css")
 require("lsp/ts")
 
-require("plugs/bqf");
-require("plugs/colorizer");
-require("plugs/compe");
-require("plugs/dashboard");
-require("plugs/formatter");
-require("plugs/galaxyline");
-require("plugs/github-nvim");
-require("plugs/gitsigns");
-require("plugs/highlightedyank");
-require("plugs/lazygit");
-require("plugs/lspsaga")
-require("plugs/nvimtree");
-require("plugs/rooter");
-require("plugs/telescope");
-require("plugs/treesitter");
-require("plugs/trouble");
-require("plugs/zen-mode");
+require("plug-config/bqf");
+require("plug-config/colorizer");
+require("plug-config/compe");
+require("plug-config/dashboard");
+require("plug-config/formatter");
+require("plug-config/galaxyline");
+require("plug-config/github-nvim");
+require("plug-config/gitsigns");
+require("plug-config/highlightedyank");
+require("plug-config/lazygit");
+require("plug-config/lspsaga")
+require("plug-config/nvimtree");
+require("plug-config/rooter");
+require("plug-config/telescope");
+require("plug-config/treesitter");
+require("plug-config/trouble");
+require("plug-config/zen-mode");
