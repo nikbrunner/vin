@@ -1,4 +1,5 @@
 require "paq" {
+  'savq/paq-nvim';
   'neovim/nvim-lspconfig';
   'hrsh7th/nvim-compe';
   'glepnir/lspsaga.nvim';
@@ -20,7 +21,6 @@ require "paq" {
   'nvim-lua/plenary.nvim';
   'nvim-telescope/telescope.nvim';
   'nvim-telescope/telescope-fzy-native.nvim';
-  'fhill2/telescope-ultisnips.nvim';
   'oberblastmeister/rooter.nvim';
   'tpope/vim-commentary';
   'tpope/vim-surround';
@@ -33,7 +33,6 @@ require "paq" {
   'mileszs/ack.vim';
   'MattesGroeger/vim-bookmarks';
   'gennaro-tedesco/nvim-peekup';
-  'SirVer/ultisnips';
   'mlaursen/vim-react-snippets';
   'windwp/nvim-autopairs';
   'windwp/nvim-ts-autotag';
@@ -76,5 +75,4 @@ require("plugs/rooter");
 require("plugs/telescope");
 require("plugs/treesitter");
 require("plugs/trouble");
-require("plugs/ultisnips");
 require("plugs/zen-mode");
