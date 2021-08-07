@@ -9,7 +9,7 @@ vim.g.mapleader = " "
 remap(
   'n', 
   '<leader><C-r>', 
-  ':source ~/.config/nvim/init.vim<CR>\\ :echo "NeoVim Config reloaded!"<CR>', 
+  ':so ~/.config/nvim/init.lua<CR>\\ :echo "NeoVim Config reloaded!"<CR>', 
   options
 )
 
