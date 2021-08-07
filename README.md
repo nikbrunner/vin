@@ -11,71 +11,16 @@ This is my personal **Neovim** config on which I am working on from time to time
 
 The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for improved Syntax Highlighting.
 
-## Links
-### Lua
-- [ ] Study [nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide)
-- [ ] Study [Another Guide](https://alpha2phi.medium.com/neovim-init-lua-e80f4f136030)
-- [ ] Study [neovim-init](https://oroques.dev/notes/neovim-init/)
-
-### Configs
-- [ ] [brainfucksec/neovim-lua](https://github.com/brainfucksec/neovim-lua)
-
 ## Todo
-### Keybinds
-- [ ] Shift Lines in all modes
+### Improve Performance
+- Startup Time
+- Telescope
+  - Initial loading time
+  - During fuzzy find
+- Treesitter 
+  
+## Useful Links
+- Study [nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide)
+- Study [Another Guide](https://alpha2phi.medium.com/neovim-init-lua-e80f4f136030)
+- Study [neovim-init](https://oroques.dev/notes/neovim-init/)
 
-### Lua
-- [ ] Convert to **Lua**
-  - [x] `highlightedyank`
-  - [x] `markdown-preview`
-  - [x] `gitignore`
-  - [x] `lazygit`
-  - [x] `ultisnips`
-  - [x] `general/sets`
-  - [x] `general/quickfix`
-    - Replace with [nvim-bqf](https://github.com/kevinhwang91/nvim-bqf) 
-  - [x] `general/spellcheck`
-  - [ ] `general/plugins`
-    - Only possible with a lua package manager
-
-### Plugins
-#### Installed
-- [ ] Purge everything redundant
-- [ ] Make completion more intuitive or train more
-
-#### New
-- [ ] Lua LSP
-- [ ] Install [LuaPad](https://github.com/rafcamlet/nvim-luapad)
-
-### Appearence
-- [ ] Improve Highlighting for JSX/TSX tags
-
-#### Syntax Highlights
-These worked in the past
-```viml
-hi typescriptVariable              gui=italic,bold guifg=#CD7832
-hi typescriptVariableDeclaration   gui=italic,bold guifg=#569cd6
-hi typescriptInterfaceName         gui=bold        guifg=#6E4A82
-hi typescriptInterfaceKeyword      gui=italic,bold guifg=#CD7832
-hi typescriptTypeReference         gui=italic,bold guifg=#6E4A82
-hi typescriptPredefinedType        gui=italic      guifg=#6E4A82
-hi typescriptImport                gui=italic,bold guifg=#CD7832
-hi typescriptExport                gui=italic,bold guifg=#CD7832
-hi typescriptBlock                                 guifg=#FFC66B
-```
-
-### Done
-- [x] [[Visual Studio Code]] Vim Setup aufräumen
-- [x] Linux [[Vim]] Setup aufräumen und testen
-- [x] [[OniVim]] updaten
-- [x] Install [GitHub Nvim Theme](https://github.com/projekt0n/github-nvim-theme) 
-- [x] Fix Prettier/Formating
-  - https://github.com/mhartington/formatter.nvim
-  - https://github.com/fsouza/prettierd
-- [x] Setup [vim-react-snippets](https://github.com/mlaursen/vim-react-snippets#usestate)
-- [x] Implement `https://github.com/glepnir/dashboard-nvim`
-- [x] Convert `nvim-tree` config to lua
-- [x] Move all keybinds to `mappings.lua`
-- [x] Zen
-- [x] Try out [Telescope UltiSnips](https://github.com/fhill2/telescope-ultisnips.nvim)
-- [x] Setup mappings for trouble
