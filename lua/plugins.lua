@@ -16,6 +16,7 @@ require "paq" {
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' };
 
   -- workflow
+  'djoshea/vim-autoread';
   'nvim-lua/popup.nvim';
   'nvim-lua/plenary.nvim';
   'nvim-telescope/telescope.nvim';
