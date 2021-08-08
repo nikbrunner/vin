@@ -8,7 +8,6 @@ require "paq" {
   -- git/scm
   'lewis6991/gitsigns.nvim';
   'kdheepak/lazygit.nvim';
-  'sindrets/diffview.nvim';
 
   -- appereance
   'projekt0n/github-nvim-theme';
@@ -33,7 +32,6 @@ require "paq" {
   'kyazdani42/nvim-tree.lua';
   { 'glepnir/galaxyline.nvim' , branch = 'main' };
   'romgrk/barbar.nvim';
-  'kevinhwang91/nvim-bqf';
 
   -- formater
   { 'prettier/vim-prettier', run = 'npm install' };

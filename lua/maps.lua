@@ -64,55 +64,42 @@ remap('n', '<leader>9',  '9gt', options)
 -- console.log()
 remap('n', 'cll', 'oconsole.log("LINE: <C-r>=line(\'.\')<Esc>",);<Esc>O<Esc>jf,a ', options)
 
--- refactor Add Braces to convert function to explicit return 
-remap('n', '<leader>rab', 'f(da(i{}<Esc>i<CR><Esc>Oreturn <Esc>p:w<CR>', options)
-
--- refactor Remove Braces to convert function to implicit return
-remap('n', '<leader>rrb', 'f(da(kf{va{p:w<CR>', options)
-
 -- select Block starting with curly brace or parenthesis
 remap('n', 'v{', '^vf{%', options)
 remap('n', 'v(', '^vf(%', options)
 
 -- copy full path
-remap('n', '<leader>cf', ':let @+ = expand("%:p")<CR>', options);
+remap('n', '<leader>cpf', ':let @+ = expand("%:p")<CR>', options);
 -- copy relative path
-remap('n', '<leader>cp', ':let @+ = expand("%")<CR>', options);
+remap('n', '<leader>cpp', ':let @+ = expand("%")<CR>', options);
 -- copy file name
-remap('n', '<leader>cn', ':let @+ = expand("%:t")<CR>', options);
+remap('n', '<leader>cpn', ':let @+ = expand("%:t")<CR>', options);
 
 -- quickfix
-remap('n', '<C-q>',      ':call ToggleQFList(1)<CR>', options)
-remap('n', 'qf',         ':Ack<Space>', options) 
-remap('n', 'qt',         ':Todolist<CR>', options)
-remap('n', 'qn',         ':cnext<CR>zz', options)
-remap('n', 'qp',         ':cprev<CR>zz', options)
+remap('n', '<C-q>',      ':copen<CR>', options) -- TODO We need a plugin or native function to toggle the quickfix list
+remap('n', ']q',         ':cnext<CR>zz', options)
+remap('n', '[q',         ':cprev<CR>zz', options)
 
 -- vim:plug
 -- lsp-config
--- TODO: It is probably redundant to call <cmd>lua in a .lua file. Check this out
 remap('n', 'gd',         '<cmd>lua vim.lsp.buf.definition()<CR>', options)
-remap('n', 'gD',         '<cmd>lua vim.lsp.buf.declaration()<CR>', options)
-remap('n', 'gr',         '<cmd>lua vim.lsp.buf.references()<CR>', options)
-remap('n', 'gi',         '<cmd>lua vim.lsp.buf.implementation()<CR>', options)
-remap('n', '<leader>ep', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', options)
-remap('n', '<leader>en', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', options)
 
-  -- lsp-saga
-remap('n', 'gR',         ':Lspsaga lsp_finder<CR>', options)
+-- lsp-saga
+remap('n', 'gD',         ':Lspsaga preview_definition<CR>', options)
+remap('n', 'gr',         ':Lspsaga lsp_finder<CR>', options)
 remap('n', 'gh',         ':Lspsaga hover_doc<CR>', options)
 remap('n', 'gp',         ':Lspsaga preview_definition<CR>', options)
 remap('n', '<F2>',       ':Lspsaga rename<CR>', options)
 remap('n', '<M-CR>',     ':Lspsaga code_action<CR>', options)
 remap('v', '<M-CR>',     ':Lspsaga range_code_action<CR>', options)
+remap('n', ']e',         ':Lspsaga diagnostic_jump_next<CR>', options)
+remap('n', '[e',         ':Lspsaga diagnostic_jump_prev<CR>', options)
 
 -- barbar
-remap('n', '≤',          ':BufferPrevious<CR>', options)
-remap('n', '≥',          ':BufferNext<CR>', options)
-remap('n', '¯',          ':BufferMovePrevious<CR>', options)
-remap('n', '˘',          ':BufferMoveNext<CR>', options)
+remap('n', '[b',         ':BufferPrevious<CR>', options)
+remap('n', ']b',         ':BufferNext<CR>', options)
 remap('n', '<leader>qo', ':BufferCloseAllButCurrent<CR>', options)
-remap('n', '<C-s>',      ':BufferPick<CR>', options)
+remap('n', '<leader>bp', ':BufferPick<CR>', options)
 remap('n', '<leader>bd', ':BufferOrderByDirectory<CR>', options)
 remap('n', '<leader>bl', ':BufferOrderByLanguage<CR>', options)
 
@@ -120,14 +107,10 @@ remap('n', '<leader>bl', ':BufferOrderByLanguage<CR>', options)
 remap('n', '<C-p>',      '<cmd>Telescope find_files<CR>', options)
 remap('n', '<C-f>',      '<cmd>Telescope live_grep<CR>', options)
 remap('n', '<C-e>',      '<cmd>Telescope buffers<CR>', options)
+remap('n', '<C-g>',      '<cmd>Telescope git_status<CR>', options)
 remap('n', '<C-y>',      '<cmd>Telescope oldfiles<CR>', options)
 remap('n', '<leader>fw', ':lua require("telescope.builtin").grep_string { search = vim.fn.expand("<cword>") }<CR>', options)
 remap('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', options)
-remap('n', '<C-g>',      '<cmd>Telescope git_status<CR>', options)
-remap('n', '<leader>i',  '<cmd>Telescope ultisnips<CR>', options)
-
--- diffview
-remap('n', '<leader>dv', ':DiffviewOpen<CR>', options)
 
 -- lazygit
 remap('n', 'gs',         ':LazyGit<CR>', options)
@@ -144,9 +127,7 @@ remap('s', '<Tab>',      'v:lua.tab_complete()', {expr = true})
 remap('i', '<S-Tab>',    'v:lua.s_tab_complete()', {expr = true})
 
 -- trouble
-remap("n", "<F8>", "<cmd>LspTroubleToggle<cr>", {silent = true, noremap = true})
-remap("n", "<leader>en", ":lnext<CR>zz", {silent = true, noremap = true})
-remap("n", "<leader>ep", ":lprev<CR>zz", {silent = true, noremap = true})
+remap("n", "<F8>",       "<cmd>LspTroubleToggle<cr>", options)
 
 -- zen
 remap('n', '<leader>z', ':ZenMode<CR>', options)

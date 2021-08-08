@@ -12,7 +12,6 @@ require("lsp/css")
 require("lsp/ts")
 
 -- plug-config
-require("plug-config/bqf");
 require("plug-config/colorizer");
 require("plug-config/compe");
 require("plug-config/dashboard");

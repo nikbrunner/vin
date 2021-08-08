@@ -5,7 +5,15 @@ This is my personal **Neovim** config on which I am working on from time to time
 The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for improved Syntax Highlighting.
 
 ## Todo
-### Improve Performance
+- [ ] Try out Packer
+
+### Quick Fix List
+- Shortcut to toggle Quick Fix List
+  - Self Written Function
+  - Try out with a Plugin 
+    - [qf_helper.nvim](https://github.com/stevearc/qf_helper.nvim) 
+
+### Improve Performance on Mac
 - Startup Time
 - Telescope
   - Initial loading time
