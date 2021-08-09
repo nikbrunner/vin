@@ -6,6 +6,7 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
 
 ## Todo
 - [ ] Try out Packer
+- [ ] Fix auto read
 
 ### Quick Fix List
 - Shortcut to toggle Quick Fix List
