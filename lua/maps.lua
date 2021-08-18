@@ -9,7 +9,7 @@ vim.g.mapleader = " "
 remap(
   'n', 
   '<leader><C-r>', 
-  ':so ~/.config/nvim/init.lua<CR>\\ :echo "NeoVim Config reloaded!"<CR>', 
+  ':luafile ~/.config/nvim/init.lua<CR>\\ :echo "NeoVim Config reloaded!"<CR>', 
   options
 )
 
@@ -77,7 +77,18 @@ remap('n', '<leader>cpp', ':let @+ = expand("%")<CR>', options);
 remap('n', '<leader>cpn', ':let @+ = expand("%:t")<CR>', options);
 
 -- quickfix
-remap('n', '<C-q>',      ':copen<CR>', options) -- TODO We need a plugin or native function to toggle the quickfix list
+-- TODO convert to lua
+vim.cmd[[
+function! ToggleQuickFix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        copen
+    else
+        cclose
+    endif
+endfunction
+]]
+
+remap('n', '<C-q>',      ':call ToggleQuickFix()<CR>', options)
 remap('n', ']q',         ':cnext<CR>zz', options)
 remap('n', '[q',         ':cprev<CR>zz', options)
 
@@ -95,6 +106,11 @@ remap('n', '<M-CR>',     ':Lspsaga code_action<CR>', options)
 remap('v', '<M-CR>',     ':Lspsaga range_code_action<CR>', options)
 remap('n', ']e',         ':Lspsaga diagnostic_jump_next<CR>', options)
 remap('n', '[e',         ':Lspsaga diagnostic_jump_prev<CR>', options)
+
+-- bookmarks
+remap('n', ']m',         ':BookmarkNext<CR>', options)
+remap('n', '[m',         ':BookmarkPrev<CR>', options)
+remap('n', 'ml',         ':BookmarkAnnotate<CR>', options)
 
 -- barbar
 remap('n', '[b',         ':BufferPrevious<CR>', options)
