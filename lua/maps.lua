@@ -6,12 +6,7 @@ local options = { noremap = true, silent = true };
 vim.g.mapleader = " "
 
 -- reload
-remap(
-  'n', 
-  '<leader><C-r>', 
-  ':luafile ~/.config/nvim/init.lua<CR>\\ :echo "NeoVim Config reloaded!"<CR>', 
-  options
-)
+remap( 'n', '<leader><C-r>', ':luafile ~/.config/nvim/init.lua<CR>', options)
 
 -- adjust or expand defaults
 remap('n', 'H', '^',    options)
