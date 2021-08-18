@@ -7,12 +7,13 @@ The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for impro
 ## Todo
 - [ ] Try out Packer
 - [ ] Fix auto read
+- [ ] [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 
 ### Quick Fix List
-- Shortcut to toggle Quick Fix List
-  - Self Written Function
-  - Try out with a Plugin 
-    - [qf_helper.nvim](https://github.com/stevearc/qf_helper.nvim) 
+- [ ] Shortcut to toggle Quick Fix List
+- [ ] Try out with a Plugin 
+  - [qf_helper.nvim](https://github.com/stevearc/qf_helper.nvim) 
+  - [nvim-bqf](https://github.com/kevinhwang91/nvim-bqf)
 
 ### Improve Performance on Mac
 - Startup Time
