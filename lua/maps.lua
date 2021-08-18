@@ -21,6 +21,7 @@ remap('n', '<leader><leader>', '<C-^>', options)
 remap('n', 'n', 'nzzzv', options)
 remap('n', 'N', 'Nzzzv', options)
 remap('n', 'J', 'mzJ`z', options)
+remap('n', 'vv','^v$',   options)
 
 remap('i', ',', ',<c-g>u', options)
 remap('i', '.', '.<c-g>u', options)
