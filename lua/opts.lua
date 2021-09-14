@@ -29,7 +29,7 @@ local options = {
   foldmethod = "indent",
   foldlevel = 10,
   cmdheight = 1,
-  timeoutlen = 750,
+  timeoutlen = 100,
   signcolumn = "yes" ,
   splitbelow = true,
   splitright = true,
@@ -44,4 +44,3 @@ if executable("rg")
   set grepprg=rg\ --vimgrep 
 endif
 ]]
-
