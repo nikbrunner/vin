@@ -38,19 +38,35 @@ gl.short_line_list = {'NvimTree', 'vista', 'dbui', 'packer', 'startify'}
 -- }
 
 -- GitHub Dark
+-- local colors = {
+--     bg = '#0d1117',
+--     section_bg = '#2D333B',
+--     fg = '#ADBAC7',
+--     grey = '#2D333B',
+--     blue = '#6CB6FF',
+--     yellow = '#DAAA3F',
+--     orange = '#CD7832',
+--     red = '#F47067',
+--     magenta = '#DCBDFB',
+--     purple = '#6E4A82',
+--     cyan = '#96D0FF',
+--     green = '#8DDB8C'
+-- }
+
+-- TokyoNight
 local colors = {
-    bg = '#0d1117',
-    section_bg = '#2D333B',
-    fg = '#ADBAC7',
-    grey = '#2D333B',
-    blue = '#6CB6FF',
-    yellow = '#DAAA3F',
-    orange = '#CD7832',
-    red = '#F47067',
+    bg = '#1a1b26',
+    section_bg = '#1f2335',
+    fg = '#c0caf5',
+    grey = '#a9b1d6',
+    blue = '#7aa2f7',
+    yellow = '#e0af68',
+    orange = '#db4b4b',
+    red = '#f7768e',
     magenta = '#DCBDFB',
-    purple = '#6E4A82',
-    cyan = '#96D0FF',
-    green = '#8DDB8C'
+    purple = '#bb9af7',
+    cyan = '#7dcfff',
+    green = '#73daca'
 }
 
 local mode_color = function()
