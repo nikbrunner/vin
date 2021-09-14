@@ -90,10 +90,10 @@ remap('n', '[q',         ':cprev<CR>zz', options)
 -- vim:plug
 -- lsp-config
 remap('n', 'gd',         '<cmd>lua vim.lsp.buf.definition()<CR>', options)
+remap('n', 'gr',         '<cmd>lua vim.lsp.buf.references()<CR>', options)
 
 -- lsp-saga
 remap('n', 'gD',         ':Lspsaga preview_definition<CR>', options)
-remap('n', 'gr',         ':Lspsaga lsp_finder<CR>', options)
 remap('n', 'gh',         ':Lspsaga hover_doc<CR>', options)
 remap('n', 'gp',         ':Lspsaga preview_definition<CR>', options)
 remap('n', '<F2>',       ':Lspsaga rename<CR>', options)
