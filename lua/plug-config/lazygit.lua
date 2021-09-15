@@ -1,4 +1,10 @@
-vim.g.lazygit_floating_window_winblend = 1 
-vim.g.lazygit_floating_window_scaling_factor = 0.9 
-vim.g.lazygit_floating_window_corner_chars = {'╭', '╮', '╰', '╯'}
-vim.g.lazygit_use_neovim_remote = 1 
+local options = {
+  lazygit_floating_window_winblend = 1,
+  lazygit_floating_window_scaling_factor = 0.9,
+  lazygit_floating_window_corner_chars = {'╭', '╮', '╰', '╯'},
+  lazygit_use_neovim_remote = 1 
+}
+
+for k, v in pairs(options) do
+  vim.g[k] = v
+end

@@ -1,7 +1,6 @@
 local gl = require('galaxyline')
 local gls = gl.section
--- local condition = require('galaxyline.condition')
--- local diagnostic = require('galaxyline.provider_diagnostic')
+
 local fileinfo = require('galaxyline.provider_fileinfo')
 
 gl.short_line_list = {'NvimTree', 'vista', 'dbui', 'packer', 'startify'}

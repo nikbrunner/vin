@@ -1,4 +1,4 @@
-require'lspconfig'.cssls.setup {
+require('lspconfig').cssls.setup {
   cmd = { "css-languageserver", "--stdio" },
   filetypes = { "css", "scss", "less" },
   settings = {
