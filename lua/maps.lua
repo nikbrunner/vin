@@ -99,7 +99,10 @@ local nSingleMaps = {
 
 local nSingleMapsWithLeader = {
   ["/"] = { "<cmd>Commentary<CR>", "Comment" },
+  ["w"] = { "<cmd>w!<CR>", "Save" },
+  ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
+  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["z"] = { "<cmd>ZenMode <CR>", "Zen" },
   ["e"] = { "<cmd>NvimTreeToggle <CR>", "Explorer" },
   ["<leader>"] = { "<C-^>", "Last Buffer" } 
