@@ -6,7 +6,7 @@ local options = {
   dashboard_custom_footer = { "https://nibru.dev" },
   dashboard_custom_section = {
     a = {
-      description = { "  Recent Projects" },
+      description = { "  Recent Projects" },
       command = "Telescope projects",
     },
     b = {
@@ -14,15 +14,15 @@ local options = {
       command = "Telescope oldfiles",
     },
     c = {
-      description = { "  Find File" },
+      description = { "  Find File" },
       command = "Telescope find_files",
     },
     d = {
-      description = { "  New File" },
+      description = { "  New File" },
       command = "DashboardNewFile",
     },
     f = {
-      description = { "  Settings" },
+      description = { "  Settings" },
       command = ":e " .. USER_CONFIG_PATH,
     },
   }
