@@ -27,11 +27,14 @@ remap('n', 'N', 'Nzzzv', options)
 remap('n', 'J', 'mzJ`z', options)
 remap('n', 'vv','^v$',   options)
 
+-- Add undo break points after these symbols
 remap('i', ',', ',<c-g>u', options)
 remap('i', '.', '.<c-g>u', options)
+remap('i', '=', '=<c-g>u', options)
 remap('i', '!', '!<c-g>u', options)
 remap('i', '?', '?<c-g>u', options)
 
+-- Reselect after indent
 remap('v', '<', '<gv', options)
 remap('v', '>', '>gv', options)
 
