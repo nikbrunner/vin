@@ -125,6 +125,7 @@ local nGroupMapsWithLeader = {
     r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
     I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
     p = { "<cmd>LspTroubleToggle<CR>", "Problems View" },
+    s = { "<cmd>LspInfo<CR>", "Status" },
   },
   b = {
     name = "Buffer",
