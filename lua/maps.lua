@@ -211,8 +211,8 @@ local vOptionsWithLeader = {
 }
 
 local vSingleMaps = {
-  ["K"] = { ":m '>+1<CR>gv=gv", "Move Lines Down" },
-  ["J"] = { ":m '<-2<CR>gv=gv", "Move Lines Up" }
+  ["K"] = { ":m '<-2<CR>gv=gv", "Move Lines Up" },
+  ["J"] = { ":m '>+1<CR>gv=gv", "Move Lines Down" }
 }
 
 local vSingleMapsWithLeader = {
