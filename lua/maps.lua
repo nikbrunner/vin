@@ -1,18 +1,27 @@
+local wk = require("which-key")
+
+-- Function to toggle quickfix list
+vim.cmd[[
+function! ToggleQuickFix()
+  if empty(filter(getwininfo(), 'v:val.quickfix'))
+    copen
+  else
+    cclose
+  endif
+endfunction
+]]
+
+-- Define leader key
+vim.g.mapleader = " "
+
 local remap = vim.api.nvim_set_keymap
 local options = { noremap = true, silent = true };
 
--- TODO Remap keys with a key map like here in lunar.vim (https://github.com/ChristianChiarulli/LunarVim/blob/rolling/lua/keymappings.lua)
--- leader
-vim.g.mapleader = " "
-
--- reload
-remap( 'n', '<leader><C-r>', ':luafile ~/.config/nvim/init.lua<CR>', options)
-
--- adjust or expand defaults
+-- Adjust or Expand defaults 
+-- These should not show up in which-key
 remap('n', 'H', '^',    options)
 remap('n', 'L', '$',    options)
 remap('n', 'Y', 'y$',   options)
-remap('n', '<leader><leader>', '<C-^>', options)
 remap('n', 'n', 'nzzzv', options)
 remap('n', 'N', 'Nzzzv', options)
 remap('n', 'J', 'mzJ`z', options)
@@ -23,123 +32,193 @@ remap('i', '.', '.<c-g>u', options)
 remap('i', '!', '!<c-g>u', options)
 remap('i', '?', '?<c-g>u', options)
 
-remap('v', 'J', ':m +1<CR>gv=gv', options)
-remap('v', 'K', ':m -2<CR>gv=gv', options)
+-- Unbind default prettier binding
+remap('n', '<leader>p', '<Nop>', options)
 
--- splits
-remap('n', '<leader>l',  ':vsp<CR><C-W><C-l>', options)
-remap('n', '<leader>j',  ':sp<CR><C-W><C-j>', options)
-remap('n', '<C-h>',      '<C-w>h', options)
-remap('n', '<C-j>',      '<C-w>j', options)
-remap('n', '<C-k>',      '<C-w>k', options)
-remap('n', '<C-l>',      '<C-w>l', options)
+-- [NORMAL] MODE
+local nOptions = {
+  mode = "n", -- NORMAL mode
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
 
--- resize
-remap('n', '<leader>=',  '<C-w>=', options)
-remap('n', '<leader>m',  '<C-w>|', options)
+local nOptionsWithLeader = {
+  mode = "n", -- NORMAL mode
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
 
--- tabs
-remap('n', '<TAB>',      ':tabnext<CR>', options)
-remap('n', '<S-TAB>',    ':tabprevious<CR>', options)
-remap('n', '<leader>-',  ':tabm -1<CR>', options)
-remap('n', '<leader>+',  ':tabm +1<CR>', options)
-remap('n', '<leader>tw', '<C-w>T', options)           -- new tab with current pane
-remap('n', '<leader>to', ':tabnew<CR>', options)      -- new empty tab
-remap('n', '<leader>tc', ':tabclose<CR>', options)    -- close current tab
-remap('n', '<leader>1',  '1gt', options)
-remap('n', '<leader>2',  '2gt', options)
-remap('n', '<leader>3',  '3gt', options)
-remap('n', '<leader>4',  '4gt', options)
-remap('n', '<leader>5',  '5gt', options)
-remap('n', '<leader>6',  '6gt', options)
-remap('n', '<leader>7',  '7gt', options)
-remap('n', '<leader>8',  '8gt', options)
-remap('n', '<leader>9',  '9gt', options)
+local nSingleMaps = {
+  ["<S-Tab>"] = { "<cmd>BufferPrevious<CR>", "Previous Buffer"},
+  ["<Tab>"]   = { "<cmd>BufferNext<CR>", "Next Buffer"},
 
--- custom
--- console.log()
-remap('n', 'cll', 'oconsole.log("LINE: <C-r>=line(\'.\')<Esc>",);<Esc>O<Esc>jf,a ', options)
+  -- Navigation
+  ["<C-h>"] = { "<C-w>h", "Focus Left Window"},
+  ["<C-j>"] = { "<C-w>j", "Focus Below Window"},
+  ["<C-k>"] = { "<C-w>k", "Focus Above Window"},
+  ["<C-l>"] = { "<C-w>l", "Focus Right Window"},
 
--- select Block starting with curly brace or parenthesis
-remap('n', 'v{', '^vf{%', options)
-remap('n', 'v(', '^vf(%', options)
+  -- Console Log Snippet
+  ["cl"] = { "oconsole.log(\"LINE: <C-r>=line(\".\")<Esc>\",);<Esc>O<Esc>jf,a ", "console.log()"},
 
--- copy full path
-remap('n', '<leader>cpf', ':let @+ = expand("%:p")<CR>', options);
--- copy relative path
-remap('n', '<leader>cpp', ':let @+ = expand("%")<CR>', options);
--- copy file name
-remap('n', '<leader>cpn', ':let @+ = expand("%:t")<CR>', options);
+  -- Toggle Quick Fix List
+  ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle QuickFix List" },
 
--- quickfix
--- TODO convert to lua
-vim.cmd[[
-function! ToggleQuickFix()
-    if empty(filter(getwininfo(), 'v:val.quickfix'))
-        copen
-    else
-        cclose
-    endif
-endfunction
-]]
+  -- Next / Previous
+  ["[q"] = { ":cnext<CR>zz", "Prev Quickfix Item" },
+  ["]q"] = { ":cprev<CR>zz", "Next Quickfix Item" },
+  ["[e"] = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Prev Error" },
+  ["]e"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "Next Error" },
+  ["[b"] = { ":BufferPrevious<CR>", "Prev Buffer" },
+  ["]b"] = { ":BufferNext<CR>", "Next Buffer" },
+  ["[g"] = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
+  ["]g"] = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
 
-remap('n', '<C-q>',      ':call ToggleQuickFix()<CR>', options)
-remap('n', ']q',         ':cnext<CR>zz', options)
-remap('n', '[q',         ':cprev<CR>zz', options)
 
--- vim:plug
--- lsp-config
-remap('n', 'gd',         '<cmd>lua vim.lsp.buf.definition()<CR>', options)
-remap('n', 'gr',         '<cmd>lua vim.lsp.buf.references()<CR>', options)
+  ["gh"] = { "<cmd>Lspsaga hover_doc<CR>", "Show Hover" },
+  ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
+  ["gD"] = { "<cmd>Lspsaga preview_definition<CR>", "Preview Definition" },
+  ["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
+  ["gI"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
 
--- lsp-saga
-remap('n', 'gD',         ':Lspsaga preview_definition<CR>', options)
-remap('n', 'gh',         ':Lspsaga hover_doc<CR>', options)
-remap('n', 'gp',         ':Lspsaga preview_definition<CR>', options)
-remap('n', '<F2>',       ':Lspsaga rename<CR>', options)
-remap('n', '<M-CR>',     ':Lspsaga code_action<CR>', options)
-remap('v', '<M-CR>',     ':Lspsaga range_code_action<CR>', options)
-remap('n', ']e',         ':Lspsaga diagnostic_jump_next<CR>', options)
-remap('n', '[e',         ':Lspsaga diagnostic_jump_prev<CR>', options)
+  ["vv"] = { "^v$", "Select Line from Start to End" },
+  ["v{"] = { "^vf{%", "Select { Block" },
+  ["v("] = { "^vf(%", "Select ( Block" },
+  ["v["] = { "^vf[%", "Select [ Block" },
 
--- bookmarks
-remap('n', ']m',         ':BookmarkNext<CR>', options)
-remap('n', '[m',         ':BookmarkPrev<CR>', options)
-remap('n', 'ml',         ':BookmarkAnnotate<CR>', options)
+  ["y{"] = { "^vf{%y", "Yank { Block" },
+  ["y("] = { "^vf(%y", "Yank ( Block" },
+  ["y["] = { "^vf[%y", "Yank [ Block" },
+}
 
--- barbar
-remap('n', '[b',         ':BufferPrevious<CR>', options)
-remap('n', ']b',         ':BufferNext<CR>', options)
-remap('n', '<leader>qo', ':BufferCloseAllButCurrent<CR>', options)
-remap('n', '<leader>bp', ':BufferPick<CR>', options)
-remap('n', '<leader>bd', ':BufferOrderByDirectory<CR>', options)
-remap('n', '<leader>bl', ':BufferOrderByLanguage<CR>', options)
 
--- telescope
-remap('n', '<C-p>',      '<cmd>Telescope find_files<CR>', options)
-remap('n', '<C-f>',      '<cmd>Telescope live_grep<CR>', options)
-remap('n', '<C-e>',      '<cmd>Telescope buffers<CR>', options)
-remap('n', '<C-g>',      '<cmd>Telescope git_status<CR>', options)
-remap('n', '<C-y>',      '<cmd>Telescope oldfiles<CR>', options)
-remap('n', '<leader>fw', ':lua require("telescope.builtin").grep_string { search = vim.fn.expand("<cword>") }<CR>', options)
-remap('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', options)
+local nSingleMapsWithLeader = {
+  ["/"] = { "<cmd>Commentary<CR>", "Comment" },
+  ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
+  ["z"] = { "<cmd>ZenMode <CR>", "Zen" },
+  ["e"] = { "<cmd>NvimTreeToggle <CR>", "Explorer" },
+  ["<leader>"] = { "<C-^>", "Last Buffer" } 
+}
 
--- lazygit
-remap('n', 'gs',         ':LazyGit<CR>', options)
+local nGroupMapsWithLeader = {
+  l = {
+    name = "LSP",
+    a = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
+    r = { "<cmd>Lspsaga rename<CR>", "Rename" },
+    h = { "<cmd>Lspsaga hover_doc<CR>", "Show Hover" },
+    d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
+    D = { "<cmd>Lspsaga preview_definition<CR>", "Preview Definition" },
+    r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
+    I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
+    p = { "<cmd>LspTroubleToggle<CR>", "Problems View" },
+  },
+  b = {
+    name = "Buffer",
+    j = { "<cmd>BufferPick<CR>", "Jump"},
+    f = { "<cmd>Telescope buffers<CR>", "Find" },
+    c = {
+      name = "Close",
+      w = { "<cmd>BufferWipeout<CR>", "Wipeout" },
+      c = { "<cmd>BufferClose<CR>", "Close Current Buffer"},
+      o = { "<cmd>BufferCloseAllButCurrent<CR>", "Close All Buffers But Current"},
+    },
+    p = { "<cmd>BufferPrevious<CR>", "Previous Buffer"},
+    j = { "<cmd>BufferNext<CR>", "Next Buffer"},
+    D = { "<cmd>BufferOrderByDirectory<CR>", "Sort by directory" },
+    L = { "<cmd>BufferOrderByLanguage<CR>", "Sort by language" },
+  },
+  c = {
+    name = "Copy",
+    f = { ":let @+ = expand('%:p')<CR>", "Copy Full Path" },
+    r = { ":let @+ = expand('%')<CR>", "Copy Relative Path" },
+    n = { ":let @+ = expand('%:t')<CR>", "Copy File Name" },
+  },
+  g = {
+    name = "Git",
+    g = { "<cmd>LazyGit <CR>", "LazyGit" },
+    j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
+    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
+    l = { "<cmd>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
+    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", "Preview Hunk" },
+    r = { "<cmd>lua require 'gitsigns'.reset_hunk()<CR>", "Reset Hunk" },
+    R = { "<cmd>lua require 'gitsigns'.reset_buffer()<CR>", "Reset Buffer" },
+    s = { "<cmd>lua require 'gitsigns'.stage_hunk()<CR>", "Stage Hunk" },
+    u = {
+      "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>",
+      "Undo Stage Hunk",
+    },
+    m = { "<cmd>Telescope git_status<CR>", "Modified Files" },
+    b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
+    c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
+    -- FIXME
+    -- d = {
+    --   "<cmd>Gitsigns diffthis HEAD<CR>",
+    --   "Git Diff",
+    -- },
+  },
+  s = {
+    name = "search",
+    b = { "<cmd>Telescope buffers<CR>", "Buffers" },
+    c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
+    f = { "<cmd>Telescope find_files<CR>", "Find File" },
+    h = { "<cmd>Telescope help_tags<CR>", "Find Help" },
+    M = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
+    r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
+    R = { "<cmd>Telescope registers<CR>", "Registers" },
+    t = { "<cmd>Telescope live_grep<CR>", "Text" },
+    w = { ":lua require(\"telescope.builtin\").grep_string { search = vim.fn.expand(\"<cword>\") }<CR>", "Current Word" },
+    k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
+    C = { "<cmd>Telescope commands<CR>", "Commands" },
+    p = {
+      "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
+      "Colorscheme with Preview",
+    },
+  },
+}
 
--- nvim-tree
-remap('n', '<C-b>',      ':NvimTreeToggle<CR>', options)
+wk.register(nSingleMaps , nOptions)
+wk.register(nSingleMapsWithLeader, nOptionsWithLeader)
+wk.register(nGroupMapsWithLeader, nOptionsWithLeader)
 
--- dashboard
-remap('n', '<leader>ss', ':<C-u>SessionSave<CR>', options)
-remap('n', '<leader>sl', ':<C-u>SessionLoad<CR>', options)
+-- [VISUAL] MODE
+local vOptions = {
+  mode = "v", -- VISUAL mode
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
 
--- compe
-remap('s', '<Tab>',      'v:lua.tab_complete()', {expr = true})
-remap('i', '<S-Tab>',    'v:lua.s_tab_complete()', {expr = true})
+local vOptionsWithLeader = {
+  mode = "v", -- VISUAL mode
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
 
--- trouble
-remap("n", "<F8>",       "<cmd>LspTroubleToggle<cr>", options)
+local vSingleMaps = {
+  ["K"] = { ":m '>+1<CR>gv=gv", "Move Lines Down" },
+  ["J"] = { ":m '<-2<CR>gv=gv", "Move Lines Up" }
+}
 
--- zen
-remap('n', '<leader>z', ':ZenMode<CR>', options)
+local vSingleMapsWithLeader = {
+  ["/"] = { ":'<,'>Commentary<CR>", "Comment" }
+}
+
+local vGroupMapsWithLeader = {
+  l = {
+    name = "LSP",
+    a = { "<cmd>Lspsaga range_code_action<CR>", "Code Action" }
+  },
+}
+
+wk.register(vSingleMaps , vOptions)
+wk.register(vSingleMapsWithLeader, vOptionsWithLeader)
+wk.register(vGroupMapsWithLeader, vOptionsWithLeader)

@@ -28,3 +28,4 @@ require("plug-config/telescope");
 require("plug-config/treesitter");
 require("plug-config/trouble");
 require("plug-config/zen-mode");
+require("plug-config/which-key");

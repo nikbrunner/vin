@@ -4,6 +4,7 @@ require "paq" {
   'hrsh7th/nvim-compe';
   'glepnir/lspsaga.nvim';
   'folke/lsp-trouble.nvim';
+  'folke/which-key.nvim';
 
   -- git/scm
   'lewis6991/gitsigns.nvim';
