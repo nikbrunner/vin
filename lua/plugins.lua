@@ -1,58 +1,78 @@
-require "paq" {
-  "savq/paq-nvim";
+packer = require("packer")
+
+packer.init {
+  opt_default = true,
+  display = {
+    open_fn = function() 
+      return require("packer.util").float({ border = "single" })
+    end,
+    compile_on_sync = true,
+    auto_clean = true,
+    auto_reload_compiled = true,
+    show_all_info = true,
+  }
+}
+
+local use = packer.use
+
+packer.reset()
+
+packer.startup(function()
+  use { "wbthomason/packer.nvim", opt = false }
 
   -- lsp
-  "neovim/nvim-lspconfig";
-  "glepnir/lspsaga.nvim";
-  "onsails/lspkind-nvim";
-  "folke/lsp-trouble.nvim";
+  use "neovim/nvim-lspconfig"
+  use "glepnir/lspsaga.nvim"
+  use "onsails/lspkind-nvim"
+  use "folke/lsp-trouble.nvim"
 
-  "hrsh7th/nvim-cmp";
-  "hrsh7th/cmp-buffer";
-  "hrsh7th/cmp-nvim-lsp";
-  "hrsh7th/cmp-path";
-  "hrsh7th/cmp-nvim-lua";
+  -- completion
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-nvim-lua"
 
   -- git/scm
-  "lewis6991/gitsigns.nvim";
-  "kdheepak/lazygit.nvim";
+  use "lewis6991/gitsigns.nvim"
+  use "kdheepak/lazygit.nvim"
 
   -- appereance
-  "projekt0n/github-nvim-theme";
-  { "folke/tokyonight.nvim", branch = "main" };
-  "kyazdani42/nvim-web-devicons";
+  use "projekt0n/github-nvim-theme"
+  use { "folke/tokyonight.nvim", branch = "main" }
+  use "kyazdani42/nvim-web-devicons"
 
   -- syntax
-  { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" };
+  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
   -- telescope
-  "nvim-telescope/telescope.nvim";
-  { "nvim-telescope/telescope-fzy-native.nvim", run="git submodule update --init --recursive" };
-  "ahmedkhalf/project.nvim";
+  use "nvim-telescope/telescope.nvim"
+  use { "nvim-telescope/telescope-fzy-native.nvim", run="git submodule update --init --recursive" }
+  use "ahmedkhalf/project.nvim"
 
   -- workflow
-  "folke/which-key.nvim";
-  "djoshea/vim-autoread";
-  "nvim-lua/popup.nvim";
-  "nvim-lua/plenary.nvim";
-  "windwp/nvim-autopairs";
-  "oberblastmeister/rooter.nvim";
-  "tpope/vim-commentary";
-  "tpope/vim-surround";
-  "machakann/vim-highlightedyank";
-  { "mg979/vim-visual-multi", branch = "master" };
-  "norcalli/nvim-colorizer.lua";
-  "glepnir/dashboard-nvim";
-  "RRethy/vim-illuminate";
-  "folke/zen-mode.nvim";
-  "kyazdani42/nvim-tree.lua";
+  use "folke/which-key.nvim"
+  use "djoshea/vim-autoread"
+  use "nvim-lua/popup.nvim"
+  use "nvim-lua/plenary.nvim"
+  use "windwp/nvim-autopairs"
+  use "oberblastmeister/rooter.nvim"
+  use "tpope/vim-commentary"
+  use "tpope/vim-surround"
+  use "machakann/vim-highlightedyank"
+  use { "mg979/vim-visual-multi", branch = "master" }
+  use "norcalli/nvim-colorizer.lua"
+  use "glepnir/dashboard-nvim"
+  use "RRethy/vim-illuminate"
+  use "folke/zen-mode.nvim"
+  use "kyazdani42/nvim-tree.lua"
 
   -- bars and lines
-  { "glepnir/galaxyline.nvim" , branch = "main" };
-  "romgrk/barbar.nvim";
+  use { "glepnir/galaxyline.nvim" , branch = "main" }
+  use "romgrk/barbar.nvim"
 
   -- formater
-  { "prettier/vim-prettier", run = "npm install" };
-  "mhartington/formatter.nvim";
-}
+  use { "prettier/vim-prettier", run = "npm install" }
+  use "mhartington/formatter.nvim"
+end)
 

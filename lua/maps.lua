@@ -85,7 +85,6 @@ local nSingleMaps = {
   ["[g"] = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
   ["]g"] = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
 
-
   ["gh"] = { "<cmd>Lspsaga hover_doc<CR>", "Show Hover" },
   ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
   ["gD"] = { "<cmd>Lspsaga preview_definition<CR>", "Preview Definition" },
@@ -188,6 +187,14 @@ local nGroupMapsWithLeader = {
       "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
       "Colorscheme with Preview",
     },
+  },
+  p = {
+    name = "Packer",
+    c = { "<cmd>PackerCompile<CR>", "Compile" },
+    i = { "<cmd>PackerInstall<CR>", "Install" },
+    s = { "<cmd>PackerSync<CR>", "Sync" },
+    S = { "<cmd>PackerStatus<CR>", "Status" },
+    u = { "<cmd>PackerUpdate<CR>", "Update" },
   },
 }
 
