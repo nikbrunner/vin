@@ -116,7 +116,7 @@ local nSingleMapsWithLeader = {
 
 local nGroupMapsWithLeader = {
   l = {
-    name = "LSP",
+    name = "LSP  ",
     a = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
     r = { "<cmd>Lspsaga rename<CR>", "Rename" },
     h = { "<cmd>Lspsaga hover_doc<CR>", "Show Hover" },
@@ -128,7 +128,7 @@ local nGroupMapsWithLeader = {
     s = { "<cmd>LspInfo<CR>", "Status" },
   },
   b = {
-    name = "Buffer",
+    name = "Buffer 﩯",
     j = { "<cmd>BufferPick<CR>", "Jump"},
     f = { "<cmd>Telescope buffers<CR>", "Find" },
     c = {
@@ -143,13 +143,13 @@ local nGroupMapsWithLeader = {
     L = { "<cmd>BufferOrderByLanguage<CR>", "Sort by language" },
   },
   c = {
-    name = "Copy",
+    name = "Copy  ",
     f = { ":let @+ = expand('%:p')<CR>", "Copy Full Path" },
     r = { ":let @+ = expand('%')<CR>", "Copy Relative Path" },
     n = { ":let @+ = expand('%:t')<CR>", "Copy File Name" },
   },
   g = {
-    name = "Git",
+    name = "Git  ",
     g = { "<cmd>LazyGit <CR>", "LazyGit" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
@@ -172,7 +172,7 @@ local nGroupMapsWithLeader = {
     -- },
   },
   s = {
-    name = "search",
+    name = "Search  ",
     b = { "<cmd>Telescope buffers<CR>", "Buffers" },
     c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
     f = { "<cmd>Telescope find_files<CR>", "Find File" },
@@ -190,7 +190,7 @@ local nGroupMapsWithLeader = {
     },
   },
   p = {
-    name = "Packer",
+    name = "Packer  ",
     c = { "<cmd>PackerCompile<CR>", "Compile" },
     i = { "<cmd>PackerInstall<CR>", "Install" },
     s = { "<cmd>PackerSync<CR>", "Sync" },
