@@ -33,6 +33,7 @@ local options = {
   signcolumn = "yes" ,
   splitbelow = true,
   splitright = true,
+  completeopt = { "menuone", "noselect" },
 }
 
 for k, v in pairs(options) do

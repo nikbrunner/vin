@@ -14,7 +14,8 @@ require("lsp/ts")
 -- plug-config
 require("plug-config/autopairs");
 require("plug-config/colorizer");
-require("plug-config/compe");
+require("plug-config/cmp");
+require("plug-config/kind");
 require("plug-config/dashboard");
 require("plug-config/formatter");
 require("plug-config/galaxyline");

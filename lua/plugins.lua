@@ -3,9 +3,15 @@ require "paq" {
 
   -- lsp
   "neovim/nvim-lspconfig";
-  "hrsh7th/nvim-compe";
   "glepnir/lspsaga.nvim";
+  "onsails/lspkind-nvim";
   "folke/lsp-trouble.nvim";
+
+  "hrsh7th/nvim-cmp";
+  "hrsh7th/cmp-buffer";
+  "hrsh7th/cmp-nvim-lsp";
+  "hrsh7th/cmp-path";
+  "hrsh7th/cmp-nvim-lua";
 
   -- git/scm
   "lewis6991/gitsigns.nvim";
