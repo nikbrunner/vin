@@ -12,7 +12,10 @@ require "paq" {
 
   -- appereance
   'projekt0n/github-nvim-theme';
+  { 'folke/tokyonight.nvim', branch = 'main' };
   'kyazdani42/nvim-web-devicons';
+
+  -- syntax
   { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' };
 
   -- workflow
