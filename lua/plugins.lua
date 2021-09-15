@@ -24,6 +24,7 @@ require "paq" {
   'nvim-lua/plenary.nvim';
   'nvim-telescope/telescope.nvim';
   { 'nvim-telescope/telescope-fzy-native.nvim', run='git submodule update --init --recursive' };
+  "ahmedkhalf/project.nvim";
   'oberblastmeister/rooter.nvim';
   'tpope/vim-commentary';
   'tpope/vim-surround';

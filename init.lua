@@ -28,6 +28,7 @@ require("plug-config/treesitter");
 require("plug-config/trouble");
 require("plug-config/zen-mode");
 require("plug-config/which-key");
+require("plug-config/projects");
 
 -- themes
 -- require("plug-config/github-nvim");

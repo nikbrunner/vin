@@ -1,32 +1,27 @@
 local USER_CONFIG_PATH = "~/.config/nvim"
 
 vim.g.dashboard_default_executive ='telescope'
-vim.g.dashboard_custom_header = { "nibru.vim" }
+vim.g.dashboard_custom_header = { "nibru.nvim" }
+vim.g.dashboard_custom_footer = { "https://nibru.dev" }
 vim.g.dashboard_custom_section = {
   a = {
-    description = { "  New File" },
-    command = "DashboardNewFile",
+    description = { "  Recent Projects" },
+    command = "Telescope projects",
   },
   b = {
-    description = { "  Find File            <C-p>" },
-    command = "Telescope find_files",
-  },
-  c = {
-    description = { "  Recently Used Files  <C-y>" },
+    description = { "  Recent Files" },
     command = "Telescope oldfiles",
   },
-  d = {
-    description = { "  Find Word            <C-f>" },
-    command = "Telescope live_grep",
+  c = {
+    description = { "  Find File" },
+    command = "Telescope find_files",
   },
-  e = {
-    description = { "  Last Session     <Space>sl" },
-    command = "SessionLoad",
+  d = {
+    description = { "  New File" },
+    command = "DashboardNewFile",
   },
   f = {
     description = { "  Settings" },
     command = ":e " .. USER_CONFIG_PATH,
   },
 }
-
-vim.g.dashboard_custom_footer = { "https://nibru.dev" }
