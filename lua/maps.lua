@@ -32,6 +32,9 @@ remap('i', '.', '.<c-g>u', options)
 remap('i', '!', '!<c-g>u', options)
 remap('i', '?', '?<c-g>u', options)
 
+remap('v', '<', '<gv', options)
+remap('v', '>', '>gv', options)
+
 -- Unbind default prettier binding
 remap('n', '<leader>p', '<Nop>', options)
 
