@@ -1,8 +1,8 @@
 # nibru.nvim
 
-This is my personal **Neovim** config on which I am working on from time to time, while learning about the whole universe of **Vim**.
+This is my personal [NeoVim](https://neovim.io/) config on which I am working on from time to time, while learning about the whole universe of [NeoVim](https://neovim.io/) and [Vim](https://www.vim.org/).
 
-The config is based on Neovim Nightly (Version: >0.5xx) and Treesitter for improved Syntax Highlighting.
+The config is based on [NeoVim](https://neovim.io/) Nightly (Version: >0.5xx) and Treesitter for improved Syntax Highlighting, and is completely written in [Lua](https://www.lua.org/).
 
 ## Useful Links
 - Study [nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide)
