@@ -18,7 +18,7 @@ local use = packer.use
 packer.reset()
 
 packer.startup(function()
-  use { "wbthomason/packer.nvim", opt = false }
+  use  { "wbthomason/packer.nvim", opt = false }
 
   -- lsp
   use "neovim/nvim-lspconfig"
