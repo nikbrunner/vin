@@ -1,6 +1,14 @@
 local cmp = require("cmp")
+local lspkind = require('lspkind')
+local luasnip = require('luasnip')
 
 cmp.setup {
+  completion = { completeopt = 'menu,menuone,noinsert' },
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
   mapping = {
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-n>"] = cmp.mapping.select_next_item(),
