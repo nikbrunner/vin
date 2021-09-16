@@ -91,6 +91,7 @@ local nSingleMaps = {
   ["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
   ["gI"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
 
+  -- TODO Add delete Block
   ["vv"] = { "^v$", "Select Line from Start to End" },
   ["v{"] = { "^vf{%", "Select { Block" },
   ["v("] = { "^vf(%", "Select ( Block" },
@@ -116,19 +117,20 @@ local nSingleMapsWithLeader = {
 
 local nGroupMapsWithLeader = {
   l = {
-    name = "LSP  ",
+    name = "  LSP",
     a = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
-    r = { "<cmd>Lspsaga rename<CR>", "Rename" },
+    n = { "<cmd>Lspsaga rename<CR>", "Rename" },
     h = { "<cmd>Lspsaga hover_doc<CR>", "Show Hover" },
     d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
     D = { "<cmd>Lspsaga preview_definition<CR>", "Preview Definition" },
+    -- TODO Show references with LSPSaga?
     r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
     I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
     p = { "<cmd>LspTroubleToggle<CR>", "Problems View" },
     s = { "<cmd>LspInfo<CR>", "Status" },
   },
   b = {
-    name = "Buffer 﩯",
+    name = "﩯 Buffer",
     j = { "<cmd>BufferPick<CR>", "Jump"},
     f = { "<cmd>Telescope buffers<CR>", "Find" },
     c = {
@@ -143,13 +145,13 @@ local nGroupMapsWithLeader = {
     L = { "<cmd>BufferOrderByLanguage<CR>", "Sort by language" },
   },
   c = {
-    name = "Copy  ",
+    name = "  Copy",
     f = { ":let @+ = expand('%:p')<CR>", "Copy Full Path" },
     r = { ":let @+ = expand('%')<CR>", "Copy Relative Path" },
     n = { ":let @+ = expand('%:t')<CR>", "Copy File Name" },
   },
   g = {
-    name = "Git  ",
+    name = "  Git",
     g = { "<cmd>LazyGit <CR>", "LazyGit" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
@@ -165,33 +167,32 @@ local nGroupMapsWithLeader = {
     m = { "<cmd>Telescope git_status<CR>", "Modified Files" },
     b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
     c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
-    -- FIXME
+    -- FIXME What is this even?
     -- d = {
     --   "<cmd>Gitsigns diffthis HEAD<CR>",
     --   "Git Diff",
     -- },
   },
   s = {
-    name = "Search  ",
-    b = { "<cmd>Telescope buffers<CR>", "Buffers" },
-    c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
-    f = { "<cmd>Telescope find_files<CR>", "Find File" },
-    h = { "<cmd>Telescope help_tags<CR>", "Find Help" },
-    M = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
-    r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
-    R = { "<cmd>Telescope registers<CR>", "Registers" },
-    t = { "<cmd>Telescope live_grep<CR>", "Text" },
-    w = { ":lua require(\"telescope.builtin\").grep_string { search = vim.fn.expand(\"<cword>\") }<CR>", "Current Word" },
-    k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
-    C = { "<cmd>Telescope commands<CR>", "Commands" },
-    p = {
-      "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
-      "Colorscheme with Preview",
-    },
+    name = "  Search",
+    b = { "<cmd>Telescope buffers<CR>", "﩯 Buffers" },
+    c = { "<cmd>Telescope colorscheme<CR>", "  Colorscheme" },
+    f = { "<cmd>Telescope find_files<CR>", "  File" },
+    h = { "<cmd>Telescope help_tags<CR>", "  Help" },
+    M = { "<cmd>Telescope man_pages<CR>", "  Man Pages" },
+    r = { "<cmd>Telescope oldfiles<CR>", "  Recent Files" },
+    p = { "<cmd>Telescope projects<CR>", "  Recent Projects" },
+    R = { "<cmd>Telescope registers<CR>", "  Registers" },
+    t = { "<cmd>Telescope live_grep<CR>", "  Text" },
+    -- TODO I shouldnt need lua require here
+    w = { ":lua require(\"telescope.builtin\").grep_string { search = vim.fn.expand(\"<cword>\") }<CR>", "  Current Word" },
+    k = { "<cmd>Telescope keymaps<CR>", "  Keymaps" },
+    C = { "<cmd>Telescope commands<CR>", "  Commands" },
   },
   p = {
-    name = "Packer  ",
-    c = { "<cmd>PackerCompile<CR>", "Compile" },
+    name = "  Packer",
+    c = { "<cmd>PackerClean<CR>", "Clean" },
+    C = { "<cmd>PackerCompile<CR>", "Compile" },
     i = { "<cmd>PackerInstall<CR>", "Install" },
     s = { "<cmd>PackerSync<CR>", "Sync" },
     S = { "<cmd>PackerStatus<CR>", "Status" },
