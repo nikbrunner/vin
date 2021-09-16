@@ -4,6 +4,8 @@ local fn = vim.fn
 
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
+-- Bootstraping Packer if not already installed
+-- https://github.com/wbthomason/packer.nvim#bootstrapping
 if fn.empty(fn.glob(install_path)) > 0 then
   execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
   execute 'packadd packer.nvim'
@@ -38,8 +40,6 @@ packer.startup(function()
       { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
       { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
       { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
-      "hrsh7th/vim-vsnip",
-      "hrsh7th/vim-vsnip-integ"
     },
   }
 
@@ -87,5 +87,27 @@ packer.startup(function()
 end)
 
 
+-- plug-config
+require("plug-config/autopairs");
+require("plug-config/colorizer");
+require("plug-config/cmp");
+require("plug-config/kind");
+require("plug-config/dashboard");
+require("plug-config/formatter");
+require("plug-config/galaxyline");
+require("plug-config/gitsigns");
+require("plug-config/highlightedyank");
+require("plug-config/lazygit");
+require("plug-config/lspsaga")
+require("plug-config/nvimtree");
+require("plug-config/rooter");
+require("plug-config/telescope");
+require("plug-config/treesitter");
+require("plug-config/trouble");
+require("plug-config/zen-mode");
+require("plug-config/which-key");
+require("plug-config/projects");
 
-
+-- themes
+-- require("plug-config/github-nvim");
+require("plug-config/tokyonight");
