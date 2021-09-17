@@ -1,5 +1,7 @@
 require('github-theme').setup({
-  themeStyle = "dark",
+  theme_style = "dark",
   transparent = true,
-  hideEndOfBuffer = true
+  hide_end_of_buffer = true
 })
+
+vim.cmd[[colorscheme github]]
