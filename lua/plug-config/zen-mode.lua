@@ -9,7 +9,7 @@ require("zen-mode").setup {
     -- by default, no options are changed for the Zen window
     -- uncomment any of the options below, or add other vim.wo options you want to apply
     options = {
-      signcolumn = "no", -- disable signcolumn
+      -- signcolumn = "no", -- disable signcolumn
       number = false, -- disable number column
       relativenumber = false, -- disable relative numbers
       -- cursorline = false, -- disable cursorline
@@ -41,10 +41,8 @@ require("zen-mode").setup {
   },
     -- callback where you can add custom code when the Zen window opens
   on_open = function(win)
-    vim.cmd[[set wrap linebreak nolist]]
   end,
   -- callback where you can add custom code when the Zen window closes
   on_close = function()
-    vim.cmd[[set nowrap nolinebreak list]]
   end
 }
