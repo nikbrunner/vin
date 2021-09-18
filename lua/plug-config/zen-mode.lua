@@ -41,8 +41,10 @@ require("zen-mode").setup {
   },
     -- callback where you can add custom code when the Zen window opens
   on_open = function(win)
+    vim.o.scrolloff = 999
   end,
   -- callback where you can add custom code when the Zen window closes
   on_close = function()
+    vim.o.scrolloff = 16
   end
 }

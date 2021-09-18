@@ -109,5 +109,5 @@ require("plug-config/which-key");
 require("plug-config/projects");
 
 -- themes
-require("plug-config/github-nvim");
--- require("plug-config/tokyonight");
+-- require("plug-config/github-nvim");
+require("plug-config/tokyonight");
