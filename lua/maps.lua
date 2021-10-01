@@ -152,14 +152,13 @@ local nGroupMapsWithLeader = {
   },
   g = {
     name = "  Git",
-    g = { "<cmd>LazyGit <CR>", "LazyGit" },
+    s = { "<cmd>LazyGit <CR>", "LazyGit" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
     l = { "<cmd>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", "Preview Hunk" },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<CR>", "Reset Hunk" },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<CR>", "Reset Buffer" },
-    s = { "<cmd>lua require 'gitsigns'.stage_hunk()<CR>", "Stage Hunk" },
     u = {
       "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>",
       "Undo Stage Hunk",
