@@ -74,7 +74,6 @@ packer.startup(function()
   use "glepnir/dashboard-nvim"
   use "RRethy/vim-illuminate"
   use "folke/zen-mode.nvim"
-  -- use "kyazdani42/nvim-tree.lua"
 
   -- bars and lines
   use { "glepnir/galaxyline.nvim" , branch = "main" }
@@ -97,7 +96,6 @@ require("plug-config/gitsigns");
 require("plug-config/highlightedyank");
 require("plug-config/lazygit");
 require("plug-config/lspsaga")
--- require("plug-config/nvimtree");
 require("plug-config/rooter");
 require("plug-config/telescope");
 require("plug-config/treesitter");
