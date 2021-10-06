@@ -97,7 +97,7 @@ require("plug-config/gitsigns");
 require("plug-config/highlightedyank");
 require("plug-config/lazygit");
 require("plug-config/lspsaga")
-require("plug-config/nvimtree");
+-- require("plug-config/nvimtree");
 require("plug-config/rooter");
 require("plug-config/telescope");
 require("plug-config/treesitter");
