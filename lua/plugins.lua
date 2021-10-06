@@ -65,7 +65,6 @@ packer.startup(function()
   use "djoshea/vim-autoread"
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
-  use "windwp/nvim-autopairs"
   use "oberblastmeister/rooter.nvim"
   use "tpope/vim-commentary"
   use "tpope/vim-surround"
@@ -75,7 +74,7 @@ packer.startup(function()
   use "glepnir/dashboard-nvim"
   use "RRethy/vim-illuminate"
   use "folke/zen-mode.nvim"
-  use "kyazdani42/nvim-tree.lua"
+  -- use "kyazdani42/nvim-tree.lua"
 
   -- bars and lines
   use { "glepnir/galaxyline.nvim" , branch = "main" }
@@ -88,7 +87,6 @@ end)
 
 
 -- plug-config
-require("plug-config/autopairs");
 require("plug-config/colorizer");
 require("plug-config/cmp");
 require("plug-config/kind");
