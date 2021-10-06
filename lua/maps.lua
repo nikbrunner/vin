@@ -76,8 +76,8 @@ local nSingleMaps = {
   ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle QuickFix List" },
 
   -- Next / Previous
-  ["[q"] = { ":cnext<CR>zz", "Prev Quickfix Item" },
-  ["]q"] = { ":cprev<CR>zz", "Next Quickfix Item" },
+  ["[q"] = { ":cprev<CR>zz", "Prev Quickfix Item" },
+  ["]q"] = { ":cnext<CR>zz", "Next Quickfix Item" },
   ["[e"] = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Prev Error" },
   ["]e"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "Next Error" },
   ["[b"] = { ":BufferPrevious<CR>", "Prev Buffer" },
