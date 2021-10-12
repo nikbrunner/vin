@@ -31,6 +31,13 @@ packer.startup(function()
   use "onsails/lspkind-nvim"
   use "folke/lsp-trouble.nvim"
 
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    -- config = function() require'nvim-tree'.setup {} end
+  }
+
+
    -- Completion
   use {
     'hrsh7th/nvim-cmp',
@@ -104,6 +111,7 @@ require("plug-config/trouble");
 require("plug-config/zen-mode");
 require("plug-config/which-key");
 require("plug-config/projects");
+require("plug-config/nvimtree");
 
 -- themes
 require("plug-config/github-nvim");

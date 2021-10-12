@@ -89,7 +89,8 @@ local nSingleMaps = {
   -- ["gh"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show Hover" },
   ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
   ["gD"] = { "<cmd>Lspsaga preview_definition<CR>", "Preview Definition" },
-  ["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
+  ["gr"] = { "<cmd>Lspsaga lsp_finder<CR>", "Goto References" },
+  ["gR"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "Quickfix: References" },
   ["gI"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
 
   -- TODO Add delete Block
