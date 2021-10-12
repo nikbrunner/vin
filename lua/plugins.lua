@@ -26,7 +26,8 @@ packer.startup(function()
 
   -- lsp
   use "neovim/nvim-lspconfig"
-  use "glepnir/lspsaga.nvim"
+  -- use "glepnir/lspsaga.nvim" Currently not compatible with NeoVim 5.1
+  use "rinx/lspsaga.nvim"
   use "onsails/lspkind-nvim"
   use "folke/lsp-trouble.nvim"
 

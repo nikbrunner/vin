@@ -86,6 +86,7 @@ local nSingleMaps = {
   ["]g"] = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
 
   ["gh"] = { "<cmd>Lspsaga hover_doc<CR>", "Show Hover" },
+  -- ["gh"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show Hover" },
   ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
   ["gD"] = { "<cmd>Lspsaga preview_definition<CR>", "Preview Definition" },
   ["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
