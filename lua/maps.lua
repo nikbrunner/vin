@@ -106,7 +106,6 @@ local nSingleMaps = {
 
 
 local nSingleMapsWithLeader = {
-  ["/"] = { "<cmd>Commentary<CR>", "Comment" },
   [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },

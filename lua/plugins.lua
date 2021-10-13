@@ -68,6 +68,12 @@ packer.startup(function()
   use "ahmedkhalf/project.nvim"
 
   -- workflow
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
   use "folke/which-key.nvim"
   use "djoshea/vim-autoread"
   use "nvim-lua/popup.nvim"
