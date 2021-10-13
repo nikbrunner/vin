@@ -27,16 +27,15 @@ packer.startup(function()
   -- lsp
   use "neovim/nvim-lspconfig"
   -- use "glepnir/lspsaga.nvim" Currently not compatible with NeoVim 5.1
-  use "rinx/lspsaga.nvim"
+  use "rinx/lspsaga.nvim" -- replacement for lspsaga
   use "onsails/lspkind-nvim"
   use "folke/lsp-trouble.nvim"
 
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    -- config = function() require'nvim-tree'.setup {} end
+    config = function() require("plug-config/nvimtree") end
   }
-
 
    -- Completion
   use {
@@ -111,7 +110,6 @@ require("plug-config/trouble");
 require("plug-config/zen-mode");
 require("plug-config/which-key");
 require("plug-config/projects");
-require("plug-config/nvimtree");
 
 -- themes
 require("plug-config/github-nvim");
