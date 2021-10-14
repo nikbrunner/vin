@@ -37,7 +37,7 @@ packer.startup(function()
     config = function() require("plug-config/nvimtree") end
   }
 
-   -- Completion
+  -- Completion
   use {
     'hrsh7th/nvim-cmp',
     requires = {
@@ -71,9 +71,17 @@ packer.startup(function()
   use {
     'numToStr/Comment.nvim',
     config = function()
-        require('Comment').setup()
+      require('Comment').setup()
     end
   }
+
+  use {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup{}    
+    end
+  }
+
   use "folke/which-key.nvim"
   use "djoshea/vim-autoread"
   use "nvim-lua/popup.nvim"
@@ -87,6 +95,7 @@ packer.startup(function()
   use "glepnir/dashboard-nvim"
   use "RRethy/vim-illuminate"
   use "folke/zen-mode.nvim"
+
 
   -- bars and lines
   use { "glepnir/galaxyline.nvim" , branch = "main" }
