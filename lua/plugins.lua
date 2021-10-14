@@ -82,6 +82,13 @@ packer.startup(function()
     end
   }
 
+  use {
+    'karb94/neoscroll.nvim', 
+    config = function() 
+      require('plug-config/neoscroll')
+    end
+  }
+
   use "folke/which-key.nvim"
   use "djoshea/vim-autoread"
   use "nvim-lua/popup.nvim"
