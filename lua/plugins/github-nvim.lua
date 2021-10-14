@@ -4,4 +4,3 @@ require('github-theme').setup({
   hide_end_of_buffer = true
 })
 
-vim.cmd[[colorscheme github]]

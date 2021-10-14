@@ -22,22 +22,50 @@ packer.init {
 }
 
 packer.startup(function()
-  use  { "wbthomason/packer.nvim", opt = false }
+  use { 
+    "wbthomason/packer.nvim", 
+    opt = false 
+  }
 
-  -- lsp
-  use "neovim/nvim-lspconfig"
-  -- use "glepnir/lspsaga.nvim" Currently not compatible with NeoVim 5.1
-  use "rinx/lspsaga.nvim" -- replacement for lspsaga
-  use "onsails/lspkind-nvim"
-  use "folke/lsp-trouble.nvim"
+  use { 
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("plugins/lsp/bash")
+      require("plugins/lsp/css")
+      require("plugins/lsp/ts")
+    end
+  }
+
+    -- fork replacement for lspsaga
+  use { 
+    "rinx/lspsaga.nvim",
+    config = function()
+      require("plugins/lspsaga")
+    end
+  }
+
+  use {  
+    "onsails/lspkind-nvim", 
+    config = function()
+      require("plugins/kind")
+    end
+  }
+
+  use {
+    "folke/lsp-trouble.nvim",
+    config = function()
+      require("plugins/trouble")
+    end
+  }
 
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require("plug-config/nvimtree") end
+    config = function() 
+      require("plugins/nvimtree") 
+    end
   }
 
-  -- Completion
   use {
     'hrsh7th/nvim-cmp',
     requires = {
@@ -48,26 +76,81 @@ packer.startup(function()
       { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
       { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
     },
+    config = function()
+      require("plugins/cmp");
+    end
   }
 
-  -- git/scm
-  use "lewis6991/gitsigns.nvim"
-  use "kdheepak/lazygit.nvim"
+  use {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("plugins/gitsigns")
+    end
+  }
 
-  -- appereance
-  use "projekt0n/github-nvim-theme"
-  use { "folke/tokyonight.nvim", branch = "main" }
-  use "kyazdani42/nvim-web-devicons"
+  use {
+    "kdheepak/lazygit.nvim",
+    config = function()
+      require("plugins/lazygit")
+    end
+  }
+
+  use {
+    "projekt0n/github-nvim-theme",
+    config = function()
+      require("plugins/github-nvim")
+    end
+  }
+
+  use { 
+    "folke/tokyonight.nvim", 
+    branch = "main",
+    disable = true,
+    config = function()
+      require("plugins/tokyonight")
+    end
+  }
+
+  use {
+    "kyazdani42/nvim-web-devicons"
+  }
+
+  use {
+    'lukas-reineke/indent-blankline.nvim', 
+    config = function()
+      require('plugins/indent-blankline')
+    end
+  }
 
   -- syntax
-  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+  use { 
+    "nvim-treesitter/nvim-treesitter", 
+    run = ":TSUpdate",
+    config = function()
+      require("plugins/treesitter")
+    end
+  }
 
-  -- telescope
-  use "nvim-telescope/telescope.nvim"
-  use { "nvim-telescope/telescope-fzy-native.nvim", run="git submodule update --init --recursive" }
-  use "ahmedkhalf/project.nvim"
+   use {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/plenary.nvim'}},
+    config = function()
+      require("plugins/telescope");
+    end
+  } 
 
-  -- workflow
+  use { 
+    "nvim-telescope/telescope-fzy-native.nvim", 
+    run="git submodule update --init --recursive" 
+  }
+
+  use {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("plugins/projects");
+    end
+  }
+
   use {
     'numToStr/Comment.nvim',
     config = function()
@@ -85,54 +168,103 @@ packer.startup(function()
   use {
     'karb94/neoscroll.nvim', 
     config = function() 
-      require('plug-config/neoscroll')
+      require('plugins/neoscroll')
     end
   }
 
-  use "folke/which-key.nvim"
-  use "djoshea/vim-autoread"
-  use "nvim-lua/popup.nvim"
-  use "nvim-lua/plenary.nvim"
-  use "oberblastmeister/rooter.nvim"
-  use "tpope/vim-commentary"
-  use "tpope/vim-surround"
-  use "machakann/vim-highlightedyank"
-  use { "mg979/vim-visual-multi", branch = "master" }
-  use "norcalli/nvim-colorizer.lua"
-  use "glepnir/dashboard-nvim"
-  use "RRethy/vim-illuminate"
-  use "folke/zen-mode.nvim"
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("plugins/which-key");
+    end
+  }
 
+  use {
+    "folke/zen-mode.nvim",
+    config = function()
+      require("plugins/zen-mode");
+    end
+  }
 
-  -- bars and lines
-  use { "glepnir/galaxyline.nvim" , branch = "main" }
-  use "romgrk/barbar.nvim"
+  use {
+    "djoshea/vim-autoread"
+  }
+
+  use { 
+    "nvim-lua/popup.nvim"
+  }
+
+  use {
+    "nvim-lua/plenary.nvim"
+  }
+
+  use {
+    "oberblastmeister/rooter.nvim",
+    config = function()
+      require("plugins/rooter");
+    end
+  }
+
+  use {
+    "tpope/vim-commentary"
+  }
+
+  use {
+    "tpope/vim-surround"
+  }
+
+  use {
+    "machakann/vim-highlightedyank",
+    config = function()
+      require("plugins/highlightedyank");
+    end
+  }
+
+  use { 
+    "mg979/vim-visual-multi", 
+    branch = "master" 
+  }
+
+  use {  
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("plugins/colorizer");
+    end
+  }
+
+  use {
+    "glepnir/dashboard-nvim",
+    config = function()
+      require("plugins/dashboard");
+    end
+  }
+
+  use {
+    "RRethy/vim-illuminate"
+  }
+
+  use { 
+    "glepnir/galaxyline.nvim", 
+    branch = "main",
+    config = function()
+      require("plugins/galaxyline");
+    end
+  }
+
+  use {
+    "romgrk/barbar.nvim"
+  }
 
   -- formater
-  use { "prettier/vim-prettier", run = "npm install" }
-  use "mhartington/formatter.nvim"
+  use { 
+    "prettier/vim-prettier", 
+    run = "npm install" 
+  }
+
+  use {
+    "mhartington/formatter.nvim",
+    config = function()
+      require("plugins/formatter");
+    end
+  }
 end)
-
-
--- plug-config
-require("plug-config/colorizer");
-require("plug-config/cmp");
-require("plug-config/kind");
-require("plug-config/dashboard");
-require("plug-config/formatter");
-require("plug-config/galaxyline");
-require("plug-config/gitsigns");
-require("plug-config/highlightedyank");
-require("plug-config/lazygit");
-require("plug-config/lspsaga")
-require("plug-config/rooter");
-require("plug-config/telescope");
-require("plug-config/treesitter");
-require("plug-config/trouble");
-require("plug-config/zen-mode");
-require("plug-config/which-key");
-require("plug-config/projects");
-
--- themes
-require("plug-config/github-nvim");
--- require("plug-config/tokyonight");
