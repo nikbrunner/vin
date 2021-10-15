@@ -11,6 +11,10 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
+-- Auto source when there are changes in plugins.lua
+local au = require("au")
+au.BufWritePost = {"plugins.lua", "source <afile> | PackerCompile"}
+
 local use = packer.use
 
 packer.init {
