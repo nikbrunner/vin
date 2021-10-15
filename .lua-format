@@ -1,0 +1,22 @@
+column_limit: 80
+indent_width: 2
+
+single_quote_to_double_quote: true
+keep_simple_function_one_line: false
+keep_simple_control_block_one_line: false
+
+break_after_functioncall_lp: true
+break_before_functioncall_rp: true
+
+break_after_functiondef_lp: true
+break_before_functiondef_rp: true
+
+align_table_field: true
+break_after_table_lb: true
+break_before_table_rb: true
+chop_down_table: true
+
+spaces_inside_functioncall_parens: true
+spaces_inside_functiondef_parens: true
+spaces_around_equals_in_field: true
+spaces_inside_table_braces: true

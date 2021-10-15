@@ -2,7 +2,7 @@ local options = {
   encoding = "UTF-8",
   clipboard = "unnamedplus",
   termguicolors = true,
-  tabstop = 2 ,
+  tabstop = 2,
   softtabstop = 2,
   shiftwidth = 2,
   smarttab = true,
@@ -30,17 +30,15 @@ local options = {
   foldlevel = 10,
   cmdheight = 1,
   timeoutlen = 100,
-  signcolumn = "yes" ,
+  signcolumn = "yes",
   splitbelow = true,
   splitright = true,
-  completeopt = { "menuone", "noselect" },
+  completeopt = { "menuone", "noselect" }
 }
 
-for k, v in pairs(options) do
-  vim.opt[k] = v
-end
+for k, v in pairs( options ) do vim.opt[k] = v end
 
-vim.cmd[[
+vim.cmd [[
 if executable("rg") 
   set grepprg=rg\ --vimgrep 
 endif

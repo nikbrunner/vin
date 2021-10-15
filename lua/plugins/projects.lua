@@ -1,4 +1,4 @@
-require("project_nvim").setup {
+require( "project_nvim" ).setup {
   ---@usage set to false to disable project.nvim.
   --- This is on by default since it's currently the expected behavior.
   active = true,
@@ -18,7 +18,9 @@ require("project_nvim").setup {
   detection_methods = { "lsp", "pattern" },
 
   ---@usage patterns used to detect root dir, when **"pattern"** is in detection_methods
-  patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+  patterns = {
+    ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json"
+  },
 
   ---@ Show hidden files in telescope when searching for files in a project
   show_hidden = false,
@@ -32,5 +34,5 @@ require("project_nvim").setup {
 
   ---@type string
   ---@usage path to store the project history for use in telescope
-  datapath = vim.fn.stdpath("data"),
+  datapath = vim.fn.stdpath( "data" )
 }

@@ -5,7 +5,7 @@ vim.cmd "au BufRead,BufNewFile *.js        set filetype=javascript"
 vim.cmd "au BufRead,BufNewFile *.ts        set filetype=typescript"
 
 -- Wrap lines for markdown files
-vim.cmd[[
+vim.cmd [[
 augroup Markdown
   autocmd!
   autocmd FileType markdown set wrap linebreak nolist

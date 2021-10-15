@@ -1,7 +1,7 @@
-local wk = require("which-key")
+local wk = require( "which-key" )
 
 -- Function to toggle quickfix list
-vim.cmd[[
+vim.cmd [[
 function! ToggleQuickFix()
   if empty(filter(getwininfo(), 'v:val.quickfix'))
     copen
@@ -19,27 +19,27 @@ local options = { noremap = true, silent = true };
 
 -- Adjust or Expand defaults 
 -- These should not show up in which-key
-remap('n', 'H', '^',    options)
-remap('n', 'L', '$',    options)
-remap('n', 'Y', 'y$',   options)
-remap('n', 'n', 'nzzzv', options)
-remap('n', 'N', 'Nzzzv', options)
-remap('n', 'J', 'mzJ`z', options)
-remap('n', 'vv','^v$',   options)
+remap( "n", "H", "^", options )
+remap( "n", "L", "$", options )
+remap( "n", "Y", "y$", options )
+remap( "n", "n", "nzzzv", options )
+remap( "n", "N", "Nzzzv", options )
+remap( "n", "J", "mzJ`z", options )
+remap( "n", "vv", "^v$", options )
 
 -- Add undo break points after these symbols
-remap('i', ',', ',<c-g>u', options)
-remap('i', '.', '.<c-g>u', options)
-remap('i', '=', '=<c-g>u', options)
-remap('i', '!', '!<c-g>u', options)
-remap('i', '?', '?<c-g>u', options)
+remap( "i", ",", ",<c-g>u", options )
+remap( "i", ".", ".<c-g>u", options )
+remap( "i", "=", "=<c-g>u", options )
+remap( "i", "!", "!<c-g>u", options )
+remap( "i", "?", "?<c-g>u", options )
 
 -- Reselect after indent
-remap('v', '<', '<gv', options)
-remap('v', '>', '>gv', options)
+remap( "v", "<", "<gv", options )
+remap( "v", ">", ">gv", options )
 
 -- Unbind default prettier binding
-remap('n', '<leader>p', '<Nop>', options)
+remap( "n", "<leader>p", "<Nop>", options )
 
 -- [NORMAL] MODE
 local nOptions = {
@@ -47,7 +47,7 @@ local nOptions = {
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   silent = true, -- use `silent` when creating keymaps
   noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
+  nowait = true -- use `nowait` when creating keymaps
 }
 
 local nOptionsWithLeader = {
@@ -56,21 +56,24 @@ local nOptionsWithLeader = {
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   silent = true, -- use `silent` when creating keymaps
   noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
+  nowait = true -- use `nowait` when creating keymaps
 }
 
 local nSingleMaps = {
-  ["<S-Tab>"] = { "<cmd>BufferPrevious<CR>", "Previous Buffer"},
-  ["<Tab>"]   = { "<cmd>BufferNext<CR>", "Next Buffer"},
+  ["<S-Tab>"] = { "<cmd>BufferPrevious<CR>", "Previous Buffer" },
+  ["<Tab>"] = { "<cmd>BufferNext<CR>", "Next Buffer" },
 
   -- Navigation
-  ["<C-h>"] = { "<C-w>h", "Focus Left Window"},
-  ["<C-j>"] = { "<C-w>j", "Focus Below Window"},
-  ["<C-k>"] = { "<C-w>k", "Focus Above Window"},
-  ["<C-l>"] = { "<C-w>l", "Focus Right Window"},
+  ["<C-h>"] = { "<C-w>h", "Focus Left Window" },
+  ["<C-j>"] = { "<C-w>j", "Focus Below Window" },
+  ["<C-k>"] = { "<C-w>k", "Focus Above Window" },
+  ["<C-l>"] = { "<C-w>l", "Focus Right Window" },
 
   -- Console Log Snippet
-  ["cl"] = { "oconsole.log(\"LINE: <C-r>=line(\".\")<Esc>\",);<Esc>O<Esc>jf,a ", "console.log()"},
+  ["cl"] = {
+    "oconsole.log(\"LINE: <C-r>=line(\".\")<Esc>\",);<Esc>O<Esc>jf,a ",
+    "console.log()"
+  },
 
   -- Toggle Quick Fix List
   ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle QuickFix List" },
@@ -101,9 +104,8 @@ local nSingleMaps = {
 
   ["y{"] = { "^vf{%y", "Yank { Block" },
   ["y("] = { "^vf(%y", "Yank ( Block" },
-  ["y["] = { "^vf[%y", "Yank [ Block" },
+  ["y["] = { "^vf[%y", "Yank [ Block" }
 }
-
 
 local nSingleMapsWithLeader = {
   [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
@@ -113,7 +115,7 @@ local nSingleMapsWithLeader = {
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["z"] = { "<cmd>ZenMode <CR>", "Zen" },
   ["e"] = { "<cmd>NvimTreeToggle <CR>", "Explorer" },
-  ["<leader>"] = { "<C-^>", "Last Buffer" } 
+  ["<leader>"] = { "<C-^>", "Last Buffer" }
 }
 
 local nGroupMapsWithLeader = {
@@ -128,28 +130,28 @@ local nGroupMapsWithLeader = {
     r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
     I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
     p = { "<cmd>LspTroubleToggle<CR>", "Problems View" },
-    s = { "<cmd>LspInfo<CR>", "Status" },
+    s = { "<cmd>LspInfo<CR>", "Status" }
   },
   b = {
     name = "﩯 Buffer",
-    j = { "<cmd>BufferPick<CR>", "Jump"},
+    j = { "<cmd>BufferPick<CR>", "Jump" },
     f = { "<cmd>Telescope buffers<CR>", "Find" },
     c = {
       name = "Close",
       w = { "<cmd>BufferWipeout<CR>", "Wipeout" },
-      c = { "<cmd>BufferClose<CR>", "Close Current Buffer"},
-      o = { "<cmd>BufferCloseAllButCurrent<CR>", "Close All Buffers But Current"},
+      c = { "<cmd>BufferClose<CR>", "Close Current Buffer" },
+      o = { "<cmd>BufferCloseAllButCurrent<CR>", "Close All Buffers But Current" }
     },
-    p = { "<cmd>BufferPrevious<CR>", "Previous Buffer"},
-    j = { "<cmd>BufferNext<CR>", "Next Buffer"},
+    p = { "<cmd>BufferPrevious<CR>", "Previous Buffer" },
+    j = { "<cmd>BufferNext<CR>", "Next Buffer" },
     D = { "<cmd>BufferOrderByDirectory<CR>", "Sort by directory" },
-    L = { "<cmd>BufferOrderByLanguage<CR>", "Sort by language" },
+    L = { "<cmd>BufferOrderByLanguage<CR>", "Sort by language" }
   },
   c = {
     name = "  Copy",
     f = { ":let @+ = expand('%:p')<CR>", "Copy Full Path" },
     r = { ":let @+ = expand('%')<CR>", "Copy Relative Path" },
-    n = { ":let @+ = expand('%:t')<CR>", "Copy File Name" },
+    n = { ":let @+ = expand('%:t')<CR>", "Copy File Name" }
   },
   g = {
     name = "  Git",
@@ -160,13 +162,10 @@ local nGroupMapsWithLeader = {
     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", "Preview Hunk" },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<CR>", "Reset Hunk" },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<CR>", "Reset Buffer" },
-    u = {
-      "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>",
-      "Undo Stage Hunk",
-    },
+    u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>", "Undo Stage Hunk" },
     m = { "<cmd>Telescope git_status<CR>", "Modified Files" },
     b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
-    c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
+    c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" }
     -- FIXME What is this even?
     -- d = {
     --   "<cmd>Gitsigns diffthis HEAD<CR>",
@@ -185,9 +184,12 @@ local nGroupMapsWithLeader = {
     R = { "<cmd>Telescope registers<CR>", "  Registers" },
     t = { "<cmd>Telescope live_grep<CR>", "  Text" },
     -- TODO I shouldnt need lua require here
-    w = { ":lua require(\"telescope.builtin\").grep_string { search = vim.fn.expand(\"<cword>\") }<CR>", "  Current Word" },
+    w = {
+      ":lua require(\"telescope.builtin\").grep_string { search = vim.fn.expand(\"<cword>\") }<CR>",
+      "  Current Word"
+    },
     k = { "<cmd>Telescope keymaps<CR>", "  Keymaps" },
-    C = { "<cmd>Telescope commands<CR>", "  Commands" },
+    C = { "<cmd>Telescope commands<CR>", "  Commands" }
   },
   p = {
     name = "  Packer",
@@ -196,13 +198,13 @@ local nGroupMapsWithLeader = {
     i = { "<cmd>PackerInstall<CR>", "Install" },
     s = { "<cmd>PackerSync<CR>", "Sync" },
     S = { "<cmd>PackerStatus<CR>", "Status" },
-    u = { "<cmd>PackerUpdate<CR>", "Update" },
-  },
+    u = { "<cmd>PackerUpdate<CR>", "Update" }
+  }
 }
 
-wk.register(nSingleMaps , nOptions)
-wk.register(nSingleMapsWithLeader, nOptionsWithLeader)
-wk.register(nGroupMapsWithLeader, nOptionsWithLeader)
+wk.register( nSingleMaps, nOptions )
+wk.register( nSingleMapsWithLeader, nOptionsWithLeader )
+wk.register( nGroupMapsWithLeader, nOptionsWithLeader )
 
 -- [VISUAL] MODE
 local vOptions = {
@@ -210,7 +212,7 @@ local vOptions = {
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   silent = true, -- use `silent` when creating keymaps
   noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
+  nowait = true -- use `nowait` when creating keymaps
 }
 
 local vOptionsWithLeader = {
@@ -219,7 +221,7 @@ local vOptionsWithLeader = {
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   silent = true, -- use `silent` when creating keymaps
   noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
+  nowait = true -- use `nowait` when creating keymaps
 }
 
 local vSingleMaps = {
@@ -227,17 +229,15 @@ local vSingleMaps = {
   ["J"] = { ":m '>+1<CR>gv=gv", "Move Lines Down" }
 }
 
-local vSingleMapsWithLeader = {
-  ["/"] = { ":'<,'>Commentary<CR>", "Comment" }
-}
+local vSingleMapsWithLeader = { ["/"] = { ":'<,'>Commentary<CR>", "Comment" } }
 
 local vGroupMapsWithLeader = {
   l = {
     name = "LSP",
     a = { "<cmd>Lspsaga range_code_action<CR>", "Code Action" }
-  },
+  }
 }
 
-wk.register(vSingleMaps , vOptions)
-wk.register(vSingleMapsWithLeader, vOptionsWithLeader)
-wk.register(vGroupMapsWithLeader, vOptionsWithLeader)
+wk.register( vSingleMaps, vOptions )
+wk.register( vSingleMapsWithLeader, vOptionsWithLeader )
+wk.register( vGroupMapsWithLeader, vOptionsWithLeader )

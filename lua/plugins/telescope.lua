@@ -1,16 +1,11 @@
-local actions = require('telescope.actions')
+local actions = require( "telescope.actions" )
 
-require('telescope').setup {
+require( "telescope" ).setup {
   active = false,
   defaults = {
     vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case'
+      "rg", "--color=never", "--no-heading", "--with-filename", "--line-number",
+      "--column", "--smart-case"
     },
     -- prompt_position = "bottom",
     prompt_prefix = "> ",
@@ -21,43 +16,31 @@ require('telescope').setup {
     sorting_strategy = "descending",
     layout_strategy = "horizontal",
     layout_config = {
-      horizontal = {
-        mirror = false,
-      },
-      vertical = {
-        mirror = false,
-      },
+      horizontal = { mirror = false },
+      vertical = { mirror = false }
     },
-    file_sorter =  require'telescope.sorters'.get_fzy_sorter,
+    file_sorter = require"telescope.sorters".get_fzy_sorter,
     file_ignore_patterns = {},
-    generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
+    generic_sorter = require"telescope.sorters".get_generic_fuzzy_sorter,
     path_display = {
-        -- 'shorten',
-        -- 'absolute',
-      },
+      -- 'shorten',
+      -- 'absolute',
+    },
     winblend = 0,
     border = {},
-    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
     color_devicons = true,
     use_less = true,
-    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
-    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
-    mappings = {
-      i = {
-        ["<C-x>"] = false,
-        ["<C-q>"] = actions.send_to_qflist,
-      },
-    },
+    set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+    file_previewer = require"telescope.previewers".vim_buffer_cat.new,
+    grep_previewer = require"telescope.previewers".vim_buffer_vimgrep.new,
+    qflist_previewer = require"telescope.previewers".vim_buffer_qflist.new,
+    mappings = { i = { ["<C-x>"] = false, ["<C-q>"] = actions.send_to_qflist } }
   },
   extensions = {
-    fzy_native = {
-      override_generic_sorter = false,
-      override_file_sorter = true,
-    }
+    fzy_native = { override_generic_sorter = false, override_file_sorter = true }
   }
 }
 
-require('telescope').load_extension('fzy_native');
-require('telescope').load_extension('projects');
+require( "telescope" ).load_extension( "fzy_native" );
+require( "telescope" ).load_extension( "projects" );
