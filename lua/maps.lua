@@ -199,7 +199,8 @@ local nGroupMapsWithLeader = {
     s = { "<cmd>PackerSync<CR>", "Sync" },
     S = { "<cmd>PackerStatus<CR>", "Status" },
     u = { "<cmd>PackerUpdate<CR>", "Update" }
-  }
+  },
+  v = { name = "  View", m = { ":MarkdownPreview<CR>", "Markdown Preview" } }
 }
 
 wk.register( nSingleMaps, nOptions )

@@ -74,7 +74,8 @@ packer.startup(
       use {
         "hrsh7th/nvim-cmp",
         requires = {
-          "L3MON4D3/LuaSnip", { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+          "L3MON4D3/LuaSnip",
+          { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
           { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
           { "hrsh7th/cmp-path", after = "nvim-cmp" },
           { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
@@ -257,5 +258,7 @@ packer.startup(
           require( "plugins/formatter" );
         end
       }
+
+      use { "davidgranstrom/nvim-markdown-preview" }
     end
  )
