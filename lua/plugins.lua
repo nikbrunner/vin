@@ -115,14 +115,6 @@ packer.startup(function()
     "kyazdani42/nvim-web-devicons"
   }
 
-  use {
-    'lukas-reineke/indent-blankline.nvim', 
-    config = function()
-      require('plugins/indent-blankline')
-    end
-  }
-
-  -- syntax
   use { 
     "nvim-treesitter/nvim-treesitter", 
     run = ":TSUpdate",
