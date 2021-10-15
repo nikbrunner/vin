@@ -165,6 +165,11 @@ packer.startup(function()
   }
 
   use {
+    'windwp/nvim-ts-autotag'
+  }
+
+
+  use {
     'karb94/neoscroll.nvim', 
     config = function() 
       require('plugins/neoscroll')
