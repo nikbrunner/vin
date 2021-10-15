@@ -72,6 +72,17 @@ packer.startup(
       }
 
       use {
+        "projekt0n/circles.nvim",
+        requires = {
+          { "kyazdani42/nvim-web-devicons" },
+          { "kyazdani42/nvim-tree.lua", opt = true }
+        },
+        config = function()
+          require( "circles" ).setup()
+        end
+      }
+
+      use {
         "hrsh7th/nvim-cmp",
         requires = {
           "L3MON4D3/LuaSnip",

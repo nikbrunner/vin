@@ -109,13 +109,9 @@ local nSingleMaps = {
 
 local nSingleMapsWithLeader = {
   [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["z"] = { "<cmd>ZenMode <CR>", "Zen" },
   ["e"] = { "<cmd>NvimTreeToggle <CR>", "Explorer" },
-  ["<leader>"] = { "<C-^>", "Last Buffer" }
+  ["<leader>"] = { "<C-^>", "Prev Buffer" }
 }
 
 local nGroupMapsWithLeader = {
@@ -131,6 +127,12 @@ local nGroupMapsWithLeader = {
     I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
     p = { "<cmd>LspTroubleToggle<CR>", "Problems View" },
     s = { "<cmd>LspInfo<CR>", "Status" }
+  },
+  q = {
+    name = "  Quit",
+    w = { "<cmd>BufferWipeout<CR>", "Wipeout" },
+    q = { "<cmd>BufferClose<CR>", "Close Current Buffer" },
+    o = { "<cmd>BufferCloseAllButCurrent<CR>", "Close All Buffers But Current" }
   },
   b = {
     name = "﩯 Buffer",
@@ -200,7 +202,8 @@ local nGroupMapsWithLeader = {
     S = { "<cmd>PackerStatus<CR>", "Status" },
     u = { "<cmd>PackerUpdate<CR>", "Update" }
   },
-  v = { name = "  View", m = { ":MarkdownPreview<CR>", "Markdown Preview" } }
+  v = { name = "  View", m = { ":MarkdownPreview<CR>", "Markdown Preview" } },
+  z = { "<cmd>ZenMode <CR>", "Zen" }
 }
 
 wk.register( nSingleMaps, nOptions )
