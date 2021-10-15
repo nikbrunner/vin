@@ -106,6 +106,13 @@ packer.startup(function()
     end
   }
 
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("plugins/indent-blankline")
+    end
+  }
+
   use { 
     "folke/tokyonight.nvim", 
     branch = "main",
