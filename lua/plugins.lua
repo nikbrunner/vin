@@ -40,7 +40,7 @@ packer.startup(function()
     end
   }
 
-    -- fork replacement for lspsaga
+  -- fork replacement for lspsaga
   use { 
     "rinx/lspsaga.nvim",
     config = function()
@@ -134,7 +134,7 @@ packer.startup(function()
     end
   }
 
-   use {
+  use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/plenary.nvim'}},
     config = function()
