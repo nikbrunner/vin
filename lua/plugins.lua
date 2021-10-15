@@ -122,10 +122,6 @@ packer.startup(function()
     end
   }
 
-  use {
-    "kyazdani42/nvim-web-devicons"
-  }
-
   use { 
     "nvim-treesitter/nvim-treesitter", 
     run = ":TSUpdate",
