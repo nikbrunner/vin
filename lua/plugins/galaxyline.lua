@@ -5,67 +5,20 @@ local fileinfo = require( "galaxyline.provider_fileinfo" )
 
 gl.short_line_list = { "NvimTree", "vista", "dbui", "packer", "startify" }
 
--- NVCode/DarkPlus
--- local colors = {
---     bg = '#22272e',
---     section_bg = '#3D434F',
---     fg = '#f8f8f2',
---     grey = "#545454",
---     blue = '#8be9fd',
---     yellow = '#ffc44c',
---     orange = '#ffae57',
---     red = '#ff5555',
---     magenta = '#ff79c6',
---     cyan = '#59c2ff',
---     green = '#39d353'
--- }
-
--- Darcula
--- local colors = {
---     bg = '#22272e',
---     section_bg = '#3D434F',
---     fg = '#f8f8f2',
---     grey = '#545454',
---     blue = '#75A8F0',
---     yellow = '#FFC66B',
---     orange = '#CD7832',
---     red = '#E74946',
---     magenta = '#D194C7',
---     purple = '#6E4A82',
---     cyan = '#299999',
---     green = '#8FA867'
--- }
-
 -- GitHub Dark
--- local colors = {
---     bg = '#0d1117',
---     section_bg = '#2D333B',
---     fg = '#ADBAC7',
---     grey = '#2D333B',
---     blue = '#6CB6FF',
---     yellow = '#DAAA3F',
---     orange = '#CD7832',
---     red = '#F47067',
---     magenta = '#DCBDFB',
---     purple = '#6E4A82',
---     cyan = '#96D0FF',
---     green = '#8DDB8C'
--- }
-
--- TokyoNight
 local colors = {
-  bg = "#1a1b26",
-  section_bg = "#1f2335",
-  fg = "#c0caf5",
-  grey = "#a9b1d6",
-  blue = "#7aa2f7",
-  yellow = "#e0af68",
-  orange = "#db4b4b",
-  red = "#f7768e",
+  bg = "#0d1117",
+  section_bg = "#2D333B",
+  fg = "#ADBAC7",
+  grey = "#2D333B",
+  blue = "#6CB6FF",
+  yellow = "#DAAA3F",
+  orange = "#CD7832",
+  red = "#F47067",
   magenta = "#DCBDFB",
-  purple = "#bb9af7",
-  cyan = "#7dcfff",
-  green = "#73daca"
+  purple = "#6E4A82",
+  cyan = "#96D0FF",
+  green = "#8DDB8C"
 }
 
 local mode_color = function()
