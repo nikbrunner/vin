@@ -21,7 +21,7 @@ local options = {
   cursorline = true,
   incsearch = true,
   hlsearch = false,
-  scrolloff = 16,
+  scrolloff = 32,
   sidescrolloff = 8,
   tags = "tags",
   compatible = false,
@@ -36,7 +36,9 @@ local options = {
   completeopt = { "menuone", "noselect" }
 }
 
-for k, v in pairs( options ) do vim.opt[k] = v end
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end
 
 vim.cmd [[
 if executable("rg") 

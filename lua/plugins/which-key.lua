@@ -1,4 +1,4 @@
-require( "which-key" ).setup {
+require("which-key").setup {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -29,7 +29,8 @@ require( "which-key" ).setup {
   layout = {
     height = { min = 4, max = 50 }, -- min and max height of the columns
     width = { min = 20, max = 50 }, -- min and max width of the columns
-    spacing = 5 -- spacing between columns
+    spacing = 5, -- spacing between columns,
+    align = "center"
   },
   hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
   show_help = true -- show help message on the command line when the popup is visible,
