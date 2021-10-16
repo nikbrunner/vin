@@ -5,16 +5,15 @@
 | | | | | |_) | |  | |_| |_| | | \ V /| | | | | | |
 |_| |_|_|_.__/|_|   \__,_(_)_| |_|\_/ |_|_| |_| |_|
 
-]]--
-
+]] --
 -- Set options
-require("opts");
+require( "opts" );
 
 -- Load plugins via Packer
-require("plugins");
+require( "plugins" );
 
 -- Set autocommands
-require("autocmd");
+require( "autocmd" );
 
 -- Set mappings
-require("maps");
+require( "maps" );

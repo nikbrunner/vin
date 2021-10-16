@@ -4,11 +4,16 @@ require( "telescope" ).setup {
   active = false,
   defaults = {
     vimgrep_arguments = {
-      "rg", "--color=never", "--no-heading", "--with-filename", "--line-number",
-      "--column", "--smart-case"
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case"
     },
     -- prompt_position = "bottom",
-    prompt_prefix = "> ",
+    prompt_prefix = "   ",
     selection_caret = "> ",
     entry_prefix = "  ",
     initial_mode = "insert",
@@ -36,6 +41,10 @@ require( "telescope" ).setup {
     grep_previewer = require"telescope.previewers".vim_buffer_vimgrep.new,
     qflist_previewer = require"telescope.previewers".vim_buffer_qflist.new,
     mappings = { i = { ["<C-x>"] = false, ["<C-q>"] = actions.send_to_qflist } }
+  },
+  pickers = {
+    find_files = { theme = "dropdown" },
+    lsp_dynamic_workspace_symbols = { theme = "dropdown" }
   },
   extensions = {
     fzy_native = { override_generic_sorter = false, override_file_sorter = true }

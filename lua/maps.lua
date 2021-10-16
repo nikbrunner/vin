@@ -1,5 +1,17 @@
 local wk = require( "which-key" )
 
+function plugCmd( plug, cmd )
+  return "<cmd>" .. plug .. " " .. cmd .. "<CR>"
+end
+
+function telescope( cmd )
+  return plugCmd( "Telescope", cmd )
+end
+
+function lspsaga( cmd )
+  return plugCmd( "Lspsaga", cmd )
+end
+
 -- Function to toggle quickfix list
 vim.cmd [[
 function! ToggleQuickFix()
@@ -117,16 +129,18 @@ local nSingleMapsWithLeader = {
 local nGroupMapsWithLeader = {
   l = {
     name = "  LSP",
-    a = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
-    n = { "<cmd>Lspsaga rename<CR>", "Rename" },
-    h = { "<cmd>Lspsaga hover_doc<CR>", "Show Hover" },
-    d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition" },
-    D = { "<cmd>Lspsaga preview_definition<CR>", "Preview Definition" },
-    -- TODO Show references with LSPSaga?
-    r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Goto references" },
-    I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
-    p = { "<cmd>LspTroubleToggle<CR>", "Problems View" },
-    s = { "<cmd>LspInfo<CR>", "Status" }
+    a = { lspsaga( "code_action" ), "Code Action" },
+    n = { lspsaga( "rename" ), "Rename" },
+    h = { lspsaga( "hover_doc" ), "Show Hover" },
+    D = { lspsaga( "preview_definition" ), "Preview Definition" },
+    d = { telescope( "lsp_definitions" ), "Definitions" },
+    r = { telescope( "lsp_references" ), "References" },
+    i = { telescope( "lsp_implementations" ), "Goto Implementation" },
+    p = { telescope( "lsp_document_diagnostics" ), "Document Problems" },
+    p = { telescope( "lsp_workspace_diagnostics" ), "Workspace Problems" },
+    s = { telescope( "lsp_dynamic_workspace_symbols" ), "Symbols" },
+    t = { "<cmd>LspTroubleToggle<CR>", "Trouble" }, -- TODO Find programmatically solution for plugins which work with non separated commands
+    S = { "<cmd>LspInfo<CR>", "Status" }
   },
   q = {
     name = "  Quit",
@@ -168,33 +182,29 @@ local nGroupMapsWithLeader = {
     m = { "<cmd>Telescope git_status<CR>", "Modified Files" },
     b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
     c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" }
-    -- FIXME What is this even?
-    -- d = {
-    --   "<cmd>Gitsigns diffthis HEAD<CR>",
-    --   "Git Diff",
-    -- },
   },
   s = {
-    name = "  Search",
-    b = { "<cmd>Telescope buffers<CR>", "﩯 Buffers" },
-    c = { "<cmd>Telescope colorscheme<CR>", "  Colorscheme" },
-    f = { "<cmd>Telescope find_files<CR>", "  File" },
-    h = { "<cmd>Telescope help_tags<CR>", "  Help" },
-    M = { "<cmd>Telescope man_pages<CR>", "  Man Pages" },
-    r = { "<cmd>Telescope oldfiles<CR>", "  Recent Files" },
-    p = { "<cmd>Telescope projects<CR>", "  Recent Projects" },
-    R = { "<cmd>Telescope registers<CR>", "  Registers" },
-    t = { "<cmd>Telescope live_grep<CR>", "  Text" },
-    -- TODO I shouldnt need lua require here
+    name = "  Search",
+    b = { telescope( "buffers" ), "﩯 Buffers" },
+    c = { telescope( "colorscheme" ), "  Colorscheme" },
+    f = { telescope( "find_files" ), "  File" },
+    h = { telescope( "help_tags" ), "  Help" },
+    M = { telescope( "man_pages" ), "  Man Pages" },
+    r = { telescope( "oldfiles" ), "  Recent Files" },
+    p = { telescope( "projects" ), "  Recent Projects" },
+    R = { telescope( "registers" ), "  Registers" },
+    t = { telescope( "live_grep" ), "  Text" },
+    q = { telescope( "quickfix" ), "  Quickfix" },
     w = {
-      ":lua require(\"telescope.builtin\").grep_string { search = vim.fn.expand(\"<cword>\") }<CR>",
+      "<cmd>Telescope grep_string { search = vim.fn.expand(\"<cword>\") }<CR>",
       "  Current Word"
     },
-    k = { "<cmd>Telescope keymaps<CR>", "  Keymaps" },
-    C = { "<cmd>Telescope commands<CR>", "  Commands" }
+    s = { telescope( "lsp_dynamic_workspace_symbols" ), "Symbols" },
+    k = { telescope( "keymaps" ), "  Keymaps" },
+    C = { telescope( "commands" ), "  Commands" }
   },
   p = {
-    name = "  Packer",
+    name = "  Packer",
     c = { "<cmd>PackerClean<CR>", "Clean" },
     C = { "<cmd>PackerCompile<CR>", "Compile" },
     i = { "<cmd>PackerInstall<CR>", "Install" },
