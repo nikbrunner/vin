@@ -1,6 +1,6 @@
-local actions = require( "telescope.actions" )
+local actions = require("telescope.actions")
 
-require( "telescope" ).setup {
+require("telescope").setup {
   active = false,
   defaults = {
     vimgrep_arguments = {
@@ -44,6 +44,7 @@ require( "telescope" ).setup {
   },
   pickers = {
     find_files = { theme = "dropdown" },
+    buffers = { theme = "dropdown" },
     lsp_dynamic_workspace_symbols = { theme = "dropdown" }
   },
   extensions = {
@@ -51,5 +52,5 @@ require( "telescope" ).setup {
   }
 }
 
-require( "telescope" ).load_extension( "fzy_native" );
-require( "telescope" ).load_extension( "projects" );
+require("telescope").load_extension("fzy_native");
+require("telescope").load_extension("projects");

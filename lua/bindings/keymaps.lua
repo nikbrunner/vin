@@ -197,7 +197,9 @@ WhichKeySingles.noLeader = {
     ["<C-k>"] = { "<C-w>k", "Focus Above Pane" },
     ["<C-l>"] = { "<C-w>l", "Focus Right Pane" },
 
-    ["<C-e>"] = { cmds.lspTrouble("WorkspaceToggle"), "Recent Buffers" },
+    ["<C-e>"] = { cmds.telescope("buffers"), "Recent Buffers" },
+    ["<C-p>"] = { cmds.telescope("find_files"), "Find file" },
+    ["<F8>"] = { cmds.lspTrouble("WorkspaceToggle"), "Workspace Errors" },
 
     ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle QuickFix List" },
 
