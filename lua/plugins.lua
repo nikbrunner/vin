@@ -115,6 +115,17 @@ packer.startup(
       }
 
       use {
+        "projekt0n/circles.nvim",
+        requires = {
+          { "kyazdani42/nvim-web-devicons" },
+          { "kyazdani42/nvim-tree.lua", opt = true }
+        },
+        config = function()
+          require("circles").setup()
+        end
+      }
+
+      use {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
           require("plugins.indent-blankline")

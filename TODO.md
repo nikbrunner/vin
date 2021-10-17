@@ -11,8 +11,3 @@
 ## 🔭 Telescope 
 - [ ] Search .files
 - [ ] Fix open in split <kbd>C-x</kbd> is broken
-
-## ✅ Done 
-- [x] Refactor KeyMaps
-- [x] Setup Lua Dev Server 
-- [x] Move all Keymaps into WhichKey
