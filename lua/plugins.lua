@@ -231,7 +231,13 @@ packer.startup(
         end
       }
 
-      use { "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }
+      use {
+        "romgrk/barbar.nvim",
+        requires = { "kyazdani42/nvim-web-devicons" },
+        config = function()
+          require("plugins.barbar")
+        end
+      }
 
       use {
         "andrejlevkovitch/vim-lua-format",
