@@ -33,7 +33,7 @@ require"nvim-tree".setup {
     -- enable the feature
     enable = true,
     -- allow to open the tree if it was previously closed
-    auto_open = true
+    auto_open = false
   },
   -- hijack the cursor in the tree to put it at the start of the filename
   hijack_cursor = false,
@@ -65,7 +65,7 @@ require"nvim-tree".setup {
 
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`, for left or right side placement
-    width = 50,
+    width = 30,
     -- height of the window, can be either a number (columns) or a string in `%`, for top or bottom side placement
     height = 30,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'

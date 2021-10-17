@@ -40,7 +40,7 @@ require("telescope").setup {
     file_previewer = require"telescope.previewers".vim_buffer_cat.new,
     grep_previewer = require"telescope.previewers".vim_buffer_vimgrep.new,
     qflist_previewer = require"telescope.previewers".vim_buffer_qflist.new,
-    mappings = { i = { ["<C-x>"] = false, ["<C-q>"] = actions.send_to_qflist } }
+    mappings = { i = { ["<C-q>"] = actions.send_to_qflist } }
   },
   pickers = {
     find_files = { theme = "dropdown", hidden = true },

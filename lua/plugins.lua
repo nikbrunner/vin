@@ -42,13 +42,28 @@ packer.startup(
       }
 
       use {
+        "hrsh7th/nvim-cmp",
+        requires = {
+          "L3MON4D3/LuaSnip",
+          { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+          { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+          { "hrsh7th/cmp-path", after = "nvim-cmp" },
+          { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
+          { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" }
+        },
+        config = function()
+          require("plugins.completion");
+        end
+      }
+
+      use {
         "folke/lua-dev.nvim",
         config = function()
           require("plugins.lua-dev")
         end
       }
 
-      -- fork replacement for lspsaga
+      -- NOTE fork replacement for lspsaga
       use {
         "rinx/lspsaga.nvim",
         config = function()
@@ -71,25 +86,18 @@ packer.startup(
       }
 
       use {
-        "kyazdani42/nvim-tree.lua",
-        requires = "kyazdani42/nvim-web-devicons",
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
         config = function()
-          require("plugins.nvimtree")
+          require("plugins.treesitter")
         end
       }
 
       use {
-        "hrsh7th/nvim-cmp",
-        requires = {
-          "L3MON4D3/LuaSnip",
-          { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-          { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
-          { "hrsh7th/cmp-path", after = "nvim-cmp" },
-          { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
-          { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" }
-        },
+        "kyazdani42/nvim-tree.lua",
+        requires = "kyazdani42/nvim-web-devicons",
         config = function()
-          require("plugins.completion");
+          require("plugins.nvimtree")
         end
       }
 
@@ -107,21 +115,12 @@ packer.startup(
         end
       }
 
+      use { "folke/tokyonight.nvim", branch = "main" }
+
       use {
         "projekt0n/github-nvim-theme",
         config = function()
           require("plugins.github-nvim")
-        end
-      }
-
-      use {
-        "projekt0n/circles.nvim",
-        requires = {
-          { "kyazdani42/nvim-web-devicons" },
-          { "kyazdani42/nvim-tree.lua", opt = true }
-        },
-        config = function()
-          require("circles").setup()
         end
       }
 
@@ -132,21 +131,11 @@ packer.startup(
         end
       }
 
-      use { "folke/tokyonight.nvim", branch = "main" }
-
       use {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
         config = function()
           require("plugins.todo")
-        end
-      }
-
-      use {
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
-        config = function()
-          require("plugins.treesitter")
         end
       }
 
@@ -160,7 +149,15 @@ packer.startup(
 
       use {
         "nvim-telescope/telescope-fzy-native.nvim",
+        requires = { "nvim-telescope/telescope.nvim" },
         run = "git submodule update --init --recursive"
+      }
+
+      use {
+        "folke/which-key.nvim",
+        config = function()
+          require("plugins.whichkey");
+        end
       }
 
       use {
@@ -184,19 +181,10 @@ packer.startup(
         end
       }
 
-      use { "windwp/nvim-ts-autotag" }
-
       use {
         "karb94/neoscroll.nvim",
         config = function()
           require("plugins.neoscroll")
-        end
-      }
-
-      use {
-        "folke/which-key.nvim",
-        config = function()
-          require("plugins.whichkey");
         end
       }
 
@@ -207,12 +195,6 @@ packer.startup(
         end
       }
 
-      use { "djoshea/vim-autoread" }
-
-      use { "nvim-lua/popup.nvim" }
-
-      use { "nvim-lua/plenary.nvim" }
-
       use {
         "oberblastmeister/rooter.nvim",
         config = function()
@@ -220,16 +202,12 @@ packer.startup(
         end
       }
 
-      use { "tpope/vim-surround" }
-
       use {
         "machakann/vim-highlightedyank",
         config = function()
           require("plugins.highlightedyank");
         end
       }
-
-      use { "mg979/vim-visual-multi", branch = "master" }
 
       use {
         "norcalli/nvim-colorizer.lua",
@@ -245,8 +223,6 @@ packer.startup(
         end
       }
 
-      use { "RRethy/vim-illuminate" }
-
       use {
         "glepnir/galaxyline.nvim",
         branch = "main",
@@ -256,9 +232,6 @@ packer.startup(
       }
 
       use { "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }
-
-      -- formater
-      use { "prettier/vim-prettier", run = "npm install" }
 
       use {
         "andrejlevkovitch/vim-lua-format",
@@ -276,6 +249,12 @@ packer.startup(
         end
       }
 
+      use { "djoshea/vim-autoread" }
+      use { "nvim-lua/popup.nvim" }
       use { "davidgranstrom/nvim-markdown-preview" }
+      use { "RRethy/vim-illuminate" }
+      use { "mg979/vim-visual-multi", branch = "master" }
+      use { "tpope/vim-surround" }
+      use { "prettier/vim-prettier", run = "npm install" }
     end
 )

@@ -199,6 +199,7 @@ WhichKeySingles.noLeader = {
 
     ["<C-e>"] = { cmds.telescope("buffers"), "Recent Buffers" },
     ["<C-p>"] = { cmds.telescope("find_files"), "Find file" },
+    ["<C-m>"] = { cmds.telescope("git_status"), "Modified files" },
     ["<F8>"] = { cmds.lspTrouble("WorkspaceToggle"), "Workspace Errors" },
 
     ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle QuickFix List" },
