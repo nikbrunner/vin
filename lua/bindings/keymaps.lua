@@ -7,6 +7,7 @@ local WhichKeyGroups = {}
 WhichKeyGroups.go = {
   name = "  Go",
   h = { cmds.lspsaga("hover_doc"), "Show Hover" },
+  m = { cmds.telescope("git_status"), "Modified Files" },
   d = { cmds.vimLsp("definition()"), "Goto Definition" },
   D = { cmds.lspsaga("preview_definition"), "Preview Definition" },
   r = { cmds.lspsaga("lsp_finder"), "Goto References" },
@@ -197,12 +198,12 @@ WhichKeySingles.noLeader = {
     ["<C-k>"] = { "<C-w>k", "Focus Above Pane" },
     ["<C-l>"] = { "<C-w>l", "Focus Right Pane" },
 
-    ["<C-e>"] = { cmds.telescope("buffers"), "Recent Buffers" },
     ["<C-p>"] = { cmds.telescope("find_files"), "Find file" },
-    ["<C-m>"] = { cmds.telescope("git_status"), "Modified files" },
-    ["<F8>"] = { cmds.lspTrouble("WorkspaceToggle"), "Workspace Errors" },
-
+    ["<C-e>"] = { cmds.telescope("buffers"), "Recent Buffers" },
+    ["<C-n>"] = { cmds.nvimTree("Toggle"), "Nav Explorer" },
     ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle QuickFix List" },
+
+    ["<F8>"] = { cmds.lspTrouble("WorkspaceToggle"), "Workspace Errors" },
 
     ["<S-Tab>"] = { cmds.buffer("Previous"), "Previous Buffer" },
     ["<Tab>"] = { cmds.buffer("Next"), "Next Buffer" },
