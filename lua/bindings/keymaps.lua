@@ -196,10 +196,17 @@ WhichKeyGroups.packer = {
   u = { cmds.packer("Update"), "Update" }
 }
 
-WhichKeyGroups.toggle = {
-  name = "  Toggle",
+WhichKeyGroups.view = {
+  name = "  View",
   m = { ":MarkdownPreview<CR>", "Markdown Preview" },
   z = { "<cmd>ZenMode<CR>", "Zen" }
+}
+
+WhichKeyGroups.todo = {
+  name = "  Todo",
+  t = { cmds.todo("Telescope"), "Telescope" },
+  q = { cmds.todo("QuickFix"), "QuickFix" },
+  r = { cmds.todo("Trouble"), "Trouble" }
 }
 
 WhichKeyGroups.insert = {
@@ -242,8 +249,9 @@ KeyMaps.whichKey = {
         g = WhichKeyGroups.git,
         s = WhichKeyGroups.search,
         p = WhichKeyGroups.packer,
-        t = WhichKeyGroups.toggle,
-        i = WhichKeyGroups.insert
+        v = WhichKeyGroups.view,
+        i = WhichKeyGroups.insert,
+        t = WhichKeyGroups.todo
       }
     },
 

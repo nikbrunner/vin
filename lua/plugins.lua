@@ -1,4 +1,5 @@
 local packer = require("packer")
+
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
@@ -126,6 +127,15 @@ packer.startup(
         disable = true,
         config = function()
           require("plugins/tokyonight")
+        end
+      }
+
+      -- Lua
+      use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+          require("plugins.todo")
         end
       }
 

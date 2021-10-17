@@ -48,6 +48,10 @@ function Commands.lspTrouble(cmd)
   return bindCommand("LspTrouble", cmd, false)
 end
 
+function Commands.todo(cmd)
+  return bindCommand("Todo", cmd, false)
+end
+
 function Commands.buffer(cmd)
   return bindCommand("Buffer", cmd, false)
 end
