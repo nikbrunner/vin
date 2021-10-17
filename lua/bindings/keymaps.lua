@@ -7,6 +7,7 @@ local WhichKeyGroups = {}
 WhichKeyGroups.go = {
   name = "  Go",
   h = { cmds.lspsaga("hover_doc"), "Show Hover" },
+  s = { cmds.lazyGit(), "Git Status" },
   m = { cmds.telescope("git_status"), "Modified Files" },
   d = { cmds.vimLsp("definition()"), "Goto Definition" },
   D = { cmds.lspsaga("preview_definition"), "Preview Definition" },

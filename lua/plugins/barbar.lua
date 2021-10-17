@@ -18,8 +18,8 @@ vim.g.bufferline = {
   clickable = true,
 
   -- Excludes buffers from the tabline
-  exclude_ft = {},
-  exclude_name = { "nvim", "nibru" },
+  exclude_ft = { "NvimTree" },
+  exclude_name = { "nvim", "nibru", "nibru.dev", "bc-desktop-client" },
 
   -- Enable/disable icons
   -- if set to 'numbers', will show buffer index in the tabline

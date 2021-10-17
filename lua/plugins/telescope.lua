@@ -19,7 +19,7 @@ require("telescope").setup {
     initial_mode = "insert",
     selection_strategy = "reset",
     sorting_strategy = "descending",
-    layout_strategy = "horizontal",
+    layout_strategy = "flex",
     layout_config = {
       horizontal = { mirror = false },
       vertical = { mirror = false }
@@ -40,7 +40,12 @@ require("telescope").setup {
     file_previewer = require"telescope.previewers".vim_buffer_cat.new,
     grep_previewer = require"telescope.previewers".vim_buffer_vimgrep.new,
     qflist_previewer = require"telescope.previewers".vim_buffer_qflist.new,
-    mappings = { i = { ["<C-q>"] = actions.send_to_qflist } }
+    mappings = {
+      i = {
+        ["<C-q>"] = actions.send_to_qflist,
+        ["<C-s>"] = actions.add_selected_to_qflist
+      }
+    }
   },
   pickers = {
     find_files = { theme = "dropdown", hidden = true },
