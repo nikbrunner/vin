@@ -196,13 +196,6 @@ packer.startup(
       }
 
       use {
-        "oberblastmeister/rooter.nvim",
-        config = function()
-          require("plugins.rooter");
-        end
-      }
-
-      use {
         "machakann/vim-highlightedyank",
         config = function()
           require("plugins.highlightedyank");
