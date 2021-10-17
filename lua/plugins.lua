@@ -37,14 +37,14 @@ packer.startup(
       use {
         "williamboman/nvim-lsp-installer",
         config = function()
-          require("plugins/lsp-installer")
+          require("plugins.lsp-installer")
         end
       }
 
       use {
         "folke/lua-dev.nvim",
         config = function()
-          require("plugins/lua-dev")
+          require("plugins.lua-dev")
         end
       }
 
@@ -52,21 +52,21 @@ packer.startup(
       use {
         "rinx/lspsaga.nvim",
         config = function()
-          require("plugins/lspsaga")
+          require("plugins.lspsaga")
         end
       }
 
       use {
         "onsails/lspkind-nvim",
         config = function()
-          require("plugins/kind")
+          require("plugins.kind")
         end
       }
 
       use {
         "folke/lsp-trouble.nvim",
         config = function()
-          require("plugins/trouble")
+          require("plugins.trouble")
         end
       }
 
@@ -74,7 +74,7 @@ packer.startup(
         "kyazdani42/nvim-tree.lua",
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
-          require("plugins/nvimtree")
+          require("plugins.nvimtree")
         end
       }
 
@@ -89,48 +89,40 @@ packer.startup(
           { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" }
         },
         config = function()
-          require("plugins/cmp");
+          require("plugins.completion");
         end
       }
 
       use {
         "lewis6991/gitsigns.nvim",
         config = function()
-          require("plugins/gitsigns")
+          require("plugins.gitsigns")
         end
       }
 
       use {
         "kdheepak/lazygit.nvim",
         config = function()
-          require("plugins/lazygit")
+          require("plugins.lazygit")
         end
       }
 
       use {
         "projekt0n/github-nvim-theme",
         config = function()
-          require("plugins/github-nvim")
+          require("plugins.github-nvim")
         end
       }
 
       use {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
-          require("plugins/indent-blankline")
+          require("plugins.indent-blankline")
         end
       }
 
-      use {
-        "folke/tokyonight.nvim",
-        branch = "main",
-        disable = true,
-        config = function()
-          require("plugins/tokyonight")
-        end
-      }
+      use { "folke/tokyonight.nvim", branch = "main" }
 
-      -- Lua
       use {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
@@ -143,7 +135,7 @@ packer.startup(
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
         config = function()
-          require("plugins/treesitter")
+          require("plugins.treesitter")
         end
       }
 
@@ -151,7 +143,7 @@ packer.startup(
         "nvim-telescope/telescope.nvim",
         requires = { { "nvim-lua/plenary.nvim" } },
         config = function()
-          require("plugins/telescope");
+          require("plugins.telescope");
         end
       }
 
@@ -163,7 +155,7 @@ packer.startup(
       use {
         "ahmedkhalf/project.nvim",
         config = function()
-          require("plugins/projects");
+          require("plugins.projects");
         end
       }
 
@@ -186,21 +178,21 @@ packer.startup(
       use {
         "karb94/neoscroll.nvim",
         config = function()
-          require("plugins/neoscroll")
+          require("plugins.neoscroll")
         end
       }
 
       use {
         "folke/which-key.nvim",
         config = function()
-          require("plugins/which-key");
+          require("plugins.whichkey");
         end
       }
 
       use {
         "folke/zen-mode.nvim",
         config = function()
-          require("plugins/zen-mode");
+          require("plugins.zen-mode");
         end
       }
 
@@ -213,18 +205,16 @@ packer.startup(
       use {
         "oberblastmeister/rooter.nvim",
         config = function()
-          require("plugins/rooter");
+          require("plugins.rooter");
         end
       }
-
-      use { "tpope/vim-commentary" }
 
       use { "tpope/vim-surround" }
 
       use {
         "machakann/vim-highlightedyank",
         config = function()
-          require("plugins/highlightedyank");
+          require("plugins.highlightedyank");
         end
       }
 
@@ -233,14 +223,14 @@ packer.startup(
       use {
         "norcalli/nvim-colorizer.lua",
         config = function()
-          require("plugins/colorizer");
+          require("colorizer").setup()
         end
       }
 
       use {
         "glepnir/dashboard-nvim",
         config = function()
-          require("plugins/dashboard");
+          require("plugins.dashboard");
         end
       }
 
@@ -250,18 +240,11 @@ packer.startup(
         "glepnir/galaxyline.nvim",
         branch = "main",
         config = function()
-          require("plugins/galaxyline");
+          require("plugins.statusline");
         end
       }
 
-      use {
-        "romgrk/barbar.nvim",
-        requires = { "kyazdani42/nvim-web-devicons" },
-        -- TODO Setup config file
-        config = function()
-          vim.g.bufferline = { icons = true }
-        end
-      }
+      use { "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } }
 
       -- formater
       use { "prettier/vim-prettier", run = "npm install" }
@@ -278,7 +261,7 @@ packer.startup(
       use {
         "mhartington/formatter.nvim",
         config = function()
-          require("plugins/formatter");
+          require("plugins.format");
         end
       }
 

@@ -1,7 +1,7 @@
-local gl = require( "galaxyline" )
+local gl = require("galaxyline")
 local gls = gl.section
 
-local fileinfo = require( "galaxyline.provider_fileinfo" )
+local fileinfo = require("galaxyline.provider_fileinfo")
 
 gl.short_line_list = { "NvimTree", "vista", "dbui", "packer", "startify" }
 
@@ -46,20 +46,19 @@ local white_space = function()
   return " "
 end
 
-local function file_name( is_active, highlight_group )
-  normal_fg = is_active and colors.fg or colors.grey
-  modified_fg = is_active and colors.red or colors.orange
+local function file_name(is_active, highlight_group)
+  local normal_fg = is_active and colors.fg or colors.grey
+  local modified_fg = is_active and colors.red or colors.orange
   if vim.bo.modifiable then
     if vim.bo.modified then
-      vim.api
-          .nvim_command( "hi " .. highlight_group .. " guifg=" .. modified_fg )
+      vim.api.nvim_command("hi " .. highlight_group .. " guifg=" .. modified_fg)
     else
-      vim.api.nvim_command( "hi " .. highlight_group .. " guifg=" .. normal_fg )
+      vim.api.nvim_command("hi " .. highlight_group .. " guifg=" .. normal_fg)
     end
   end
   return fileinfo.get_current_file_name(
              icons.file.modified, icons.file.read_only
-          )
+         )
 end
 
 -- --------------------------------------Left side-----------------------------------------------------------
@@ -101,7 +100,7 @@ gls.left[i] = {
       else
         vim.api.nvim_command(
             "hi GalaxyViMode guifg=" .. mode_color() .. " gui=bold"
-         )
+        )
         return "  " .. alias[vim.fn.mode()]
       end
     end,
@@ -116,7 +115,7 @@ gls.left[i] = {
   FileIcon = {
     provider = { white_space, "FileIcon" },
     highlight = {
-      require( "galaxyline.provider_fileinfo" ).get_file_icon_color,
+      require("galaxyline.provider_fileinfo").get_file_icon_color,
       colors.section_bg
     }
   }
@@ -126,7 +125,7 @@ i = i + 1
 gls.left[i] = {
   MyFileName = {
     provider = function()
-      return file_name( true, "GalaxyMyFileName" )
+      return file_name(true, "GalaxyMyFileName")
     end,
     highlight = { colors.fg, colors.section_bg },
     separator = icons.sep.left .. " ",
@@ -135,7 +134,7 @@ gls.left[i] = {
 }
 
 local checkwidth = function()
-  local squeeze_width = vim.fn.winwidth( 0 ) / 2
+  local squeeze_width = vim.fn.winwidth(0) / 2
   if squeeze_width > 40 then
     return true
   end
@@ -224,7 +223,7 @@ j = j + 1
 gls.right[j] = {
   time = {
     provider = function()
-      return " " .. "  " .. os.date( "%H:%M" ) .. " "
+      return " " .. "  " .. os.date("%H:%M") .. " "
     end,
     highlight = { colors.fg, colors.section_bg }
   }
@@ -236,7 +235,7 @@ gls.right[j] = {
     provider = function()
       return "  "
     end,
-    condition = require( "galaxyline.provider_vcs" ).check_git_workspace,
+    condition = require("galaxyline.provider_vcs").check_git_workspace,
     highlight = { colors.green, colors.bg },
     separator = icons.sep.right,
     separator_highlight = { colors.bg, colors.section_bg }
@@ -247,7 +246,7 @@ j = j + 1
 gls.right[j] = {
   GitBranch = {
     provider = "GitBranch",
-    condition = require( "galaxyline.provider_vcs" ).check_git_workspace,
+    condition = require("galaxyline.provider_vcs").check_git_workspace,
     highlight = { colors.green, colors.bg }
   }
 }
@@ -285,7 +284,7 @@ k = k + 1
 gls.short_line_left[k] = {
   SMyFileName = {
     provider = function()
-      return file_name( false, "GalaxySMyFileName" )
+      return file_name(false, "GalaxySMyFileName")
     end,
     highlight = { colors.grey, colors.bg },
     separator = icons.sep.left,

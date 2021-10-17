@@ -1,19 +1,18 @@
-local cmp = require( "cmp" )
-local lspkind = require( "lspkind" )
-local luasnip = require( "luasnip" )
+local cmp = require("cmp")
+local luasnip = require("luasnip")
 
 cmp.setup {
   completion = { completeopt = "menu,menuone,noinsert" },
   snippet = {
-    expand = function( args )
-      luasnip.lsp_expand( args.body )
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
     end
   },
   mapping = {
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-n>"] = cmp.mapping.select_next_item(),
-    ["<C-d>"] = cmp.mapping.scroll_docs( -4 ),
-    ["<C-f>"] = cmp.mapping.scroll_docs( 4 ),
+    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.close(),
     ["<CR>"] = cmp.mapping.confirm {
@@ -26,15 +25,19 @@ cmp.setup {
     }
   },
   sources = {
-    { name = "nvim_lsp" }, { name = "path" }, { name = "nvim_lua" },
-    { name = "buffer" }, { name = "calc" }, { name = "emoji" },
+    { name = "nvim_lsp" },
+    { name = "path" },
+    { name = "nvim_lua" },
+    { name = "buffer" },
+    { name = "calc" },
+    { name = "emoji" },
     { name = "treesitter" }
   },
   formatting = {
-    format = function( entry, vim_item )
+    format = function(entry, vim_item)
       -- fancy icons and a name of kind
       vim_item.kind =
-          require( "lspkind" ).presets.default[vim_item.kind] .. " " ..
+          require("lspkind").presets.default[vim_item.kind] .. " " ..
               vim_item.kind
 
       -- set a name for each source
