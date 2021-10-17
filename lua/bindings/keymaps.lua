@@ -1,43 +1,8 @@
-local utils = require("bindings.utils")
 local cmds = require("bindings.commands")
 
-local remap = utils.createRemap
-
 local KeyMaps = {}
+local WhichKeySingles = {}
 local WhichKeyGroups = {}
-
--- These overwrite base vim maps
-KeyMaps.overwrites = {
-  normal = {
-    remap("^", "H"),
-    remap("$", "L"),
-    remap("y$", "Y"),
-    remap("nzzzv", "n"),
-    remap("Nzzzv", "N"),
-    remap("mzJ`z", "J"),
-    remap("^v$", "vv"),
-    remap("<leader>p", "<nop>") -- Unbind default prettier binding
-  },
-  insert = {
-    -- Set undo points on these chars
-    remap(",<c-g>u", ","),
-    remap(".<c-g>u", "."),
-    remap("=<c-g>u", "="),
-    remap("!<c-g>u", "!"),
-    remap("?<c-g>u", "?"),
-    remap("[<c-g>u", "["),
-    remap("(<c-g>u", "("),
-    remap("{<c-g>u", "{")
-  },
-  visual = { remap("<gv", "<"), remap(">gv", ">") }
-}
-
-local WhichKeySingles = {
-  [";"] = { cmds.dashboard(), "Dashboard" },
-  ["f"] = { cmds.telescope("find_files"), "Find File" },
-  ["e"] = { cmds.nvimTree("Toggle"), "Explorer" },
-  [" "] = { "<C-^>", "Previous Buffer" }
-}
 
 WhichKeyGroups.go = {
   name = "  Go",
@@ -187,7 +152,7 @@ WhichKeyGroups.search = {
   C = { cmds.telescope("commands"), "  Commands" }
 }
 
-WhichKeyGroups.packer = {
+WhichKeyGroups.packages = {
   name = "  Packages",
   c = { cmds.packer("Compile"), "Compile" },
   i = { cmds.packer("Install"), "Install" },
@@ -217,17 +182,27 @@ WhichKeyGroups.insert = {
   }
 }
 
-KeyMaps.whichKey = {
+WhichKeySingles.noLeader = {
   normal = {
-    ["<S-Tab>"] = { cmds.buffer("Previous"), "Previous Buffer" },
-    ["<Tab>"] = { cmds.buffer("Next"), "Next Buffer" },
+    ["H"] = { "^", "Line Start" },
+    ["L"] = { "$", "Line End" },
+
+    ["Y"] = { "y$", "Yank till end" },
+    ["n"] = { "nzzzv", "Adjusted n" },
+    ["N"] = { "Nzzzv", "Adjusted N" },
+    ["J"] = { "mzJ`z", "Adjusted J" },
 
     ["<C-h>"] = { "<C-w>h", "Focus Left Pane" },
     ["<C-j>"] = { "<C-w>j", "Focus Below Pane" },
     ["<C-k>"] = { "<C-w>k", "Focus Above Pane" },
     ["<C-l>"] = { "<C-w>l", "Focus Right Pane" },
 
+    ["<C-e>"] = { cmds.lspTrouble("WorkspaceToggle"), "Recent Buffers" },
+
     ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle QuickFix List" },
+
+    ["<S-Tab>"] = { cmds.buffer("Previous"), "Previous Buffer" },
+    ["<Tab>"] = { cmds.buffer("Next"), "Next Buffer" },
 
     ["["] = WhichKeyGroups.goToPrevious,
     ["]"] = WhichKeyGroups.goToNext,
@@ -235,12 +210,42 @@ KeyMaps.whichKey = {
     v = WhichKeyGroups.block.select,
     d = WhichKeyGroups.block.delete,
     y = WhichKeyGroups.block.yank
+  },
+  insert = {
+    [","] = { ",<c-g>u", "Add Undo Breakpoint for ," },
+    ["."] = { ".<c-g>u", "Add Undo Breakpoint for ." },
+    ["="] = { "=<c-g>u", "Add Undo Breakpoint for =" },
+    ["!"] = { "!<c-g>u", "Add Undo Breakpoint for !" },
+    ["?"] = { "?<c-g>u", "Add Undo Breakpoint for ?" },
+    ["["] = { "[<c-g>u", "Add Undo Breakpoint for [" },
+    ["("] = { "(<c-g>u", "Add Undo Breakpoint for (" },
+    ["{"] = { "{<c-g>u", "Add Undo Breakpoint for {" }
+  },
+  visual = {
+    ["<"] = { "<gv", "Better Indent for <" },
+    [">"] = { ">gv", "Better Indent for >" }
+  }
+}
 
+WhichKeySingles.withLeader = {
+  normal = {
+    [";"] = { cmds.dashboard(), "Dashboard" },
+    ["f"] = { cmds.telescope("find_files"), "Find File" },
+    ["e"] = { cmds.nvimTree("Toggle"), "Explorer" },
+    [" "] = { "<C-^>", "Previous Buffer" }
+  }
+}
+
+KeyMaps = {
+  noLeader = {
+    normal = WhichKeySingles.noLeader.normal,
+    insert = WhichKeySingles.noLeader.insert,
+    visual = WhichKeySingles.noLeader.visual
   },
 
   withLeader = {
     normal = {
-      single = WhichKeySingles,
+      single = WhichKeySingles.withLeader.normal,
       groups = {
         l = WhichKeyGroups.lsp,
         q = WhichKeyGroups.quit,
@@ -248,7 +253,7 @@ KeyMaps.whichKey = {
         c = WhichKeyGroups.copy,
         g = WhichKeyGroups.git,
         s = WhichKeyGroups.search,
-        p = WhichKeyGroups.packer,
+        p = WhichKeyGroups.packages,
         v = WhichKeyGroups.view,
         i = WhichKeyGroups.insert,
         t = WhichKeyGroups.todo

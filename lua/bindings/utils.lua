@@ -1,5 +1,7 @@
 local Utils = {}
 
+-- INFO These are currently unused but I want to keep them for now
+
 function Utils.createRemap(from, to)
   local obj = {}
   obj.from = from
