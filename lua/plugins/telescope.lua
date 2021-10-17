@@ -43,7 +43,7 @@ require("telescope").setup {
     mappings = { i = { ["<C-x>"] = false, ["<C-q>"] = actions.send_to_qflist } }
   },
   pickers = {
-    find_files = { theme = "dropdown" },
+    find_files = { theme = "dropdown", hidden = true },
     buffers = { theme = "dropdown" },
     lsp_dynamic_workspace_symbols = { theme = "dropdown" }
   },
