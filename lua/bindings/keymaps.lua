@@ -3,11 +3,11 @@ local cmds = require("bindings.commands")
 
 local remap = utils.createRemap
 
-local Keymaps = {}
+local KeyMaps = {}
 local WhichKeyGroups = {}
 
 -- These overwrite base vim maps
-Keymaps.overwrites = {
+KeyMaps.overwrites = {
   normal = {
     remap("^", "H"),
     remap("$", "L"),
@@ -93,10 +93,14 @@ WhichKeyGroups.lsp = {
   n = { cmds.lspsaga("rename"), "Rename" },
   h = { cmds.lspsaga("hover_doc"), "Hover" },
   l = { cmds.lspInstall("Info"), "Languages" },
+  ["["] = { cmds.lspsaga("diagnostic_jump_prev"), "Previous Problem" },
+  ["]"] = { cmds.lspsaga("diagnostic_jump_next"), "Next Problem" },
   p = {
     name = "  Problems",
-    d = { cmds.telescope("lsp_document_diagnostics"), "Document Problems" },
-    w = { cmds.telescope("lsp_workspace_diagnostics"), "Workspace Problems" },
+    ["["] = { cmds.lspsaga("diagnostic_jump_prev"), "Prev" },
+    ["]"] = { cmds.lspsaga("diagnostic_jump_next"), "Next" },
+    d = { cmds.telescope("lsp_document_diagnostics"), "Document" },
+    w = { cmds.telescope("lsp_workspace_diagnostics"), "Workspace" },
     t = { cmds.lspTrouble("Toggle"), "Trouble" }
   },
   g = {
@@ -118,18 +122,21 @@ WhichKeyGroups.quit = {
 
 WhichKeyGroups.buffer = {
   name = "﩯 Buffer",
-  P = { cmds.buffer("Pick"), "Pick" },
+  p = { cmds.buffer("Pick"), "Pick" },
   f = { cmds.telescope("buffers"), "Find" },
+  ["["] = { cmds.buffer("Previous"), "Previous Buffer" },
+  ["]"] = { cmds.buffer("Next"), "Next Buffer" },
+  s = {
+    name = "Sort",
+    d = { cmds.buffer("OrderByDirectory"), "Sort by directory" },
+    l = { cmds.buffer("OrderByLanguage"), "Sort by language" }
+  },
   q = {
     name = "  Quit",
     w = { cmds.buffer("Wipeout"), "Wipeout" },
     c = { cmds.buffer("Close"), "Close Current Buffer" },
     o = { cmds.buffer("CloseAllButCurrent"), "Close All Buffers But Current" }
-  },
-  p = { cmds.buffer("Previous"), "Previous Buffer" },
-  j = { cmds.buffer("Next"), "Next Buffer" },
-  D = { cmds.buffer("OrderByDirectory"), "Sort by directory" },
-  L = { cmds.buffer("OrderByLanguage"), "Sort by language" }
+  }
 }
 
 WhichKeyGroups.copy = {
@@ -141,17 +148,25 @@ WhichKeyGroups.copy = {
 
 WhichKeyGroups.git = {
   name = "  Git",
-  s = { cmds.lazyGit(), "LazyGit" },
-  j = { cmds.gitsigns("next_hunk"), "Next Hunk" },
-  k = { cmds.gitsigns("prev_hunk"), "Prev Hunk" },
-  l = { cmds.gitsigns("blame_line"), "Blame" },
-  p = { cmds.gitsigns("preview_hunk"), "Preview Hunk" },
-  r = { cmds.gitsigns("reset_hunk"), "Reset Hunk" },
-  R = { cmds.gitsigns("reset_buffer"), "Reset Buffer" },
-  u = { cmds.gitsigns("undo_stage_hunk"), "Undo Stage Hunk" },
+  s = { cmds.lazyGit(), "Status" },
+  b = { cmds.gitsigns("blame_line"), "Blame" },
   m = { cmds.telescope("git_status"), "Modified Files" },
-  b = { cmds.telescope("git_branches"), "Checkout branch" },
-  c = { cmds.telescope("git_commits"), "Checkout commit" }
+  ["["] = { cmds.gitsigns("prev_hunk"), "Previous Change" },
+  ["]"] = { cmds.gitsigns("next_hunk"), "Next Change" },
+  R = { cmds.gitsigns("reset_buffer"), "Revert Changes in Buffer" },
+  h = {
+    name = "Hunk",
+    ["["] = { cmds.gitsigns("prev_hunk"), "Previous" },
+    ["]"] = { cmds.gitsigns("next_hunk"), "Next" },
+    u = { cmds.gitsigns("undo_stage_hunk"), "Undo Stage" },
+    p = { cmds.gitsigns("preview_hunk"), "Preview" },
+    r = { cmds.gitsigns("reset_hunk"), "Reset" }
+  },
+  c = {
+    name = "Checkout",
+    b = { cmds.telescope("git_branches"), "Checkout branch" },
+    c = { cmds.telescope("git_commits"), "Checkout commit" }
+  }
 }
 
 WhichKeyGroups.search = {
@@ -173,7 +188,7 @@ WhichKeyGroups.search = {
 }
 
 WhichKeyGroups.packer = {
-  name = "  Packer",
+  name = "  Packages",
   c = { cmds.packer("Compile"), "Compile" },
   i = { cmds.packer("Install"), "Install" },
   s = { cmds.packer("Sync"), "Sync" },
@@ -181,26 +196,29 @@ WhichKeyGroups.packer = {
   u = { cmds.packer("Update"), "Update" }
 }
 
-WhichKeyGroups.view = {
-  name = "  View",
+WhichKeyGroups.toggle = {
+  name = "  Toggle",
   m = { ":MarkdownPreview<CR>", "Markdown Preview" },
   z = { "<cmd>ZenMode<CR>", "Zen" }
 }
 
-Keymaps.whichKey = {
+WhichKeyGroups.insert = {
+  name = "  Insert",
+  l = {
+    "oconsole.log(\"LINE: <C-r>=line(\".\")<Esc>\",);<Esc>O<Esc>jf,a ",
+    "console.log()"
+  }
+}
+
+KeyMaps.whichKey = {
   normal = {
-    ["<S-Tab>"] = { "<cmd>BufferPrevious<CR>", "Previous Buffer" },
-    ["<Tab>"] = { "<cmd>BufferNext<CR>", "Next Buffer" },
+    ["<S-Tab>"] = { cmds.buffer("Previous"), "Previous Buffer" },
+    ["<Tab>"] = { cmds.buffer("Next"), "Next Buffer" },
 
-    ["<C-h>"] = { "<C-w>h", "Focus Left Window" },
-    ["<C-j>"] = { "<C-w>j", "Focus Below Window" },
-    ["<C-k>"] = { "<C-w>k", "Focus Above Window" },
-    ["<C-l>"] = { "<C-w>l", "Focus Right Window" },
-
-    ["cl"] = {
-      "oconsole.log(\"LINE: <C-r>=line(\".\")<Esc>\",);<Esc>O<Esc>jf,a ",
-      "console.log()"
-    },
+    ["<C-h>"] = { "<C-w>h", "Focus Left Pane" },
+    ["<C-j>"] = { "<C-w>j", "Focus Below Pane" },
+    ["<C-k>"] = { "<C-w>k", "Focus Above Pane" },
+    ["<C-l>"] = { "<C-w>l", "Focus Right Pane" },
 
     ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle QuickFix List" },
 
@@ -209,9 +227,12 @@ Keymaps.whichKey = {
     g = WhichKeyGroups.go,
     v = WhichKeyGroups.block.select,
     d = WhichKeyGroups.block.delete,
-    y = WhichKeyGroups.block.yank,
+    y = WhichKeyGroups.block.yank
 
-    withLeader = {
+  },
+
+  withLeader = {
+    normal = {
       single = WhichKeySingles,
       groups = {
         l = WhichKeyGroups.lsp,
@@ -221,12 +242,13 @@ Keymaps.whichKey = {
         g = WhichKeyGroups.git,
         s = WhichKeyGroups.search,
         p = WhichKeyGroups.packer,
-        v = WhichKeyGroups.view
+        t = WhichKeyGroups.toggle,
+        i = WhichKeyGroups.insert
       }
-    }
-  },
+    },
 
-  visual = { l = WhichKeyGroups.lsp }
+    visual = { groups = { l = WhichKeyGroups.lsp } }
+  }
 }
 
-return Keymaps
+return KeyMaps

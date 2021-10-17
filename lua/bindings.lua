@@ -15,13 +15,16 @@ utils.setNvimKeyMap("v", keymaps.overwrites.visual, options.base)
 wk.register(keymaps.whichKey.normal, options.whichKey.normal)
 
 wk.register(
-    keymaps.whichKey.normal.withLeader.single,
+    keymaps.whichKey.withLeader.visual.groups,
+    options.whichKey.visual.withLeader
+)
+
+wk.register(
+    keymaps.whichKey.withLeader.normal.single,
     options.whichKey.normal.withLeader
 )
 
 wk.register(
-    keymaps.whichKey.normal.withLeader.groups,
+    keymaps.whichKey.withLeader.normal.groups,
     options.whichKey.normal.withLeader
 )
-
-wk.register(keymaps.whichKey.visual, options.whichKey.visual.withLeader)

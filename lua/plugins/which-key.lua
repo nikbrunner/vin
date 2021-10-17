@@ -5,9 +5,9 @@ require("which-key").setup {
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
     -- No actual key bindings are created
     presets = {
-      operators = false, -- adds help for operators like d, y, ...
-      motions = false, -- adds help for motions
-      text_objects = false, -- help for text objects triggered after entering an operator
+      operators = true, -- adds help for operators like d, y, ...
+      motions = true, -- adds help for motions
+      text_objects = true, -- help for text objects triggered after entering an operator
       windows = true, -- default bindings on <c-w>
       nav = true, -- misc bindings to work with windows
       z = true, -- bindings for folds, spelling and others prefixed with z
@@ -21,10 +21,10 @@ require("which-key").setup {
     group = "" -- symbol prepended to a group
   },
   window = {
-    border = "single", -- none, single, double, shadow
+    border = "none", -- none, single, double, shadow
     position = "bottom", -- bottom, top
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-    padding = { 2, 2, 2, 2 } -- extra window padding [top, right, bottom, left]
+    padding = { 3, 2, 3, 2 } -- extra window padding [top, right, bottom, left]
   },
   layout = {
     height = { min = 4, max = 50 }, -- min and max height of the columns
