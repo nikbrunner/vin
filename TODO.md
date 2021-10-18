@@ -15,3 +15,6 @@
 ## 🔭 Telescope 
 - [x] Search .files
 - [x] Fix open in split <kbd>C-x</kbd> is broken
+
+## Barbar
+- [ ] Ignore QuickFix Buffer
