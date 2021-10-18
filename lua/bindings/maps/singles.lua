@@ -1,5 +1,5 @@
 local cmds = require("bindings.commands")
-local wkGroups = require("bindings.keymaps.groups")
+local wkGroups = require("bindings.maps.groups")
 
 local WhichKeySingles = {}
 
