@@ -20,7 +20,6 @@ WhichKeySingles.noLeader = {
 
     ["<C-p>"] = { cmds.telescope("find_files"), "Find file" },
     ["<C-e>"] = { cmds.telescope("buffers"), "Recent Buffers" },
-    ["<C-n>"] = { cmds.nvimTree("Toggle"), "Nav Explorer" },
     ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle QuickFix List" },
 
     ["<F8>"] = { cmds.lspTrouble("WorkspaceToggle"), "Workspace Errors" },
