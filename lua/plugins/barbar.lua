@@ -12,8 +12,7 @@ vim.g.bufferline = {
   -- Enable/disable close button
   closable = false,
 
-  -- Enables/disable clickable tabs
-  --  - left-click: go to buffer
+  -- Enables/disable clickable tabs - left-click: go to buffer
   --  - middle-click: delete buffer
   clickable = true,
 

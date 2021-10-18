@@ -1,5 +1,7 @@
 # Todo
 
+- [ ] Fix `1 more file to edit`
+
 ## 📄 Readme
 - [ ] Update Screenshots
 
@@ -15,6 +17,7 @@
 ## 🔭 Telescope 
 - [x] Search .files
 - [x] Fix open in split <kbd>C-x</kbd> is broken
+- [ ] Sort last_used
 
 ## Barbar
 - [ ] Ignore QuickFix Buffer
