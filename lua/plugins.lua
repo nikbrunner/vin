@@ -252,7 +252,17 @@ packer.startup(
       use { "nvim-lua/popup.nvim" }
       use { "davidgranstrom/nvim-markdown-preview" }
       use { "RRethy/vim-illuminate" }
-      use { "mg979/vim-visual-multi", branch = "master" }
+      use {
+        "mg979/vim-visual-multi",
+        branch = "master",
+        config = function()
+          -- Overwrite base binding because of conflict with my toggle explorer bind
+          vim.cmd [[
+            let g:VM_maps = {}
+            let g:VM_maps['Find Under']         = '<C-d>'           " replace C-n
+          ]]
+        end
+      }
       use { "tpope/vim-surround" }
       use { "prettier/vim-prettier", run = "npm install" }
     end
