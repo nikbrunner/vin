@@ -1,4 +1,5 @@
 local packer = require("packer")
+local au = require("au")
 
 local execute = vim.api.nvim_command
 local fn = vim.fn
@@ -15,7 +16,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Auto source when there are changes in plugins.lua
-local au = require("au")
 au.BufWritePost = { "plugins.lua", "source <afile> | PackerCompile" }
 
 local use = packer.use

@@ -5,7 +5,7 @@ require("opts");
 require("plugins");
 
 -- Set autocommands
-require("autocmd");
+require("au");
 
 -- Set mappings
 require("bindings");
