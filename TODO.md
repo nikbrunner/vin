@@ -1,5 +1,6 @@
 # Todo
 
+##   Bugs
 - [ ] Fix `1 more file to edit`
 
 ## 📄 Readme
@@ -10,6 +11,7 @@
 - [x] Bring all Binds into WhichKey
 - [x] Bring all Binds into WhichKey
 - [x] Improve Folder Structure for Bindings
+- [ ] Add base command for ":tabnext<CR>" etc
 
 ## 📦 Plugins
 - [x] Clean up `plugins.lua`
@@ -22,16 +24,17 @@
 - Snippets
 
 ### PlugIns to Check Out 
-- [ ] [git-worktree](https://github.com/ThePrimeagen/git-worktree.nvim)
+- [x] [nvim-bqf](https://github.com/kevinhwang91/nvim-bqf)
+- [x] [git-worktree](https://github.com/ThePrimeagen/git-worktree.nvim)
   - This is nice and switching works, but creation does not
   - Also LazyGit doesnt work with it
 - [ ] [telescope-vim-bookmarks](https://github.com/tom-anders/telescope-vim-bookmarks.nvim)
-- [x] [nvim-bqf](https://github.com/kevinhwang91/nvim-bqf)
 
 ### 🔭 Telescope 
 - [x] Search .files
 - [x] Fix open in split <kbd>C-x</kbd> is broken
 - [x] Sort last_used
+- [ ] Select items from the list and add only the selected to the quickfix list
 
 ### Barbar
 - [ ] Ignore QuickFix Buffer
