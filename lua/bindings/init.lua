@@ -34,12 +34,10 @@ local keyMaps = {
 
 vim.g.mapleader = " "
 
--- NOTE Which Key Maps __Without__ Leader
 wk.register(keyMaps.noLeader.normal, options.whichKey.normal)
 wk.register(keyMaps.noLeader.insert, options.whichKey.insert)
 wk.register(keyMaps.noLeader.visual, options.whichKey.visual)
 
--- NOTE Which Key Maps __With__ Leader
 wk.register(keyMaps.withLeader.normal.single, options.whichKey.normal.withLeader)
 wk.register(keyMaps.withLeader.normal.groups, options.whichKey.normal.withLeader)
 wk.register(keyMaps.withLeader.visual.groups, options.whichKey.visual.withLeader)

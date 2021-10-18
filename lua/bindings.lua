@@ -1,1 +1,1 @@
-require("bindings.index")
+require("bindings.init")
