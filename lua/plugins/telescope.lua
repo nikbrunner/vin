@@ -49,7 +49,7 @@ require("telescope").setup {
   },
   pickers = {
     find_files = { theme = "dropdown", hidden = true },
-    buffers = { theme = "dropdown" },
+    buffers = { theme = "dropdown", sort_lastused = true },
     lsp_dynamic_workspace_symbols = { theme = "dropdown" }
   },
   extensions = {
