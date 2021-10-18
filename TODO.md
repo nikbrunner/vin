@@ -9,14 +9,17 @@
 - [x] Refactor Bindings
 - [x] Bring all Binds into WhichKey
 - [x] Bring all Binds into WhichKey
+- [x] Improve Folder Structure for Bindings
 
 ## 📦 Plugins
-### Problems for which I seek a Solution
-- I want to navigate through bookmarks via telescope
-- Markdown checkboxes
 - [x] Clean up `plugins.lua`
-    - Remove redundant entries, which get required from others
-    - Bring into semantic order
+  - Remove redundant entries, which get required from others
+  - Bring into semantic order
+
+### Problems for which I seek a Solution
+- Bookmarks via Telescope
+- Markdown checkboxes
+- Snippets
 
 ### PlugIns to Check Out 
 - [ ] [git-worktree](https://github.com/ThePrimeagen/git-worktree.nvim)
