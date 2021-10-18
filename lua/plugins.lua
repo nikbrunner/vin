@@ -109,6 +109,13 @@ packer.startup(
       }
 
       use {
+        "kevinhwang91/nvim-bqf",
+        config = function()
+          require("plugins.nvim-bqf")
+        end
+      }
+
+      use {
         "kdheepak/lazygit.nvim",
         config = function()
           require("plugins.lazygit")

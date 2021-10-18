@@ -26,7 +26,7 @@
   - This is nice and switching works, but creation does not
   - Also LazyGit doesnt work with it
 - [ ] [telescope-vim-bookmarks](https://github.com/tom-anders/telescope-vim-bookmarks.nvim)
-- [ ] [nvim-bqf](https://github.com/kevinhwang91/nvim-bqf)
+- [x] [nvim-bqf](https://github.com/kevinhwang91/nvim-bqf)
 
 ### 🔭 Telescope 
 - [x] Search .files
