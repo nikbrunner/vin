@@ -27,10 +27,15 @@ WhichKeySingles.noLeader = {
     ["<C-e>"] = { cmds.telescope("buffers"), "Recent Buffers" },
     ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle QuickFix List" },
 
+    ["<F1>"] = { cmds.telescope("help_tags"), "  Help" },
     ["<F8>"] = { cmds.lspTrouble("WorkspaceToggle"), "Workspace Errors" },
+    ["<F9>"] = { cmds.todo("Telescope"), "Todo Quickfix" },
+    ["<F10>"] = { "<cmd>ZenMode<CR>", "ZenMode" },
 
     ["<S-Tab>"] = { cmds.buffer("Previous"), "Previous Buffer" },
     ["<Tab>"] = { cmds.buffer("Next"), "Next Buffer" },
+    ["˙"] = { ":tabprev<CR>", "Prev Tab" },
+    ["¬"] = { ":tabnext<CR>", "Next Tab" },
 
     ["["] = wkGroups.goToPrevious,
     ["]"] = wkGroups.goToNext,
@@ -65,7 +70,13 @@ WhichKeySingles.withLeader = {
     [" "] = { "<C-^>", WkIgnore },
     ["1"] = { "1gt", WkIgnore },
     ["2"] = { "2gt", WkIgnore },
-    ["3"] = { "3gt", WkIgnore }
+    ["3"] = { "3gt", WkIgnore },
+    ["4"] = { "4gt", WkIgnore },
+    ["5"] = { "5gt", WkIgnore },
+    ["6"] = { "6gt", WkIgnore },
+    ["7"] = { "7gt", WkIgnore },
+    ["8"] = { "8gt", WkIgnore },
+    ["9"] = { "9gt", WkIgnore }
   }
 }
 
