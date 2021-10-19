@@ -20,8 +20,8 @@ local bindCommand = function(plug, cmd, areCommandsSeperatedWithSpace, args)
   end
 end
 
-function Commands.telescope(cmd)
-  return bindCommand("Telescope", cmd, true)
+function Commands.telescope(cmd, args)
+  return bindCommand("Telescope", cmd, true, args)
 end
 
 function Commands.lspsaga(cmd)
