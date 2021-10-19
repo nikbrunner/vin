@@ -43,6 +43,8 @@ maps.lua
 - Bookmarks via Telescope
 - Markdown checkboxes
 - Snippets
+- Check commits for one file (Like timeline in VSCode)
+- Quicker Format
 
 ### PlugIns to Check Out 
 - [x] [nvim-bqf](https://github.com/kevinhwang91/nvim-bqf)
@@ -50,6 +52,7 @@ maps.lua
   - This is nice and switching works, but creation does not
   - Also LazyGit doesnt work with it
 - [ ] [telescope-vim-bookmarks](https://github.com/tom-anders/telescope-vim-bookmarks.nvim)
+- [ ] [format.nvim](https://github.com/lukas-reineke/format.nvim)
 
 ### 🔭 Telescope 
 - [x] Search .files
