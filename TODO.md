@@ -11,7 +11,28 @@
 - [x] Bring all Binds into WhichKey
 - [x] Bring all Binds into WhichKey
 - [x] Improve Folder Structure for Bindings
+- [ ] Resolve init KeyMaps bindings (Call `wk.register` on each group and single)
 - [ ] Add base command for ":tabnext<CR>" etc
+
+### Sketch: Maps Folder Structure
+```
+maps/
+  functions.lua    // Merge commands.lua and utils.lua
+  maps.lua         // wk.register(search) etc..
+  opts.lua
+```
+
+or
+
+```
+lua/
+functions.lua    // Merge commands.lua and utils.lua
+maps.lua
+  - options
+  - wk.register(noLeader.normal)
+  - wk.register(withLeader.normal)
+  - wk.register(..)
+```
 
 ## 📦 Plugins
 - [x] Clean up `plugins.lua`
@@ -33,7 +54,7 @@
 ### 🔭 Telescope 
 - [x] Search .files
 - [x] Fix open in split <kbd>C-x</kbd> is broken
-- [x] Sort last_used
+- [x] Sort `last_used`
 - [ ] Select items from the list and add only the selected to the quickfix list
 
 ### Barbar
