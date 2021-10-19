@@ -140,6 +140,7 @@ WhichKeyGroups.search = {
   d = { cmds.telescope("find_files", "cwd=~/.config/nvim"), "·· Dots" },
   c = { cmds.telescope("colorscheme"), "  Colorscheme" },
   f = { cmds.telescope("find_files"), "  Files" },
+  i = { cmds.telescope("current_buffer_fuzzy_find"), "  Find in File" },
   h = { cmds.telescope("help_tags"), "  Help" },
   M = { cmds.telescope("man_pages"), "  Man Pages" },
   r = { cmds.telescope("oldfiles"), "  Recent Files" },
@@ -149,7 +150,11 @@ WhichKeyGroups.search = {
   T = { cmds.telescope(), "  Telescope" },
   q = { cmds.telescope("quickfix"), "  Quickfix" },
   w = { cmds.telescope("grep_string"), "  Current Word" },
-  s = { cmds.telescope("lsp_dynamic_workspace_symbols"), "Symbols" },
+  s = {
+    name = "Symbols",
+    w = { cmds.telescope("lsp_dynamic_workspace_symbols"), "Workspace" },
+    d = { cmds.telescope("lsp_document_symbols"), "Document" }
+  },
   k = { cmds.telescope("keymaps"), "  Keymaps" },
   C = { cmds.telescope("commands"), "  Commands" }
 }

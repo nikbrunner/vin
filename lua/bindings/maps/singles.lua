@@ -25,6 +25,11 @@ WhichKeySingles.noLeader = {
 
     ["<C-p>"] = { cmds.telescope("find_files"), "file" },
     ["<C-e>"] = { cmds.telescope("buffers"), "Recent Buffers" },
+    ["<C-_>"] = {
+      cmds.telescope("current_buffer_fuzzy_find"),
+      "Find Text in File"
+    },
+    ["<C-t>"] = { cmds.telescope("lsp_document_symbols"), "Find Symbol in File" },
     ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle QuickFix List" },
 
     ["<F1>"] = { cmds.telescope("help_tags"), "  Help" },

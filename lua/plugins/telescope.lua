@@ -50,7 +50,8 @@ require("telescope").setup {
   pickers = {
     find_files = { theme = "dropdown", hidden = true },
     buffers = { theme = "dropdown", sort_lastused = true },
-    lsp_dynamic_workspace_symbols = { theme = "dropdown" }
+    lsp_dynamic_workspace_symbols = { theme = "dropdown" },
+    current_buffer_fuzzy_find = { sorting_strategy = "ascending" }
   },
   extensions = {
     fzy_native = { override_generic_sorter = false, override_file_sorter = true }
