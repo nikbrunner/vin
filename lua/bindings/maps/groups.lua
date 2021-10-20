@@ -119,7 +119,7 @@ WhichKeyGroups.copy = {
 }
 
 WhichKeyGroups.git = {
-  name = "  Git",
+  name = "  Git",
   s = { cmds.lazyGit(), "Status" },
   b = { cmds.gitsigns("blame_line"), "Blame" },
   m = { cmds.telescope("git_status"), "Modified Files" },
@@ -144,7 +144,7 @@ WhichKeyGroups.git = {
 }
 
 WhichKeyGroups.search = {
-  name = "  Search",
+  name = "  Search",
   b = { cmds.telescope("buffers"), "﩯 Buffers" },
   e = { cmds.telescope("file_browser"), "  Explorer" },
   d = { cmds.telescope("find_files", "cwd=~/.config/nvim"), "·· Dots" },
@@ -179,7 +179,7 @@ WhichKeyGroups.packages = {
 }
 
 WhichKeyGroups.view = {
-  name = "  View",
+  name = "  View",
   m = { ":MarkdownPreview<CR>", "Markdown Preview" },
   z = { "<cmd>ZenMode<CR>", "Zen" }
 }

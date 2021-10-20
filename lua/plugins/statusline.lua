@@ -37,9 +37,9 @@ end
 local icons = {
   sep = { right = "", left = "" },
   diagnostic = { error = " ", warn = " ", info = " " },
-  diff = { add = " ", modified = " ", remove = " " },
+  diff = { add = "  ", modified = "  ", remove = "  " },
   git = "",
-  file = { read_only = "", modified = "" }
+  file = { read_only = "  ", modified = "  " }
 }
 
 local white_space = function()
@@ -223,7 +223,7 @@ j = j + 1
 gls.right[j] = {
   time = {
     provider = function()
-      return " " .. "  " .. os.date("%H:%M") .. " "
+      return " " .. os.date("%H:%M") .. " "
     end,
     highlight = { colors.fg, colors.section_bg }
   }
@@ -233,7 +233,7 @@ j = j + 1
 gls.right[j] = {
   GitIcon = {
     provider = function()
-      return "  "
+      return "  "
     end,
     condition = require("galaxyline.provider_vcs").check_git_workspace,
     highlight = { colors.green, colors.bg },
