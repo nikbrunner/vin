@@ -7,7 +7,8 @@ local bindCommand = function(plug, cmd, areCommandsSeperatedWithSpace, args)
     elseif (args == nil) then
       return "<cmd>" .. plug .. " " .. cmd .. "<CR>"
     else
-      return "<cmd>" .. plug .. " " .. cmd .. " " .. args .. "<CR>"
+      local cmdString = "<cmd>" .. plug .. " " .. cmd .. " " .. args .. "<CR>"
+      return cmdString
     end
   else
     if (cmd == nil) then

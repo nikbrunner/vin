@@ -13,6 +13,7 @@
 - [x] Improve Folder Structure for Bindings
 - [ ] Resolve init KeyMaps bindings (Call `wk.register` on each group and single)
 - [ ] Add base command for ":tabnext<CR>" etc
+- [ ] Resource config
 
 ### Sketch: Maps Folder Structure
 ```
@@ -53,6 +54,7 @@ maps.lua
   - Also LazyGit doesnt work with it
 - [ ] [telescope-vim-bookmarks](https://github.com/tom-anders/telescope-vim-bookmarks.nvim)
 - [ ] [format.nvim](https://github.com/lukas-reineke/format.nvim)
+- [ ] [tabnine](https://github.com/tzachar/cmp-tabnine#install)
 
 ### 🔭 Telescope 
 - [x] Search .files

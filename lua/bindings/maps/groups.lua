@@ -5,7 +5,15 @@ WhichKeyGroups.go = {
   name = "  Go",
   h = { cmds.lspsaga("hover_doc"), "Show Hover" },
   s = { cmds.lazyGit(), "Git Status" },
-  m = { cmds.telescope("git_status"), "Modified Files" },
+  m = {
+  -- TODO Telescope Wrapper function or resolve existing one
+  function ()
+    local opts = require("telescope.themes").get_dropdown({ layout_config = { height = 10 }, previewer = false })
+    require("telescope.builtin").git_status(opts)
+  end,
+  "Modified Files (No Preview)"
+  },
+  M = { cmds.telescope("git_status"), "Modified Files (With Preview)" },
   d = { cmds.vimLsp("definition()"), "Goto Definition" },
   D = { cmds.lspsaga("preview_definition"), "Preview Definition" },
   r = { cmds.lspsaga("lsp_finder"), "Goto References" },
