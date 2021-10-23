@@ -88,7 +88,9 @@ WhichKeyGroups.lsp = {
 WhichKeyGroups.quit = {
   name = "  Quit",
   w = { cmds.buffer("Wipeout"), "Wipeout" },
-  q = { cmds.buffer("Close"), "Close Current Buffer" },
+  c = { cmds.buffer("Close"), "Close Current Buffer" },
+  q = { ":silent wq<CR>", "Save and Quit Pane (:wq)" },
+  Q = { ":silent q!<CR>", "Quit (:q!)" },
   o = { cmds.buffer("CloseAllButCurrent"), "Close All Buffers But Current" }
 }
 
@@ -103,12 +105,7 @@ WhichKeyGroups.buffer = {
     d = { cmds.buffer("OrderByDirectory"), "Sort by directory" },
     l = { cmds.buffer("OrderByLanguage"), "Sort by language" }
   },
-  q = {
-    name = "  Quit",
-    w = { cmds.buffer("Wipeout"), "Wipeout" },
-    c = { cmds.buffer("Close"), "Close Current Buffer" },
-    o = { cmds.buffer("CloseAllButCurrent"), "Close All Buffers But Current" }
-  }
+  q = WhichKeyGroups.quit
 }
 
 WhichKeyGroups.copy = {
@@ -143,12 +140,13 @@ WhichKeyGroups.git = {
   }
 }
 
-WhichKeyGroups.search = {
-  name = "  Search",
+WhichKeyGroups.find = {
+  name = "  Find",
   b = { cmds.telescope("buffers"), "﩯 Buffers" },
   e = { cmds.telescope("file_browser"), "  Explorer" },
   d = { cmds.telescope("find_files", "cwd=~/.config/nvim"), "·· Dots" },
-  c = { cmds.telescope("colorscheme"), "  Colorscheme" },
+  c = { cmds.telescope("commands"), "  Commands" },
+  C = { cmds.telescope("colorscheme"), "  Colorscheme" },
   f = { cmds.telescope("find_files"), "  Files" },
   i = { cmds.telescope("current_buffer_fuzzy_find"), "  Find in File" },
   h = { cmds.telescope("help_tags"), "  Help" },
@@ -166,7 +164,6 @@ WhichKeyGroups.search = {
     d = { cmds.telescope("lsp_document_symbols"), "Document" }
   },
   k = { cmds.telescope("keymaps"), "  Keymaps" },
-  C = { cmds.telescope("commands"), "  Commands" }
 }
 
 WhichKeyGroups.packages = {

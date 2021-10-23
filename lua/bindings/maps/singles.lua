@@ -70,7 +70,6 @@ WhichKeySingles.noLeader = {
 WhichKeySingles.withLeader = {
   normal = {
     [";"] = { cmds.dashboard(), "﩯 Dashboard" },
-    ["f"] = { cmds.telescope("find_files"), "  File" },
     ["e"] = { cmds.nvimTree("Toggle"), "  Explorer" },
     [" "] = { "<C-^>", WkIgnore },
     ["1"] = { "1gt", WkIgnore },
