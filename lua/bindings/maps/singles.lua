@@ -72,6 +72,8 @@ WhichKeySingles.noLeader = {
 
     ["J"] = { ":m '>+1<CR>gv=gv", "Move Line Down" },
     ["K"] = { ":m '<-2<CR>gv=gv", "Move Line Up" },
+
+    ["<C-a>"] = { "<C-a>gv", "Inc numbers" },
   }
 }
 
@@ -80,6 +82,7 @@ WhichKeySingles.withLeader = {
     [";"] = { cmds.dashboard(), "﩯 Dashboard" },
     ["e"] = { cmds.nvimTree("Toggle"), "  Explorer" },
     [" "] = { "<C-^>", WkIgnore },
+    p = { "<nop>", WkIgnore },
     ["1"] = { "1gt", WkIgnore },
     ["2"] = { "2gt", WkIgnore },
     ["3"] = { "3gt", WkIgnore },

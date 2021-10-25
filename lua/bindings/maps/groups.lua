@@ -7,11 +7,11 @@ WhichKeyGroups.go = {
   s = { cmds.lazyGit(), "Git Status" },
   m = {
   -- TODO Telescope Wrapper function or resolve existing one
-  function ()
-    local opts = require("telescope.themes").get_dropdown({ layout_config = { height = 10 }, previewer = false })
-    require("telescope.builtin").git_status(opts)
-  end,
-  "Modified Files (No Preview)"
+    function ()
+      local opts = require("telescope.themes").get_dropdown({ layout_config = { height = 15 }, previewer = false })
+      require("telescope.builtin").git_status(opts)
+    end,
+    "Modified Files (No Preview)"
   },
   M = { cmds.telescope("git_status"), "Modified Files (With Preview)" },
   d = { cmds.vimLsp("definition()"), "Goto Definition" },
@@ -119,7 +119,15 @@ WhichKeyGroups.git = {
   name = "  Git",
   s = { cmds.lazyGit(), "Status" },
   b = { cmds.gitsigns("blame_line"), "Blame" },
-  m = { cmds.telescope("git_status"), "Modified Files" },
+  m = {
+    -- TODO Telescope Wrapper function or resolve existing one
+    function ()
+      local opts = require("telescope.themes").get_dropdown({ layout_config = { height = 15 }, previewer = false })
+      require("telescope.builtin").git_status(opts)
+    end,
+    "Modified Files (No Preview)"
+  },
+  M = { cmds.telescope("git_status"), "Modified Files (With Preview)" },
   ["["] = { cmds.gitsigns("prev_hunk"), "Previous Change" },
   ["]"] = { cmds.gitsigns("next_hunk"), "Next Change" },
   S = { cmds.gitsigns("stage_buffer"), "Stage Buffer" },
@@ -167,7 +175,19 @@ WhichKeyGroups.find = {
 }
 
 WhichKeyGroups.harpoon = {
-  name = "Harpoon",
+  name = "  Harpoon",
+  a = {
+    function ()
+      require("harpoon.mark").add_file()
+    end,
+    "Add File"
+  },
+  m = {
+    function ()
+      require("harpoon.ui").toggle_quick_menu()
+    end,
+    "Menu"
+  },
   ["1"] = {
     function ()
       require("harpoon.ui").nav_file(1)
@@ -198,18 +218,30 @@ WhichKeyGroups.harpoon = {
     end ,
     "File 5"
   },
-  a = {
+  ["6"] = {
     function ()
-      require("harpoon.mark").add_file()
-    end,
-    "Add File"
+      require("harpoon.ui").nav_file(6)
+    end ,
+    "File 6"
   },
-  m = {
+  ["7"] = {
     function ()
-      require("harpoon.ui").toggle_quick_menu()
-    end,
-    "Menu"
+      require("harpoon.ui").nav_file(7)
+    end ,
+    "File 7"
   },
+  ["8"] = {
+    function ()
+      require("harpoon.ui").nav_file(8)
+    end ,
+    "File 8"
+  },
+  ["9"] = {
+    function ()
+      require("harpoon.ui").nav_file(9)
+    end ,
+    "File 9"
+  }
 }
 
 WhichKeyGroups.packages = {
