@@ -7,6 +7,7 @@ WkIgnore = "which_key_ignore"
 
 WhichKeySingles.noLeader = {
   normal = {
+    ["Q"] = { "<nop>", WkIgnore },
     ["H"] = { "^", "Line Start" },
     ["L"] = { "$", "Line End" },
 

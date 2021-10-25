@@ -178,7 +178,9 @@ WhichKeyGroups.packages = {
 WhichKeyGroups.view = {
   name = "  View",
   m = { ":MarkdownPreview<CR>", "Markdown Preview" },
-  z = { "<cmd>ZenMode<CR>", "Zen" }
+  z = { "<cmd>ZenMode<CR>", "Zen" },
+  h = { ":vertical resize -20<CR>", "Narrow Pane" },
+  l = { ":vertical resize +20<CR>", "Wide Pane" },
 }
 
 WhichKeyGroups.todo = {
