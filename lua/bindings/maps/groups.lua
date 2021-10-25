@@ -166,6 +166,52 @@ WhichKeyGroups.find = {
   k = { cmds.telescope("keymaps"), "  Keymaps" },
 }
 
+WhichKeyGroups.harpoon = {
+  name = "Harpoon",
+  ["1"] = {
+    function ()
+      require("harpoon.ui").nav_file(1)
+    end ,
+    "File 1"
+  },
+  ["2"] = {
+    function ()
+      require("harpoon.ui").nav_file(2)
+    end ,
+    "File 2"
+  },
+  ["3"] = {
+    function ()
+      require("harpoon.ui").nav_file(3)
+    end ,
+    "File 3"
+  },
+  ["4"] = {
+    function ()
+      require("harpoon.ui").nav_file(4)
+    end ,
+    "File 4"
+  },
+  ["5"] = {
+    function ()
+      require("harpoon.ui").nav_file(5)
+    end ,
+    "File 5"
+  },
+  a = {
+    function ()
+      require("harpoon.mark").add_file()
+    end,
+    "Add File"
+  },
+  m = {
+    function ()
+      require("harpoon.ui").toggle_quick_menu()
+    end,
+    "Menu"
+  },
+}
+
 WhichKeyGroups.packages = {
   name = "  Packages",
   c = { cmds.packer("Compile"), "Compile" },

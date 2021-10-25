@@ -116,6 +116,11 @@ packer.startup(
       }
 
       use {
+        "ThePrimeagen/harpoon",
+        requires = { "nvim-lua/plenary.nvim" }
+      }
+
+      use {
         "kdheepak/lazygit.nvim",
         config = function()
           require("plugins.lazygit")
