@@ -17,7 +17,9 @@ WhichKeySingles.noLeader = {
     ["Y"] = { "y$", "Yank till end" },
     ["n"] = { "nzzzv", "Adjusted n" },
     ["N"] = { "Nzzzv", "Adjusted N" },
-    ["J"] = { "mzJ`z", "Adjusted J" },
+
+    ["J"] = { ":m .+1<CR>==", "Move Line Down" },
+    ["K"] = { ":m .-2<CR>==", "Move Line Up" },
 
     ["<C-h>"] = { "<C-w>h", "Focus Left Pane" },
     ["<C-j>"] = { "<C-w>j", "Focus Below Pane" },
@@ -45,6 +47,7 @@ WhichKeySingles.noLeader = {
 
     ["["] = wkGroups.goToPrevious,
     ["]"] = wkGroups.goToNext,
+
     g = wkGroups.go,
     v = wkGroups.block.select,
     d = wkGroups.block.delete,
@@ -63,8 +66,12 @@ WhichKeySingles.noLeader = {
   visual = {
     ["<"] = { "<gv", "Better Indent for <" },
     [">"] = { ">gv", "Better Indent for >" },
+
     ["H"] = { "^", "Line Start" },
-    ["L"] = { "$", "Line End" }
+    ["L"] = { "$", "Line End" },
+
+    ["J"] = { ":m '>+1<CR>gv=gv", "Move Line Down" },
+    ["K"] = { ":m '<-2<CR>gv=gv", "Move Line Up" },
   }
 }
 
