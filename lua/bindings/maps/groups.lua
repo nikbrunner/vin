@@ -180,67 +180,67 @@ WhichKeyGroups.harpoon = {
     function ()
       require("harpoon.mark").add_file()
     end,
-    "Add File"
+    "  Add File"
   },
   m = {
     function ()
       require("harpoon.ui").toggle_quick_menu()
     end,
-    "Menu"
+    "  Menu"
   },
   ["1"] = {
     function ()
       require("harpoon.ui").nav_file(1)
     end ,
-    "File 1"
+    " "
   },
   ["2"] = {
     function ()
       require("harpoon.ui").nav_file(2)
     end ,
-    "File 2"
+    " "
   },
   ["3"] = {
     function ()
       require("harpoon.ui").nav_file(3)
     end ,
-    "File 3"
+    " "
   },
   ["4"] = {
     function ()
       require("harpoon.ui").nav_file(4)
     end ,
-    "File 4"
+    " "
   },
   ["5"] = {
     function ()
       require("harpoon.ui").nav_file(5)
     end ,
-    "File 5"
+    " "
   },
   ["6"] = {
     function ()
       require("harpoon.ui").nav_file(6)
     end ,
-    "File 6"
+    " "
   },
   ["7"] = {
     function ()
       require("harpoon.ui").nav_file(7)
     end ,
-    "File 7"
+    " "
   },
   ["8"] = {
     function ()
       require("harpoon.ui").nav_file(8)
     end ,
-    "File 8"
+    " "
   },
   ["9"] = {
     function ()
       require("harpoon.ui").nav_file(9)
     end ,
-    "File 9"
+    " "
   }
 }
 

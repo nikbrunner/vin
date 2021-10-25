@@ -6,6 +6,10 @@ local fileinfo = require("galaxyline.provider_fileinfo")
 gl.short_line_list = { "NvimTree", "vista", "dbui", "packer", "startify" }
 
 -- GitHub Dark
+-- local ghc = require("github-theme.colors").setup({})
+print("Hello")
+print(vim.g.github_colors)
+
 local colors = {
   bg = "#0d1117",
   section_bg = "#2D333B",
@@ -20,6 +24,23 @@ local colors = {
   cyan = "#96D0FF",
   green = "#8DDB8C"
 }
+
+-- TokyoNight
+-- local tnc = require("tokyonight.colors").setup({})
+-- local colors = {
+--   bg = tnc.bg,
+--   section_bg = tnc.bg_highlight,
+--   fg = tnc.fg,
+--   grey = tnc.comment,
+--   blue = tnc.blue,
+--   yellow = tnc.yellow,
+--   orange = tnc.orange,
+--   red = tnc.red,
+--   magenta = tnc.magenta,
+--   purple = tnc.purple,
+--   cyan = tnc.cyan,
+--   green = tnc.green
+-- }
 
 local mode_color = function()
   local mode_colors = {
@@ -147,7 +168,7 @@ gls.left[i] = {
     provider = "DiffAdd",
     condition = checkwidth,
     icon = icons.diff.add,
-    highlight = { colors.green, colors.line_bg }
+    highlight = { colors.green, colors.bg }
   }
 }
 
@@ -157,7 +178,7 @@ gls.left[i] = {
     provider = "DiffModified",
     condition = checkwidth,
     icon = icons.diff.modified,
-    highlight = { colors.blue, colors.line_bg }
+    highlight = { colors.blue, colors.bg }
   }
 }
 
@@ -167,7 +188,7 @@ gls.left[i] = {
     provider = "DiffRemove",
     condition = checkwidth,
     icon = icons.diff.remove,
-    highlight = { colors.red, colors.line_bg }
+    highlight = { colors.red, colors.bg }
   }
 }
 

@@ -127,7 +127,6 @@ packer.startup(
         end
       }
 
-      use { "folke/tokyonight.nvim", branch = "main" }
 
       use {
         "projekt0n/github-nvim-theme",
@@ -136,6 +135,13 @@ packer.startup(
         end
       }
 
+      -- use {
+      --   "folke/tokyonight.nvim",
+      --   config = function()
+      --     require("plugins.tokyonight")
+      --   end
+      -- }
+      --
       use {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
