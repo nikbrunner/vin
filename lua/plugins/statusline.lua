@@ -6,10 +6,6 @@ local fileinfo = require("galaxyline.provider_fileinfo")
 gl.short_line_list = { "NvimTree", "vista", "dbui", "packer", "startify" }
 
 -- GitHub Dark
--- local ghc = require("github-theme.colors").setup({})
-print("Hello")
-print(vim.g.github_colors)
-
 local colors = {
   bg = "#0d1117",
   section_bg = "#2D333B",
