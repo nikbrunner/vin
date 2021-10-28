@@ -61,6 +61,7 @@ maps.lua
 - [x] Fix open in split <kbd>C-x</kbd> is broken
 - [x] Sort `last_used`
 - [ ] Select items from the list and add only the selected to the quickfix list
+- [ ] Search for selected text
 
 ### Barbar
 - [ ] Ignore QuickFix Buffer

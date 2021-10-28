@@ -29,7 +29,21 @@ local keyMaps = {
       }
     },
 
-    visual = { groups = { l = wkGroups.lsp } }
+    visual = {
+      groups = {
+        l = wkGroups.lsp,
+        q = wkGroups.quit,
+        b = wkGroups.buffer,
+        c = wkGroups.copy,
+        g = wkGroups.git,
+        h = wkGroups.harpoon,
+        f = wkGroups.find,
+        P = wkGroups.packages,
+        v = wkGroups.view,
+        i = wkGroups.insert,
+        t = wkGroups.todo
+      }
+    }
   }
 }
 
