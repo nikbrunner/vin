@@ -63,6 +63,10 @@ maps.lua
 - [ ] Select items from the list and add only the selected to the quickfix list
 - [ ] Search for selected text
 
+### cmp
+- [ ] Fix CSS Autocompletion
+  - [This guy has the same problem](https://old.reddit.com/r/neovim/comments/qe1dpi/cssls_does_not_provide_autocomplete_but_gives_me/)
+
 ### Barbar
 - [ ] Ignore QuickFix Buffer
 
