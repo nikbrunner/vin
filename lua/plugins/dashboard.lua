@@ -7,7 +7,7 @@ local options = {
   dashboard_custom_section = {
     a = {
       description = { "   Recent Projects" },
-      command = "Telescope projects"
+      command = "Telescope project"
     },
     b = { description = { "   Recent Files" }, command = "Telescope oldfiles" },
     c = { description = { "   Find File" }, command = "Telescope find_files" },

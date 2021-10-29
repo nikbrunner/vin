@@ -54,9 +54,16 @@ require("telescope").setup {
     current_buffer_fuzzy_find = { sorting_strategy = "ascending" }
   },
   extensions = {
-    fzy_native = { override_generic_sorter = false, override_file_sorter = true }
-  }
+    fzy_native = { override_generic_sorter = false, override_file_sorter = true },
+    project = {
+      base_dirs = {
+        { "~/Documents/dev/repositories/", max_depth = 3 },
+        hidden_files = true
+      }
+    }
+  },
 }
 
-require("telescope").load_extension("fzy_native");
-require("telescope").load_extension("projects");
+require("telescope").load_extension("fzy_native")
+require("telescope").load_extension('project')
+

@@ -186,10 +186,7 @@ packer.startup(
       }
 
       use {
-        "ahmedkhalf/project.nvim",
-        config = function()
-          require("plugins.projects");
-        end
+        "nvim-telescope/telescope-project.nvim"
       }
 
       use {
