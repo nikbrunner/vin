@@ -229,7 +229,8 @@ use {
       use {
         "andrejlevkovitch/vim-lua-format",
         event = "BufRead",
-        ft = { "lua" }, config = function()
+        ft = { "lua" },
+        config = function()
           vim.cmd [[autocmd BufWrite *.lua call LuaFormat()]]
         end
       }
@@ -247,6 +248,7 @@ use {
       use { "mg979/vim-visual-multi", branch = "master" }
       use { "tpope/vim-surround" }
       use { "prettier/vim-prettier", run = "npm install" }
+      use { "dstein64/vim-startuptime" }
 
       -- Automatically set up your configuration after cloning packer.nvim
       if Packer_bootstrap then
