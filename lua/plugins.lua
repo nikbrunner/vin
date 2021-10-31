@@ -73,26 +73,37 @@ return packer.startup(
       use {
         "rinx/lspsaga.nvim",
         config = function()
-          require("plug-config.lspsaga") end
+          require("plug-config.lspsaga")
+        end
       }
 
       use {
         "onsails/lspkind-nvim",
         config = function()
-          require("plug-config.kind") end
+          require("plug-config.kind")
+        end
       }
 
       use {
         "folke/lsp-trouble.nvim",
         config = function()
           require("plug-config.trouble")
-        end }
+        end
+      }
 
       use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
         config = function()
-          require("plug-config.treesitter") end
+          require("plug-config.treesitter")
+        end
+      }
+
+      use {
+        "ray-x/lsp_signature.nvim",
+        config = function()
+          require("lsp_signature").setup()
+        end
       }
 
       use {
@@ -105,20 +116,23 @@ return packer.startup(
       use {
         "lewis6991/gitsigns.nvim",
         config = function()
-          require("plug-config.gitsigns") end
+          require("plug-config.gitsigns")
+        end
       }
 
       use {
         "kevinhwang91/nvim-bqf",
         config = function()
           require("plug-config.nvim-bqf")
-        end }
+        end
+      }
 
       use {
         "ThePrimeagen/harpoon",
         requires = { "nvim-lua/plenary.nvim" }
       }
-use {
+
+      use {
         "kdheepak/lazygit.nvim",
         config = function()
           require("plug-config.lazygit")
@@ -136,26 +150,30 @@ use {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
           require("plug-config.indent-blankline")
-        end }
+        end
+      }
 
       use {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
         config = function()
-          require("plug-config.todo") end
+          require("plug-config.todo")
+        end
       }
 
       use {
         "nvim-telescope/telescope.nvim",
         requires = { { "nvim-lua/plenary.nvim" } },
-        config = function() require("plug-config.telescope");
+        config = function()
+          require("plug-config.telescope");
         end
       }
 
       use {
         "nvim-telescope/telescope-fzy-native.nvim",
         requires = { "nvim-telescope/telescope.nvim" },
-        run = "git submodule update --init --recursive" }
+        run = "git submodule update --init --recursive"
+      }
 
       use {
         "folke/which-key.nvim",
@@ -163,6 +181,7 @@ use {
           require("plug-config.whichkey");
         end
       }
+
       use {
         "nvim-telescope/telescope-project.nvim"
       }
@@ -197,32 +216,37 @@ use {
       use {
         "machakann/vim-highlightedyank",
         config = function()
-          require("plug-config.highlightedyank");
-        end }
+          require("plug-config.highlightedyank")
+        end
+      }
 
       use {
         "norcalli/nvim-colorizer.lua",
         config = function()
           require("plug-config.colorizer")
-        end }
+        end
+      }
 
       use {
         "glepnir/dashboard-nvim",
         config = function()
-          require("plug-config.dashboard");
-        end }
+          require("plug-config.dashboard")
+        end
+      }
 
       use {
         "glepnir/galaxyline.nvim",
         branch = "main",
         config = function()
-          require("plug-config.statusline"); end
+          require("plug-config.statusline")
+        end
       }
 
       use {
         "romgrk/barbar.nvim",
         requires = { "kyazdani42/nvim-web-devicons" },
-        config = function() require("plug-config.barbar")
+        config = function()
+          require("plug-config.barbar")
         end
       }
 
