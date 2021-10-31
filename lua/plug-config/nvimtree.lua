@@ -1,9 +1,7 @@
 local options = {
-  nvim_tree_ignore = { ".git", "node_modules", ".cache" },
   nvim_tree_gitignore = 0,
   nvim_tree_quit_on_open = 0,
   nvim_tree_indent_markers = 0,
-  nvim_tree_hide_dotfiles = 0,
   nvim_tree_git_hl = 0,
   nvim_tree_root_folder_modifier = ":~",
   nvim_tree_add_trailing = 0,
@@ -79,5 +77,9 @@ require"nvim-tree".setup {
       -- list of mappings to set on the tree manually
       list = {}
     }
+  },
+  filters = {
+    dotfiles = false,
+    custom = { ".git", "node_modules", ".cache" }
   }
 }

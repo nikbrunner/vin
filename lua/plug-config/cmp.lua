@@ -2,7 +2,9 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 
 cmp.setup {
-  completion = { completeopt = "menu,menuone,noinsert" },
+  completion = {
+    completeopt = "menu,menuone,noinsert"
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -53,9 +55,3 @@ cmp.setup {
   }
 }
 
--- TODO Fix CSSLS
--- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
---
--- require'lspconfig'.cssls.setup {
---   capabilities = capabilities,
--- }
