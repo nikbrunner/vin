@@ -249,6 +249,7 @@ use {
       use { "tpope/vim-surround" }
       use { "prettier/vim-prettier", run = "npm install" }
       use { "dstein64/vim-startuptime" }
+      use { "styled-components/vim-styled-components", branch = "main" }
 
       -- Automatically set up your configuration after cloning packer.nvim
       if Packer_bootstrap then
