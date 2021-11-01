@@ -1,14 +1,8 @@
 local cmp = require("cmp")
-local luasnip = require("luasnip")
 
 cmp.setup {
   completion = {
     completeopt = "menu,menuone,noinsert"
-  },
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end
   },
   mapping = {
     ["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -20,38 +14,38 @@ cmp.setup {
     ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true
-    },
-    ["<TAB>"] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true
     }
   },
   sources = {
-    { name = "nvim_lsp" },
-    { name = "path" },
-    { name = "nvim_lua" },
-    { name = "buffer" },
-    { name = "calc" },
-    { name = "emoji" },
-    { name = "treesitter" }
+    { name = "nvim_lsp", max_item_count = 10 },
+    { name = "nvim_lua", max_item_count = 10 },
+    { name = "path", max_item_count = 10 },
+    { name = "luasnip", max_item_count = 10 },
+    { name = "buffer", keyword_length = 5, max_item_count = 10 },
+  },
+  snippet = {
+    expand = function(args)
+      require("luasnip").lsp_expand(args.body)
+    end
   },
   formatting = {
     format = function(entry, vim_item)
       -- fancy icons and a name of kind
       vim_item.kind =
-          require("lspkind").presets.default[vim_item.kind] .. " " ..
-              vim_item.kind
-
+          require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
       -- set a name for each source
       vim_item.menu = ({
-        buffer = "[Buffer]",
+        buffer = "[Buff]",
         nvim_lsp = "[LSP]",
-        luasnip = "[LuaSnip]",
-        nvim_lua = "[Lua]",
-        latex_symbols = "[Latex]"
+        luasnip = "[Snip]",
+        nvim_lua = "[Lua]"
       })[entry.source.name]
       return vim_item
     end
+  },
+  experimental = {
+    native_menu = false,
+    ghost_text = true
   }
 }
 
