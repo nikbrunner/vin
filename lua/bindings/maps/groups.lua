@@ -145,6 +145,13 @@ WhichKeyGroups.git = {
     name = "Checkout",
     b = { cmds.telescope("git_branches"), "Checkout branch" },
     c = { cmds.telescope("git_commits"), "Checkout commit" }
+  },
+  g = {
+    name = "Github",
+    p = { cmds.telescope("gh pull_request"), "Pull Requests" },
+    f = { cmds.telescope("gh pull_request_files"), "Pull Requests Files" },
+    i = { cmds.telescope("gh issues"), "Issues" },
+    r = { cmds.telescope("gh run"), "Run" }
   }
 }
 

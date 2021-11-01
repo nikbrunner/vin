@@ -18,8 +18,8 @@ WhichKeySingles.noLeader = {
     ["n"] = { "nzzzv", "Adjusted n" },
     ["N"] = { "Nzzzv", "Adjusted N" },
 
-    ["J"] = { ":m .+1<CR>==", "Move Line Down" },
-    ["K"] = { ":m .-2<CR>==", "Move Line Up" },
+    -- ["J"] = { ":m .+1<CR>==", "Move Line Down" },
+    -- ["K"] = { ":m .-2<CR>==", "Move Line Up" },
 
     ["<C-h>"] = { "<C-w>h", "Focus Left Pane" },
     ["<C-j>"] = { "<C-w>j", "Focus Below Pane" },
