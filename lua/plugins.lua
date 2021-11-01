@@ -255,7 +255,7 @@ return packer.startup(
         event = "BufRead",
         ft = { "lua" },
         config = function()
-          vim.cmd [[autocmd BufWrite *.lua call LuaFormat()]]
+          vim.cmd [[autocmd BufWrite *.lua silent call LuaFormat()]]
         end
       }
 
