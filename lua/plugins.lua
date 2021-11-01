@@ -176,6 +176,11 @@ return packer.startup(
       }
 
       use {
+        "nvim-telescope/telescope-github.nvim",
+        requires = { "nvim-telescope/telescope.nvim" },
+      }
+
+      use {
         "folke/which-key.nvim",
         config = function()
           require("plug-config.whichkey");

@@ -11,6 +11,7 @@
 - [x] Bring all Binds into WhichKey
 - [x] Bring all Binds into WhichKey
 - [x] Improve Folder Structure for Bindings
+- [ ] Fix Lua Formater and silence message
 - [ ] Resolve init KeyMaps bindings (Call `wk.register` on each group and single)
 - [ ] Add base command for ":tabnext<CR>" etc
 - [ ] Resource config
@@ -55,6 +56,8 @@ maps.lua
 - [ ] [telescope-vim-bookmarks](https://github.com/tom-anders/telescope-vim-bookmarks.nvim)
 - [ ] [format.nvim](https://github.com/lukas-reineke/format.nvim)
 - [ ] [tabnine](https://github.com/tzachar/cmp-tabnine#install)
+- [ ] [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+- [ ] [nvim-neoclip](https://github.com/AckslD/nvim-neoclip.lua)
 
 ### 🔭 Telescope 
 - [x] Search .files
