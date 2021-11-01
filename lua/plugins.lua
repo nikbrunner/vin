@@ -175,9 +175,15 @@ return packer.startup(
         run = "git submodule update --init --recursive"
       }
 
+      -- use {
+      --   "nvim-telescope/telescope-github.nvim",
+      --   requires = { "nvim-telescope/telescope.nvim" },
+      -- }
+      --
       use {
-        "nvim-telescope/telescope-github.nvim",
+        "/home/nibru/Documents/dev/repositories/own/telescope-github.nvim",
         requires = { "nvim-telescope/telescope.nvim" },
+        branch = "add-browse_files"
       }
 
       use {
