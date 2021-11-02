@@ -25,7 +25,7 @@ require("telescope").setup {
       vertical = { mirror = false }
     },
     file_sorter = require"telescope.sorters".get_fzy_sorter,
-    file_ignore_patterns = { "^.git/" },
+    file_ignore_patterns = { "^.git/", "node_modules" },
     generic_sorter = require"telescope.sorters".get_generic_fuzzy_sorter,
     path_display = {
       -- 'shorten',
@@ -54,7 +54,11 @@ require("telescope").setup {
     current_buffer_fuzzy_find = { sorting_strategy = "ascending" }
   },
   extensions = {
-    fzy_native = { override_generic_sorter = false, override_file_sorter = true },
+    fzy_native = {
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case"
+    },
     project = {
       base_dirs = {
         { "~/Documents/dev/repositories/", max_depth = 3 },
