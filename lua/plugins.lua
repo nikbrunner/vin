@@ -181,7 +181,7 @@ return packer.startup(
       -- }
       --
       use {
-        "/home/nibru/Documents/dev/repositories/own/telescope-github.nvim",
+        "nikbrunner/telescope-github.nvim",
         requires = { "nvim-telescope/telescope.nvim" },
         branch = "add-browse_files"
       }
