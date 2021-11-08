@@ -277,6 +277,7 @@ return packer.startup(
       }
 
       use { "djoshea/vim-autoread" }
+      use { "github/copilot.vim" }
       use { "nvim-lua/popup.nvim" }
       use { "davidgranstrom/nvim-markdown-preview" }
       use { "RRethy/vim-illuminate" }
