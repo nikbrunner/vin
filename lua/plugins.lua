@@ -204,6 +204,10 @@ return packer.startup(
         end
       }
 
+      use {
+        "wellle/targets.vim"
+      }
+
       use { "windwp/nvim-autopairs",
         config = function()
           require("nvim-autopairs").setup {}
