@@ -48,19 +48,27 @@ return packer.startup(
         end
       }
 
-      use {
-        "hrsh7th/nvim-cmp",
+      use { -- A completion plugin for neovim coded in Lua.
+        'hrsh7th/nvim-cmp',
+        requires = {
+          "hrsh7th/cmp-nvim-lsp",           -- nvim-cmp source for neovim builtin LSP client
+          "hrsh7th/cmp-nvim-lua",           -- nvim-cmp source for nvim lua
+          "hrsh7th/cmp-buffer",             -- nvim-cmp source for buffer words.
+          "hrsh7th/cmp-path",               -- nvim-cmp source for filesystem paths.
+          "hrsh7th/cmp-calc",               -- nvim-cmp source for math calculation.
+          "saadparwaiz1/cmp_luasnip",       -- luasnip completion source for nvim-cmp
+        },
         config = function()
           require("plug-config.completion");
         end
-      }
+        }
 
-      use { "L3MON4D3/LuaSnip" }
-      use { "hrsh7th/cmp-buffer" }
-      use { "hrsh7th/cmp-path" }
-      use { "hrsh7th/cmp-nvim-lsp" }
-      use { "hrsh7th/cmp-nvim-lua" }
-      use { "saadparwaiz1/cmp_luasnip" }
+      use { -- Snippet Engine for Neovim written in Lua.
+        'L3MON4D3/LuaSnip',
+        requires = {
+          "rafamadriz/friendly-snippets",
+        },
+      }
 
       use {
         "folke/lua-dev.nvim",
