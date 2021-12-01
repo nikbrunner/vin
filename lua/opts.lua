@@ -14,7 +14,6 @@ local options = {
   rnu = true,
   nu = true,
   wrap = false,
-  hidden = true,
   swapfile = false,
   backup = false,
   lazyredraw = true,

@@ -14,7 +14,6 @@ WhichKeySingles.noLeader = {
     ["k"] = { "gk", "Adjusted k" },
     ["j"] = { "gj", "Adjusted j" },
 
-    ["Y"] = { "y$", "Yank till end" },
     ["n"] = { "nzzzv", "Adjusted n" },
     ["N"] = { "Nzzzv", "Adjusted N" },
 
