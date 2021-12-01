@@ -1,5 +1,8 @@
 # Todo
 
+## General
+- [ ] Update to 0.6
+
 ##   Bugs
 - [ ] Fix `1 more file to edit`
 
