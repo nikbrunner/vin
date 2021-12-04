@@ -1,5 +1,4 @@
 local options = {
-  nvim_tree_gitignore = 0,
   nvim_tree_quit_on_open = 0,
   nvim_tree_indent_markers = 0,
   nvim_tree_git_hl = 0,
@@ -14,6 +13,7 @@ end
 
 -- following options are the default
 require"nvim-tree".setup {
+  nvim_tree_gitignore = false,
   -- disables netrw completely
   disable_netrw = true,
   -- hijack netrw window on startup
