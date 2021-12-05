@@ -149,8 +149,17 @@ return packer.startup(
 
       use {
         "projekt0n/github-nvim-theme",
+        disable = true,
         config = function()
           require("plug-config.github-nvim")
+        end
+      }
+
+      use {
+        "catppuccin/nvim",
+        as = "catppuccin",
+        config = function()
+          require("plug-config.catpuccin")
         end
       }
 

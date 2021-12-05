@@ -9,5 +9,3 @@ require("github-theme").setup(
       sidebars = { "qf", "vista_kind", "terminal", "packer", "lazygit" }
     }
 )
-
-vim.cmd [[colorscheme github_dark_default]]
