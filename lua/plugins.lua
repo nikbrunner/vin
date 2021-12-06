@@ -158,6 +158,7 @@ return packer.startup(
       use {
         "catppuccin/nvim",
         as = "catppuccin",
+        disable = false,
         config = function()
           require("plug-config.catpuccin")
         end
