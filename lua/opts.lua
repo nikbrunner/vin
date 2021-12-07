@@ -44,8 +44,3 @@ if executable("rg")
   set grepprg=rg\ --vimgrep 
 endif
 ]]
-
--- Set colorscheme
--- vim.cmd [[colorscheme github_dark_default]]
--- vim.cmd [[colorscheme tokyonight]]
-vim.cmd[[colorscheme catppuccin]]
