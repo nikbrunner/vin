@@ -3,7 +3,7 @@ require( "trouble" ).setup {
   -- or leave it empty to use the default settings
   -- refer to the configuration section below
   icons = true, -- use dev-icons for filenames
-  mode = "workspace", -- "workspace" or "document"
+  mode = "workspace_diagnostics", -- "workspace" or "document"
   fold_open = "", -- icon used for open folds
   fold_closed = "", -- icon used for closed folds
   action_keys = { -- key mappings for actions in the trouble list

@@ -42,10 +42,7 @@ return packer.startup(
       }
 
       use {
-        "williamboman/nvim-lsp-installer",
-        config = function()
-          require("plug-config.lsp-installer")
-        end
+        "williamboman/nvim-lsp-installer"
       }
 
       use { -- A completion plugin for neovim coded in Lua.
