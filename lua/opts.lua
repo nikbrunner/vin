@@ -1,7 +1,6 @@
 local options = {
   encoding = "UTF-8",
-  clipboard = "unnamedplus",
-  termguicolors = true,
+  clipboard = "unnamedplus", termguicolors = true,
   tabstop = 2,
   softtabstop = 2,
   shiftwidth = 2,

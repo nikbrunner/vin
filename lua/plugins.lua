@@ -146,7 +146,7 @@ return packer.startup(
 
       use {
         "projekt0n/github-nvim-theme",
-        disable = false,
+        disable = true,
         config = function()
           require("plug-config.github-nvim")
           vim.cmd [[colorscheme github_dark_default]]
@@ -154,12 +154,10 @@ return packer.startup(
       }
 
       use {
-        "catppuccin/nvim",
-        as = "catppuccin",
-        disable = true,
+        "rebelot/kanagawa.nvim",
+        disable = false,
         config = function()
-          require("plug-config.catpuccin")
-          vim.cmd[[colorscheme catppuccin]]
+          require("plug-config.kanagawa")
         end
       }
 
