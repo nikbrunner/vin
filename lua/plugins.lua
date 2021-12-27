@@ -145,17 +145,25 @@ return packer.startup(
       }
 
       use {
-        "projekt0n/github-nvim-theme",
-        config = function()
-          require("plug-config.github-nvim")
-          vim.cmd [[colorscheme github_dark_default]]
-        end
+        "arzg/vim-substrata"
+      }
+
+      use {
+        "LunarVim/darkplus.nvim"
       }
 
       use {
         "rebelot/kanagawa.nvim",
         config = function()
           require("plug-config.kanagawa")
+        end
+      }
+
+      use {
+        "projekt0n/github-nvim-theme",
+        config = function()
+          require("plug-config.github-nvim")
+          vim.cmd [[colorscheme github_dark_default]]
         end
       }
 
