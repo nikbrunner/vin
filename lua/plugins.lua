@@ -146,7 +146,6 @@ return packer.startup(
 
       use {
         "projekt0n/github-nvim-theme",
-        disable = true,
         config = function()
           require("plug-config.github-nvim")
           vim.cmd [[colorscheme github_dark_default]]
@@ -155,7 +154,6 @@ return packer.startup(
 
       use {
         "rebelot/kanagawa.nvim",
-        disable = false,
         config = function()
           require("plug-config.kanagawa")
         end
