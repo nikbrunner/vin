@@ -1,23 +1,36 @@
-local packer = require("packer")
-local use = packer.use
 local fn = vim.fn
 
 local stdDataPath = fn.stdpath("data")
 local packagePath = stdDataPath .. "/site/pack"
 local install_path = packagePath .. "/packer/start/packer.nvim"
 
--- Bootstraping Packer if not already installed
--- https://github.com/wbthomason/packer.nvim#bootstrapping
+-- Automatically install packer
 if fn.empty(fn.glob(install_path)) > 0 then
-  Packer_bootstrap = fn.system(
-    { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
-  )
+  PACKER_BOOTSTRAP = fn.system {
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  }
+  print "Installing packer close and reopen Neovim..."
+  vim.cmd [[packadd packer.nvim]]
 end
 
--- Auto source when there are changes in plug-config.lua
-require("auto").BufWritePost = { "plugins.lua", "source <afile> | PackerCompile" }
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
 
-packer.reset()
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
 
 packer.init {
   display = {
@@ -25,13 +38,11 @@ packer.init {
       return require("packer.util").float { border = "rounded" }
     end
   },
-  ensure_dependencies = true,
-  package_root = require("packer.util").join_paths(packagePath)
 }
 
 -- TODO Work with LuaRocks Support for Formater etc.
 return packer.startup(
-    function()
+    function(use)
       use { "wbthomason/packer.nvim", opt = false }
 
       use {
@@ -312,9 +323,10 @@ return packer.startup(
       use { "dstein64/vim-startuptime" }
       use { "styled-components/vim-styled-components", branch = "main" }
 
-      -- Automatically set up your configuration after cloning packer.nvim
-      if Packer_bootstrap then
-        require('packer').sync()
-      end
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if PACKER_BOOTSTRAP then
+      require("packer").sync()
     end
+  end
 )
