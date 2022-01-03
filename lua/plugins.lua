@@ -43,7 +43,7 @@ packer.init {
 -- TODO Work with LuaRocks Support for Formater etc.
 return packer.startup(
     function(use)
-      use { "wbthomason/packer.nvim", opt = false }
+      use { "wbthomason/packer.nvim" }
 
       use {
         "neovim/nvim-lspconfig",
@@ -86,6 +86,7 @@ return packer.startup(
       }
 
       -- NOTE fork replacement for lspsaga
+      -- TODO is this still needed?
       use {
         "rinx/lspsaga.nvim",
         config = function()
