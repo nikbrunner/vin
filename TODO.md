@@ -5,7 +5,7 @@
 
 ## Plugins to migrate
 - [ ] "ThePrimeagen/harpoon" 
-- [ ] "ray-x/lsp_signature.nvim"
+- [x] "ray-x/lsp_signature.nvim"
 - [ ] "kevinhwang91/nvim-bqf"
 - [ ] "wellle/targets.vim"
 - [ ] "github/copilot.vim"
