@@ -1,2 +1,2 @@
-require "user.keybindings.noleader"
-require "user.keybindings.withleader"
+require("user.keybindings.noleader")
+require("user.keybindings.withleader")
