@@ -99,14 +99,13 @@ WhichKeyGroups.lsp = {
 	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
 }
 
--- WhichKeyGroups.quit = {
--- 	name = "  Quit",
--- 	w = { cmds.buffer("Wipeout"), "Wipeout" },
--- 	c = { cmds.buffer("Close"), "Close Current Buffer" },
--- 	q = { ":silent wq<CR>", "Save and Quit Pane (:wq)" },
--- 	Q = { ":silent q!<CR>", "Quit (:q!)" },
--- 	o = { cmds.buffer("CloseAllButCurrent"), "Close All Buffers But Current" },
--- }
+WhichKeyGroups.quit = {
+	name = "  Quit",
+	c = { "<cmd>Bdelete!<cr>", "Close Buffer" },
+	q = { ":silent wq<cr>", "Save and Quit Pane (:wq)" },
+	Q = { ":silent q!<cr>", "Quit (:q!)" },
+	o = { ":BufOnly<cr>", "Close All Buffers But Current" },
+}
 
 -- WhichKeyGroups.buffer = {
 -- 	name = "﩯 Buffer",

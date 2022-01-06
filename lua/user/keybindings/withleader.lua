@@ -83,14 +83,14 @@ local opts = {
 local mappings = {
 	[";"] = { "<cmd>Alpha<cr>", "Dashboard" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 
 	P = mappingGroups.packer,
 	f = mappingGroups.find,
 	g = mappingGroups.git,
 	l = mappingGroups.lsp,
   h = mappingGroups.harpoon,
-  i = mappingGroups.insert
+  i = mappingGroups.insert,
+  q = mappingGroups.quit
 }
 
 which_key.setup(setup)
