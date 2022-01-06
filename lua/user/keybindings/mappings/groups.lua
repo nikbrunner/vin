@@ -299,21 +299,6 @@ WhichKeyGroups.packer = {
 	u = { "<cmd>PackerUpdate<cr>", "Update" },
 }
 
--- WhichKeyGroups.view = {
--- 	name = "  View",
--- 	m = { ":MarkdownPreview<CR>", "Markdown Preview" },
--- 	z = { "<cmd>ZenMode<CR>", "Zen" },
--- 	h = { ":vertical resize -20<CR>", "Narrow Pane" },
--- 	l = { ":vertical resize +20<CR>", "Wide Pane" },
--- }
-
--- WhichKeyGroups.todo = {
--- 	name = "  Todo",
--- 	t = { cmds.todo("Telescope"), "Telescope" },
--- 	q = { cmds.todo("QuickFix"), "QuickFix" },
--- 	r = { cmds.todo("Trouble"), "Trouble" },
--- }
-
 -- WhichKeyGroups.insert = {
 -- 	name = "  Insert",
 -- 	l = {
