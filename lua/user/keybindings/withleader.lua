@@ -82,48 +82,23 @@ local opts = {
 
 local mappings = {
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-	["b"] = {
-		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-		"Buffers",
-	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	["f"] = {
-		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-		"Find files",
-	},
+	-- ["f"] = {
+	-- 	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+	-- 	"Find files",
+	-- },
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 
-  --TODO Put this is in search/find
+	--TODO Put this is in search/find
 	-- ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
 	P = mappingGroups.packer,
-  g = mappingGroups.git,
+	g = mappingGroups.git,
 	l = mappingGroups.lsp,
-	s = {
-		name = "Search",
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-		R = { "<cmd>Telescope registers<cr>", "Registers" },
-		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-		C = { "<cmd>Telescope commands<cr>", "Commands" },
-	},
-
-	t = {
-		name = "Terminal",
-		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-		u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
-	},
+	f = mappingGroups.find,
 }
 
 which_key.setup(setup)

@@ -87,13 +87,16 @@ WhichKeyGroups.lsp = {
 			"Workspace Diagnostics",
 		},
 	},
+	s = {
+		name = "Symbols",
+		d = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+		w = {
+			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+			"Workspace Symbols",
+		},
+	},
 	l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-	s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-	S = {
-		"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-		"Workspace Symbols",
-	},
 }
 
 -- WhichKeyGroups.quit = {
@@ -182,32 +185,37 @@ WhichKeyGroups.git = {
 	-- },
 }
 
--- WhichKeyGroups.find = {
--- 	name = "  Find",
--- 	b = { cmds.telescope("buffers"), "﩯 Buffers" },
--- 	e = { cmds.telescope("file_browser"), "  Explorer" },
--- 	d = { cmds.telescope("find_files", "cwd=~/.config/nvim"), "·· Dots" },
--- 	c = { cmds.telescope("commands"), "  Commands" },
--- 	C = { cmds.telescope("colorscheme"), "  Colorscheme" },
--- 	f = { cmds.telescope("find_files"), "  Files" },
--- 	i = { cmds.telescope("current_buffer_fuzzy_find"), "  Find in File" },
--- 	h = { cmds.telescope("help_tags"), "  Help" },
--- 	M = { cmds.telescope("man_pages"), "  Man Pages" },
--- 	r = { cmds.telescope("oldfiles"), "  Recent Files" },
--- 	p = { cmds.telescope("diagnostics"), "Problems" },
--- 	P = { cmds.telescope("project"), "  Recent Projects" },
--- 	R = { cmds.telescope("registers"), "  Registers" },
--- 	t = { cmds.telescope("live_grep"), "  Text" },
--- 	T = { cmds.telescope(), "  Telescope" },
--- 	q = { cmds.telescope("quickfix"), "  Quickfix" },
--- 	w = { cmds.telescope("grep_string"), "  Current Word" },
--- 	s = {
--- 		name = "Symbols",
--- 		w = { cmds.telescope("lsp_dynamic_workspace_symbols"), "Workspace" },
--- 		d = { cmds.telescope("lsp_document_symbols"), "Document" },
--- 	},
--- 	k = { cmds.telescope("keymaps"), "  Keymaps" },
--- }
+WhichKeyGroups.find = {
+	name = "  Find",
+	b = {
+		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+		"﩯 Buffers",
+	},
+	d = { "<cmd>Telescope find_files cwd=~/.config/nvim<cr>", "·· Dots" },
+	c = { "<cmd>Telescope commands<cr>", "  Commands" },
+	C = { "<cmd>Telescope colorscheme<cr>", "  Colorscheme" },
+	f = { "<cmd>Telescope find_files<cr>", "  Files" },
+	i = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "  Find in File" },
+	h = { "<cmd>Telescope help_tags<cr>", "  Help" },
+	M = { "<cmd>Telescope man_pages<cr>", "  Man Pages" },
+	r = { "<cmd>Telescope oldfiles<cr>", "  Recent Files" },
+	p = { "<cmd>Telescope diagnostics<cr>", "Problems" },
+	P = { "<cmd>Telescope project<cr>", "  Recent Projects" },
+	R = { "<cmd>Telescope registers<cr>", "  Registers" },
+	t = { "<cmd>Telescope live_grep<cr>", "  Text" },
+	T = { "<cmd>Telescope", "  Telescope<cr>" },
+	q = { "<cmd>Telescope quickfix<cr>", "  Quickfix" },
+	w = { "<cmd>Telescope grep_string<cr>", "  Current Word" },
+	s = {
+		name = "Symbols",
+		d = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+		w = {
+			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+			"Workspace Symbols",
+		},
+	},
+	k = { "<cmd>Telescope keymaps<cr>", "  Keymaps" },
+}
 
 -- WhichKeyGroups.harpoon = {
 -- 	name = "  Harpoon",
