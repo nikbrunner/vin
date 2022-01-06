@@ -83,7 +83,6 @@ local opts = {
 local mappings = {
 	[";"] = { "<cmd>Alpha<cr>", "Dashboard" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["w"] = { "<cmd>w!<CR>", "Save" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 
 	P = mappingGroups.packer,
