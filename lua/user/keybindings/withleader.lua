@@ -86,9 +86,6 @@ local mappings = {
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 
-	--TODO Put this is in search/find
-	-- ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-
 	P = mappingGroups.packer,
 	g = mappingGroups.git,
 	l = mappingGroups.lsp,

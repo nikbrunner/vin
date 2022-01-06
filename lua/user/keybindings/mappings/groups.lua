@@ -203,7 +203,7 @@ WhichKeyGroups.find = {
 	M = { "<cmd>Telescope man_pages<cr>", "  Man Pages" },
 	r = { "<cmd>Telescope oldfiles<cr>", "  Recent Files" },
 	p = { "<cmd>Telescope diagnostics<cr>", "Problems" },
-	P = { "<cmd>Telescope project<cr>", "  Recent Projects" },
+	P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "  Recent Projects" },
 	R = { "<cmd>Telescope registers<cr>", "  Registers" },
 	t = { "<cmd>Telescope live_grep theme=ivy<cr>", "  Text" },
 	T = { "<cmd>Telescope", "  Telescope<cr>" },
