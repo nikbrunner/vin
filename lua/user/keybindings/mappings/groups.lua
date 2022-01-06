@@ -61,22 +61,40 @@ local WhichKeyGroups = {}
 -- 	},
 -- }
 
--- WhichKeyGroups.lsp = {
--- 	name = "  LSP",
--- 	a = { cmds.lspsaga("code_action"), "Code Action" },
--- 	n = { cmds.lspsaga("rename"), "Rename" },
--- 	h = { cmds.lspsaga("hover_doc"), "Hover" },
--- 	l = { cmds.lspInstall("Info"), "Languages" },
--- 	p = { cmds.telescope("diagnostics"), "Problems" },
--- 	g = {
--- 		name = "Go to",
--- 		d = { cmds.telescope("lsp_definitions"), "Definitions" },
--- 		D = { cmds.lspsaga("preview_definition"), "Preview Definition" },
--- 		r = { cmds.telescope("lsp_references"), "References" },
--- 		i = { cmds.telescope("lsp_implementations"), "Implementation" },
--- 		s = { cmds.telescope("lsp_dynamic_workspace_symbols"), "Symbols" },
--- 	},
--- }
+WhichKeyGroups.lsp = {
+	name = "  LSP",
+	j = {
+		"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+		"Next Diagnostic",
+	},
+	k = {
+		"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+		"Prev Diagnostic",
+	},
+	a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+	f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+	i = { "<cmd>LspInfo<cr>", "Info" },
+	I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+	r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+	d = {
+		name = "Diagnostics",
+		d = {
+			"<cmd>Telescope diagnostics bufnr=0<cr>",
+			"Document Diagnostics",
+		},
+		w = {
+			"<cmd>Telescope diagnostics<cr>",
+			"Workspace Diagnostics",
+		},
+	},
+	l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+	s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+	S = {
+		"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+		"Workspace Symbols",
+	},
+}
 
 -- WhichKeyGroups.quit = {
 -- 	name = "  Quit",
@@ -110,10 +128,10 @@ local WhichKeyGroups = {}
 
 WhichKeyGroups.git = {
 	name = "  Git",
-	s = { "<cmd>:LazyGit<CR>", "Status" },                               -- TODO I still get stuck here from time to time
+	s = { "<cmd>:LazyGit<CR>", "Status" }, -- TODO I still get stuck here from time to time
 	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
 	j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-	m = {                                                                -- TODO Telescope Wrapper function or resolve existing one
+	m = { -- TODO Telescope Wrapper function or resolve existing one
 		function()
 			local opts = require("telescope.themes").get_dropdown({
 				layout_config = { height = 15 },
@@ -148,13 +166,13 @@ WhichKeyGroups.git = {
 		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
 	},
 
-  -- TODO This looks ugly af.. Do I use this wrong?
+	-- TODO This looks ugly af.. Do I use this wrong?
 	-- d = {
 	-- 	"<cmd>Gitsigns diffthis HEAD<cr>",
 	-- 	"Diff",
 	-- },
 
-  -- TODO Setup Telescrope GH and merge my PR!!!
+	-- TODO Setup Telescrope GH and merge my PR!!!
 	-- G = {
 	-- 	name = "Github",
 	-- 	p = { cmds.telescope("gh pull_request"), "Pull Requests" },
