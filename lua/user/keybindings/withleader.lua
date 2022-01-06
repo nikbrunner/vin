@@ -85,11 +85,6 @@ local mappings = {
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-	-- ["f"] = {
-	-- 	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-	-- 	"Find files",
-	-- },
-	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 
 	--TODO Put this is in search/find
 	-- ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
