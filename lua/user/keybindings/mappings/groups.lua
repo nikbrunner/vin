@@ -108,48 +108,61 @@ local WhichKeyGroups = {}
 -- 	n = { cmds.copy.fileName(), "Copy File Name" },
 -- }
 
--- WhichKeyGroups.git = {
--- 	name = "  Git",
--- 	s = { cmds.lazyGit(), "Status" },
--- 	b = { cmds.gitsigns("blame_line"), "Blame" },
--- 	m = {
--- 		-- TODO Telescope Wrapper function or resolve existing one
--- 		function()
--- 			local opts = require("telescope.themes").get_dropdown({
--- 				layout_config = { height = 15 },
--- 				previewer = false,
--- 			})
--- 			require("telescope.builtin").git_status(opts)
--- 		end,
--- 		"Modified Files (No Preview)",
--- 	},
--- 	M = { cmds.telescope("git_status"), "Modified Files (With Preview)" },
--- 	["["] = { cmds.gitsigns("prev_hunk"), "Previous Change" },
--- 	["]"] = { cmds.gitsigns("next_hunk"), "Next Change" },
--- 	S = { cmds.gitsigns("stage_buffer"), "Stage Buffer" },
--- 	R = { cmds.gitsigns("reset_buffer"), "Revert Changes in Buffer" },
--- 	h = {
--- 		name = "Hunk",
--- 		["["] = { cmds.gitsigns("prev_hunk"), "Previous" },
--- 		["]"] = { cmds.gitsigns("next_hunk"), "Next" },
--- 		s = { cmds.gitsigns("stage_hunk"), "Stage" },
--- 		u = { cmds.gitsigns("undo_stage_hunk"), "Undo Stage" },
--- 		p = { cmds.gitsigns("preview_hunk"), "Preview" },
--- 		r = { cmds.gitsigns("reset_hunk"), "Reset" },
--- 	},
--- 	c = {
--- 		name = "Checkout",
--- 		b = { cmds.telescope("git_branches"), "Checkout branch" },
--- 		c = { cmds.telescope("git_commits"), "Checkout commit" },
--- 	},
--- 	g = {
--- 		name = "Github",
--- 		p = { cmds.telescope("gh pull_request"), "Pull Requests" },
--- 		f = { cmds.telescope("gh pull_request_files"), "Pull Requests Files" },
--- 		i = { cmds.telescope("gh issues"), "Issues" },
--- 		r = { cmds.telescope("gh run"), "Run" },
--- 	},
--- }
+WhichKeyGroups.git = {
+	name = "  Git",
+	s = { "<cmd>:LazyGit<CR>", "Status" },                               -- TODO I still get stuck here from time to time
+	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+	j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+	m = {                                                                -- TODO Telescope Wrapper function or resolve existing one
+		function()
+			local opts = require("telescope.themes").get_dropdown({
+				layout_config = { height = 15 },
+				previewer = false,
+			})
+			require("telescope.builtin").git_status(opts)
+		end,
+		"Modified Files (No Preview)",
+	},
+	M = { "<cmd>Telescope git_status<cr>", "Modified Files (With Preview)" },
+	h = {
+		name = "Hunk",
+		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+		u = {
+			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+			"Undo Stage Hunk",
+		},
+		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+		b = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+	},
+	b = {
+		name = "Buffer",
+		s = { "<cmd>lua require 'gitsigns'.stage_buffer()<cr>", "Stage Buffer" },
+		r = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+	},
+	c = {
+		name = "Checkout",
+		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+	},
+
+  -- TODO This looks ugly af.. Do I use this wrong?
+	-- d = {
+	-- 	"<cmd>Gitsigns diffthis HEAD<cr>",
+	-- 	"Diff",
+	-- },
+
+  -- TODO Setup Telescrope GH and merge my PR!!!
+	-- G = {
+	-- 	name = "Github",
+	-- 	p = { cmds.telescope("gh pull_request"), "Pull Requests" },
+	-- 	f = { cmds.telescope("gh pull_request_files"), "Pull Requests Files" },
+	-- 	i = { cmds.telescope("gh issues"), "Issues" },
+	-- 	r = { cmds.telescope("gh run"), "Run" },
+	-- },
+}
 
 -- WhichKeyGroups.find = {
 -- 	name = "  Find",
@@ -248,13 +261,13 @@ local WhichKeyGroups = {}
 -- 	},
 -- }
 
-WhichKeyGroups.Packer = {
+WhichKeyGroups.packer = {
 	name = "Packer",
-		c = { "<cmd>PackerCompile<cr>", "Compile" },
-		i = { "<cmd>PackerInstall<cr>", "Install" },
-		s = { "<cmd>PackerSync<cr>", "Sync" },
-		S = { "<cmd>PackerStatus<cr>", "Status" },
-		u = { "<cmd>PackerUpdate<cr>", "Update" },
+	c = { "<cmd>PackerCompile<cr>", "Compile" },
+	i = { "<cmd>PackerInstall<cr>", "Install" },
+	s = { "<cmd>PackerSync<cr>", "Sync" },
+	S = { "<cmd>PackerStatus<cr>", "Status" },
+	u = { "<cmd>PackerUpdate<cr>", "Update" },
 }
 
 -- WhichKeyGroups.view = {
