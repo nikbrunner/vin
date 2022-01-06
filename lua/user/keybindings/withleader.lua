@@ -1,3 +1,5 @@
+local wkGroups = require("user.keybindings.mappings.groups")
+
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
 	return
@@ -93,16 +95,11 @@ local mappings = {
 		"Find files",
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
-	p = {
-		name = "Packer",
-		c = { "<cmd>PackerCompile<cr>", "Compile" },
-		i = { "<cmd>PackerInstall<cr>", "Install" },
-		s = { "<cmd>PackerSync<cr>", "Sync" },
-		S = { "<cmd>PackerStatus<cr>", "Status" },
-		u = { "<cmd>PackerUpdate<cr>", "Update" },
-	},
+  --TODO Put this is in search/find
+	-- ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+
+	P = wkGroups.Packer,
 
 	g = {
 		name = "Git",
