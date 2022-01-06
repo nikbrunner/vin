@@ -91,6 +91,7 @@ local mappings = {
 	l = mappingGroups.lsp,
 	f = mappingGroups.find,
   h = mappingGroups.harpoon
+  i = mappingGroups.insert
 }
 
 which_key.setup(setup)

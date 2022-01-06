@@ -299,12 +299,12 @@ WhichKeyGroups.packer = {
 	u = { "<cmd>PackerUpdate<cr>", "Update" },
 }
 
--- WhichKeyGroups.insert = {
--- 	name = "  Insert",
--- 	l = {
--- 		'oconsole.log("LINE: <C-r>=line(".")<Esc>",);<Esc>O<Esc>jf,a ',
--- 		"console.log()",
--- 	},
--- }
+WhichKeyGroups.insert = {
+	name = "  Insert",
+	l = {
+		'oconsole.log("LINE: <C-r>=line(".")<Esc>",);<Esc>O<Esc>jf,a ',
+		"console.log()",
+	},
+}
 
 return WhichKeyGroups
