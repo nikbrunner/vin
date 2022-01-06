@@ -86,10 +86,10 @@ local mappings = {
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 
 	P = mappingGroups.packer,
+	f = mappingGroups.find,
 	g = mappingGroups.git,
 	l = mappingGroups.lsp,
-	f = mappingGroups.find,
-  h = mappingGroups.harpoon
+  h = mappingGroups.harpoon,
   i = mappingGroups.insert
 }
 
