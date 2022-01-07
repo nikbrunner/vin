@@ -1,4 +1,5 @@
 local mappingGroups = require("user.keybindings.mappings.groups")
+local which_key_options = require("user.keybindings.options");
 
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
@@ -71,15 +72,6 @@ local setup = {
 	},
 }
 
-local opts = {
-	mode = "n", -- NORMAL mode
-	prefix = "<leader>",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = true, -- use `nowait` when creating keymaps
-}
-
 local mappings = {
 	[";"] = { "<cmd>Alpha<cr>", "Dashboard" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
@@ -94,4 +86,4 @@ local mappings = {
 }
 
 which_key.setup(setup)
-which_key.register(mappings, opts)
+which_key.register(mappings, which_key_options.normal.withLeader)
