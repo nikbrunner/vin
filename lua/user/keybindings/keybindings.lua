@@ -63,10 +63,10 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- go prev
-keymap("n", "]q", ":cprev<cr>zz", opts)
-keymap("n", "]b", ":bprev<cr>zz", opts)
-keymap("n", "]e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>zz", opts)
-keymap("n", "]g", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>zz", opts)
+keymap("n", "[q", ":cprev<cr>zz", opts)
+keymap("n", "[b", ":bprev<cr>zz", opts)
+keymap("n", "[e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>zz", opts)
+keymap("n", "[g", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>zz", opts)
 
 -- go next
 keymap("n", "]q", ":cnext<cr>zz", opts)
