@@ -50,8 +50,8 @@ WhichKeyGroups.quit = {
 
 WhichKeyGroups.buffer = {
 	name = "﩯 Buffer",
-	["["] = { ":bprev<CR>", "Previous Buffer" },
-	["]"] = { ":bnext<CR>", "Next Buffer" },
+	k = { ":bprev<CR>", "Previous Buffer" },
+	j = { ":bnext<CR>", "Next Buffer" },
 	p = { "<cmd>BufferLinePick<CR>", "Pick" },
 	f = { "<cmd>Telescope buffers<CR>", "Find" },
 	s = {
