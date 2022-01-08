@@ -10,9 +10,9 @@ local wkConfig = require("user.keybindings.whichkey.config")
 local wkIgnore = "which_key_ignore"
 
 local mappings = {
-	[";"] = { "<cmd>Alpha<cr>", "Dashboard" },
-	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  [" "] = { "<C-^>", "Prev Buffer" },
+	[";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
+	["e"] = { "<cmd>NvimTreeToggle<cr>", "  Explorer" },
+  [" "] = { "<C-^>", "⮂  Alt File" },
   ["p"] = { "<nop>", wkIgnore },
   ["1"] = { "1gt", wkIgnore },
   ["2"] = { "2gt", wkIgnore },
