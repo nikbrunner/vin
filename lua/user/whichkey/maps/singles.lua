@@ -10,6 +10,8 @@ WhichKeySingles.noLeader = {
 		["H"] = { "^", "Line Start" },
 		["L"] = { "$", "Line End" },
 
+		["jk"] = { "<ESC>", "Escape" },
+
 		["k"] = { "gk", "Adjusted k" },
 		["j"] = { "gj", "Adjusted j" },
 
@@ -24,22 +26,20 @@ WhichKeySingles.noLeader = {
 		["<C-k>"] = { "<C-w>k", "Focus Above Pane" },
 		["<C-l>"] = { "<C-w>l", "Focus Right Pane" },
 
-		["<C-p>"] = { cmds.telescope("find_files"), "file" },
-		["<C-e>"] = { cmds.telescope("buffers"), "Recent Buffers" },
-		["<C-_>"] = {
-			cmds.telescope("current_buffer_fuzzy_find"),
-			"Find Text in File",
+		["<C-p>"] = {
+			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+			"  Files",
 		},
-		["<C-s>"] = { cmds.telescope("lsp_document_symbols"), "Find Symbol in File" },
+		["<C-e>"] = { "<cmd>Telescope buffers<cr>", "Recent Buffers" },
+		["<C-_>"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Find Text in File" },
+		["<C-s>"] = { "<cmd>Telescope lsp_document_symbols<cr>", "Find Symbol in File" },
 		["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle QuickFix List" },
 
-		["<F1>"] = { cmds.telescope("help_tags"), "  Help" },
-		["<F8>"] = { cmds.lspTrouble("WorkspaceToggle"), "Workspace Errors" },
-		["<F9>"] = { cmds.todo("Telescope"), "Todo Quickfix" },
-		["<F10>"] = { "<cmd>ZenMode<CR>", "ZenMode" },
+		["<F8>"] = { "<cmd>Telescope diagnostics<cr>", "Workspace Errors" },
+		-- ["<F9>"] = { cmds.todo("Telescope"), "Todo Quickfix" },
 
-		["<S-Tab>"] = { cmds.buffer("Previous"), "Previous Buffer" },
-		["<Tab>"] = { cmds.buffer("Next"), "Next Buffer" },
+		["<S-Tab>"] = { ":bprev<cr>", "Previous Buffer" },
+		["<Tab>"] = { ":bnext<cr>", "Next Buffer" },
 		["˙"] = { ":tabprev<CR>", "Prev Tab" },
 		["¬"] = { ":tabnext<CR>", "Next Tab" },
 
@@ -64,6 +64,8 @@ WhichKeySingles.noLeader = {
 	visual = {
 		["<"] = { "<gv", "Better Indent for <" },
 		[">"] = { ">gv", "Better Indent for >" },
+
+		["p"] = { '"_dP', "Paste" },
 
 		["H"] = { "^", "Line Start" },
 		["L"] = { "$", "Line End" },
