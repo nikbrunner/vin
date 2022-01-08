@@ -290,7 +290,7 @@ WhichKeyGroups.harpoon = {
 }
 
 WhichKeyGroups.packer = {
-	name = "Packer",
+	name = "  Packer",
 	c = { "<cmd>PackerCompile<cr>", "Compile" },
 	i = { "<cmd>PackerInstall<cr>", "Install" },
 	s = { "<cmd>PackerSync<cr>", "Sync" },
