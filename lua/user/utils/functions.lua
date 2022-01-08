@@ -14,8 +14,7 @@ Commands.copy = {
 }
 
 -- Function to toggle quickfix list
-Commands.toggleQuickFixList = function()
-	vim.cmd([[
+vim.cmd([[
 function! ToggleQuickFix()
   if empty(filter(getwininfo(), 'v:val.quickfix'))
     copen
@@ -24,7 +23,5 @@ function! ToggleQuickFix()
   endif
 endfunction
 ]])
-end
 
 return Commands
-
