@@ -62,6 +62,7 @@ return packer.startup(function(use) -- My plugins here
 		"numToStr/BufOnly.nvim",
 		cmd = "BufOnly",
 	})
+	use({ "mg979/vim-visual-multi", branch = "master" })
 
 	-- Colorschemes
 	use("lunarvim/colorschemes")
