@@ -82,3 +82,8 @@ lualine.setup({
 	tabline = {},
 	extensions = {},
 })
+
+-- Hide statusline when disabled
+vim.cmd[[
+  hi StatusLine guibg=NONE
+]]
