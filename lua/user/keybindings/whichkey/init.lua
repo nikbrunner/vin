@@ -3,37 +3,39 @@ if not status_ok then
 	return
 end
 
-local wkGroups = require("user.keybindings.whichkey.groups")
-local wkOptions = require("user.keybindings.whichkey.options");
-local wkConfig = require("user.keybindings.whichkey.config")
+local groups = require("user.keybindings.whichkey.groups")
+local options = require("user.keybindings.whichkey.options");
+local config = require("user.keybindings.whichkey.config")
 
-local wkIgnore = "which_key_ignore"
+local noLabel = "which_key_ignore"
 
-local wkMaps = {
+local maps = {
+  -- Singles
 	[";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "  Explorer" },
   [" "] = { "<C-^>", "⮂  Alt File" },
-  ["p"] = { "<nop>", wkIgnore },
-  ["1"] = { "1gt", wkIgnore },
-  ["2"] = { "2gt", wkIgnore },
-  ["3"] = { "3gt", wkIgnore },
-  ["4"] = { "4gt", wkIgnore },
-  ["5"] = { "5gt", wkIgnore },
-  ["6"] = { "6gt", wkIgnore },
-  ["7"] = { "7gt", wkIgnore },
-  ["8"] = { "8gt", wkIgnore },
-  ["9"] = { "9gt", wkIgnore },
+  ["p"] = { "<nop>", noLabel },
+  ["1"] = { "1gt", noLabel },
+  ["2"] = { "2gt", noLabel },
+  ["3"] = { "3gt", noLabel },
+  ["4"] = { "4gt", noLabel },
+  ["5"] = { "5gt", noLabel },
+  ["6"] = { "6gt", noLabel },
+  ["7"] = { "7gt", noLabel },
+  ["8"] = { "8gt", noLabel },
+  ["9"] = { "9gt", noLabel },
 
-	P = wkGroups.packer,
-	f = wkGroups.find,
-	g = wkGroups.git,
-	l = wkGroups.lsp,
-  h = wkGroups.harpoon,
-  i = wkGroups.insert,
-  q = wkGroups.quit,
-  c = wkGroups.copy
+  -- Groups
+	P = groups.packer,
+	f = groups.find,
+	g = groups.git,
+	l = groups.lsp,
+  h = groups.harpoon,
+  i = groups.insert,
+  q = groups.quit,
+  c = groups.copy
 }
 
-whichkey.setup(wkConfig)
-whichkey.register(wkMaps, wkOptions.normal.withLeader)
-whichkey.register(wkMaps, wkOptions.visual.withLeader)
+whichkey.setup(config)
+whichkey.register(maps, options.normal.withLeader)
+whichkey.register(maps, options.visual.withLeader)
