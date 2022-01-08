@@ -1,6 +1,6 @@
 require("user.keybindings.noleader")
 
-local mappingGroups = require("user.keybindings.mappings.groups")
+local mappingGroups = require("user.keybindings.maps.groups")
 local wk_opts = require("user.keybindings.wk_opts");
 local wk_config = require("user.keybindings.wk_config")
 
