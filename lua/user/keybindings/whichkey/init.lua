@@ -9,7 +9,7 @@ local wkConfig = require("user.keybindings.whichkey.config")
 
 local wkIgnore = "which_key_ignore"
 
-local mappings = {
+local wkMaps = {
 	[";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "  Explorer" },
   [" "] = { "<C-^>", "⮂  Alt File" },
@@ -35,4 +35,5 @@ local mappings = {
 }
 
 whichkey.setup(wkConfig)
-whichkey.register(mappings, wkOptions.normal.withLeader)
+whichkey.register(wkMaps, wkOptions.normal.withLeader)
+whichkey.register(wkMaps, wkOptions.visual.withLeader)
