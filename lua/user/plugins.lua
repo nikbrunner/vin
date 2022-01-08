@@ -64,6 +64,7 @@ return packer.startup(function(use) -- My plugins here
 	})
 	use({ "mg979/vim-visual-multi", branch = "master" })
 	use({ "RRethy/vim-illuminate" })
+	use({ "tpope/vim-surround" })
 
 	-- Colorschemes
 	use("lunarvim/colorschemes")
