@@ -1,8 +1,8 @@
-require("user.whichkey.noleader")
+require("user.keybindings.noleader")
 
-local whichkey_group_mappings = require("user.whichkey.maps.groups")
-local whichkey_options = require("user.whichkey.options");
-local whichkey_config = require("user.whichkey.config")
+local whichkey_group_mappings = require("user.keybindings.maps.groups")
+local whichkey_options = require("user.keybindings.options");
+local whichkey_config = require("user.keybindings.config")
 
 local status_ok, whichkey = pcall(require, "which-key")
 if not status_ok then
