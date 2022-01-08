@@ -74,6 +74,7 @@ WhichKeyGroups.copy = {
 WhichKeyGroups.git = {
 	name = "  Git",
 	s = { "<cmd>:LazyGit<CR>", "Status" }, -- TODO I still get stuck here from time to time
+  d = { "<cmd>DiffviewOpen<CR>", "Diffs" },
 	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
 	j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
 	m = { -- TODO Telescope Wrapper function or resolve existing one
