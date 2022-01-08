@@ -48,19 +48,21 @@ WhichKeyGroups.quit = {
 	o = { ":BufOnly<cr>", "Close All Buffers But Current" },
 }
 
--- WhichKeyGroups.buffer = {
--- 	name = "﩯 Buffer",
--- 	p = { cmds.buffer("Pick"), "Pick" },
--- 	f = { cmds.telescope("buffers"), "Find" },
--- 	["["] = { cmds.buffer("Previous"), "Previous Buffer" },
--- 	["]"] = { cmds.buffer("Next"), "Next Buffer" },
--- 	s = {
--- 		name = "Sort",
--- 		d = { cmds.buffer("OrderByDirectory"), "Sort by directory" },
--- 		l = { cmds.buffer("OrderByLanguage"), "Sort by language" },
--- 	},
--- 	q = WhichKeyGroups.quit,
--- }
+WhichKeyGroups.buffer = {
+	name = "﩯 Buffer",
+	["["] = { ":bprev<cr>", "Previous Buffer" },
+	["]"] = { ":bnext<cr>", "Next Buffer" },
+	p = { "<cmd>BufferLinePick<cr>", "Pick" },
+	f = { "<cmd>Telescope buffers<cr>", "Find" },
+	s = {
+		name = "Sort",
+		r = { "<cmd>BufferLineSortByRelativeDirectory", "Sort by relative directory" },
+		d = { "<cmd>BufferLineSortByDirectory", "Sort by directory" },
+		e = { "<cmd>BufferLineSortByExtensions", "Sort by extension" },
+		t = { "<cmd>BufferLineSortByTabs", "Sort by tabs" },
+	},
+	q = WhichKeyGroups.quit,
+}
 
 WhichKeyGroups.copy = {
 	name = "  Copy",

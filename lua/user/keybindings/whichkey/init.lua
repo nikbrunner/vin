@@ -33,7 +33,8 @@ local maps = {
   h = groups.harpoon,
   i = groups.insert,
   q = groups.quit,
-  c = groups.copy
+  c = groups.copy,
+  b = groups.buffer
 }
 
 whichkey.setup(config)
