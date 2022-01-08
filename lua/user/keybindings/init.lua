@@ -4,7 +4,7 @@ local mappingGroups = require("user.keybindings.maps.groups")
 local wk_opts = require("user.keybindings.wk_opts");
 local wk_config = require("user.keybindings.wk_config")
 
-local status_ok, which_key = pcall(require, "which-key")
+local status_ok, wk = pcall(require, "which-key")
 if not status_ok then
 	return
 end
@@ -23,5 +23,5 @@ local mappings = {
   q = mappingGroups.quit
 }
 
-which_key.setup(wk_config)
-which_key.register(mappings, wk_opts.normal.withLeader)
+wk.setup(wk_config)
+wk.register(mappings, wk_opts.normal.withLeader)
