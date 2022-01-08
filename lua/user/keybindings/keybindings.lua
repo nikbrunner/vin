@@ -46,39 +46,39 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap(
 	"n",
 	"<C-p>",
-	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
 	opts
 )
-keymap("n", "<C-e>", "<cmd>Telescope buffers<cr>", opts)
-keymap("n", "<C-_>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
-keymap("n", "<C-s>", "<cmd>Telescope lsp_document_symbols<cr>", opts)
+keymap("n", "<C-e>", "<cmd>Telescope buffers<CR>", opts)
+keymap("n", "<C-_>", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
+keymap("n", "<C-s>", "<cmd>Telescope lsp_document_symbols<CR>", opts)
 keymap("n", "<C-q>", ":call ToggleQuickFix()<CR>", opts)
-keymap("n", "<C-b>", "<cmd>NvimTreeToggle<cr>", opts)
-keymap("n", "<C-g>", "<cmd>Telescope git_status<cr>", opts)
-keymap("n", "<F8>", "<cmd>Telescope diagnostics<cr>", opts)
--- keymap("n", "<F9>", "<cmd>TodoTelescope<cr>", opts)
+keymap("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", opts)
+keymap("n", "<C-g>", "<cmd>Telescope git_status<CR>", opts)
+keymap("n", "<F8>", "<cmd>Telescope diagnostics<CR>", opts)
+-- keymap("n", "<F9>", "<cmd>TodoTelescope<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-Tab>", ":bprevious<cr>", opts)
-keymap("n", "<Tab>", ":bnext<cr>", opts)
-keymap("n", "˙", ":tabprev<cr>", opts)
-keymap("n", "¬", ":tabnext<cr>", opts)
+keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
+keymap("n", "<Tab>", ":bnext<CR>", opts)
+keymap("n", "˙", ":tabprev<CR>", opts)
+keymap("n", "¬", ":tabnext<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- go prev
-keymap("n", "[q", ":cprev<cr>zz", opts)
-keymap("n", "[b", ":bprev<cr>zz", opts)
-keymap("n", "[e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>zz", opts)
-keymap("n", "[g", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>zz", opts)
+keymap("n", "[q", ":cprev<CR>zz", opts)
+keymap("n", "[b", ":bprev<CR>zz", opts)
+keymap("n", "[e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>zz", opts)
+keymap("n", "[g", "<cmd>lua require 'gitsigns'.prev_hunk()<CR>zz", opts)
 
 -- go next
-keymap("n", "]q", ":cnext<cr>zz", opts)
-keymap("n", "]b", ":bnext<cr>zz", opts)
-keymap("n", "]e", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>zz", opts)
-keymap("n", "]g", "<cmd>lua require 'gitsigns'.next_hunk()<cr>zz", opts)
+keymap("n", "]q", ":cnext<CR>zz", opts)
+keymap("n", "]b", ":bnext<CR>zz", opts)
+keymap("n", "]e", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>zz", opts)
+keymap("n", "]g", "<cmd>lua require 'gitsigns'.next_hunk()<CR>zz", opts)
 
 -- Select line from beginning to end
 keymap("n", "vv", "^v$", opts)

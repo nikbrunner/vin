@@ -9,51 +9,51 @@ WhichKeyGroups.lsp = {
 		"Next Diagnostic",
 	},
 	k = {
-		"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+		"<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>",
 		"Prev Diagnostic",
 	},
-	a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-	f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-	i = { "<cmd>LspInfo<cr>", "Info" },
-	I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-	r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+	a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+	f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
+	i = { "<cmd>LspInfo<CR>", "Info" },
+	I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
+	r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
 	d = {
 		name = "Diagnostics",
 		d = {
-			"<cmd>Telescope diagnostics bufnr=0<cr>",
+			"<cmd>Telescope diagnostics bufnr=0<CR>",
 			"Document Diagnostics",
 		},
 		w = {
-			"<cmd>Telescope diagnostics<cr>",
+			"<cmd>Telescope diagnostics<CR>",
 			"Workspace Diagnostics",
 		},
 	},
 	s = {
 		name = "Symbols",
-		d = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+		d = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
 		w = {
-			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+			"<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
 			"Workspace Symbols",
 		},
 	},
-	l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+	l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
+	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
 }
 
 WhichKeyGroups.quit = {
 	name = "  Quit",
-	c = { "<cmd>Bdelete!<cr>", "Close Buffer" },
-	q = { ":silent wq<cr>", "Save and Quit Pane (:wq)" },
-	Q = { ":silent q!<cr>", "Quit (:q!)" },
-	o = { ":BufOnly<cr>", "Close All Buffers But Current" },
+	c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+	q = { ":silent wq<CR>", "Save and Quit Pane (:wq)" },
+	Q = { ":silent q!<CR>", "Quit (:q!)" },
+	o = { ":BufOnly<CR>", "Close All Buffers But Current" },
 }
 
 WhichKeyGroups.buffer = {
 	name = "﩯 Buffer",
-	["["] = { ":bprev<cr>", "Previous Buffer" },
-	["]"] = { ":bnext<cr>", "Next Buffer" },
-	p = { "<cmd>BufferLinePick<cr>", "Pick" },
-	f = { "<cmd>Telescope buffers<cr>", "Find" },
+	["["] = { ":bprev<CR>", "Previous Buffer" },
+	["]"] = { ":bnext<CR>", "Next Buffer" },
+	p = { "<cmd>BufferLinePick<CR>", "Pick" },
+	f = { "<cmd>Telescope buffers<CR>", "Find" },
 	s = {
 		name = "Sort",
 		r = { "<cmd>BufferLineSortByRelativeDirectory", "Sort by relative directory" },
@@ -74,8 +74,8 @@ WhichKeyGroups.copy = {
 WhichKeyGroups.git = {
 	name = "  Git",
 	s = { "<cmd>:LazyGit<CR>", "Status" }, -- TODO I still get stuck here from time to time
-	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-	j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
+	j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
 	m = { -- TODO Telescope Wrapper function or resolve existing one
 		function()
 			local opts = require("telescope.themes").get_dropdown({
@@ -86,34 +86,34 @@ WhichKeyGroups.git = {
 		end,
 		"Modified Files (No Preview)",
 	},
-	M = { "<cmd>Telescope git_status<cr>", "Modified Files (With Preview)" },
+	M = { "<cmd>Telescope git_status<CR>", "Modified Files (With Preview)" },
 	h = {
 		name = "Hunk",
-		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
+		j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
+		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<CR>", "Stage Hunk" },
 		u = {
-			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>",
 			"Undo Stage Hunk",
 		},
-		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-		b = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", "Preview Hunk" },
+		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<CR>", "Reset Hunk" },
+		b = { "<cmd>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
 	},
 	b = {
 		name = "Buffer",
-		s = { "<cmd>lua require 'gitsigns'.stage_buffer()<cr>", "Stage Buffer" },
-		r = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+		s = { "<cmd>lua require 'gitsigns'.stage_buffer()<CR>", "Stage Buffer" },
+		r = { "<cmd>lua require 'gitsigns'.reset_buffer()<CR>", "Reset Buffer" },
 	},
 	c = {
 		name = "Checkout",
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+		b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
+		c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
 	},
 
 	-- TODO This looks ugly af.. Do I use this wrong?
 	-- d = {
-	-- 	"<cmd>Gitsigns diffthis HEAD<cr>",
+	-- 	"<cmd>Gitsigns diffthis HEAD<CR>",
 	-- 	"Diff",
 	-- },
 
@@ -130,36 +130,36 @@ WhichKeyGroups.git = {
 WhichKeyGroups.find = {
 	name = "  Find",
 	b = {
-		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>",
 		"﩯 Buffers",
 	},
-	d = { "<cmd>Telescope find_files cwd=~/.config/nvim<cr>", "·· Dots" },
-	c = { "<cmd>Telescope commands<cr>", "  Commands" },
-	C = { "<cmd>Telescope colorscheme<cr>", "  Colorscheme" },
+	d = { "<cmd>Telescope find_files cwd=~/.config/nvim<CR>", "·· Dots" },
+	c = { "<cmd>Telescope commands<CR>", "  Commands" },
+	C = { "<cmd>Telescope colorscheme<CR>", "  Colorscheme" },
 	f = {
-		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
 		"  Files",
 	},
-	i = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "  Find in File" },
-	h = { "<cmd>Telescope help_tags<cr>", "  Help" },
-	M = { "<cmd>Telescope man_pages<cr>", "  Man Pages" },
-	r = { "<cmd>Telescope oldfiles<cr>", "  Recent Files" },
-	p = { "<cmd>Telescope diagnostics<cr>", "Problems" },
-	P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "  Recent Projects" },
-	R = { "<cmd>Telescope registers<cr>", "  Registers" },
-	t = { "<cmd>Telescope live_grep theme=ivy<cr>", "  Text" },
-	T = { "<cmd>Telescope<cr>", "  Telescope" },
-	q = { "<cmd>Telescope quickfix<cr>", "  Quickfix" },
-	w = { "<cmd>Telescope grep_string<cr>", "  Current Word" },
+	i = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "  Find in File" },
+	h = { "<cmd>Telescope help_tags<CR>", "  Help" },
+	M = { "<cmd>Telescope man_pages<CR>", "  Man Pages" },
+	r = { "<cmd>Telescope oldfiles<CR>", "  Recent Files" },
+	p = { "<cmd>Telescope diagnostics<CR>", "Problems" },
+	P = { "<cmd>lua require('telescope').extensions.projects.projects()<CR>", "  Recent Projects" },
+	R = { "<cmd>Telescope registers<CR>", "  Registers" },
+	t = { "<cmd>Telescope live_grep theme=ivy<CR>", "  Text" },
+	T = { "<cmd>Telescope<CR>", "  Telescope" },
+	q = { "<cmd>Telescope quickfix<CR>", "  Quickfix" },
+	w = { "<cmd>Telescope grep_string<CR>", "  Current Word" },
 	s = {
 		name = "Symbols",
-		d = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+		d = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
 		w = {
-			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+			"<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
 			"Workspace Symbols",
 		},
 	},
-	k = { "<cmd>Telescope keymaps<cr>", "  Keymaps" },
+	k = { "<cmd>Telescope keymaps<CR>", "  Keymaps" },
 }
 
 WhichKeyGroups.harpoon = {
@@ -234,11 +234,11 @@ WhichKeyGroups.harpoon = {
 
 WhichKeyGroups.packer = {
 	name = "  Packer",
-	c = { "<cmd>PackerCompile<cr>", "Compile" },
-	i = { "<cmd>PackerInstall<cr>", "Install" },
-	s = { "<cmd>PackerSync<cr>", "Sync" },
-	S = { "<cmd>PackerStatus<cr>", "Status" },
-	u = { "<cmd>PackerUpdate<cr>", "Update" },
+	c = { "<cmd>PackerCompile<CR>", "Compile" },
+	i = { "<cmd>PackerInstall<CR>", "Install" },
+	s = { "<cmd>PackerSync<CR>", "Sync" },
+	S = { "<cmd>PackerStatus<CR>", "Status" },
+	u = { "<cmd>PackerUpdate<CR>", "Update" },
 }
 
 WhichKeyGroups.insert = {
