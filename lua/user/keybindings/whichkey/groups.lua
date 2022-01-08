@@ -1,5 +1,6 @@
-local WhichKeyGroups = {}
+local functions = require("user.utils.functions")
 
+local WhichKeyGroups = {}
 
 WhichKeyGroups.lsp = {
 	name = "  LSP",
@@ -61,12 +62,12 @@ WhichKeyGroups.quit = {
 -- 	q = WhichKeyGroups.quit,
 -- }
 
--- WhichKeyGroups.copy = {
--- 	name = "  Copy",
--- 	f = { cmds.copy.fullPath(), "Copy Full Path" },
--- 	r = { cmds.copy.relativePath(), "Copy Relative Path" },
--- 	n = { cmds.copy.fileName(), "Copy File Name" },
--- }
+WhichKeyGroups.copy = {
+	name = "  Copy",
+	f = { functions.copy.fullPath(), "Copy Full Path" },
+	r = { functions.copy.relativePath(), "Copy Relative Path" },
+	n = { functions.copy.fileName(), "Copy File Name" },
+}
 
 WhichKeyGroups.git = {
 	name = "  Git",

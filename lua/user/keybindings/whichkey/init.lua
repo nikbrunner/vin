@@ -30,7 +30,8 @@ local mappings = {
 	l = wkGroups.lsp,
   h = wkGroups.harpoon,
   i = wkGroups.insert,
-  q = wkGroups.quit
+  q = wkGroups.quit,
+  c = wkGroups.copy
 }
 
 whichkey.setup(wkConfig)
