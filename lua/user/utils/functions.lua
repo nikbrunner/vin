@@ -24,4 +24,21 @@ function! ToggleQuickFix()
 endfunction
 ]])
 
+-- TODO I did not get this to work
+-- Commands.toggle_qf = function()
+-- 	local qf_open = false
+-- 	for _, win in pairs(vim.fn.getwininfo()) do
+-- 		if win["quickfix"] == 1 then
+-- 			qf_open = true
+-- 		end
+-- 	end
+-- 	if qf_open == true then
+-- 		vim.cmd("cclose")
+-- 		return
+-- 	end
+-- 	if not vim.tbl_isempty(vim.fn.getqflist()) then
+-- 		vim.cmd("copen")
+-- 	end
+-- end
+
 return Commands
