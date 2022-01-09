@@ -46,6 +46,7 @@ WhichKeyGroups.quit = {
 	q = { ":silent wq<CR>", "Save and Quit Pane (:wq)" },
 	Q = { ":silent q!<CR>", "Quit (:q!)" },
 	o = { ":BufOnly<CR>", "Close All Buffers But Current" },
+	a = { ":Bwipeout<CR>", "Close all Buffers" },
 }
 
 WhichKeyGroups.buffer = {
