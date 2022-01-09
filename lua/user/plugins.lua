@@ -41,30 +41,33 @@ packer.init({
 -- Install your plugins here
 return packer.startup(function(use) -- My plugins here
 	use("wbthomason/packer.nvim") -- Have packer manage itself
+
+	-- Libs for Utility and general Improvements
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
-	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
-	use("numToStr/Comment.nvim") -- Easily comment stuff
+	use("lewis6991/impatient.nvim")
+
+	-- UI Enhancements
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
 	use("akinsho/bufferline.nvim")
-	use("moll/vim-bbye")
 	use("nvim-lualine/lualine.nvim")
-	use("ahmedkhalf/project.nvim")
-	use("lewis6991/impatient.nvim")
-	use("lukas-reineke/indent-blankline.nvim")
 	use("goolord/alpha-nvim")
-	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 	use("folke/which-key.nvim")
-	use("djoshea/vim-autoread")
-	use("ThePrimeagen/harpoon")
-	use({
-		"numToStr/BufOnly.nvim",
-		cmd = "BufOnly",
-	})
-	use({ "mg979/vim-visual-multi", branch = "master" })
+
+	-- Workflow
+	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
+	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
+	use("numToStr/Comment.nvim") -- Easily comment stuff
+	use("lukas-reineke/indent-blankline.nvim") -- Indent Outline
+	use({ "numToStr/BufOnly.nvim", cmd = "BufOnly" })
+	use("moll/vim-bbye")
 	use({ "RRethy/vim-illuminate" })
 	use({ "tpope/vim-surround" })
+	use({ "wellle/targets.vim" })
+	use({ "mg979/vim-visual-multi", branch = "master" })
+	use("djoshea/vim-autoread")
+	use("ThePrimeagen/harpoon")
 
 	-- Colorschemes
 	use("lunarvim/colorschemes")
@@ -91,6 +94,7 @@ return packer.startup(function(use) -- My plugins here
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
+	use("ahmedkhalf/project.nvim")
 
 	-- Treesitter
 	use({
