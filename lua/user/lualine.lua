@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local hide_in_width = function()
+local hide_in_narrow_panes = function()
 	return vim.fn.winwidth(0) > 80
 end
 
@@ -14,14 +14,14 @@ local diagnostics = {
 	colored = true,
 	update_in_insert = false,
 	always_visible = true,
-	cond = hide_in_width,
+	cond = hide_in_narrow_panes,
 }
 
 local diff = {
 	"diff",
 	colored = true,
 	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-	cond = hide_in_width,
+	cond = hide_in_narrow_panes,
 }
 
 local mode = {
@@ -46,12 +46,12 @@ local branch = {
 	"branch",
 	icons_enabled = true,
 	icon = "",
-	cond = hide_in_width,
+	cond = hide_in_narrow_panes,
 }
 
 local tabs = {
 	"tabs",
-	cond = hide_in_width,
+	cond = hide_in_narrow_panes,
 }
 
 lualine.setup({
