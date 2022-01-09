@@ -111,21 +111,13 @@ WhichKeyGroups.git = {
 		b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
 		c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
 	},
-
-	-- TODO This looks ugly af.. Do I use this wrong?
-	-- d = {
-	-- 	"<cmd>Gitsigns diffthis HEAD<CR>",
-	-- 	"Diff",
-	-- },
-
-	-- TODO Setup Telescrope GH and merge my PR!!!
-	-- G = {
-	-- 	name = "Github",
-	-- 	p = { cmds.telescope("gh pull_request"), "Pull Requests" },
-	-- 	f = { cmds.telescope("gh pull_request_files"), "Pull Requests Files" },
-	-- 	i = { cmds.telescope("gh issues"), "Issues" },
-	-- 	r = { cmds.telescope("gh run"), "Run" },
-	-- },
+	g = {
+		name = "Github",
+		p = { "<cmd>Telescope gh pull_request<CR>", "Pull Requests" },
+		f = { "<cmd>Telescope gh pull_request_files<CR>", "Pull Requests Files" },
+		i = { "<cmd>Telescope gh issues<CR>", "Issues" },
+		r = { "<cmd>Telescope gh run<CR>", "Run" },
+	},
 }
 
 WhichKeyGroups.find = {
