@@ -57,7 +57,7 @@ local tabs = {
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = "github",
+		theme = "auto",
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "Outline" },
@@ -84,8 +84,7 @@ lualine.setup({
 })
 
 -- Hide statusline when disabled
-vim.cmd[[
+vim.cmd([[
   hi StatusLine guibg=NONE
   hi StatusLineNC guibg=NONE guifg=NONE
-]]
-
+]])
