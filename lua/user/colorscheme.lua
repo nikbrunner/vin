@@ -1,4 +1,9 @@
-require("github-theme").setup({
+local status_ok, github_theme = pcall(require, "bufferline")
+if not status_ok then
+	return
+end
+
+github_theme.setup({
 	theme_style = "dark_default",
 	hide_end_of_buffer = true,
 	dark_sidebar = true,
