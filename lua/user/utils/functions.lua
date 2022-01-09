@@ -1,7 +1,7 @@
-local Commands = {}
+local Functions = {}
 
 -- Function to copy path and filenames
-Commands.copy = {
+Functions.copy = {
 	fullPath = function()
 		return ":let @+ = expand('%:p')<CR>"
 	end,
@@ -25,7 +25,7 @@ endfunction
 ]])
 
 -- TODO I did not get this to work
--- Commands.toggle_qf = function()
+-- Functions.toggle_qf = function()
 -- 	local qf_open = false
 -- 	for _, win in pairs(vim.fn.getwininfo()) do
 -- 		if win["quickfix"] == 1 then
@@ -41,4 +41,4 @@ endfunction
 -- 	end
 -- end
 
-return Commands
+return Functions
