@@ -96,8 +96,7 @@ return packer.startup(function(use) -- My plugins here
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use("ahmedkhalf/project.nvim")
-	-- TODO Just do it! Submit this PR finally
-	use({ "nikbrunner/telescope-github.nvim", branch = "add-browse_files" })
+	use({ "nvim-telescope/telescope-github.nvim" })
 
 	-- Treesitter
 	use({
