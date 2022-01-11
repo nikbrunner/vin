@@ -84,6 +84,7 @@ keymap("n", "]g", "<cmd>lua require 'gitsigns'.next_hunk()<CR>zz", opts)
 keymap("n", "vv", "^v$", opts)
 
 -- Select blocks
+-- TODO These seem do not work anymore
 keymap("n", "v{", "^vf{%", opts)
 keymap("n", "v[", "^vf[%", opts)
 keymap("n", "v(", "^vf(%", opts)
