@@ -49,6 +49,11 @@ local branch = {
 	cond = hide_in_narrow_panes,
 }
 
+local time = {
+	'os.date("%a %H:%M %x")',
+	cond = hide_in_narrow_panes,
+}
+
 local tabs = {
 	"tabs",
 	cond = hide_in_narrow_panes,
@@ -69,7 +74,7 @@ lualine.setup({
 		lualine_c = { diagnostics },
 		lualine_x = { diff },
 		lualine_y = { filetype, filename },
-		lualine_z = { tabs },
+		lualine_z = { time, tabs },
 	},
 	inactive_sections = {
 		lualine_a = {},
@@ -87,4 +92,24 @@ lualine.setup({
 vim.cmd([[
   hi StatusLine guibg=NONE
   hi StatusLineNC guibg=NONE guifg=NONE
+
 ]])
+
+-- Auto Command for clock
+vim.cmd([[
+  au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif
+]])
+
+-- Trigger rerender of status line every second for clock
+if _G.Statusline_timer == nil then
+	_G.Statusline_timer = vim.loop.new_timer()
+else
+	_G.Statusline_timer:stop()
+end
+_G.Statusline_timer:start(
+	0,
+	1000,
+	vim.schedule_wrap(function()
+		vim.api.nvim_command("redrawstatus")
+	end)
+)
