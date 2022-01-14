@@ -31,8 +31,9 @@ vim.cmd([[
 ]])
 
 -- Auto Formatting
--- Disabled for open source projects for which there is no style definition
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end
+vim.cmd([[
+augroup _lsp
+  autocmd!
+  autocmd BufWritePre * lua vim.lsp.buf.formatting()
+augroup end
+]])
