@@ -69,6 +69,7 @@ return packer.startup(function(use) -- My plugins here
 	use("djoshea/vim-autoread")
 	use("ThePrimeagen/harpoon")
 	use("github/copilot.vim")
+	use("gennaro-tedesco/nvim-jqx")
 
 	-- Colorschemes
 	use("lunarvim/colorschemes")
