@@ -68,8 +68,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "mg979/vim-visual-multi", branch = "master" })
 	use("djoshea/vim-autoread")
 	use("ThePrimeagen/harpoon")
-	-- use("github/copilot.vim")
-	use("ggandor/lightspeed.nvim")
+	use("github/copilot.vim")
 
 	-- Colorschemes
 	use("lunarvim/colorschemes")
@@ -110,6 +109,7 @@ return packer.startup(function(use) -- My plugins here
 	use("lewis6991/gitsigns.nvim")
 	use("kdheepak/lazygit.nvim")
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({ "pwntester/octo.nvim" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
