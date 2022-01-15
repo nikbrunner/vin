@@ -78,7 +78,7 @@ WhichKeyGroups.git = {
 	d = { "<cmd>DiffviewOpen<CR>", "Diffs" },
 	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
 	j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
-	o = {
+	m = {
 		function()
 			local opts = require("telescope.themes").get_dropdown({
 				layout_config = { height = 15 },
@@ -88,7 +88,7 @@ WhichKeyGroups.git = {
 		end,
 		"Modified Files (No Preview)",
 	},
-	O = { "<cmd>Telescope git_status<CR>", "Modified Files (With Preview)" },
+	M = { "<cmd>Telescope git_status<CR>", "Modified Files (With Preview)" },
 	h = {
 		name = "Hunk",
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
@@ -134,10 +134,10 @@ WhichKeyGroups.find = {
 		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
 		"  Files",
 	},
-  g = WhichKeyGroups.git,
+	g = WhichKeyGroups.git,
 	i = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "  Find in File" },
 	h = { "<cmd>Telescope help_tags<CR>", "  Help" },
-	M = { "<cmd>Telescope man_pages<CR>", "  Man Pages" },
+	H = { "<cmd>Telescope man_pages<CR>", "  Man Pages" },
 	r = { "<cmd>Telescope oldfiles<CR>", "  Recent Files" },
 	p = { "<cmd>Telescope diagnostics<CR>", "Problems" },
 	P = { "<cmd>lua require('telescope').extensions.projects.projects()<CR>", "  Recent Projects" },
