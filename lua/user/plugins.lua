@@ -68,7 +68,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "mg979/vim-visual-multi", branch = "master" })
 	use("djoshea/vim-autoread")
 	use("ThePrimeagen/harpoon")
-	use("github/copilot.vim")
+	-- use("github/copilot.vim")
 	use("gennaro-tedesco/nvim-jqx")
 
 	-- Colorschemes
@@ -98,6 +98,12 @@ return packer.startup(function(use) -- My plugins here
 	use("nvim-telescope/telescope.nvim")
 	use("ahmedkhalf/project.nvim")
 	use({ "nvim-telescope/telescope-github.nvim" })
+
+	use({
+		"ibhagwan/fzf-lua",
+		-- optional for icon support
+		requires = { "kyazdani42/nvim-web-devicons" },
+	})
 
 	-- Treesitter
 	use({

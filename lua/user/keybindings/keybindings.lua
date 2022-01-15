@@ -2,7 +2,9 @@
   INFO
   These are my keybindings without a leader key.
   I tried to map these also via WhichKey, but this resulted in a performance regression.
-]]--
+]]
+--
+local commands = require("user.commands")
 
 local opts = { noremap = true, silent = true }
 
@@ -42,20 +44,15 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- VSCode like Control-p file navigation
-keymap(
-	"n",
-	"<C-p>",
-	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
-	opts
-)
-keymap("n", "<C-e>", "<cmd>Telescope buffers<CR>", opts)
-keymap("n", "<C-_>", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
-keymap("n", "<C-s>", "<cmd>Telescope lsp_document_symbols<CR>", opts)
+-- TODO Why cant i use direct functions here?
+keymap("n", "<C-p>", "<cmd>lua require('user.commands').fzf.find_files_without_preview()<CR>", opts)
+keymap("n", "<C-e>", "<cmd>lua require('user.commands').fzf.find_buffers()<CR>", opts)
+keymap("n", "<C-_>", "<cmd>lua require('user.commands').fzf.find_in_file()<CR>", opts)
+-- keymap("n", "<C-s>", "<cmd>Telescope lsp_document_symbols<CR>", opts)
 keymap("n", "<C-q>", ":call ToggleQuickFix()<CR>", opts)
 keymap("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", opts)
-keymap("n", "<C-g>", "<cmd>Telescope git_status<CR>", opts)
-keymap("n", "<F8>", "<cmd>Telescope diagnostics<CR>", opts)
+keymap("n", "<C-g>", "<cmd>FzfLua git_status<CR>", opts)
+-- keymap("n", "<F8>", "<cmd>FzfLua diagnostics<CR>", opts)
 -- keymap("n", "<F9>", "<cmd>TodoTelescope<CR>", opts)
 
 -- Navigate buffers
