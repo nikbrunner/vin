@@ -28,11 +28,11 @@ local WhichKeyConfig = {
 		["<cr>"] = "RET",
 		["<tab>"] = "TAB",
 	},
-  icons = {
-    breadcrumb = "/", -- symbol used in the command line area that shows your active key combo
-    separator = "·", -- symbol used between a key and it's label
-    group = "" -- symbol prepended to a group
-  },
+	icons = {
+		breadcrumb = "/", -- symbol used in the command line area that shows your active key combo
+		separator = "·", -- symbol used between a key and it's label
+		group = "", -- symbol prepended to a group
+	},
 	popup_mappings = {
 		scroll_down = "<c-d>", -- binding to scroll down inside the popup
 		scroll_up = "<c-u>", -- binding to scroll up inside the popup
@@ -45,11 +45,11 @@ local WhichKeyConfig = {
 		winblend = 0,
 	},
 	layout = {
-    height = { min = 4, max = 50 }, -- min and max height of the columns
-    width = { min = 20, max = 50 }, -- min and max width of the columns
-    spacing = 5, -- spacing between columns,
-    align = "center"
-  },
+		height = { min = 4, max = 50 }, -- min and max height of the columns
+		width = { min = 20, max = 50 }, -- min and max width of the columns
+		spacing = 5, -- spacing between columns,
+		align = "center",
+	},
 	ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
 	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
 	show_help = true, -- show help message on the command line when the popup is visible

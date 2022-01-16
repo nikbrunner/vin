@@ -8,13 +8,14 @@ local Fzf = {}
 
 Fzf.find_files_without_preview = function(opts)
 	opts = opts or {}
-	opts.winopts = opts.winopts or {
-		height = 0.25,
-		width = 0.5,
-		preview = {
-			hidden = "hidden",
-		},
-	}
+	opts.winopts = opts.winopts
+		or {
+			height = 0.25,
+			width = 0.5,
+			preview = {
+				hidden = "hidden",
+			},
+		}
 
 	fzf_lua.files(opts)
 end
@@ -45,13 +46,14 @@ end
 
 Fzf.find_buffers = function(opts)
 	opts = opts or {}
-	opts.winopts = opts.winopts or {
-		height = 0.25,
-		width = 0.5,
-		preview = {
-			hidden = "hidden",
-		},
-	}
+	opts.winopts = opts.winopts
+		or {
+			height = 0.25,
+			width = 0.5,
+			preview = {
+				hidden = "hidden",
+			},
+		}
 	fzf_lua.buffers(opts)
 end
 
@@ -108,12 +110,13 @@ end
 
 Fzf.find_word_under_cursor = function(opts)
 	opts = opts or {}
-	opts.winopts = opts.winopts or {
-		preview = {
-			layout = "vertical",
-			vertical = "up:65%",
-		},
-	}
+	opts.winopts = opts.winopts
+		or {
+			preview = {
+				layout = "vertical",
+				vertical = "up:65%",
+			},
+		}
 
 	fzf_lua.grep_cword(opts)
 end
@@ -126,36 +129,39 @@ end
 
 Fzf.find_symbols_in_workspace = function(opts)
 	opts = opts or {}
-	opts.winopts = opts.winopts or {
-		preview = {
-			layout = "vertical",
-			vertical = "up:65%",
-		},
-	}
+	opts.winopts = opts.winopts
+		or {
+			preview = {
+				layout = "vertical",
+				vertical = "up:65%",
+			},
+		}
 
 	fzf_lua.lsp_live_workspace_symbols(opts)
 end
 
 Fzf.find_references = function(opts)
 	opts = opts or {}
-	opts.winopts = opts.winopts or {
-		preview = {
-			layout = "vertical",
-			vertical = "up:65%",
-		},
-	}
+	opts.winopts = opts.winopts
+		or {
+			preview = {
+				layout = "vertical",
+				vertical = "up:65%",
+			},
+		}
 
 	fzf_lua.lsp_references(opts)
 end
 
 Fzf.find_defintions = function(opts)
 	opts = opts or {}
-	opts.winopts = opts.winopts or {
-		preview = {
-			layout = "vertical",
-			vertical = "up:65%",
-		},
-	}
+	opts.winopts = opts.winopts
+		or {
+			preview = {
+				layout = "vertical",
+				vertical = "up:65%",
+			},
+		}
 
 	fzf_lua.lsp_definitions(opts)
 end

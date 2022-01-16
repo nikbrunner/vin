@@ -45,9 +45,24 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- TODO Why cant i use direct functions here?
-keymap("n", "<C-p>", "<cmd>lua require('user.commands').fzf.find_files_without_preview()<CR>", opts)
-keymap("n", "<C-e>", "<cmd>lua require('user.commands').fzf.find_buffers()<CR>", opts)
-keymap("n", "<C-_>", "<cmd>lua require('user.commands').fzf.find_in_file()<CR>", opts)
+keymap(
+	"n",
+	"<C-p>",
+	"<cmd>lua require('user.commands').fzf.find_files_without_preview()<CR>",
+	opts
+)
+keymap(
+	"n",
+	"<C-e>",
+	"<cmd>lua require('user.commands').fzf.find_buffers()<CR>",
+	opts
+)
+keymap(
+	"n",
+	"<C-_>",
+	"<cmd>lua require('user.commands').fzf.find_in_file()<CR>",
+	opts
+)
 -- keymap("n", "<C-s>", "<cmd>Telescope lsp_document_symbols<CR>", opts)
 keymap("n", "<C-q>", ":call ToggleQuickFix()<CR>", opts)
 keymap("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", opts)

@@ -65,7 +65,10 @@ WhichKeyGroups.buffer = {
 	f = { "<cmd>Telescope buffers<CR>", "Find" },
 	s = {
 		name = "Sort",
-		r = { "<cmd>BufferLineSortByRelativeDirectory", "Sort by relative directory" },
+		r = {
+			"<cmd>BufferLineSortByRelativeDirectory",
+			"Sort by relative directory",
+		},
 		d = { "<cmd>BufferLineSortByDirectory", "Sort by directory" },
 		e = { "<cmd>BufferLineSortByExtensions", "Sort by extension" },
 		t = { "<cmd>BufferLineSortByTabs", "Sort by tabs" },
@@ -90,7 +93,10 @@ WhichKeyGroups.git = {
 		"<cmd>lua require('fzf-lua').git_status({ previewer = 'hidden' })<CR>",
 		"Modified Files (No Preview)",
 	},
-	M = { "<cmd>lua require('fzf-lua').git_status()<CR>", "Modified Files (With Preview)" },
+	M = {
+		"<cmd>lua require('fzf-lua').git_status()<CR>",
+		"Modified Files (With Preview)",
+	},
 	h = {
 		name = "Hunk",
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
@@ -149,7 +155,10 @@ WhichKeyGroups.find = {
 	d = WhichKeyGroups.diagnostics,
 	g = WhichKeyGroups.git,
 	-- TODO Replace Telescope here
-	P = { "<cmd>lua require('telescope').extensions.projects.projects()<CR>", "  Recent Projects" },
+	P = {
+		"<cmd>lua require('telescope').extensions.projects.projects()<CR>",
+		"  Recent Projects",
+	},
 }
 
 WhichKeyGroups.harpoon = {
