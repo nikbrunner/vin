@@ -63,12 +63,14 @@ keymap(
 	"<cmd>lua require('user.commands').fzf.find_in_file()<CR>",
 	opts
 )
--- keymap("n", "<C-s>", "<cmd>Telescope lsp_document_symbols<CR>", opts)
 keymap("n", "<C-q>", ":call ToggleQuickFix()<CR>", opts)
 keymap("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", opts)
-keymap("n", "<C-g>", "<cmd>FzfLua git_status<CR>", opts)
--- keymap("n", "<F8>", "<cmd>FzfLua diagnostics<CR>", opts)
--- keymap("n", "<F9>", "<cmd>TodoTelescope<CR>", opts)
+keymap(
+	"n",
+	"<C-g>",
+	"<cmd>lua require('user.commands').fzf.find_modified_files()<CR>",
+	opts
+)
 
 -- Navigate buffers
 keymap("n", "<S-Tab>", ":bprevious<CR>", opts)

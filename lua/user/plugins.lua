@@ -94,16 +94,11 @@ return packer.startup(function(use) -- My plugins here
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("ray-x/lsp_signature.nvim") --for parameter hints
 
-	-- Telescope
+	-- Fuzzy finding
 	use("nvim-telescope/telescope.nvim")
 	use("ahmedkhalf/project.nvim")
 	use({ "nvim-telescope/telescope-github.nvim" })
-
-	use({
-		"ibhagwan/fzf-lua",
-		-- optional for icon support
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
+	use({ "ibhagwan/fzf-lua", })
 
 	-- Treesitter
 	use({

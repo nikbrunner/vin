@@ -8,7 +8,10 @@ local commands = require("user.commands")
 
 local WhichKeyGroups = {}
 
--- TODO Dry up with functions and opts
+WhichKeyGroups.diagnostics = {
+	d = { commands.fzf.find_problems_in_document, "⚠  Diagnostics (Document)" },
+	w = { commands.fzf.find_problems_in_workspace, "⚠  Diagnostics (Workspace)" },
+}
 
 WhichKeyGroups.lsp = {
 	name = "  LSP",
@@ -25,27 +28,10 @@ WhichKeyGroups.lsp = {
 	i = { "<cmd>LspInfo<CR>", "Info" },
 	I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
 	r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-	d = {
-		name = "Diagnostics",
-		d = {
-			"<cmd>Telescope diagnostics bufnr=0<CR>",
-			"Document Diagnostics",
-		},
-		w = {
-			"<cmd>Telescope diagnostics<CR>",
-			"Workspace Diagnostics",
-		},
-	},
-	s = {
-		name = "Symbols",
-		d = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
-		w = {
-			"<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
-			"Workspace Symbols",
-		},
-	},
 	l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
 	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
+	d = WhichKeyGroups.diagnostics,
+	s = { commands.fzf.find_symbols_in_workspace, " Symbol" },
 }
 
 WhichKeyGroups.quit = {
@@ -62,7 +48,7 @@ WhichKeyGroups.buffer = {
 	k = { ":bprev<CR>", "Previous Buffer" },
 	j = { ":bnext<CR>", "Next Buffer" },
 	p = { "<cmd>BufferLinePick<CR>", "Pick" },
-	f = { "<cmd>Telescope buffers<CR>", "Find" },
+	f = { commands.fzf.find_buffers, "Find" },
 	s = {
 		name = "Sort",
 		r = {
@@ -89,12 +75,9 @@ WhichKeyGroups.git = {
 	d = { "<cmd>DiffviewOpen<CR>", "Diffs" },
 	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
 	j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
-	m = {
-		"<cmd>lua require('fzf-lua').git_status({ previewer = 'hidden' })<CR>",
-		"Modified Files (No Preview)",
-	},
+	m = { commands.fzf.find_modified_files, "Modified Files (No Preview)" },
 	M = {
-		"<cmd>lua require('fzf-lua').git_status()<CR>",
+		commands.fzf.find_modified_files_with_preview,
 		"Modified Files (With Preview)",
 	},
 	h = {
@@ -117,8 +100,8 @@ WhichKeyGroups.git = {
 	},
 	c = {
 		name = "Checkout",
-		b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
+		b = { commands.fzf.find_branches, "Branches" },
+		c = { commands.fzf.find_commits, "Commits" },
 	},
 	g = {
 		name = "Github",
@@ -127,11 +110,6 @@ WhichKeyGroups.git = {
 		i = { "<cmd>Telescope gh issues<CR>", "Issues" },
 		r = { "<cmd>Telescope gh run<CR>", "Run" },
 	},
-}
-
-WhichKeyGroups.diagnostics = {
-	d = { commands.fzf.find_problems_in_document, "⚠  Diagnostics (Document)" },
-	w = { commands.fzf.find_problems_in_workspace, "⚠  Diagnostics (Workspace)" },
 }
 
 WhichKeyGroups.find = {

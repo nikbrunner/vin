@@ -61,7 +61,7 @@ fzf_lua.setup({
 			-- applies only when scrollbar = 'float'
 			scrollchars = { "█", "" }, -- scrollbar chars ({ <full>, <empty> }
 			-- applies only when scrollbar = 'border'
-			delay = 0, -- delay(ms) displaying the preview
+			delay = 100, -- delay(ms) displaying the preview
 			-- prevents lag on fast scrolling
 			winopts = { -- builtin previewer window options
 				number = false,
@@ -122,7 +122,7 @@ fzf_lua.setup({
 		-- set to '' for a non-value flag
 		-- for raw args use `fzf_args` instead
 		["--ansi"] = "",
-		["--prompt"] = "> ",
+		["--prompt"] = "  ",
 		["--info"] = "inline",
 		["--height"] = "100%",
 		["--layout"] = "reverse",
@@ -162,7 +162,7 @@ fzf_lua.setup({
 			cmd_deleted = "git diff --color HEAD --",
 			cmd_modified = "git diff --color HEAD",
 			cmd_untracked = "git diff --color --no-index /dev/null",
-			-- pager        = "delta",      -- if you have `delta` installed
+			pager = "delta", -- if you have `delta` installed
 		},
 		man = {
 			cmd = "man -c %s | col -bx",
@@ -178,7 +178,7 @@ fzf_lua.setup({
 		-- previewer      = "bat",          -- uncomment to override previewer
 		-- (name from 'previewers' table)
 		-- set to 'false' to disable
-		prompt = "Files❯ ",
+		prompt = "  ",
 		multiprocess = true, -- run command in a separate process
 		git_icons = true, -- show git icons?
 		file_icons = true, -- show file icons?
@@ -211,7 +211,7 @@ fzf_lua.setup({
 	},
 	git = {
 		files = {
-			prompt = "GitFiles❯ ",
+			prompt = "  ",
 			cmd = "git ls-files --exclude-standard",
 			multiprocess = false, -- run command in a separate process
 			git_icons = true, -- show git icons?
@@ -222,7 +222,7 @@ fzf_lua.setup({
 			-- show_cwd_header = true
 		},
 		status = {
-			prompt = "GitStatus❯ ",
+			prompt = " ",
 			cmd = "git status -s",
 			previewer = "git_diff",
 			file_icons = true,
@@ -239,7 +239,7 @@ fzf_lua.setup({
 			},
 		},
 		commits = {
-			prompt = "Commits❯ ",
+			prompt = "  ",
 			cmd = "git log --pretty=oneline --abbrev-commit --color",
 			preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
 			actions = {
@@ -258,7 +258,7 @@ fzf_lua.setup({
 			},
 		},
 		branches = {
-			prompt = "Branches❯ ",
+			prompt = " ",
 			cmd = "git branch --all --color",
 			preview = "git log --graph --pretty=oneline --abbrev-commit --color {1}",
 			actions = {
@@ -279,7 +279,7 @@ fzf_lua.setup({
 		},
 	},
 	grep = {
-		prompt = "Rg❯ ",
+		prompt = "  ",
 		input_prompt = "Grep For❯ ",
 		multiprocess = true, -- run command in a separate process
 		git_icons = true, -- show git icons?

@@ -166,4 +166,62 @@ Fzf.find_defintions = function(opts)
 	fzf_lua.lsp_definitions(opts)
 end
 
+Fzf.find_modified_files = function(opts)
+	opts = opts or {}
+	opts.winopts = opts.winopts
+		or {
+			height = 0.25,
+			width = 0.35,
+			preview = {
+				hidden = "hidden",
+				layout = "vertical",
+				vertical = "up:65%",
+			},
+		}
+
+	fzf_lua.git_status(opts)
+end
+
+Fzf.find_modified_files_with_preview = function(opts)
+	opts = opts or {}
+	opts.winopts = opts.winopts
+		or {
+			preview = {
+				horizontal = "right:75%",
+			},
+		}
+
+	fzf_lua.git_status(opts)
+end
+
+Fzf.find_branches = function(opts)
+	opts = opts or {}
+	opts.winopts = opts.winopts
+		or {
+			height = 0.25,
+			width = 0.35,
+			preview = {
+				layout = "vertical",
+				vertical = "up:65%",
+			},
+		}
+
+	fzf_lua.git_branches(opts)
+end
+
+Fzf.find_commits = function(opts)
+	opts = opts or {}
+	opts.winopts = opts.winopts
+		or {
+			height = 0.25,
+			width = 0.35,
+			preview = {
+				layout = "vertical",
+				vertical = "up:65%",
+			},
+		}
+
+	fzf_lua.git_commits(opts)
+end
+
 return Fzf
