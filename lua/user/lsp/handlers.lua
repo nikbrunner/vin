@@ -10,7 +10,10 @@ M.setup = function()
 	}
 
 	for _, sign in ipairs(signs) do
-		vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+		vim.fn.sign_define(
+			sign.name,
+			{ texthl = sign.name, text = sign.text, numhl = "" }
+		)
 	end
 
 	local config = {
@@ -39,9 +42,12 @@ M.setup = function()
 		border = "rounded",
 	})
 
-	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-		border = "rounded",
-	})
+	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+		vim.lsp.handlers.signature_help,
+		{
+			border = "rounded",
+		}
+	)
 end
 
 local function lsp_highlight_document(client)
@@ -62,12 +68,43 @@ end
 
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(
+		bufnr,
+		"n",
+		"gD",
+		"<cmd>lua vim.lsp.buf.declaration()<CR>",
+		opts
+	)
 	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+	vim.api.nvim_buf_set_keymap(
+		bufnr,
+		"n",
+		"gd",
+		"<cmd>Telescope lsp_definitions<CR>",
+		opts
+	)
+	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua require('user.commands').fzf.find_defintions()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(
+		bufnr,
+		"n",
+		"gh",
+		"<cmd>lua vim.lsp.buf.hover()<CR>",
+		opts
+	)
+	vim.api.nvim_buf_set_keymap(
+		bufnr,
+		"n",
+		"gi",
+		"<cmd>lua vim.lsp.buf.implementation()<CR>",
+		opts
+	)
+	vim.api.nvim_buf_set_keymap(
+		bufnr,
+		"n",
+		"gr",
+		"<cmd>lua require('user.commands').fzf.find_references()<CR>",
+		opts
+	)
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",

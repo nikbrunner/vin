@@ -68,7 +68,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "mg979/vim-visual-multi", branch = "master" })
 	use("djoshea/vim-autoread")
 	use("ThePrimeagen/harpoon")
-	use("github/copilot.vim")
+	-- use("github/copilot.vim")
 	use("gennaro-tedesco/nvim-jqx")
 
 	-- Colorschemes
@@ -94,10 +94,11 @@ return packer.startup(function(use) -- My plugins here
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("ray-x/lsp_signature.nvim") --for parameter hints
 
-	-- Telescope
+	-- Fuzzy finding
 	use("nvim-telescope/telescope.nvim")
 	use("ahmedkhalf/project.nvim")
 	use({ "nvim-telescope/telescope-github.nvim" })
+	use({ "ibhagwan/fzf-lua", })
 
 	-- Treesitter
 	use({

@@ -1,6 +1,17 @@
+local status_ok, fzf_lua = pcall(require, "fzf-lua")
+if not status_ok then
+	return
+end
+
 local functions = require("user.utils.functions")
+local commands = require("user.commands")
 
 local WhichKeyGroups = {}
+
+WhichKeyGroups.diagnostics = {
+	d = { commands.fzf.find_problems_in_document, "⚠  Diagnostics (Document)" },
+	w = { commands.fzf.find_problems_in_workspace, "⚠  Diagnostics (Workspace)" },
+}
 
 WhichKeyGroups.lsp = {
 	name = "  LSP",
@@ -17,27 +28,10 @@ WhichKeyGroups.lsp = {
 	i = { "<cmd>LspInfo<CR>", "Info" },
 	I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
 	r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-	d = {
-		name = "Diagnostics",
-		d = {
-			"<cmd>Telescope diagnostics bufnr=0<CR>",
-			"Document Diagnostics",
-		},
-		w = {
-			"<cmd>Telescope diagnostics<CR>",
-			"Workspace Diagnostics",
-		},
-	},
-	s = {
-		name = "Symbols",
-		d = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
-		w = {
-			"<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
-			"Workspace Symbols",
-		},
-	},
 	l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
 	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
+	d = WhichKeyGroups.diagnostics,
+	s = { commands.fzf.find_symbols_in_workspace, " Symbol" },
 }
 
 WhichKeyGroups.quit = {
@@ -54,10 +48,13 @@ WhichKeyGroups.buffer = {
 	k = { ":bprev<CR>", "Previous Buffer" },
 	j = { ":bnext<CR>", "Next Buffer" },
 	p = { "<cmd>BufferLinePick<CR>", "Pick" },
-	f = { "<cmd>Telescope buffers<CR>", "Find" },
+	f = { commands.fzf.find_buffers, "Find" },
 	s = {
 		name = "Sort",
-		r = { "<cmd>BufferLineSortByRelativeDirectory", "Sort by relative directory" },
+		r = {
+			"<cmd>BufferLineSortByRelativeDirectory",
+			"Sort by relative directory",
+		},
 		d = { "<cmd>BufferLineSortByDirectory", "Sort by directory" },
 		e = { "<cmd>BufferLineSortByExtensions", "Sort by extension" },
 		t = { "<cmd>BufferLineSortByTabs", "Sort by tabs" },
@@ -78,17 +75,11 @@ WhichKeyGroups.git = {
 	d = { "<cmd>DiffviewOpen<CR>", "Diffs" },
 	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
 	j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
-	m = {
-		function()
-			local opts = require("telescope.themes").get_dropdown({
-				layout_config = { height = 15 },
-				previewer = false,
-			})
-			require("telescope.builtin").git_status(opts)
-		end,
-		"Modified Files (No Preview)",
+	m = { commands.fzf.find_modified_files, "Modified Files (No Preview)" },
+	M = {
+		commands.fzf.find_modified_files_with_preview,
+		"Modified Files (With Preview)",
 	},
-	M = { "<cmd>Telescope git_status<CR>", "Modified Files (With Preview)" },
 	h = {
 		name = "Hunk",
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
@@ -109,8 +100,8 @@ WhichKeyGroups.git = {
 	},
 	c = {
 		name = "Checkout",
-		b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
+		b = { commands.fzf.find_branches, "Branches" },
+		c = { commands.fzf.find_commits, "Commits" },
 	},
 	g = {
 		name = "Github",
@@ -122,39 +113,30 @@ WhichKeyGroups.git = {
 }
 
 WhichKeyGroups.find = {
-	name = "  Find",
-	b = {
-		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>",
-		"﩯 Buffers",
-	},
-	d = { "<cmd>Telescope find_files cwd=~/.config/nvim<CR>", "·· Dots" },
-	c = { "<cmd>Telescope commands<CR>", "  Commands" },
-	C = { "<cmd>Telescope colorscheme<CR>", "  Colorscheme" },
-	f = {
-		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
-		"  Files",
-	},
+	name = "  Find",
+	["."] = { commands.fzf.find_files_in_dotfiles, "· Dots" },
+	b = { commands.fzf.find_buffers, "﩯 Buffers" },
+	c = { commands.fzf.find_commands, "  Commands" },
+	C = { commands.fzf.find_colorscheme, "  Colorscheme" },
+	f = { commands.fzf.find_files_without_preview, "  Files" },
+	F = { commands.fzf.find_files_with_preview, "  Files (With Preview)" },
+	i = { commands.fzf.find_in_file, "  Find in File" },
+	h = { commands.fzf.find_help_tags, "  Help Tags" },
+	H = { commands.fzf.find_man_page, "  Man Pages" },
+	r = { commands.fzf.find_old_files, "  Recent Files" },
+	R = { commands.fzf.find_in_registers, "  Registers" },
+	t = { commands.fzf.find_text, "  Text" },
+	s = { commands.fzf.find_symbols_in_workspace, " Symbol" },
+	q = { commands.fzf.find_in_quickfix, "  Quickfix" },
+	w = { commands.fzf.find_word_under_cursor, "  Current Word" },
+	k = { commands.fzf.find_keymaps, "  Keymaps" },
+	d = WhichKeyGroups.diagnostics,
 	g = WhichKeyGroups.git,
-	i = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "  Find in File" },
-	h = { "<cmd>Telescope help_tags<CR>", "  Help" },
-	H = { "<cmd>Telescope man_pages<CR>", "  Man Pages" },
-	r = { "<cmd>Telescope oldfiles<CR>", "  Recent Files" },
-	p = { "<cmd>Telescope diagnostics<CR>", "Problems" },
-	P = { "<cmd>lua require('telescope').extensions.projects.projects()<CR>", "  Recent Projects" },
-	R = { "<cmd>Telescope registers<CR>", "  Registers" },
-	t = { "<cmd>Telescope live_grep theme=ivy<CR>", "  Text" },
-	T = { "<cmd>Telescope<CR>", "  Telescope" },
-	q = { "<cmd>Telescope quickfix<CR>", "  Quickfix" },
-	w = { "<cmd>Telescope grep_string<CR>", "  Current Word" },
-	s = {
-		name = "Symbols",
-		d = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
-		w = {
-			"<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
-			"Workspace Symbols",
-		},
+	-- TODO Replace Telescope here
+	P = {
+		"<cmd>lua require('telescope').extensions.projects.projects()<CR>",
+		"  Recent Projects",
 	},
-	k = { "<cmd>Telescope keymaps<CR>", "  Keymaps" },
 }
 
 WhichKeyGroups.harpoon = {
