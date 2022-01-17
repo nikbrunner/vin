@@ -32,7 +32,7 @@ fzf_lua.setup({
 		fullscreen = false, -- start fullscreen?
 		hl = {
 			normal = "Normal", -- window normal color (fg+bg)
-			border = "Normal", -- border color (try 'FloatBorder')
+			border = "FloatBorder", -- border color (try 'FloatBorder')
 			-- Only valid with the builtin previewer:
 			cursor = "Cursor", -- cursor highlight (grep/LSP matches)
 			cursorline = "CursorLine", -- cursor line
@@ -162,7 +162,7 @@ fzf_lua.setup({
 			cmd_deleted = "git diff --color HEAD --",
 			cmd_modified = "git diff --color HEAD",
 			cmd_untracked = "git diff --color --no-index /dev/null",
-			pager = "delta", -- if you have `delta` installed
+			pager = "delta --width $FZF_PREVIEW_COLUMNS",
 		},
 		man = {
 			cmd = "man -c %s | col -bx",
@@ -178,7 +178,7 @@ fzf_lua.setup({
 		-- previewer      = "bat",          -- uncomment to override previewer
 		-- (name from 'previewers' table)
 		-- set to 'false' to disable
-		prompt = "  ",
+		prompt = "Find File   ",
 		multiprocess = true, -- run command in a separate process
 		git_icons = true, -- show git icons?
 		file_icons = true, -- show file icons?
@@ -202,7 +202,7 @@ fzf_lua.setup({
 			["ctrl-s"] = actions.file_split,
 			["ctrl-v"] = actions.file_vsplit,
 			["ctrl-t"] = actions.file_tabedit,
-			["alt-q"] = actions.file_sel_to_qf,
+			["ctrl-q"] = actions.file_sel_to_qf,
 			-- custom actions are available too
 			["ctrl-y"] = function(selected)
 				print(selected[1])
@@ -211,7 +211,7 @@ fzf_lua.setup({
 	},
 	git = {
 		files = {
-			prompt = "  ",
+			prompt = "Git Files   ",
 			cmd = "git ls-files --exclude-standard",
 			multiprocess = false, -- run command in a separate process
 			git_icons = true, -- show git icons?
@@ -222,7 +222,7 @@ fzf_lua.setup({
 			-- show_cwd_header = true
 		},
 		status = {
-			prompt = " ",
+			prompt = "Modified Files  ",
 			cmd = "git status -s",
 			previewer = "git_diff",
 			file_icons = true,
@@ -233,13 +233,13 @@ fzf_lua.setup({
 				["ctrl-s"] = actions.file_split,
 				["ctrl-v"] = actions.file_vsplit,
 				["ctrl-t"] = actions.file_tabedit,
-				["alt-q"] = actions.file_sel_to_qf,
+				["ctrl-q"] = actions.file_sel_to_qf,
 				["right"] = { actions.git_unstage, actions.resume },
 				["left"] = { actions.git_stage, actions.resume },
 			},
 		},
 		commits = {
-			prompt = "  ",
+			prompt = "Commits   ",
 			cmd = "git log --pretty=oneline --abbrev-commit --color",
 			preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
 			actions = {
@@ -247,7 +247,7 @@ fzf_lua.setup({
 			},
 		},
 		bcommits = {
-			prompt = "BCommits❯ ",
+			prompt = "BCommits  ",
 			cmd = "git log --pretty=oneline --abbrev-commit --color",
 			preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
 			actions = {
@@ -258,7 +258,7 @@ fzf_lua.setup({
 			},
 		},
 		branches = {
-			prompt = " ",
+			prompt = "Branches  ",
 			cmd = "git branch --all --color",
 			preview = "git log --graph --pretty=oneline --abbrev-commit --color {1}",
 			actions = {
@@ -279,7 +279,7 @@ fzf_lua.setup({
 		},
 	},
 	grep = {
-		prompt = "  ",
+		prompt = "Grep Text   ",
 		input_prompt = "Grep For❯ ",
 		multiprocess = true, -- run command in a separate process
 		git_icons = true, -- show git icons?
