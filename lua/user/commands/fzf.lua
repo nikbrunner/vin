@@ -186,8 +186,10 @@ Fzf.find_modified_files_with_preview = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
+			height = 0.5,
+			width = 0.95,
 			preview = {
-				horizontal = "right:75%",
+				horizontal = "right:65%",
 			},
 		}
 
