@@ -75,8 +75,7 @@ WhichKeyGroups.git = {
 	d = { "<cmd>DiffviewOpen<CR>", "Diffs" },
 	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
 	j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
-	m = { commands.fzf.find_modified_files, "Modified Files (No Preview)" },
-	M = {
+	m = {
 		commands.fzf.find_modified_files_with_preview,
 		"Modified Files (With Preview)",
 	},

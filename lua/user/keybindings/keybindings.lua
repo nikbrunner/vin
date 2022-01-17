@@ -68,7 +68,14 @@ keymap("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", opts)
 keymap(
 	"n",
 	"<C-g>",
-	"<cmd>lua require('user.commands').fzf.find_modified_files()<CR>",
+	"<cmd>lua require('user.commands').fzf.find_modified_files_with_preview()<CR>",
+	opts
+)
+
+keymap(
+	"n",
+	"gm",
+	"<cmd>lua require('user.commands').fzf.find_modified_files_with_preview()<CR>",
 	opts
 )
 
