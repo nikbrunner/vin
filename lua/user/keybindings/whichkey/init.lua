@@ -14,6 +14,7 @@ local maps = {
 	[";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "  Explorer" },
 	[" "] = { "<C-^>", "⮂  Alt File" },
+	["n"] = { ":nohl", "No Highlights" },
 	["p"] = { "<nop>", noLabel },
 	["1"] = { "1gt", noLabel },
 	["2"] = { "2gt", noLabel },
