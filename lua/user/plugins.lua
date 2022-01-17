@@ -98,7 +98,7 @@ return packer.startup(function(use) -- My plugins here
 	use("nvim-telescope/telescope.nvim")
 	use("ahmedkhalf/project.nvim")
 	use({ "nvim-telescope/telescope-github.nvim" })
-	use({ "ibhagwan/fzf-lua", })
+	use({ "ibhagwan/fzf-lua" })
 
 	-- Treesitter
 	use({
