@@ -65,7 +65,7 @@ lualine.setup({
 		theme = "github",
 		-- section_separators = { left = "", right = "" },
 		-- component_separators = { left = "", right = "" },
-		disabled_filetypes = { "alpha", "dashboard", "Outline", "NvimTree" },
+		disabled_filetypes = { "alpha", "dashboard", "Outline" },
 		always_divide_middle = true,
 	},
 	sections = {
@@ -87,13 +87,6 @@ lualine.setup({
 	tabline = {},
 	extensions = {},
 })
-
--- Hide statusline when disabled
-vim.cmd([[
-  hi StatusLine guibg=NONE
-  hi StatusLineNC guibg=NONE guifg=NONE
-
-]])
 
 -- Auto Command for clock
 vim.cmd([[

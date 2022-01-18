@@ -21,3 +21,9 @@ catch /^Vim\%((\a\+)\)\=:E185/
   set background=dark
 endtry
 ]])
+
+-- Hide statusline
+vim.cmd([[
+  hi StatusLine gui=NONE guifg=NONE guibg=NonText guisp=NonText
+  hi StatusLineNc gui=NONE guifg=NONE guibg=NonText guisp=NonText
+]])
