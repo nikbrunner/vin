@@ -226,4 +226,9 @@ Fzf.find_commits = function(opts)
 	fzf_lua.git_commits(opts)
 end
 
+Fzf.find_spelling = function(opts)
+	opts = opts or {}
+	fzf_lua.spell_suggest(opts)
+end
+
 return Fzf

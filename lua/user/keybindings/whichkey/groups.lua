@@ -126,6 +126,7 @@ WhichKeyGroups.find = {
 	R = { commands.fzf.find_in_registers, "  Registers" },
 	t = { commands.fzf.find_text, "  Text" },
 	s = { commands.fzf.find_symbols_in_workspace, " Symbol" },
+	S = { commands.fzf.find_spelling, " Symbol" },
 	q = { commands.fzf.find_in_quickfix, "  Quickfix" },
 	w = { commands.fzf.find_word_under_cursor, "  Current Word" },
 	k = { commands.fzf.find_keymaps, "  Keymaps" },
