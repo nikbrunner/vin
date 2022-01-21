@@ -144,9 +144,11 @@ Fzf.find_references = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
+			height = 0.75,
+			width = 0.5,
 			preview = {
 				layout = "vertical",
-				vertical = "up:65%",
+				vertical = "up:50%",
 			},
 		}
 
