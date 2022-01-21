@@ -71,6 +71,12 @@ keymap(
 	"<cmd>lua require('user.commands').fzf.find_modified_files_with_preview()<CR>",
 	opts
 )
+keymap(
+	"n",
+	"<C-f>",
+	"<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",
+	opts
+)
 
 keymap(
 	"n",
