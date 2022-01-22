@@ -8,8 +8,8 @@ local commands = require("vin.core.commands")
 local WhichKeyGroups = {}
 
 WhichKeyGroups.diagnostics = {
-	d = { commands.fzf.find_problems_in_document, "⚠  Diagnostics (Document)" },
-	w = { commands.fzf.find_problems_in_workspace, "⚠  Diagnostics (Workspace)" },
+	d = { commands.fuzzy.find_problems_in_document, "⚠  Diagnostics (Document)" },
+	w = { commands.fuzzy.find_problems_in_workspace, "⚠  Diagnostics (Workspace)" },
 }
 
 WhichKeyGroups.lsp = {
@@ -30,7 +30,7 @@ WhichKeyGroups.lsp = {
 	l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
 	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
 	d = WhichKeyGroups.diagnostics,
-	s = { commands.fzf.find_symbols_in_workspace, " Symbol" },
+	s = { commands.fuzzy.find_symbols_in_workspace, " Symbol" },
 }
 
 WhichKeyGroups.quit = {
@@ -47,7 +47,7 @@ WhichKeyGroups.buffer = {
 	k = { ":bprev<CR>", "Previous Buffer" },
 	j = { ":bnext<CR>", "Next Buffer" },
 	p = { "<cmd>BufferLinePick<CR>", "Pick" },
-	f = { commands.fzf.find_buffers, "Find" },
+	f = { commands.fuzzy.find_buffers, "Find" },
 	s = {
 		name = "Sort",
 		r = {
@@ -75,7 +75,7 @@ WhichKeyGroups.git = {
 	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
 	j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
 	m = {
-		commands.fzf.find_modified_files_with_preview,
+		commands.fuzzy.find_modified_files_with_preview,
 		"Modified Files (With Preview)",
 	},
 	h = {
@@ -98,8 +98,8 @@ WhichKeyGroups.git = {
 	},
 	c = {
 		name = "Checkout",
-		b = { commands.fzf.find_branches, "Branches" },
-		c = { commands.fzf.find_commits, "Commits" },
+		b = { commands.fuzzy.find_branches, "Branches" },
+		c = { commands.fuzzy.find_commits, "Commits" },
 	},
 	g = {
 		name = "Github",
@@ -112,23 +112,23 @@ WhichKeyGroups.git = {
 
 WhichKeyGroups.find = {
 	name = "  Find",
-	["."] = { commands.fzf.find_files_in_dotfiles, "· Dots" },
-	b = { commands.fzf.find_buffers, "﩯 Buffers" },
-	c = { commands.fzf.find_commands, "  Commands" },
-	C = { commands.fzf.find_colorscheme, "  Colorscheme" },
-	f = { commands.fzf.find_files_without_preview, "  Files" },
-	F = { commands.fzf.find_files_with_preview, "  Files (With Preview)" },
-	i = { commands.fzf.find_in_file, "  Find in File" },
-	h = { commands.fzf.find_help_tags, "  Help Tags" },
-	H = { commands.fzf.find_man_page, "  Man Pages" },
-	r = { commands.fzf.find_old_files, "  Recent Files" },
-	R = { commands.fzf.find_in_registers, "  Registers" },
-	t = { commands.fzf.find_text, "  Text" },
-	s = { commands.fzf.find_symbols_in_workspace, " Symbol" },
-	S = { commands.fzf.find_spelling, " Symbol" },
-	q = { commands.fzf.find_in_quickfix, "  Quickfix" },
-	w = { commands.fzf.find_word_under_cursor, "  Current Word" },
-	k = { commands.fzf.find_keymaps, "  Keymaps" },
+	["."] = { commands.fuzzy.find_files_in_dotfiles, "· Dots" },
+	b = { commands.fuzzy.find_buffers, "﩯 Buffers" },
+	c = { commands.fuzzy.find_commands, "  Commands" },
+	C = { commands.fuzzy.find_colorscheme, "  Colorscheme" },
+	f = { commands.fuzzy.find_files_without_preview, "  Files" },
+	F = { commands.fuzzy.find_files_with_preview, "  Files (With Preview)" },
+	i = { commands.fuzzy.find_in_file, "  Find in File" },
+	h = { commands.fuzzy.find_help_tags, "  Help Tags" },
+	H = { commands.fuzzy.find_man_page, "  Man Pages" },
+	r = { commands.fuzzy.find_old_files, "  Recent Files" },
+	R = { commands.fuzzy.find_in_registers, "  Registers" },
+	t = { commands.fuzzy.find_text, "  Text" },
+	s = { commands.fuzzy.find_symbols_in_workspace, " Symbol" },
+	S = { commands.fuzzy.find_spelling, " Symbol" },
+	q = { commands.fuzzy.find_in_quickfix, "  Quickfix" },
+	w = { commands.fuzzy.find_word_under_cursor, "  Current Word" },
+	k = { commands.fuzzy.find_keymaps, "  Keymaps" },
 	d = WhichKeyGroups.diagnostics,
 	g = WhichKeyGroups.git,
 	-- TODO Replace Telescope here

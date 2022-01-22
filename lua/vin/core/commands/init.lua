@@ -1,8 +1,8 @@
-local fzf = require("vin.core.commands.fzf")
+local fuzzy = require("vin.core.commands.fuzzy")
 local copy = require("vin.core.commands.copy")
 
 local Commands = {
-	fzf = fzf,
+	fuzzy = fuzzy,
 	copy = copy,
 }
 

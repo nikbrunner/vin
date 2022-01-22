@@ -83,7 +83,7 @@ local function lsp_keymaps(bufnr)
 		"<cmd>Telescope lsp_definitions<CR>",
 		opts
 	)
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua require('vin.keybindngs.commands').fzf.find_defintions()<CR>", opts)
+	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua require('vin.keybindngs.commands').fuzzy.find_defintions()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",
@@ -102,7 +102,7 @@ local function lsp_keymaps(bufnr)
 		bufnr,
 		"n",
 		"gr",
-		"<cmd>lua require('vin.keybindngs.commands').fzf.find_references()<CR>",
+		"<cmd>lua require('vin.keybindngs.commands').fuzzy.find_references()<CR>",
 		opts
 	)
 	vim.api.nvim_buf_set_keymap(

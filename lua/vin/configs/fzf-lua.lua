@@ -398,7 +398,7 @@ fzf_lua.setup({
 	-- "botright" : down
 	-- helptags = { previewer = { split = "topleft" } },
 	-- uncomment to use `man` command as native fzf previewer
-	-- manpages = { previewer = { _ctor = require'fzf-lua.previewer'.fzf.man_pages } },
+	-- manpages = { previewer = { _ctor = require'fzf-lua.previewer'.fuzzy.man_pages } },
 	-- optional override of file extension icon colors
 	-- available colors (terminal):
 	--    clear, bold, black, red, green, yellow
