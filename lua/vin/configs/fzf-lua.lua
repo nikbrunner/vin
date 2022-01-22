@@ -102,13 +102,14 @@ fzf_lua.setup({
 		},
 		fzf = {
 			-- fzf '--bind=' options
-			["ctrl-z"] = "abort",
-			["ctrl-u"] = "unix-line-discard",
-			["ctrl-f"] = "half-page-down",
-			["ctrl-b"] = "half-page-up",
-			["ctrl-a"] = "beginning-of-line",
-			["ctrl-e"] = "end-of-line",
-			["alt-a"] = "toggle-all",
+			["ctrl-c"] = "abort",
+			-- ["ctrl-u"] = "unix-line-discard",
+			["ctrl-d"] = "half-page-down",
+			["ctrl-u"] = "half-page-up",
+			-- ["ctrl-a"] = "beginning-of-line",
+			-- ["ctrl-e"] = "end-of-line",
+			["ctrl-a"] = "toggle-all",
+			["ctrl-q"] = "select-all+accept",
 			-- Only valid with fzf previewers (bat/cat/git/etc)
 			["f3"] = "toggle-preview-wrap",
 			["f4"] = "toggle-preview",
