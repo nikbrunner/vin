@@ -70,6 +70,7 @@ return packer.startup(function(use) -- My plugins here
 	use("ThePrimeagen/harpoon")
 	-- use("github/copilot.vim")
 	use("gennaro-tedesco/nvim-jqx")
+  use({ "petertriho/nvim-scrollbar" })
 
 	-- Colorschemes
 	use("lunarvim/colorschemes")
