@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local commands = require("user.keybindings.commands")
+local commands = require("vin.keybindings.commands")
 
 local WhichKeyGroups = {}
 

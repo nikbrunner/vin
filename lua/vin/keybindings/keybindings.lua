@@ -4,7 +4,7 @@
   I tried to map these also via WhichKey, but this resulted in a performance regression.
 ]]
 --
-local commands = require("user.keybindings.commands")
+local commands = require("vin.keybindings.commands")
 
 local opts = { noremap = true, silent = true }
 
@@ -48,19 +48,19 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap(
 	"n",
 	"<C-p>",
-	"<cmd>lua require('user.keybindings.commands').fzf.find_files_without_preview()<CR>",
+	"<cmd>lua require('vin.keybindings.commands').fzf.find_files_without_preview()<CR>",
 	opts
 )
 keymap(
 	"n",
 	"<C-e>",
-	"<cmd>lua require('user.keybindings.commands').fzf.find_buffers()<CR>",
+	"<cmd>lua require('vin.keybindings.commands').fzf.find_buffers()<CR>",
 	opts
 )
 keymap(
 	"n",
 	"<C-_>",
-	"<cmd>lua require('user.keybindings.commands').fzf.find_in_file()<CR>",
+	"<cmd>lua require('vin.keybindings.commands').fzf.find_in_file()<CR>",
 	opts
 )
 keymap("n", "<C-q>", ":call ToggleQuickFix()<CR>", opts)
@@ -68,7 +68,7 @@ keymap("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", opts)
 keymap(
 	"n",
 	"<C-g>",
-	"<cmd>lua require('user.keybindings.commands').fzf.find_modified_files_with_preview()<CR>",
+	"<cmd>lua require('vin.keybindings.commands').fzf.find_modified_files_with_preview()<CR>",
 	opts
 )
 keymap(
@@ -81,7 +81,7 @@ keymap(
 keymap(
 	"n",
 	"gm",
-	"<cmd>lua require('user.keybindings.commands').fzf.find_modified_files_with_preview()<CR>",
+	"<cmd>lua require('vin.keybindings.commands').fzf.find_modified_files_with_preview()<CR>",
 	opts
 )
 

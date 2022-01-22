@@ -3,9 +3,9 @@ if not status_ok then
 	return
 end
 
-local groups = require("user.keybindings.whichkey.groups")
-local options = require("user.keybindings.whichkey.options")
-local config = require("user.keybindings.whichkey.config")
+local groups = require("vin.keybindings.whichkey.groups")
+local options = require("vin.keybindings.whichkey.options")
+local config = require("vin.keybindings.whichkey.config")
 
 local noLabel = "which_key_ignore"
 
