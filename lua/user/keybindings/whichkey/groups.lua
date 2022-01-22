@@ -64,9 +64,9 @@ WhichKeyGroups.buffer = {
 
 WhichKeyGroups.copy = {
 	name = "  Copy",
-	f = { functions.copy.fullPath(), "Copy Full Path" },
-	r = { functions.copy.relativePath(), "Copy Relative Path" },
-	n = { functions.copy.fileName(), "Copy File Name" },
+	f = { commands.copy.fullPath(), "Copy Full Path" },
+	r = { commands.copy.relativePath(), "Copy Relative Path" },
+	n = { commands.copy.fileName(), "Copy File Name" },
 }
 
 WhichKeyGroups.git = {

@@ -54,13 +54,13 @@ keymap(
 keymap(
 	"n",
 	"<C-e>",
-	"<cmd>lua require('user.keybindngs.commands').fzf.find_buffers()<CR>",
+	"<cmd>lua require('user.keybindings.commands').fzf.find_buffers()<CR>",
 	opts
 )
 keymap(
 	"n",
 	"<C-_>",
-	"<cmd>lua require('user.keybindngs.commands').fzf.find_in_file()<CR>",
+	"<cmd>lua require('user.keybindings.commands').fzf.find_in_file()<CR>",
 	opts
 )
 keymap("n", "<C-q>", ":call ToggleQuickFix()<CR>", opts)
@@ -68,7 +68,7 @@ keymap("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", opts)
 keymap(
 	"n",
 	"<C-g>",
-	"<cmd>lua require('user.keybindngs.commands').fzf.find_modified_files_with_preview()<CR>",
+	"<cmd>lua require('user.keybindings.commands').fzf.find_modified_files_with_preview()<CR>",
 	opts
 )
 keymap(
@@ -81,7 +81,7 @@ keymap(
 keymap(
 	"n",
 	"gm",
-	"<cmd>lua require('user.keybindngs.commands').fzf.find_modified_files_with_preview()<CR>",
+	"<cmd>lua require('user.keybindings.commands').fzf.find_modified_files_with_preview()<CR>",
 	opts
 )
 

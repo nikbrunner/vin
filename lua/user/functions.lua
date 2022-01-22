@@ -1,18 +1,5 @@
 local Functions = {}
 
--- Function to copy path and filenames
-Functions.copy = {
-	fullPath = function()
-		return ":let @+ = expand('%:p')<CR>"
-	end,
-	relativePath = function()
-		return ":let @+ = expand('%')<CR>"
-	end,
-	fileName = function()
-		return ":let @+ = expand('%:t')<CR>"
-	end,
-}
-
 -- Function to toggle quickfix list
 vim.cmd([[
 function! ToggleQuickFix()
