@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local commands = require("vin.keybindings.commands")
+local commands = require("vin.core.commands")
 
 local WhichKeyGroups = {}
 
