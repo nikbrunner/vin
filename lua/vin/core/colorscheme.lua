@@ -6,7 +6,7 @@ end
 github_theme.setup({
 	theme_style = "dark_default",
 	hide_end_of_buffer = true,
-	dark_sidebar = true,
+	dark_sidebar = false,
 	function_style = "bold",
 	keyword_style = "bold",
 	variable_style = "bold",
