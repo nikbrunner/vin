@@ -71,12 +71,7 @@ keymap(
 	"<cmd>lua require('vin.core.commands').fuzzy.find_modified_files_with_preview()<CR>",
 	opts
 )
-keymap(
-	"n",
-	"<C-f>",
-	"<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",
-	opts
-)
+keymap("n", "<C-f>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-Tab>", ":bprevious<CR>", opts)

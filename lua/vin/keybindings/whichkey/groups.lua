@@ -9,7 +9,10 @@ local WhichKeyGroups = {}
 
 WhichKeyGroups.diagnostics = {
 	d = { commands.fuzzy.find_problems_in_document, "⚠  Diagnostics (Document)" },
-	w = { commands.fuzzy.find_problems_in_workspace, "⚠  Diagnostics (Workspace)" },
+	w = {
+		commands.fuzzy.find_problems_in_workspace,
+		"⚠  Diagnostics (Workspace)",
+	},
 }
 
 WhichKeyGroups.lsp = {

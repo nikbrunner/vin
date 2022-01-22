@@ -109,7 +109,7 @@ local function lsp_keymaps(bufnr)
 		bufnr,
 		"n",
 		"gl",
-		'<cmd>lua vim.diagnostic.open_float()<CR>',
+		"<cmd>lua vim.diagnostic.open_float()<CR>",
 		opts
 	)
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
