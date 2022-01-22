@@ -1,3 +1,18 @@
+vim.cmd([[
+try
+  colorscheme github_dark_default
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme default
+  set background=dark
+endtry
+]])
+
+-- Hide statusline
+vim.cmd([[
+  hi StatusLine gui=NONE guifg=NONE guibg=NonText guisp=NonText
+  hi StatusLineNc gui=NONE guifg=NONE guibg=NonText guisp=NonText
+]])
+
 local status_ok, github_theme = pcall(require, "github-theme")
 if not status_ok then
 	return
@@ -13,17 +28,3 @@ github_theme.setup({
 	sidebars = { "qf", "vista_kind", "terminal", "packer", "lazygit" },
 })
 
-vim.cmd([[
-try
-  colorscheme github_dark_default
-catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme default
-  set background=dark
-endtry
-]])
-
--- Hide statusline
-vim.cmd([[
-  hi StatusLine gui=NONE guifg=NONE guibg=NonText guisp=NonText
-  hi StatusLineNc gui=NONE guifg=NONE guibg=NonText guisp=NonText
-]])
