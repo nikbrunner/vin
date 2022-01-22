@@ -13,14 +13,6 @@ Functions.copy = {
 	end,
 }
 
-Functions.map = function(mode, lhs, rhs, opts)
-	local options = { noremap = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
 -- Function to toggle quickfix list
 vim.cmd([[
 function! ToggleQuickFix()
@@ -31,23 +23,6 @@ function! ToggleQuickFix()
   endif
 endfunction
 ]])
-
--- TODO I did not get this to work
--- Functions.toggle_qf = function()
--- 	local qf_open = false
--- 	for _, win in pairs(vim.fn.getwininfo()) do
--- 		if win["quickfix"] == 1 then
--- 			qf_open = true
--- 		end
--- 	end
--- 	if qf_open == true then
--- 		vim.cmd("cclose")
--- 		return
--- 	end
--- 	if not vim.tbl_isempty(vim.fn.getqflist()) then
--- 		vim.cmd("copen")
--- 	end
--- end
 
 function _G.put(...)
 	local objects = {}
