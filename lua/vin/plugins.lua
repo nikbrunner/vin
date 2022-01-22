@@ -71,6 +71,7 @@ return packer.startup(function(use) -- My plugins here
 	use("gennaro-tedesco/nvim-jqx")
 	use({ "petertriho/nvim-scrollbar" })
 	use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
+	use({ "github/copilot.vim" })
 
 	-- Colorschemes
 	use("lunarvim/colorschemes")
