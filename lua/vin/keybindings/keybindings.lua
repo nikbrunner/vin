@@ -78,13 +78,6 @@ keymap(
 	opts
 )
 
-keymap(
-	"n",
-	"gm",
-	"<cmd>lua require('vin.core.commands').fuzzy.find_modified_files_with_preview()<CR>",
-	opts
-)
-
 -- Navigate buffers
 keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
 keymap("n", "<Tab>", ":bnext<CR>", opts)
