@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local functions = require("user.functions")
-local commands = require("user.commands")
+local commands = require("user.keybindings.commands")
 
 local WhichKeyGroups = {}
 

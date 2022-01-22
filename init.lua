@@ -1,7 +1,6 @@
 require("user.options")
 require("user.plugins")
 require("user.autocommands")
-require("user.commands")
 require("user.functions")
 require("user.colorscheme")
 require("user.cmp")
