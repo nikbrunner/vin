@@ -102,14 +102,14 @@ local function lsp_keymaps(bufnr)
 		bufnr,
 		"n",
 		"gr",
-		"<cmd>lua require('vin.keybindngs.commands').fuzzy.find_references()<CR>",
+		"<cmd>lua require('vin.core.commands').fuzzy.find_references()<CR>",
 		opts
 	)
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",
 		"gl",
-		'<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
+		'<cmd>lua vim.diagnostic.open_float()<CR>',
 		opts
 	)
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
