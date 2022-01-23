@@ -127,6 +127,7 @@ fzf_lua.setup({
 		["--info"] = "inline",
 		["--height"] = "100%",
 		["--layout"] = "reverse",
+		["--keep-right"] = "",
 	},
 	-- fzf '--color=' options (optional)
 	--[[ fzf_colors = {
