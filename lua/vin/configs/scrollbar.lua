@@ -7,7 +7,7 @@ scrollbar.setup({
 	show = true,
 	handle = {
 		text = " ",
-		color = "#6e7681",
+		color = "#21262d",
 		hide_if_all_visible = true, -- Hides handle if all lines are visible
 	},
 	marks = {
