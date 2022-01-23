@@ -193,7 +193,8 @@ Fzf.find_modified_files_with_preview = function(opts)
 			-- width = 0.95,
 			fullscreen = true,
 			preview = {
-				horizontal = "right:65%",
+				layout = "vertical",
+				vertical = "down:75%",
 			},
 		}
 

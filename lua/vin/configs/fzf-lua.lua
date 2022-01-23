@@ -179,7 +179,7 @@ fzf_lua.setup({
 		-- previewer      = "bat",          -- uncomment to override previewer
 		-- (name from 'previewers' table)
 		-- set to 'false' to disable
-		prompt = "Find File   ",
+		prompt = "Find File❯ ",
 		multiprocess = true, -- run command in a separate process
 		git_icons = true, -- show git icons?
 		file_icons = true, -- show file icons?
@@ -212,7 +212,7 @@ fzf_lua.setup({
 	},
 	git = {
 		files = {
-			prompt = "Git Files   ",
+			prompt = "Git Files❯ ",
 			cmd = "git ls-files --exclude-standard",
 			multiprocess = false, -- run command in a separate process
 			git_icons = true, -- show git icons?
@@ -223,7 +223,7 @@ fzf_lua.setup({
 			-- show_cwd_header = true
 		},
 		status = {
-			prompt = "Modified Files  ",
+			prompt = "Modified Files❯ ",
 			cmd = "git status -s",
 			previewer = "git_diff",
 			file_icons = true,
@@ -240,7 +240,7 @@ fzf_lua.setup({
 			},
 		},
 		commits = {
-			prompt = "Commits   ",
+			prompt = "Commits❯ ",
 			cmd = "git log --pretty=oneline --abbrev-commit --color",
 			preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
 			actions = {
@@ -248,7 +248,7 @@ fzf_lua.setup({
 			},
 		},
 		bcommits = {
-			prompt = "BCommits  ",
+			prompt = "BCommits❯ ",
 			cmd = "git log --pretty=oneline --abbrev-commit --color",
 			preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
 			actions = {
@@ -259,7 +259,7 @@ fzf_lua.setup({
 			},
 		},
 		branches = {
-			prompt = "Branches  ",
+			prompt = "Branches❯ ",
 			cmd = "git branch --all --color",
 			preview = "git log --graph --pretty=oneline --abbrev-commit --color {1}",
 			actions = {
@@ -280,7 +280,7 @@ fzf_lua.setup({
 		},
 	},
 	grep = {
-		prompt = "Grep Text   ",
+		prompt = "Grep Text❯ ",
 		input_prompt = "Grep For❯ ",
 		multiprocess = true, -- run command in a separate process
 		git_icons = true, -- show git icons?
