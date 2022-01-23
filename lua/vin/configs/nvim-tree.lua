@@ -43,7 +43,7 @@ nvim_tree.setup({
 		"alpha",
 	},
 	auto_close = false,
-	open_on_tab = false,
+	open_on_tab = true,
 	hijack_cursor = false,
 	update_cwd = true,
 	update_to_buf_dir = {
