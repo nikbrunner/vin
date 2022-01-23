@@ -10,5 +10,5 @@ github_theme.setup({
 	function_style = "bold",
 	keyword_style = "bold",
 	variable_style = "bold",
-	sidebars = { "qf", "vista_kind", "terminal", "packer", "lazygit" },
+	sidebars = { "qf", "vista_kind", "terminal", "packer", "lazygit", "whichkey" },
 })
