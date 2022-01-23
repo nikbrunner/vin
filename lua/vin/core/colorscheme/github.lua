@@ -12,18 +12,3 @@ github_theme.setup({
 	variable_style = "bold",
 	sidebars = { "qf", "vista_kind", "terminal", "packer", "lazygit" },
 })
-
-vim.cmd([[
-try
-  colorscheme github_dark_default
-catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme default
-  set background=dark
-endtry
-]])
-
--- Hide statusline
-vim.cmd([[
-  hi StatusLine gui=NONE guifg=NONE guibg=NonText guisp=NonText
-  hi StatusLineNc gui=NONE guifg=NONE guibg=NonText guisp=NonText
-]])
