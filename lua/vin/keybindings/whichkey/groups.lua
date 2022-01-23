@@ -78,10 +78,7 @@ WhichKeyGroups.git = {
 	d = { "<cmd>DiffviewOpen<CR>", "Diffs" },
 	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
 	j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
-	m = {
-		commands.fuzzy.find_modified_files_with_preview,
-		"Modified Files (With Preview)",
-	},
+	m = { commands.fuzzy.find_modified_files_with_preview, "Modified Files" },
 	h = {
 		name = "Hunk",
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
