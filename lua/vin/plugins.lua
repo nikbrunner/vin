@@ -69,7 +69,6 @@ return packer.startup(function(use) -- My plugins here
 	use("djoshea/vim-autoread")
 	use("ThePrimeagen/harpoon")
 	use("gennaro-tedesco/nvim-jqx")
-	use({ "petertriho/nvim-scrollbar" })
 	use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
 	use({ "github/copilot.vim" })
 
