@@ -172,9 +172,8 @@ Fzf.find_modified_files = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
-			-- height = 0.25,
-			-- width = 0.35,
-			fullscreen = true,
+			height = 0.25,
+			width = 0.35,
 			preview = {
 				hidden = "hidden",
 				layout = "vertical",
@@ -189,9 +188,8 @@ Fzf.find_modified_files_with_preview = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
-			-- height = 0.5,
-			-- width = 0.95,
-			fullscreen = true,
+			height = 0.9,
+			width = 0.9,
 			preview = {
 				layout = "vertical",
 				vertical = "down:75%",
