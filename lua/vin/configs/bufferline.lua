@@ -78,6 +78,9 @@ bufferline.setup({
 		-- end
 	},
 	highlights = {
+    fill = {
+      guibg = "Normal",
+    },
 		buffer_selected = {
 			guifg = "Normal",
 			gui = "italic",
