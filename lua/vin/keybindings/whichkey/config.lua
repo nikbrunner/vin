@@ -64,4 +64,8 @@ local WhichKeyConfig = {
 	},
 }
 
+vim.cmd([[
+hi WhichKeyFloat guibg=Normal
+]])
+
 return WhichKeyConfig
