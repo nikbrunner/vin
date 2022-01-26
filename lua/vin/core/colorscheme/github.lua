@@ -8,7 +8,7 @@ github_theme.setup({
 	hide_end_of_buffer = true,
   hide_inactive_statusline = false,
   dark_float = true,
-	dark_sidebar = false,
+	dark_sidebar = true,
 	function_style = "bold",
 	keyword_style = "bold",
 	variable_style = "bold",
