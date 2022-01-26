@@ -8,6 +8,7 @@ local commands = require("vin.core.commands")
 local WhichKeyGroups = {}
 
 WhichKeyGroups.diagnostics = {
+  name = "Diagnostics",
 	d = { commands.fuzzy.find_problems_in_document, "⚠  Diagnostics (Document)" },
 	w = {
 		commands.fuzzy.find_problems_in_workspace,
