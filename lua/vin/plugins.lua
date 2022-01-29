@@ -105,6 +105,7 @@ return packer.startup(function(use) -- My plugins here
 			require("fidget").setup({})
 		end,
 	})
+	use("folke/lua-dev.nvim")
 
 	-- Fuzzy finding
 	use("nvim-telescope/telescope.nvim")
