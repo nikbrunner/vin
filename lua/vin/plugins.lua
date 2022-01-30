@@ -77,6 +77,7 @@ return packer.startup(function(use) -- My plugins here
 			{ "nvim-telescope/telescope.nvim" },
 		},
 	})
+	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 
 	-- Colorschemes
 	use("lunarvim/colorschemes")
