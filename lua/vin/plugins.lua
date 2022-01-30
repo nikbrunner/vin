@@ -96,6 +96,7 @@ return packer.startup(function(use) -- My plugins here
 	use("ray-x/lsp_signature.nvim") --for parameter hints
 	use({ "j-hui/fidget.nvim" }) -- for LSP progress
 	use("folke/lua-dev.nvim")
+	use({ "onsails/lspkind-nvim" })
 
 	-- Fuzzy finding
 	use("nvim-telescope/telescope.nvim")
