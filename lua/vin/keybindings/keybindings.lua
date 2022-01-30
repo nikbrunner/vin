@@ -4,8 +4,6 @@
   I tried to map these also via WhichKey, but this resulted in a performance regression.
 ]]
 --
-local commands = require("vin.core.commands")
-
 local opts = { noremap = true, silent = true }
 
 -- Shorten function name
@@ -44,7 +42,7 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- TODO Why cant i use direct functions here?
+-- TODO Use real functions when the API is available
 keymap(
 	"n",
 	"<C-p>",
