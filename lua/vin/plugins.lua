@@ -51,7 +51,7 @@ return packer.startup(function(use) -- My plugins here
 	use("kyazdani42/nvim-web-devicons")
 	use("kyazdani42/nvim-tree.lua")
 	use("akinsho/bufferline.nvim")
-	use("nvim-lualine/lualine.nvim")
+	use({ "windwp/windline.nvim" })
 	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
 
@@ -75,6 +75,12 @@ return packer.startup(function(use) -- My plugins here
 	-- Colorschemes
 	use("lunarvim/colorschemes")
 	use("projekt0n/github-nvim-theme")
+	use({
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	})
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
