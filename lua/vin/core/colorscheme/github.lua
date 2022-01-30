@@ -6,9 +6,9 @@ end
 github_theme.setup({
 	theme_style = "dark_default",
 	hide_end_of_buffer = true,
-  hide_inactive_statusline = false,
-  transparent = false,
-  dark_float = true,
+	hide_inactive_statusline = false,
+	transparent = false,
+	dark_float = true,
 	dark_sidebar = true,
 	function_style = "bold",
 	keyword_style = "bold",
