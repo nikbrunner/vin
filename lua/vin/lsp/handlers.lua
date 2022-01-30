@@ -18,7 +18,7 @@ M.setup = function()
 
 	local config = {
 		-- disable virtual text
-		virtual_text = false,
+		virtual_text = true,
 		-- show signs
 		signs = {
 			active = signs,
@@ -75,7 +75,6 @@ local function lsp_keymaps(bufnr)
 		"<cmd>lua vim.lsp.buf.declaration()<CR>",
 		opts
 	)
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",
@@ -83,7 +82,6 @@ local function lsp_keymaps(bufnr)
 		"<cmd>Telescope lsp_definitions<CR>",
 		opts
 	)
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua require('vin.keybindngs.commands').fuzzy.find_defintions()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",
