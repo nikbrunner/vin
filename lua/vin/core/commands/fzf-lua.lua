@@ -112,6 +112,7 @@ Fzf.find_word_under_cursor = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
+			fullscreen = true,
 			preview = {
 				layout = "vertical",
 				vertical = "up:65%",
@@ -131,6 +132,7 @@ Fzf.find_symbols_in_workspace = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
+			fullscreen = true,
 			preview = {
 				layout = "vertical",
 				vertical = "up:65%",
@@ -144,8 +146,7 @@ Fzf.find_references = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
-			height = 0.75,
-			width = 0.5,
+			fullscreen = true,
 			preview = {
 				layout = "vertical",
 				vertical = "up:50%",
@@ -188,8 +189,9 @@ Fzf.find_modified_files_with_preview = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
-			height = 0.9,
-			width = 0.9,
+			-- height = 0.9,
+			-- width = 0.9,
+			fullscreen = true,
 			preview = {
 				layout = "vertical",
 				vertical = "down:75%",
