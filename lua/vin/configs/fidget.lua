@@ -3,6 +3,7 @@ if not status_ok then
 	return
 end
 
+-- TODO Why does this not work with tsserver?
 fidget.setup({
 	text = {
 		spinner = "pipe", -- animation shown when tasks are ongoing
