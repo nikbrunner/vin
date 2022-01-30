@@ -141,19 +141,19 @@ local quickfix = {
 	filetypes = { "qf", "Trouble" },
 	active = {
 		{ "🚦 Quickfix ", { "white", "NormalBg" } },
-		{ helper.separators.slant_right, { "black", "black_light" } },
+		-- { helper.separators.slant_right, { "NormalBg", "N" } },
 		{
 			function()
 				return vim.fn.getqflist({ title = 0 }).title
 			end,
-			{ "cyan", "black_light" },
+			{ "cyan", "NormalBg" },
 		},
-		{ " Total : %L ", { "cyan", "black_light" } },
-		{ helper.separators.slant_right, { "black_light", "InactiveBg" } },
+		{ " Total : %L ", { "blue", "NormalBg" } },
+		{ helper.separators.slant_right, { "NormalBg", "InactiveBg" } },
 		{ " ", { "InactiveFg", "InactiveBg" } },
 		basic.divider,
-		{ helper.separators.slant_right, { "InactiveBg", "black" } },
-		{ "🧛 ", { "white", "black" } },
+		{ helper.separators.slant_right, { "InactiveBg", "NormalBg" } },
+		{ "🧛 ", { "white", "NormalBg" } },
 	},
 
 	always_active = true,
