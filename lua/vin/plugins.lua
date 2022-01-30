@@ -71,6 +71,12 @@ return packer.startup(function(use) -- My plugins here
 	use("gennaro-tedesco/nvim-jqx")
 	use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
 	use({ "github/copilot.vim" })
+	use({
+		"AckslD/nvim-neoclip.lua",
+		requires = {
+			{ "nvim-telescope/telescope.nvim" },
+		},
+	})
 
 	-- Colorschemes
 	use("lunarvim/colorschemes")

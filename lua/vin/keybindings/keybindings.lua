@@ -57,6 +57,12 @@ keymap(
 )
 keymap(
 	"n",
+	"<C-x>",
+	":Telescope neoclip<CR>",
+	opts
+)
+keymap(
+	"n",
 	"<C-_>",
 	"<cmd>lua require('vin.core.commands').fuzzy.find_in_file()<CR>",
 	opts
@@ -123,6 +129,12 @@ keymap("i", "?", "?<c-g>u", opts)
 keymap("i", "[", "[<c-g>u", opts)
 keymap("i", "(", "(<c-g>u", opts)
 keymap("i", "{", "{<c-g>u", opts)
+keymap(
+	"i",
+	"<C-x>",
+	":Telescope neoclip<CR>",
+	opts
+)
 
 -- VISUAL MODE --
 -- Stay in indent mode
