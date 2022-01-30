@@ -99,12 +99,7 @@ return packer.startup(function(use) -- My plugins here
 	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("ray-x/lsp_signature.nvim") --for parameter hints
-	use({
-		"j-hui/fidget.nvim",
-		config = function()
-			require("fidget").setup({})
-		end,
-	})
+	use({ "j-hui/fidget.nvim" }) -- for LSP progress
 	use("folke/lua-dev.nvim")
 
 	-- Fuzzy finding
