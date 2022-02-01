@@ -76,6 +76,7 @@ keymap(
 	opts
 )
 keymap("n", "<C-f>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
+keymap("n", "<F8>", "<cmd>TroubleToggle<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-Tab>", ":bprevious<CR>", opts)

@@ -29,6 +29,7 @@ WhichKeyGroups.lsp = {
 	r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
 	l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
 	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
+	p = { "<cmd>TroubleToggle<CR>", " Trouble" },
 	d = WhichKeyGroups.diagnostics,
 	s = { commands.fuzzy.find_symbols_in_workspace, " Symbol" },
 }
