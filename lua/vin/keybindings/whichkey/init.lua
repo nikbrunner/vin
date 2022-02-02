@@ -12,7 +12,6 @@ local noLabel = "which_key_ignore"
 local maps = {
 	-- Singles
 	[";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	["e"] = { "<cmd>NvimTreeToggle<cr>", "  Explorer" },
 	[" "] = { "<C-^>", "  Alt File" },
 	["n"] = { ":nohl", "  No Highlights" },
 	["p"] = { "<nop>", noLabel },
@@ -29,6 +28,7 @@ local maps = {
 	-- Groups
 	P = groups.packer,
 	f = groups.find,
+	e = groups.explorer,
 	g = groups.git,
 	l = groups.lsp,
 	h = groups.harpoon,

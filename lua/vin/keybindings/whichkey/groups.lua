@@ -34,6 +34,14 @@ WhichKeyGroups.lsp = {
 	s = { commands.fuzzy.find_symbols_in_workspace, " Symbol" },
 }
 
+WhichKeyGroups.explorer = {
+	name = "  Explorer",
+	e = { "<cmd>NeoTreeFocusToggle<CR>", " Tree" },
+	f = { "<cmd>NeoTreeFloatToggle<CR>", " Float" },
+	r = { "<cmd>NeoTreeReveal<CR>", " Reveal" },
+	g = { "<cmd>NeoTreeFloat git_status<CR>", " Git Status" },
+}
+
 WhichKeyGroups.quit = {
 	name = "  Quit",
 	c = { "<cmd>Bdelete!<CR>", "Close Buffer" },

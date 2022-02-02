@@ -68,7 +68,7 @@ keymap(
 	opts
 )
 keymap("n", "<C-q>", ":call ToggleQuickFix()<CR>", opts)
-keymap("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", opts)
+keymap("n", "<C-b>", "<cmd>NeoTreeFocusToggle<CR>", opts)
 keymap(
 	"n",
 	"<C-g>",
