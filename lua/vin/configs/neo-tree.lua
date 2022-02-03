@@ -79,8 +79,8 @@ neotree.setup({
 			mappings = {
 				["<2-LeftMouse>"] = "open",
 				["<cr>"] = "open",
-				["S"] = "open_split",
-				["s"] = "open_vsplit",
+				["s"] = "open_split",
+				["v"] = "open_vsplit",
 				["C"] = "close_node",
 				["z"] = "close_all_nodes",
 				["<bs>"] = "navigate_up",

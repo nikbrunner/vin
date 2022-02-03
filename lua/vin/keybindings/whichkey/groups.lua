@@ -40,6 +40,7 @@ WhichKeyGroups.explorer = {
 	f = { "<cmd>NeoTreeFloatToggle<CR>", " Float" },
 	r = { "<cmd>NeoTreeReveal<CR>", " Reveal" },
 	g = { "<cmd>NeoTreeFloat git_status<CR>", " Git Status" },
+	s = { ":SymbolsOutline<CR>", "Symbols" },
 }
 
 WhichKeyGroups.quit = {

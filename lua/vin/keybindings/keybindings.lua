@@ -67,6 +67,7 @@ keymap(
 	"<cmd>lua require('vin.core.commands').fuzzy.find_in_file()<CR>",
 	opts
 )
+keymap( "n", "<C-s>", ":SymbolsOutline<CR>", opts)
 keymap("n", "<C-q>", ":call ToggleQuickFix()<CR>", opts)
 keymap("n", "<C-b>", "<cmd>NeoTreeFocusToggle<CR>", opts)
 keymap(
