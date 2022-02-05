@@ -90,6 +90,7 @@ return packer.startup(function(use) -- My plugins here
 	})
 	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 	use({ "simrat39/symbols-outline.nvim" })
+	use({ "rcarriga/nvim-notify" })
 
 	-- Colorschemes
 	use("lunarvim/colorschemes")
