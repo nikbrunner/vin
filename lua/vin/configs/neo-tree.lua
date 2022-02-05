@@ -314,3 +314,12 @@ neotree.setup({
 		},
 	},
 })
+
+vim.cmd([[
+  hi NeoTreeGitModified guifg=#ac8934
+  hi NeoTreeGitAdded guifg=#56d364
+  hi NeoTreeGitUntracked guifg=#56d364
+  hi NeoTreeGitConflict guifg=#f85149
+  hi NeoTreeFloatBorder guifg=#79c0ff
+  hi NeoTreeTitleBar guibg=#79c0ff guifg=#0d1117
+]])
