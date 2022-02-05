@@ -142,9 +142,9 @@ neotree.setup({
 			directory = {
 				{
 					"icon",
-					folder_closed = "  ",
-					folder_open = "  ",
-					padding = " ",
+					folder_closed = " ",
+					folder_open = " ",
+					padding = "  ",
 				},
 				{ "current_filter" },
 				{ "name" },
@@ -163,7 +163,7 @@ neotree.setup({
 				{
 					"icon",
 					default = "*",
-					padding = " ",
+					padding = "  ",
 				},
 				{
 					"name",
@@ -223,7 +223,7 @@ neotree.setup({
 					"icon",
 					folder_closed = "",
 					folder_open = "",
-					padding = " ",
+					padding = "  ",
 				},
 				{ "name" },
 				{ "diagnostics", errors_only = true },
@@ -236,7 +236,7 @@ neotree.setup({
 				{
 					"icon",
 					default = "*",
-					padding = " ",
+					padding = "  ",
 				},
 				{ "name" },
 				{ "bufnr" },
@@ -291,9 +291,9 @@ neotree.setup({
 			directory = {
 				{
 					"icon",
-					folder_closed = "",
-					folder_open = "",
-					padding = " ",
+					folder_closed = " ",
+					folder_open = " ",
+					padding = "  ",
 				},
 				{ "name" },
 				{ "diagnostics", errors_only = true },
@@ -302,7 +302,7 @@ neotree.setup({
 				{
 					"icon",
 					default = "*",
-					padding = " ",
+					padding = "  ",
 				},
 				{ "name" },
 				{ "diagnostics" },
