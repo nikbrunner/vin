@@ -21,6 +21,7 @@ end
 vim.cmd([[
   augroup packer_user_config
     autocmd!
+    autocmd BufWritePre plugins.lua lua require("notify").notify("Saved plugins.lua.. Syncing Packages! Standby. ✋", "info", { title = "Packer", icon = "📦" })
     autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]])
