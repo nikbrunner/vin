@@ -13,11 +13,11 @@ local noLabel = "which_key_ignore"
 
 local maps = {
 	-- Singles
-	[";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	[" "] = { "<C-^>", "  Alt File" },
-	["n"] = { ":nohl", "  No Highlights" },
-	["s"] = { commands.general.save_all, "  Save all" },
-	["p"] = { "<nop>", noLabel },
+	[";"] = { "<cmd>Alpha<cr>", "🏡 Dashboard" },
+	[" "] = { "<C-^>", "👈 Go Back" },
+	["n"] = { ":nohl", "👀 No Highlights" },
+	["s"] = { commands.general.save_all, "💾 Save" },
+	["p"] = { commands.lsp.format_file, "💅 Format" },
 	["1"] = { "1gt", noLabel },
 	["2"] = { "2gt", noLabel },
 	["3"] = { "3gt", noLabel },

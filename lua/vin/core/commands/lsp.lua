@@ -12,7 +12,7 @@ Lsp.format_file = function()
 	notify("Formated and saved file", "info", {
 		title = "Format",
 		timeout = 125,
-		icon = " ",
+		icon = "💅",
 	})
 end
 
@@ -23,7 +23,7 @@ Lsp.code_action = function()
 	notify("Pick a Code Action!", "info", {
 		title = "Refactor",
 		timeout = 125,
-		icon = " ",
+		icon = " ",
 	})
 end
 

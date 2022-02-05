@@ -11,7 +11,7 @@ General.save_all = function()
 	notify("Saved all files!", "info", {
 		title = "Save",
 		timeout = 125,
-		icon = " ",
+		icon = "💾",
 	})
 end
 
