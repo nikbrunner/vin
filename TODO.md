@@ -6,6 +6,7 @@
   - Or Map non-leader bindings with WhichKey
 - [ ] Require config files from packer object
 - [ ] Create commands for Telescope (similar to fzf-lua)
+- [ ] Set up spell checking
 
 ### Commands
 - [ ] Rename commands to cmd 
