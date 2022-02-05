@@ -147,69 +147,59 @@ WhichKeyGroups.find = {
 
 WhichKeyGroups.harpoon = {
 	name = "  Harpoon",
-	a = {
-		function()
-			require("harpoon.mark").add_file()
-		end,
-		"  Add File",
-	},
-	m = {
-		function()
-			require("harpoon.ui").toggle_quick_menu()
-		end,
-		"  Menu",
-	},
+	a = { commands.harpoon.add_file, "  Add File" },
+	m = { commands.harpoon.toggle_quick_menu, "  Menu" },
 	["1"] = {
 		function()
-			require("harpoon.ui").nav_file(1)
+			commands.harpoon.jump_to_file(1)
 		end,
 		" ",
 	},
 	["2"] = {
 		function()
-			require("harpoon.ui").nav_file(2)
+			commands.harpoon.jump_to_file(2)
 		end,
 		" ",
 	},
 	["3"] = {
 		function()
-			require("harpoon.ui").nav_file(3)
+			commands.harpoon.jump_to_file(3)
 		end,
 		" ",
 	},
 	["4"] = {
 		function()
-			require("harpoon.ui").nav_file(4)
+			commands.harpoon.jump_to_file(4)
 		end,
 		" ",
 	},
 	["5"] = {
 		function()
-			require("harpoon.ui").nav_file(5)
+			commands.harpoon.jump_to_file(5)
 		end,
 		" ",
 	},
 	["6"] = {
 		function()
-			require("harpoon.ui").nav_file(6)
+			commands.harpoon.jump_to_file(6)
 		end,
 		" ",
 	},
 	["7"] = {
 		function()
-			require("harpoon.ui").nav_file(7)
+			commands.harpoon.jump_to_file(7)
 		end,
 		" ",
 	},
 	["8"] = {
 		function()
-			require("harpoon.ui").nav_file(8)
+			commands.harpoon.jump_to_file(8)
 		end,
 		" ",
 	},
 	["9"] = {
 		function()
-			require("harpoon.ui").nav_file(9)
+			commands.harpoon.jump_to_file(9)
 		end,
 		" ",
 	},
