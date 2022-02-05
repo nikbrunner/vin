@@ -14,6 +14,7 @@ local maps = {
 	[";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	[" "] = { "<C-^>", "  Alt File" },
 	["n"] = { ":nohl", "  No Highlights" },
+	["s"] = { ":wa<CR>", "  Save all" },
 	["p"] = { "<nop>", noLabel },
 	["1"] = { "1gt", noLabel },
 	["2"] = { "2gt", noLabel },

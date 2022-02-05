@@ -46,8 +46,9 @@ WhichKeyGroups.explorer = {
 WhichKeyGroups.quit = {
 	name = "  Quit",
 	c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-	q = { ":silent wq<CR>", "Save and Quit Pane (:wq)" },
-	Q = { ":silent q!<CR>", "Quit (:q!)" },
+	s = { ":silent wq<CR>", "Save and Quit Pane (:wq)" },
+	q = { ":silent q<CR>", "Quit" },
+	Q = { ":silent q!<CR>", "Quit /w Force" },
 	o = { ":BufOnly<CR>", "Close All Buffers But Current" },
 	a = { ":Bwipeout<CR>", "Close all Buffers" },
 }
