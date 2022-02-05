@@ -128,6 +128,7 @@ return packer.startup(function(use) -- My plugins here
 	use("nvim-telescope/telescope.nvim")
 	use("ahmedkhalf/project.nvim")
 	use({ "nvim-telescope/telescope-github.nvim" })
+	use({ "junegunn/fzf", run = "./install --bin" })
 	use({ "ibhagwan/fzf-lua" })
 
 	-- Treesitter
