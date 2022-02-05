@@ -23,7 +23,7 @@ WhichKeyGroups.lsp = {
 	},
 	-- a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
 	a = { "<cmd>CodeActionMenu<CR>", "Code Action" },
-	f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format" },
+	f = { commands.general.format_file, "  Format" },
 	i = { "<cmd>LspInfo<CR>", "Info" },
 	I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
 	r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },

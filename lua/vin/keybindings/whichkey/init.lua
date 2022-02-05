@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
+local commands = require("vin.core.commands")
+
 local groups = require("vin.keybindings.whichkey.groups")
 local options = require("vin.keybindings.whichkey.options")
 local config = require("vin.keybindings.whichkey.config")
@@ -14,7 +16,7 @@ local maps = {
 	[";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	[" "] = { "<C-^>", "  Alt File" },
 	["n"] = { ":nohl", "  No Highlights" },
-	["s"] = { ":wa<CR>", "  Save all" },
+	["s"] = { commands.general.save_all, "  Save all" },
 	["p"] = { "<nop>", noLabel },
 	["1"] = { "1gt", noLabel },
 	["2"] = { "2gt", noLabel },
