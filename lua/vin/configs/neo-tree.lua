@@ -142,8 +142,8 @@ neotree.setup({
 			directory = {
 				{
 					"icon",
-					folder_closed = "",
-					folder_open = "",
+					folder_closed = "  ",
+					folder_open = "  ",
 					padding = " ",
 				},
 				{ "current_filter" },
