@@ -15,15 +15,4 @@ General.save_all = function()
 	})
 end
 
-General.format_file = function()
-	vim.lsp.buf.formatting()
-	vim.cmd([[silent w]])
-
-	notify("Formated and saved file", "info", {
-		title = "Format",
-		timeout = 125,
-		icon = " ",
-	})
-end
-
 return General
