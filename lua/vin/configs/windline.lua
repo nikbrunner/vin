@@ -59,15 +59,15 @@ basic.lsp_diagnos = {
 		if lsp_comps.check_lsp(bufnr) then
 			return {
 				{
-					lsp_comps.lsp_error({ format = "  %s", show_zero = true }),
+					lsp_comps.lsp_error({ format = "   %s", show_zero = false }),
 					"red",
 				},
 				{
-					lsp_comps.lsp_warning({ format = "  %s", show_zero = true }),
+					lsp_comps.lsp_warning({ format = "   %s", show_zero = false }),
 					"yellow",
 				},
 				{
-					lsp_comps.lsp_hint({ format = "  %s", show_zero = true }),
+					lsp_comps.lsp_hint({ format = "   %s", show_zero = false }),
 					"blue",
 				},
 			}
@@ -120,15 +120,15 @@ basic.git = {
 		if git_comps.is_git(bufnr) then
 			return {
 				{
-					git_comps.diff_added({ format = "  %s", show_zero = true }),
+					git_comps.diff_added({ format = "   %s", show_zero = false }),
 					"green",
 				},
 				{
-					git_comps.diff_removed({ format = "  %s", show_zero = true }),
+					git_comps.diff_removed({ format = "   %s", show_zero = false }),
 					"red",
 				},
 				{
-					git_comps.diff_changed({ format = "  %s", show_zero = true }),
+					git_comps.diff_changed({ format = "   %s", show_zero = false }),
 					"blue",
 				},
 			}
