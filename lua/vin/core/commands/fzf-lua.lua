@@ -182,6 +182,7 @@ Fzf.find_modified_files = function(opts)
 			},
 		}
 
+  -- This doesn't respect newly added files. Telescope does that
 	fzf_lua.git_status(opts)
 end
 
