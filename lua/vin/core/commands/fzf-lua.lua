@@ -11,7 +11,7 @@ Fzf.find_files_without_preview = function(opts)
 	opts.winopts = opts.winopts
 		or {
 			height = 0.25,
-			width = 0.5,
+			width = 0.75,
 			preview = {
 				hidden = "hidden",
 			},
