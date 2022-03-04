@@ -122,6 +122,7 @@ WhichKeyGroups.find = {
 	name = "  Find",
 	["."] = { commands.fuzzy.find_files_in_dotfiles, "· Dots" },
 	b = { commands.fuzzy.find_buffers, "﩯 Buffers" },
+	l = { commands.telescope.find_related_files, "  Related Files" },
 	c = { commands.fuzzy.find_commands, "  Commands" },
 	C = { commands.fuzzy.find_colorscheme, "  Colorscheme" },
 	f = { commands.fuzzy.find_files_without_preview, "  Files" },

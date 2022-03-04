@@ -7,6 +7,7 @@
 - [ ] Require config files from packer object
 - [ ] Create commands for Telescope (similar to fzf-lua)
 - [ ] Set up spell checking
+- [x] Binding to search related files based on filename
 
 ### Commands
 - [ ] Rename commands to cmd 
