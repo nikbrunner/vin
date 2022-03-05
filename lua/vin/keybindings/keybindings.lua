@@ -14,81 +14,6 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- NORMAL MODE --
--- disable Q
-keymap("n", "Q", "<Nop>", opts)
-
--- Go to Line Start and End
-keymap("n", "H", "^", opts)
-keymap("n", "L", "$", opts)
-
--- Better j and k
-keymap("n", "j", "gj", opts)
-keymap("n", "k", "gk", opts)
-
--- Better n and N (Keep Search Hit in the middle)
-keymap("n", "n", "nzzzv", opts)
-keymap("n", "N", "Nzzzv", opts)
-
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
-
--- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-
--- TODO Use real functions when the API is available
-keymap(
-	"n",
-	"<C-p>",
-	"<cmd>lua require('vin.core.commands').fuzzy.find_files_without_preview()<CR>",
-	opts
-)
-keymap(
-	"n",
-	"<C-e>",
-	"<cmd>lua require('vin.core.commands').fuzzy.find_buffers()<CR>",
-	opts
-)
-keymap(
-	"n",
-	"<C-x>",
-	":Telescope neoclip<CR>",
-	opts
-)
-keymap(
-	"n",
-	"<C-_>",
-	"<cmd>lua require('vin.core.commands').fuzzy.find_in_file()<CR>",
-	opts
-)
-keymap( "n", "<C-s>", ":SymbolsOutline<CR>", opts)
-keymap("n", "<C-q>", ":call ToggleQuickFix()<CR>", opts)
-keymap("n", "<C-b>", "<cmd>NeoTreeFocusToggle<CR>", opts)
-keymap(
-	"n",
-	"<C-g>",
-	"<cmd>lua require('vin.core.commands').fuzzy.find_modified_files_with_preview()<CR>",
-	opts
-)
-keymap("n", "<C-f>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
-keymap("n", "<F8>", "<cmd>TroubleToggle<CR>", opts)
-
--- Navigate buffers
-keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
-keymap("n", "<Tab>", ":bnext<CR>", opts)
-keymap("n", "˙", ":tabprev<CR>", opts)
-keymap("n", "¬", ":tabnext<CR>", opts)
-
--- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
-
 -- go prev
 keymap("n", "[q", ":cprev<CR>zz", opts)
 keymap("n", "[b", ":bprev<CR>zz", opts)
@@ -131,12 +56,6 @@ keymap("i", "?", "?<c-g>u", opts)
 keymap("i", "[", "[<c-g>u", opts)
 keymap("i", "(", "(<c-g>u", opts)
 keymap("i", "{", "{<c-g>u", opts)
-keymap(
-	"i",
-	"<C-x>",
-	":Telescope neoclip<CR>",
-	opts
-)
 
 -- VISUAL MODE --
 -- Stay in indent mode

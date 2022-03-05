@@ -14,11 +14,13 @@ local noLabel = "which_key_ignore"
 local withLeaderMaps = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	[" "] = { commands.fuzzy.find_files_without_preview, "  Files" },
 	["s"] = { commands.general.save_all, "  Save" },
 	["p"] = { commands.lsp.format_file, "  Format" },
 	["m"] = { commands.zen.toggle_full_screen, "  Maximize Pane" },
+
+  -- Some hidden maps
 	["M"] = { commands.zen.toggle_small_screen, noLabel },
+	[" "] = { commands.fzf_lua.find_files_without_preview, noLabel },
 	["n"] = { ":nohl", noLabel },
 
 	-- Tab navigation

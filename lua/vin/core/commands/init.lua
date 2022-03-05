@@ -8,7 +8,7 @@ local zen = require("vin.core.commands.zen")
 
 local Commands = {
 	general = general,
-	fuzzy = fzf_lua,
+	fzf_lua = fzf_lua,
   telescope = telescope,
 	copy = copy,
 	harpoon = harpoon,

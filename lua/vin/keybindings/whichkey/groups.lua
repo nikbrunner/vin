@@ -2,21 +2,81 @@ local commands = require("vin.core.commands")
 
 local WhichKeyGroups = {}
 
+local noLabel = "which_key_ignore"
+
 WhichKeyGroups.noLeader = {
 	g = {
 		m = {
-			commands.fuzzy.find_modified_files_with_preview,
-			"Find modified files with preview",
+			commands.fzf_lua.find_modified_files_with_preview,
+			noLabel,
 		},
-		s = { ":LazyGit<CR>", " Git Status" },
+		s = { ":LazyGit<CR>", noLabel },
 	},
+
+	-- disable Q
+	Q = { "<Nop>", noLabel },
+
+	-- Go to Line Start and End
+	H = { "^", noLabel },
+	L = { "$", noLabel },
+
+	-- Better n and N (Keep Search Hit in the middle)
+	n = { "nzzzv", noLabel },
+	N = { "Nzzzv", noLabel },
+
+	-- Better j and k
+	j = { "gj", noLabel },
+	k = { "gk", noLabel },
+
+	-- Navigate buffers and Tabs
+	["<S-Tab>"] = { ":bprevious<CR>", "Prev Buffer" },
+	["<Tab>"] = { ":bnext<CR>", "Next Buffer" },
+	["˙"] = { ":tabprevious<CR>", "Prev Tab" },
+	["¬"] = { ":tabnext<CR>", "Next Tab" },
+
+-- Move text up and down
+  ["∆"] = { "<Esc>:m .+1<CR>", "Move Up" },
+  ["˚"] = { "<Esc>:m .-2<CR>", "Move Down" },
+
+	-- Control bindings
+	["<C-p>"] = { commands.fzf_lua.find_files_without_preview, "  Files" },
+	["<C-e>"] = { commands.fzf_lua.find_buffers, "﩯 Buffers" },
+	["<C-_>"] = { commands.fzf_lua.find_in_file, "  Find Text in File" },
+	["<C-g>"] = {
+		commands.fzf_lua.find_modified_files_with_preview,
+		"Find modified files",
+	},
+	["<C-f>"] = {
+		function()
+			require("harpoon.ui").toggle_quick_menu()
+		end,
+		"Harpoooooooooooon",
+	},
+	["<C-s>"] = { ":SymbolsOutline<CR>", "Symbols Outline" },
+	["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
+	["<F8>"] = { "<cmd>TroubleToggle<CR>", "TroubleShoot" },
+
+	-- Better window navigation
+	["<C-h>"] = { "<C-w>h", "Focus Left" },
+	["<C-j>"] = { "<C-w>j", "Focus Down" },
+	["<C-k>"] = { "<C-w>k", "Focus Up" },
+	["<C-l>"] = { "<C-w>l", "Focus Right" },
+
+	-- Resize with arrows
+	["<C-up>"] = { ":resize -2<CR>", "Resize Up" },
+	["<C-down>"] = { ":resize +2<CR>", "Resize Down" },
+	["<C-left>"] = { ":vertical resize -2<CR>", "Resize Left" },
+	["<C-right>"] = { ":vertical resize +2<CR>", "Resize Right" },
 }
 
 WhichKeyGroups.diagnostics = {
 	name = "Diagnostics",
-	d = { commands.fuzzy.find_problems_in_document, "⚠  Diagnostics (Document)" },
+	d = {
+		commands.fzf_lua.find_problems_in_document,
+		"⚠  Diagnostics ()",
+	},
 	w = {
-		commands.fuzzy.find_problems_in_workspace,
+		commands.fzf_lua.find_problems_in_workspace,
 		"⚠  Diagnostics (Workspace)",
 	},
 }
@@ -40,7 +100,7 @@ WhichKeyGroups.lsp = {
 	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
 	p = { "<cmd>TroubleToggle<CR>", " Trouble" },
 	d = WhichKeyGroups.diagnostics,
-	s = { commands.fuzzy.find_symbols_in_workspace, " Symbol" },
+	s = { commands.fzf_lua.find_symbols_in_workspace, " Symbol" },
 }
 
 WhichKeyGroups.explorer = {
@@ -67,7 +127,7 @@ WhichKeyGroups.buffer = {
 	k = { ":bprev<CR>", "Previous Buffer" },
 	j = { ":bnext<CR>", "Next Buffer" },
 	p = { "<cmd>BufferLinePick<CR>", "Pick" },
-	f = { commands.fuzzy.find_buffers, "Find" },
+	f = { commands.fzf_lua.find_buffers, "Find" },
 	s = {
 		name = "Sort",
 		r = {
@@ -94,7 +154,7 @@ WhichKeyGroups.git = {
 	d = { "<cmd>DiffviewOpen<CR>", "Diffs" },
 	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
 	j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
-	-- m = { commands.fuzzy.find_modified_files_with_preview, "Modified Files" },
+	-- m = { commands.fzf_lua.find_modified_files_with_preview, "Modified Files" },
 	m = { "<cmd>Telescope git_status<CR>", "Modified Files" },
 	h = {
 		name = "Hunk",
@@ -116,8 +176,8 @@ WhichKeyGroups.git = {
 	},
 	c = {
 		name = "Checkout",
-		b = { commands.fuzzy.find_branches, "Branches" },
-		c = { commands.fuzzy.find_commits, "Commits" },
+		b = { commands.fzf_lua.find_branches, "Branches" },
+		c = { commands.fzf_lua.find_commits, "Commits" },
 	},
 	g = {
 		name = "Github",
@@ -130,27 +190,27 @@ WhichKeyGroups.git = {
 
 WhichKeyGroups.find = {
 	name = "  Find",
-	["."] = { commands.fuzzy.find_files_in_dotfiles, "· Dots" },
+	["."] = { commands.fzf_lua.find_files_in_dotfiles, "· Dots" },
 	p = { commands.telescope.find_projects, "  Recent Projects" },
-	f = { commands.fuzzy.find_files_without_preview, "  Files" },
-	F = { commands.fuzzy.find_files_with_preview, "  Files (With Preview)" },
+	f = { commands.fzf_lua.find_files_without_preview, "  Files" },
+	F = { commands.fzf_lua.find_files_with_preview, "  Files (With Preview)" },
 	r = { commands.telescope.find_related_files, "  Related Files" },
-	t = { commands.fuzzy.find_text, "  Find Text Everywhere" },
-	i = { commands.fuzzy.find_in_file, "  Find Text in File" },
-	w = { commands.fuzzy.find_word_under_cursor, "  Find Current Word" },
-	q = { commands.fuzzy.find_in_quickfix, "  Quickfix" },
-	s = { commands.fuzzy.find_symbols_in_workspace, " Symbol" },
-	S = { commands.fuzzy.find_spelling, "  Spelling" },
-	b = { commands.fuzzy.find_buffers, "﩯 Buffers" },
-	R = { commands.fuzzy.find_old_files, "  Recent Files" },
-	c = { commands.fuzzy.find_commands, "  Commands" },
-	C = { commands.fuzzy.find_colorscheme, "  Colorscheme" },
+	t = { commands.fzf_lua.find_text, "  Find Text Everywhere" },
+	i = { commands.fzf_lua.find_in_file, "  Find Text in File" },
+	w = { commands.fzf_lua.find_word_under_cursor, "  Find Current Word" },
+	q = { commands.fzf_lua.find_in_quickfix, "  Quickfix" },
+	s = { commands.fzf_lua.find_symbols_in_workspace, " Symbol" },
+	S = { commands.fzf_lua.find_spelling, "  Spelling" },
+	b = { commands.fzf_lua.find_buffers, "﩯 Buffers" },
+	R = { commands.fzf_lua.find_old_files, "  Recent Files" },
+	c = { commands.fzf_lua.find_commands, "  Commands" },
+	C = { commands.fzf_lua.find_colorscheme, "  Colorscheme" },
 	a = {
 		name = "Advanced",
-		t = { commands.fuzzy.find_help_tags, "  Help Tags" },
-		m = { commands.fuzzy.find_man_page, "  Man Pages" },
-		r = { commands.fuzzy.find_in_registers, "  Registers" },
-		k = { commands.fuzzy.find_keymaps, "  Keymaps" },
+		t = { commands.fzf_lua.find_help_tags, "  Help Tags" },
+		m = { commands.fzf_lua.find_man_page, "  Man Pages" },
+		r = { commands.fzf_lua.find_in_registers, "  Registers" },
+		k = { commands.fzf_lua.find_keymaps, "  Keymaps" },
 	},
 	d = WhichKeyGroups.diagnostics,
 	g = WhichKeyGroups.git,
