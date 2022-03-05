@@ -83,12 +83,6 @@ return packer.startup(function(use) -- My plugins here
 	use("gennaro-tedesco/nvim-jqx")
 	use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
 	use({ "github/copilot.vim" })
-	use({
-		"AckslD/nvim-neoclip.lua",
-		requires = {
-			{ "nvim-telescope/telescope.nvim" },
-		},
-	})
 	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 	use({ "simrat39/symbols-outline.nvim" })
 	use({ "rcarriga/nvim-notify" })
