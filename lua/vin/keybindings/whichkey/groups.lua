@@ -79,7 +79,7 @@ WhichKeyGroups.copy = {
 }
 
 WhichKeyGroups.git = {
-	name = "  Git",
+	name = "  Git",
 	s = { "<cmd>:LazyGit<CR>", "Status" }, -- TODO I still get stuck here from time to time
 	d = { "<cmd>DiffviewOpen<CR>", "Diffs" },
 	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
@@ -121,31 +121,34 @@ WhichKeyGroups.git = {
 WhichKeyGroups.find = {
 	name = "  Find",
 	["."] = { commands.fuzzy.find_files_in_dotfiles, "· Dots" },
-	b = { commands.fuzzy.find_buffers, "﩯 Buffers" },
-	l = { commands.telescope.find_related_files, "  Related Files" },
-	c = { commands.fuzzy.find_commands, "  Commands" },
-	C = { commands.fuzzy.find_colorscheme, "  Colorscheme" },
+	p = { commands.telescope.find_projects, "  Recent Projects" },
 	f = { commands.fuzzy.find_files_without_preview, "  Files" },
 	F = { commands.fuzzy.find_files_with_preview, "  Files (With Preview)" },
-	i = { commands.fuzzy.find_in_file, "  Find in File" },
-	h = { commands.fuzzy.find_help_tags, "  Help Tags" },
-	H = { commands.fuzzy.find_man_page, "  Man Pages" },
-	r = { commands.fuzzy.find_old_files, "  Recent Files" },
-	R = { commands.fuzzy.find_in_registers, "  Registers" },
-	t = { commands.fuzzy.find_text, "  Text" },
-	s = { commands.fuzzy.find_symbols_in_workspace, " Symbol" },
-	S = { commands.fuzzy.find_spelling, " Symbol" },
+	t = {
+		name = " Text",
+		i = { commands.fuzzy.find_in_file, "  Find Text in File" },
+		t = { commands.fuzzy.find_text, "  Find Text Everywhere" },
+		w = { commands.fuzzy.find_word_under_cursor, "  Find Current Word" },
+	},
 	q = { commands.fuzzy.find_in_quickfix, "  Quickfix" },
-	w = { commands.fuzzy.find_word_under_cursor, "  Current Word" },
-	k = { commands.fuzzy.find_keymaps, "  Keymaps" },
 	d = WhichKeyGroups.diagnostics,
-	g = WhichKeyGroups.git,
-	-- TODO Replace Telescope here
-	P = {
-		"<cmd>lua require('telescope').extensions.projects.projects()<CR>",
-		"  Recent Projects",
+	s = { commands.fuzzy.find_symbols_in_workspace, " Symbol" },
+	S = { commands.fuzzy.find_spelling, "  Spelling" },
+	b = { commands.fuzzy.find_buffers, "﩯 Buffers" },
+	r = { commands.telescope.find_related_files, "  Related Files" },
+	R = { commands.fuzzy.find_old_files, "  Recent Files" },
+	c = { commands.fuzzy.find_commands, "  Commands" },
+	C = { commands.fuzzy.find_colorscheme, "  Colorscheme" },
+	a = {
+		name = "Advanced",
+		t = { commands.fuzzy.find_help_tags, "  Help Tags" },
+		m = { commands.fuzzy.find_man_page, "  Man Pages" },
+		r = { commands.fuzzy.find_in_registers, "  Registers" },
+		k = { commands.fuzzy.find_keymaps, "  Keymaps" },
 	},
 }
+
+-- "<cmd>lua require('telescope').extensions.projects.projects()<CR>",
 
 WhichKeyGroups.harpoon = {
 	name = "  Harpoon",
@@ -222,6 +225,27 @@ WhichKeyGroups.insert = {
 		'oconsole.log("LINE: <C-r>=line(".")<Esc>",);<Esc>O<Esc>jf,a ',
 		"console.log()",
 	},
+}
+
+WhichKeyGroups.tabs = {
+	name = "  Tabs",
+	n = { ":tabnew<CR>", "New Tab" },
+	k = { ":tabprevious<CR>", "Previous Tab" },
+	j = { ":tabnext<CR>", "Next Tab" },
+  e = { ":tabmove<CR>", "Move Tab To End" },
+	h = { ":tabmove -1<CR>", "Move Left" },
+	l = { ":tabmove +1<CR>", "Move Right" },
+	q = { ":tabclose<CR>", "Close Tab" },
+	o = { ":tabonly<CR>", "Only Tab" },
+	["1"] = { "1gt", "Tab 1" },
+	["2"] = { "2gt", "Tab 2" },
+	["3"] = { "3gt", "Tab 3" },
+	["4"] = { "4gt", "Tab 4" },
+	["5"] = { "5gt", "Tab 5" },
+	["6"] = { "6gt", "Tab 6" },
+	["7"] = { "7gt", "Tab 7" },
+	["8"] = { "8gt", "Tab 8" },
+	["9"] = { "9gt", "Tab 9" },
 }
 
 return WhichKeyGroups

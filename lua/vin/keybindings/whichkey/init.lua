@@ -13,11 +13,13 @@ local noLabel = "which_key_ignore"
 
 local maps = {
 	-- Singles
-	[";"] = { "<cmd>Alpha<cr>", "🏡 Dashboard" },
-	[" "] = { "<C-^>", "👈 Go Back" },
-	["n"] = { ":nohl", "👀 No Highlights" },
-	["s"] = { commands.general.save_all, "💾 Save" },
-	["p"] = { commands.lsp.format_file, "💅 Format" },
+	[";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
+	[" "] = { commands.fuzzy.find_commands, " Commands" },
+	["n"] = { ":nohl", "  No Highlights" },
+	["s"] = { commands.general.save_all, "  Save" },
+	["p"] = { commands.lsp.format_file, "  Format" },
+
+  -- Tab navigation
 	["1"] = { "1gt", noLabel },
 	["2"] = { "2gt", noLabel },
 	["3"] = { "3gt", noLabel },
@@ -39,6 +41,7 @@ local maps = {
 	q = groups.quit,
 	c = groups.copy,
 	b = groups.buffer,
+  t = groups.tabs
 }
 
 whichkey.setup(config)
