@@ -11,15 +11,15 @@ local config = require("vin.keybindings.whichkey.config")
 
 local noLabel = "which_key_ignore"
 
-local maps = {
+local withLeaderMaps = {
 	-- Singles
-	[";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	[" "] = { commands.fuzzy.find_commands, " Commands" },
-	["n"] = { ":nohl", "  No Highlights" },
+	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
+	[" "] = { commands.fuzzy.find_files_without_preview, "  Files" },
 	["s"] = { commands.general.save_all, "  Save" },
 	["p"] = { commands.lsp.format_file, "  Format" },
+	["n"] = { ":nohl", noLabel },
 
-  -- Tab navigation
+	-- Tab navigation
 	["1"] = { "1gt", noLabel },
 	["2"] = { "2gt", noLabel },
 	["3"] = { "3gt", noLabel },
@@ -41,9 +41,10 @@ local maps = {
 	q = groups.quit,
 	c = groups.copy,
 	b = groups.buffer,
-  t = groups.tabs
+	t = groups.tabs,
 }
 
 whichkey.setup(config)
-whichkey.register(maps, options.normal.withLeader)
-whichkey.register(maps, options.visual.withLeader)
+whichkey.register(groups.noLeader, options.normal)
+whichkey.register(withLeaderMaps, options.normal.withLeader)
+whichkey.register(withLeaderMaps, options.visual.withLeader)

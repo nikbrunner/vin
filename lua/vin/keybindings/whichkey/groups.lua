@@ -2,6 +2,16 @@ local commands = require("vin.core.commands")
 
 local WhichKeyGroups = {}
 
+WhichKeyGroups.noLeader = {
+	g = {
+		m = {
+			commands.fuzzy.find_modified_files_with_preview,
+			"Find modified files with preview",
+		},
+		s = { ":LazyGit<CR>", " Git Status" },
+	},
+}
+
 WhichKeyGroups.diagnostics = {
 	name = "Diagnostics",
 	d = { commands.fuzzy.find_problems_in_document, "⚠  Diagnostics (Document)" },
@@ -124,18 +134,14 @@ WhichKeyGroups.find = {
 	p = { commands.telescope.find_projects, "  Recent Projects" },
 	f = { commands.fuzzy.find_files_without_preview, "  Files" },
 	F = { commands.fuzzy.find_files_with_preview, "  Files (With Preview)" },
-	t = {
-		name = " Text",
-		i = { commands.fuzzy.find_in_file, "  Find Text in File" },
-		t = { commands.fuzzy.find_text, "  Find Text Everywhere" },
-		w = { commands.fuzzy.find_word_under_cursor, "  Find Current Word" },
-	},
+	r = { commands.telescope.find_related_files, "  Related Files" },
+	t = { commands.fuzzy.find_text, "  Find Text Everywhere" },
+	i = { commands.fuzzy.find_in_file, "  Find Text in File" },
+	w = { commands.fuzzy.find_word_under_cursor, "  Find Current Word" },
 	q = { commands.fuzzy.find_in_quickfix, "  Quickfix" },
-	d = WhichKeyGroups.diagnostics,
 	s = { commands.fuzzy.find_symbols_in_workspace, " Symbol" },
 	S = { commands.fuzzy.find_spelling, "  Spelling" },
 	b = { commands.fuzzy.find_buffers, "﩯 Buffers" },
-	r = { commands.telescope.find_related_files, "  Related Files" },
 	R = { commands.fuzzy.find_old_files, "  Recent Files" },
 	c = { commands.fuzzy.find_commands, "  Commands" },
 	C = { commands.fuzzy.find_colorscheme, "  Colorscheme" },
@@ -146,6 +152,8 @@ WhichKeyGroups.find = {
 		r = { commands.fuzzy.find_in_registers, "  Registers" },
 		k = { commands.fuzzy.find_keymaps, "  Keymaps" },
 	},
+	d = WhichKeyGroups.diagnostics,
+	g = WhichKeyGroups.git,
 }
 
 -- "<cmd>lua require('telescope').extensions.projects.projects()<CR>",
@@ -232,7 +240,7 @@ WhichKeyGroups.tabs = {
 	n = { ":tabnew<CR>", "New Tab" },
 	k = { ":tabprevious<CR>", "Previous Tab" },
 	j = { ":tabnext<CR>", "Next Tab" },
-  e = { ":tabmove<CR>", "Move Tab To End" },
+	e = { ":tabmove<CR>", "Move Tab To End" },
 	h = { ":tabmove -1<CR>", "Move Left" },
 	l = { ":tabmove +1<CR>", "Move Right" },
 	q = { ":tabclose<CR>", "Close Tab" },
