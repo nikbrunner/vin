@@ -15,7 +15,7 @@ local git_comps = require("windline.components.git")
 local hl_list = {
 	Black = { "NormalFg", "NormalBg" },
 	White = { "NormalBg", "NormalFg" },
-	Inactive = { "InactiveFg", "InactiveBg" },
+	Inactive = { "InactiveFg", "NormalBg" },
 	Active = { "ActiveFg", "ActiveBg" },
 }
 local basic = {}
