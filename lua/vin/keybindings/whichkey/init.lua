@@ -17,6 +17,8 @@ local withLeaderMaps = {
 	[" "] = { commands.fuzzy.find_files_without_preview, "  Files" },
 	["s"] = { commands.general.save_all, "  Save" },
 	["p"] = { commands.lsp.format_file, "  Format" },
+	["m"] = { commands.zen.toggle_full_screen, "  Maximize Pane" },
+	["M"] = { commands.zen.toggle_small_screen, noLabel },
 	["n"] = { ":nohl", noLabel },
 
 	-- Tab navigation
