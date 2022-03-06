@@ -10,7 +10,7 @@
 - [x] Binding to search related files based on filename
 
 ### Plugins
-- [ ] Status Line Dynamic Background Color
+- [x] Status Line Dynamic Colors
 
 ### Commands
 - [ ] Rename commands to cmd 
