@@ -1,159 +1,16 @@
-local gitsigns = protected_require("gitsigns")
-local commands = require("vin.core.commands")
-
-local general_commands = commands.general
+-- local gitsigns = protected_require("gitsigns")
+local cmd = require("vin.core.commands")
 
 local M = {}
-
-local noLabel = "which_key_ignore"
-
-M.noLeader = {
-	g = {
-		m = {
-			commands.fzf_lua.find_modified_files_with_preview,
-			noLabel,
-		},
-		s = { ":LazyGit<CR>", noLabel },
-	},
-
-	-- disable Q
-	Q = { "<Nop>", noLabel },
-
-	-- Go to Line Start and End
-	H = { "^", noLabel },
-	L = { "$", noLabel },
-
-	-- Better n and N (Keep Search Hit in the middle)
-	n = { "nzzzv", noLabel },
-	N = { "Nzzzv", noLabel },
-
-	-- Better j and k
-	j = { "gj", noLabel },
-	k = { "gk", noLabel },
-
-	-- Navigate buffers and Tabs
-	["<S-Tab>"] = { ":bprevious<CR>", "Prev Buffer" },
-	["<Tab>"] = { ":bnext<CR>", "Next Buffer" },
-	["˙"] = { ":tabprevious<CR>", "Prev Tab" },
-	["¬"] = { ":tabnext<CR>", "Next Tab" },
-
-	-- Move text up and down
-	["∆"] = { "<Esc>:m .+1<CR>", "Move Up" },
-	["˚"] = { "<Esc>:m .-2<CR>", "Move Down" },
-
-	-- Control bindings
-	["<C-p>"] = { commands.fzf_lua.find_files_without_preview, "  Files" },
-	["<C-e>"] = { commands.fzf_lua.find_buffers, "﩯 Buffers" },
-	["<C-_>"] = { commands.fzf_lua.find_in_file, "  Find Text in File" },
-	["<C-g>"] = {
-		commands.fzf_lua.find_modified_files_with_preview,
-		"Find modified files",
-	},
-	["<C-s>"] = { ":SymbolsOutline<CR>", "Symbols Outline" },
-	["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
-	["<F8>"] = { "<cmd>TroubleToggle<CR>", "TroubleShoot" },
-
-	-- Better window navigation
-	["<C-h>"] = { "<C-w>h", "Focus Left" },
-	["<C-j>"] = { "<C-w>j", "Focus Down" },
-	["<C-k>"] = { "<C-w>k", "Focus Up" },
-	["<C-l>"] = { "<C-w>l", "Focus Right" },
-
-	-- Resize with arrows
-	["<C-up>"] = { ":resize -2<CR>", "Resize Up" },
-	["<C-down>"] = { ":resize +2<CR>", "Resize Down" },
-	["<C-left>"] = { ":vertical resize -2<CR>", "Resize Left" },
-	["<C-right>"] = { ":vertical resize +2<CR>", "Resize Right" },
-
-	-- go to prev
-	["["] = {
-		["q"] = {
-			function()
-				vim.cmd([[cprev]])
-				vim.cmd([[norm zz]])
-			end,
-			"Prev QuickFix Item",
-		},
-		["b"] = {
-			function()
-				vim.cmd([[bprev]])
-				vim.cmd([[norm zz]])
-			end,
-			"Prev Buffer",
-		},
-		["e"] = {
-			function()
-				vim.diagnostic.goto_prev()
-				vim.cmd([[norm zz]])
-			end,
-			"Prev Problem",
-		},
-		["g"] = {
-			function()
-				gitsigns.prev_hunk()
-				vim.cmd([[norm zz]])
-			end,
-			"Prev Change",
-		},
-	},
-
-	-- go to next
-	["]"] = {
-		["q"] = {
-			function()
-				vim.cmd([[cnext]])
-				vim.cmd([[norm zz]])
-			end,
-			"Prev QuickFix Item",
-		},
-		["b"] = {
-			function()
-				vim.cmd([[bnext]])
-				vim.cmd([[norm zz]])
-			end,
-			"Prev Buffer",
-		},
-		["e"] = {
-			function()
-				vim.diagnostic.goto_next()
-				vim.cmd([[norm zz]])
-			end,
-			"Prev Problem",
-		},
-		["g"] = {
-			function()
-				gitsigns.next_hunk()
-				vim.cmd([[norm zz]])
-			end,
-			"Prev Change",
-		},
-	},
-
-	v = {
-		name = "Select",
-		b = { general_commands.blocks.select, "Select Block" },
-		A = { general_commands.all.select, "Select All" },
-	},
-	y = {
-		name = "Yank",
-		b = { general_commands.blocks.yank, "Yank Block" },
-		A = { general_commands.all.yank, "Yank All" },
-	},
-	d = {
-		name = "Delete",
-		b = { general_commands.blocks.delete, "Delete Block" },
-		A = { general_commands.all.delete, "Delete All" },
-	},
-}
 
 M.diagnostics = {
 	name = "Diagnostics",
 	d = {
-		commands.fzf_lua.find_problems_in_document,
+		cmd.fzf_lua.find_problems_in_document,
 		"⚠  Diagnostics ()",
 	},
 	w = {
-		commands.fzf_lua.find_problems_in_workspace,
+		cmd.fzf_lua.find_problems_in_workspace,
 		"⚠  Diagnostics (Workspace)",
 	},
 }
@@ -168,8 +25,8 @@ M.lsp = {
 		"<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>",
 		"Prev Diagnostic",
 	},
-	a = { commands.lsp.code_action, "  Code Action" },
-	f = { commands.lsp.format_file, "  Format" },
+	a = { cmd.lsp.code_action, "  Code Action" },
+	f = { cmd.lsp.format_file, "  Format" },
 	i = { "<cmd>LspInfo<CR>", "Info" },
 	I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
 	r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
@@ -177,7 +34,7 @@ M.lsp = {
 	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
 	p = { "<cmd>TroubleToggle<CR>", " Trouble" },
 	d = M.diagnostics,
-	s = { commands.fzf_lua.find_symbols_in_workspace, " Symbol" },
+	s = { cmd.fzf_lua.find_symbols_in_workspace, " Symbol" },
 }
 
 M.explorer = {
@@ -204,7 +61,7 @@ M.buffer = {
 	k = { ":bprev<CR>", "Previous Buffer" },
 	j = { ":bnext<CR>", "Next Buffer" },
 	p = { "<cmd>BufferLinePick<CR>", "Pick" },
-	f = { commands.fzf_lua.find_buffers, "Find" },
+	f = { cmd.fzf_lua.find_buffers, "Find" },
 	s = {
 		name = "Sort",
 		r = {
@@ -220,9 +77,9 @@ M.buffer = {
 
 M.copy = {
 	name = "  Copy",
-	f = { commands.copy.fullPath(), "Copy Full Path" },
-	r = { commands.copy.relativePath(), "Copy Relative Path" },
-	n = { commands.copy.fileName(), "Copy File Name" },
+	f = { cmd.copy.fullPath(), "Copy Full Path" },
+	r = { cmd.copy.relativePath(), "Copy Relative Path" },
+	n = { cmd.copy.fileName(), "Copy File Name" },
 }
 
 M.git = {
@@ -253,8 +110,8 @@ M.git = {
 	},
 	c = {
 		name = "Checkout",
-		b = { commands.fzf_lua.find_branches, "Branches" },
-		c = { commands.fzf_lua.find_commits, "Commits" },
+		b = { cmd.fzf_lua.find_branches, "Branches" },
+		c = { cmd.fzf_lua.find_commits, "Commits" },
 	},
 	g = {
 		name = "Github",
@@ -267,27 +124,27 @@ M.git = {
 
 M.find = {
 	name = "  Find",
-	["."] = { commands.fzf_lua.find_files_in_dotfiles, "· Dots" },
-	p = { commands.telescope.find_projects, "  Recent Projects" },
-	f = { commands.fzf_lua.find_files_without_preview, "  Files" },
-	F = { commands.fzf_lua.find_files_with_preview, "  Files (With Preview)" },
-	r = { commands.telescope.find_related_files, "  Related Files" },
-	t = { commands.fzf_lua.find_text, "  Find Text Everywhere" },
-	i = { commands.fzf_lua.find_in_file, "  Find Text in File" },
-	w = { commands.fzf_lua.find_word_under_cursor, "  Find Current Word" },
-	q = { commands.fzf_lua.find_in_quickfix, "  Quickfix" },
-	s = { commands.fzf_lua.find_symbols_in_workspace, " Symbol" },
-	S = { commands.fzf_lua.find_spelling, "  Spelling" },
-	b = { commands.fzf_lua.find_buffers, "﩯 Buffers" },
-	R = { commands.fzf_lua.find_old_files, "  Recent Files" },
-	c = { commands.fzf_lua.find_commands, "  Commands" },
-	C = { commands.fzf_lua.find_colorscheme, "  Colorscheme" },
+	["."] = { cmd.fzf_lua.find_files_in_dotfiles, "· Dots" },
+	p = { cmd.telescope.find_projects, "  Recent Projects" },
+	f = { cmd.fzf_lua.find_files_without_preview, "  Files" },
+	F = { cmd.fzf_lua.find_files_with_preview, "  Files (With Preview)" },
+	r = { cmd.telescope.find_related_files, "  Related Files" },
+	t = { cmd.fzf_lua.find_text, "  Find Text Everywhere" },
+	i = { cmd.fzf_lua.find_in_file, "  Find Text in File" },
+	w = { cmd.fzf_lua.find_word_under_cursor, "  Find Current Word" },
+	q = { cmd.fzf_lua.find_in_quickfix, "  Quickfix" },
+	s = { cmd.fzf_lua.find_symbols_in_workspace, " Symbol" },
+	S = { cmd.fzf_lua.find_spelling, "  Spelling" },
+	b = { cmd.fzf_lua.find_buffers, "﩯 Buffers" },
+	R = { cmd.fzf_lua.find_old_files, "  Recent Files" },
+	c = { cmd.fzf_lua.find_commands, "  Commands" },
+	C = { cmd.fzf_lua.find_colorscheme, "  Colorscheme" },
 	a = {
 		name = "Advanced",
-		t = { commands.fzf_lua.find_help_tags, "  Help Tags" },
-		m = { commands.fzf_lua.find_man_page, "  Man Pages" },
-		r = { commands.fzf_lua.find_in_registers, "  Registers" },
-		k = { commands.fzf_lua.find_keymaps, "  Keymaps" },
+		t = { cmd.fzf_lua.find_help_tags, "  Help Tags" },
+		m = { cmd.fzf_lua.find_man_page, "  Man Pages" },
+		r = { cmd.fzf_lua.find_in_registers, "  Registers" },
+		k = { cmd.fzf_lua.find_keymaps, "  Keymaps" },
 	},
 	d = M.diagnostics,
 	g = M.git,
@@ -297,59 +154,59 @@ M.find = {
 
 M.harpoon = {
 	name = "  Harpoon",
-	a = { commands.harpoon.add_file, "  Add File" },
-	m = { commands.harpoon.toggle_quick_menu, "  Menu" },
+	a = { cmd.harpoon.add_file, "  Add File" },
+	m = { cmd.harpoon.toggle_quick_menu, "  Menu" },
 	["1"] = {
 		function()
-			commands.harpoon.jump_to_file(1)
+			cmd.harpoon.jump_to_file(1)
 		end,
 		" ",
 	},
 	["2"] = {
 		function()
-			commands.harpoon.jump_to_file(2)
+			cmd.harpoon.jump_to_file(2)
 		end,
 		" ",
 	},
 	["3"] = {
 		function()
-			commands.harpoon.jump_to_file(3)
+			cmd.harpoon.jump_to_file(3)
 		end,
 		" ",
 	},
 	["4"] = {
 		function()
-			commands.harpoon.jump_to_file(4)
+			cmd.harpoon.jump_to_file(4)
 		end,
 		" ",
 	},
 	["5"] = {
 		function()
-			commands.harpoon.jump_to_file(5)
+			cmd.harpoon.jump_to_file(5)
 		end,
 		" ",
 	},
 	["6"] = {
 		function()
-			commands.harpoon.jump_to_file(6)
+			cmd.harpoon.jump_to_file(6)
 		end,
 		" ",
 	},
 	["7"] = {
 		function()
-			commands.harpoon.jump_to_file(7)
+			cmd.harpoon.jump_to_file(7)
 		end,
 		" ",
 	},
 	["8"] = {
 		function()
-			commands.harpoon.jump_to_file(8)
+			cmd.harpoon.jump_to_file(8)
 		end,
 		" ",
 	},
 	["9"] = {
 		function()
-			commands.harpoon.jump_to_file(9)
+			cmd.harpoon.jump_to_file(9)
 		end,
 		" ",
 	},
