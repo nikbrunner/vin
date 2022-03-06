@@ -9,6 +9,9 @@
 - [ ] Set up spell checking
 - [x] Binding to search related files based on filename
 
+### Plugins
+- [ ] Status Line Dynamic Background Color
+
 ### Commands
 - [ ] Rename commands to cmd 
 - [ ] Rename `.fuzzy` to `.find`
