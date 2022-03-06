@@ -33,11 +33,17 @@ if not status_ok then
 end
 
 -- Have packer use a popup window
+-- This is also the place for any other packer settings
 packer.init({
 	display = {
 		open_fn = function()
 			return require("packer.util").float({ border = "rounded" })
 		end,
+	},
+	git = {
+		subcommands = { -- Format strings for git subcommands
+			update = "pull --ff-only --progress --rebase=true",
+		},
 	},
 })
 
