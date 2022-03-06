@@ -1,7 +1,7 @@
 local gitsigns = protected_require("gitsigns")
 local commands = require("vin.core.commands")
 
-local go_to = commands.general.go_to
+local general_commands = commands.general
 
 local WhichKeyGroups = {}
 
@@ -69,25 +69,29 @@ WhichKeyGroups.noLeader = {
 	["["] = {
 		["q"] = {
 			function()
-				go_to(vim.cmd([[cprev]]))
+				vim.cmd([[cprev]])
+				vim.cmd([[norm zz]])
 			end,
 			"Prev QuickFix Item",
 		},
 		["b"] = {
 			function()
-				go_to(vim.cmd([[bprev]]))
+				vim.cmd([[bprev]])
+				vim.cmd([[norm zz]])
 			end,
 			"Prev Buffer",
 		},
 		["e"] = {
 			function()
-				go_to(vim.diagnostic.goto_prev)
+				vim.diagnostic.goto_prev()
+				vim.cmd([[norm zz]])
 			end,
 			"Prev Problem",
 		},
 		["g"] = {
 			function()
-				go_to(gitsigns.prev_hunk())
+				gitsigns.prev_hunk()
+				vim.cmd([[norm zz]])
 			end,
 			"Prev Change",
 		},
@@ -97,28 +101,48 @@ WhichKeyGroups.noLeader = {
 	["]"] = {
 		["q"] = {
 			function()
-				go_to(vim.cmd([[cnext]]))
+				vim.cmd([[cnext]])
+				vim.cmd([[norm zz]])
 			end,
 			"Prev QuickFix Item",
 		},
 		["b"] = {
 			function()
-				go_to(vim.cmd([[bnext]]))
+				vim.cmd([[bnext]])
+				vim.cmd([[norm zz]])
 			end,
 			"Prev Buffer",
 		},
 		["e"] = {
 			function()
-				go_to(vim.diagnostic.goto_next)
+				vim.diagnostic.goto_next()
+				vim.cmd([[norm zz]])
 			end,
 			"Prev Problem",
 		},
 		["g"] = {
 			function()
-				go_to(gitsigns.next_hunk())
+				gitsigns.next_hunk()
+				vim.cmd([[norm zz]])
 			end,
 			"Prev Change",
 		},
+	},
+
+	v = {
+		name = "Select",
+		b = { general_commands.blocks.select, "Select Block" },
+		a = { general_commands.all.select, "Select All" },
+	},
+	y = {
+		name = "Yank",
+		b = { general_commands.blocks.yank, "Yank Block" },
+		a = { general_commands.all.yank, "Yank All" },
+	},
+	d = {
+		name = "Delete",
+		b = { general_commands.blocks.delete, "Delete Block" },
+		a = { general_commands.all.delete, "Delete All" },
 	},
 }
 

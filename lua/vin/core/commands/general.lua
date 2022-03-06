@@ -3,7 +3,10 @@ if not notify_status_ok then
 	return
 end
 
-local General = {}
+local General = {
+  all = {},
+	blocks = {},
+}
 
 General.save_all = function()
 	vim.cmd([[silent wa]])
@@ -23,10 +26,32 @@ General.get_current_filename = function()
 	return fileName
 end
 
--- Executes a command and centers view afterwards
-General.go_to = function (callback)
-  callback()
-  vim.cmd[[norm zz]]
+General.blocks.select = function()
+	vim.cmd([[norm ^v$%]])
+end
+
+General.blocks.yank = function()
+	General.blocks.select()
+	vim.cmd([[norm y]])
+end
+
+General.blocks.delete = function()
+	General.blocks.select()
+	vim.cmd([[norm d]])
+end
+
+General.all.select = function ()
+  vim.cmd([[norm ggVG]])
+end
+
+General.all.yank = function ()
+  General.all.select()
+  vim.cmd([[norm y]])
+end
+
+General.all.delete = function ()
+  General.all.select()
+  vim.cmd([[norm d]])
 end
 
 return General

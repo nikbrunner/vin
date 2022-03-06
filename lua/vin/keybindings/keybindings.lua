@@ -17,22 +17,6 @@ vim.g.maplocalleader = " "
 -- Select line from beginning to end
 keymap("n", "vv", "^v$", opts)
 
--- Select blocks
--- TODO These seem do not work anymore
-keymap("n", "v{", "^vf{%", opts)
-keymap("n", "v[", "^vf[%", opts)
-keymap("n", "v(", "^vf(%", opts)
-
--- Delete blocks
-keymap("n", "d{", "^vf{%d", opts)
-keymap("n", "d[", "^vf[%d", opts)
-keymap("n", "d(", "^vf(%d", opts)
-
--- Yank blocks
-keymap("n", "y{", "^vf{%y", opts)
-keymap("n", "y[", "^vf[%y", opts)
-keymap("n", "y(", "^vf(%y", opts)
-
 -- INSERT MODE --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
