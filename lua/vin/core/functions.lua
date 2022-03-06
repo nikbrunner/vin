@@ -1,6 +1,7 @@
-local Functions = {}
+-- Functions for global and vim functions
 
--- Function to toggle quickfix list
+-- Vim Function to toggle quickfix list
+-- TODO Convert to Lua
 vim.cmd([[
 function! ToggleQuickFix()
   if empty(filter(getwininfo(), 'v:val.quickfix'))
@@ -11,6 +12,7 @@ function! ToggleQuickFix()
 endfunction
 ]])
 
+-- Global Function to debug and print table as lines 
 function _G.put(...)
 	local objects = {}
 	for i = 1, select("#", ...) do
@@ -21,13 +23,3 @@ function _G.put(...)
 	print(table.concat(objects, "\n"))
 	return ...
 end
-
--- get the current filename without extension
-Functions.get_current_filename = function()
-	local fileNameWithExt = vim.fn.expand("%:t")
-	local dotIndex = string.find(fileNameWithExt, ".", 1, true)
-	local fileName = string.sub(fileNameWithExt, 1, dotIndex - 1)
-	return fileName
-end
-
-return Functions

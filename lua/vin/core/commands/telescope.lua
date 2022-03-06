@@ -6,19 +6,19 @@ if not telescope_builtin_status_ok then
 	return
 end
 
-local telescope, telescope = pcall(require, "telescope")
-if not telescope then
+local telescope_status_ok, telescope = pcall(require, "telescope")
+if not telescope_status_ok then
 	return
 end
 
-local functions = require("vin.core.functions")
+local general_commands = require("vin.core.commands.general")
 
 local Telescope = {}
 
 -- Find related files based on the current file's name
 Telescope.find_related_files = function()
 	telescope_builtins.find_files({
-		default_text = functions.get_current_filename(),
+		default_text = general_commands.get_current_filename(),
 	})
 end
 

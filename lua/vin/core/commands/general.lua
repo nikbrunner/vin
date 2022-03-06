@@ -15,4 +15,12 @@ General.save_all = function()
 	})
 end
 
+-- get the current filename without extension
+General.get_current_filename = function()
+	local fileNameWithExt = vim.fn.expand("%:t")
+	local dotIndex = string.find(fileNameWithExt, ".", 1, true)
+	local fileName = string.sub(fileNameWithExt, 1, dotIndex - 1)
+	return fileName
+end
+
 return General
