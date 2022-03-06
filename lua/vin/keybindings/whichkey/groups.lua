@@ -46,12 +46,6 @@ WhichKeyGroups.noLeader = {
 		commands.fzf_lua.find_modified_files_with_preview,
 		"Find modified files",
 	},
-	["<C-f>"] = {
-		function()
-			require("harpoon.ui").toggle_quick_menu()
-		end,
-		"Harpoooooooooooon",
-	},
 	["<C-s>"] = { ":SymbolsOutline<CR>", "Symbols Outline" },
 	["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
 	["<F8>"] = { "<cmd>TroubleToggle<CR>", "TroubleShoot" },
