@@ -11,7 +11,7 @@ if not gitsigns_status_ok then
 end
 
 local commands = require("vin.core.commands")
-local groups = require("vin.keybindings.groups")
+local groups = require("vin.keybindings.maps.groups")
 local options = require("vin.keybindings.whichkey.options")
 
 local maps = {

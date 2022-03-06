@@ -4,7 +4,7 @@ if not which_key_status_ok then
 end
 
 local which_key_options = require("vin.keybindings.whichkey.options")
-local groups = require("vin.keybindings.groups")
+local groups = require("vin.keybindings.maps.groups")
 local commands = require("vin.core.commands")
 
 local maps = {
