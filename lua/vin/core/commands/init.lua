@@ -9,11 +9,11 @@ local zen = require("vin.core.commands.zen")
 local Commands = {
 	general = general,
 	fzf_lua = fzf_lua,
-  telescope = telescope,
+	telescope = telescope,
 	copy = copy,
 	harpoon = harpoon,
 	lsp = lsp,
-  zen = zen
+	zen = zen,
 }
 
 return Commands
