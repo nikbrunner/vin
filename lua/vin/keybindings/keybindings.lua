@@ -14,18 +14,6 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- go prev
-keymap("n", "[q", ":cprev<CR>zz", opts)
-keymap("n", "[b", ":bprev<CR>zz", opts)
-keymap("n", "[e", "<cmd>lua vim.diagnostic.goto_prev()<CR>zz", opts)
-keymap("n", "[g", "<cmd>lua require 'gitsigns'.prev_hunk()<CR>zz", opts)
-
--- go next
-keymap("n", "]q", ":cnext<CR>zz", opts)
-keymap("n", "]b", ":bnext<CR>zz", opts)
-keymap("n", "]e", "<cmd>lua vim.diagnostic.goto_next()<CR>zz", opts)
-keymap("n", "]g", "<cmd>lua require 'gitsigns'.next_hunk()<CR>zz", opts)
-
 -- Select line from beginning to end
 keymap("n", "vv", "^v$", opts)
 

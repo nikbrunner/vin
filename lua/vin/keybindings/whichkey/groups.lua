@@ -1,4 +1,7 @@
+local gitsigns = protected_require("gitsigns")
 local commands = require("vin.core.commands")
+
+local go_to = commands.general.go_to
 
 local WhichKeyGroups = {}
 
@@ -34,9 +37,9 @@ WhichKeyGroups.noLeader = {
 	["˙"] = { ":tabprevious<CR>", "Prev Tab" },
 	["¬"] = { ":tabnext<CR>", "Next Tab" },
 
--- Move text up and down
-  ["∆"] = { "<Esc>:m .+1<CR>", "Move Up" },
-  ["˚"] = { "<Esc>:m .-2<CR>", "Move Down" },
+	-- Move text up and down
+	["∆"] = { "<Esc>:m .+1<CR>", "Move Up" },
+	["˚"] = { "<Esc>:m .-2<CR>", "Move Down" },
 
 	-- Control bindings
 	["<C-p>"] = { commands.fzf_lua.find_files_without_preview, "  Files" },
@@ -61,6 +64,62 @@ WhichKeyGroups.noLeader = {
 	["<C-down>"] = { ":resize +2<CR>", "Resize Down" },
 	["<C-left>"] = { ":vertical resize -2<CR>", "Resize Left" },
 	["<C-right>"] = { ":vertical resize +2<CR>", "Resize Right" },
+
+	-- go to prev
+	["["] = {
+		["q"] = {
+			function()
+				go_to(vim.cmd([[cprev]]))
+			end,
+			"Prev QuickFix Item",
+		},
+		["b"] = {
+			function()
+				go_to(vim.cmd([[bprev]]))
+			end,
+			"Prev Buffer",
+		},
+		["e"] = {
+			function()
+				go_to(vim.diagnostic.goto_prev)
+			end,
+			"Prev Problem",
+		},
+		["g"] = {
+			function()
+				go_to(gitsigns.prev_hunk())
+			end,
+			"Prev Change",
+		},
+	},
+
+	-- go to next
+	["]"] = {
+		["q"] = {
+			function()
+				go_to(vim.cmd([[cnext]]))
+			end,
+			"Prev QuickFix Item",
+		},
+		["b"] = {
+			function()
+				go_to(vim.cmd([[bnext]]))
+			end,
+			"Prev Buffer",
+		},
+		["e"] = {
+			function()
+				go_to(vim.diagnostic.goto_next)
+			end,
+			"Prev Problem",
+		},
+		["g"] = {
+			function()
+				go_to(gitsigns.next_hunk())
+			end,
+			"Prev Change",
+		},
+	},
 }
 
 WhichKeyGroups.diagnostics = {

@@ -23,4 +23,10 @@ General.get_current_filename = function()
 	return fileName
 end
 
+-- Executes a command and centers view afterwards
+General.go_to = function (callback)
+  callback()
+  vim.cmd[[norm zz]]
+end
+
 return General
