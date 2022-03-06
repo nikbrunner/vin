@@ -32,10 +32,10 @@ local maps = {
 
 		-- Some hidden maps
 		["M"] = { commands.zen.toggle_small_screen, WhichKeyIgnoreLabel },
-		[" "] = {
-			commands.fzf_lua.find_files_without_preview,
-			WhichKeyIgnoreLabel,
-		},
+		-- [" "] = {
+		-- 	commands.fzf_lua.find_files_without_preview,
+		-- 	WhichKeyIgnoreLabel,
+		-- },
 		["n"] = { ":nohl", WhichKeyIgnoreLabel },
 
 		-- Tab navigation
