@@ -3,11 +3,11 @@ local commands = require("vin.core.commands")
 
 local general_commands = commands.general
 
-local WhichKeyGroups = {}
+local M = {}
 
 local noLabel = "which_key_ignore"
 
-WhichKeyGroups.noLeader = {
+M.noLeader = {
 	g = {
 		m = {
 			commands.fzf_lua.find_modified_files_with_preview,
@@ -132,21 +132,21 @@ WhichKeyGroups.noLeader = {
 	v = {
 		name = "Select",
 		b = { general_commands.blocks.select, "Select Block" },
-		a = { general_commands.all.select, "Select All" },
+		A = { general_commands.all.select, "Select All" },
 	},
 	y = {
 		name = "Yank",
 		b = { general_commands.blocks.yank, "Yank Block" },
-		a = { general_commands.all.yank, "Yank All" },
+		A = { general_commands.all.yank, "Yank All" },
 	},
 	d = {
 		name = "Delete",
 		b = { general_commands.blocks.delete, "Delete Block" },
-		a = { general_commands.all.delete, "Delete All" },
+		A = { general_commands.all.delete, "Delete All" },
 	},
 }
 
-WhichKeyGroups.diagnostics = {
+M.diagnostics = {
 	name = "Diagnostics",
 	d = {
 		commands.fzf_lua.find_problems_in_document,
@@ -158,7 +158,7 @@ WhichKeyGroups.diagnostics = {
 	},
 }
 
-WhichKeyGroups.lsp = {
+M.lsp = {
 	name = "  LSP",
 	j = {
 		"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
@@ -176,11 +176,11 @@ WhichKeyGroups.lsp = {
 	l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
 	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
 	p = { "<cmd>TroubleToggle<CR>", " Trouble" },
-	d = WhichKeyGroups.diagnostics,
+	d = M.diagnostics,
 	s = { commands.fzf_lua.find_symbols_in_workspace, " Symbol" },
 }
 
-WhichKeyGroups.explorer = {
+M.explorer = {
 	name = "  Explorer",
 	e = { "<cmd>NeoTreeFocusToggle<CR>", " Tree" },
 	f = { "<cmd>NeoTreeFloatToggle<CR>", " Float" },
@@ -189,7 +189,7 @@ WhichKeyGroups.explorer = {
 	s = { ":SymbolsOutline<CR>", "Symbols" },
 }
 
-WhichKeyGroups.quit = {
+M.quit = {
 	name = "  Quit",
 	c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	s = { ":silent wq<CR>", "Save and Quit Pane (:wq)" },
@@ -199,7 +199,7 @@ WhichKeyGroups.quit = {
 	a = { ":Bwipeout<CR>", "Close all Buffers" },
 }
 
-WhichKeyGroups.buffer = {
+M.buffer = {
 	name = "﩯 Buffer",
 	k = { ":bprev<CR>", "Previous Buffer" },
 	j = { ":bnext<CR>", "Next Buffer" },
@@ -215,17 +215,17 @@ WhichKeyGroups.buffer = {
 		e = { "<cmd>BufferLineSortByExtensions", "Sort by extension" },
 		t = { "<cmd>BufferLineSortByTabs", "Sort by tabs" },
 	},
-	q = WhichKeyGroups.quit,
+	q = M.quit,
 }
 
-WhichKeyGroups.copy = {
+M.copy = {
 	name = "  Copy",
 	f = { commands.copy.fullPath(), "Copy Full Path" },
 	r = { commands.copy.relativePath(), "Copy Relative Path" },
 	n = { commands.copy.fileName(), "Copy File Name" },
 }
 
-WhichKeyGroups.git = {
+M.git = {
 	name = "  Git",
 	s = { "<cmd>:LazyGit<CR>", "Status" }, -- TODO I still get stuck here from time to time
 	d = { "<cmd>DiffviewOpen<CR>", "Diffs" },
@@ -265,7 +265,7 @@ WhichKeyGroups.git = {
 	},
 }
 
-WhichKeyGroups.find = {
+M.find = {
 	name = "  Find",
 	["."] = { commands.fzf_lua.find_files_in_dotfiles, "· Dots" },
 	p = { commands.telescope.find_projects, "  Recent Projects" },
@@ -289,13 +289,13 @@ WhichKeyGroups.find = {
 		r = { commands.fzf_lua.find_in_registers, "  Registers" },
 		k = { commands.fzf_lua.find_keymaps, "  Keymaps" },
 	},
-	d = WhichKeyGroups.diagnostics,
-	g = WhichKeyGroups.git,
+	d = M.diagnostics,
+	g = M.git,
 }
 
 -- "<cmd>lua require('telescope').extensions.projects.projects()<CR>",
 
-WhichKeyGroups.harpoon = {
+M.harpoon = {
 	name = "  Harpoon",
 	a = { commands.harpoon.add_file, "  Add File" },
 	m = { commands.harpoon.toggle_quick_menu, "  Menu" },
@@ -355,7 +355,7 @@ WhichKeyGroups.harpoon = {
 	},
 }
 
-WhichKeyGroups.packer = {
+M.packer = {
 	name = "  Packer",
 	c = { "<cmd>PackerCompile<CR>", "Compile" },
 	i = { "<cmd>PackerInstall<CR>", "Install" },
@@ -364,7 +364,7 @@ WhichKeyGroups.packer = {
 	u = { "<cmd>PackerUpdate<CR>", "Update" },
 }
 
-WhichKeyGroups.insert = {
+M.insert = {
 	name = "  Insert",
 	l = {
 		'oconsole.log("LINE: <C-r>=line(".")<Esc>",);<Esc>O<Esc>jf,a ',
@@ -372,7 +372,7 @@ WhichKeyGroups.insert = {
 	},
 }
 
-WhichKeyGroups.tabs = {
+M.tabs = {
 	name = "  Tabs",
 	n = { ":tabnew<CR>", "New Tab" },
 	k = { ":tabprevious<CR>", "Previous Tab" },
@@ -393,4 +393,4 @@ WhichKeyGroups.tabs = {
 	["9"] = { "9gt", "Tab 9" },
 }
 
-return WhichKeyGroups
+return M

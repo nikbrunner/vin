@@ -1,9 +1,3 @@
---[[
-  INFO
-  These are my keybindings without a leader key.
-  I tried to map these also via WhichKey, but this resulted in a performance regression.
-]]
---
 local opts = { noremap = true, silent = true }
 
 -- Shorten function name

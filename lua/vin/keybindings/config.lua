@@ -1,4 +1,5 @@
-local WhichKeyConfig = {
+-- WhichKey Config
+return {
 	plugins = {
 		marks = true, -- shows a list of your marks on ' and `
 		registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -64,9 +65,3 @@ local WhichKeyConfig = {
 		v = { "j", "k" },
 	},
 }
-
-vim.cmd([[
-hi WhichKeyFloat guibg=Normal
-]])
-
-return WhichKeyConfig

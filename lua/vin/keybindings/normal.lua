@@ -5,9 +5,9 @@ end
 
 local commands = require("vin.core.commands")
 
-local groups = require("vin.keybindings.whichkey.groups")
-local options = require("vin.keybindings.whichkey.options")
-local config = require("vin.keybindings.whichkey.config")
+local groups = require("vin.keybindings.groups")
+local options = require("vin.keybindings.options")
+local config = require("vin.keybindings.config")
 
 local noLabel = "which_key_ignore"
 

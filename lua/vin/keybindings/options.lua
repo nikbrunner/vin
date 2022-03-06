@@ -1,6 +1,8 @@
-local WhichKeyOptions = {}
+-- WhichKey Mapping Options
 
-WhichKeyOptions.normal = {
+local M = {}
+
+M.normal = {
 	mode = "n", -- NORMAL mode
 	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
 	silent = true, -- use `silent` when creating keymaps
@@ -17,7 +19,7 @@ WhichKeyOptions.normal = {
 	},
 }
 
-WhichKeyOptions.insert = {
+M.insert = {
 	mode = "i", -- VISUAL mode
 	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
 	silent = true, -- use `silent` when creating keymaps
@@ -25,7 +27,7 @@ WhichKeyOptions.insert = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
-WhichKeyOptions.visual = {
+M.visual = {
 	mode = "v", -- VISUAL mode
 	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
 	silent = true, -- use `silent` when creating keymaps
@@ -42,4 +44,4 @@ WhichKeyOptions.visual = {
 	},
 }
 
-return WhichKeyOptions
+return M
