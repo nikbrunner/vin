@@ -1,10 +1,8 @@
--- local which_key = protected_require("which-key")
 local which_key_status_ok, which_key = pcall(require, "which-key")
 if not which_key_status_ok then
 	return
 end
 
--- local gitsigns = protected_require("gitsigns")
 local gitsigns_status_ok, gitsigns = pcall(require, "gitsigns")
 if not gitsigns_status_ok then
 	return

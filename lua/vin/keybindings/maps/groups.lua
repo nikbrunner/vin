@@ -1,4 +1,3 @@
--- local gitsigns = protected_require("gitsigns")
 local cmd = require("vin.core.commands")
 
 local M = {}
