@@ -29,7 +29,7 @@ Harpoon.add_file = function()
 
 	notify("Added '" .. filename .. "' to Harpoooon!", "info", {
 		title = title,
-    timeout = 3000,
+		timeout = 3000,
 		icon = icons.marked,
 	})
 end
@@ -41,7 +41,7 @@ Harpoon.jump_to_file = function(index)
 
 	notify("Jumped to '" .. filename .. "'!", "info", {
 		title = title,
-    timeout = 1000,
+		timeout = 1000,
 		icon = icons.jumped,
 	})
 end
@@ -51,7 +51,7 @@ Harpoon.toggle_quick_menu = function()
 
 	notify("Pick or edit these files!", "info", {
 		title = title,
-    timeout = 3000,
+		timeout = 3000,
 		icon = icons.success,
 	})
 end

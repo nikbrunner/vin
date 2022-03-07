@@ -9,7 +9,7 @@ neoclip.setup({
 	history = 1000,
 	filter = nil,
 	preview = true,
-  default_register = { '"' },
+	default_register = { '"' },
 	default_register_macros = "q",
 	enable_macro_history = true,
 	content_spec_column = false,

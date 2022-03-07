@@ -48,4 +48,3 @@ local github_dark_default_colors = {
 	TabSelectionBg = "#58a6ff",
 	TabSelectionFg = "#090c10",
 }
-

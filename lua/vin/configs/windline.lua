@@ -63,7 +63,10 @@ basic.lsp_diagnos = {
 					"red",
 				},
 				{
-					lsp_comps.lsp_warning({ format = "   %s", show_zero = false }),
+					lsp_comps.lsp_warning({
+						format = "   %s",
+						show_zero = false,
+					}),
 					"yellow",
 				},
 				{
@@ -124,11 +127,17 @@ basic.git = {
 					"green",
 				},
 				{
-					git_comps.diff_removed({ format = "   %s", show_zero = false }),
+					git_comps.diff_removed({
+						format = "   %s",
+						show_zero = false,
+					}),
 					"red",
 				},
 				{
-					git_comps.diff_changed({ format = "   %s", show_zero = false }),
+					git_comps.diff_changed({
+						format = "   %s",
+						show_zero = false,
+					}),
 					"blue",
 				},
 			}

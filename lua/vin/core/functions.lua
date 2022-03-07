@@ -12,7 +12,7 @@ function! ToggleQuickFix()
 endfunction
 ]])
 
--- Global Function to debug and print table as lines 
+-- Global Function to debug and print table as lines
 function _G.put(...)
 	local objects = {}
 	for i = 1, select("#", ...) do
@@ -27,9 +27,9 @@ end
 -- Wrapper Function for pcall() command
 -- TODO Try this out with a clean install and see if it works
 function _G.protected_require(modname)
-  local status_ok, mod = pcall(require, modname)
-  if not status_ok then
-    return nil
-  end
-  return mod
+	local status_ok, mod = pcall(require, modname)
+	if not status_ok then
+		return nil
+	end
+	return mod
 end
