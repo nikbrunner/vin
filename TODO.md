@@ -13,6 +13,7 @@
 
 ### Plugins
 - [x] Status Line Dynamic Colors
+- [ ] Rename Tag
 
 ### Commands
 - [ ] Rename commands to cmd
