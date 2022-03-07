@@ -1,6 +1,6 @@
-local M = {}
+local Options = {}
 
-M.normal = {
+Options.normal = {
 	no_leader = {
 		mode = "n", -- NORMAL mode
 		buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
@@ -19,7 +19,7 @@ M.normal = {
 	},
 }
 
-M.insert = {
+Options.insert = {
 	no_leader = {
 		mode = "i", -- VISUAL mode
 		buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
@@ -29,7 +29,7 @@ M.insert = {
 	},
 }
 
-M.visual = {
+Options.visual = {
 	no_leader = {
 		mode = "v", -- VISUAL mode
 		buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
@@ -48,4 +48,4 @@ M.visual = {
 	},
 }
 
-return M
+return Options

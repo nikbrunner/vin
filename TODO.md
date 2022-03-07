@@ -2,13 +2,14 @@
 
 ### General
 - [x] Binding to search related files based on filename
+- [x] Fix WhichKey Bindings
 - [ ] Convert to `vim.keymap.set` when merged in stable
   - This allows to directly use lua functions :)
   - Or Map non-leader bindings with WhichKey
 - [ ] Require config files from packer object
 - [ ] Create commands for Telescope (similar to fzf-lua)
 - [ ] Set up spell checking
-- [ ] Fix WhichKey Bindings
+- [ ] Resolve `core` folder
 
 ### Plugins
 - [x] Status Line Dynamic Colors

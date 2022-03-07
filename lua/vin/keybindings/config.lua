@@ -1,11 +1,5 @@
-local which_key_status_ok, which_key = pcall(require, "which-key")
-if not which_key_status_ok then
-	return
-end
-
-WhichKeyIgnoreLabel = "which_key_ignore"
-
-which_key.setup({
+-- WhichKey Options
+return {
 	plugins = {
 		marks = true, -- shows a list of your marks on ' and `
 		registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -70,4 +64,4 @@ which_key.setup({
 		i = { "j", "k" },
 		v = { "j", "k" },
 	},
-})
+}
