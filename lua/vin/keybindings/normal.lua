@@ -135,7 +135,7 @@ local maps = {
 			},
 		},
 
-		p = { '"_dP', WhichKeyIgnoreLabel },
+		-- p = { '"_dP', WhichKeyIgnoreLabel },
 
 		v = {
 			name = "Select",

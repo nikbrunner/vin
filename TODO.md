@@ -1,19 +1,20 @@
 ## To-do
 
 ### General
+- [x] Binding to search related files based on filename
 - [ ] Convert to `vim.keymap.set` when merged in stable
   - This allows to directly use lua functions :)
   - Or Map non-leader bindings with WhichKey
 - [ ] Require config files from packer object
 - [ ] Create commands for Telescope (similar to fzf-lua)
 - [ ] Set up spell checking
-- [x] Binding to search related files based on filename
+- [ ] Fix WhichKey Bindings
 
 ### Plugins
 - [x] Status Line Dynamic Colors
 
 ### Commands
-- [ ] Rename commands to cmd 
+- [ ] Rename commands to cmd
 - [ ] Rename `.fuzzy` to `.find`
 - [ ] Custom commands to convert casings
 
@@ -25,4 +26,3 @@
 
 ## Tips
 - [ ] Use <kbd>Ctrl+t</kbd> to go back in the taglist
-
