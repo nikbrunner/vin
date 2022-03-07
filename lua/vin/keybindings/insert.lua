@@ -6,14 +6,16 @@ end
 local which_key_options = require("vin.keybindings.whichkey.options")
 
 local maps = {
-	[","] = { ",<c-g>u", WhichKeyIgnoreLabel },
-	["."] = { ".<c-g>u", WhichKeyIgnoreLabel },
-	["="] = { "=<c-g>u", WhichKeyIgnoreLabel },
-	["!"] = { "!<c-g>u", WhichKeyIgnoreLabel },
-	["?"] = { "?<c-g>u", WhichKeyIgnoreLabel },
-	["["] = { "[<c-g>u", WhichKeyIgnoreLabel },
-	["("] = { "(<c-g>u", WhichKeyIgnoreLabel },
-	["{"] = { "{<c-g>u", WhichKeyIgnoreLabel },
+	no_leader = {
+		[","] = { ",<c-g>u", WhichKeyIgnoreLabel },
+		["."] = { ".<c-g>u", WhichKeyIgnoreLabel },
+		["="] = { "=<c-g>u", WhichKeyIgnoreLabel },
+		["!"] = { "!<c-g>u", WhichKeyIgnoreLabel },
+		["?"] = { "?<c-g>u", WhichKeyIgnoreLabel },
+		["["] = { "[<c-g>u", WhichKeyIgnoreLabel },
+		["("] = { "(<c-g>u", WhichKeyIgnoreLabel },
+		["{"] = { "{<c-g>u", WhichKeyIgnoreLabel },
+	},
 }
 
-which_key.register(maps, which_key_options.insert)
+which_key.register(maps.no_leader, which_key_options.insert.no_leader)

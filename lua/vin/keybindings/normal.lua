@@ -15,6 +15,7 @@ local options = require("vin.keybindings.whichkey.options")
 local maps = {
 	no_leader = {
 		g = {
+			name = "Advanced G",
 			m = {
 				commands.fzf_lua.find_modified_files_with_preview,
 				WhichKeyIgnoreLabel,
@@ -44,8 +45,8 @@ local maps = {
 		["¬"] = { ":tabnext<CR>", "Next Tab" },
 
 		-- Move text up and down
-		["∆"] = { "<Esc>:m .+1<CR>", "Move Up" },
-		["˚"] = { "<Esc>:m .-2<CR>", "Move Down" },
+		["˚"] = { "<Esc>:m .+1<CR>", "Move Up" },
+		["∆"] = { "<Esc>:m .-2<CR>", "Move Down" },
 
 		-- Control bindings
 		["<C-p>"] = { commands.fzf_lua.find_files_without_preview, "  Files" },
@@ -73,6 +74,7 @@ local maps = {
 
 		-- go to prev
 		["["] = {
+			name = "Prev",
 			["q"] = {
 				function()
 					vim.cmd([[cprev]])
@@ -105,6 +107,7 @@ local maps = {
 
 		-- go to next
 		["]"] = {
+			name = "Next",
 			["q"] = {
 				function()
 					vim.cmd([[cnext]])
@@ -135,17 +138,10 @@ local maps = {
 			},
 		},
 
-		-- p = { '"_dP', WhichKeyIgnoreLabel },
-
 		v = {
 			name = "Select",
 			b = { commands.general.blocks.select, "Select Block" },
-			v = {
-				function()
-					vim.cmd([[norm ^v$]])
-				end,
-				"Select Line",
-			},
+			v = { commands.general.line.select, "Select Line" },
 			A = { commands.general.all.select, "Select All" },
 		},
 		y = {

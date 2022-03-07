@@ -12,4 +12,4 @@ local visualBlockMappings = {
 	["K"] = { ":move '<-2<CR>gv-gv", WhichKeyIgnoreLabel },
 }
 
-which_key.register(visualBlockMappings, which_key_options.visual)
+which_key.register(visualBlockMappings, which_key_options.visual.no_leader)

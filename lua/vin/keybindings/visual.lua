@@ -30,14 +30,6 @@ local maps = {
 		["p"] = { commands.lsp.format_file, "  Format" },
 		["m"] = { commands.zen.toggle_full_screen, "  Maximize Pane" },
 
-		-- Some hidden maps
-		["M"] = { commands.zen.toggle_small_screen, WhichKeyIgnoreLabel },
-		-- [" "] = {
-		-- 	commands.fzf_lua.find_files_without_preview,
-		-- 	WhichKeyIgnoreLabel,
-		-- },
-		["n"] = { ":nohl", WhichKeyIgnoreLabel },
-
 		-- Tab navigation
 		["1"] = { "1gt", WhichKeyIgnoreLabel },
 		["2"] = { "2gt", WhichKeyIgnoreLabel },
@@ -64,5 +56,5 @@ local maps = {
 	},
 }
 
-which_key.register(maps.no_leader, which_key_options.visual)
-which_key.register(maps.with_leader, which_key_options.visual.withLeader)
+which_key.register(maps.no_leader, which_key_options.visual.no_leader)
+which_key.register(maps.with_leader, which_key_options.visual.with_leader)

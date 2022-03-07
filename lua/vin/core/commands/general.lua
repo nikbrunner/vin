@@ -4,8 +4,9 @@ if not notify_status_ok then
 end
 
 local General = {
-  all = {},
+	all = {},
 	blocks = {},
+	line = {},
 }
 
 General.save_all = function()
@@ -40,18 +41,22 @@ General.blocks.delete = function()
 	vim.cmd([[norm d]])
 end
 
-General.all.select = function ()
-  vim.cmd([[norm ggVG]])
+General.all.select = function()
+	vim.cmd([[norm ggVG]])
 end
 
-General.all.yank = function ()
-  General.all.select()
-  vim.cmd([[norm y]])
+General.all.yank = function()
+	General.all.select()
+	vim.cmd([[norm y]])
 end
 
-General.all.delete = function ()
-  General.all.select()
-  vim.cmd([[norm d]])
+General.all.delete = function()
+	General.all.select()
+	vim.cmd([[norm d]])
+end
+
+General.line.select = function()
+	vim.cmd([[norm ^v$]])
 end
 
 return General
