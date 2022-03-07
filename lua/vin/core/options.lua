@@ -53,3 +53,5 @@ vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
 vim.cmd([[set fillchars+=vert:\ ]])
 vim.cmd([[set fillchars+=stl:\ ]])
 vim.cmd([[set fillchars+=stlnc:\ ]])
+
+vim.cmd([[set shortmess+=FI]])
