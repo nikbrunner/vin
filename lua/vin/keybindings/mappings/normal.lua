@@ -157,7 +157,7 @@ NormalModeMappings.with_leader = {
 	["s"] = { cmds.general.save_all, "  Save" },
 	["p"] = { cmds.lsp.format_file, "  Format" },
 	["m"] = { cmds.zen.toggle_full_screen, "  Maximize Pane" },
-	["n"] = { ":nohl", WhichKeyIgnoreLabel },
+	["n"] = { ":nohl<CR>", WhichKeyIgnoreLabel },
 
 	-- Tab navigation
 	["1"] = { "1gt", WhichKeyIgnoreLabel },
