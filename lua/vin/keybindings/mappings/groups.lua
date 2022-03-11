@@ -47,10 +47,12 @@ MappingGroups.lsp = {
 
 MappingGroups.explorer = {
 	name = "  Explorer",
-	e = { "<cmd>NeoTreeFocusToggle<CR>", " Tree" },
-	f = { "<cmd>NeoTreeFloatToggle<CR>", " Float" },
-	r = { "<cmd>NeoTreeReveal<CR>", " Reveal" },
-	g = { "<cmd>NeoTreeFloat git_status<CR>", " Git Status" },
+	-- e = { "<cmd>NeoTreeFocusToggle<CR>", " Tree" },
+	e = { "<cmd>NvimTreeToggle<CR>", " Tree" },
+	-- f = { "<cmd>NeoTreeFloatToggle<CR>", " Float" },
+	-- r = { "<cmd>NeoTreeReveal<CR>", " Reveal" },
+	-- r = { "<cmd>NeoTreeReveal<CR>", " Reveal" },
+	-- g = { "<cmd>NeoTreeFloat git_status<CR>", " Git Status" },
 	s = { ":SymbolsOutline<CR>", "Symbols" },
 }
 
