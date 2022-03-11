@@ -33,8 +33,8 @@ NormalModeMappings.no_leader = {
 	["¬"] = { ":tabnext<CR>", "Next Tab" },
 
 	-- Move text up and down
-	["˚"] = { "<Esc>:m .+1<CR>", "Move Up" },
-	["∆"] = { "<Esc>:m .-2<CR>", "Move Down" },
+	["J"] = { "<Esc>:m .+1<CR>", "Move Down" },
+	["K"] = { "<Esc>:m .-2<CR>", "Move Up" },
 
 	-- Control bindings
 	["<C-p>"] = { cmds.fzf_lua.find_files_without_preview, "  Files" },
