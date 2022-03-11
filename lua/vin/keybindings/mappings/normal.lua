@@ -9,14 +9,7 @@ local groups = require("vin.keybindings.mappings.groups")
 local NormalModeMappings = {}
 
 NormalModeMappings.no_leader = {
-	g = {
-		name = "Advanced G",
-		m = {
-			cmds.fzf_lua.find_modified_files_with_preview,
-			WhichKeyIgnoreLabel,
-		},
-		s = { ":LazyGit<CR>", WhichKeyIgnoreLabel },
-	},
+	g = groups.advanced_g,
 
 	-- disable Q
 	Q = { "<Nop>", WhichKeyIgnoreLabel },

@@ -27,4 +27,14 @@ Telescope.find_projects = function()
 	telescope.extensions.projects.projects()
 end
 
+-- Go to definition
+Telescope.go_to_definition = function()
+  telescope_builtins.lsp_definitions()
+end
+
+-- List references
+Telescope.list_references = function()
+  telescope_builtins.lsp_references()
+end
+
 return Telescope

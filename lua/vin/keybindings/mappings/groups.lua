@@ -2,6 +2,20 @@ local cmds = require("vin.core.commands")
 
 local MappingGroups = {}
 
+MappingGroups.advanced_g = {
+	name = "Go-To",
+	h = { vim.lsp.buf.hover, "Hover Doc" },
+	d = { cmds.telescope.go_to_definition, "Go to Definition" },
+	i = { vim.lsp.buf.implementation, "Go to Implementation" },
+	r = { cmds.telescope.list_references, "List References" },
+	l = { vim.diagnostic.open_float, "Hover Problem" },
+	m = {
+		cmds.fzf_lua.find_modified_files_with_preview,
+		"Find Modified Files with Preview",
+	},
+	s = { ":LazyGit<CR>", "LazyGit" },
+}
+
 MappingGroups.diagnostics = {
 	name = "Diagnostics",
 	d = {
@@ -16,24 +30,19 @@ MappingGroups.diagnostics = {
 
 MappingGroups.lsp = {
 	name = "  LSP",
-	j = {
-		"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-		"Next Diagnostic",
-	},
-	k = {
-		"<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>",
-		"Prev Diagnostic",
-	},
+	j = { vim.lsp.diagnostic.goto_next, "Next Diagnostic" },
+	k = { vim.lsp.diagnostic.goto_prev, "Prev Diagnostic" },
 	a = { cmds.lsp.code_action, "  Code Action" },
 	f = { cmds.lsp.format_file, "  Format" },
 	i = { "<cmd>LspInfo<CR>", "Info" },
 	I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
-	r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-	l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
-	q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
+	n = { vim.lsp.buf.rename, "Change Name" },
+	l = { vim.lsp.codelens.run, "CodeLens Action" },
+	q = { vim.lsp.diagnostic.set_loclist, "Quickfix" },
 	p = { "<cmd>TroubleToggle<CR>", " Trouble" },
-	d = MappingGroups.diagnostics,
 	s = { cmds.fzf_lua.find_symbols_in_workspace, " Symbol" },
+	d = MappingGroups.diagnostics,
+	g = MappingGroups.advanced_g,
 }
 
 MappingGroups.explorer = {
@@ -238,6 +247,7 @@ MappingGroups.tabs = {
 	l = { ":tabmove +1<CR>", "Move Right" },
 	q = { ":tabclose<CR>", "Close Tab" },
 	o = { ":tabonly<CR>", "Only Tab" },
+	O = { "<C-w>T", "Open in new Tab" },
 	["1"] = { "1gt", "Tab 1" },
 	["2"] = { "2gt", "Tab 2" },
 	["3"] = { "3gt", "Tab 3" },

@@ -1,15 +1,24 @@
 ## To-do
 
 ### General
-- [x] Binding to search related files based on filename
-- [x] Fix WhichKey Bindings
-- [ ] Convert to `vim.keymap.set` when merged in stable
-  - This allows to directly use lua functions :)
-  - Or Map non-leader bindings with WhichKey
 - [ ] Require config files from packer object
 - [ ] Create commands for Telescope (similar to fzf-lua)
 - [ ] Set up spell checking
 - [ ] Resolve `core` folder
+- [ ] Save Session
+
+### Bindings
+- [x] Binding to search related files based on filename
+- [x] Fix WhichKey Bindings
+- [x] Convert to `vim.keymap.set` when merged in stable
+  - This allows to directly use lua functions :)
+  - Or Map non-leader bindings with WhichKey
+- [x] Move Bindngs from handlers to `/keybindings`
+- [x] Setup Bindings for LSP
+  - `ld` LSP => Defintion
+  - `lD` LSP => Peek Defintion
+  - `lt` LSP => TypeDefintion
+  - etc. .. Like in VSCode 
 
 ### Plugins
 - [x] Status Line Dynamic Colors
