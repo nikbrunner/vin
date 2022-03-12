@@ -147,7 +147,9 @@ NormalModeMappings.no_leader = {
 NormalModeMappings.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	["s"] = { cmds.general.save_all, "  Save" },
+	["e"] = { "<cmd>NvimTreeToggle<CR>", " File Tree" },
+	["o"] = { ":SymbolsOutline<CR>", " File Outline" },
+	["s"] = { cmds.general.save_all, "  Save All" },
 	["p"] = { cmds.lsp.format_file, "  Format" },
 	["m"] = { cmds.zen.toggle_full_screen, "  Maximize Pane" },
 	["n"] = { ":nohl<CR>", WhichKeyIgnoreLabel },
@@ -166,7 +168,6 @@ NormalModeMappings.with_leader = {
 	-- Groups
 	P = groups.packer,
 	f = groups.find,
-	e = groups.explorer,
 	g = groups.git,
 	l = groups.lsp,
 	h = groups.harpoon,

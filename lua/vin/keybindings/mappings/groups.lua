@@ -45,6 +45,7 @@ MappingGroups.lsp = {
 	g = MappingGroups.advanced_g,
 }
 
+-- Currently not used
 MappingGroups.explorer = {
 	name = "  Explorer",
 	-- e = { "<cmd>NeoTreeFocusToggle<CR>", " Tree" },
