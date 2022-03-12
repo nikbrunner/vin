@@ -63,6 +63,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "windwp/windline.nvim" })
 	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
+  use({"stevearc/dressing.nvim"})
 
 	-- Workflow
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
