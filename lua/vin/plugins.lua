@@ -118,7 +118,6 @@ return packer.startup(function(use) -- My plugins here
 	use("folke/lua-dev.nvim")
 	use({ "onsails/lspkind-nvim" })
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
-	use({ "stevearc/dressing.nvim" })
 
 	-- Fuzzy finding
 	use("nvim-telescope/telescope.nvim")
