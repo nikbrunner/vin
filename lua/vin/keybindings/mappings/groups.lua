@@ -139,7 +139,8 @@ MappingGroups.find = {
 	p = { cmds.telescope.find_projects, "  Recent Projects" },
 	f = { cmds.fzf_lua.find_files_without_preview, "  Files" },
 	F = { cmds.fzf_lua.find_files_with_preview, "  Files (With Preview)" },
-	r = { cmds.telescope.find_related_files, "  Related Files" },
+  -- TODO This is broken. Telescope throws a segmentation fault and fzf_lua doesn't work wit ha default prompt
+	-- r = { cmds.fzf_lua.find_related_files, "  Related Files" },
 	t = { cmds.fzf_lua.find_text, "  Find Text Everywhere" },
 	i = { cmds.fzf_lua.find_in_file, "  Find Text in File" },
 	w = { cmds.fzf_lua.find_word_under_cursor, "  Find Current Word" },
