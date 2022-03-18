@@ -41,8 +41,10 @@ MappingGroups.lsp = {
 	q = { vim.lsp.diagnostic.set_loclist, "Quickfix" },
 	p = { "<cmd>TroubleToggle<CR>", " Trouble" },
 	s = { cmds.fzf_lua.find_symbols_in_workspace, " Symbol" },
-	d = MappingGroups.diagnostics,
-	g = MappingGroups.advanced_g,
+	r = { cmds.telescope.list_references, "List References" },
+	h = { vim.diagnostic.open_float, "Hover Problem" },
+	d = { cmds.telescope.go_to_definition, "Go to Definition" },
+	D = MappingGroups.diagnostics,
 }
 
 -- Currently not used
