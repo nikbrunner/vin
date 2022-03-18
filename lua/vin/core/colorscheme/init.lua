@@ -12,6 +12,7 @@ endtry
 vim.cmd([[
   hi StatusLine gui=NONE guifg=NONE guibg=NonText guisp=NonText
   hi StatusLineNc gui=NONE guifg=NONE guibg=NonText guisp=NonText
+  hi WinSeparator gui=NONE guifg=NONE guibg=NonText guisp=NonText
 ]])
 
 -- Hide Vertical SplitLines

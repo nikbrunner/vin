@@ -55,3 +55,7 @@ vim.cmd([[set fillchars+=stl:\ ]])
 vim.cmd([[set fillchars+=stlnc:\ ]])
 
 vim.cmd([[set shortmess+=FI]])
+
+-- Enable global status Line
+-- TODO Move this to options when available
+vim.cmd([[set laststatus=3]])
