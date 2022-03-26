@@ -69,7 +69,9 @@ return packer.startup(function(use) -- My plugins here
 	use({ "antoinemadec/FixCursorHold.nvim" }) -- This is needed to fix lsp doc highlight
 	use({ "windwp/nvim-autopairs" }) -- Autopairs, integrates with both cmp and treesitter
 	use({ "numToStr/Comment.nvim" }) -- Easily comment stuff
-	use({ "lukas-reineke/indent-blankline.nvim" }) -- Indent Outline
+	use({ "lukas-reineke/indent-blankline.nvim",
+    disable = true
+   }) -- Indent Outline
 	use({ "numToStr/BufOnly.nvim", cmd = "BufOnly" })
 	use({ "moll/vim-bbye" })
 	use({ "RRethy/vim-illuminate" })
