@@ -3,7 +3,7 @@ require("vin.core.colorscheme.onedark")
 
 vim.cmd([[
 try
-  colorscheme onedark
+  colorscheme github_dark_default
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
   set background=dark

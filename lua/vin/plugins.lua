@@ -87,16 +87,13 @@ return packer.startup(function(use) -- My plugins here
 	use({ "folke/zen-mode.nvim" })
 
 	-- Colorschemes
-	use("lunarvim/colorschemes")
-	use("projekt0n/github-nvim-theme")
+	use({ "projekt0n/github-nvim-theme" })
+	use({ "navarasu/onedark.nvim" })
 	use({
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("colorizer").setup()
 		end,
-	})
-	use({
-		"navarasu/onedark.nvim",
 	})
 
 	-- cmp plugins
