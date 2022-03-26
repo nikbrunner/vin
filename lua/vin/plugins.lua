@@ -91,12 +91,7 @@ return packer.startup(function(use) -- My plugins here
 	-- Colorschemes
 	use({ "projekt0n/github-nvim-theme" })
 	use({ "navarasu/onedark.nvim" })
-	use({
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
-		end,
-	})
+	use({ "norcalli/nvim-colorizer.lua" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
