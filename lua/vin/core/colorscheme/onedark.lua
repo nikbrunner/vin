@@ -29,7 +29,7 @@ onedark.setup({
 		keywords = "italic",
 		functions = "none",
 		strings = "none",
-		variables = "italic",
+		variables = "bold",
 	},
 
 	-- Custom Highlights --
