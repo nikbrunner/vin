@@ -29,10 +29,10 @@ NormalModeMappings.no_leader = {
 	k = { "gk", WhichKeyIgnoreLabel },
 
 	-- Navigate buffers and Tabs
-	["<S-Tab>"] = { ":bprevious<CR>", "Prev Buffer" },
-	["<Tab>"] = { ":bnext<CR>", "Next Buffer" },
-	["˙"] = { ":tabprevious<CR>", "Prev Tab" },
-	["¬"] = { ":tabnext<CR>", "Next Tab" },
+	["¬"] = { ":bprevious<CR>", "Prev Buffer" },
+	["˙"] = { ":bnext<CR>", "Next Buffer" },
+	["<S-Tab>"] = { ":tabprevious<CR>", "Prev Tab" },
+	["<Tab>"] = { ":tabnext<CR>", "Next Tab" },
 
 	-- Move text up and down
 	["J"] = { "<Esc>:m .+1<CR>", "Move Down" },
