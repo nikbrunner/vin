@@ -15,7 +15,6 @@ end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
--- find more here: https://www.nerdfonts.com/cheat-sheet
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -23,10 +22,10 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
-		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+		["<Up>"] = cmp.mapping.select_prev_item(),
+		["<Down>"] = cmp.mapping.select_next_item(),
+		["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+		["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 		["<C-e>"] = cmp.mapping({
@@ -67,9 +66,10 @@ cmp.setup({
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
 	},
-	window = {
-		documentation = "navtive",
-	},
+	-- I needed to disable this to prevent errors: https://www.reddit.com/r/neovim/comments/u5onwt/how_so_i_resolve_the_documentation_is_deprecated/i537wiu/?utm_source=share&utm_medium=web2x&context=3
+	-- window = {
+	-- 	documentation = "native",
+	-- },
 	experimental = {
 		ghost_text = false,
 		native_menu = false,
