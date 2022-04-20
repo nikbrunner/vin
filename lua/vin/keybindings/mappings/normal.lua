@@ -14,6 +14,8 @@ NormalModeMappings.no_leader = {
 	-- disable Q
 	Q = { "<Nop>", WhichKeyIgnoreLabel },
 
+	["<CR>"] = { ":wa<CR>", WhichKeyIgnoreLabel },
+
 	-- Go to Line Start and End
 	H = { "^", WhichKeyIgnoreLabel },
 	L = { "$", WhichKeyIgnoreLabel },
@@ -147,7 +149,6 @@ NormalModeMappings.no_leader = {
 NormalModeMappings.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	["e"] = { "<cmd>NvimTreeToggle<CR>", " File Tree" },
 	["o"] = { ":SymbolsOutline<CR>", " File Outline" },
 	["s"] = { cmds.general.save_all, "  Save All" },
 	["p"] = { cmds.lsp.format_file, "  Format" },
@@ -166,6 +167,7 @@ NormalModeMappings.with_leader = {
 	["9"] = { "9gt", WhichKeyIgnoreLabel },
 
 	-- Groups
+  e = groups.explorer,
 	P = groups.packer,
 	f = groups.find,
 	g = groups.git,
