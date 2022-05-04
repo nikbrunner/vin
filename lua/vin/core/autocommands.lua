@@ -1,3 +1,5 @@
+local cmds = require("vin.core.commands")
+
 vim.cmd([[
   augroup _general_settings
     autocmd!
@@ -30,10 +32,10 @@ vim.cmd([[
   augroup end
 ]])
 
--- Auto Formatting
--- vim.cmd([[
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end
--- ]])
+local lspAuGroup = vim.api.nvim_create_augroup("Formatting", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	command = "lua vim.lsp.buf.format({ async = true })",
+	group = lspAuGroup,
+})
