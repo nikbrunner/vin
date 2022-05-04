@@ -67,7 +67,7 @@ return packer.startup(function(use) -- My plugins here
 			"MunifTanjim/nui.nvim",
 		},
 	})
-	use({ "akinsho/bufferline.nvim" })
+	use({ "romgrk/barbar.nvim" })
 	use({ "windwp/windline.nvim" })
 	use({ "goolord/alpha-nvim" })
 	use({ "folke/which-key.nvim" })

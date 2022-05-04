@@ -36,6 +36,6 @@ local lspAuGroup = vim.api.nvim_create_augroup("Formatting", { clear = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
-	command = "lua vim.lsp.buf.format({ async = true })",
+	callback = cmds.lsp.format_file,
 	group = lspAuGroup,
 })
