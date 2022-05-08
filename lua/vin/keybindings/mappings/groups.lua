@@ -133,8 +133,8 @@ MappingGroups.git = {
 	},
 }
 
-MappingGroups.find = {
-	name = "  Find",
+MappingGroups.search = {
+	name = "  Search",
 	["."] = { cmds.fzf_lua.find_files_in_dotfiles, "· Dots" },
 	p = { cmds.telescope.find_projects, "  Recent Projects" },
 	f = { cmds.fzf_lua.find_files_without_preview, "  Files" },

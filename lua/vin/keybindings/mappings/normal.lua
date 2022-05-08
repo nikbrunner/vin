@@ -150,8 +150,8 @@ NormalModeMappings.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	["o"] = { ":SymbolsOutline<CR>", " File Outline" },
-	["s"] = { cmds.general.save_all, "  Save All" },
 	["p"] = { cmds.lsp.format_file, "  Format" },
+	['f'] = { cmds.fzf_lua.find_files_without_preview, "  Files" },
 	["m"] = { cmds.zen.toggle_full_screen, "  Maximize Pane" },
 	["n"] = { ":nohl<CR>", WhichKeyIgnoreLabel },
 
@@ -169,7 +169,7 @@ NormalModeMappings.with_leader = {
 	-- Groups
   e = groups.explorer,
 	P = groups.packer,
-	f = groups.find,
+	s = groups.search,
 	g = groups.git,
 	l = groups.lsp,
 	h = groups.harpoon,
