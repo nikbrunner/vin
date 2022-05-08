@@ -21,7 +21,6 @@ VisualModeMappings.no_leader = {
 VisualModeMappings.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	["s"] = { cmds.general.save_all, "  Save" },
 	["p"] = { cmds.lsp.format_file, "  Format" },
 	["m"] = { cmds.zen.toggle_full_screen, "  Maximize Pane" },
 	["n"] = { ":nohl", WhichKeyIgnoreLabel },
@@ -39,7 +38,7 @@ VisualModeMappings.with_leader = {
 
 	-- Groups
 	P = groups.packer,
-	f = groups.find,
+	s = groups.search,
 	e = groups.explorer,
 	g = groups.git,
 	l = groups.lsp,
