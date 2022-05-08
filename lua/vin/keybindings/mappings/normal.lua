@@ -46,7 +46,6 @@ NormalModeMappings.no_leader = {
 		cmds.fzf_lua.find_modified_files_with_preview,
 		"Find modified files",
 	},
-	["<C-s>"] = { ":SymbolsOutline<CR>", "Symbols Outline" },
 	["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
 	["<F8>"] = { "<cmd>TroubleToggle<CR>", "TroubleShoot" },
 
@@ -149,7 +148,6 @@ NormalModeMappings.no_leader = {
 NormalModeMappings.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	["o"] = { ":SymbolsOutline<CR>", " File Outline" },
 	["p"] = { cmds.lsp.format_file, "  Format" },
 	["f"] = { cmds.fzf_lua.find_files_without_preview, "  Files" },
 	["m"] = { cmds.zen.toggle_full_screen, "  Maximize Pane" },

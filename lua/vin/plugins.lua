@@ -90,7 +90,6 @@ return packer.startup(function(use) -- My plugins here
 	use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
 	use({ "github/copilot.vim", disable = true })
 	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
-	use({ "simrat39/symbols-outline.nvim" })
 	use({ "rcarriga/nvim-notify" })
 	use({ "folke/zen-mode.nvim" })
 	use({ "karb94/neoscroll.nvim" })
