@@ -18,8 +18,6 @@ dashboard.section.header.val = {
 	[[       '\:::\;'                   `*´‘         \:'             `*´'‚          ]],
 	[[         `*´‘                                                                 ]],
 	[[                                                                              ]],
-	[[                        Hello, my name is Vin! :)                             ]],
-	[[                 I will help you fly through the Darkness.                    ]],
 }
 
 dashboard.section.buttons.val = {
