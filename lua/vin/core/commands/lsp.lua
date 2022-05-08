@@ -6,7 +6,8 @@ end
 Lsp = {}
 
 Lsp.format_file = function()
-	vim.lsp.buf.format({ async = true })
+	-- vim.lsp.buf.format({ async = true }) // Nvim 0.8 ??
+	vim.lsp.buf.formatting()
 	vim.cmd([[silent w]])
 
 	notify("Formated and saved file", "info", {
