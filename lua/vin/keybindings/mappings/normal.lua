@@ -29,8 +29,8 @@ NormalModeMappings.no_leader = {
 	k = { "gk", WhichKeyIgnoreLabel },
 
 	-- Navigate buffers and Tabs
-	["¬"] = { ":bprevious<CR>", "Prev Buffer" },
-	["˙"] = { ":bnext<CR>", "Next Buffer" },
+	["˙"] = { ":BufferPrevious<CR>", "Prev Buffer" },
+	["¬"] = { ":BufferNext<CR>", "Next Buffer" },
 	["<S-Tab>"] = { ":tabprevious<CR>", "Prev Tab" },
 	["<Tab>"] = { ":tabnext<CR>", "Next Tab" },
 
@@ -151,7 +151,7 @@ NormalModeMappings.with_leader = {
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	["o"] = { ":SymbolsOutline<CR>", " File Outline" },
 	["p"] = { cmds.lsp.format_file, "  Format" },
-	['f'] = { cmds.fzf_lua.find_files_without_preview, "  Files" },
+	["f"] = { cmds.fzf_lua.find_files_without_preview, "  Files" },
 	["m"] = { cmds.zen.toggle_full_screen, "  Maximize Pane" },
 	["n"] = { ":nohl<CR>", WhichKeyIgnoreLabel },
 
@@ -167,7 +167,7 @@ NormalModeMappings.with_leader = {
 	["9"] = { "9gt", WhichKeyIgnoreLabel },
 
 	-- Groups
-  e = groups.explorer,
+	e = groups.explorer,
 	P = groups.packer,
 	s = groups.search,
 	g = groups.git,
