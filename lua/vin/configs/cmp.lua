@@ -67,9 +67,10 @@ cmp.setup({
 		select = false,
 	},
 	-- I needed to disable this to prevent errors: https://www.reddit.com/r/neovim/comments/u5onwt/how_so_i_resolve_the_documentation_is_deprecated/i537wiu/?utm_source=share&utm_medium=web2x&context=3
-	-- window = {
-	-- 	documentation = "native",
-	-- },
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
 	experimental = {
 		ghost_text = false,
 		native_menu = false,
