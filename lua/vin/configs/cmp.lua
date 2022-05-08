@@ -42,6 +42,34 @@ cmp.setup({
 			with_text = true, -- do not show text alongside icons
 			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
+			kind_icons = {
+				Class = " ",
+				Color = " ",
+				Constant = "ﲀ ",
+				Constructor = " ",
+				Enum = "練",
+				EnumMember = " ",
+				Event = " ",
+				Field = " ",
+				File = "",
+				Folder = " ",
+				Function = " ",
+				Interface = "ﰮ ",
+				Keyword = " ",
+				Method = " ",
+				Module = " ",
+				Operator = "",
+				Property = " ",
+				Reference = " ",
+				Snippet = " ",
+				Struct = " ",
+				Text = " ",
+				TypeParameter = " ",
+				Unit = "塞",
+				Value = " ",
+				Variable = " ",
+			},
+
 			-- The function below will be called before any actual modifications from lspkind
 			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
 			before = function(entry, vim_item)
@@ -72,7 +100,7 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 	experimental = {
-		ghost_text = false,
+		ghost_text = true,
 		native_menu = false,
 	},
 })
