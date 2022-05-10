@@ -6,8 +6,6 @@ end
 
 local Fzf = {}
 
-local general_commands = require("vin.core.commands.general")
-
 Fzf.find_files_without_preview = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
