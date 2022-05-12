@@ -71,6 +71,13 @@ NormalModeMappings.no_leader = {
 			end,
 			"Prev QuickFix Item",
 		},
+		["l"] = {
+			function()
+				vim.cmd([[lprev]])
+				vim.cmd([[norm zz]])
+			end,
+			"Prev LocList Item",
+		},
 		["b"] = {
 			function()
 				vim.cmd([[bprev]])
@@ -103,6 +110,13 @@ NormalModeMappings.no_leader = {
 				vim.cmd([[norm zz]])
 			end,
 			"Prev QuickFix Item",
+		},
+		["l"] = {
+			function()
+				vim.cmd([[lnext]])
+				vim.cmd([[norm zz]])
+			end,
+			"Prev LocList Item",
 		},
 		["b"] = {
 			function()
