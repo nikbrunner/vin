@@ -1,6 +1,6 @@
-local InsertModeMappings = {}
+local M = {}
 
-InsertModeMappings.no_leader = {
+M.no_leader = {
 	[","] = { ",<c-g>u", WhichKeyIgnoreLabel },
 	["."] = { ".<c-g>u", WhichKeyIgnoreLabel },
 	["="] = { "=<c-g>u", WhichKeyIgnoreLabel },
@@ -11,4 +11,4 @@ InsertModeMappings.no_leader = {
 	["{"] = { "{<c-g>u", WhichKeyIgnoreLabel },
 }
 
-return InsertModeMappings
+return M

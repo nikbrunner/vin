@@ -1,9 +1,9 @@
 local cmds = require("vin.core.commands")
 local groups = require("vin.keybindings.mappings.groups")
 
-local VisualModeMappings = {}
+local M = {}
 
-VisualModeMappings.no_leader = {
+M.no_leader = {
 	-- Better Indent
 	["<"] = { "<gv", WhichKeyIgnoreLabel },
 	[">"] = { ">gv", WhichKeyIgnoreLabel },
@@ -18,7 +18,7 @@ VisualModeMappings.no_leader = {
 	["K"] = { ":move '<-2<CR>gv-gv", WhichKeyIgnoreLabel },
 }
 
-VisualModeMappings.with_leader = {
+M.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	["p"] = { cmds.lsp.format_file, "  Format" },
@@ -49,4 +49,4 @@ VisualModeMappings.with_leader = {
 	b = groups.buffer,
 	t = groups.tabs,
 }
-return VisualModeMappings
+return M

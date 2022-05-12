@@ -3,9 +3,9 @@ if not notify_status_ok then
 	return
 end
 
-Lsp = {}
+M = {}
 
-Lsp.format_file = function()
+M.format_file = function()
 	-- vim.lsp.buf.format({ async = true }) // Nvim 0.8 ??
 	vim.lsp.buf.formatting()
 	vim.cmd([[silent w]])
@@ -17,7 +17,7 @@ Lsp.format_file = function()
 	})
 end
 
-Lsp.code_action = function()
+M.code_action = function()
 	-- vim.lsp.buf.code_action()
 	vim.cmd([[CodeActionMenu]])
 
@@ -45,7 +45,7 @@ local function count_lsp_res_changes(lsp_res)
 	return count
 end
 
-Lsp.symbol_rename = function()
+M.symbol_rename = function()
 	local curr_name = vim.fn.expand("<cword>")
 	local input_opts = {
 		prompt = "New name?",
@@ -86,12 +86,16 @@ Lsp.symbol_rename = function()
 					changes.files > 1 and "To save them run ':wa'!" or ""
 				)
 
-				notify(message)
+				notify(message, "info", {
+					title = "Renamed '" .. curr_name .. "' to '" .. new_name .. "'",
+					timeout = 500,
+					icon = "🧙",
+				})
 			end
 		)
 	end)
 end
 
-vim.api.nvim_create_user_command("VinLspRename", Lsp.symbol_rename, {})
+vim.api.nvim_create_user_command("VinLspRename", M.symbol_rename, {})
 
-return Lsp
+return M

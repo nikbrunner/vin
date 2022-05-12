@@ -6,9 +6,9 @@ end
 local cmds = require("vin.core.commands")
 local groups = require("vin.keybindings.mappings.groups")
 
-local NormalModeMappings = {}
+local M = {}
 
-NormalModeMappings.no_leader = {
+M.no_leader = {
 	g = groups.advanced_g,
 
 	-- disable Q
@@ -159,7 +159,7 @@ NormalModeMappings.no_leader = {
 	},
 }
 
-NormalModeMappings.with_leader = {
+M.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	["p"] = { cmds.lsp.format_file, "  Format" },
@@ -192,4 +192,4 @@ NormalModeMappings.with_leader = {
 	t = groups.tabs,
 }
 
-return NormalModeMappings
+return M

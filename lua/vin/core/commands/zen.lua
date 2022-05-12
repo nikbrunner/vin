@@ -3,15 +3,15 @@ if not status_ok then
 	return
 end
 
-local Zen = {}
+local M = {}
 
-Zen.toggle_full_screen = function()
+M.toggle_full_screen = function()
 	-- Default without opts is full screen
 	zen_mode.toggle()
 end
 
 -- This would be cool, but the backdrop doesnt get transparent
-Zen.toggle_small_screen = function()
+M.toggle_small_screen = function()
 	-- Default without opts is full screen
 	zen_mode.toggle({
 		window = {
@@ -22,4 +22,4 @@ Zen.toggle_small_screen = function()
 	})
 end
 
-return Zen
+return M

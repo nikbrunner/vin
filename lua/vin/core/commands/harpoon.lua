@@ -3,7 +3,7 @@ if not notify_status_ok then
 	return
 end
 
-local harpoon_status_ok, harpoon = pcall(require, "harpoon")
+local harpoon_status_ok, _ = pcall(require, "harpoon")
 if not harpoon_status_ok then
 	return
 end
@@ -20,9 +20,9 @@ local icons = {
 
 local title = "Harpoon"
 
-local Harpoon = {}
+local M = {}
 
-Harpoon.add_file = function()
+M.add_file = function()
 	mark.add_file()
 
 	local filename = vim.fn.expand("%:t")
@@ -34,7 +34,7 @@ Harpoon.add_file = function()
 	})
 end
 
-Harpoon.jump_to_file = function(index)
+M.jump_to_file = function(index)
 	ui.nav_file(index)
 
 	local filename = vim.fn.expand("%:t")
@@ -46,7 +46,7 @@ Harpoon.jump_to_file = function(index)
 	})
 end
 
-Harpoon.toggle_quick_menu = function()
+M.toggle_quick_menu = function()
 	ui.toggle_quick_menu()
 
 	notify("Pick or edit these files!", "info", {
@@ -56,4 +56,4 @@ Harpoon.toggle_quick_menu = function()
 	})
 end
 
-return Harpoon
+return M

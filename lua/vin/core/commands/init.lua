@@ -6,7 +6,7 @@ local copy = require("vin.core.commands.copy")
 local harpoon = require("vin.core.commands.harpoon")
 local zen = require("vin.core.commands.zen")
 
-local Commands = {
+local M = {
 	general = general,
 	fzf_lua = fzf_lua,
 	telescope = telescope,
@@ -16,4 +16,4 @@ local Commands = {
 	zen = zen,
 }
 
-return Commands
+return M

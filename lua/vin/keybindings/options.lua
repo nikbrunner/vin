@@ -1,6 +1,6 @@
-local Options = {}
+local M = {}
 
-Options.normal = {
+M.normal = {
 	no_leader = {
 		mode = "n", -- NORMAL mode
 		buffer = nil,
@@ -19,7 +19,7 @@ Options.normal = {
 	},
 }
 
-Options.insert = {
+M.insert = {
 	no_leader = {
 		mode = "i", -- VISUAL mode
 		buffer = nil,
@@ -29,7 +29,7 @@ Options.insert = {
 	},
 }
 
-Options.visual = {
+M.visual = {
 	no_leader = {
 		mode = "v", -- VISUAL mode
 		buffer = nil,
@@ -48,4 +48,4 @@ Options.visual = {
 	},
 }
 
-return Options
+return M

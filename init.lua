@@ -1,7 +1,7 @@
 -- Function to savely load modules when sourcing the the init.lua
 local function load(mod)
-  package.loaded[mod] = nil
-  return require(mod)
+	package.loaded[mod] = nil
+	return require(mod)
 end
 
 load("vin.core")

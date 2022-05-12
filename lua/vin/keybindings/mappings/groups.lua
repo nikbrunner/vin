@@ -1,8 +1,8 @@
 local cmds = require("vin.core.commands")
 
-local MappingGroups = {}
+local M = {}
 
-MappingGroups.advanced_g = {
+M.advanced_g = {
 	name = "Go-To",
 	h = { vim.lsp.buf.hover, "Hover Doc" },
 	d = { cmds.telescope.go_to_definition, "Go to Definition" },
@@ -17,7 +17,7 @@ MappingGroups.advanced_g = {
 	s = { ":LazyGit<CR>", "LazyGit" },
 }
 
-MappingGroups.diagnostics = {
+M.diagnostics = {
 	name = "Diagnostics",
 	d = {
 		cmds.fzf_lua.find_problems_in_document,
@@ -29,7 +29,7 @@ MappingGroups.diagnostics = {
 	},
 }
 
-MappingGroups.lsp = {
+M.lsp = {
 	name = "  LSP",
 	j = { vim.lsp.diagnostic.goto_next, "Next Diagnostic" },
 	k = { vim.lsp.diagnostic.goto_prev, "Prev Diagnostic" },
@@ -46,11 +46,11 @@ MappingGroups.lsp = {
 	R = { cmds.fzf_lua.find_references, "List References" },
 	h = { vim.diagnostic.open_float, "Hover Problem" },
 	d = { cmds.telescope.go_to_definition, "Go to Definition" },
-	D = MappingGroups.diagnostics,
+	D = M.diagnostics,
 }
 
 -- Currently not used
-MappingGroups.explorer = {
+M.explorer = {
 	name = "  Explorer",
 	e = { "<cmd>Neotree left toggle<CR>", " Tree" },
 	f = { "<cmd>Neotree float toggle<CR>", " Float" },
@@ -58,7 +58,7 @@ MappingGroups.explorer = {
 	g = { "<cmd>Neotree git_status<CR>", " Git Status" },
 }
 
-MappingGroups.quit = {
+M.quit = {
 	name = "  Quit",
 	c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	s = { ":silent wq<CR>", "Save and Quit Pane (:wq)" },
@@ -68,7 +68,7 @@ MappingGroups.quit = {
 	a = { ":Bwipeout<CR>", "Close all Buffers" },
 }
 
-MappingGroups.buffer = {
+M.buffer = {
 	name = "﩯 Buffer",
 	k = { ":bprev<CR>", "Previous Buffer" },
 	j = { ":bnext<CR>", "Next Buffer" },
@@ -84,17 +84,17 @@ MappingGroups.buffer = {
 		e = { "<cmd>BufferLineSortByExtensions", "Sort by extension" },
 		t = { "<cmd>BufferLineSortByTabs", "Sort by tabs" },
 	},
-	q = MappingGroups.quit,
+	q = M.quit,
 }
 
-MappingGroups.copy = {
+M.copy = {
 	name = "  Copy",
 	f = { cmds.copy.fullPath(), "Copy Full Path" },
 	r = { cmds.copy.relativePath(), "Copy Relative Path" },
 	n = { cmds.copy.fileName(), "Copy File Name" },
 }
 
-MappingGroups.git = {
+M.git = {
 	name = "  Git",
 	s = { "<cmd>:LazyGit<CR>", "Status" }, -- TODO I still get stuck here from time to time
 	d = { "<cmd>DiffviewOpen<CR>", "Diffs" },
@@ -134,7 +134,7 @@ MappingGroups.git = {
 	},
 }
 
-MappingGroups.search = {
+M.search = {
 	name = "  Search",
 	["."] = { cmds.fzf_lua.find_files_in_dotfiles, "· Dots" },
 	p = { cmds.telescope.find_projects, "  Recent Projects" },
@@ -161,13 +161,13 @@ MappingGroups.search = {
 		r = { cmds.fzf_lua.find_in_registers, "  Registers" },
 		k = { cmds.fzf_lua.find_keymaps, "  Keymaps" },
 	},
-	d = MappingGroups.diagnostics,
-	g = MappingGroups.git,
+	d = M.diagnostics,
+	g = M.git,
 }
 
 -- "<cmd>lua require('telescope').extensions.projects.projects()<CR>",
 
-MappingGroups.harpoon = {
+M.harpoon = {
 	name = "  Harpoon",
 	a = { cmds.harpoon.add_file, "  Add File" },
 	m = { cmds.harpoon.toggle_quick_menu, "  Menu" },
@@ -227,7 +227,7 @@ MappingGroups.harpoon = {
 	},
 }
 
-MappingGroups.packer = {
+M.packer = {
 	name = "  Packer",
 	c = { "<cmd>PackerCompile<CR>", "Compile" },
 	i = { "<cmd>PackerInstall<CR>", "Install" },
@@ -236,7 +236,7 @@ MappingGroups.packer = {
 	u = { "<cmd>PackerUpdate<CR>", "Update" },
 }
 
-MappingGroups.insert = {
+M.insert = {
 	name = "  Insert",
 	l = {
 		'oconsole.log("LINE: <C-r>=line(".")<Esc>",);<Esc>O<Esc>jf,a ',
@@ -244,7 +244,7 @@ MappingGroups.insert = {
 	},
 }
 
-MappingGroups.tabs = {
+M.tabs = {
 	name = "  Tabs",
 	n = { ":tabnew<CR>", "New Tab" },
 	k = { ":tabprevious<CR>", "Previous Tab" },
@@ -266,4 +266,4 @@ MappingGroups.tabs = {
 	["9"] = { "9gt", "Tab 9" },
 }
 
-return MappingGroups
+return M
