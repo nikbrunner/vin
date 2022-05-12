@@ -231,7 +231,8 @@ M.packer = {
 	name = "  Packer",
 	c = { "<cmd>PackerCompile<CR>", "Compile" },
 	i = { "<cmd>PackerInstall<CR>", "Install" },
-	s = { "<cmd>PackerSync<CR>", "Sync" },
+	-- s = { "<cmd>PackerSync<CR>", "Sync" },
+	s = { cmds.packer.packer_sync_with_snapshot, "Sync" },
 	S = { "<cmd>PackerStatus<CR>", "Status" },
 	u = { "<cmd>PackerUpdate<CR>", "Update" },
 }

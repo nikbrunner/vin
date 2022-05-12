@@ -5,6 +5,7 @@ local telescope = require("vin.core.commands.telescope")
 local copy = require("vin.core.commands.copy")
 local harpoon = require("vin.core.commands.harpoon")
 local zen = require("vin.core.commands.zen")
+local packer = require("vin.core.commands.packer")
 
 local M = {
 	general = general,
@@ -14,6 +15,7 @@ local M = {
 	harpoon = harpoon,
 	lsp = lsp,
 	zen = zen,
+	packer = packer,
 }
 
 return M
