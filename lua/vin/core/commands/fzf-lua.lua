@@ -149,7 +149,7 @@ Fzf.find_references = function(opts)
 			fullscreen = true,
 			preview = {
 				layout = "vertical",
-				vertical = "up:50%",
+				vertical = "down:75%",
 			},
 		}
 
