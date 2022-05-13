@@ -9,6 +9,7 @@ M.advanced_g = {
 	i = { vim.lsp.buf.implementation, "Go to Implementation" },
 	r = { ":Trouble lsp_references<CR>", "List References" },
 	R = { cmds.telescope.list_references, "List References with FzfLua" },
+	y = { ":Telescope lsp_type_definitions<CR>", "List References" },
 	l = { vim.diagnostic.open_float, "Hover Problem" },
 	m = {
 		cmds.fzf_lua.find_modified_files_with_preview,
@@ -43,6 +44,7 @@ M.lsp = {
 	p = { "<cmd>TroubleToggle<CR>", "Trouble" },
 	s = { cmds.fzf_lua.find_symbols_in_workspace, "Symbol" },
 	r = { ":Trouble lsp_references<CR>", "List References" },
+	y = { ":Telescope lsp_type_definitions<CR>", "List References" },
 	R = { cmds.fzf_lua.find_references, "List References" },
 	h = { vim.diagnostic.open_float, "Hover Problem" },
 	d = { cmds.telescope.go_to_definition, "Go to Definition" },
