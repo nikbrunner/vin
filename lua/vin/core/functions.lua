@@ -13,6 +13,7 @@ endfunction
 ]])
 
 -- Global Function to debug and print table as lines
+-- Can be replaced with vim.pretty_print()
 function _G.put(...)
 	local objects = {}
 	for i = 1, select("#", ...) do
