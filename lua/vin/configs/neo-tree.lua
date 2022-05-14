@@ -85,12 +85,17 @@ neotree.setup({
 			["R"] = "refresh",
 		},
 	},
-	nesting_rules = {},
+	nesting_rules = {
+		["ts"] = { "spec.ts" },
+		["tsx"] = { "story.tsx" },
+		["js"] = { "spec.js" },
+		["jsx"] = { "story.jsx" },
+	},
 	filesystem = {
 		filtered_items = {
 			visible = false, -- when true, they will just be displayed differently than normal items
-			hide_dotfiles = true,
-			hide_gitignored = true,
+			hide_dotfiles = false,
+			hide_gitignored = false,
 			hide_by_name = {
 				".DS_Store",
 				"thumbs.db",
