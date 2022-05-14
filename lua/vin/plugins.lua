@@ -144,6 +144,6 @@ return packer.startup(function(use) -- My plugins here
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
-		require("packer").sync()
+		packer.sync()
 	end
 end)
