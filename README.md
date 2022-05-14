@@ -46,3 +46,7 @@ I tailored this config to my personal needs as a Frontend Engineer.
 ## Origin of Name
 
 [See here](https://brandon-sanderson.fandom.com/wiki/Vin)
+
+## Other Configs
+
+- https://github.com/0xsamrath/.dotfiles 
