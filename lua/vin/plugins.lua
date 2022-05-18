@@ -111,6 +111,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "norcalli/nvim-colorizer.lua" })
 	use({ "Mofiqul/vscode.nvim" })
 	use({ "rmehri01/onenord.nvim" })
+	use({ "rebelot/kanagawa.nvim" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin

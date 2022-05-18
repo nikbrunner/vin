@@ -4,7 +4,7 @@ require("vin.core.colorscheme.vscode")
 
 vim.cmd([[
 try
-  colorscheme onenord
+  colorscheme onedark
   catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
   set background=dark
