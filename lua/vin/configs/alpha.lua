@@ -22,10 +22,8 @@ dashboard.section.header.val = {
 
 dashboard.section.buttons.val = {
 	dashboard.button("p", "  Find project", ":Telescope projects<CR>"),
-	dashboard.button("f", "  Find file", ":FzfLua files<CR>"),
 	dashboard.button("e", "  New file", ":ene <BAR> startinsert<CR>"),
-	dashboard.button("r", "  Recently used files", ":FzfLua oldfiles<CR>"),
-	dashboard.button("t", "  Find text", ":FzfLua live_grep_native<CR>"),
+	dashboard.button("f", "  Previous files", ":FzfLua oldfiles<CR>"),
 	dashboard.button(".", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
 	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 }
