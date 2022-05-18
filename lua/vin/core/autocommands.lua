@@ -1,4 +1,7 @@
-local cmds = require("vin.core.commands")
+local status_ok, cmds = pcall(require, "vin.core.commands")
+if not status_ok then
+	return
+end
 
 vim.cmd([[
   augroup _general_settings
