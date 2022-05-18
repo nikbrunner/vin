@@ -99,6 +99,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 	use({ "rcarriga/nvim-notify" })
 	use({ "folke/zen-mode.nvim" })
+	use({ "David-Kunz/jester" })
 
 	-- Colorschemes
 	use({ "projekt0n/github-nvim-theme" })

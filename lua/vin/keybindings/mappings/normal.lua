@@ -166,6 +166,12 @@ M.with_leader = {
 	["p"] = { cmds.lsp.format_file, "  Format" },
 	["f"] = { cmds.fzf_lua.find_files_without_preview, "  Files" },
 	["m"] = { cmds.zen.toggle_full_screen, "  Maximize Pane" },
+	["r"] = {
+		function()
+			require("jester").run_file()
+		end,
+		" Run Tests",
+	},
 	["n"] = { ":nohl<CR>", WhichKeyIgnoreLabel },
 
 	-- Tab navigation
