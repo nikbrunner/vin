@@ -97,6 +97,7 @@ neotree.setup({
 			hide_dotfiles = false,
 			hide_gitignored = false,
 			hide_by_name = {
+				".git",
 				".DS_Store",
 				"thumbs.db",
 				"node_modules",
@@ -178,7 +179,7 @@ vim.fn.sign_define(
 -- NOTE: this is changed from v1.x, which used the old style of highlight groups
 -- in the form "LspDiagnosticsSignWarning"
 
-vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
+vim.cmd([[nnoremap \ :Neotree toggle<cr>]])
 
 vim.cmd([[
   hi NeoTreeGitModified guifg=#ac8934
