@@ -72,7 +72,10 @@ return packer.startup(function(use) -- My plugins here
 		tag = "v2.*",
 		requires = "kyazdani42/nvim-web-devicons",
 	})
-	use({ "windwp/windline.nvim" })
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
 	use({ "goolord/alpha-nvim" })
 	use({ "folke/which-key.nvim" })
 	use({ "stevearc/dressing.nvim" })
