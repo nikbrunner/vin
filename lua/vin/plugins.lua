@@ -67,7 +67,6 @@ return packer.startup(function(use) -- My plugins here
 			"MunifTanjim/nui.nvim",
 		},
 	})
-	-- using packer.nvim
 	use({
 		"akinsho/bufferline.nvim",
 		tag = "v2.*",
