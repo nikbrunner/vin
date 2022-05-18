@@ -41,6 +41,7 @@ M.no_leader = {
 	-- Control bindings
 	["<C-p>"] = { cmds.fzf_lua.find_files_without_preview, "  Files" },
 	["<C-e>"] = { cmds.fzf_lua.find_buffers, "﩯 Buffers" },
+	["<C-b>"] = { "<cmd>Neotree toggle<CR>", " Toggle Tree" },
 	["<C-_>"] = { cmds.fzf_lua.find_in_file, "  Find Text in File" },
 	["<C-g>"] = {
 		cmds.fzf_lua.find_modified_files_with_preview,
