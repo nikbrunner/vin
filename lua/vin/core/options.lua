@@ -35,8 +35,6 @@ local options = {
 	scrolloff = 12, -- is one of my fav
 	sidescrolloff = 8,
 	guifont = "monospace:h17", -- the font used in graphical neovim applications
-	foldmethod = "indent",
-	foldlevel = 10,
 }
 
 vim.opt.shortmess:append("c")

@@ -36,9 +36,20 @@ vim.cmd([[
 ]])
 
 local lspAuGroup = vim.api.nvim_create_augroup("Formatting", { clear = true })
-
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	callback = cmds.lsp.format_file,
 	group = lspAuGroup,
+})
+
+-- Auto Command for setting folding options for each buffer
+local foldAuGroup = vim.api.nvim_create_augroup("Fold", { clear = true })
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	pattern = "*",
+	callback = function()
+		vim.o.foldmethod = "expr"
+		vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+		vim.o.foldlevel = 3
+	end,
+	group = foldAuGroup,
 })
