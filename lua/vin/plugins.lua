@@ -67,7 +67,12 @@ return packer.startup(function(use) -- My plugins here
 			"MunifTanjim/nui.nvim",
 		},
 	})
-	use({ "romgrk/barbar.nvim" })
+	-- using packer.nvim
+	use({
+		"akinsho/bufferline.nvim",
+		tag = "v2.*",
+		requires = "kyazdani42/nvim-web-devicons",
+	})
 	use({ "windwp/windline.nvim" })
 	use({ "goolord/alpha-nvim" })
 	use({ "folke/which-key.nvim" })
