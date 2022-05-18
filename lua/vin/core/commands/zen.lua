@@ -7,7 +7,11 @@ local M = {}
 
 M.toggle_full_screen = function()
 	-- Default without opts is full screen
-	zen_mode.toggle()
+	zen_mode.toggle({
+		window = {
+			width = 0.65,
+		},
+	})
 end
 
 -- This would be cool, but the backdrop doesnt get transparent
