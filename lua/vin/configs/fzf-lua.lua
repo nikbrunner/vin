@@ -32,7 +32,7 @@ fzf_lua.setup({
 		fullscreen = false, -- start fullscreen?
 		hl = {
 			normal = "Normal", -- window normal color (fg+bg)
-			border = "FloatBorder", -- border color (try 'FloatBorder')
+			border = "Normal", -- border color (try 'FloatBorder')
 			-- Only valid with the builtin previewer:
 			cursor = "Cursor", -- cursor highlight (grep/LSP matches)
 			cursorline = "CursorLine", -- cursor line
