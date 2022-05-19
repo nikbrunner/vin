@@ -3,6 +3,11 @@ if not gitsigns_status_ok then
 	return
 end
 
+local jester_status_ok, jester = pcall(require, "jester")
+if not jester_status_ok then
+	return
+end
+
 local cmds = require("vin.core.commands")
 local groups = require("vin.keybindings.mappings.groups")
 
@@ -168,7 +173,7 @@ M.with_leader = {
 	["m"] = { cmds.zen.toggle_full_screen, "  Maximize Pane" },
 	["r"] = {
 		function()
-			require("jester").run_file()
+			jester.run_file()
 		end,
 		" Run Tests",
 	},
