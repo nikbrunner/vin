@@ -19,7 +19,7 @@ diffview.setup({
 	},
 	file_panel = {
 		win_config = {
-			position = "left", -- One of 'left', 'right', 'top', 'bottom'
+			position = "bottom", -- One of 'left', 'right', 'top', 'bottom'
 			width = 35, -- Only applies when position is 'left' or 'right'
 			height = 10, -- Only applies when position is 'top' or 'bottom'
 		},
@@ -56,11 +56,11 @@ diffview.setup({
 		view = {
 			["<tab>"] = cb("select_next_entry"), -- Open the diff for the next file
 			["<s-tab>"] = cb("select_prev_entry"), -- Open the diff for the previous file
-			["gf"] = cb("goto_file"), -- Open the file in a new split in previous tabpage
-			["<C-w><C-f>"] = cb("goto_file_split"), -- Open the file in a new split
-			["<C-w>gf"] = cb("goto_file_tab"), -- Open the file in a new tabpage
-			["<leader>e"] = cb("focus_files"), -- Bring focus to the files panel
-			["<leader>b"] = cb("toggle_files"), -- Toggle the files panel.
+			["gd"] = cb("goto_file"), -- Open the file in a new split in previous tabpage
+			["<C-s>"] = cb("goto_file_split"), -- Open the file in a new split
+			["<C-t>"] = cb("goto_file_tab"), -- Open the file in a new tabpage
+			["<C-i>"] = cb("focus_files"), -- Bring focus to the files panel
+			["<C-b>"] = cb("toggle_files"), -- Toggle the files panel.
 		},
 		file_panel = {
 			["j"] = cb("next_entry"), -- Bring the cursor to the next file entry
@@ -77,13 +77,13 @@ diffview.setup({
 			["R"] = cb("refresh_files"), -- Update stats and entries in the file list.
 			["<tab>"] = cb("select_next_entry"),
 			["<s-tab>"] = cb("select_prev_entry"),
-			["gf"] = cb("goto_file"),
-			["<C-w><C-f>"] = cb("goto_file_split"),
-			["<C-w>gf"] = cb("goto_file_tab"),
+			["<C-o>"] = cb("goto_file"),
+			["<C-s>"] = cb("goto_file_split"),
+			["<C-t>"] = cb("goto_file_tab"),
 			["i"] = cb("listing_style"), -- Toggle between 'list' and 'tree' views
 			["f"] = cb("toggle_flatten_dirs"), -- Flatten empty subdirectories in tree listing style.
-			["<leader>e"] = cb("focus_files"),
-			["<leader>b"] = cb("toggle_files"),
+			-- ["ff"] = cb("focus_files"),
+			-- ["<C-b>"] = cb("toggle_files"),
 		},
 		file_history_panel = {
 			["g!"] = cb("options"), -- Open the option panel
@@ -100,11 +100,11 @@ diffview.setup({
 			["<2-LeftMouse>"] = cb("select_entry"),
 			["<tab>"] = cb("select_next_entry"),
 			["<s-tab>"] = cb("select_prev_entry"),
-			["gf"] = cb("goto_file"),
-			["<C-w><C-f>"] = cb("goto_file_split"),
-			["<C-w>gf"] = cb("goto_file_tab"),
-			["<leader>e"] = cb("focus_files"),
-			["<leader>b"] = cb("toggle_files"),
+			["<C-o>"] = cb("goto_file"),
+			["<C-s>"] = cb("goto_file_split"),
+			["<C-t>"] = cb("goto_file_tab"),
+			-- ["ff"] = cb("focus_files"),
+			-- ["<C-b>"] = cb("toggle_files"),
 		},
 		option_panel = {
 			["<tab>"] = cb("select"),

@@ -34,3 +34,11 @@ function _G.protected_require(modname)
 	end
 	return mod
 end
+
+function _G.split(s, delimiter)
+	local result = {}
+	for match in (s .. delimiter):gmatch("(.-)" .. delimiter) do
+		table.insert(result, match)
+	end
+	return result
+end

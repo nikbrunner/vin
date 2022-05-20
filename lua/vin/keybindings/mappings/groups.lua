@@ -99,7 +99,15 @@ M.copy = {
 M.git = {
 	name = "  Git",
 	s = { "<cmd>:LazyGit<CR>", "Status" }, -- TODO I still get stuck here from time to time
-	d = { "<cmd>DiffviewOpen<CR>", "Diffs" },
+	d = {
+		name = " Diffview",
+		c = { "<cmd>DiffviewOpen<CR>", "Diff / Current" },
+		m = { cmds.diffview.get_diff_to_master, "Diff / Master" },
+		h = { "<cmd>DiffviewFileHistory<CR>", "File History" },
+		r = { "<cmd>DiffviewRefresh<CR>", "Refresh" },
+		q = { "<cmd>DiffviewClose<CR>", "Close" },
+	},
+	H = { "<cmd>DiffviewOpen origin/master...HEAD<CR>", "Diff / Master" },
 	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
 	j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
 	-- m = { commands.fzf_lua.find_modified_files_with_preview, "Modified Files" },
