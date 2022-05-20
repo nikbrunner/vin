@@ -3,6 +3,11 @@ if not status_ok then
 	return
 end
 
+local gps_status_ok, gps = pcall(require, "nvim-gps")
+if not gps_status_ok then
+	return
+end
+
 lualine.setup({
 	options = {
 		icons_enabled = true,
@@ -27,7 +32,7 @@ lualine.setup({
 			{
 				"filename",
 				file_status = true, -- Displays file status (readonly status, modified status)
-				path = 1, -- 0: Just the filename
+				path = 0, -- 0: Just the filename
 				-- 1: Relative path
 				-- 2: Absolute path
 				-- 3: Absolute path, with tilde as the home directory
@@ -40,10 +45,21 @@ lualine.setup({
 					unnamed = "[No Name]", -- Text to show for unnamed buffers.
 				},
 			},
+
+			{ gps.get_location, cond = gps.is_available },
 		},
-		lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_y = { "progress" },
-		lualine_z = { "location" },
+		lualine_x = {},
+		lualine_y = {
+{
+      'filetype',
+      colored = true,   -- Displays filetype icon in color if set to true
+      icon_only = true, -- Display only an icon for filetype
+      icon = { align = 'right' }, -- Display filetype icon on the right hand side
+      -- icon =    {'X', align='right'}
+      -- Icon string ^ in table is ignored in filetype component
+    }
+    },
+		lualine_z = {},
 	},
 	inactive_sections = {
 		lualine_a = {},
