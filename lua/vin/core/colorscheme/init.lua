@@ -6,7 +6,7 @@ require("vin.core.colorscheme.kanagawa")
 
 vim.cmd([[
 try
-  colorscheme onenord
+  colorscheme github_dimmed
   catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
   set background=dark

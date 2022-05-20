@@ -6,18 +6,18 @@ end
 onenord.setup({
 	theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
 	borders = false, -- Split window borders
-	fade_nc = true, -- Fade non-current windows, making them more distinguishable
+	fade_nc = false, -- Fade non-current windows, making them more distinguishable
 	-- Style that is applied to various groups: see `highlight-args` for options
 	styles = {
-		comments = "NONE",
-		strings = "NONE",
-		keywords = "NONE",
-		functions = "NONE",
-		variables = "NONE",
+		comments = "italic",
+		strings = "italic",
+		keywords = "bold",
+		functions = "bold",
+		variables = "bold",
 		diagnostics = "underline",
 	},
 	disable = {
-		background = false, -- Disable setting the background color
+		background = true, -- Disable setting the background color
 		cursorline = false, -- Disable the cursorline
 		eob_lines = true, -- Hide the end-of-buffer lines
 	},
