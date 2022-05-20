@@ -34,8 +34,8 @@ M.no_leader = {
 	k = { "gk", WhichKeyIgnoreLabel },
 
 	-- Navigate buffers and Tabs
-	["˙"] = { ":BufferPrevious<CR>", "Prev Buffer" },
-	["¬"] = { ":BufferNext<CR>", "Next Buffer" },
+	["Ó"] = { ":bprev<CR>", "Prev Buffer" },
+	["Ò"] = { ":bnext<CR>", "Next Buffer" },
 	["<S-Tab>"] = { ":tabprevious<CR>", "Prev Tab" },
 	["<Tab>"] = { ":tabnext<CR>", "Next Tab" },
 
