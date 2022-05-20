@@ -7,14 +7,22 @@ github_theme.setup({
 	theme_style = "dark_default",
 	hide_end_of_buffer = true,
 	hide_inactive_statusline = false,
-	transparent = true,
+	transparent = false,
 	dark_float = true,
 	dark_sidebar = true,
 	function_style = "bold",
 	keyword_style = "bold",
 	variable_style = "bold",
 	comment_style = "italic",
-	sidebars = { "qf", "vista_kind", "terminal", "packer", "lazygit", "whichkey" },
+	sidebars = {
+		"qf",
+		"neotree",
+		"vista_kind",
+		"terminal",
+		"packer",
+		"lazygit",
+		"whichkey",
+	},
 })
 
 -- These are unused atm, but I want to keep them for reference
