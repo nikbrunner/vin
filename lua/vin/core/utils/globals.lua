@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field
 -- Functions for global and vim functions
 
 -- Vim Function to toggle quickfix list

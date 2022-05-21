@@ -1,0 +1,20 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "Lua.diagnostics.disable": [
+        "undefined-doc-name"
+    ],
+    "Lua.diagnostics.globals": [
+        "vim",
+        "require",
+        "pcall",
+        "string",
+        "print",
+        "package",
+        "pairs",
+        "os",
+        "_G",
+        "select",
+        "table",
+        "ipairs"
+    ]
+}

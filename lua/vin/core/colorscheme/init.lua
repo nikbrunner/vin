@@ -1,4 +1,3 @@
-
 require("vin.core.colorscheme.github")
 require("vin.core.colorscheme.onedark")
 require("vin.core.colorscheme.onenord")
