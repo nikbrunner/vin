@@ -13,9 +13,8 @@ M.save_all = function()
 	vim.cmd([[silent wa]])
 
 	notify("Saved all files!", "info", {
-		title = "Save",
 		timeout = 125,
-		icon = "💾",
+		render = "minimal",
 	})
 end
 

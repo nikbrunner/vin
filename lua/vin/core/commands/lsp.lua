@@ -11,9 +11,8 @@ M.format_file = function()
 	vim.cmd([[silent w]])
 
 	notify("Formated and saved file", "info", {
-		title = "Format",
 		timeout = 125,
-		icon = "💅",
+		render = "minimal",
 	})
 end
 
