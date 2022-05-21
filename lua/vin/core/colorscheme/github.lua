@@ -16,7 +16,7 @@ github_theme.setup({
 	comment_style = "italic",
 	sidebars = {
 		"qf",
-		"neotree",
+		"neo-tree",
 		"vista_kind",
 		"terminal",
 		"packer",
