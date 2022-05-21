@@ -43,3 +43,13 @@ function _G.split(s, delimiter)
 	end
 	return result
 end
+
+function _G.table_contains(table, val)
+	for index, value in ipairs(table) do
+		if value == val then
+			return true
+		end
+	end
+
+	return false
+end

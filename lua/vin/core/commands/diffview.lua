@@ -5,9 +5,12 @@ end
 
 local M = {}
 
+-- TODO Detect and notify about errors
+-- If opening the diff is not successfull notify!
+
 local diffview_notification = function(branchName, message)
 	if message == nil then
-		notify("Diff to '" .. branchName .. "'", "info", {
+		notify("Diff from current state to '" .. branchName .. "'", "info", {
 			title = "Diff",
 			icon = " ",
 		})
@@ -20,32 +23,16 @@ local diffview_notification = function(branchName, message)
 end
 
 M.get_diff_to_master = function()
-	local handleInput = function(masterBranchName)
-		if masterBranchName == "master" or masterBranchName == "main" then
-			vim.cmd("DiffviewOpen origin/" .. masterBranchName .. "...HEAD")
-			diffview_notification(masterBranchName)
-		elseif masterBranchName == "other" then
-			vim.ui.input({
-				prompt = "How is you main branch called?",
-			}, function(customMasterBranchName)
-				vim.cmd(
-					"DiffviewOpen origin/" .. customMasterBranchName .. "...HEAD"
-				)
-				diffview_notification(
-					customMasterBranchName,
-					"Try to find Diff to Custom Master Branch Name '"
-						.. customMasterBranchName
-						.. "'"
-				)
-			end)
+	local commonMasterBranchNames = { "master", "main" }
+
+	local handleInput = function(branchName)
+		if table_contains(commonMasterBranchNames, branchName) then
+			vim.cmd("DiffviewOpen origin/" .. branchName .. "...HEAD")
+			diffview_notification(branchName)
 		end
 	end
 
-	vim.ui.select({
-		"master",
-		"main",
-		"other",
-	}, {
+	vim.ui.select(commonMasterBranchNames, {
 		prompt = "What is your master branch called?",
 	}, handleInput)
 end
@@ -58,12 +45,10 @@ M.get_diff_to_custom = function()
 	local handleInput = function(branchName)
 		vim.cmd("DiffviewOpen " .. branchName)
 
-				diffview_notification(
-					branchName,
-					"Try to find Diff to Custom Master Branch Name '"
-						.. branchName
-						.. "'"
-				)
+		diffview_notification(
+			branchName,
+			"Try to find Diff to Custom Master Branch Name '" .. branchName .. "'"
+		)
 	end
 
 	vim.ui.input(input_prompt, handleInput)
