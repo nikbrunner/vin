@@ -100,14 +100,9 @@ return packer.startup(function(use) -- My plugins here
 	use({ "rcarriga/nvim-notify" })
 	use({ "folke/zen-mode.nvim" })
 	use({ "David-Kunz/jester" })
-	use({
-		"anuvyklack/pretty-fold.nvim",
-		requires = "anuvyklack/nvim-keymap-amend",
-	})
-	use({
-		"SmiteshP/nvim-gps",
-		requires = "nvim-treesitter/nvim-treesitter",
-	})
+	use({ "anuvyklack/pretty-fold.nvim", requires = "anuvyklack/nvim-keymap-amend" })
+	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" })
+	use({ "nanozuki/tabby.nvim" })
 
 	-- Colorschemes
 	use({ "projekt0n/github-nvim-theme" })

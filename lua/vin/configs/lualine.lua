@@ -12,14 +12,14 @@ lualine.setup({
 	options = {
 		icons_enabled = true,
 		theme = "auto",
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
+		-- component_separators = { left = "", right = "" },
+		-- section_separators = { left = "", right = "" },
 
 		-- section_separators = { left = "", right = "" },
 		-- component_separators = { left = "", right = "" },
 
-		-- section_separators = { left = "", right = "" },
-		-- component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
+		component_separators = { left = "", right = "" },
 
 		disabled_filetypes = {},
 		always_divide_middle = true,
@@ -50,15 +50,15 @@ lualine.setup({
 		},
 		lualine_x = {},
 		lualine_y = {
-{
-      'filetype',
-      colored = true,   -- Displays filetype icon in color if set to true
-      icon_only = true, -- Display only an icon for filetype
-      icon = { align = 'right' }, -- Display filetype icon on the right hand side
-      -- icon =    {'X', align='right'}
-      -- Icon string ^ in table is ignored in filetype component
-    }
-    },
+			{
+				"filetype",
+				colored = true, -- Displays filetype icon in color if set to true
+				icon_only = true, -- Display only an icon for filetype
+				icon = { align = "right" }, -- Display filetype icon on the right hand side
+				-- icon =    {'X', align='right'}
+				-- Icon string ^ in table is ignored in filetype component
+			},
+		},
 		lualine_z = {},
 	},
 	inactive_sections = {
