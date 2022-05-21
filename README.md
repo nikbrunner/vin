@@ -5,6 +5,12 @@ This is my personal NeoVim configuration on which I am working on from time to t
 
 I tailored this config to my personal needs as a Frontend Engineer.
 
+## Screenshots
+
+![](./images/dashboard.png)
+
+![](./images/editor.png)
+
 ## Origin of Name
 
 [See here](https://brandon-sanderson.fandom.com/wiki/Vin)

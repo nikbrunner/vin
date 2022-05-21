@@ -3,6 +3,25 @@ if not present then
 	return
 end
 
+local function vim_version()
+	local version = vim.version()
+	local version_string = "Welcome to Neovim: "
+		.. version.major
+		.. "."
+		.. version.minor
+		.. "."
+		.. version.patch
+
+	return {
+		type = "text",
+		val = version_string,
+		opts = {
+			position = "center",
+			hl = "String",
+		},
+	}
+end
+
 local header = {
 	type = "text",
 	val = {
@@ -17,7 +36,7 @@ local header = {
 		[[  |    /     \    ,-.     \ ]],
 		[[  |___/_______\__/___\_____\]],
 		[[                            ]],
-		[[       Welcome to Vin       ]],
+		[[             Vin            ]],
 	},
 	opts = {
 		position = "center",
@@ -90,10 +109,10 @@ local pluginCount = {
 }
 
 local quote = [[
-    "First, solve the problem.
-    Then, write the code."
+“We are more often frightened than hurt; 
+and we suffer more in imagination than in reality.”
 ]]
-local quoteAuthor = "John Johnson"
+local quoteAuthor = "Seneca"
 local fullQuote = quote .. "\n \n                  - " .. quoteAuthor
 
 local fortune = {
@@ -155,6 +174,7 @@ local section = {
 	header = header,
 	buttons = buttons,
 	greetHeading = greetHeading,
+	vim_version = vim_version(),
 	pluginCount = pluginCount,
 	footer = fortune,
 }
@@ -165,6 +185,8 @@ local opts = {
 		section.header,
 		{ type = "padding", val = 3 },
 		section.greetHeading,
+		{ type = "padding", val = 1 },
+		section.vim_version,
 		section.pluginCount,
 		{ type = "padding", val = 2 },
 		section.buttons,
