@@ -10,7 +10,7 @@ onenord.setup({
 	-- Style that is applied to various groups: see `highlight-args` for options
 	styles = {
 		comments = "italic",
-		strings = "italic",
+		strings = "NONE",
 		keywords = "italic",
 		functions = "bold",
 		variables = "bold",
