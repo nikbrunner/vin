@@ -11,7 +11,7 @@ onenord.setup({
 	styles = {
 		comments = "italic",
 		strings = "italic",
-		keywords = "bold",
+		keywords = "italic",
 		functions = "bold",
 		variables = "bold",
 		diagnostics = "underline",
@@ -23,7 +23,7 @@ onenord.setup({
 	},
 	-- Inverse highlight for different groups
 	inverse = {
-		match_paren = false,
+		match_paren = true,
 	},
 	custom_highlights = {}, -- Overwrite default highlight groups
 	custom_colors = {}, -- Overwrite default colors
