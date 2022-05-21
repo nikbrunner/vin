@@ -113,9 +113,9 @@ return packer.startup(function(use) -- My plugins here
 	use({ "projekt0n/github-nvim-theme" })
 	use({ "navarasu/onedark.nvim" })
 	use({ "norcalli/nvim-colorizer.lua" })
-	use({ "Mofiqul/vscode.nvim" })
 	use({ "rmehri01/onenord.nvim" })
 	use({ "rebelot/kanagawa.nvim" })
+	use({ "LunarVim/Colorschemes" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
