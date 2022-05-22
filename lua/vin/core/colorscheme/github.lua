@@ -24,9 +24,9 @@ github_theme.setup({
 		"packer",
 		"lazygit",
 		"whichkey",
+		"telescope",
 	},
 
-	colors = {},
 	-- Overwrite the highlight groups
 	overrides = function(colors)
 		return {
