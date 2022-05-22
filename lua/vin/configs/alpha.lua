@@ -5,7 +5,7 @@ end
 
 local function vim_version()
 	local version = vim.version()
-	local version_string = "Welcome to Neovim: "
+	local version_string = "Neovim "
 		.. version.major
 		.. "."
 		.. version.minor
@@ -101,7 +101,7 @@ end
 
 local pluginCount = {
 	type = "text",
-	val = "  " .. plugins .. " plugins in total",
+	val = "  " .. plugins .. " plugins",
 	opts = {
 		position = "center",
 		hl = "String",
