@@ -36,20 +36,32 @@ function _G.protected_require(modname)
 	return mod
 end
 
-function _G.split(s, delimiter)
-	local result = {}
-	for match in (s .. delimiter):gmatch("(.-)" .. delimiter) do
-		table.insert(result, match)
+function _G.split_by_space(string)
+	local chunks = {}
+
+	for substring in string:gmatch("%S+") do
+		table.insert(chunks, substring)
 	end
-	return result
+
+	return chunks
 end
 
-function _G.table_contains(table, val)
-	for index, value in ipairs(table) do
+function _G.table_contains(tab, val)
+	for index, value in ipairs(tab) do
 		if value == val then
 			return true
 		end
 	end
 
 	return false
+end
+
+function _G.find_index(tab, val)
+	local index = nil
+	for i, v in ipairs(tab) do
+		if v == val then
+			index = i
+		end
+	end
+	return index
 end
