@@ -40,9 +40,8 @@ M.jump_to_file = function(index)
 	local filename = vim.fn.expand("%:t")
 
 	notify("Jumped to '" .. filename .. "'!", "info", {
-		title = title,
-		timeout = 1000,
-		icon = icons.jumped,
+		timeout = 125,
+		render = "minimal",
 	})
 end
 
