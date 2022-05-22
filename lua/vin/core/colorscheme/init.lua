@@ -4,7 +4,7 @@ require("vin.core.colorscheme.onenord")
 require("vin.core.colorscheme.kanagawa")
 -- require("vin.core.colorscheme.lunarvim_themes")
 
-local colorscheme = "github_dark_default"
+local colorscheme = "onenord"
 
 local notify_status_ok, notify = pcall(require, "notify")
 if not notify_status_ok then
