@@ -132,6 +132,11 @@ return packer.startup(function(use) -- My plugins here
 	use({ "ray-x/lsp_signature.nvim" }) --for parameter hints
 	use({ "j-hui/fidget.nvim" }) -- for LSP progress
 	use({ "folke/lua-dev.nvim" })
+	use({ "rafcamlet/nvim-luapad" })
+	use({
+		"bennypowers/nvim-regexplainer",
+		requires = { "nvim-treesitter/nvim-treesitter", "MunifTanjim/nui.nvim" },
+	})
 	use({ "onsails/lspkind-nvim" })
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
 
