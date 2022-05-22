@@ -152,6 +152,7 @@ return packer.startup(function(use) -- My plugins here
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
+	use({ "nvim-treesitter/playground", run = ":TSInstall query" })
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
 	-- Git

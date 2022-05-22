@@ -4,7 +4,7 @@ require("vin.core.colorscheme.onenord")
 require("vin.core.colorscheme.kanagawa")
 -- require("vin.core.colorscheme.lunarvim_themes")
 
-local colorscheme = "onenord"
+local colorscheme = "github_dark_default"
 
 local notify_status_ok, notify = pcall(require, "notify")
 if not notify_status_ok then
@@ -30,6 +30,12 @@ vim.cmd([[
   hi StatusLineNc gui=NONE guifg=NONE guibg=NonText guisp=NonText
   hi WinSeparator gui=NONE guifg=NONE guibg=NonText guisp=NonText
 ]])
+
+-- Transparent folds
+-- vim.cmd([[
+--   hi Folded gui=NONE guifg=NONE guibg=NonText guisp=NonText
+--   hi FoldColumn gui=NONE guifg=NONE guibg=NonText guisp=NonText
+-- ]])
 
 -- Hide Vertical SplitLines
 vim.cmd([[

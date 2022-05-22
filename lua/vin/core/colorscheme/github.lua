@@ -17,12 +17,31 @@ github_theme.setup({
 	sidebars = {
 		"qf",
 		"neo-tree",
+		"NeoTree",
+		"neo_tree",
 		"vista_kind",
 		"terminal",
 		"packer",
 		"lazygit",
 		"whichkey",
 	},
+
+	colors = {},
+	-- Overwrite the highlight groups
+	overrides = function(colors)
+		return {
+			TSTagAttribute = {
+				bg = colors.bright_blue,
+			},
+			TSVariable = {
+				fg = colors.bright_blue,
+			},
+			Folded = {
+				fg = colors.syntax.comment,
+				style = "italic",
+			},
+		}
+	end,
 })
 
 -- These are unused atm, but I want to keep them for reference
