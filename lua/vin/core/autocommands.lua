@@ -43,13 +43,17 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- Auto Command for setting folding options for each buffer
-local foldAuGroup = vim.api.nvim_create_augroup("Fold", { clear = true })
+local buf_win_enter_au_group = vim.api.nvim_create_augroup(
+	"BufWinEnterAuGroup",
+	{ clear = true }
+)
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = "*",
 	callback = function()
 		vim.o.foldmethod = "expr"
 		vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 		vim.o.foldlevel = 3
+		vim.cmd("ColorizerAttachToBuffer")
 	end,
-	group = foldAuGroup,
+	group = buf_win_enter_au_group,
 })
