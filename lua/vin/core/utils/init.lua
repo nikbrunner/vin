@@ -1,6 +1,9 @@
 require("vin.core.utils.globals")
 
-local utils = require("telescope.utils")
+local status_ok, utils = pcall(require, "telescope.utils")
+if not status_ok then
+	return
+end
 
 local M = {}
 
