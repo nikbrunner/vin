@@ -42,11 +42,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	group = lspAuGroup,
 })
 
--- Auto Command for setting folding options for each buffer
+local colorizer_status_ok, _ = pcall(require, "colorizer")
+if not colorizer_status_ok then
+	return
+end
+
 local buf_win_enter_au_group = vim.api.nvim_create_augroup(
 	"BufWinEnterAuGroup",
 	{ clear = true }
 )
+
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = "*",
 	callback = function()
