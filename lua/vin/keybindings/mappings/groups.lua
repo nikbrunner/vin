@@ -146,6 +146,10 @@ M.git = {
 M.search = {
 	name = "  Search",
 	["."] = { cmds.fzf_lua.find_files_in_dotfiles, "· Dots" },
+	n = {
+		name = "  Notes",
+		w = { cmds.fzf_lua.find_files_in_work_notes, "Work" },
+	},
 	p = { cmds.telescope.find_projects, "  Recent Projects" },
 	f = { cmds.fzf_lua.find_files_without_preview, "  Files" },
 	F = { cmds.fzf_lua.find_files_with_preview, "  Files (With Preview)" },

@@ -33,6 +33,15 @@ M.find_files_in_dotfiles = function(opts)
 	fzf_lua.files(opts)
 end
 
+M.find_files_in_work_notes = function(opts)
+	local notes = "~/Documents/notes/dcd-notes"
+
+	opts = opts or {}
+	opts.cwd = opts.cwd or notes
+
+	fzf_lua.files(opts)
+end
+
 M.find_colorscheme = function(opts)
 	opts = opts or {}
 	fzf_lua.colorschemes(opts)
