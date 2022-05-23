@@ -60,7 +60,7 @@ diffview.setup({
 			["<C-s>"] = cb("goto_file_split"), -- Open the file in a new split
 			["<C-t>"] = cb("goto_file_tab"), -- Open the file in a new tabpage
 			["<C-i>"] = cb("focus_files"), -- Bring focus to the files panel
-			["<C-b>"] = cb("toggle_files"), -- Toggle the files panel.
+			["<C-<F7>>"] = cb("toggle_files"), -- Toggle the files panel.
 		},
 		file_panel = {
 			["j"] = cb("next_entry"), -- Bring the cursor to the next file entry
