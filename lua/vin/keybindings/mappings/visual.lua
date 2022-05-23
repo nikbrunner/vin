@@ -21,7 +21,6 @@ M.no_leader = {
 M.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	["p"] = { cmds.lsp.format_file, "  Format" },
 	["m"] = { cmds.zen.toggle_full_screen, "  Maximize Pane" },
 	["n"] = { ":nohl", WhichKeyIgnoreLabel },
 
