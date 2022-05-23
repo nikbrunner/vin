@@ -169,7 +169,7 @@ M.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	["p"] = { cmds.lsp.format_file, "  Format" },
-	["f"] = { cmds.fzf_lua.find_files_without_preview, "  Files" },
+	["f"] = { cmds.fzf_lua.find_files_with_preview, "  Files" },
 	["m"] = { cmds.zen.toggle_full_screen, "  Maximize Pane" },
 	["r"] = {
 		function()
