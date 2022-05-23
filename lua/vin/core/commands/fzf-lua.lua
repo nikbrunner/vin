@@ -23,7 +23,8 @@ M.find_files_with_preview = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
-			fullscreen = true,
+			height = 0.75,
+			width = 0.5,
 			preview = {
 				layout = "vertical",
 				vertical = "up:65%",
