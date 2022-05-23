@@ -181,9 +181,9 @@ local section = {
 
 local opts = {
 	layout = {
-		{ type = "padding", val = 3 },
+		{ type = "padding", val = 1 },
 		section.header,
-		{ type = "padding", val = 3 },
+		{ type = "padding", val = 1 },
 		section.greetHeading,
 		{ type = "padding", val = 1 },
 		section.vim_version,
