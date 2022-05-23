@@ -21,6 +21,15 @@ end
 
 M.find_files_with_preview = function(opts)
 	opts = opts or {}
+	opts.winopts = opts.winopts
+		or {
+			fullscreen = true,
+			preview = {
+				layout = "vertical",
+				vertical = "up:65%",
+			},
+		}
+
 	fzf_lua.files(opts)
 end
 
