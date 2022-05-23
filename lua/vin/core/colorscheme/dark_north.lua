@@ -43,4 +43,21 @@ M.colors = function()
 	}
 end
 
+M.custom_highlights = function()
+	return {
+
+		TSConstructor = { fg = M.colors().orange },
+		TSFunction = { fg = M.colors().yellow },
+		TSVariable = { fg = M.colors().fg_dark },
+		TSMethod = { fg = M.colors().yellow },
+		TSKeyword = { fg = M.colors().dark_blue },
+		TSType = { fg = M.colors().cyan },
+		TSProperty = { fg = M.colors().blue },
+		TSParameter = { fg = M.colors().fg },
+		TSString = { fg = M.colors().light_green },
+
+		StorageClass = { fg = M.colors().fg_dark }, -- CSS Property
+	}
+end
+
 return M

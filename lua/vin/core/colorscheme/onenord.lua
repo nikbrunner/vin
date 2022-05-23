@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local dark_north = require("vin.core.colorscheme.dark_north").colors()
+local dark_north = require("vin.core.colorscheme.dark_north")
 
 local default_colors = require("onenord.colors").load()
 
@@ -33,19 +33,7 @@ onenord.setup({
 		match_paren = true,
 	},
 
-	custom_highlights = {
-		TSConstructor = { fg = dark_north.orange },
-		TSFunction = { fg = dark_north.yellow },
-		TSVariable = { fg = dark_north.fg_dark },
-		TSMethod = { fg = dark_north.yellow },
-		TSKeyword = { fg = dark_north.dark_blue },
-		TSType = { fg = dark_north.cyan },
-		TSProperty = { fg = dark_north.blue },
-		TSParameter = { fg = dark_north.fg },
-		TSString = { fg = dark_north.light_green },
-
-		StorageClass = { fg = dark_north.light_gray }, -- CSS Property
-	},
 	-- Defaults: https://github.com/rmehri01/onenord.nvim/blob/main/lua/onenord/colors/onenord.lua
-	custom_colors = dark_north,
+	custom_highlights = dark_north.custom_highlights(),
+	custom_colors = dark_north.colors(),
 })
