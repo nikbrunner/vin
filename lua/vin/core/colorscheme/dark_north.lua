@@ -57,6 +57,9 @@ M.custom_highlights = function()
 		TSString = { fg = M.colors().light_green },
 
 		StorageClass = { fg = M.colors().fg_dark }, -- CSS Property
+		sassMixing = { fg = M.colors().pink }, -- CSS Property
+		sassVariable = { fg = M.colors().orange }, -- CSS Property
+		sassDefinition = { fg = M.colors().dark_blue }, -- CSS Property
 	}
 end
 
