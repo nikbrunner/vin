@@ -19,7 +19,7 @@ onenord.setup({
 		keywords = "italic",
 		functions = "bold",
 		variables = "bold",
-		diagnostics = "bold",
+		diagnostics = "underline",
 	},
 
 	disable = {
