@@ -10,8 +10,9 @@ M.find_files_without_preview = function(opts)
 	opts.winopts = opts.winopts
 		or {
 			height = 0.25,
-			width = 0.75,
+			width = 0.5,
 			preview = {
+				layout = "vertical",
 				hidden = "hidden",
 			},
 		}
