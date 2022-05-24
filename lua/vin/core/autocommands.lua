@@ -33,30 +33,34 @@ vim.cmd([[
 local lspAuGroup = vim.api.nvim_create_augroup("Formatting", { clear = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function()
-    vim.lsp.buf.formatting({})
-  end,
-  group = lspAuGroup,
+	pattern = "*",
+	callback = function()
+		vim.lsp.buf.formatting({})
+	end,
+	group = lspAuGroup,
 })
 
 local colorizer_status_ok, _ = pcall(require, "colorizer")
 if not colorizer_status_ok then
-  return
+	return
 end
 
 local buf_win_enter_au_group = vim.api.nvim_create_augroup(
-  "BufWinEnterAuGroup",
-  { clear = true }
+	"BufWinEnterAuGroup",
+	{ clear = true }
 )
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
-  pattern = "*",
-  callback = function()
-    vim.o.foldmethod = "expr"
-    vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-    vim.o.foldlevel = 3
-    vim.cmd("ColorizerAttachToBuffer")
-  end,
-  group = buf_win_enter_au_group,
+	pattern = "*",
+	callback = function()
+		vim.o.foldmethod = "expr"
+		vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+		vim.o.foldlevel = 3
+		vim.cmd("ColorizerAttachToBuffer")
+	end,
+	group = buf_win_enter_au_group,
 })
+
+-- TODO Convert to lua
+vim.cmd("autocmd BufRead,BufEnter *.css setlocal foldmethod=indent")
+vim.cmd("autocmd BufRead,BufEnter *.scss setlocal foldmethod=indent")
