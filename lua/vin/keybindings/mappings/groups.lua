@@ -166,6 +166,7 @@ M.search = {
 	R = { cmds.fzf_lua.find_old_files, "  Recent Files" },
 	c = { cmds.fzf_lua.find_commands, "  Commands" },
 	C = { cmds.fzf_lua.find_colorscheme, "  Colorscheme" },
+	m = { "<cmd>Telescope marks", " Marks" },
 	a = {
 		name = "Advanced",
 		s = { cmds.telescope.find_scss_symbol, " SCSS Symbol" },
