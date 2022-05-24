@@ -15,7 +15,7 @@ M.colors = function()
 		fg_dark = "#B1BDD3",
 		fg = "#e5e9f0",
 		fg_light = "#eceff4",
-		bg = M.slate_gray[3],
+		bg = M.slate_gray[4],
 		bg_light = M.slate_gray[6],
 		gray = "#646A76",
 		light_gray = "#6C7A96",
@@ -35,7 +35,7 @@ M.colors = function()
 		light_purple = "#B48EAD",
 		none = "NONE",
 
-		active = M.slate_gray[4],
+		active = M.slate_gray[6],
 		float = M.slate_gray[1],
 		-- highlight = M.slate_gray[6],
 		-- highlight_dark = M.slate_gray[5],
