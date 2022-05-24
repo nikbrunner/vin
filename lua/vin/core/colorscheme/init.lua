@@ -32,10 +32,10 @@ vim.cmd([[
 ]])
 
 -- Transparent folds
--- vim.cmd([[
---   hi Folded gui=NONE guifg=NONE guibg=NonText guisp=NonText
---   hi FoldColumn gui=NONE guifg=NONE guibg=NonText guisp=NonText
--- ]])
+vim.cmd([[
+  hi Folded gui=NONE guifg=NONE guibg=NonText guisp=NonText
+  hi FoldColumn gui=NONE guifg=NONE guibg=NonText guisp=NonText
+]])
 
 -- Hide Vertical SplitLines
 vim.cmd([[
