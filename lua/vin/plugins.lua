@@ -98,6 +98,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "anuvyklack/pretty-fold.nvim", requires = "anuvyklack/nvim-keymap-amend" })
 	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" })
 	use({ "nanozuki/tabby.nvim" })
+	use({ "chentoast/marks.nvim" })
 
 	-- Colorschemes
 	use({ "projekt0n/github-nvim-theme" })
