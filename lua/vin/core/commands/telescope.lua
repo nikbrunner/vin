@@ -1,11 +1,3 @@
-local telescope_builtin_status_ok, telescope_builtins = pcall(
-	require,
-	"telescope.builtin"
-)
-if not telescope_builtin_status_ok then
-	return
-end
-
 local telescope_status_ok, telescope = pcall(require, "telescope")
 if not telescope_status_ok then
 	return
@@ -16,22 +8,77 @@ if not notify_status_ok then
 	return
 end
 
+local builtin = require("telescope.builtin")
+local themes = require("telescope.themes")
+
 local general_commands = require("vin.core.commands.general")
 
-local telescope_notification = function(message)
+local notification = function(message)
 	notify(message, "info", {
 		title = "Telescope",
 		icon = "",
 	})
 end
 
+local hard_corner_window = function()
+	return {
+		{ "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+		prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+		results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+		preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+	}
+end
+
+local no_preview = function()
+	return themes.get_dropdown({
+		borderchars = hard_corner_window(),
+		width = 0.8,
+		previewer = false,
+		prompt_title = false,
+	})
+end
+
 local M = {}
 
--- Find related files based on the current file's name
-M.find_related_files = function()
-	telescope_builtins.find_files({
-		default_text = general_commands.get_current_filename(),
+M.find_files_without_preview = function()
+	builtin.find_files(no_preview())
+end
+
+M.find_files_with_preview = function()
+	builtin.find_files(themes.get_ivy({}))
+end
+
+M.find_in_file = function()
+	builtin.current_buffer_fuzzy_find(themes.get_ivy({}))
+end
+
+M.find_text = function()
+	builtin.live_grep(themes.get_ivy({}))
+end
+
+M.find_word = function()
+	local curr_word = vim.fn.expand("<cword>")
+	builtin.grep_string(themes.get_ivy({ default_text = curr_word }))
+end
+
+M.find_in_quickfix = function()
+	builtin.quickfix(themes.get_ivy({}))
+end
+
+M.find_symbols_in_workspace = function()
+	builtin.lsp_dynamic_workspace_symbols(themes.get_ivy({}))
+end
+
+M.find_changed_files = function()
+	builtin.git_status({
+		width = 0.8,
 	})
+end
+
+M.find_related_files = function()
+	builtin.find_files(themes.get_ivy({
+		default_text = general_commands.get_current_filename(),
+	}))
 end
 
 M.find_scss_symbol = function()
@@ -53,13 +100,13 @@ M.find_scss_symbol = function()
 		if symbol_type == symbol_types[1] then
 			local query = "$" .. curr_word .. ": "
 
-			telescope_builtins.grep_string({ default_text = query })
-			telescope_notification("Looking for '$" .. curr_word .. "'")
+			builtin.grep_string({ default_text = query })
+			notification("Looking for '$" .. curr_word .. "'")
 		elseif symbol_type == symbol_types[2] then
 			local query = "@mixin " .. curr_word
 
-			telescope_builtins.grep_string({ default_text = query })
-			telescope_notification("Looking for '@" .. curr_word .. "'")
+			builtin.grep_string({ default_text = query })
+			notification("Looking for '@" .. curr_word .. "'")
 		end
 	end
 
@@ -76,12 +123,12 @@ end
 
 -- Go to definition
 M.go_to_definition = function()
-	telescope_builtins.lsp_definitions()
+	builtin.lsp_definitions()
 end
 
 -- List references
 M.list_references = function()
-	telescope_builtins.lsp_references()
+	builtin.lsp_references()
 end
 
 return M
