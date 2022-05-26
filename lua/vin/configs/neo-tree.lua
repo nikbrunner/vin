@@ -12,6 +12,14 @@ neotree.setup({
 	popup_border_style = "rounded",
 	enable_git_status = true,
 	enable_diagnostics = true,
+	git_status_async = true, 
+  -- These options are for people with VERY large git repos
+	git_status_async_options = {
+		batch_size = 1000, -- how many lines of git status results to process at a time
+		batch_delay = 10, -- delay in ms between batches. Spreads out the workload to let other processes run.
+		max_lines = 10000, -- How many lines of git status results to process. Anything after this will be dropped.
+		-- Anything before this will be used. The last items to be processed are the untracked files.
+	},
 	event_handlers = {
 		{
 			event = "after_render",
@@ -170,7 +178,16 @@ neotree.setup({
 				["/"] = "fuzzy_finder",
 				["f"] = "filter_on_submit",
 				["<c-x>"] = "clear_filter",
+				["o"] = "system_open",
 			},
+		},
+		commands = {
+			system_open = function(state)
+				local node = state.tree:get_node()
+				local path = node:get_id()
+				-- macOs specific -- open file in default application in the background
+				vim.api.nvim_command("silent !open -g " .. path)
+			end,
 		},
 	},
 	buffers = {
@@ -191,13 +208,15 @@ neotree.setup({
 				["gu"] = "git_unstage_file",
 				["ga"] = "git_add_file",
 				["gr"] = "git_revert_file",
-				["gc"] = "git_commit",
+				["C"] = "git_commit",
 				["gp"] = "git_push",
 				["gg"] = "git_commit_and_push",
 			},
 		},
 	},
 })
+
+print("hello world")
 
 -- Unless you are still migrating, remove the deprecated commands from v1.x
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
