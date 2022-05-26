@@ -25,22 +25,25 @@ end
 local header = {
 	type = "text",
 	val = {
-		[[             o\             ]],
-		[[   _________/__\__________  ]],
-		[[  |                  - (  | ]],
-		[[ ,'-.                 . `-| ]],
-		[[(____".       ,-.    '   || ]],
-		[[  |          /\,-\   ,-.  | ]],
-		[[  |      ,-./     \ /'.-\ | ]],
-		[[  |     /-.,\      /     \| ]],
-		[[  |    /     \    ,-.     \ ]],
-		[[  |___/_______\__/___\_____\]],
-		[[                            ]],
-		[[             Vin            ]],
+		[[                                    /\                                       ]],
+		[[                               /\  //\\                                      ]],
+		[[                        /\    //\\///\\\        /\                           ]],
+		[[                       //\\  ///\////\\\\  /\  //\\                          ]],
+		[[          /\          /  ^ \/^ ^/^  ^  ^ \/^ \/  ^ \                         ]],
+		[[         / ^\    /\  / ^   /  ^/ ^ ^ ^   ^\ ^/  ^^  \                        ]],
+		[[        /^   \  / ^\/ ^ ^   ^ / ^  ^    ^  \/ ^   ^  \       *               ]],
+		[[       /  ^ ^ \/^  ^\ ^ ^ ^   ^  ^   ^   ____  ^   ^  \     /|\              ]],
+		[[      / ^ ^  ^ \ ^  _\___________________|  |_____^ ^  \   /||o\             ]],
+		[[     / ^^  ^ ^ ^\  /______________________________\ ^ ^ \ /|o|||\            ]],
+		[[    /  ^  ^^ ^ ^  /________________________________\  ^  /|||||o|\           ]],
+		[[   /^ ^  ^ ^^  ^    ||___|___||||||||||||___|__|||      /||o||||||\          ]],
+		[[  / ^   ^   ^    ^  ||___|___||||||||||||___|__|||          | |              ]],
+		[[ / ^ ^ ^  ^  ^  ^   ||||||||||||||||||||||||||||||oooooooooo| |oooooooooooooo]],
+		[[ oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo]],
 	},
 	opts = {
 		position = "center",
-		hl = "Comment",
+		hl = "Normal",
 	},
 }
 
@@ -177,14 +180,14 @@ local section = {
 	greetHeading = greetHeading,
 	vim_version = vim_version(),
 	pluginCount = pluginCount,
-	footer = fortune,
+	-- footer = fortune,
 }
 
 local opts = {
 	layout = {
 		{ type = "padding", val = 1 },
 		section.header,
-		{ type = "padding", val = 1 },
+		{ type = "padding", val = 3 },
 		section.greetHeading,
 		{ type = "padding", val = 1 },
 		section.vim_version,
