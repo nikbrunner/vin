@@ -12,8 +12,9 @@ neotree.setup({
 	popup_border_style = "rounded",
 	enable_git_status = true,
 	enable_diagnostics = true,
-	git_status_async = true, 
-  -- These options are for people with VERY large git repos
+	enable_refresh_on_write = true,
+	git_status_async = true,
+	-- These options are for people with VERY large git repos
 	git_status_async_options = {
 		batch_size = 1000, -- how many lines of git status results to process at a time
 		batch_delay = 10, -- delay in ms between batches. Spreads out the workload to let other processes run.
