@@ -65,6 +65,10 @@ M.custom_highlights = function()
 		NeoTreeFloatTitle = { fg = M.colors().fg, bg = nil },
 		-- NeoTreeWinSeparator = { bg = M.colors().cyan },
 
+		WhichKeyFloat = { bg = bg.very_dark },
+
+		FloatBorder = { bg = bg.very_dark },
+
 		NormalFloat = { bg = bg.very_dark },
 		TabLineFill = { bg = bg.main },
 
