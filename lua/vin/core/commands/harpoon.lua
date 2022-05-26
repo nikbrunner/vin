@@ -25,6 +25,9 @@ local M = {}
 M.add_file = function()
 	mark.add_file()
 
+	-- Refresh Neotree after add mark
+	require("neo-tree.sources.manager").refresh()
+
 	local filename = vim.fn.expand("%:t")
 
 	notify("Added '" .. filename .. "' to Harpoooon!", "info", {
