@@ -51,6 +51,8 @@ end
 
 M.custom_highlights = function()
 	return {
+		NeoTreeIndentMarker = { fg = M.colors().dark_blue },
+		NeoTreeExpander = { fg = M.colors().dark_blue },
 
 		TSConstructor = { fg = M.colors().orange },
 		TSFunction = { fg = M.colors().yellow },
