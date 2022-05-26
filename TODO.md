@@ -12,3 +12,7 @@
 ## Arvo
 
 - [ ] Darker Lazygit Float Window
+- [ ] Style LSP Highlighs
+    - LspReferenceText
+    - LspReferenceRead
+    - LspReferenceWrite
