@@ -49,7 +49,7 @@ M.colors = function()
 		float = bg.very_dark,
 		highlight = bg.very_light,
 		highlight_dark = bg.light,
-		-- selection = colors_darker.slate_gray_3,
+		-- selection = "#EBCB8B", -- search results from /
 	}
 end
 
@@ -59,14 +59,13 @@ M.custom_highlights = function()
 	return {
 		NeoTreeNormal = { bg = bg.very_dark },
 		NeoTreeNormalNC = { bg = bg.very_dark },
-		-- NeoTreeVertSplit = { fg = "#00ff00", bg = M.colors().cyan },
 		NeoTreeIndentMarker = { fg = M.colors().dark_blue },
 		NeoTreeExpander = { fg = M.colors().dark_blue },
 		NeoTreeFloatBorder = { fg = M.colors().dark_blue, bg = nil },
 		NeoTreeFloatTitle = { fg = M.colors().fg, bg = nil },
-		NeoTreeWinSeparator = { bg = bg.light },
 
 		NormalFloat = { bg = bg.very_dark },
+		TabLineFill = { bg = bg.main },
 
 		TSConstructor = { fg = M.colors().orange },
 		TSFunction = { fg = M.colors().yellow },
