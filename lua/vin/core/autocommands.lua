@@ -53,14 +53,18 @@ local buf_win_enter_au_group = vim.api.nvim_create_augroup(
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = "*",
 	callback = function()
-		vim.o.foldmethod = "expr"
-		vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-		vim.o.foldlevel = 3
+		-- Set foldmethod for specific filetypes
+		-- if vim.bo.filetype == "css" or vim.bo.filetype == "scss" then
+		--  print("do this")
+		-- 	return
+		-- else
+		-- print("do something else")
+		-- end
+
+		vim.o.foldmethod = "indent"
+		vim.o.foldlevel = 2
+
 		vim.cmd("ColorizerAttachToBuffer")
 	end,
 	group = buf_win_enter_au_group,
 })
-
--- TODO Convert to lua
-vim.cmd("autocmd BufRead,BufEnter *.css setlocal foldmethod=indent")
-vim.cmd("autocmd BufRead,BufEnter *.scss setlocal foldmethod=indent")
