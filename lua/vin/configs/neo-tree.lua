@@ -3,11 +3,27 @@ if not status_ok then
 	return
 end
 
+-- I want to able track the first mount of vim,
+-- which will be set to false after the first render of neo-tree
+local initial_vim_mount = true
+
 neotree.setup({
 	close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
 	popup_border_style = "rounded",
 	enable_git_status = true,
 	enable_diagnostics = true,
+	event_handlers = {
+		{
+			event = "after_render",
+			handler = function(arg)
+				-- On the inital mount of vim, navigate to the the first empty window
+				if initial_vim_mount then
+					vim.api.nvim_set_current_win(1000)
+					initial_vim_mount = false
+				end
+			end,
+		},
+	},
 	default_component_configs = {
 		indent = {
 			indent_size = 2,
@@ -55,7 +71,7 @@ neotree.setup({
 	},
 	window = {
 		position = "left",
-		width = 40,
+		width = 50,
 		mapping_options = {
 			noremap = true,
 			nowait = true,
@@ -92,6 +108,31 @@ neotree.setup({
 		["jsx"] = { "story.jsx" },
 	},
 	filesystem = {
+		components = {
+			harpoon_index = function(config, node, state)
+				local Marked = require("harpoon.mark")
+				local path = node:get_id()
+				local success, index = pcall(Marked.get_index_of, path)
+
+				if success and index and index > 0 then
+					return {
+						text = string.format(" ⥤ %d", index), -- <-- Add your favorite harpoon like arrow here
+						highlight = config.highlight or "NeoTreeDirectoryIcon",
+					}
+				else
+					return {}
+				end
+			end,
+		},
+		renderers = {
+			file = {
+				{ "icon" },
+				{ "name", use_git_status_colors = true },
+				{ "harpoon_index" }, --> This is what actually adds the component in where you want it
+				{ "diagnostics" },
+				{ "git_status", highlight = "NeoTreeDimText" },
+			},
+		},
 		filtered_items = {
 			visible = false, -- when true, they will just be displayed differently than normal items
 			hide_dotfiles = false,
