@@ -1,18 +1,18 @@
-local dark_north = require("vin.core.colorscheme.dark_north").colors()
+local arvo = require("vin.core.colorscheme.arvo").colors()
 
 local M = {}
 
 M.theme = function()
 	local colors = {
-		darkgray = dark_north.bg,
-		gray = dark_north.fg_dark,
-		innerbg = nil,
-		outerbg = dark_north.bg_light,
-		normal = dark_north.blue,
-		insert = dark_north.green,
-		visual = dark_north.orange,
-		replace = dark_north.pink,
-		command = dark_north.yellow,
+		darkgray = arvo.bg,
+		gray = arvo.fg_dark,
+		innerbg = arvo.bg_light,
+		outerbg = arvo.bg_very_dark,
+		normal = arvo.blue,
+		insert = arvo.green,
+		visual = arvo.orange,
+		replace = arvo.pink,
+		command = arvo.yellow,
 	}
 
 	return {

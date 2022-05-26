@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local dark_north = require("vin.core.colorscheme.dark_north")
+local arvo = require("vin.core.colorscheme.arvo")
 
 local default_colors = require("onenord.colors").load()
 
@@ -34,6 +34,6 @@ onenord.setup({
 	},
 
 	-- Defaults: https://github.com/rmehri01/onenord.nvim/blob/main/lua/onenord/colors/onenord.lua
-	custom_highlights = dark_north.custom_highlights(),
-	custom_colors = dark_north.colors(),
+	custom_highlights = arvo.custom_highlights(),
+	custom_colors = arvo.colors(),
 })

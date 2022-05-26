@@ -1,26 +1,31 @@
 local M = {}
 
-M.slate_gray = {
-	"#101216",
-	"#12151A",
-	"#15171D",
-	"#171A20",
-	"#191D23",
-	"#1C1F26",
-	"#1E222A",
-}
+-- https://www.figma.com/file/WvxEHBxgquwj7W2fiO2q9k/Arvo?node-id=0%3A1
 
-local bg_githbub_dimmed = "#22272e"
-local bg_nord = "#2E3440"
-local bg_dark_north = "#1D2530"
+M.semantic = function()
+	return {
+		bg = {
+			very_dark = "#19202A",
+			dark = "#1B222D",
+			main = "#1D2530",
+			light = "#273241",
+			very_light = "#313F52",
+		},
+	}
+end
 
 M.colors = function()
+	local bg = M.semantic().bg
+
 	return {
 		fg_dark = "#B1BDD3",
 		fg = "#e5e9f0",
 		fg_light = "#eceff4",
-		bg = bg_dark_north,
-		bg_light = M.slate_gray[6],
+		bg_very_dark = bg.very_dark,
+		bg_dark = bg.dark,
+		bg = bg.main,
+		bg_light = bg.light,
+		bg_very_light = bg.very_light,
 		gray = "#646A76",
 		light_gray = "#6C7A96",
 		cyan = "#70a9a1",
@@ -40,19 +45,28 @@ M.colors = function()
 		none = "NONE",
 
 		-- active = M.slate_gray[6],
-		active = "#2A3646",
-		-- float = M.slate_gray[1],
-		float = "#2A3646",
-		-- highlight = M.slate_gray[6],
-		-- highlight_dark = M.slate_gray[5],
+		active = bg.light,
+		float = bg.very_dark,
+		highlight = bg.very_light,
+		highlight_dark = bg.light,
 		-- selection = colors_darker.slate_gray_3,
 	}
 end
 
 M.custom_highlights = function()
+	local bg = M.semantic().bg
+
 	return {
+		NeoTreeNormal = { bg = bg.very_dark },
+		NeoTreeNormalNC = { bg = bg.very_dark },
+		-- NeoTreeVertSplit = { fg = "#00ff00", bg = M.colors().cyan },
 		NeoTreeIndentMarker = { fg = M.colors().dark_blue },
 		NeoTreeExpander = { fg = M.colors().dark_blue },
+		NeoTreeFloatBorder = { fg = M.colors().dark_blue, bg = nil },
+		NeoTreeFloatTitle = { fg = M.colors().fg, bg = nil },
+		NeoTreeWinSeparator = { bg = bg.light },
+
+		NormalFloat = { bg = bg.very_dark },
 
 		TSConstructor = { fg = M.colors().orange },
 		TSFunction = { fg = M.colors().yellow },
@@ -63,6 +77,7 @@ M.custom_highlights = function()
 		TSProperty = { fg = M.colors().blue },
 		TSParameter = { fg = M.colors().fg },
 		TSString = { fg = M.colors().light_green },
+		TSTypeBuiltin = { fg = M.colors().cyan },
 
 		StorageClass = { fg = M.colors().fg_dark }, -- CSS Property
 		sassMixing = { fg = M.colors().pink }, -- CSS Property

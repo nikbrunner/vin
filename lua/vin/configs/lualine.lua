@@ -11,7 +11,7 @@ end
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = require("vin.core.colorscheme.dark_north_lualine").theme(),
+		theme = require("vin.core.colorscheme.arvo_lualine").theme(),
 		-- theme = "auto",
 		-- component_separators = { left = "", right = "" },
 		-- section_separators = { left = "", right = "" },
