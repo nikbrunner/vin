@@ -31,8 +31,20 @@ lualine.setup({
 		globalstatus = true,
 	},
 	sections = {
-		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_a = {
+			{
+				"mode",
+				padding = 22,
+			},
+		},
+		lualine_b = {
+			{
+				"branch",
+				padding = 3,
+			},
+			"diff",
+			"diagnostics",
+		},
 		lualine_c = {
 			{
 				"filename",
@@ -62,6 +74,7 @@ lualine.setup({
 				icon = { align = "left" }, -- Display filetype icon on the right hand side
 				-- icon =    {'X', align='right'}
 				-- Icon string ^ in table is ignored in filetype component
+				padding = 3,
 			},
 		},
 		lualine_z = {},
