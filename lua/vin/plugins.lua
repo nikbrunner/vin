@@ -67,6 +67,7 @@ return packer.startup(function(use) -- My plugins here
 			"MunifTanjim/nui.nvim",
 		},
 	})
+	use({ "s1n7ax/nvim-window-picker", tag = "v1.*" })
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },

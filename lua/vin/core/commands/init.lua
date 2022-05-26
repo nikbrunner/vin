@@ -7,6 +7,7 @@ local harpoon = require("vin.core.commands.harpoon")
 local zen = require("vin.core.commands.zen")
 local packer = require("vin.core.commands.packer")
 local diffview = require("vin.core.commands.diffview")
+local utils = require("vin.core.commands.utils")
 
 local M = {
 	general = general,
@@ -18,6 +19,7 @@ local M = {
 	zen = zen,
 	packer = packer,
 	diffview = diffview,
+	utils = utils,
 }
 
 return M

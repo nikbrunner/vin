@@ -8,7 +8,7 @@ if not jester_status_ok then
 	return
 end
 
-local cmds = require("vin.core.commands")
+local cmd = require("vin.core.commands")
 local groups = require("vin.keybindings.mappings.groups")
 
 local M = {}
@@ -44,12 +44,13 @@ M.no_leader = {
 	["˚"] = { "<Esc>:m .-2<CR>", "Move Up" },
 
 	-- Control bindings
-	["<C-p>"] = { cmds.fzf_lua.find_files_without_preview, "  Files" },
-	["<C-e>"] = { cmds.fzf_lua.find_buffers, "﩯 Buffers" },
-	["<C-b>"] = { "<cmd>Neotree toggle<CR>", " Toggle Tree" },
-	["<C-_>"] = { cmds.telescope.find_in_file, "  Find Text in File" },
+	["<C-p>"] = { cmd.fzf_lua.find_files_without_preview, "  Files" },
+	["<C-e>"] = { cmd.fzf_lua.find_buffers, "﩯 Buffers" },
+	["<C-b>"] = { "<cmd>Neotree focus<CR>", " Toggle Tree" },
+	["<C-f>"] = { cmd.utils.pick_window, "  Pick Window" },
+	["<C-_>"] = { cmd.telescope.find_in_file, "  Find Text in File" },
 	["<C-g>"] = {
-		cmds.fzf_lua.find_modified_files_with_preview,
+		cmd.fzf_lua.find_modified_files_with_preview,
 		"Find modified files",
 	},
 	["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
@@ -149,28 +150,28 @@ M.no_leader = {
 
 	v = {
 		name = "Select",
-		b = { cmds.general.blocks.select, "Select Block" },
-		v = { cmds.general.line.select, "Select Line" },
-		A = { cmds.general.all.select, "Select All" },
+		b = { cmd.general.blocks.select, "Select Block" },
+		v = { cmd.general.line.select, "Select Line" },
+		A = { cmd.general.all.select, "Select All" },
 	},
 	y = {
 		name = "Yank",
-		b = { cmds.general.blocks.yank, "Yank Block" },
-		A = { cmds.general.all.yank, "Yank All" },
+		b = { cmd.general.blocks.yank, "Yank Block" },
+		A = { cmd.general.all.yank, "Yank All" },
 	},
 	d = {
 		name = "Delete",
-		b = { cmds.general.blocks.delete, "Delete Block" },
-		A = { cmds.general.all.delete, "Delete All" },
+		b = { cmd.general.blocks.delete, "Delete Block" },
+		A = { cmd.general.all.delete, "Delete All" },
 	},
 }
 
 M.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	["f"] = { cmds.telescope.find_files_without_preview, "  Files" },
-	["F"] = { cmds.telescope.find_files_with_preview, "  Files" },
-	["m"] = { cmds.zen.toggle_full_screen, "  Maximize Pane" },
+	["f"] = { cmd.fzf_lua.find_files_without_preview, "  Files" },
+	["F"] = { cmd.telescope.find_files_with_preview, "  Files" },
+	["m"] = { cmd.zen.toggle_full_screen, "  Maximize Pane" },
 	["r"] = {
 		function()
 			jester.run_file()
