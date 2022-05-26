@@ -171,6 +171,7 @@ M.search = {
 		name = "Advanced",
 		s = { cmds.telescope.find_scss_symbol, " SCSS Symbol" },
 		h = { cmds.fzf_lua.find_help_tags, "  Help Tags" },
+		H = { "<cmd>Telescope highlights<CR>", "  Highlights" },
 		m = { cmds.fzf_lua.find_man_page, "  Man Pages" },
 		r = { cmds.fzf_lua.find_in_registers, "  Registers" },
 		k = { cmds.fzf_lua.find_keymaps, "  Keymaps" },
