@@ -117,7 +117,7 @@ neotree.setup({
 		-- "open_current",  -- netrw disabled, opening a directory opens within the
 		-- window like netrw would, regardless of window.position
 		-- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-		use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+		use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
 		-- instead of relying on nvim autocmd events.
 		window = {
 			mappings = {
@@ -178,14 +178,3 @@ vim.fn.sign_define(
 )
 -- NOTE: this is changed from v1.x, which used the old style of highlight groups
 -- in the form "LspDiagnosticsSignWarning"
-
-vim.cmd([[nnoremap \ :Neotree toggle<cr>]])
-
-vim.cmd([[
-  hi NeoTreeGitModified guifg=#ac8934
-  hi NeoTreeGitAdded guifg=#56d364
-  hi NeoTreeGitUntracked guifg=#56d364
-  hi NeoTreeGitConflict guifg=#f85149
-  hi NeoTreeFloatBorder guifg=#79c0ff
-  hi NeoTreeTitleBar guibg=#79c0ff guifg=#0d1117
-]])
