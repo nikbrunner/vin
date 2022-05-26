@@ -24,8 +24,8 @@ lualine.setup({
 
 		disabled_filetypes = {
 			"alpha",
-			"neo-tree",
-			"",
+			-- "neo-tree",
+			-- "",
 		},
 		always_divide_middle = true,
 		globalstatus = true,
