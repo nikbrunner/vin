@@ -4,8 +4,8 @@ if not status_ok then
 end
 
 notify.setup({
-	-- Animation style (see below for details)
-	stages = "fade_in_slide_out",
+	-- Animation style
+	stages = "fade",
 
 	-- Function called when a new window is opened, use for changing win settings/config
 	on_open = nil,
