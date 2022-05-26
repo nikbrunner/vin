@@ -31,10 +31,10 @@ vim.cmd([[
   hi WinSeparator gui=NONE guifg=NONE guibg=NonText guisp=NonText
 ]])
 
--- Transparent folds
+-- Transparent Backgrounds for Folds
 vim.cmd([[
-  hi Folded gui=NONE guifg=NONE guibg=NonText guisp=NonText
-  hi FoldColumn gui=NONE guifg=NONE guibg=NonText guisp=NonText
+  hi Folded guibg=NonText guisp=NonText
+  hi FoldColumn guibg=NonText guisp=NonText
 ]])
 
 -- Hide Vertical SplitLines
