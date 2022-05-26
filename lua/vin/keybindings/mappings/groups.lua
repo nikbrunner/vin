@@ -5,17 +5,12 @@ local M = {}
 M.advanced_g = {
 	name = "Go-To",
 	h = { vim.lsp.buf.hover, "Hover Doc" },
+	l = { vim.diagnostic.open_float, "Hover Problem" },
 	d = { cmds.telescope.go_to_definition, "Go to Definition" },
 	i = { vim.lsp.buf.implementation, "Go to Implementation" },
 	r = { ":Trouble lsp_references<CR>", "List References" },
 	R = { cmds.telescope.list_references, "List References with FzfLua" },
-	y = { ":Telescope lsp_type_definitions<CR>", "List References" },
-	l = { vim.diagnostic.open_float, "Hover Problem" },
-	m = {
-		cmds.fzf_lua.find_modified_files_with_preview,
-		"Find Modified Files with Preview",
-	},
-	s = { ":LazyGit<CR>", "LazyGit" },
+	y = { ":Telescope lsp_type_definitions<CR>", "Type Defintions" },
 }
 
 M.diagnostics = {
@@ -41,14 +36,14 @@ M.lsp = {
 	n = { cmds.lsp.symbol_rename, "Change Name" },
 	l = { vim.lsp.codelens.run, "CodeLens Action" },
 	q = { "<cmd>Telescope diagnostics<CR>", "Quickfix" },
-	p = { "<cmd>Trouble document_diagnostics<CR>", "Trouble" },
-	P = { "<cmd>Trouble workspace_diagnostics<CR>", "Trouble" },
 	s = { cmds.fzf_lua.find_symbols_in_workspace, "Symbol" },
-	r = { cmds.fzf_lua.find_references, "List References" },
-	R = { ":Trouble lsp_references<CR>", "List References" },
-	y = { ":Telescope lsp_type_definitions<CR>", "List References" },
+	r = { cmds.fzf_lua.find_references, "List References w/ Fuzzy" },
+	R = { ":Trouble lsp_references<CR>", "List References w/ Trouble" },
+	y = { ":Telescope lsp_type_definitions<CR>", "Type Definitions" },
 	h = { vim.diagnostic.open_float, "Hover Problem" },
 	d = { cmds.telescope.go_to_definition, "Go to Definition" },
+	p = { "<cmd>Trouble document_diagnostics<CR>", "Trouble" },
+	P = { "<cmd>Trouble workspace_diagnostics<CR>", "Trouble" },
 	D = { ":Telescope diagnostics<CR>", "Diagnostics" },
 }
 
@@ -57,8 +52,9 @@ M.explorer = {
 	name = "  Explorer",
 	e = { "<cmd>Neotree left toggle<CR>", " Tree" },
 	f = { "<cmd>Neotree float toggle<CR>", " Float" },
-	r = { "<cmd>Neotree reveal<CR>", " Reveal" },
+	r = { "<cmd>Neotree reveal<CR>", "  Reveal File" },
 	g = { "<cmd>Neotree git_status<CR>", " Git Status" },
+	["."] = { "<cmd>Neotree focus<CR>", "⊙ Focus Tree" },
 }
 
 M.quit = {
@@ -108,10 +104,6 @@ M.git = {
 		r = { "<cmd>DiffviewRefresh<CR>", "Refresh" },
 		q = { "<cmd>DiffviewClose<CR>", "Close" },
 	},
-	H = { "<cmd>DiffviewOpen origin/master...HEAD<CR>", "Diff / Master" },
-	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
-	j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
-	-- o = { commands.fzf_lua.find_modified_files_with_preview, "Modified Files" },
 	o = { cmds.fzf_lua.find_modified_files_with_preview, "Open Changed Files" },
 	h = {
 		name = "Hunk",

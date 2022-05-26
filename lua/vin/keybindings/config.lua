@@ -32,14 +32,14 @@ return {
 	icons = {
 		breadcrumb = "/", -- symbol used in the command line area that shows your active key combo
 		separator = "·", -- symbol used between a key and it's label
-		group = "", -- symbol prepended to a group
+		group = "+ ", -- symbol prepended to a group
 	},
 	popup_mappings = {
 		scroll_down = "<c-d>", -- binding to scroll down inside the popup
 		scroll_up = "<c-u>", -- binding to scroll up inside the popup
 	},
 	window = {
-		border = "rounded", -- none, single, double, shadow
+		border = "single", -- none, single, double, shadow
 		position = "bottom", -- bottom, top
 		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
 		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]

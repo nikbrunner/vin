@@ -46,8 +46,8 @@ M.no_leader = {
 	-- Control bindings
 	["<C-p>"] = { cmd.fzf_lua.find_files_without_preview, "  Files" },
 	["<C-e>"] = { cmd.fzf_lua.find_buffers, "﩯 Buffers" },
-	["<C-b>"] = { "<cmd>Neotree focus<CR>", " Toggle Tree" },
-	["<C-f>"] = { cmd.utils.pick_window, "  Pick Window" },
+	-- ["<C-b>"] = { "<cmd>Neotree focus<CR>", " Toggle Tree" },
+	-- ["<C-f>"] = { cmd.utils.pick_window, "  Pick Window" },
 	["<C-_>"] = { cmd.telescope.find_in_file, "  Find Text in File" },
 	["<C-g>"] = {
 		cmd.fzf_lua.find_modified_files_with_preview,
@@ -169,14 +169,15 @@ M.no_leader = {
 M.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	["f"] = { cmd.fzf_lua.find_files_without_preview, "  Files" },
-	["F"] = { cmd.telescope.find_files_with_preview, "  Files" },
-	["m"] = { cmd.zen.toggle_full_screen, "  Maximize Pane" },
+	[" "] = { cmd.utils.pick_window, "⦾  Pick Window" },
+	["f"] = { cmd.fzf_lua.find_files_without_preview, "  Find File" },
+	["F"] = { cmd.telescope.find_files_with_preview, "  Find File w/ Preview" },
+	["z"] = { cmd.zen.toggle_full_screen, "  Zen" },
 	["r"] = {
 		function()
 			jester.run_file()
 		end,
-		" Run Tests",
+		WhichKeyIgnoreLabel,
 	},
 	["n"] = { ":nohl<CR>", WhichKeyIgnoreLabel },
 
@@ -198,10 +199,8 @@ M.with_leader = {
 	g = groups.git,
 	l = groups.lsp,
 	h = groups.harpoon,
-	i = groups.insert,
 	q = groups.quit,
 	c = groups.copy,
-	b = groups.buffer,
 	t = groups.tabs,
 }
 
