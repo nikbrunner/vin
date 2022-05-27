@@ -187,7 +187,7 @@ neotree.setup({
 				local node = state.tree:get_node()
 				local path = node:get_id()
 				-- macOs specific -- open file in default application in the background
-				vim.api.nvim_command("silent !open -g " .. path)
+				vim.api.nvim_command("silent !open " .. path)
 			end,
 		},
 	},
