@@ -71,7 +71,7 @@ M.custom_highlights = function()
 
 		FloatBorder = { bg = bg.very_dark },
 
-		NormalFloat = { bg = bg.very_dark },
+		NormalFloat = { bg = bg.main },
 		TabLineFill = { bg = bg.main },
 
 		TSConstructor = { fg = M.colors().orange },
