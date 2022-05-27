@@ -16,7 +16,7 @@ window_picker.setup({
 
 	-- when you go to window selection mode, status bar will show one of
 	-- following letters on them so you can use that letter to select the window
-	selection_chars = "FJDKSLA;CMRUEIWOQP",
+	selection_chars = "asdfjkl;",
 
 	-- if you want to manually filter out the windows, pass in a function that
 	-- takes two parameters. you should return window ids that should be
