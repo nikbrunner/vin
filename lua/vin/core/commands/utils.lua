@@ -23,4 +23,18 @@ M.pick_window = function()
 	end
 end
 
+M.log_word = function()
+	local current_word = vim.fn.expand("<cword>")
+	local message = "'" .. current_word .. "', " .. current_word
+
+	if
+		vim.bo.filetype == "typescript"
+		or vim.bo.filetype == "typescriptreact"
+		or vim.bo.filetype == "javascript"
+		or vim.bo.filetype == "javascriptreact"
+	then
+		vim.cmd("norm oconsole.log(" .. message .. ");")
+	end
+end
+
 return M

@@ -197,6 +197,7 @@ M.with_leader = {
 	P = groups.packer,
 	s = groups.search,
 	g = groups.git,
+	i = groups.insert,
 	l = groups.lsp,
 	h = groups.harpoon,
 	q = groups.quit,

@@ -247,8 +247,8 @@ M.packer = {
 M.insert = {
 	name = "  Insert",
 	l = {
-		'oconsole.log("LINE: <C-r>=line(".")<Esc>",);<Esc>O<Esc>jf,a ',
-		"console.log()",
+		cmds.utils.log_word,
+		"Log Word",
 	},
 }
 
