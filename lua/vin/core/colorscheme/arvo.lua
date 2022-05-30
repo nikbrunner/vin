@@ -18,7 +18,7 @@ M.colors = function()
 	local bg = M.semantic().bg
 
 	return {
-		fg_dark = "#B1BDD3",
+		fg_dark = "#d8dee9",
 		fg = "#e5e9f0",
 		fg_light = "#eceff4",
 		bg_very_dark = bg.very_dark,
