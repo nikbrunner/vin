@@ -84,10 +84,15 @@ local greetHeading = {
 	},
 }
 
+-- TODO Fix for Linux
 local plugins = ""
 if vim.fn.has("linux") == 1 or vim.fn.has("mac") == 1 then
+	local install_path = vim.fn.stdpath("data") .. "/site/pack/packer"
+
+	print(install_path)
+
 	local handle = io.popen(
-		'fd -d 2 . $HOME"/.local/share/nvim/site/pack/packer" | grep pack | wc -l | tr -d "\n" '
+		"fd -d 2 . " .. install_path .. ' | grep pack | wc -l | tr -d "\n" '
 	)
 
 	if handle == nil then
