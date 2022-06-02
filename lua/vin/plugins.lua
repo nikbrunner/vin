@@ -100,6 +100,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" })
 	use({ "nanozuki/tabby.nvim" })
 	use({ "chentoast/marks.nvim" })
+	use({ "windwp/nvim-ts-autotag" })
 
 	-- Colorschemes
 	use({ "projekt0n/github-nvim-theme" })
