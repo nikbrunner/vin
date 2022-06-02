@@ -25,7 +25,7 @@ end
 
 M.log_word = function()
 	local current_word = vim.fn.expand("<cword>")
-	local message = "'" .. current_word .. "', " .. current_word
+	local message = '"' .. current_word .. '", ' .. current_word
 
 	if
 		vim.bo.filetype == "typescript"
@@ -34,6 +34,8 @@ M.log_word = function()
 		or vim.bo.filetype == "javascriptreact"
 	then
 		vim.cmd("norm oconsole.log(" .. message .. ");")
+	elseif vim.bo.filetype == "go" then
+		vim.cmd("norm ofmt.Println(" .. message .. ")")
 	end
 end
 
