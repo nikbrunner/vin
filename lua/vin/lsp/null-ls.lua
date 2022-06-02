@@ -15,6 +15,7 @@ null_ls.setup({
 		formatting.prettier, --TODO: When empty it respect the .prettierrc?
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
+		formatting.gofmt,
 		-- diagnostics.flake8
 	},
 })

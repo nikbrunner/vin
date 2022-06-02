@@ -73,12 +73,11 @@ end
 
 ---@diagnostic disable-next-line: unused-local
 M.on_attach = function(client, bufnr)
-	if client.name == "tsserver" then
-		-- client.server_capabilities.document_formatting = false -- Needed for v8.0 ??
-		client.resolved_capabilities.document_formatting = false
-	end
-
-	if client.name == "sumneko_lua" then
+	if
+		client.name == "tsserver"
+		or client.name == "gopls"
+		or client.name == "sumneko_lua"
+	then
 		-- client.server_capabilities.document_formatting = false -- Needed for v8.0 ??
 		client.resolved_capabilities.document_formatting = false
 	end
