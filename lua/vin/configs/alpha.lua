@@ -22,31 +22,6 @@ local function vim_version()
 	}
 end
 
-local header = {
-	type = "text",
-	val = {
-		[[                                    /\                                       ]],
-		[[                               /\  //\\                                      ]],
-		[[                        /\    //\\///\\\        /\                           ]],
-		[[                       //\\  ///\////\\\\  /\  //\\                          ]],
-		[[          /\          /  ^ \/^ ^/^  ^  ^ \/^ \/  ^ \                         ]],
-		[[         / ^\    /\  / ^   /  ^/ ^ ^ ^   ^\ ^/  ^^  \                        ]],
-		[[        /^   \  / ^\/ ^ ^   ^ / ^  ^    ^  \/ ^   ^  \       *               ]],
-		[[       /  ^ ^ \/^  ^\ ^ ^ ^   ^  ^   ^   ____  ^   ^  \     /|\              ]],
-		[[      / ^ ^  ^ \ ^  _\___________________|  |_____^ ^  \   /||o\             ]],
-		[[     / ^^  ^ ^ ^\  /______________________________\ ^ ^ \ /|o|||\            ]],
-		[[    /  ^  ^^ ^ ^  /________________________________\  ^  /|||||o|\           ]],
-		[[   /^ ^  ^ ^^  ^    ||___|___||||||||||||___|__|||      /||o||||||\          ]],
-		[[  / ^   ^   ^    ^  ||___|___||||||||||||___|__|||          | |              ]],
-		[[ / ^ ^ ^  ^  ^  ^   ||||||||||||||||||||||||||||||oooooooooo| |oooooooooooooo]],
-		[[ oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo]],
-	},
-	opts = {
-		position = "center",
-		hl = "Normal",
-	},
-}
-
 local function getGreeting(name)
 	local tableTime = os.date("*t")
 	local hour = tableTime.hour
@@ -180,27 +155,23 @@ local buttons = {
 }
 
 local section = {
-	header = header,
 	buttons = buttons,
 	greetHeading = greetHeading,
 	vim_version = vim_version(),
 	pluginCount = pluginCount,
-	-- footer = fortune,
 }
 
 local opts = {
 	layout = {
-		{ type = "padding", val = 1 },
-		section.header,
+		{ type = "padding", val = 12 },
 		{ type = "padding", val = 3 },
 		section.greetHeading,
-		{ type = "padding", val = 1 },
+		{ type = "padding", val = 3 },
 		section.vim_version,
 		section.pluginCount,
-		{ type = "padding", val = 2 },
+		{ type = "padding", val = 3 },
 		section.buttons,
 		{ type = "padding", val = 2 },
-		section.footer,
 	},
 	opts = {
 		margin = 44,
