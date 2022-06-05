@@ -10,6 +10,7 @@
 - [ ] Neotree: Refresh after commit
 - [ ] Define Comment Doc for all functions
 - [ ] Colorscheme Switching: Reset Tabby Styling after Switch
+- [ ] `Vin`: Add commands to global `Vin` table
 
 ## Arvo
 

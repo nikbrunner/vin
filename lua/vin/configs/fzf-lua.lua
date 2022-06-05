@@ -367,7 +367,7 @@ fzf_lua.setup({
 		actions = { ["default"] = actions.colorscheme },
 		winopts = { height = 0.55, width = 0.30 },
 		post_reset_cb = function()
-			enable_arvo(false)
+			Vin.arvo.enable(false)
 			require("lualine").setup({ options = { theme = "auto" } })
 			require("vin.core.colorscheme").set_general_custom_highlights()
 		end,

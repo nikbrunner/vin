@@ -5,9 +5,9 @@ end
 
 local colorscheme = "onenord"
 
-enable_arvo(true)
+Vin.arvo.enable(true)
 
-if is_arvo_enabled() then
+if Vin.arvo.is_enabled() then
 	require("vin.core.colorscheme.arvo")
 else
 	require("vin.core.colorscheme.onenord")

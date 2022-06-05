@@ -1,13 +1,30 @@
-require("vin.core.utils.globals")
-
-local status_ok, utils = pcall(require, "telescope.utils")
-if not status_ok then
+local telescope_ok, utils = pcall(require, "telescope.utils")
+if not telescope_ok then
 	return
 end
 
-local M = {}
+local notify_ok, notify = pcall(require, "notify")
+if not notify_ok then
+	return
+end
 
-M.get_master_branch = function()
+require("vin.core.utils.arvo")
+
+-- Vim Function to toggle quickfix list
+-- TODO Convert to Lua
+vim.cmd([[
+function! ToggleQuickFix()
+  if empty(filter(getwininfo(), 'v:val.quickfix'))
+    copen
+  else
+    cclose
+  endif
+endfunction
+]])
+
+Vin.utils = {}
+
+Vin.utils.get_master_branch = function()
 	local branches = utils.get_os_command_output({
 		"git",
 		"branch",
@@ -17,7 +34,7 @@ M.get_master_branch = function()
 	})[1]
 
 	-- TODO split function has been changed. THis needs to be fixed
-	for _, v in pairs(split_by_space(branches)) do
+	for _, v in pairs(Vin.utils.split_by_space(branches)) do
 		if v == "main" then
 			return "main"
 		end
@@ -28,26 +45,22 @@ M.get_master_branch = function()
 	end
 end
 
----
--- Find out current branch
--- @return {false|git branch name}
----
-M.get_current_branch = function()
+---Find out current branch
+---@return false|current_branch_name: string Current Branch Name
+Vin.utils.get_current_branch = function()
 	for line in io.popen("git branch 2>nul"):lines() do
-		local m = line:match("%* (.+)$")
-		if m then
-			return m
+		local current_branch_name = line:match("%* (.+)$")
+		if current_branch_name then
+			return current_branch_name
 		end
 	end
 
 	return false
 end
 
----
--- Find out alle branches
--- @return {false|all git branch name}
----
-M.get_all_branches = function()
+---Find out alle branches
+---@return false|all_branches: {string ...} All branches as table of strings
+Vin.utils.get_all_branches = function()
 	local resultString
 
 	local branches_output = io.popen("git branch -l")
@@ -64,8 +77,110 @@ M.get_all_branches = function()
 		local stripped = string.gsub(string.gsub(read_branches, "*", ""), "\n", "")
 
 		-- Now split the string by spaces into a table and return it
-		return split_by_space(stripped)
+		local all_branches = Vin.utils.split_by_space(stripped)
+		return all_branches
 	end
 end
 
-return M
+---Global Function to debug and print table as lines
+---Can be replaced with vim.pretty_print()
+---@param ... any Input Value to print
+---@return void
+function Vin.utils.put(...)
+	local objects = {}
+	for i = 1, select("#", ...) do
+		local v = select(i, ...)
+		table.insert(objects, vim.inspect(v))
+	end
+
+	print(table.concat(objects, "\n"))
+end
+
+---Wrapper Function for pcall() command
+---TODO Unused, because disfunctional.
+---Try this out with a clean install and see if it works
+---@param modname string Module Name
+---@return mod Module Required Module
+function Vin.utils.prequire(modname)
+	local status_ok, mod = pcall(require, modname)
+	if not status_ok then
+		return nil
+	end
+	return mod
+end
+
+---Function to split a string by spaces
+---@param string string Input string
+---@return chunks table The splitted string as table
+function Vin.utils.split_by_space(string)
+	local chunks = {}
+
+	for substring in string:gmatch("%S+") do
+		table.insert(chunks, substring)
+	end
+	return chunks
+end
+
+---Function to check if a table contains a certain value
+---@param tab table Table to search
+---@param val unknown Value to search for
+---@return boolean
+function Vin.utils.includes(tab, val)
+	for index, value in ipairs(tab) do
+		if value == val then
+			return true
+		end
+	end
+	return false
+end
+
+---Function to check if a table contains a certain value
+---@param tab table Table to search
+---@param val unknown Value to search for
+---@return index number Index of value in tab
+function Vin.utils.find_index(tab, val)
+	local index = nil
+	for i, v in ipairs(tab) do
+		if v == val then
+			index = i
+		end
+	end
+	return index
+end
+
+---Check the name of current colorscheme
+---@return string Name of current Color Scheme
+function Vin.utils.get_current_colorscheme()
+	return vim.api.nvim_eval("g:colors_name")
+end
+
+---Protected Checking a global  Variable
+---@param var_name string The name of the variable
+---@param default_value unknown The Fallback / Default Value if Variable is not defined
+---@return any
+function Vin.utils.pget_var(var_name, default_value)
+	local status_ok, value = pcall(function()
+		return vim.api.nvim_get_var(var_name)
+	end)
+	if status_ok then
+		return value
+	else
+		return default_value
+	end
+end
+
+---Conditionally calls a function, otherwise calls an optional fallback
+---The return of the provided functions get returned
+---@param condition boolean Condition which decides if the callback gets called
+---@param callback function():unknown Function which gets called if the Condition is true
+---@param fallback? function():unknown Optional Function which gets called if Condition is false
+---@return unknown|nil
+function Vin.utils.ccall(condition, callback, fallback)
+	if condition then
+		return callback()
+	else
+		if fallback then
+			return fallback()
+		end
+	end
+end

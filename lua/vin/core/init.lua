@@ -1,3 +1,5 @@
+_G.Vin = {}
+
 require("vin.core.options")
 require("vin.core.utils")
 require("vin.core.autocommands")

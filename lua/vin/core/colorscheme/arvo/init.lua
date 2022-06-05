@@ -2,6 +2,7 @@ local status_ok, onenord = pcall(require, "onenord")
 if not status_ok then
 	return
 end
+
 local M = {}
 
 -- https://www.figma.com/file/WvxEHBxgquwj7W2fiO2q9k/Arvo?node-id=0%3A1
@@ -129,7 +130,7 @@ M.setup = function()
 	})
 end
 
-if is_arvo_enabled() == true then
+if Vin.arvo.is_enabled() == true then
 	M.setup()
 end
 
