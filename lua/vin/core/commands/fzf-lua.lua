@@ -57,6 +57,7 @@ end
 M.find_colorscheme = function(opts)
 	opts = opts or {}
 	fzf_lua.colorschemes(opts)
+	require("lualine").setup({ options = { theme = "auto" } })
 end
 
 M.find_commands = function(opts)
