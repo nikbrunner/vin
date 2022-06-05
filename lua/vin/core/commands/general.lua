@@ -22,8 +22,19 @@ end
 M.get_current_filename = function()
 	local fileNameWithExt = vim.fn.expand("%:t")
 	local dotIndex = string.find(fileNameWithExt, ".", 1, true)
-	local fileName = string.sub(fileNameWithExt, 1, dotIndex - 1)
-	return fileName
+
+	return ccall(
+		dotIndex,
+		-- If extension is found return fileName without extension
+		function()
+			local fileName = string.sub(fileNameWithExt, 1, dotIndex - 1)
+			return fileName
+		end,
+		function()
+			notify("get_current_filename()\nParsing filename failed!", "warn")
+			return nil
+		end
+	)
 end
 
 M.blocks.select = function()

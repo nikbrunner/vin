@@ -76,9 +76,15 @@ M.find_changed_files = function()
 end
 
 M.find_related_files = function()
-	builtin.find_files(themes.get_ivy({
-		default_text = general_commands.get_current_filename(),
-	}))
+	local current_filename = general_commands.get_current_filename()
+
+	if current_filename then
+		builtin.find_files(themes.get_ivy({
+			default_text = current_filename,
+		}))
+	else
+		builtin.find_files(themes.get_ivy())
+	end
 end
 
 M.find_scss_symbol = function()

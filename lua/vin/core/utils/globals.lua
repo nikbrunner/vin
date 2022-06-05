@@ -99,3 +99,19 @@ end
 function _G.enable_arvo(should_arvo_be_enabled)
 	vim.api.nvim_set_var(IS_ARVO_ENABLED, should_arvo_be_enabled)
 end
+
+---Conditionally calls a function, otherwise calls an optional fallback
+---The return of the provided functions get returned
+---@param condition boolean Condition which decides if the callback gets called
+---@param callback fun():any Function which gets called if the Condition is true
+---@param fallback? fun():any Optional Function which gets called if Condition is false
+---@return void
+function _G.ccall(condition, callback, fallback)
+	if condition then
+		return callback()
+	else
+		if fallback then
+			return fallback()
+		end
+	end
+end
