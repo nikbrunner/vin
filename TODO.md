@@ -6,6 +6,7 @@
 - [ ] Define Comment Doc for all functions
 - [ ] Clock in Status line
 - [ ] Move Commands to global `Vin` table
+- [ ] Move `vin/core/colorscheme/` to `vin/colorscheme`
 
 ## Research
 
