@@ -3,10 +3,6 @@ if not status_ok then
 	return
 end
 
-local arvo = require("vin.core.colorscheme.arvo")
-
-local default_colors = require("onenord.colors").load()
-
 onenord.setup({
 	theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
 	borders = false, -- Split window borders
@@ -34,6 +30,6 @@ onenord.setup({
 	},
 
 	-- Defaults: https://github.com/rmehri01/onenord.nvim/blob/main/lua/onenord/colors/onenord.lua
-	custom_highlights = arvo.custom_highlights(),
-	custom_colors = arvo.colors(),
+	custom_highlights = {},
+	custom_colors = {},
 })

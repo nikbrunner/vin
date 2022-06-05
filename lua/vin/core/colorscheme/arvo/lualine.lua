@@ -1,18 +1,18 @@
-local arvo = require("vin.core.colorscheme.arvo").colors()
+local arvo_colors = require("vin.core.colorscheme.arvo").colors()
 
 local M = {}
 
-M.theme = function()
+M.lualine_theme = function()
 	local colors = {
-		darkgray = arvo.bg,
-		gray = arvo.fg_dark,
-		innerbg = arvo.bg_dark,
-		outerbg = arvo.bg_very_dark,
-		normal = arvo.blue,
-		insert = arvo.green,
-		visual = arvo.orange,
-		replace = arvo.pink,
-		command = arvo.yellow,
+		darkgray = arvo_colors.bg,
+		gray = arvo_colors.fg_dark,
+		innerbg = arvo_colors.bg_dark,
+		outerbg = arvo_colors.bg_very_dark,
+		normal = arvo_colors.blue,
+		insert = arvo_colors.green,
+		visual = arvo_colors.orange,
+		replace = arvo_colors.pink,
+		command = arvo_colors.yellow,
 	}
 
 	return {
@@ -48,4 +48,5 @@ M.theme = function()
 		},
 	}
 end
+
 return M

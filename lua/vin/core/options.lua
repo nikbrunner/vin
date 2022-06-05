@@ -58,3 +58,6 @@ vim.cmd([[set noshowcmd]])
 -- Enable global status Line
 -- TODO Move this to options when available
 vim.cmd([[set laststatus=3]])
+
+---Global Variable Name to Track Arvo Customization status
+IS_ARVO_ENABLED = "is_arvo_enabled"

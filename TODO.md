@@ -8,6 +8,7 @@
   - https://sw.kovidgoyal.net/kitty/remote-control/#
 - [ ] Window Picker
 - [ ] Neotree: Refresh after commit
+- [ ] Define Comment Doc for all functions
 
 ## Arvo
 

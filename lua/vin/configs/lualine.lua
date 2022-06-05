@@ -8,11 +8,19 @@ if not gps_status_ok then
 	return
 end
 
+local lualine_theme
+
+if is_arvo_enabled() == true then
+	lualine_theme = require("vin.core.colorscheme.arvo.lualine").lualine_theme()
+else
+	lualine_theme = get_current_colorscheme()
+end
+
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = require("vin.core.colorscheme.arvo_lualine").theme(),
-		-- theme = "auto",
+		-- theme = require("vin.core.colorscheme.arvo.lualine").lualine_theme(),
+		theme = lualine_theme,
 		-- component_separators = { left = "", right = "" },
 		-- section_separators = { left = "", right = "" },
 

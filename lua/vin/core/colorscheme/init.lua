@@ -1,17 +1,19 @@
-require("vin.core.colorscheme.github")
-require("vin.core.colorscheme.onedark")
-require("vin.core.colorscheme.onenord")
-require("vin.core.colorscheme.kanagawa")
--- require("vin.core.colorscheme.lunarvim_themes")
-
-local colorscheme = "onenord"
-
--- TODO Custom Toggle to Switch to a light theme
-
 local notify_status_ok, notify = pcall(require, "notify")
 if not notify_status_ok then
 	return
 end
+
+enable_arvo(true)
+
+require("vin.core.colorscheme.github")
+require("vin.core.colorscheme.onedark")
+require("vin.core.colorscheme.onenord")
+require("vin.core.colorscheme.arvo")
+require("vin.core.colorscheme.lunarvim")
+
+local colorscheme = "onenord"
+
+-- TODO Custom Toggle to Switch to a light theme
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 
@@ -35,11 +37,11 @@ vim.cmd([[
 
 -- Transparent Backgrounds for Folds
 vim.cmd([[
-  hi Folded guibg=NonText guisp=NonText
-  hi FoldColumn guibg=NonText guisp=NonText
+  hi Folded guibg=NONE guisp=NonText
+  hi FoldColumn guibg=NONE guisp=NonText
 ]])
 
 -- Hide Vertical SplitLines
 vim.cmd([[
-  hi VertSplit gui=NONE guifg=NONE guibg=NonText guisp=NonText
+  hi VertSplit gui=NONE guifg=NONE guibg=NONE guisp=NONE
 ]])

@@ -103,11 +103,10 @@ return packer.startup(function(use) -- My plugins here
 	use({ "windwp/nvim-ts-autotag" })
 
 	-- Colorschemes
+	use({ "rmehri01/onenord.nvim" })
 	use({ "projekt0n/github-nvim-theme" })
 	use({ "navarasu/onedark.nvim" })
 	use({ "norcalli/nvim-colorizer.lua" })
-	use({ "rmehri01/onenord.nvim" })
-	use({ "rebelot/kanagawa.nvim" })
 	use({ "LunarVim/Colorschemes" })
 
 	-- cmp plugins
