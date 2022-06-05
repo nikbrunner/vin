@@ -62,7 +62,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 		-- end
 
 		vim.o.foldmethod = "indent"
-		vim.o.foldlevel = 2
+		vim.o.foldlevel = 3
 
 		vim.cmd("ColorizerAttachToBuffer")
 	end,
