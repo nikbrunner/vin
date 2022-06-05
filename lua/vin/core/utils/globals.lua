@@ -65,3 +65,8 @@ function _G.find_index(tab, val)
 	end
 	return index
 end
+
+-- Returns name of current colorscheme
+function _G.get_current_colorscheme()
+	return vim.api.nvim_eval("g:colors_name")
+end
