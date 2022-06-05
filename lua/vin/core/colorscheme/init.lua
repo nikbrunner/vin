@@ -3,17 +3,19 @@ if not notify_status_ok then
 	return
 end
 
-enable_arvo(true)
-
-require("vin.core.colorscheme.github")
-require("vin.core.colorscheme.onedark")
-require("vin.core.colorscheme.onenord")
-require("vin.core.colorscheme.arvo")
-require("vin.core.colorscheme.lunarvim")
-
 local colorscheme = "onenord"
 
--- TODO Custom Toggle to Switch to a light theme
+enable_arvo(true)
+
+if is_arvo_enabled() then
+	require("vin.core.colorscheme.arvo")
+else
+	require("vin.core.colorscheme.onenord")
+end
+
+require("vin.core.colorscheme.github")
+require("vin.core.colorscheme.lunarvim")
+require("vin.core.colorscheme.onedark")
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 
@@ -28,20 +30,28 @@ if not status_ok then
 	return
 end
 
--- Custom Highlights
-vim.cmd([[
+local M = {}
+
+M.set_general_custom_highlights = function()
+	-- Custom Highlights
+	vim.cmd([[
   hi StatusLine gui=NONE guifg=NONE guibg=NonText guisp=NonText
   hi StatusLineNc gui=NONE guifg=NONE guibg=NonText guisp=NonText
   hi WinSeparator gui=NONE guifg=NONE guibg=NonText guisp=NonText
 ]])
 
--- Transparent Backgrounds for Folds
-vim.cmd([[
-  hi Folded guibg=NONE guisp=NonText
-  hi FoldColumn guibg=NONE guisp=NonText
+	-- Transparent Backgrounds for Folds
+	vim.cmd([[
+  hi Folded guibg=NONE
+  hi FoldColumn guibg=NONE
 ]])
 
--- Hide Vertical SplitLines
-vim.cmd([[
+	-- Hide Vertical SplitLines
+	vim.cmd([[
   hi VertSplit gui=NONE guifg=NONE guibg=NONE guisp=NONE
 ]])
+end
+
+M.set_general_custom_highlights()
+
+return M

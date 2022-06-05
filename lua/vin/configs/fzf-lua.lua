@@ -367,9 +367,9 @@ fzf_lua.setup({
 		actions = { ["default"] = actions.colorscheme },
 		winopts = { height = 0.55, width = 0.30 },
 		post_reset_cb = function()
-			-- reset statusline highlights after
-			-- a live_preview of the colorscheme
-			-- require('feline').reset_highlights()
+			enable_arvo(false)
+			require("lualine").setup({ options = { theme = "auto" } })
+			require("vin.core.colorscheme").set_general_custom_highlights()
 		end,
 	},
 	quickfix = {
