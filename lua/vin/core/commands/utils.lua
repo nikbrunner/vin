@@ -36,6 +36,8 @@ M.log_word = function()
 		vim.cmd("norm oconsole.log(" .. message .. ");")
 	elseif vim.bo.filetype == "go" then
 		vim.cmd("norm ofmt.Println(" .. message .. ")")
+	elseif vim.bo.filetype == "lua" then
+		vim.cmd("norm oprint(" .. message .. ")")
 	end
 end
 
