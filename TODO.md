@@ -9,6 +9,7 @@
 - [ ] Window Picker
 - [ ] Neotree: Refresh after commit
 - [ ] Define Comment Doc for all functions
+- [ ] Colorscheme Switching: Reset Tabby Styling after Switch
 
 ## Arvo
 
