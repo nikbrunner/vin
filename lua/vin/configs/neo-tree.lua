@@ -114,9 +114,9 @@ neotree.setup({
 	},
 	nesting_rules = {
 		["ts"] = { "spec.ts" },
-		["tsx"] = { "story.tsx" },
+		["tsx"] = { "story.tsx", "style.tsx" },
 		["js"] = { "spec.js" },
-		["jsx"] = { "story.jsx" },
+		["jsx"] = { "story.jsx", "style.jsx" },
 	},
 	filesystem = {
 		components = {
