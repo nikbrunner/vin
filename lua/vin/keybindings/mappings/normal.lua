@@ -172,7 +172,7 @@ M.with_leader = {
 	[" "] = { cmd.utils.pick_window, "⦾  Pick Window" },
 	["f"] = { cmd.fzf_lua.find_files_without_preview, "  Find File" },
 	["F"] = { cmd.telescope.find_files_with_preview, "  Find File w/ Preview" },
-	["z"] = { cmd.zen.toggle_full_screen, "  Zen" },
+	["z"] = { Vin.cmd.zen.toggle_full_screen, "  Zen" },
 	["r"] = {
 		function()
 			jester.run_file()

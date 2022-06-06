@@ -4,7 +4,7 @@ local fzf_lua = require("vin.core.commands.fzf-lua")
 local telescope = require("vin.core.commands.telescope")
 local copy = require("vin.core.commands.copy")
 local harpoon = require("vin.core.commands.harpoon")
-local zen = require("vin.core.commands.zen")
+require("vin.core.commands.zen")
 local packer = require("vin.core.commands.packer")
 local diffview = require("vin.core.commands.diffview")
 local utils = require("vin.core.commands.utils")
@@ -16,7 +16,6 @@ local M = {
 	copy = copy,
 	harpoon = harpoon,
 	lsp = lsp,
-	zen = zen,
 	packer = packer,
 	diffview = diffview,
 	utils = utils,

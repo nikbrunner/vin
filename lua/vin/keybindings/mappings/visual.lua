@@ -21,7 +21,7 @@ M.no_leader = {
 M.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	["m"] = { cmds.zen.toggle_full_screen, "  Maximize Pane" },
+	["m"] = { Vin.cmd.zen.toggle_full_screen, "  Maximize Pane" },
 	["n"] = { ":nohl", WhichKeyIgnoreLabel },
 
 	-- Tab navigation
