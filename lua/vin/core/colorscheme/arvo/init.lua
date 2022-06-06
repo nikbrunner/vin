@@ -1,3 +1,5 @@
+require("vin.core.colorscheme.arvo.lib")
+
 local status_ok, onenord = pcall(require, "onenord")
 if not status_ok then
 	return
@@ -5,6 +7,7 @@ end
 
 local M = {}
 
+-- Everything in here is just temporary, until Arvo becomes it's own theme
 -- https://www.figma.com/file/WvxEHBxgquwj7W2fiO2q9k/Arvo?node-id=0%3A1
 
 M.semantic = function()
@@ -130,7 +133,7 @@ M.setup = function()
 	})
 end
 
-if Vin.arvo.is_enabled() == true then
+if Vin.colorscheme.arvo.is_enabled() == true then
 	M.setup()
 end
 

@@ -1,3 +1,5 @@
+require("vin.core.colorscheme.arvo.lib")
+
 local notify_status_ok, notify = pcall(require, "notify")
 if not notify_status_ok then
 	return
@@ -5,9 +7,9 @@ end
 
 local colorscheme = "onenord"
 
-Vin.arvo.enable(true)
+Vin.colorscheme.arvo.enable(true)
 
-if Vin.arvo.is_enabled() then
+if Vin.colorscheme.arvo.is_enabled() then
 	require("vin.core.colorscheme.arvo")
 else
 	require("vin.core.colorscheme.onenord")
@@ -30,28 +32,29 @@ if not status_ok then
 	return
 end
 
-local M = {}
-
-M.set_general_custom_highlights = function()
-	-- Custom Highlights
+Vin.colorscheme.set_standard_highlights = function()
+	-- Transparent StatusLine
 	vim.cmd([[
-  hi StatusLine gui=NONE guifg=NONE guibg=NonText guisp=NonText
-  hi StatusLineNc gui=NONE guifg=NONE guibg=NonText guisp=NonText
-  hi WinSeparator gui=NONE guifg=NONE guibg=NonText guisp=NonText
-]])
+    hi StatusLine gui=NONE guifg=NONE guibg=NonText guisp=NonText
+    hi StatusLineNc gui=NONE guifg=NONE guibg=NonText guisp=NonText
+  ]])
+
+	-- Transparent WinSeparator
+	vim.cmd([[
+    hi WinSeparator gui=NONE guifg=NONE guibg=NonText guisp=NonText
+  ]])
+
+	-- Transparent VertSplit
+	vim.cmd([[
+    hi VertSplit gui=NONE guifg=NONE guibg=NONE guisp=NONE
+  ]])
 
 	-- Transparent Backgrounds for Folds
 	vim.cmd([[
-  hi Folded guibg=NONE
-  hi FoldColumn guibg=NONE
-]])
-
-	-- Hide Vertical SplitLines
-	vim.cmd([[
-  hi VertSplit gui=NONE guifg=NONE guibg=NONE guisp=NONE
-]])
+    hi Folded guibg=NONE
+    hi FoldColumn guibg=NONE
+  ]])
 end
 
-M.set_general_custom_highlights()
-
-return M
+-- Initial call
+Vin.colorscheme.set_standard_highlights()
