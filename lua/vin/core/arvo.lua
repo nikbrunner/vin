@@ -3,7 +3,7 @@ Vin.arvo = {}
 ---Check if the Arvo Customization is enabled
 ---@return boolean
 function Vin.arvo.is_enabled()
-	return Vin.utils.pget_var(IS_ARVO_ENABLED, false)
+	return Vin.lib.pget_var(IS_ARVO_ENABLED, false)
 end
 
 ---Enable / Disable Arvo

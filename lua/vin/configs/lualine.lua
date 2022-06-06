@@ -13,7 +13,7 @@ local lualine_theme
 if Vin.arvo.is_enabled() == true then
 	lualine_theme = require("vin.core.colorscheme.arvo.lualine").lualine_theme()
 else
-	lualine_theme = Vin.utils.get_current_colorscheme()
+	lualine_theme = Vin.lib.get_current_colorscheme()
 end
 
 lualine.setup({

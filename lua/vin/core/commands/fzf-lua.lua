@@ -275,7 +275,7 @@ M.find_related_files = function(opts)
 			},
 		}
 
-	Vin.utils.put("opts", opts)
+	Vin.lib.put("opts", opts)
 
 	fzf_lua.files(opts)
 end

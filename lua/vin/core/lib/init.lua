@@ -8,8 +8,6 @@ if not notify_ok then
 	return
 end
 
-require("vin.core.utils.arvo")
-
 -- Vim Function to toggle quickfix list
 -- TODO Convert to Lua
 vim.cmd([[
@@ -22,9 +20,7 @@ function! ToggleQuickFix()
 endfunction
 ]])
 
-Vin.utils = {}
-
-Vin.utils.get_master_branch = function()
+Vin.lib.get_master_branch = function()
 	local branches = utils.get_os_command_output({
 		"git",
 		"branch",
@@ -34,7 +30,7 @@ Vin.utils.get_master_branch = function()
 	})[1]
 
 	-- TODO split function has been changed. THis needs to be fixed
-	for _, v in pairs(Vin.utils.split_by_space(branches)) do
+	for _, v in pairs(Vin.lib.split_by_space(branches)) do
 		if v == "main" then
 			return "main"
 		end
@@ -47,7 +43,7 @@ end
 
 ---Find out current branch
 ---@return false|current_branch_name: string Current Branch Name
-Vin.utils.get_current_branch = function()
+Vin.lib.get_current_branch = function()
 	for line in io.popen("git branch 2>nul"):lines() do
 		local current_branch_name = line:match("%* (.+)$")
 		if current_branch_name then
@@ -60,7 +56,7 @@ end
 
 ---Find out alle branches
 ---@return false|all_branches: {string ...} All branches as table of strings
-Vin.utils.get_all_branches = function()
+Vin.lib.get_all_branches = function()
 	local resultString
 
 	local branches_output = io.popen("git branch -l")
@@ -77,7 +73,7 @@ Vin.utils.get_all_branches = function()
 		local stripped = string.gsub(string.gsub(read_branches, "*", ""), "\n", "")
 
 		-- Now split the string by spaces into a table and return it
-		local all_branches = Vin.utils.split_by_space(stripped)
+		local all_branches = Vin.lib.split_by_space(stripped)
 		return all_branches
 	end
 end
@@ -86,7 +82,7 @@ end
 ---Can be replaced with vim.pretty_print()
 ---@param ... any Input Value to print
 ---@return void
-function Vin.utils.put(...)
+function Vin.lib.put(...)
 	local objects = {}
 	for i = 1, select("#", ...) do
 		local v = select(i, ...)
@@ -101,7 +97,7 @@ end
 ---Try this out with a clean install and see if it works
 ---@param modname string Module Name
 ---@return mod Module Required Module
-function Vin.utils.prequire(modname)
+function Vin.lib.prequire(modname)
 	local status_ok, mod = pcall(require, modname)
 	if not status_ok then
 		return nil
@@ -112,7 +108,7 @@ end
 ---Function to split a string by spaces
 ---@param string string Input string
 ---@return chunks table The splitted string as table
-function Vin.utils.split_by_space(string)
+function Vin.lib.split_by_space(string)
 	local chunks = {}
 
 	for substring in string:gmatch("%S+") do
@@ -121,11 +117,11 @@ function Vin.utils.split_by_space(string)
 	return chunks
 end
 
----Function to check if a table contains a certain value
+---Function to check if a table includes a certain value
 ---@param tab table Table to search
 ---@param val unknown Value to search for
 ---@return boolean
-function Vin.utils.includes(tab, val)
+function Vin.lib.includes(tab, val)
 	for index, value in ipairs(tab) do
 		if value == val then
 			return true
@@ -138,7 +134,7 @@ end
 ---@param tab table Table to search
 ---@param val unknown Value to search for
 ---@return index number Index of value in tab
-function Vin.utils.find_index(tab, val)
+function Vin.lib.find_index(tab, val)
 	local index = nil
 	for i, v in ipairs(tab) do
 		if v == val then
@@ -150,7 +146,7 @@ end
 
 ---Check the name of current colorscheme
 ---@return string Name of current Color Scheme
-function Vin.utils.get_current_colorscheme()
+function Vin.lib.get_current_colorscheme()
 	return vim.api.nvim_eval("g:colors_name")
 end
 
@@ -158,7 +154,7 @@ end
 ---@param var_name string The name of the variable
 ---@param default_value unknown The Fallback / Default Value if Variable is not defined
 ---@return any
-function Vin.utils.pget_var(var_name, default_value)
+function Vin.lib.pget_var(var_name, default_value)
 	local status_ok, value = pcall(function()
 		return vim.api.nvim_get_var(var_name)
 	end)
@@ -175,7 +171,7 @@ end
 ---@param callback function():unknown Function which gets called if the Condition is true
 ---@param fallback? function():unknown Optional Function which gets called if Condition is false
 ---@return unknown|nil
-function Vin.utils.ccall(condition, callback, fallback)
+function Vin.lib.ccall(condition, callback, fallback)
 	if condition then
 		return callback()
 	else

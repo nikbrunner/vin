@@ -1,5 +1,3 @@
-local utils = require("vin.core.utils")
-
 local notify_status_ok, notify = pcall(require, "notify")
 if not notify_status_ok then
 	return
@@ -29,7 +27,7 @@ M.get_diff_to_master = function()
 	local commonMasterBranchNames = { "master", "main" }
 
 	local handleInput = function(branchName)
-		if Vin.utils.includes(commonMasterBranchNames, branchName) then
+		if Vin.lib.includes(commonMasterBranchNames, branchName) then
 			vim.cmd("DiffviewOpen origin/" .. branchName .. "...HEAD")
 			diffview_notification(branchName)
 		end
@@ -47,14 +45,11 @@ M.get_diff_to = function()
 	}
 
 	local handleDiffToBranch = function()
-		local branches = Vin.utils.get_all_branches()
+		local branches = Vin.lib.get_all_branches()
 
 		-- Remove the current branch from the selection
-		local current_branch = Vin.utils.get_current_branch()
-		local index_of_current_branch = Vin.utils.find_index(
-			branches,
-			current_branch
-		)
+		local current_branch = Vin.lib.get_current_branch()
+		local index_of_current_branch = Vin.lib.find_index(branches, current_branch)
 		table.remove(branches, index_of_current_branch)
 
 		vim.ui.select(branches, {
