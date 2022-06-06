@@ -15,7 +15,7 @@ local function load(mod)
 end
 
 load("vin.options")
-load("vin.autocommands")
+load("vin.autocmds")
 load("vin.lib")
 load("vin.cmds")
 load("vin.plugins")
