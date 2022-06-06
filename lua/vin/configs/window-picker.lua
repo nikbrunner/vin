@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local arvo = require("vin.core.colorscheme.arvo")
+local arvo = require("vin.colorscheme.arvo")
 
 window_picker.setup({
 	-- when there is only one window available to pick from, use that window

@@ -11,7 +11,7 @@ end
 local lualine_theme
 
 if Vin.colorscheme.arvo.is_enabled then
-	lualine_theme = require("vin.core.colorscheme.arvo.lualine").lualine_theme()
+	lualine_theme = require("vin.colorscheme.arvo.lualine").lualine_theme()
 else
 	lualine_theme = Vin.lib.get_current_colorscheme()
 end
@@ -19,7 +19,6 @@ end
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		-- theme = require("vin.core.colorscheme.arvo.lualine").lualine_theme(),
 		theme = lualine_theme,
 		-- component_separators = { left = "", right = "" },
 		-- section_separators = { left = "", right = "" },

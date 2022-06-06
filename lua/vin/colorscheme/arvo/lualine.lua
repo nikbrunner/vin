@@ -1,4 +1,4 @@
-local arvo_colors = require("vin.core.colorscheme.arvo").colors()
+local arvo_colors = require("vin.colorscheme.arvo").colors()
 
 local M = {}
 

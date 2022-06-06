@@ -4,26 +4,26 @@ if not notify_status_ok then
 end
 
 Vin.colorscheme = {
-	initial = "onenord",
+	theme = "onenord",
 	arvo = {
 		is_enabled = true,
 	},
 }
 
 if Vin.colorscheme.arvo.is_enabled then
-	require("vin.core.colorscheme.arvo")
+	require("vin.colorscheme.arvo")
 else
-	require("vin.core.colorscheme.onenord")
+	require("vin.colorscheme.onenord")
 end
 
-require("vin.core.colorscheme.github")
-require("vin.core.colorscheme.lunarvim")
-require("vin.core.colorscheme.onedark")
+require("vin.colorscheme.github")
+require("vin.colorscheme.lunarvim")
+require("vin.colorscheme.onedark")
 
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. Vin.colorscheme.initial)
+local status_ok, _ = pcall(vim.cmd, "colorscheme " .. Vin.colorscheme.theme)
 
 if not status_ok then
-	notify("colorscheme " .. Vin.colorscheme.initial .. " not found!")
+	notify("colorscheme " .. Vin.colorscheme.theme .. " not found!")
 
 	vim.cmd([[
     catch /^Vim\%((\a\+)\)\=:E185/
