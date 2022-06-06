@@ -3,9 +3,9 @@ if not notify_status_ok then
 	return
 end
 
-M = {}
+Vin.cmds.lsp = {}
 
-M.format_file = function()
+Vin.cmds.lsp.format_file = function()
 	-- vim.lsp.buf.format({ async = true }) // Nvim 0.8 ??
 	vim.lsp.buf.formatting_sync({})
 	vim.cmd([[silent w]])
@@ -16,7 +16,7 @@ M.format_file = function()
 	})
 end
 
-M.code_action = function()
+Vin.cmds.lsp.code_action = function()
 	-- vim.lsp.buf.code_action()
 	vim.cmd([[CodeActionMenu]])
 
@@ -44,7 +44,7 @@ local function count_lsp_res_changes(lsp_res)
 	return count
 end
 
-M.symbol_rename = function()
+Vin.cmds.lsp.rename = function()
 	local curr_name = vim.fn.expand("<cword>")
 	local input_opts = {
 		prompt = "New name?",
@@ -95,6 +95,4 @@ M.symbol_rename = function()
 	end)
 end
 
-vim.api.nvim_create_user_command("VinLspRename", M.symbol_rename, {})
-
-return M
+vim.api.nvim_create_user_command("VinLspRename", Vin.cmds.lsp.rename, {})
