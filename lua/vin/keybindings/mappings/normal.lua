@@ -19,7 +19,7 @@ M.no_leader = {
 	-- disable Q
 	Q = { "<Nop>", WhichKeyIgnoreLabel },
 
-	["<CR>"] = { ":wa<CR>", WhichKeyIgnoreLabel },
+	["<CR>"] = { Vin.cmds.general.save_all, WhichKeyIgnoreLabel },
 
 	-- Go to Line Start and End
 	H = { "^", WhichKeyIgnoreLabel },
