@@ -2,11 +2,11 @@
 
 ## `Vin`
 
+- [x] Move Commands to global `Vin` table
+- [x] Resolve `core/` Folder - Unnecessary Nesting
 - [ ] Launch `npm` scripts or custom command in [new kitty tab](https://sw.kovidgoyal.net/kitty/remote-control/#)
 - [ ] Define Comment Doc for all functions
 - [ ] Clock in Status line
-- [ ] Move Commands to global `Vin` table
-- [x] Resolve `core/` Folder - Unnecessary Nesting
 - [ ] Make Custom Select/Yank/Delete Block Commands work with Treesitter
   - These currently work only with languages where a block starts and ends with paired brackets
 
@@ -26,6 +26,7 @@
 - [ ] `Neotree`: Refresh after commit
 - [ ] `Tabby`: Reset Tabby Styling after `:colorscheme` Switch
 - [ ] `Lazygit`: Does `Lazygit` work with Git Worktrees?
+- [ ] `cmp`: Format cmp Menu to omit the Entry Name
 
 ## Arvo
 
