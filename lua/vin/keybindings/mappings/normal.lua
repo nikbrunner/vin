@@ -8,7 +8,7 @@ if not jester_status_ok then
 	return
 end
 
-local cmd = require("vin.core.commands")
+local cmd = require("vin.commands")
 local groups = require("vin.keybindings.mappings.groups")
 
 local M = {}

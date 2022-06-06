@@ -1,4 +1,4 @@
-local cmds = require("vin.core.commands")
+local cmds = require("vin.commands")
 
 local M = {}
 

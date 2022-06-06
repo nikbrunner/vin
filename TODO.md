@@ -6,7 +6,7 @@
 - [ ] Define Comment Doc for all functions
 - [ ] Clock in Status line
 - [ ] Move Commands to global `Vin` table
-- [ ] Resolve `core/` Folder - Unnecessary Nesting
+- [x] Resolve `core/` Folder - Unnecessary Nesting
 
 ## Research
 

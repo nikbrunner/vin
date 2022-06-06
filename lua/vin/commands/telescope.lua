@@ -11,7 +11,7 @@ end
 local builtin = require("telescope.builtin")
 local themes = require("telescope.themes")
 
-local general_commands = require("vin.core.commands.general")
+local general_commands = require("vin.commands.general")
 
 local notification = function(message)
 	notify(message, "info", {

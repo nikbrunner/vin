@@ -17,7 +17,7 @@ end
 load("vin.options")
 load("vin.autocommands")
 load("vin.lib")
-load("vin.core")
+load("vin.commands")
 load("vin.plugins")
 load("vin.colorscheme")
 load("vin.configs")
