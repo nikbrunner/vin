@@ -20,9 +20,9 @@ local icons = {
 
 local title = "Harpoon"
 
-local M = {}
+Vin.cmds.harpoon = {}
 
-M.add_file = function()
+Vin.cmds.harpoon.add_file = function()
 	mark.add_file()
 
 	-- Refresh Neotree after add mark
@@ -37,7 +37,7 @@ M.add_file = function()
 	})
 end
 
-M.jump_to_file = function(index)
+Vin.cmds.harpoon.jump_to_file = function(index)
 	ui.nav_file(index)
 
 	local filename = vim.fn.expand("%:t")
@@ -48,7 +48,7 @@ M.jump_to_file = function(index)
 	})
 end
 
-M.toggle_quick_menu = function()
+Vin.cmds.harpoon.toggle_quick_menu = function()
 	ui.toggle_quick_menu()
 
 	notify("Pick or edit these files!", "info", {
@@ -57,5 +57,3 @@ M.toggle_quick_menu = function()
 		icon = icons.success,
 	})
 end
-
-return M
