@@ -88,9 +88,9 @@ M.buffer = {
 
 M.copy = {
 	name = "  Copy",
-	f = { cmds.copy.fullPath(), "Copy Full Path" },
-	r = { cmds.copy.relativePath(), "Copy Relative Path" },
-	n = { cmds.copy.fileName(), "Copy File Name" },
+	f = { Vin.cmd.copy.fullPath(), "Copy Full Path" },
+	r = { Vin.cmd.copy.relativePath(), "Copy Relative Path" },
+	n = { Vin.cmd.copy.fileName(), "Copy File Name" },
 }
 
 M.git = {

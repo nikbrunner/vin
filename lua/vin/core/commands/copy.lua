@@ -1,17 +1,15 @@
 -- Functions to copy path and filenames
 
-local M = {}
+Vin.cmd.copy = {}
 
-M.fullPath = function()
+Vin.cmd.copy.fullPath = function()
 	return ":let @+ = expand('%:p')<CR>"
 end
 
-M.relativePath = function()
+Vin.cmd.copy.relativePath = function()
 	return ":let @+ = expand('%')<CR>"
 end
 
-M.fileName = function()
+Vin.cmd.copy.fileName = function()
 	return ":let @+ = expand('%:t')<CR>"
 end
-
-return M
