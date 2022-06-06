@@ -48,7 +48,7 @@ M.no_leader = {
 	["<C-e>"] = { cmd.fzf_lua.find_buffers, "﩯 Buffers" },
 	-- ["<C-b>"] = { "<cmd>Neotree focus<CR>", " Toggle Tree" },
 	-- ["<C-f>"] = { cmd.utils.pick_window, "  Pick Window" },
-	["<C-_>"] = { cmd.telescope.find_in_file, "  Find Text in File" },
+	["<C-_>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 	["<C-g>"] = {
 		cmd.fzf_lua.find_modified_files_with_preview,
 		"Find modified files",
@@ -171,7 +171,10 @@ M.with_leader = {
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	[" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
 	["f"] = { cmd.fzf_lua.find_files_without_preview, "  Find File" },
-	["F"] = { cmd.telescope.find_files_with_preview, "  Find File w/ Preview" },
+	["F"] = {
+		Vin.cmds.telescope.find_files_with_preview,
+		"  Find File w/ Preview",
+	},
 	["z"] = { Vin.cmds.zen.toggle_full_screen, "  Zen" },
 	["r"] = {
 		function()

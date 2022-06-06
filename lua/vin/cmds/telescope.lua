@@ -11,8 +11,6 @@ end
 local builtin = require("telescope.builtin")
 local themes = require("telescope.themes")
 
-local general_commands = require("vin.cmds.general")
-
 local notification = function(message)
 	notify(message, "info", {
 		title = "Telescope",
@@ -38,45 +36,45 @@ local no_preview = function()
 	})
 end
 
-local M = {}
+Vin.cmds.telescope = {}
 
-M.find_files_without_preview = function()
+Vin.cmds.telescope.find_files_without_preview = function()
 	builtin.find_files(no_preview())
 end
 
-M.find_files_with_preview = function()
+Vin.cmds.telescope.find_files_with_preview = function()
 	builtin.find_files(themes.get_ivy({}))
 end
 
-M.find_in_file = function()
+Vin.cmds.telescope.find_in_file = function()
 	builtin.current_buffer_fuzzy_find(themes.get_ivy({}))
 end
 
-M.find_text = function()
+Vin.cmds.telescope.find_text = function()
 	builtin.live_grep(themes.get_ivy({}))
 end
 
-M.find_word = function()
+Vin.cmds.telescope.find_word = function()
 	local curr_word = vim.fn.expand("<cword>")
 	builtin.grep_string(themes.get_ivy({ default_text = curr_word }))
 end
 
-M.find_in_quickfix = function()
+Vin.cmds.telescope.find_in_quickfix = function()
 	builtin.quickfix(themes.get_ivy({}))
 end
 
-M.find_symbols_in_workspace = function()
+Vin.cmds.telescope.find_symbols_in_workspace = function()
 	builtin.lsp_dynamic_workspace_symbols(themes.get_ivy({}))
 end
 
-M.find_changed_files = function()
+Vin.cmds.telescope.find_changed_files = function()
 	builtin.git_status({
 		width = 0.8,
 	})
 end
 
-M.find_related_files = function()
-	local current_filename = general_commands.get_current_filename()
+Vin.cmds.telescope.find_related_files = function()
+	local current_filename = Vin.cmds.general.get_current_filename()
 
 	if current_filename then
 		builtin.find_files(themes.get_ivy({
@@ -87,7 +85,7 @@ M.find_related_files = function()
 	end
 end
 
-M.find_scss_symbol = function()
+Vin.cmds.telescope.find_scss_symbol = function()
 	local curr_word = vim.fn.expand("<cword>")
 
 	local prompt = "What are you looking for?"
@@ -123,18 +121,16 @@ M.find_scss_symbol = function()
 end
 
 -- Find project folders with telescope extension
-M.find_projects = function()
+Vin.cmds.telescope.find_projects = function()
 	telescope.extensions.projects.projects()
 end
 
 -- Go to definition
-M.go_to_definition = function()
+Vin.cmds.telescope.go_to_definition = function()
 	builtin.lsp_definitions()
 end
 
 -- List references
-M.list_references = function()
+Vin.cmds.telescope.list_references = function()
 	builtin.lsp_references()
 end
-
-return M
