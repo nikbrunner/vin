@@ -6,7 +6,7 @@ require("vin.core.commands.copy")
 local harpoon = require("vin.core.commands.harpoon")
 require("vin.core.commands.zen")
 local packer = require("vin.core.commands.packer")
-local diffview = require("vin.core.commands.diffview")
+require("vin.core.commands.diffview")
 local utils = require("vin.core.commands.utils")
 
 local M = {
@@ -16,7 +16,6 @@ local M = {
 	harpoon = harpoon,
 	lsp = lsp,
 	packer = packer,
-	diffview = diffview,
 	utils = utils,
 }
 
