@@ -7,7 +7,7 @@
 - [ ] Clock in Status line
 - [ ] Move Commands to global `Vin` table
 - [x] Resolve `core/` Folder - Unnecessary Nesting
-- [ ] Make Custom Select/Yank/Delete Block Commands work with TreeSitter
+- [ ] Make Custom Select/Yank/Delete Block Commands work with Treesitter
   - These currently work only with languages where a block starts and ends with paired brackets
 
 ## Research
@@ -19,9 +19,13 @@
 - [ ] New: [mark.nvim](https://github.com/chentoast/marks.nvim?utm_source=pocket_mylist)
 - [ ] New: [session-manager](https://github.com/emuel-vassallo/nvim/blob/main/lua/plugins/configs/session-manager.lua)
 - [ ] New: [stabilize.nvim](https://github.com/luukvbaal/stabilize.nvim)
+- [ ] New: [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+  - Use `Lazygit` with this
+  - Also maybe it is possible to automate `npm`
 - [ ] `Neotree`: Fix Window Picker
 - [ ] `Neotree`: Refresh after commit
 - [ ] `Tabby`: Reset Tabby Styling after `:colorscheme` Switch
+- [ ] `Lazygit`: Does `Lazygit` work with Git Worktrees?
 
 ## Arvo
 
