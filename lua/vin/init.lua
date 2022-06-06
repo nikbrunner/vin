@@ -1,10 +1,10 @@
 ---@class Vin
 ---@field lib table Various general utilities and helper functions
----@field cmd table Function Wrappers for Plugin and Custom Commands
+---@field cmds table Function Wrappers for Plugin and Custom Commands
 ---@field colorscheme table Functions and Vars regarding the colorscheme
 _G.Vin = {
 	lib = {},
-	cmd = {},
+	cmds = {},
 	colorscheme = {},
 }
 
@@ -17,7 +17,7 @@ end
 load("vin.options")
 load("vin.autocommands")
 load("vin.lib")
-load("vin.commands")
+load("vin.cmds")
 load("vin.plugins")
 load("vin.colorscheme")
 load("vin.configs")

@@ -8,7 +8,7 @@ if not jester_status_ok then
 	return
 end
 
-local cmd = require("vin.commands")
+local cmd = require("vin.cmds")
 local groups = require("vin.keybindings.mappings.groups")
 
 local M = {}
@@ -172,7 +172,7 @@ M.with_leader = {
 	[" "] = { cmd.utils.pick_window, "⦾  Pick Window" },
 	["f"] = { cmd.fzf_lua.find_files_without_preview, "  Find File" },
 	["F"] = { cmd.telescope.find_files_with_preview, "  Find File w/ Preview" },
-	["z"] = { Vin.cmd.zen.toggle_full_screen, "  Zen" },
+	["z"] = { Vin.cmds.zen.toggle_full_screen, "  Zen" },
 	["r"] = {
 		function()
 			jester.run_file()

@@ -1,4 +1,4 @@
-local cmds = require("vin.commands")
+local cmds = require("vin.cmds")
 
 local M = {}
 
@@ -88,9 +88,9 @@ M.buffer = {
 
 M.copy = {
 	name = "  Copy",
-	f = { Vin.cmd.copy.fullPath(), "Copy Full Path" },
-	r = { Vin.cmd.copy.relativePath(), "Copy Relative Path" },
-	n = { Vin.cmd.copy.fileName(), "Copy File Name" },
+	f = { Vin.cmds.copy.fullPath(), "Copy Full Path" },
+	r = { Vin.cmds.copy.relativePath(), "Copy Relative Path" },
+	n = { Vin.cmds.copy.fileName(), "Copy File Name" },
 }
 
 M.git = {
@@ -99,7 +99,7 @@ M.git = {
 	d = {
 		name = " Diffview",
 		d = { "<cmd>DiffviewOpen<CR>", "Current Diff" },
-		c = { Vin.cmd.diffview.get_diff_to, "Diff   To Custom" },
+		c = { Vin.cmds.diffview.get_diff_to, "Diff   To Custom" },
 		h = { "<cmd>DiffviewFileHistory<CR>", "File History" },
 		r = { "<cmd>DiffviewRefresh<CR>", "Refresh" },
 		q = { "<cmd>DiffviewClose<CR>", "Close" },

@@ -3,7 +3,7 @@ if not notify_status_ok then
 	return
 end
 
-Vin.cmd.diffview = {}
+Vin.cmds.diffview = {}
 
 -- TODO Detect and notify about errors
 -- If opening the diff is not successfull notify!
@@ -23,7 +23,7 @@ local diffview_notification = function(branchName, message)
 end
 
 -- Unused
-Vin.cmd.diffview.get_diff_to_master = function()
+Vin.cmds.diffview.get_diff_to_master = function()
 	local commonMasterBranchNames = { "master", "main" }
 
 	local handleInput = function(branchName)
@@ -38,7 +38,7 @@ Vin.cmd.diffview.get_diff_to_master = function()
 	}, handleInput)
 end
 
-Vin.cmd.diffview.get_diff_to = function()
+Vin.cmds.diffview.get_diff_to = function()
 	local choices = {
 		"Get Diff to other branch",
 		"Enter a Git Rev String (HEAD~2, origin/main...HEAD e.g.)",

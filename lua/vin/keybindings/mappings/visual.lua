@@ -1,4 +1,4 @@
-local cmds = require("vin.commands")
+local cmds = require("vin.cmds")
 local groups = require("vin.keybindings.mappings.groups")
 
 local M = {}
@@ -21,7 +21,7 @@ M.no_leader = {
 M.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	["m"] = { Vin.cmd.zen.toggle_full_screen, "  Maximize Pane" },
+	["m"] = { Vin.cmds.zen.toggle_full_screen, "  Maximize Pane" },
 	["n"] = { ":nohl", WhichKeyIgnoreLabel },
 
 	-- Tab navigation
