@@ -1,4 +1,3 @@
-local cmds = require("vin.cmds")
 local groups = require("vin.keybindings.mappings.groups")
 
 local M = {}

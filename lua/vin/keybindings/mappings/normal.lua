@@ -8,7 +8,6 @@ if not jester_status_ok then
 	return
 end
 
-local cmd = require("vin.cmds")
 local groups = require("vin.keybindings.mappings.groups")
 
 local M = {}
@@ -44,13 +43,13 @@ M.no_leader = {
 	["˚"] = { "<Esc>:m .-2<CR>", "Move Up" },
 
 	-- Control bindings
-	["<C-p>"] = { cmd.fzf_lua.find_files_without_preview, "  Files" },
-	["<C-e>"] = { cmd.fzf_lua.find_buffers, "﩯 Buffers" },
+	["<C-p>"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Files" },
+	["<C-e>"] = { Vin.cmds.fzf_lua.find_buffers, "﩯 Buffers" },
 	-- ["<C-b>"] = { "<cmd>Neotree focus<CR>", " Toggle Tree" },
 	-- ["<C-f>"] = { cmd.utils.pick_window, "  Pick Window" },
 	["<C-_>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 	["<C-g>"] = {
-		cmd.fzf_lua.find_modified_files_with_preview,
+		Vin.cmds.fzf_lua.find_modified_files_with_preview,
 		"Find modified files",
 	},
 	["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
@@ -170,7 +169,7 @@ M.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	[" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
-	["f"] = { cmd.fzf_lua.find_files_without_preview, "  Find File" },
+	["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
 	["F"] = {
 		Vin.cmds.telescope.find_files_with_preview,
 		"  Find File w/ Preview",

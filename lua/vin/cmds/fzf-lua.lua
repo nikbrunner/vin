@@ -3,9 +3,9 @@ if not status_ok then
 	return
 end
 
-local M = {}
+Vin.cmds.fzf_lua = {}
 
-M.find_files_without_preview = function(opts)
+Vin.cmds.fzf_lua.find_files_without_preview = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
@@ -20,7 +20,7 @@ M.find_files_without_preview = function(opts)
 	fzf_lua.files(opts)
 end
 
-M.find_files_with_preview = function(opts)
+Vin.cmds.fzf_lua.find_files_with_preview = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
@@ -36,7 +36,7 @@ M.find_files_with_preview = function(opts)
 	fzf_lua.files(opts)
 end
 
-M.find_files_in_dotfiles = function(opts)
+Vin.cmds.fzf_lua.find_files_in_dotfiles = function(opts)
 	local nvimConfigPath = "~/.config/nvim"
 
 	opts = opts or {}
@@ -45,7 +45,7 @@ M.find_files_in_dotfiles = function(opts)
 	fzf_lua.files(opts)
 end
 
-M.find_files_in_work_notes = function(opts)
+Vin.cmds.fzf_lua.find_files_in_work_notes = function(opts)
 	local notes = "~/Documents/notes/dcd-notes"
 
 	opts = opts or {}
@@ -54,17 +54,17 @@ M.find_files_in_work_notes = function(opts)
 	fzf_lua.files(opts)
 end
 
-M.find_colorscheme = function(opts)
+Vin.cmds.fzf_lua.find_colorscheme = function(opts)
 	opts = opts or {}
 	fzf_lua.colorschemes(opts)
 end
 
-M.find_commands = function(opts)
+Vin.cmds.fzf_lua.find_commands = function(opts)
 	opts = opts or {}
 	fzf_lua.commands(opts)
 end
 
-M.find_buffers = function(opts)
+Vin.cmds.fzf_lua.find_buffers = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
@@ -77,47 +77,47 @@ M.find_buffers = function(opts)
 	fzf_lua.buffers(opts)
 end
 
-M.find_in_file = function(opts)
+Vin.cmds.fzf_lua.find_in_file = function(opts)
 	opts = opts or {}
 	fzf_lua.lgrep_curbuf(opts)
 end
 
-M.find_help_tags = function(opts)
+Vin.cmds.fzf_lua.find_help_tags = function(opts)
 	opts = opts or {}
 	fzf_lua.help_tags(opts)
 end
 
-M.find_man_page = function(opts)
+Vin.cmds.fzf_lua.find_man_page = function(opts)
 	opts = opts or {}
 	fzf_lua.man_pages(opts)
 end
 
-M.find_old_files = function(opts)
+Vin.cmds.fzf_lua.find_old_files = function(opts)
 	opts = opts or {}
 	fzf_lua.oldfiles(opts)
 end
 
-M.find_problems_in_workspace = function(opts)
+Vin.cmds.fzf_lua.find_problems_in_workspace = function(opts)
 	opts = opts or {}
 	fzf_lua.lsp_workspace_diagnostics(opts)
 end
 
-M.find_problems_in_document = function(opts)
+Vin.cmds.fzf_lua.find_problems_in_document = function(opts)
 	opts = opts or {}
 	fzf_lua.lsp_document_diagnostics(opts)
 end
 
-M.find_in_registers = function(opts)
+Vin.cmds.fzf_lua.find_in_registers = function(opts)
 	opts = opts or {}
 	fzf_lua.registers(opts)
 end
 
-M.find_in_quickfix = function(opts)
+Vin.cmds.fzf_lua.find_in_quickfix = function(opts)
 	opts = opts or {}
 	fzf_lua.quickfix(opts)
 end
 
-M.find_text = function(opts)
+Vin.cmds.fzf_lua.find_text = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts or {
 		preview = {
@@ -128,7 +128,7 @@ M.find_text = function(opts)
 	fzf_lua.live_grep_native(opts)
 end
 
-M.find_word_under_cursor = function(opts)
+Vin.cmds.fzf_lua.find_word_under_cursor = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
@@ -142,13 +142,13 @@ M.find_word_under_cursor = function(opts)
 	fzf_lua.grep_cword(opts)
 end
 
-M.find_keymaps = function(opts)
+Vin.cmds.fzf_lua.find_keymaps = function(opts)
 	opts = opts or {}
 
 	fzf_lua.keymaps(opts)
 end
 
-M.find_symbols_in_workspace = function(opts)
+Vin.cmds.fzf_lua.find_symbols_in_workspace = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
@@ -162,7 +162,7 @@ M.find_symbols_in_workspace = function(opts)
 	fzf_lua.lsp_live_workspace_symbols(opts)
 end
 
-M.find_references = function(opts)
+Vin.cmds.fzf_lua.find_references = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
@@ -176,7 +176,7 @@ M.find_references = function(opts)
 	fzf_lua.lsp_references(opts)
 end
 
-M.find_defintions = function(opts)
+Vin.cmds.fzf_lua.find_defintions = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
@@ -189,7 +189,7 @@ M.find_defintions = function(opts)
 	fzf_lua.lsp_definitions(opts)
 end
 
-M.find_modified_files = function(opts)
+Vin.cmds.fzf_lua.find_modified_files = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
@@ -206,7 +206,7 @@ M.find_modified_files = function(opts)
 	fzf_lua.git_status(opts)
 end
 
-M.find_modified_files_with_preview = function(opts)
+Vin.cmds.fzf_lua.find_modified_files_with_preview = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
@@ -222,7 +222,7 @@ M.find_modified_files_with_preview = function(opts)
 	fzf_lua.git_status(opts)
 end
 
-M.find_branches = function(opts)
+Vin.cmds.fzf_lua.find_branches = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
@@ -237,7 +237,7 @@ M.find_branches = function(opts)
 	fzf_lua.git_branches(opts)
 end
 
-M.find_commits = function(opts)
+Vin.cmds.fzf_lua.find_commits = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
@@ -252,14 +252,14 @@ M.find_commits = function(opts)
 	fzf_lua.git_commits(opts)
 end
 
-M.find_spelling = function(opts)
+Vin.cmds.fzf_lua.find_spelling = function(opts)
 	opts = opts or {}
 	fzf_lua.spell_suggest(opts)
 end
 
 -- Find related files based on the current file's name
 -- TODO Default text / prompt doesnt work
-M.find_related_files = function(opts)
+Vin.cmds.fzf_lua.find_related_files = function(opts)
 	opts = opts
 		or {
 			-- files = {
@@ -279,5 +279,3 @@ M.find_related_files = function(opts)
 
 	fzf_lua.files(opts)
 end
-
-return M

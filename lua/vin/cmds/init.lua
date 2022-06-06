@@ -8,11 +8,4 @@ require("vin.cmds.telescope")
 require("vin.cmds.harpoon")
 require("vin.cmds.packer")
 require("vin.cmds.lsp")
-
-local fzf_lua = require("vin.cmds.fzf-lua")
-
-local M = {
-	fzf_lua = fzf_lua,
-}
-
-return M
+require("vin.cmds.fzf-lua")
