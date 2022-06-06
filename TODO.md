@@ -23,6 +23,7 @@
 
 ## Arvo
 
+- [ ] Setup as own Theme
 - [ ] Darker `Lazygit` Float Window
 - [ ] Better `Lsp` Highlights
     - `LspReferenceText`
