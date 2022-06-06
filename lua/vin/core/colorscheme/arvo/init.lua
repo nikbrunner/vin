@@ -1,5 +1,3 @@
-require("vin.core.colorscheme.arvo.lib")
-
 local status_ok, onenord = pcall(require, "onenord")
 if not status_ok then
 	return
@@ -133,7 +131,7 @@ M.setup = function()
 	})
 end
 
-if Vin.colorscheme.arvo.is_enabled() == true then
+if Vin.colorscheme.arvo.is_enabled then
 	M.setup()
 end
 
