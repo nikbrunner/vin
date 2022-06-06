@@ -247,7 +247,7 @@ M.packer = {
 M.insert = {
 	name = "  Insert",
 	l = {
-		cmds.utils.log_word,
+		Vin.cmds.edit.log_word,
 		"Log Word",
 	},
 }

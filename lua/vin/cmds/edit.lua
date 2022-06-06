@@ -3,28 +3,9 @@ if not notify_status_ok then
 	return
 end
 
-local M = {}
+Vin.cmds.edit = {}
 
-M.pick_window = function()
-	local success, picker = pcall(require, "window-picker")
-
-	-- TODO Fix! `picked_window_id` is `nil`
-	if success then
-		local picked_window_id = picker.pick_window()
-
-		if picked_window_id then
-			vim.api.nvim_set_current_win(picked_window_id)
-		else
-			notify("   Pick aborted", "warn", {
-				timeout = 1000,
-				render = "minimal",
-			})
-			return
-		end
-	end
-end
-
-M.log_word = function()
+Vin.cmds.edit.log_word = function()
 	local current_word = vim.fn.expand("<cword>")
 	local message = '"' .. current_word .. '", ' .. current_word
 
@@ -41,5 +22,3 @@ M.log_word = function()
 		vim.cmd("norm oprint(" .. message .. ")")
 	end
 end
-
-return M

@@ -169,7 +169,7 @@ M.no_leader = {
 M.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	[" "] = { cmd.utils.pick_window, "⦾  Pick Window" },
+	[" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
 	["f"] = { cmd.fzf_lua.find_files_without_preview, "  Find File" },
 	["F"] = { cmd.telescope.find_files_with_preview, "  Find File w/ Preview" },
 	["z"] = { Vin.cmds.zen.toggle_full_screen, "  Zen" },

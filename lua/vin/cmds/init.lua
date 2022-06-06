@@ -1,13 +1,15 @@
+require("vin.cmds.diffview")
+require("vin.cmds.nav")
+require("vin.cmds.edit")
+require("vin.cmds.copy")
+require("vin.cmds.zen")
+
 local general = require("vin.cmds.general")
 local lsp = require("vin.cmds.lsp")
 local fzf_lua = require("vin.cmds.fzf-lua")
 local telescope = require("vin.cmds.telescope")
-require("vin.cmds.copy")
 local harpoon = require("vin.cmds.harpoon")
-require("vin.cmds.zen")
 local packer = require("vin.cmds.packer")
-require("vin.cmds.diffview")
-local utils = require("vin.cmds.utils")
 
 local M = {
 	general = general,
@@ -16,7 +18,6 @@ local M = {
 	harpoon = harpoon,
 	lsp = lsp,
 	packer = packer,
-	utils = utils,
 }
 
 return M
