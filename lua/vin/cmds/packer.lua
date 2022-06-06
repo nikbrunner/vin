@@ -8,9 +8,9 @@ if not plenary_async_status_ok then
 	return
 end
 
-local M = {}
+Vin.cmds.packer = {}
 
-M.packer_sync_with_snapshot = function()
+Vin.cmds.packer.sync_with_snapshot = function()
 	plenaryAsync.run(function()
 		notify.async("Syncing packer.", "info", {
 			title = "Packer",
@@ -21,5 +21,3 @@ M.packer_sync_with_snapshot = function()
 	vim.cmd("PackerSnapshot " .. snap_shot_time)
 	vim.cmd("PackerSync")
 end
-
-return M
