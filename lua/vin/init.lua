@@ -14,6 +14,7 @@ local function load(mod)
 	return require(mod)
 end
 
+load("vin.options")
 load("vin.core")
 load("vin.plugins")
 load("vin.colorscheme")
