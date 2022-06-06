@@ -3,13 +3,13 @@ if not notify_status_ok then
 	return
 end
 
-local M = {
+Vin.cmds.general = {
 	all = {},
 	blocks = {},
 	line = {},
 }
 
-M.save_all = function()
+Vin.cmds.general.save_all = function()
 	vim.cmd([[silent wa]])
 
 	notify("Saved all files!", "info", {
@@ -19,7 +19,7 @@ M.save_all = function()
 end
 
 -- get the current filename without extension
-M.get_current_filename = function()
+Vin.cmds.general.get_current_filename = function()
 	local fileNameWithExt = vim.fn.expand("%:t")
 	local dotIndex = string.find(fileNameWithExt, ".", 1, true)
 
@@ -37,36 +37,34 @@ M.get_current_filename = function()
 	)
 end
 
-M.blocks.select = function()
+Vin.cmds.general.blocks.select = function()
 	vim.cmd([[norm ^v$%]])
 end
 
-M.blocks.yank = function()
-	M.blocks.select()
+Vin.cmds.general.blocks.yank = function()
+	Vin.cmds.general.blocks.select()
 	vim.cmd([[norm y]])
 end
 
-M.blocks.delete = function()
-	M.blocks.select()
+Vin.cmds.general.blocks.delete = function()
+	Vin.cmds.general.blocks.select()
 	vim.cmd([[norm d]])
 end
 
-M.all.select = function()
+Vin.cmds.general.all.select = function()
 	vim.cmd([[norm ggVG]])
 end
 
-M.all.yank = function()
-	M.all.select()
+Vin.cmds.general.all.yank = function()
+	Vin.cmds.general.all.select()
 	vim.cmd([[norm y]])
 end
 
-M.all.delete = function()
-	M.all.select()
+Vin.cmds.general.all.delete = function()
+	Vin.cmds.general.all.select()
 	vim.cmd([[norm d]])
 end
 
-M.line.select = function()
+Vin.cmds.general.line.select = function()
 	vim.cmd([[norm ^v$]])
 end
-
-return M

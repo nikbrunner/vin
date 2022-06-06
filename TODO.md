@@ -7,6 +7,8 @@
 - [ ] Clock in Status line
 - [ ] Move Commands to global `Vin` table
 - [x] Resolve `core/` Folder - Unnecessary Nesting
+- [ ] Make Custom Select/Yank/Delete Block Commands work with TreeSitter
+  - These currently work only with languages where a block starts and ends with paired brackets
 
 ## Research
 

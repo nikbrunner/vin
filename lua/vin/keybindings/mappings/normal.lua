@@ -150,19 +150,19 @@ M.no_leader = {
 
 	v = {
 		name = "Select",
-		b = { cmd.general.blocks.select, "Select Block" },
-		v = { cmd.general.line.select, "Select Line" },
-		A = { cmd.general.all.select, "Select All" },
+		b = { Vin.cmds.general.blocks.select, "Select Block" },
+		v = { Vin.cmds.general.line.select, "Select Line" },
+		A = { Vin.cmds.general.all.select, "Select All" },
 	},
 	y = {
 		name = "Yank",
-		b = { cmd.general.blocks.yank, "Yank Block" },
-		A = { cmd.general.all.yank, "Yank All" },
+		b = { Vin.cmds.general.blocks.yank, "Yank Block" },
+		A = { Vin.cmds.general.all.yank, "Yank All" },
 	},
 	d = {
 		name = "Delete",
-		b = { cmd.general.blocks.delete, "Delete Block" },
-		A = { cmd.general.all.delete, "Delete All" },
+		b = { Vin.cmds.general.blocks.delete, "Delete Block" },
+		A = { Vin.cmds.general.all.delete, "Delete All" },
 	},
 }
 
