@@ -16,8 +16,8 @@
 
 ## Plugins
 
-- [x] New: [session-manager](https://github.com/emuel-vassallo/nvim/blob/main/lua/plugins/configs/session-manager.lua)
-- [ ] New: [mark.nvim](https://github.com/chentoast/marks.nvim?utm_source=pocket_mylist)
+- [x] New: [session-manager](https://github.com/Shatur/neovim-session-manager)
+- [ ] New: [mark.nvim](https://github.com/chentoast/marks.nvim)
 - [ ] New: [stabilize.nvim](https://github.com/luukvbaal/stabilize.nvim)
 - [ ] New: [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
   - Use `Lazygit` with this
