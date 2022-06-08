@@ -1,3 +1,8 @@
+local colorizer_status_ok, _ = pcall(require, "colorizer")
+if not colorizer_status_ok then
+	return
+end
+
 vim.cmd([[
   augroup _general_settings
     autocmd!
@@ -31,6 +36,11 @@ vim.cmd([[
 ]])
 
 local lspAuGroup = vim.api.nvim_create_augroup("Formatting", { clear = true })
+local config_group = vim.api.nvim_create_augroup("ConfigGroup", { clear = true })
+local buf_win_enter_au_group = vim.api.nvim_create_augroup(
+	"BufWinEnterAuGroup",
+	{ clear = true }
+)
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
@@ -39,16 +49,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 	group = lspAuGroup,
 })
-
-local colorizer_status_ok, _ = pcall(require, "colorizer")
-if not colorizer_status_ok then
-	return
-end
-
-local buf_win_enter_au_group = vim.api.nvim_create_augroup(
-	"BufWinEnterAuGroup",
-	{ clear = true }
-)
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = "*",
@@ -67,4 +67,11 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 		vim.cmd("ColorizerAttachToBuffer")
 	end,
 	group = buf_win_enter_au_group,
+})
+
+vim.api.nvim_create_autocmd({ "SessionLoadPost" }, {
+	group = config_group,
+	callback = function()
+		vim.cmd("Neotree left toggle")
+	end,
 })
