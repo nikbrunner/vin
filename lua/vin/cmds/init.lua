@@ -1,3 +1,4 @@
+require("vin.cmds.session")
 require("vin.cmds.diffview")
 require("vin.cmds.nav")
 require("vin.cmds.edit")

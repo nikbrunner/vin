@@ -242,13 +242,11 @@ M.packer = {
 
 M.session = {
 	name = "  Session",
-	l = { "<cmd>SessionManager load_session<CR>", "Load Session" },
-	L = { "<cmd>SessionManager load_last_session<CR>", "Load Last Session" },
-	["."] = {
-		"<cmd>SessionManager load_current_dir_session<CR>",
-		"Load Current Dir Session",
-	},
-	s = { "<cmd>SessionManager save_current_session<CR>", "Save Current Session" },
+	s = { Vin.cmds.session.save_current, "Save Current Session" },
+	l = { Vin.cmds.session.load, "Load Session" },
+	L = { Vin.cmds.session.load_last, "Load Last Session" },
+	["."] = { Vin.cmds.session.load_current_dir, "Load Current Dir Session" },
+	d = { Vin.cmds.session.delete, "Delete Session" },
 }
 
 M.insert = {
