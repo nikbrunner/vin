@@ -101,6 +101,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "nanozuki/tabby.nvim" })
 	use({ "chentoast/marks.nvim" })
 	use({ "windwp/nvim-ts-autotag" })
+	use({ "Shatur/neovim-session-manager", after = "project.nvim" })
 
 	-- Colorschemes
 	use({ "rmehri01/onenord.nvim" })

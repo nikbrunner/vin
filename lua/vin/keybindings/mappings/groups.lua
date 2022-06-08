@@ -240,6 +240,17 @@ M.packer = {
 	u = { "<cmd>PackerUpdate<CR>", "Update" },
 }
 
+M.session = {
+	name = "  Session",
+	l = { "<cmd>SessionManager load_session<CR>", "Load Session" },
+	L = { "<cmd>SessionManager load_last_session<CR>", "Load Last Session" },
+	["."] = {
+		"<cmd>SessionManager load_current_dir_session<CR>",
+		"Load Current Dir Session",
+	},
+	s = { "<cmd>SessionManager save_current_session<CR>", "Save Current Session" },
+}
+
 M.insert = {
 	name = "  Insert",
 	l = {

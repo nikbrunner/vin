@@ -16,8 +16,8 @@
 
 ## Plugins
 
+- [x] New: [session-manager](https://github.com/emuel-vassallo/nvim/blob/main/lua/plugins/configs/session-manager.lua)
 - [ ] New: [mark.nvim](https://github.com/chentoast/marks.nvim?utm_source=pocket_mylist)
-- [ ] New: [session-manager](https://github.com/emuel-vassallo/nvim/blob/main/lua/plugins/configs/session-manager.lua)
 - [ ] New: [stabilize.nvim](https://github.com/luukvbaal/stabilize.nvim)
 - [ ] New: [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
   - Use `Lazygit` with this
@@ -27,6 +27,7 @@
 - [ ] `Tabby`: Reset Tabby Styling after `:colorscheme` Switch
 - [ ] `Lazygit`: Does `Lazygit` work with Git Worktrees?
 - [ ] `cmp`: Format cmp Menu to omit the Entry Name
+- [ ] `Surround`: Seems not to be working
 
 ## Arvo
 

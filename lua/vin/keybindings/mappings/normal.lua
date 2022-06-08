@@ -198,6 +198,7 @@ M.with_leader = {
 	e = groups.explorer,
 	P = groups.packer,
 	s = groups.search,
+	S = groups.session,
 	g = groups.git,
 	i = groups.insert,
 	l = groups.lsp,
