@@ -102,7 +102,6 @@ return packer.startup(function(use) -- My plugins here
 	use({ "chentoast/marks.nvim" })
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "Shatur/neovim-session-manager", after = "project.nvim" })
-	use({ "chentoast/marks.nvim" })
 
 	-- Colorschemes
 	use({ "rmehri01/onenord.nvim" })
