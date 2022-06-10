@@ -3,25 +3,27 @@ if not status_ok then
 	return
 end
 
+local colors = require("onenord.colors").load()
+
 onenord.setup({
 	theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
-	borders = false, -- Split window borders
+	borders = true, -- Split window borders
 	fade_nc = false, -- Fade non-current windows, making them more distinguishable
 
 	-- Style that is applied to various groups: see `highlight-args` for options
 	styles = {
 		comments = "italic",
-		strings = "NONE",
+		strings = "italic",
 		keywords = "italic",
 		functions = "bold",
 		variables = "bold",
-		diagnostics = "underline",
+		diagnostics = "italic",
 	},
 
 	disable = {
 		background = false, -- Disable setting the background color
 		cursorline = false, -- Disable the cursorline
-		eob_lines = true, -- Hide the end-of-buffer lines
+		eob_lines = false, -- Hide the end-of-buffer lines
 	},
 
 	-- Inverse highlight for different groups
@@ -30,6 +32,8 @@ onenord.setup({
 	},
 
 	-- Defaults: https://github.com/rmehri01/onenord.nvim/blob/main/lua/onenord/colors/onenord.lua
-	custom_highlights = {},
+	custom_highlights = {
+		VertSplit = { fg = colors.gray },
+	},
 	custom_colors = {},
 })

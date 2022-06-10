@@ -6,7 +6,7 @@ end
 Vin.colorscheme = {
 	theme = "onenord",
 	arvo = {
-		is_enabled = true,
+		is_enabled = false,
 	},
 }
 
@@ -41,14 +41,14 @@ Vin.colorscheme.set_standard_highlights = function()
   ]])
 
 	-- Transparent WinSeparator
-	vim.cmd([[
-    hi WinSeparator gui=NONE guifg=NONE guibg=NonText guisp=NonText
-  ]])
+	-- vim.cmd([[
+	--    hi WinSeparator gui=NONE guifg=NONE guibg=NonText guisp=NonText
+	--  ]])
 
 	-- Transparent VertSplit
-	vim.cmd([[
-    hi VertSplit gui=NONE guifg=NONE guibg=NONE guisp=NONE
-  ]])
+	-- vim.cmd([[
+	--    hi VertSplit gui=NONE guifg=NONE guibg=NONE guisp=NONE
+	--  ]])
 
 	-- Transparent Backgrounds for Folds
 	vim.cmd([[
