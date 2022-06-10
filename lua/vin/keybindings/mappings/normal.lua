@@ -175,12 +175,14 @@ M.with_leader = {
 		"  Find File w/ Preview",
 	},
 	["z"] = { Vin.cmds.zen.toggle_full_screen, "  Zen" },
-	["r"] = {
-		function()
-			jester.run_file()
-		end,
-		WhichKeyIgnoreLabel,
-	},
+	["m"] = { "<C-w>|", "  Maximize" },
+	["r"] = { "<C-w>=", "  Restore" },
+	-- ["r"] = {
+	-- 	function()
+	-- 		jester.run_file()
+	-- 	end,
+	-- 	WhichKeyIgnoreLabel,
+	-- },
 	["n"] = { ":nohl<CR>", WhichKeyIgnoreLabel },
 
 	-- Tab navigation
