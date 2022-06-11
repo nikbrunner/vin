@@ -166,7 +166,8 @@ M.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	[" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
-	["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
+	-- ["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
+	["f"] = { Vin.cmds.telescope.find_files_without_preview, "  Find File" },
 	["F"] = {
 		Vin.cmds.telescope.find_files_with_preview,
 		"  Find File w/ Preview",
