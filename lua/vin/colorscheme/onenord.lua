@@ -33,7 +33,9 @@ onenord.setup({
 
 	-- Defaults: https://github.com/rmehri01/onenord.nvim/blob/main/lua/onenord/colors/onenord.lua
 	custom_highlights = {
-		VertSplit = { fg = colors.gray },
+		-- NeoTree
+		NeoTreeNormal = { fg = colors.fg, bg = colors.active },
+		NeoTreeNormalNC = { fg = colors.fg, bg = colors.active },
 	},
 	custom_colors = {},
 })
