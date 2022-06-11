@@ -29,7 +29,7 @@ end
 
 local no_preview = function()
 	return themes.get_dropdown({
-		borderchars = hard_corner_window(),
+		-- borderchars = hard_corner_window(),
 		width = 0.8,
 		previewer = false,
 		prompt_title = false,
