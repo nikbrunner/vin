@@ -45,7 +45,7 @@ M.no_leader = {
 	-- Control bindings
 	["<C-p>"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Files" },
 	["<C-e>"] = { Vin.cmds.fzf_lua.find_buffers, "﩯 Buffers" },
-	["<C-b>"] = { "<cmd>Neotree focus<CR>", " Toggle Tree" },
+	["<C-b>"] = { "<cmd>Neotree toggle<CR>", " Toggle Tree" },
 	-- ["<C-f>"] = { cmd.utils.pick_window, "  Pick Window" },
 	["<C-_>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 	["<C-g>"] = { Vin.cmds.term.lazygit, "Find modified files" },
