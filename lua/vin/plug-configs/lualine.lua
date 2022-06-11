@@ -41,7 +41,7 @@ lualine.setup({
 		lualine_a = {
 			{
 				"mode",
-				padding = 22,
+				padding = 3,
 			},
 		},
 		lualine_b = {

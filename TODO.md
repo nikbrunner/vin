@@ -19,7 +19,7 @@
 - [x] New: [session-manager](https://github.com/Shatur/neovim-session-manager)
 - [ ] New: [mark.nvim](https://github.com/chentoast/marks.nvim)
 - [ ] New: [stabilize.nvim](https://github.com/luukvbaal/stabilize.nvim)
-- [ ] New: [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+- [x] New: [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
   - Use `Lazygit` with this
   - Also maybe it is possible to automate `npm`
 - [ ] `Neotree`: Fix Window Picker

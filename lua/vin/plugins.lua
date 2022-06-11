@@ -102,6 +102,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "chentoast/marks.nvim" })
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "Shatur/neovim-session-manager", after = "project.nvim" })
+	use({ "akinsho/toggleterm.nvim", tag = "v1.*" })
 
 	-- Colorschemes
 	use({ "rmehri01/onenord.nvim" })
@@ -155,7 +156,6 @@ return packer.startup(function(use) -- My plugins here
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
-	use({ "kdheepak/lazygit.nvim" })
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "pwntester/octo.nvim" })
 
