@@ -8,6 +8,7 @@ Vin.colorscheme = {
 	arvo = {
 		is_enabled = false,
 	},
+  snippets = {}
 }
 
 if Vin.colorscheme.arvo.is_enabled then
@@ -55,30 +56,33 @@ Vin.colorscheme.set_standard_highlights = function()
     hi Folded guibg=NONE
     hi FoldColumn guibg=NONE
   ]])
+end
 
-	-- Cmp Item Highlights VSCode Style
+-- The question remains if thats even sensible,
+-- since a dedicated VSCode Theme almost certainly has these already defined
+Vin.colorscheme.snippets.set_cmp_vscode_highlights = function()
 	vim.cmd([[
-    " gray
-    highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+	   " gray
+	   highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
 
-    " blue
-    highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
-    highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+	   " blue
+	   highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+	   highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
 
-    " light blue
-    highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
-    highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
-    highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
+	   " light blue
+	   highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+	   highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
+	   highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
 
-    " pink
-    highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
-    highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+	   " pink
+	   highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+	   highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
 
-    " front
-    highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
-    highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
-    highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
-  ]])
+	   " front
+	   highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+	   highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
+	   highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+	 ]])
 end
 
 -- Initial call
