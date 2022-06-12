@@ -165,9 +165,15 @@ M.no_leader = {
 
 M.with_leader = {
 	-- Singles
-	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	[" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" }, -- TODO: window-picker: This doesnt work anymore
+	-- [" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
 	-- ["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
+	-- ["r"] = {
+	-- 	function()
+	-- 		jester.run_file()
+	-- 	end,
+	-- 	WhichKeyIgnoreLabel,
+	-- },
+	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	["f"] = { Vin.cmds.telescope.find_files_without_preview, "  Find File" },
 	["F"] = {
 		Vin.cmds.telescope.find_files_with_preview,
@@ -176,12 +182,6 @@ M.with_leader = {
 	["z"] = { Vin.cmds.zen.toggle_full_screen, "  Zen" },
 	["m"] = { "<C-w>|", "  Maximize" },
 	["r"] = { "<C-w>=", "  Restore" },
-	-- ["r"] = {
-	-- 	function()
-	-- 		jester.run_file()
-	-- 	end,
-	-- 	WhichKeyIgnoreLabel,
-	-- },
 	["n"] = { ":nohl<CR>", WhichKeyIgnoreLabel },
 
 	-- Tab navigation

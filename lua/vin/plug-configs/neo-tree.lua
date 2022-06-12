@@ -97,7 +97,7 @@ neotree.setup({
 			["<C-s>"] = "open_split",
 			["<C-v>"] = "open_vsplit",
 			["t"] = "open_tabnew",
-			["w"] = "open_with_window_picker",
+			-- ["w"] = "open_with_window_picker",
 			["C"] = "close_node",
 			["a"] = "add",
 			["A"] = "add_directory",

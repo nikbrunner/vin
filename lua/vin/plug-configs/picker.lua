@@ -3,8 +3,9 @@ if not status_ok then
 	return
 end
 
-local arvo = require("vin.colorscheme.arvo")
+local colors = require("onenord.colors").load()
 
+-- NOTE: Unused - Doesnt work
 window_picker.setup({
 	-- when there is only one window available to pick from, use that window
 	-- without prompting the user to select
@@ -57,9 +58,9 @@ window_picker.setup({
 
 	-- if you have include_current_win == true, then current_win_hl_color will
 	-- be highlighted using this background color
-	current_win_hl_color = arvo.colors().green,
+	current_win_hl_color = colors.green,
 
 	-- all the windows except the curren window will be highlighted using this
 	-- color
-	other_win_hl_color = arvo.colors().bg_light,
+	other_win_hl_color = colors.gray,
 })

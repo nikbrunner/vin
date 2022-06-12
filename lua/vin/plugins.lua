@@ -45,6 +45,10 @@ packer.init({
 			update = "pull --ff-only --progress --rebase=true",
 		},
 	},
+	-- NOTE: Limiting the max jobs helps when packer gets stuck on "checking current commit"
+	max_jobs = 5, -- Limit the number of simultaneous jobs. nil means no limit
+	auto_clean = true, -- During sync(), remove unused plugins
+	compile_on_sync = true, -- During sync(), run packer.compile()
 })
 
 -- Install your plugins here
@@ -67,7 +71,6 @@ return packer.startup(function(use) -- My plugins here
 			"MunifTanjim/nui.nvim",
 		},
 	})
-	use({ "s1n7ax/nvim-window-picker", tag = "v1.*" })
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
