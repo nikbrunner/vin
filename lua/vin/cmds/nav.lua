@@ -8,7 +8,7 @@ Vin.cmds.nav = {}
 Vin.cmds.nav.pick_window = function()
 	local success, picker = pcall(require, "window-picker")
 
-	-- TODO Fix! `picked_window_id` is `nil`
+	-- TODO: window-picker: Fix! `picked_window_id` is `nil`
 	if success then
 		local picked_window_id = picker.pick_window()
 

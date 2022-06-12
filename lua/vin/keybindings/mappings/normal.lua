@@ -46,11 +46,12 @@ M.no_leader = {
 	["<C-p>"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Files" },
 	["<C-e>"] = { Vin.cmds.fzf_lua.find_buffers, "﩯 Buffers" },
 	["<C-b>"] = { "<cmd>Neotree toggle<CR>", " Toggle Tree" },
-	-- ["<C-f>"] = { cmd.utils.pick_window, "  Pick Window" },
+	-- ["<C-f>"] = { cmd.utils.pick_window, "  Pick Window" }, -- TODO: window-picker: This doesnt work anymore
 	["<C-_>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 	["<C-g>"] = { Vin.cmds.term.lazygit, "Find modified files" },
 	["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
 	["<F8>"] = { "<cmd>TroubleToggle<CR>", "TroubleShoot" },
+	["<F7>"] = { "<cmd>TodoQuickFix<CR>", "TroubleShoot" },
 
 	-- Better window navigation
 	["<C-h>"] = { "<C-w>h", "Focus Left" },
@@ -165,7 +166,7 @@ M.no_leader = {
 M.with_leader = {
 	-- Singles
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	[" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
+	[" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" }, -- TODO: window-picker: This doesnt work anymore
 	-- ["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
 	["f"] = { Vin.cmds.telescope.find_files_without_preview, "  Find File" },
 	["F"] = {

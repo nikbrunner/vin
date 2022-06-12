@@ -95,6 +95,10 @@ return packer.startup(function(use) -- My plugins here
 	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 	use({ "rcarriga/nvim-notify" })
 	use({ "folke/zen-mode.nvim" })
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+	})
 	use({ "David-Kunz/jester" })
 	use({ "anuvyklack/pretty-fold.nvim", requires = "anuvyklack/nvim-keymap-amend" })
 	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" })

@@ -137,13 +137,13 @@ end
 local buttons = {
 	type = "group",
 	val = {
-		button("<CR>", "   Curr. Dir", ":edit .<CR>"),
+		button(".", "   Curr. Dir", ":edit .<CR>"),
 		button("l", "   Load", ":SessionManager load_session<CR>"),
 		button("r", "   Recents", ":Telescope oldfiles<CR>"),
 		button("p", "   Projects", ":Telescope projects<CR>"),
 		button("f", "   Search", ":Telescope find_files<CR>"),
 		button("e", "   Create", ":ene <BAR> startinsert<CR>"),
-		button(".", "   Config", ":e ~/.config/nvim/<CR>"),
+		button("c", "   Config", ":e ~/.config/nvim/<CR>"),
 		button("q", "   Quit", ":qa!<CR>"),
 	},
 	opts = {

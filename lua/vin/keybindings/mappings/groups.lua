@@ -149,6 +149,7 @@ M.search = {
 	F = { Vin.cmds.telescope.find_files_with_preview, "  Files (With Preview)" },
 	r = { Vin.cmds.telescope.find_related_files, "  Related Files" },
 	t = { Vin.cmds.telescope.find_text, "  Find Text Everywhere" },
+	T = { "<cmd>TodoTelescope<CR>", " Todos" },
 	i = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 	w = { Vin.cmds.telescope.find_word, "  Find Current Word" },
 	q = { Vin.cmds.telescope.find_in_quickfix, "  Quickfix" },
