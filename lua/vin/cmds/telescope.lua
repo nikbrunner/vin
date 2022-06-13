@@ -85,6 +85,10 @@ Vin.cmds.telescope.find_related_files = function()
 	end
 end
 
+Vin.cmds.telescope.find_open_buffer = function()
+	builtin.buffers(themes.get_ivy({}))
+end
+
 Vin.cmds.telescope.find_scss_symbol = function()
 	local curr_word = vim.fn.expand("<cword>")
 

@@ -149,7 +149,12 @@ M.search = {
 	F = { Vin.cmds.telescope.find_files_with_preview, "  Files (With Preview)" },
 	r = { Vin.cmds.telescope.find_related_files, "  Related Files" },
 	t = { Vin.cmds.telescope.find_text, "  Find Text Everywhere" },
-	T = { "<cmd>TodoTelescope<CR>", " Todos" },
+	d = { "<cmd>TodoTelescope<CR>", "  Todos" },
+	o = { Vin.cmds.telescope.find_open_buffer, "﬘  Open Buffers" },
+	g = {
+		Vin.cmds.fzf_lua.find_modified_files_with_preview,
+		" Open Changed Files",
+	},
 	i = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 	w = { Vin.cmds.telescope.find_word, "  Find Current Word" },
 	q = { Vin.cmds.telescope.find_in_quickfix, "  Quickfix" },
@@ -169,8 +174,6 @@ M.search = {
 		r = { Vin.cmds.fzf_lua.find_in_registers, "  Registers" },
 		k = { Vin.cmds.fzf_lua.find_keymaps, "  Keymaps" },
 	},
-	d = M.diagnostics,
-	g = M.git,
 }
 
 M.harpoon = {
