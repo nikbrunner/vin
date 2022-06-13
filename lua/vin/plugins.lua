@@ -46,7 +46,7 @@ packer.init({
 		},
 	},
 	-- NOTE: Limiting the max jobs helps when packer gets stuck on "checking current commit"
-	max_jobs = 5, -- Limit the number of simultaneous jobs. nil means no limit
+	max_jobs = 10, -- Limit the number of simultaneous jobs. nil means no limit
 	auto_clean = true, -- During sync(), remove unused plugins
 	compile_on_sync = true, -- During sync(), run packer.compile()
 })
