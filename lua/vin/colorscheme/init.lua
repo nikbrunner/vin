@@ -4,7 +4,7 @@ if not notify_status_ok then
 end
 
 Vin.colorscheme = {
-	theme = "tokyonight",
+	initial_theme = "onenord",
 	arvo = {
 		is_enabled = false,
 	},
@@ -21,11 +21,12 @@ require("vin.colorscheme.github")
 require("vin.colorscheme.lunarvim")
 require("vin.colorscheme.onedark")
 require("vin.colorscheme.tokyonight")
+require("vin.colorscheme.material")
 
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. Vin.colorscheme.theme)
+local status_ok, _ = pcall(vim.cmd, "colorscheme " .. Vin.colorscheme.initial_theme)
 
 if not status_ok then
-	notify("colorscheme " .. Vin.colorscheme.theme .. " not found!")
+	notify("colorscheme " .. Vin.colorscheme.initial_theme .. " not found!")
 
 	vim.cmd([[
     catch /^Vim\%((\a\+)\)\=:E185/
@@ -56,6 +57,11 @@ Vin.colorscheme.set_standard_highlights = function()
 	vim.cmd([[
     hi Folded guibg=NONE
     hi FoldColumn guibg=NONE
+  ]])
+
+	-- Disable CursorLine Background
+	vim.cmd([[
+    hi CursorLine guibg=NONE
   ]])
 end
 
