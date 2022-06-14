@@ -65,6 +65,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 		vim.o.foldlevel = 3
 
 		vim.cmd("ColorizerAttachToBuffer")
+		vim.cmd("Gitsigns refresh")
 	end,
 	group = buf_win_enter_au_group,
 })
