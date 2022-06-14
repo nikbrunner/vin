@@ -4,11 +4,11 @@ if not notify_status_ok then
 end
 
 Vin.colorscheme = {
-	theme = "onenord",
+	theme = "tokyonight",
 	arvo = {
 		is_enabled = false,
 	},
-  snippets = {}
+	snippets = {},
 }
 
 if Vin.colorscheme.arvo.is_enabled then
@@ -20,6 +20,7 @@ end
 require("vin.colorscheme.github")
 require("vin.colorscheme.lunarvim")
 require("vin.colorscheme.onedark")
+require("vin.colorscheme.tokyonight")
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. Vin.colorscheme.theme)
 

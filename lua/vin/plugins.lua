@@ -116,6 +116,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "projekt0n/github-nvim-theme" })
 	use({ "navarasu/onedark.nvim" })
 	use({ "norcalli/nvim-colorizer.lua" })
+	use({ "folke/tokyonight.nvim" })
 	use({ "LunarVim/Colorschemes" })
 
 	-- cmp plugins
