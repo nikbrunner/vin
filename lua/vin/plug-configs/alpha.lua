@@ -142,7 +142,7 @@ local buttons = {
 		button("r", "   Recents", ":Telescope oldfiles<CR>"),
 		button("p", "   Projects", ":Telescope projects<CR>"),
 		button("f", "   Search", ":Telescope find_files<CR>"),
-		button("e", "   Create", ":ene <BAR> startinsert<CR>"),
+		button("e", "   New Empty", ":ene <BAR> startinsert<CR>"),
 		button("c", "   Config", ":e ~/.config/nvim/<CR>"),
 		button("q", "   Quit", ":qa!<CR>"),
 	},
