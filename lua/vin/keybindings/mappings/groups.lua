@@ -11,6 +11,11 @@ M.advanced_g = {
 	y = { ":Telescope lsp_type_definitions<CR>", "Type Defintions" },
 }
 
+M.vin = {
+	name = " Vin",
+	c = { Vin.cmds.fzf_lua.find_colorscheme, "  Colorscheme" },
+}
+
 M.diagnostics = {
 	name = "Diagnostics",
 	d = {
