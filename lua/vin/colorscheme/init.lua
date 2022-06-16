@@ -17,11 +17,11 @@ else
 	require("vin.colorscheme.onenord")
 end
 
-require("vin.colorscheme.github")
-require("vin.colorscheme.lunarvim")
-require("vin.colorscheme.onedark")
-require("vin.colorscheme.tokyonight")
-require("vin.colorscheme.material")
+-- require("vin.colorscheme.github")
+-- require("vin.colorscheme.lunarvim")
+-- require("vin.colorscheme.onedark")
+-- require("vin.colorscheme.tokyonight")
+-- require("vin.colorscheme.material")
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. Vin.colorscheme.initial_theme)
 
