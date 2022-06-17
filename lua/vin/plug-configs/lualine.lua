@@ -11,10 +11,7 @@ end
 local lualine_theme
 local current_colorscheme = Vin.lib.get_current_colorscheme()
 
--- if Vin.colorscheme.arvo.is_enabled then
-if current_colorscheme == "onenord" and Vin.colorscheme.arvo.is_enabled then
-	lualine_theme = require("vin.colorscheme.arvo.lualine").lualine_theme()
-elseif current_colorscheme == "material" then
+if current_colorscheme == "material" then
 	lualine_theme = "material-stealth"
 else
 	lualine_theme = "auto"

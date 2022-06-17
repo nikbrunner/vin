@@ -114,11 +114,10 @@ return packer.startup(function(use) -- My plugins here
 	-- Colorschemes
 	use({ "rmehri01/onenord.nvim" })
 	use({ "projekt0n/github-nvim-theme" })
-	use({ "navarasu/onedark.nvim" })
+	use({
+		"/Users/nikolausbrunner/Documents/dev/repos/personal/terra-theme/terra.nvim",
+	})
 	use({ "norcalli/nvim-colorizer.lua" })
-	use({ "folke/tokyonight.nvim" })
-	use({ "LunarVim/Colorschemes" })
-	use({ "marko-cerovac/material.nvim" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
