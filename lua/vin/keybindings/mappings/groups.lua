@@ -172,7 +172,6 @@ M.search = {
 	i = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 	w = { Vin.cmds.telescope.find_word, "  Find Current Word" },
 	q = { Vin.cmds.telescope.find_in_quickfix, "  Quickfix" },
-	e = { "<cmd>Telescope symbols<CR>", "Emojis" },
 	s = { Vin.cmds.telescope.find_symbols_in_workspace, " Symbol" },
 	S = { Vin.cmds.fzf_lua.find_spelling, "  Spelling" },
 	b = { Vin.cmds.fzf_lua.find_buffers, "﩯 Buffers" },
@@ -275,10 +274,6 @@ M.insert = {
 	l = {
 		Vin.cmds.edit.log_word,
 		"Log Word",
-	},
-	e = {
-		"<cmd>Telescope symbols<CR>",
-		"Symbols",
 	},
 }
 
