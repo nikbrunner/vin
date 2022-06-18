@@ -55,6 +55,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	callback = function()
 		vim.cmd("ColorizerAttachToBuffer")
 		vim.cmd("Gitsigns refresh")
+		vim.cmd("NvimTreeRefresh")
 	end,
 	group = lspAuGroup,
 })
@@ -72,7 +73,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 
 		vim.o.foldmethod = "indent"
 		vim.o.foldlevel = 3
-
 	end,
 	group = buf_win_enter_au_group,
 })
