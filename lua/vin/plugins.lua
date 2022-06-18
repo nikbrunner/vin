@@ -94,7 +94,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "ThePrimeagen/harpoon" })
 	use({ "gennaro-tedesco/nvim-jqx" })
 	use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
-	use({ "github/copilot.vim", disable = true })
+	use({ "github/copilot.vim" })
 	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 	use({ "rcarriga/nvim-notify" })
 	use({ "folke/zen-mode.nvim" })
@@ -104,19 +104,17 @@ return packer.startup(function(use) -- My plugins here
 	})
 	use({ "David-Kunz/jester" })
 	use({ "anuvyklack/pretty-fold.nvim", requires = "anuvyklack/nvim-keymap-amend" })
-	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" })
+	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" }) -- TODO: Replace with nvim-navic
 	use({ "nanozuki/tabby.nvim" })
-	use({ "chentoast/marks.nvim" })
+	use({ "chentoast/marks.nvim" }) -- TODO: Study Maps
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "Shatur/neovim-session-manager", after = "project.nvim" })
 	use({ "akinsho/toggleterm.nvim", tag = "v1.*" })
 
 	-- Colorschemes
+	use({ "~/Documents/dev/repos/personal/terra-theme/nvim" })
 	use({ "rmehri01/onenord.nvim" })
 	use({ "projekt0n/github-nvim-theme" })
-	use({
-		"/Users/nikolausbrunner/Documents/dev/repos/personal/terra-theme/terra.nvim",
-	})
 	use({ "norcalli/nvim-colorizer.lua" })
 
 	-- cmp plugins
@@ -165,7 +163,7 @@ return packer.startup(function(use) -- My plugins here
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
-	use({ "pwntester/octo.nvim" })
+	use({ "pwntester/octo.nvim", disable = true })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
