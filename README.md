@@ -7,9 +7,15 @@ I tailored this config to my personal needs as a Frontend Engineer.
 
 ## Screenshots
 
-![](./images/dashboard.png)
+![](./images/vin.png)
 
-![](./images/editor.png)
+## Theme
+
+[Terra](https://github.com/terra-theme)
+
+## Wallpaper
+
+![](./images/wallpaper/terra_spring_sunrise.png)
 
 ## Origin of Name
 
