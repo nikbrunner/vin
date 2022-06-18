@@ -18,23 +18,13 @@
 ## Plugins
 
 - [x] New: [session-manager](https://github.com/Shatur/neovim-session-manager)
-- [ ] New: [mark.nvim](https://github.com/chentoast/marks.nvim)
+- [x] New: [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+- [x] New: [mark.nvim](https://github.com/chentoast/marks.nvim)
 - [ ] Replace: [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [ ] New: [stabilize.nvim](https://github.com/luukvbaal/stabilize.nvim)
-- [x] New: [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+- [ ] New: [treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
 - [ ] `Neotree`: Fix Window Picker
 - [ ] `Neotree`: Refresh after commit
-- [ ] `Tabby`: Reset Tabby Styling after `:colorscheme` Switch
-  - Problematic Highlight Groups: `TabbyHl_*`
 - [ ] `Lazygit`: Does `Lazygit` work with Git Worktrees?
 - [ ] `cmp`: Format cmp Menu to omit the Entry Name
 - [ ] `Surround`: Seems not to be working
-
-## Arvo
-
-- [ ] Setup as own Theme
-- [ ] Darker `Lazygit` Float Window
-- [ ] Better `Lsp` Highlights
-    - `LspReferenceText`
-    - `LspReferenceRead`
-    - `LspReferenceWrite`
