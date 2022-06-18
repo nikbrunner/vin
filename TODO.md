@@ -22,7 +22,7 @@
 - [x] New: [mark.nvim](https://github.com/chentoast/marks.nvim)
 - [ ] Replace: [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [ ] New: [stabilize.nvim](https://github.com/luukvbaal/stabilize.nvim)
-- [ ] New: [treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
+- [x] New: [treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
 - [ ] `Neotree`: Fix Window Picker
 - [ ] `Neotree`: Refresh after commit
 - [ ] `Lazygit`: Does `Lazygit` work with Git Worktrees?

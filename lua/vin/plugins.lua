@@ -149,6 +149,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "nvim-telescope/telescope.nvim" })
 	use({ "ahmedkhalf/project.nvim" })
 	use({ "nvim-telescope/telescope-github.nvim" })
+	use({ "nvim-telescope/telescope-symbols.nvim" })
 	use({ "junegunn/fzf", run = "./install --bin" })
 	use({ "ibhagwan/fzf-lua" })
 
@@ -158,6 +159,7 @@ return packer.startup(function(use) -- My plugins here
 		run = ":TSUpdate",
 	})
 	use({ "nvim-treesitter/playground", run = ":TSInstall query" })
+	use({ "nvim-treesitter/nvim-treesitter-context" })
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
 	-- Git
