@@ -4,19 +4,16 @@ if not notify_status_ok then
 end
 
 Vin.colorscheme = {
-	initial_theme = "onedark",
+	initial_theme = "terra",
 	snippets = {},
 }
 
 -- require("vin.colorscheme.github")
 -- require("vin.colorscheme.onenord")
-require("vin.colorscheme.onedark")
+require("vin.colorscheme.terra")
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. Vin.colorscheme.initial_theme)
-
-if status_ok then
-	vim.cmd("colorscheme " .. Vin.colorscheme.initial_theme)
-else
+if not status_ok then
 	notify("colorscheme " .. Vin.colorscheme.initial_theme .. " not found!")
 
 	vim.cmd([[
@@ -24,6 +21,8 @@ else
     set background=dark
   ]])
 	return
+else
+	vim.cmd("colorscheme " .. Vin.colorscheme.initial_theme)
 end
 
 Vin.colorscheme.set_standard_highlights = function()

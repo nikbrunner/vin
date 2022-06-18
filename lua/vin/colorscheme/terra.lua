@@ -1,9 +1,9 @@
-local status_ok, onedark = pcall(require, "onedark")
+local status_ok, terra = pcall(require, "terra")
 if not status_ok then
 	return
 end
 
-onedark.setup({
+terra.setup({
 	-- Main options --
 	style = "deep", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
 	transparent = false, -- Show/hide background
