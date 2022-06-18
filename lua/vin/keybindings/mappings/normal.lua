@@ -168,8 +168,7 @@ M.with_leader = {
 	-- Singles
 	-- [" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
 	[" "] = { Vin.cmds.fzf_lua.find_commands, "  Commands" },
-	["e"] = { "<cmd>NvimTreeToggle<CR>", "  Commands" },
-	-- ["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
+	["e"] = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
 	-- ["r"] = {
 	-- 	function()
 	-- 		jester.run_file()
@@ -180,11 +179,11 @@ M.with_leader = {
 	["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
 	["F"] = {
 		Vin.cmds.telescope.find_files_with_preview,
-		"  Find File w/ Preview",
+		WhichKeyIgnoreLabel,
 	},
 	["z"] = { Vin.cmds.zen.toggle_full_screen, "  Zen" },
-	["m"] = { "<C-w>|", "  Maximize" },
-	["r"] = { "<C-w>=", "  Restore" },
+	["m"] = { "<C-w>|", "  Maximize Split" },
+	["r"] = { "<C-w>=", "  Restore Splits" },
 	["n"] = { ":nohl<CR>", WhichKeyIgnoreLabel },
 
 	-- Tab navigation
