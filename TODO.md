@@ -28,3 +28,4 @@
 - [ ] `Lazygit`: Does `Lazygit` work with Git Worktrees?
 - [ ] `cmp`: Format cmp Menu to omit the Entry Name
 - [ ] `Surround`: Seems not to be working
+- [ ] Lazyloading
