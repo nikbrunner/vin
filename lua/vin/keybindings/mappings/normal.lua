@@ -168,6 +168,7 @@ M.with_leader = {
 	-- Singles
 	-- [" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
 	[" "] = { Vin.cmds.fzf_lua.find_commands, "  Commands" },
+	["e"] = { "<cmd>NvimTreeToggle<CR>", "  Commands" },
 	-- ["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
 	-- ["r"] = {
 	-- 	function()
@@ -199,7 +200,7 @@ M.with_leader = {
 
 	-- Groups
 	v = groups.vin,
-	e = groups.explorer,
+	-- e = groups.explorer,
 	P = groups.packer,
 	s = groups.search,
 	S = groups.session,

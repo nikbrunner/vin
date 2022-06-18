@@ -14,6 +14,7 @@ local function load(mod)
 	return require(mod)
 end
 
+load("vin.icons")
 load("vin.options")
 load("vin.autocmds")
 load("vin.lib")

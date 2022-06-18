@@ -26,7 +26,7 @@ Vin.cmds.harpoon.add_file = function()
 	mark.add_file()
 
 	-- Refresh Neotree after add mark
-	require("neo-tree.sources.manager").refresh()
+	-- require("neo-tree.sources.manager").refresh()
 
 	local filename = vim.fn.expand("%:t")
 

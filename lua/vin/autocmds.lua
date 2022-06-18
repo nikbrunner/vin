@@ -50,6 +50,15 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	group = lspAuGroup,
 })
 
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = "*",
+	callback = function()
+		vim.cmd("ColorizerAttachToBuffer")
+		vim.cmd("Gitsigns refresh")
+	end,
+	group = lspAuGroup,
+})
+
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = "*",
 	callback = function()
@@ -64,8 +73,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 		vim.o.foldmethod = "indent"
 		vim.o.foldlevel = 3
 
-		vim.cmd("ColorizerAttachToBuffer")
-		vim.cmd("Gitsigns refresh")
 	end,
 	group = buf_win_enter_au_group,
 })
@@ -73,6 +80,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 vim.api.nvim_create_autocmd({ "SessionLoadPost" }, {
 	group = config_group,
 	callback = function()
-		vim.cmd("Neotree left toggle")
+		-- vim.cmd("NvimTreeToggle")
 	end,
 })
