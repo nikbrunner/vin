@@ -76,7 +76,8 @@ M.quit = {
 	q = { ":silent q<CR>", "Quit" },
 	Q = { ":silent q!<CR>", "Quit /w Force" },
 	o = { ":BufOnly<CR>", "Close All Buffers But Current" },
-	a = { ":Bwipeout<CR>", "Close all Buffers" },
+	w = { ":Bwipeout<CR>", "Wipeout all Buffers" },
+	a = { Vin.cmds.save_and_exit, "Save and Exit" },
 }
 
 M.buffer = {

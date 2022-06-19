@@ -19,6 +19,11 @@ Vin.cmds.general.save_all = function()
 	})
 end
 
+Vin.cmds.save_and_exit = function()
+  Vin.cmds.general.save_all()
+	vim.cmd(":qa!")
+end
+
 -- get the current filename without extension
 Vin.cmds.general.get_current_filename = function()
 	local fileNameWithExt = vim.fn.expand("%:t")
