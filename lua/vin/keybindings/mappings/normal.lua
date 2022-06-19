@@ -46,7 +46,6 @@ M.no_leader = {
 	["<C-p>"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Files" },
 	["<C-e>"] = { Vin.cmds.fzf_lua.find_buffers, "﩯 Buffers" },
 	-- ["<C-b>"] = { "<cmd>Neotree toggle<CR>", " Toggle Tree" },
-	["“"] = { "<cmd>Neotree toggle<CR>", " Toggle Tree" },
 	-- ["<C-f>"] = { cmd.utils.pick_window, "  Pick Window" }, -- TODO: window-picker: This doesnt work anymore
 	["<C-_>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 	["<C-g>"] = { Vin.cmds.term.lazygit, "Find modified files" },
@@ -176,11 +175,12 @@ M.with_leader = {
 	-- 	WhichKeyIgnoreLabel,
 	-- },
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
-	["F"] = {
-		Vin.cmds.telescope.find_files_with_preview,
-		WhichKeyIgnoreLabel,
-	},
+	-- ["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
+	["f"] = { Vin.cmds.telescope.find_files_with_preview, "  Find File" },
+	-- ["F"] = {
+	-- 	Vin.cmds.telescope.find_files_with_preview,
+	-- 	WhichKeyIgnoreLabel,
+	-- },
 	["z"] = { Vin.cmds.zen.toggle_full_screen, "  Zen" },
 	["m"] = { "<C-w>|", "  Maximize Split" },
 	["r"] = { "<C-w>=", "  Restore Splits" },
