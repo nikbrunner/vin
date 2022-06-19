@@ -19,9 +19,9 @@ nvim_tree.setup({
 	-- update_to_buf_dir = {
 	--   enable = false,
 	-- },
-	-- disable_netrw = true,
-	-- hijack_netrw = true,
-	-- open_on_setup = false,
+	disable_netrw = false,
+	hijack_netrw = true,
+	open_on_setup = true,
 	ignore_ft_on_setup = {
 		"startify",
 		"dashboard",
