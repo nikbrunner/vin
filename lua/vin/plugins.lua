@@ -109,8 +109,12 @@ return packer.startup(function(use) -- My plugins here
 		requires = "nvim-lua/plenary.nvim",
 	})
 	use({ "David-Kunz/jester" })
-	-- use({ "anuvyklack/pretty-fold.nvim", requires = "anuvyklack/nvim-keymap-amend" })
-  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+	use({ "anuvyklack/pretty-fold.nvim", requires = "anuvyklack/nvim-keymap-amend" })
+	use({
+		"kevinhwang91/nvim-ufo",
+		requires = "kevinhwang91/promise-async",
+		disable = true,
+	})
 
 	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" }) -- TODO: Replace with nvim-navic
 	use({ "nanozuki/tabby.nvim" })
