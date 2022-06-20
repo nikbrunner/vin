@@ -9,11 +9,16 @@
 - [ ] Clock in Status line
 - [ ] Make Custom Select/Yank/Delete Block Commands work with Treesitter
   - These currently work only with languages where a block starts and ends with paired brackets
+- [ ] Save Issue ID on Runtime and add a 
+  - If no issue id present, show input field
+  - If existent open todo searcher with issue id already present
+  - folke/todo: filter with issue id?
 
 ## Research
 
 - [ ] `nvim`: Handle Error Cases
 - [ ] [Chris@Machine: Creating an unbreakable nvim config](https://www.youtube.com/watch?v=Vghglz2oR0c)
+- [ ] Better Spelling and with a Toggle
 
 ## Plugins
 
