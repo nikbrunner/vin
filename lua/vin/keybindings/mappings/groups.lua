@@ -108,9 +108,8 @@ M.copy = {
 
 M.git = {
 	name = "  Git",
-	-- s = { "<cmd>:LazyGit<CR>", "Status" }, -- TODO I still get stuck here from time to time
-	s = { Vin.cmds.term.lazygit, "Status" }, -- TODO I still get stuck here from time to time
-	-- s = { _LAZYGIT_TOGGLE, "Status" }, -- TODO I still get stuck here from time to time
+	s = { "<cmd>:LazyGit<CR>", "Status" },
+	-- s = { Vin.cmds.term.lazygit, "Status" },
 	d = {
 		name = " Diffview",
 		d = { "<cmd>DiffviewOpen<CR>", "Current Diff" },

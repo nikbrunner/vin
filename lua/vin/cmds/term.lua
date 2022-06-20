@@ -7,6 +7,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 
 Vin.cmds.term = {}
 
+-- INFO: Currently not used because I cannot put in on fullscreen
 Vin.cmds.term.lazygit = function()
 	local lazygit = Terminal:new({
 		cmd = "lazygit",
