@@ -1,4 +1,4 @@
-return {
+Vin.icons = {
 	kind = {
 		Text = "",
 		Function = "",
@@ -96,3 +96,4 @@ return {
 		Watch = "",
 	},
 }
+

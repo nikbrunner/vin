@@ -8,7 +8,6 @@ if not config_status_ok then
 	return
 end
 
-local icons = require("vin.icons")
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
@@ -73,8 +72,8 @@ nvim_tree.setup({
 				default = "",
 				symlink = "",
 				folder = {
-					arrow_open = icons.ui.ArrowOpen,
-					arrow_closed = icons.ui.ArrowClosed,
+					arrow_open = Vin.icons.ui.ArrowOpen,
+					arrow_closed = Vin.icons.ui.ArrowClosed,
 					default = "",
 					open = "",
 					empty = "",
