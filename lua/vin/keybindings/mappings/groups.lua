@@ -14,15 +14,6 @@ M.advanced_g = {
 M.vin = {
 	name = "  Vin",
 	c = { Vin.cmds.fzf_lua.find_colorscheme, "  Colorscheme" },
-	p = {
-		name = "𐃃 Copilot",
-		e = { "<cmd>Copilot enable<CR>", "Enable" },
-		d = { "<cmd>Copilot disable<CR>", "Disable" },
-		s = { "<cmd>Copilot status<CR>", "Status" },
-		r = { "<cmd>Copilot restart<CR>", "Restart" },
-		p = { "<cmd>Copilot panel<CR>", "Panel" },
-		o = { "<cmd>Copilot open<CR>", "Open" },
-	},
 }
 
 M.diagnostics = {

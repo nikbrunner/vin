@@ -77,10 +77,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 	group = buf_win_enter_au_group,
 })
 
-vim.api.nvim_create_autocmd({ "SessionLoadPost" }, {
-	group = config_group,
-	callback = function()
-    -- Disable Copilot on Start
-		vim.cmd("Copilot disable")
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "SessionLoadPost" }, {
+-- 	group = config_group,
+-- 	callback = function() end,
+-- })

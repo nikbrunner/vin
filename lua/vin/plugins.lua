@@ -100,7 +100,6 @@ return packer.startup(function(use) -- My plugins here
 	use({ "ThePrimeagen/harpoon" })
 	use({ "gennaro-tedesco/nvim-jqx" })
 	use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
-	use({ "github/copilot.vim" })
 	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 	use({ "rcarriga/nvim-notify" })
 	use({ "folke/zen-mode.nvim" })
