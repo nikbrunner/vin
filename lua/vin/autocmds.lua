@@ -35,8 +35,8 @@ vim.cmd([[
   augroup end
 ]])
 
-local lspAuGroup = vim.api.nvim_create_augroup("Formatting", { clear = true })
-local config_group = vim.api.nvim_create_augroup("ConfigGroup", { clear = true })
+local lsp_au_group = vim.api.nvim_create_augroup("Formatting", { clear = true })
+local config_au_group = vim.api.nvim_create_augroup("ConfigGroup", {})
 local buf_win_enter_au_group = vim.api.nvim_create_augroup(
 	"BufWinEnterAuGroup",
 	{ clear = true }
@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	callback = function()
 		vim.lsp.buf.formatting({})
 	end,
-	group = lspAuGroup,
+	group = lsp_au_group,
 })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
@@ -57,7 +57,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 		vim.cmd("Gitsigns refresh")
 		vim.cmd("NvimTreeRefresh")
 	end,
-	group = lspAuGroup,
+	group = lsp_au_group,
 })
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
@@ -76,8 +76,3 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 	end,
 	group = buf_win_enter_au_group,
 })
-
--- vim.api.nvim_create_autocmd({ "SessionLoadPost" }, {
--- 	group = config_group,
--- 	callback = function() end,
--- })
