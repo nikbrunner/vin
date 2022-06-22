@@ -116,7 +116,10 @@ return packer.startup(function(use) -- My plugins here
 	})
 
 	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" }) -- TODO: Replace with nvim-navic
-	use({ "nanozuki/tabby.nvim" })
+	use({
+		"romgrk/barbar.nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
+	})
 	use({ "chentoast/marks.nvim" }) -- TODO: Study Maps
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "Shatur/neovim-session-manager", after = "project.nvim" })
@@ -128,6 +131,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "rmehri01/onenord.nvim" })
 	use({ "projekt0n/github-nvim-theme" })
 	use({ "norcalli/nvim-colorizer.lua" })
+	use({ "projekt0n/github-nvim-theme" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin

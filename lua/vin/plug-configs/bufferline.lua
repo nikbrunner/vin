@@ -5,6 +5,7 @@ if not status_ok then
 	return
 end
 
+-- NOTE: This is barbar in Plugins
 bufferline.setup({
 	options = {
 		mode = "buffers", -- set to "tabs" to only show tabpages instead
