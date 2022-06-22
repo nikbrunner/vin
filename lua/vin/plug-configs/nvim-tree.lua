@@ -28,7 +28,7 @@ nvim_tree.setup({
 	},
 	filters = {
 		custom = { ".git" },
-		exclude = { ".gitignore" },
+		exclude = {},
 	},
 	-- auto_close = true,
 	-- open_on_tab = false,
@@ -117,7 +117,7 @@ nvim_tree.setup({
 	-- },
 	git = {
 		enable = true,
-		ignore = true,
+		ignore = false,
 		timeout = 500,
 	},
 	view = {
