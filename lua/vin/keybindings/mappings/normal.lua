@@ -45,6 +45,7 @@ M.no_leader = {
 	-- Control bindings
 	["<C-p>"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Files" },
 	["<C-e>"] = { Vin.cmds.fzf_lua.find_buffers, "﩯 Buffers" },
+	["˙"] = { "<cmd>NvimTreeFocus<CR>", "Focus NvimTree" },
 	-- ["<C-b>"] = { "<cmd>Neotree toggle<CR>", " Toggle Tree" },
 	-- ["<C-f>"] = { cmd.utils.pick_window, "  Pick Window" }, -- TODO: window-picker: This doesnt work anymore
 	["<C-_>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
