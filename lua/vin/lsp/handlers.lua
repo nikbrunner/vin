@@ -51,8 +51,7 @@ end
 
 local function lsp_highlight_document(client)
 	-- Set autocommands conditional on server_capabilities
-	-- if client.server_capabilities.document_highlight then
-	if client.resolved_capabilities.document_highlight then
+	if client.server_capabilities.document_highlight then
 		vim.api.nvim_exec(
 			[[
       augroup lsp_document_highlight
@@ -78,8 +77,7 @@ M.on_attach = function(client, bufnr)
 		or client.name == "gopls"
 		or client.name == "sumneko_lua"
 	then
-		-- client.server_capabilities.document_formatting = false -- Needed for v8.0 ??
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.documentFormattingProvider = false
 	end
 
 	-- lsp_keymaps(bufnr)
@@ -89,8 +87,8 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
 }
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
