@@ -33,5 +33,4 @@ require("vin.plug-configs.toggleterm")
 require("vin.plug-configs.todo")
 require("vin.plug-configs.context")
 require("vin.plug-configs.lazygit")
-require("vin.plug-configs.barbar")
-
+require("vin.plug-configs.tabby")

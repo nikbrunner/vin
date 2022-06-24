@@ -119,7 +119,9 @@ return packer.startup(function(use) -- My plugins here
 	use({
 		"romgrk/barbar.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
+		disable = true,
 	})
+	use({ "nanozuki/tabby.nvim" })
 	use({ "chentoast/marks.nvim" }) -- TODO: Study Maps
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "Shatur/neovim-session-manager", after = "project.nvim" })
