@@ -5,17 +5,17 @@ end
 
 terra.setup({
 	-- Main options --
-	style = "deep", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+	style = "spring", -- Default theme style. Choose between 'spring', 'dark', 'darker', 'cool', 'warm', 'warmer' and 'light'
 	transparent = false, -- Show/hide background
 	term_colors = true, -- Change terminal color as per the selected theme style
 	ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
 	-- toggle theme style ---
-	toggle_style_key = "<leader>;", -- Default keybinding to toggle
+	toggle_style_key = "<C-x>", -- Default keybinding to toggle
 	toggle_style_list = {
+		"spring",
 		"dark",
 		"darker",
 		"cool",
-		"deep",
 		"warm",
 		"warmer",
 		"light",
