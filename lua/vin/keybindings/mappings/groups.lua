@@ -99,8 +99,8 @@ M.copy = {
 
 M.git = {
 	name = "  Git",
-	-- s = { "<cmd>:LazyGit<CR>", "Status" },
-	s = { Vin.cmds.term.lazygit, "Status" },
+	s = { "<cmd>:LazyGit<CR>", "Status" },
+	-- s = { Vin.cmds.term.lazygit, "Status" },
 	d = {
 		name = " Diffview",
 		d = { "<cmd>DiffviewOpen<CR>", "Current Diff" },
