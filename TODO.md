@@ -30,6 +30,7 @@
 - [x] New: [treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
 - [ ] New: [nvim-pasta](https://github.com/hrsh7th/nvim-pasta)
 - [ ] New: [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
+- [ ] New: [feline](https://github.com/feline-nvim/feline.nvim)
 - [ ] `Neotree`: Fix Window Picker
 - [ ] `Neotree`: Refresh after commit
 - [ ] `Lazygit`: Does `Lazygit` work with Git Worktrees?

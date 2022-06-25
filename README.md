@@ -15,7 +15,14 @@ I tailored this config to my personal needs as a Frontend Engineer.
 
 ## Install Neovim
 
-### Install Neovim with Homebrew on Mac
+### Install Script
+
+```sh
+curl -sLf https://raw.githubusercontent.com/nikbrunner/vin/install.sh | sh
+```
+
+### Manual steps
+#### Install Neovim with Homebrew on Mac
 
 Stable Version
 
@@ -29,7 +36,7 @@ Last Version
 brew install neovim --HEAD
 ```
 
-### Install Neovim 0.7 from Source
+#### Install Neovim 0.7 from Source
 
 You can install Neovim with your package manager e.g. brew, apt, pacman etc.. but remember that when you update your packages Neovim may be upgraded to a newer version.
 
