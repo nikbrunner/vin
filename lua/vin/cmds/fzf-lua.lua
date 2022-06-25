@@ -166,7 +166,8 @@ Vin.cmds.fzf_lua.find_references = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
-			fullscreen = true,
+			height = 0.9,
+			width = 0.9,
 			preview = {
 				layout = "vertical",
 				vertical = "down:75%",
@@ -210,9 +211,9 @@ Vin.cmds.fzf_lua.find_modified_files_with_preview = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
-			-- height = 0.9,
-			-- width = 0.9,
-			fullscreen = true,
+			height = 0.9,
+			width = 0.9,
+			-- fullscreen = true,
 			preview = {
 				layout = "vertical",
 				vertical = "down:75%",
