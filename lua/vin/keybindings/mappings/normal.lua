@@ -51,8 +51,10 @@ M.no_leader = {
 	["<C-/>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 	["<C-g>"] = { Vin.cmds.term.lazygit, "Find modified files" },
 	["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
-	["<F8>"] = { "<cmd>TroubleToggle<CR>", "TroubleShoot" },
-	["<F7>"] = { "<cmd>TodoQuickFix<CR>", "TroubleShoot" },
+	["<F7>"] = { "<cmd>TodoQuickFix<CR>", "Todo Quick Fix" },
+	["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
+	["<F9>"] = { "<cmd>DiagWindowShow<CR>", "Diagnose Window Show" },
+
 
 	-- Better window navigation
 	["<C-h>"] = { "<C-w>h", "Focus Left" },
