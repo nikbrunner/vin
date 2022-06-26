@@ -51,7 +51,8 @@ end
 
 local function lsp_highlight_document(client)
 	-- Set autocommands conditional on server_capabilities
-	if client.server_capabilities.document_highlight then
+	if client.resolved_capabilities.document_highlight then
+		-- if client.server_capabilities.document_highlight then -- 0.8
 		vim.api.nvim_exec(
 			[[
       augroup lsp_document_highlight
@@ -70,14 +71,14 @@ end
 -- vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 -- end
 
----@diagnostic disable-next-line: unused-local
 M.on_attach = function(client, bufnr)
 	if
 		client.name == "tsserver"
 		or client.name == "gopls"
 		or client.name == "sumneko_lua"
 	then
-		client.server_capabilities.documentFormattingProvider = false
+		client.resolved_capabilities.document_formatting = false
+		-- client.server_capabilities.documentFormattingProvider = false -- 0.8
 	end
 
 	-- lsp_keymaps(bufnr)
