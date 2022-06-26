@@ -113,12 +113,15 @@ telescope.setup({
 		-- builtin picker
 	},
 	extensions = {
-		-- Your extension configuration goes here:
-		-- extension_name = {
-		--   extension_config_key = value,
-		-- }
-		-- please take a look at the readme of the extension you want to configure
+    project = {
+      base_dirs = {
+        {'~/Documents/dev/repos', max_depth = 4},
+      },
+      hidden_files = true,
+      theme = "dropdown"
+    }
 	},
 })
 
-require("telescope").load_extension("todo-comments")
+telescope.load_extension("todo-comments")
+telescope.load_extension("project")

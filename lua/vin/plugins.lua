@@ -162,6 +162,7 @@ return packer.startup(function(use) -- My plugins here
 	-- Fuzzy finding
 	use({ "nvim-telescope/telescope.nvim" })
 	use({ "nvim-telescope/telescope-github.nvim" })
+  use({ "nvim-telescope/telescope-project.nvim" })
 	use({ "junegunn/fzf", run = "./install --bin" })
 	use({ "ibhagwan/fzf-lua" })
 

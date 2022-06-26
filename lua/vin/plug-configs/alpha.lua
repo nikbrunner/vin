@@ -140,7 +140,7 @@ local buttons = {
 		button(".", "   Curr. Dir", ":edit .<CR>"),
 		button("l", "   Load", ":SessionManager load_session<CR>"),
 		button("r", "   Recents", ":Telescope oldfiles<CR>"),
-		-- button("p", "   Projects", ":Telescope projects<CR>"),
+		button("p", "   Project", ":Telescope project<CR>"),
 		button("f", "   Search", ":Telescope find_files<CR>"),
 		button("e", "   New Empty", ":ene <BAR> startinsert<CR>"),
 		button("c", "   Config", ":e ~/.config/nvim/<CR>"),
