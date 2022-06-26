@@ -51,8 +51,8 @@ end
 
 local function lsp_highlight_document(client)
 	-- Set autocommands conditional on server_capabilities
-	if client.resolved_capabilities.document_highlight then
-		-- if client.server_capabilities.document_highlight then -- 0.8
+	-- if client.resolved_capabilities.document_highlight then -- 0.7
+	if client.server_capabilities.document_highlight then -- 0.8
 		vim.api.nvim_exec(
 			[[
       augroup lsp_document_highlight
@@ -77,8 +77,8 @@ M.on_attach = function(client, bufnr)
 		or client.name == "gopls"
 		or client.name == "sumneko_lua"
 	then
-		client.resolved_capabilities.document_formatting = false
-		-- client.server_capabilities.documentFormattingProvider = false -- 0.8
+		-- client.resolved_capabilities.document_formatting = false -- 0.7
+		client.server_capabilities.documentFormattingProvider = false -- 0.8
 	end
 
 	-- lsp_keymaps(bufnr)
