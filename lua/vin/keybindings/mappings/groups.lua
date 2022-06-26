@@ -65,6 +65,7 @@ M.quit = {
 	c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	s = { ":silent wq<CR>", "Save and Quit Pane (:wq)" },
 	q = { ":silent q<CR>", "Quit" },
+	p = { ":silent BufferLinePickClose<CR>", "Pick" },
 	Q = { ":silent q!<CR>", "Quit /w Force" },
 	o = { ":BufOnly<CR>", "Close All Buffers But Current" },
 	w = { ":Bwipeout<CR>", "Wipeout all Buffers" },
