@@ -118,11 +118,15 @@ return packer.startup(function(use) -- My plugins here
 
 	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" }) -- TODO: Replace with nvim-navic
 	use({
-		"romgrk/barbar.nvim",
+		"akinsho/bufferline.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
-		disable = true,
 	})
-	use({ "nanozuki/tabby.nvim" })
+	use({
+		"tiagovla/scope.nvim",
+		config = function()
+			require("scope").setup()
+		end,
+	})
 	use({ "chentoast/marks.nvim" }) -- TODO: Study Maps
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "Shatur/neovim-session-manager", after = "project.nvim" })

@@ -54,8 +54,8 @@ incline.setup({
 	end,
 	window = {
 		margin = {
-			horizontal = 1,
-			vertical = 1,
+			horizontal = 0,
+			vertical = 2,
 		},
 		options = {
 			signcolumn = "no",

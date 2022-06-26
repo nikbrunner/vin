@@ -201,6 +201,7 @@ M.with_leader = {
 	-- Groups
 	-- v = groups.vin,
 	-- e = groups.explorer,
+	b = groups.buffer,
 	P = groups.packer,
 	s = groups.search,
 	S = groups.session,
