@@ -50,9 +50,16 @@ vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
 
 -- hide vertical borders
 -- TODO Set via vim.wo.fillchars="eob: "
-vim.cmd([[set fillchars+=vert:\ ]])
-vim.cmd([[set fillchars+=stl:\ ]])
-vim.cmd([[set fillchars+=stlnc:\ ]])
+
+-- vim.cmd([[set fillchars+=vert:\ ]])
+-- vim.cmd([[ set fillchars+=vert:\▕]])
+
+-- vim.cmd([[ set fillchars+=stl:\▕]])
+-- vim.cmd([[ set fillchars+=stlnc:\▕]])
+
+-- vim.cmd([[set fillchars+=stl:\ ]])
+-- vim.cmd([[set fillchars+=stlnc:\ ]])
+
 vim.cmd([[set fillchars=eob:\ ]])
 
 vim.cmd([[set shortmess+=FI]])
