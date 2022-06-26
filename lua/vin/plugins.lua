@@ -76,6 +76,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "folke/which-key.nvim" })
 	use({ "stevearc/dressing.nvim" })
 	use({ "b0o/incline.nvim" })
+	use({ "declancm/cinnamon.nvim" })
 
 	-- Workflow
 	use({ "antoinemadec/FixCursorHold.nvim" }) -- This is needed to fix lsp doc highlight
@@ -162,7 +163,7 @@ return packer.startup(function(use) -- My plugins here
 	-- Fuzzy finding
 	use({ "nvim-telescope/telescope.nvim" })
 	use({ "nvim-telescope/telescope-github.nvim" })
-  use({ "nvim-telescope/telescope-project.nvim" })
+	use({ "nvim-telescope/telescope-project.nvim" })
 	use({ "junegunn/fzf", run = "./install --bin" })
 	use({ "ibhagwan/fzf-lua" })
 
