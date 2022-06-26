@@ -32,7 +32,7 @@ nvim_tree.setup({
 	},
 	update_cwd = true,
 	prefer_startup_root = true,
-	sync_root_with_cwd = true,
+	sync_root_with_cwd = false,
   reload_on_bufenter = true,
   respect_buf_cwd = true,
 	renderer = {
