@@ -121,7 +121,7 @@ return packer.startup(function(use) -- My plugins here
 	})
 	use({ "chentoast/marks.nvim" }) -- TODO: Study Maps
 	use({ "windwp/nvim-ts-autotag" })
-	use({ "Shatur/neovim-session-manager", after = "project.nvim" })
+	use({ "Shatur/neovim-session-manager" })
 	use({ "akinsho/toggleterm.nvim", tag = "v1.*" })
 	use({ "kdheepak/lazygit.nvim" })
 
@@ -161,7 +161,6 @@ return packer.startup(function(use) -- My plugins here
 
 	-- Fuzzy finding
 	use({ "nvim-telescope/telescope.nvim" })
-	use({ "ahmedkhalf/project.nvim" })
 	use({ "nvim-telescope/telescope-github.nvim" })
 	use({ "junegunn/fzf", run = "./install --bin" })
 	use({ "ibhagwan/fzf-lua" })
