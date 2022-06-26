@@ -73,7 +73,7 @@ bufferline.setup({
 			{
 				filetype = "NvimTree",
 				text = "File Tree",
-				highlight = "Directory",
+				highlight = "NvimTreeNormal",
 				text_align = "left",
 			},
 		},
