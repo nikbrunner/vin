@@ -62,15 +62,6 @@ return packer.startup(function(use) -- My plugins here
 
 	-- UI Enhancements
 	use({ "kyazdani42/nvim-web-devicons" })
-	-- use({
-	-- 	"nvim-neo-tree/neo-tree.nvim",
-	-- 	branch = "v2.x",
-	-- 	requires = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-	-- 		"MunifTanjim/nui.nvim",
-	-- 	},
-	-- })
 	use({
 		"kyazdani42/nvim-tree.lua",
 		requires = {
@@ -126,6 +117,7 @@ return packer.startup(function(use) -- My plugins here
 		config = function()
 			require("scope").setup()
 		end,
+		disable = true,
 	})
 	use({ "chentoast/marks.nvim" }) -- TODO: Study Maps
 	use({ "windwp/nvim-ts-autotag" })
