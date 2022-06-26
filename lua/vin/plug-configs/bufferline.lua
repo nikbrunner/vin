@@ -84,7 +84,7 @@ bufferline.setup({
 		show_close_icon = true,
 		show_tab_indicators = true,
 		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-		separator_style = "slant", -- "slant" | "thick" | "thin" | { 'any', 'any' },
+		separator_style = "thick", -- "slant" | "thick" | "thin" | { 'any', 'any' },
 		enforce_regular_tabs = false,
 		always_show_bufferline = true,
 		sort_by = "relative_directory",
