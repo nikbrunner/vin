@@ -77,7 +77,7 @@ M.buffer = {
 	k = { ":bprev<CR>", "Previous Buffer" },
 	j = { ":bnext<CR>", "Next Buffer" },
 	p = { "<cmd>BufferLinePick<CR>", "  Pick" },
-	P = { "<cmd>BufferLinePickClose<CR>", " Pick Close" },
+	q = { "<cmd>BufferLinePickClose<CR>", " Pick Quit" },
 	f = { Vin.cmds.fzf_lua.find_buffers, "Find" },
 	s = {
 		name = "Sort",
@@ -85,11 +85,10 @@ M.buffer = {
 			"<cmd>BufferLineSortByRelativeDirectory",
 			"Sort by relative directory",
 		},
-		d = { "<cmd>BufferLineSortByDirectory", "Sort by directory" },
-		e = { "<cmd>BufferLineSortByExtensions", "Sort by extension" },
-		t = { "<cmd>BufferLineSortByTabs", "Sort by tabs" },
+		d = { "<cmd>BufferLineSortByDirectory<CR>", "Sort by directory" },
+		e = { "<cmd>BufferLineSortByExtensions<CR>", "Sort by extension" },
+		t = { "<cmd>BufferLineSortByTabs<CR>", "Sort by tabs" },
 	},
-	q = M.quit,
 }
 
 M.copy = {
