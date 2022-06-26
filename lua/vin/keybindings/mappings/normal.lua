@@ -33,10 +33,10 @@ M.no_leader = {
 	k = { "gk", WhichKeyIgnoreLabel },
 
 	-- Navigate buffers and Tabs
-	["Ó"] = { ":bprev<CR>", "Prev Buffer" },
-	["Ò"] = { ":bnext<CR>", "Next Buffer" },
-	["<S-Tab>"] = { ":tabprevious<CR>", "Prev Tab" },
-	["<Tab>"] = { ":tabnext<CR>", "Next Tab" },
+	["<S-Tab>"] = { ":bprev<CR>", "Prev Buffer" },
+	["<Tab>"] = { ":bnext<CR>", "Next Buffer" },
+	-- ["<S-Tab>"] = { ":tabprevious<CR>", "Prev Tab" },
+	-- ["<Tab>"] = { ":tabnext<CR>", "Next Tab" },
 
 	-- Move text up and down
 	["∆"] = { "<Esc>:m .+1<CR>", "Move Down" },
@@ -54,7 +54,6 @@ M.no_leader = {
 	["<F7>"] = { "<cmd>TodoQuickFix<CR>", "Todo Quick Fix" },
 	["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
 	["<F9>"] = { "<cmd>DiagWindowShow<CR>", "Diagnose Window Show" },
-
 
 	-- Better window navigation
 	["<C-h>"] = { "<C-w>h", "Focus Left" },
@@ -169,7 +168,8 @@ M.no_leader = {
 M.with_leader = {
 	-- Singles
 	-- [" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
-	[" "] = { Vin.cmds.fzf_lua.find_commands, "  Commands" },
+	-- [" "] = { Vin.cmds.fzf_lua.find_commands, "  Commands" },
+	[" "] = { "<cmd>BufferLinePick<CR>", "  Pick Buffer" },
 	["e"] = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
 	-- ["r"] = {
 	-- 	function()
