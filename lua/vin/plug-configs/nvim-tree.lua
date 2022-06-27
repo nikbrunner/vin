@@ -27,14 +27,15 @@ nvim_tree.setup({
 		"alpha",
 	},
 	filters = {
-		custom = { ".git", "node_modules" },
+		dotfiles = false,
+		custom = { "^.git", "node_modules" },
 		exclude = {},
 	},
 	update_cwd = true,
 	prefer_startup_root = true,
 	sync_root_with_cwd = false,
-  reload_on_bufenter = true,
-  respect_buf_cwd = true,
+	reload_on_bufenter = true,
+	respect_buf_cwd = true,
 	renderer = {
 		add_trailing = false,
 		group_empty = false,
@@ -103,10 +104,6 @@ nvim_tree.setup({
 	--   cmd = nil,
 	--   args = {},
 	-- },
-	-- filters = {
-	--   dotfiles = false,
-	--   custom = {},
-	-- },
 	git = {
 		enable = true,
 		ignore = false,
@@ -116,7 +113,7 @@ nvim_tree.setup({
 		adaptive_size = false,
 		width = 40,
 		height = 30,
-        centralize_selection = true,
+		centralize_selection = true,
 		hide_root_folder = false,
 		side = "left",
 		-- auto_resize = true,
