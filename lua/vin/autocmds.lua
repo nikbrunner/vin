@@ -45,7 +45,7 @@ local buf_win_enter_au_group = vim.api.nvim_create_augroup(
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function()
-		vim.lsp.buf.formatting({})
+	vim.lsp.buf.format({ async = true })
 	end,
 	group = lsp_au_group,
 })
