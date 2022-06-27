@@ -32,6 +32,8 @@ M.no_leader = {
 	j = { "gj", WhichKeyIgnoreLabel },
 	k = { "gk", WhichKeyIgnoreLabel },
 
+	["ZZ"] = { Vin.cmds.save_and_exit, WhichKeyIgnoreLabel },
+
 	-- Navigate buffers and Tabs
 	["<S-Tab>"] = { ":bprev<CR>", "Prev Buffer" },
 	["<Tab>"] = { ":bnext<CR>", "Next Buffer" },
@@ -43,14 +45,20 @@ M.no_leader = {
 	["˚"] = { "<Esc>:m .-2<CR>", "Move Up" },
 
 	-- Control bindings
-	["<C-p>"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Files" },
-	["<C-e>"] = { Vin.cmds.fzf_lua.find_buffers, "﩯 Buffers" },
-	["˙"] = { "<cmd>NvimTreeFocus<CR>", "Focus NvimTree" },
+	-- ["<C-p>"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Files" },
 	-- ["<C-b>"] = { "<cmd>Neotree toggle<CR>", " Toggle Tree" },
 	-- ["<C-f>"] = { cmd.utils.pick_window, "  Pick Window" }, -- TODO: window-picker: This doesnt work anymore
+	-- ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
+	-- ["<C-e>"] = { Vin.cmds.fzf_lua.find_buffers, "﩯 Buffers" },
+
+	["<C-e>"] = { "<cmd>NvimTreeFocus<CR>", "Focus NvimTree" },
 	["<C-/>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 	["<C-g>"] = { Vin.cmds.term.lazygit, "Find modified files" },
-	["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
+
+	["<C-q>"] = { "<cmd>BufferLinePickClose<CR>", "  Pick & Close Buffer" },
+	["<C-p>"] = { "<cmd>BufferLinePick<CR>", "  Pick Buffer" },
+
+	["<F6>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
 	["<F7>"] = { "<cmd>TodoQuickFix<CR>", "Todo Quick Fix" },
 	["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
 	["<F9>"] = { "<cmd>DiagWindowShow<CR>", "Diagnose Window Show" },
@@ -169,7 +177,7 @@ M.with_leader = {
 	-- Singles
 	-- [" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
 	-- [" "] = { Vin.cmds.fzf_lua.find_commands, "  Commands" },
-	[" "] = { "<cmd>BufferLinePick<CR>", "  Pick Buffer" },
+	[" "] = { Vin.cmds.fzf_lua.find_buffers, "﬘ Find Buffer" },
 	["e"] = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
 	-- ["r"] = {
 	-- 	function()
