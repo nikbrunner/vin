@@ -27,7 +27,7 @@ nvim_tree.setup({
 		"alpha",
 	},
 	filters = {
-		custom = { ".git" },
+		custom = { ".git", "node_modules" },
 		exclude = {},
 	},
 	update_cwd = true,
