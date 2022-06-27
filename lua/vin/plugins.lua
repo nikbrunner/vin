@@ -65,7 +65,7 @@ return packer.startup(function(use) -- My plugins here
 	use({
 		"kyazdani42/nvim-tree.lua",
 		requires = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icons
+			"kyazdani42/nvim-web-devicons",
 		},
 	})
 	use({
@@ -118,7 +118,6 @@ return packer.startup(function(use) -- My plugins here
 		config = function()
 			require("scope").setup()
 		end,
-		disable = false,
 	})
 	use({ "chentoast/marks.nvim" }) -- TODO: Study Maps
 	use({ "windwp/nvim-ts-autotag" })
@@ -153,10 +152,6 @@ return packer.startup(function(use) -- My plugins here
 	use({ "j-hui/fidget.nvim" }) -- for LSP progress
 	use({ "folke/lua-dev.nvim" })
 	use({ "rafcamlet/nvim-luapad" })
-	use({
-		"bennypowers/nvim-regexplainer",
-		requires = { "nvim-treesitter/nvim-treesitter", "MunifTanjim/nui.nvim" },
-	})
 	use({ "onsails/lspkind-nvim" })
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
 
