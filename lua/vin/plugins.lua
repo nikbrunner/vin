@@ -83,8 +83,9 @@ return packer.startup(function(use) -- My plugins here
 	use({ "windwp/nvim-autopairs" }) -- Autopairs, integrates with both cmp and treesitter
 	use({ "numToStr/Comment.nvim" }) -- Easily comment stuff
 	use({ "lukas-reineke/indent-blankline.nvim", disable = true }) -- Indent Outline
-	use({ "numToStr/BufOnly.nvim", cmd = "BufOnly" })
-	use({ "moll/vim-bbye" })
+  use ({'kazhala/close-buffers.nvim'})
+
+
 	use({ "RRethy/vim-illuminate" })
 	use({ "tpope/vim-surround" })
 	use({ "wellle/targets.vim" })

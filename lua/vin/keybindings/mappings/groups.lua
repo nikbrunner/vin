@@ -62,18 +62,17 @@ M.explorer = {
 
 M.quit = {
 	name = "  Quit",
-	c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	s = { ":silent wq<CR>", "Save and Quit Pane (:wq)" },
-	q = { ":silent q<CR>", "Quit" },
-	p = { ":silent BufferLinePickClose<CR>", "Pick" },
-	Q = { ":silent q!<CR>", "Quit /w Force" },
-	o = { ":BufOnly<CR>", "Close All Buffers But Current" },
-	w = { ":Bwipeout<CR>", "Wipeout all Buffers" },
-	a = { Vin.cmds.save_and_exit, "Save and Exit" },
+	p = { ":silent BufferLinePickClose<CR>", "Pick Buffer" },
+	c = { Vin.cmds.quit.custom_buffers, "Custom Filter" },
+	q = { Vin.cmds.quit.current_buffer, "Current" },
+	o = { Vin.cmds.quit.other_buffers, "Other" },
+	h = { Vin.cmds.quit.hidden_buffers, "Hidden" },
+	a = { Vin.cmds.quit.all_buffers, "All" },
 }
 
 M.buffer = {
-	name = "﩯 Buffer",
+	name = "﬘ Buffer",
 	k = { ":bprev<CR>", "Previous Buffer" },
 	j = { ":bnext<CR>", "Next Buffer" },
 	p = { "<cmd>BufferLinePick<CR>", "  Pick" },
