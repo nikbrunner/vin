@@ -5,6 +5,8 @@ end
 
 Vin.colorscheme = {
 	initial_theme = "terra",
+	-- initial_theme = "github_dark_default",
+	-- initial_theme = "onenord",
 	snippets = {},
 }
 
