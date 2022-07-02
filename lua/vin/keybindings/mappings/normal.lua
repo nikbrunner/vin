@@ -3,11 +3,6 @@ if not gitsigns_status_ok then
 	return
 end
 
-local jester_status_ok, jester = pcall(require, "jester")
-if not jester_status_ok then
-	return
-end
-
 local groups = require("vin.keybindings.mappings.groups")
 
 local M = {}
@@ -179,12 +174,6 @@ M.with_leader = {
 	-- [" "] = { Vin.cmds.fzf_lua.find_commands, "  Commands" },
 	[" "] = { Vin.cmds.fzf_lua.find_buffers, "﬘ Find Buffer" },
 	["e"] = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
-	-- ["r"] = {
-	-- 	function()
-	-- 		jester.run_file()
-	-- 	end,
-	-- 	WhichKeyIgnoreLabel,
-	-- },
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
 	-- ["f"] = { Vin.cmds.telescope.find_files_with_preview, "  Find File" },
@@ -211,6 +200,7 @@ M.with_leader = {
 	-- Groups
 	-- v = groups.vin,
 	-- e = groups.explorer,
+	a = groups.actions,
 	b = groups.buffer,
 	P = groups.packer,
 	s = groups.search,

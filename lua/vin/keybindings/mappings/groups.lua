@@ -11,6 +11,18 @@ M.advanced_g = {
 	y = { ":Telescope lsp_type_definitions<CR>", "Type Defintions" },
 }
 
+M.actions = {
+	name = "  Actions",
+	a = { Vin.cmds.lsp.code_action, "✨ Code Action" },
+	f = { Vin.cmds.lsp.format_file, "💅 Format File" },
+	r = {
+		function()
+			require("jester").run_file()
+		end,
+		"🏃 Run tests for File",
+	},
+}
+
 M.vin = {
 	name = "  Vin",
 	c = { Vin.cmds.fzf_lua.find_colorscheme, "  Colorscheme" },
