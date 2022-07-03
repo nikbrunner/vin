@@ -20,6 +20,13 @@
 - [ ] [Chris@Machine: Creating an unbreakable nvim config](https://www.youtube.com/watch?v=Vghglz2oR0c)
 - [ ] Better Spelling and with a Toggle
 
+## Languages
+
+- [ ] Markdown [mkdx](https://github.com/SidOfc/mkdx)
+  - [ ] Checkboxes 
+  - [ ] Auto Spell Checking
+  - [ ] Formatter
+
 ## Plugins
 
 - [x] New: [session-manager](https://github.com/Shatur/neovim-session-manager)
@@ -31,11 +38,11 @@
 - [ ] New: [nvim-pasta](https://github.com/hrsh7th/nvim-pasta)
 - [ ] New: [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - [ ] New: [feline](https://github.com/feline-nvim/feline.nvim)
-- [ ] New: [close-buffers.nvim](https://github.com/kazhala/close-buffers.nvim)
+- [ ] New: [nvim-surround](https://github.com/kylechui/nvim-surround)
+- [x] New: [close-buffers.nvim](https://github.com/kazhala/close-buffers.nvim)
   - I can also replace the other buffer quit plugin with this
 - [ ] `Neotree`: Fix Window Picker
 - [ ] `Neotree`: Refresh after commit
 - [ ] `Lazygit`: Does `Lazygit` work with Git Worktrees?
 - [ ] `cmp`: Format cmp Menu to omit the Entry Name
-- [ ] `Surround`: Seems not to be working
 - [ ] Lazyloading
