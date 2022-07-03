@@ -119,10 +119,11 @@ return packer.startup(function(use) -- My plugins here
 		config = function()
 			require("scope").setup()
 		end,
+    disable = true
 	})
 	use({ "chentoast/marks.nvim" }) -- TODO: Study Maps
 	use({ "windwp/nvim-ts-autotag" })
-	use({ "Shatur/neovim-session-manager", disable = true })
+	use({ "Shatur/neovim-session-manager", disable = false })
 	use({ "akinsho/toggleterm.nvim", tag = "v1.*" })
 	use({ "kdheepak/lazygit.nvim" })
 
