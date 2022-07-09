@@ -174,6 +174,7 @@ M.with_leader = {
 	-- [" "] = { Vin.cmds.fzf_lua.find_commands, "  Commands" },
 	[" "] = { Vin.cmds.fzf_lua.find_buffers, "﬘ Find Buffer" },
 	["e"] = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
+	["o"] = { "<cmd>AerialToggle<CR>", " Symbol Tree" },
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
 	-- ["f"] = { Vin.cmds.telescope.find_files_with_preview, "  Find File" },

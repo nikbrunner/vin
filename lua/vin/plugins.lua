@@ -68,7 +68,8 @@ return packer.startup(function(use) -- My plugins here
 			"kyazdani42/nvim-web-devicons",
 		},
 	})
-	use({
+  use ({ 'stevearc/aerial.nvim' })
+  use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
