@@ -144,7 +144,7 @@ Vin.cmds.telescope.find_symbol_with_aerial = function()
 	telescope.extensions.aerial.aerial(themes.get_cursor({
 		layout_config = {
 			width = 0.95,
-			height = 0.25,
+			height = 0.5,
 			preview_width = 0.5,
 		},
 	}))
