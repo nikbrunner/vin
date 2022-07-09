@@ -138,3 +138,14 @@ end
 Vin.cmds.telescope.list_references = function()
 	builtin.lsp_references()
 end
+
+-- Find document symbols with aerial
+Vin.cmds.telescope.find_symbol_with_aerial = function()
+	telescope.extensions.aerial.aerial(themes.get_cursor({
+		layout_config = {
+			width = 0.95,
+			height = 0.25,
+			preview_width = 0.5,
+		},
+	}))
+end

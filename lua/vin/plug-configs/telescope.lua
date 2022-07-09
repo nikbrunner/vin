@@ -113,15 +113,19 @@ telescope.setup({
 		-- builtin picker
 	},
 	extensions = {
-    project = {
-      base_dirs = {
-        {'~/Documents/dev/repos', max_depth = 4},
-      },
-      hidden_files = false,
-      theme = "dropdown"
-    }
+		project = {
+			base_dirs = {
+				{ "~/Documents/dev/repos", max_depth = 4 },
+			},
+			hidden_files = false,
+			theme = "dropdown",
+		},
+		aerial = {
+			show_nesting = false,
+		},
 	},
 })
 
 telescope.load_extension("todo-comments")
 telescope.load_extension("project")
+telescope.load_extension("aerial")

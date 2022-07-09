@@ -18,7 +18,7 @@ return {
 	-- Determines the default direction to open the aerial window. The 'prefer'
 	-- options will open the window in the other direction *if* there is a
 	-- different buffer in the way of the preferred direction
-	default_direction = "prefer_right",
+	default_direction = "prefer_left",
 
 	-- Disable aerial on files with this many lines
 	disable_max_lines = 10000,
