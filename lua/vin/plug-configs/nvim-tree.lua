@@ -28,14 +28,14 @@ nvim_tree.setup({
 	},
 	filters = {
 		dotfiles = false,
-		custom = { "^.git", "node_modules" },
+		custom = {},
 		exclude = {},
 	},
-	update_cwd = true,
+	update_cwd = false,
 	prefer_startup_root = true,
 	sync_root_with_cwd = false,
 	reload_on_bufenter = true,
-	respect_buf_cwd = true,
+	respect_buf_cwd = false,
 	renderer = {
 		add_trailing = false,
 		group_empty = false,
