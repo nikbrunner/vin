@@ -13,6 +13,8 @@
   - If no issue id present, show input field
   - If existent open todo searcher with issue id already present
   - folke/todo: filter with issue id?
+- [ ] Setup Winbar
+  - [In combination with nvim_navic](https://www.reddit.com/r/neovim/comments/vv1jt3/comment/ifh49ti/?utm_source=share&utm_medium=web2x&context=3)
 
 ## Research
 
