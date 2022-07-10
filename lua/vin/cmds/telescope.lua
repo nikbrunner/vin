@@ -131,21 +131,15 @@ end
 
 -- Go to definition
 Vin.cmds.telescope.go_to_definition = function()
-	builtin.lsp_definitions()
+	builtin.lsp_definitions(themes.get_ivy())
 end
 
 -- List references
 Vin.cmds.telescope.list_references = function()
-	builtin.lsp_references()
+	builtin.lsp_references(themes.get_ivy())
 end
 
 -- Find document symbols with aerial
 Vin.cmds.telescope.find_symbol_with_aerial = function()
-	telescope.extensions.aerial.aerial(themes.get_cursor({
-		layout_config = {
-			width = 0.95,
-			height = 0.5,
-			preview_width = 0.5,
-		},
-	}))
+	telescope.extensions.aerial.aerial(themes.get_ivy())
 end
