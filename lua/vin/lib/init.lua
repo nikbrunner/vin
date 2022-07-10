@@ -180,3 +180,18 @@ function Vin.lib.ccall(condition, callback, fallback)
 		end
 	end
 end
+
+Vin.lib.center_line_vertical = function()
+	vim.cmd([[norm zz]])
+end
+
+Vin.lib.focus_error = function()
+	-- get the current window, to be able to jump back to it, after opening the Diag Window
+	local current_win = vim.api.nvim_get_current_win()
+	-- center view on error
+	Vin.lib.center_line_vertical()
+	-- show diag window
+	vim.cmd([[DiagWindowShow]])
+	-- refocus original window
+	vim.api.nvim_set_current_win(current_win)
+end

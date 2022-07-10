@@ -3,7 +3,13 @@ local M = {}
 M.advanced_g = {
 	name = "Go-To",
 	h = { vim.lsp.buf.hover, "Hover Doc" },
-	l = { vim.diagnostic.open_float, "Hover Problem" },
+	l = {
+		function()
+			vim.diagnostic.open_float()
+			Vin.lib.focus_error()
+		end,
+		"Hover Problem",
+	},
 	d = { Vin.cmds.telescope.go_to_definition, "Go to Definition" },
 	s = { Vin.cmds.telescope.find_symbol_with_aerial, "Go to Symbol" },
 	i = { vim.lsp.buf.implementation, "Go to Implementation" },
@@ -49,8 +55,20 @@ M.diagnostics = {
 
 M.lsp = {
 	name = "  LSP",
-	j = { vim.lsp.diagnostic.goto_next, "Next Diagnostic" },
-	k = { vim.lsp.diagnostic.goto_prev, "Prev Diagnostic" },
+	k = {
+		function()
+			vim.lsp.diagnostic.goto_prev()
+			Vin.lib.focus_error()
+		end,
+		" Prev Diagnostic",
+	},
+	j = {
+		function()
+			vim.lsp.diagnostic.goto_next()
+			Vin.lib.focus_error()
+		end,
+		" Next Diagnostic",
+	},
 	a = { Vin.cmds.lsp.code_action, "Code Action" },
 	d = { Vin.cmds.telescope.go_to_definition, "Go to Definition" },
 	f = { Vin.cmds.lsp.format_file, "Format" },

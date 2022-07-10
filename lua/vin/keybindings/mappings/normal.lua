@@ -76,35 +76,35 @@ M.no_leader = {
 		["q"] = {
 			function()
 				vim.cmd([[cprev]])
-				vim.cmd([[norm zz]])
+				Vin.lib.center_line_vertical()
 			end,
 			"Prev QuickFix Item",
 		},
 		["l"] = {
 			function()
 				vim.cmd([[lprev]])
-				vim.cmd([[norm zz]])
+				Vin.lib.center_line_vertical()
 			end,
 			"Prev LocList Item",
 		},
 		["b"] = {
 			function()
 				vim.cmd([[bprev]])
-				vim.cmd([[norm zz]])
+				Vin.lib.center_line_vertical()
 			end,
 			"Prev Buffer",
 		},
 		["e"] = {
 			function()
 				vim.diagnostic.goto_prev()
-				vim.cmd([[norm zz]])
+				Vin.lib.focus_error()
 			end,
-			"Prev Problem",
+		" Prev Diagnostic",
 		},
 		["g"] = {
 			function()
 				gitsigns.prev_hunk()
-				vim.cmd([[norm zz]])
+				Vin.lib.center_line_vertical()
 			end,
 			"Prev Change",
 		},
@@ -116,37 +116,37 @@ M.no_leader = {
 		["q"] = {
 			function()
 				vim.cmd([[cnext]])
-				vim.cmd([[norm zz]])
+				Vin.lib.center_line_vertical()
 			end,
-			"Prev QuickFix Item",
+			"Next QuickFix Item",
 		},
 		["l"] = {
 			function()
 				vim.cmd([[lnext]])
-				vim.cmd([[norm zz]])
+				Vin.lib.center_line_vertical()
 			end,
-			"Prev LocList Item",
+			"Next LocList Item",
 		},
 		["b"] = {
 			function()
 				vim.cmd([[bnext]])
-				vim.cmd([[norm zz]])
+				Vin.lib.center_line_vertical()
 			end,
-			"Prev Buffer",
+			"Next Buffer",
 		},
 		["e"] = {
 			function()
 				vim.diagnostic.goto_next()
-				vim.cmd([[norm zz]])
+				Vin.lib.focus_error()
 			end,
-			"Prev Problem",
+			" Next Diagnostic",
 		},
 		["g"] = {
 			function()
 				gitsigns.next_hunk()
-				vim.cmd([[norm zz]])
+				Vin.lib.center_line_vertical()
 			end,
-			"Prev Change",
+			"Next Change",
 		},
 	},
 
