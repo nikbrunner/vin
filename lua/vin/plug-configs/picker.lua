@@ -3,9 +3,6 @@ if not status_ok then
 	return
 end
 
-local colors = require("onenord.colors").load()
-
--- NOTE: Unused - Doesnt work
 window_picker.setup({
 	-- when there is only one window available to pick from, use that window
 	-- without prompting the user to select
@@ -17,7 +14,8 @@ window_picker.setup({
 
 	-- when you go to window selection mode, status bar will show one of
 	-- following letters on them so you can use that letter to select the window
-	selection_chars = "asdfjkl;",
+	-- NOTE: The problem was i wrote my custom chars in lower case..
+	selection_chars = "ASDFJKL;",
 
 	-- if you want to manually filter out the windows, pass in a function that
 	-- takes two parameters. you should return window ids that should be
@@ -38,7 +36,7 @@ window_picker.setup({
 		bo = {
 			-- if the file type is one of following, the window will be ignored
 			-- filetype = { "NvimTree", "neo-tree", "notify" },
-			filetype = { "NvimTree", "notify" },
+			filetype = { "notify" },
 
 			-- if the buffer type is one of following, the window will be ignored
 			buftype = { "terminal" },
@@ -58,9 +56,9 @@ window_picker.setup({
 
 	-- if you have include_current_win == true, then current_win_hl_color will
 	-- be highlighted using this background color
-	current_win_hl_color = colors.green,
+	-- current_win_hl_color = colors.green,
 
 	-- all the windows except the curren window will be highlighted using this
 	-- color
-	other_win_hl_color = colors.gray,
+	-- other_win_hl_color = colors.gray,
 })

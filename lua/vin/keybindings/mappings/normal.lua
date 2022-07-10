@@ -46,7 +46,7 @@ M.no_leader = {
 	-- ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
 	-- ["<C-e>"] = { Vin.cmds.fzf_lua.find_buffers, "﩯 Buffers" },
 
-	["<C-e>"] = { "<cmd>NvimTreeFocus<CR>", "Focus NvimTree" },
+	-- ["<C-e>"] = { "<cmd>NvimTreeFocus<CR>", "Focus NvimTree" },
 	["<C-/>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 	["<C-g>"] = { Vin.cmds.term.lazygit, "Find modified files" },
 
@@ -170,9 +170,9 @@ M.no_leader = {
 
 M.with_leader = {
 	-- Singles
-	-- [" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
+	[" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
 	-- [" "] = { Vin.cmds.fzf_lua.find_commands, "  Commands" },
-	[" "] = { Vin.cmds.fzf_lua.find_buffers, "﬘ Find Buffer" },
+	-- [" "] = { Vin.cmds.fzf_lua.find_buffers, "﬘ Find Buffer" },
 	["e"] = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
 	["o"] = { "<cmd>AerialToggle<CR>", " Symbol Tree" },
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },

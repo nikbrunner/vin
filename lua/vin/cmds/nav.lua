@@ -3,23 +3,24 @@ if not notify_status_ok then
 	return
 end
 
+local picker_ok, picker = pcall(require, "window-picker")
+if not picker_ok then
+	return
+end
+
 Vin.cmds.nav = {}
 
--- NOTE: Unused - Picker always returns nil
 Vin.cmds.nav.pick_window = function()
-	local success, picker = pcall(require, "window-picker")
+	local picked_window_id = picker.pick_window()
 
-	if success then
-		local picked_window_id = picker.pick_window()
+	if picked_window_id then
+		vim.api.nvim_set_current_win(picked_window_id)
+	else
+		notify("   Something went wrong\nPicked Window Id is `nil`", "warn", {
+			timeout = 1000,
+			render = "minimal",
+		})
 
-		if picked_window_id then
-			vim.api.nvim_set_current_win(picked_window_id)
-		else
-			notify("   Something went wrong", "warn", {
-				timeout = 1000,
-				render = "minimal",
-			})
-			return
-		end
+		return
 	end
 end
