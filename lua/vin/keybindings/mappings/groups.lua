@@ -29,6 +29,12 @@ M.vin = {
 	c = { Vin.cmds.fzf_lua.find_colorscheme, "  Colorscheme" },
 }
 
+M.symbols = {
+	name = " Symbols",
+	d = { Vin.cmds.telescope.find_symbol_with_aerial, " In Document" },
+	w = { Vin.cmds.telescope.find_symbols_in_workspace, " In Workspace" },
+}
+
 M.diagnostics = {
 	name = "Diagnostics",
 	d = {
@@ -53,8 +59,8 @@ M.lsp = {
 	n = { Vin.cmds.lsp.rename, "Rename" },
 	l = { vim.lsp.codelens.run, "CodeLens Action" },
 	q = { "<cmd>Telescope diagnostics<CR>", "Quickfix" },
-	s = { Vin.cmds.fzf_lua.find_symbols_in_workspace, "Symbol" },
-	r = { Vin.cmds.fzf_lua.find_references, "List References w/ Fuzzy" },
+	s = M.symbols,
+	r = { Vin.cmds.telescope.list_references, "List References w/ Fuzzy" },
 	R = { ":Trouble lsp_references<CR>", "List References w/ Trouble" },
 	y = { ":Telescope lsp_type_definitions<CR>", "Type Definitions" },
 	h = { vim.diagnostic.open_float, "Hover Problem" },
@@ -182,11 +188,6 @@ M.search = {
 	c = { Vin.cmds.fzf_lua.find_commands, "  Commands" },
 	C = { Vin.cmds.fzf_lua.find_colorscheme, "  Colorscheme" },
 	m = { "<cmd>Telescope marks<CR>", " Marks" },
-	s = {
-		name = " Symbols",
-		d = { Vin.cmds.telescope.find_symbol_with_aerial, " In Document" },
-		w = { Vin.cmds.telescope.find_symbols_in_workspace, " In Workspace" },
-	},
 	a = {
 		name = "Advanced",
 		s = { Vin.cmds.telescope.find_scss_symbol, " SCSS Symbol" },
@@ -196,6 +197,7 @@ M.search = {
 		r = { Vin.cmds.fzf_lua.find_in_registers, "  Registers" },
 		k = { Vin.cmds.fzf_lua.find_keymaps, "  Keymaps" },
 	},
+	s = M.symbols,
 }
 
 M.harpoon = {
