@@ -14,11 +14,11 @@ nvim_tree.setup({
 	auto_reload_on_write = true,
 	disable_netrw = true,
 	hijack_netrw = true,
-	hijack_directories = {
-		enable = true,
-		auto_open = true,
-	},
-	open_on_setup = true,
+	-- hijack_directories = {
+	-- 	enable = true,
+	-- 	auto_open = true,
+	-- },
+	open_on_setup = false,
 	open_on_setup_file = true,
 	open_on_tab = true,
 	ignore_ft_on_setup = {
@@ -31,11 +31,11 @@ nvim_tree.setup({
 		custom = {},
 		exclude = {},
 	},
-	update_cwd = false,
-	prefer_startup_root = true,
-	sync_root_with_cwd = false,
-	reload_on_bufenter = true,
-	respect_buf_cwd = false,
+	-- update_cwd = false,
+	-- prefer_startup_root = true,
+	-- sync_root_with_cwd = false,
+	-- reload_on_bufenter = true,
+	-- respect_buf_cwd = false,
 	renderer = {
 		add_trailing = false,
 		group_empty = false,
