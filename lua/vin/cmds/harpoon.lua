@@ -39,13 +39,6 @@ end
 
 Vin.cmds.harpoon.jump_to_file = function(index)
 	ui.nav_file(index)
-
-	local filename = vim.fn.expand("%:t")
-
-	notify("Jumped to '" .. filename .. "'!", "info", {
-		timeout = 1000,
-		render = "minimal",
-	})
 end
 
 Vin.cmds.harpoon.toggle_quick_menu = function()
