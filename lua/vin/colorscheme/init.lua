@@ -51,9 +51,9 @@ Vin.colorscheme.set_standard_highlights = function()
   ]])
 
 	-- Disable CursorLine Background
-	vim.cmd([[
-    hi CursorLine guibg=NONE
-  ]])
+	-- vim.cmd([[
+ --    hi CursorLine guibg=NONE
+ --  ]])
 end
 
 -- The question remains if thats even sensible,
