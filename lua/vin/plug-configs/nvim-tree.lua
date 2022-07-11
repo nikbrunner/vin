@@ -13,14 +13,14 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 nvim_tree.setup({
 	auto_reload_on_write = true,
 	disable_netrw = true,
-	hijack_netrw = true,
+	-- hijack_netrw = true,
 	-- hijack_directories = {
 	-- 	enable = true,
 	-- 	auto_open = true,
 	-- },
-	open_on_setup = false,
-	open_on_setup_file = true,
-	open_on_tab = true,
+	-- open_on_setup = false,
+	-- open_on_setup_file = true,
+	-- open_on_tab = true,
 	ignore_ft_on_setup = {
 		"startify",
 		"dashboard",
