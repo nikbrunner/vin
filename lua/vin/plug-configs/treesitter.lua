@@ -42,10 +42,8 @@ configs.setup({
 			json = "",
 		},
 	},
-	-- indent = {enable = true, disable = {"python", "html", "javascript"}},
-	-- TODO seems to be broken
-	indent = { enable = true, disable = { "yaml" } },
 	autotag = { enable = true },
+	indent = { enable = false },
 	textobjects = {
 		swap = {
 			enable = false,
