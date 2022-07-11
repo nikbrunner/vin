@@ -32,6 +32,10 @@
   - [ ] Formatter
   - [ ] Preview
 
+## Bugs
+
+- [ ] Auto Closing Tags in HTML Files does not work
+
 ## Plugins
 
 - [x] [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
@@ -47,9 +51,11 @@
 - [ ] [nvim-surround](https://github.com/kylechui/nvim-surround)
 - [ ] [nvim-spectre](https://github.com/nvim-pack/nvim-spectre)
 - [ ] [nvim-orgmode](https://github.com/nvim-orgmode/orgmode)
+- [ ] [navigator.lua](https://github.com/ray-x/navigator.lua)
 - [ ] `Lazygit`: Does `Lazygit` work with Git Worktrees?
 - [ ] `cmp`: Format cmp Menu to omit the Entry Name
 - [ ] Checkout lazy Loading for some Plugins
+
 
 ### Sessions
 
