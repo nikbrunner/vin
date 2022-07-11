@@ -3,13 +3,7 @@ local M = {}
 M.advanced_g = {
 	name = "Go-To",
 	h = { vim.lsp.buf.hover, "Hover Doc" },
-	l = {
-		function()
-			vim.diagnostic.open_float()
-			Vin.lib.focus_error()
-		end,
-		"Hover Problem",
-	},
+	l = { Vin.lib.focus_error, "Show Problem" },
 	d = { Vin.cmds.telescope.go_to_definition, "Go to Definition" },
 	s = { Vin.cmds.telescope.find_symbol_with_aerial, "Go to Symbol" },
 	i = { vim.lsp.buf.implementation, "Go to Implementation" },
@@ -22,7 +16,7 @@ M.actions = {
 	name = "  Actions",
 	a = { Vin.cmds.lsp.code_action, "✨ Code Action" },
 	f = { Vin.cmds.lsp.format_file, "💅 Format File" },
-	r = {
+	t = {
 		function()
 			require("jester").run_file()
 		end,
