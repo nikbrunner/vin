@@ -109,7 +109,7 @@ return packer.startup(function(use) -- My plugins here
 		disable = true,
 	})
 
-	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" }) -- TODO: Replace with nvim-navic
+	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" })
 	use({
 		"akinsho/bufferline.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
@@ -121,7 +121,7 @@ return packer.startup(function(use) -- My plugins here
 		end,
 		disable = true,
 	})
-	use({ "chentoast/marks.nvim" }) -- TODO: Study Maps
+	use({ "chentoast/marks.nvim" })
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "Shatur/neovim-session-manager", disable = false })
 	use({ "akinsho/toggleterm.nvim", tag = "v1.*" })
