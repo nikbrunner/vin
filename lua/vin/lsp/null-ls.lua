@@ -5,18 +5,24 @@ end
 
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
+
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
--- local diagnostics = null_ls.builtins.diagnostics
+local diagnostics = null_ls.builtins.diagnostics
+
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/code_actions
+local code_actions = null_ls.builtins.code_actions
 
 null_ls.setup({
 	debug = false,
 	sources = {
-		-- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
-		formatting.prettier, -- TODO: When empty it respect the .prettierrc?
-		formatting.black.with({ extra_args = { "--fast" } }),
+		formatting.prettier,
 		formatting.stylua,
 		formatting.gofmt,
-		-- diagnostics.flake8,
-		null_ls.builtins.code_actions.gitsigns,
+
+		diagnostics.eslint,
+		diagnostics.tsc,
+
+		code_actions.eslint,
+		code_actions.gitsigns,
 	},
 })
