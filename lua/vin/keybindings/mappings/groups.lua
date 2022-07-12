@@ -12,21 +12,83 @@ M.advanced_g = {
 	y = { ":Telescope lsp_type_definitions<CR>", "Type Defintions" },
 }
 
+M.go_prev = {
+	name = "  Prev",
+	q = {
+		function()
+			vim.cmd([[cprev]])
+			Vin.lib.center_line_vertical()
+		end,
+		"  Prev QuickFix Item",
+	},
+	l = {
+		function()
+			vim.cmd([[lprev]])
+			Vin.lib.center_line_vertical()
+		end,
+		"  Prev LocList Item",
+	},
+	b = {
+		function()
+			vim.cmd([[bprev]])
+			Vin.lib.center_line_vertical()
+		end,
+		"  Prev Buffer",
+	},
+	e = {
+		function()
+			vim.diagnostic.goto_prev()
+			Vin.lib.focus_error()
+		end,
+		" Prev Diagnostic",
+	},
+	g = { Vin.cmds.git.hunk_go_prev, "  Prev Change" },
+}
+
+M.go_next = {
+	name = "  Next",
+	q = {
+		function()
+			vim.cmd([[cnext]])
+			Vin.lib.center_line_vertical()
+		end,
+		"  QuickFix Item",
+	},
+	l = {
+		function()
+			vim.cmd([[lnext]])
+			Vin.lib.center_line_vertical()
+		end,
+		"  LocList Item",
+	},
+	b = {
+		function()
+			vim.cmd([[bnext]])
+			Vin.lib.center_line_vertical()
+		end,
+		"  Buffer",
+	},
+	e = {
+		function()
+			vim.diagnostic.goto_next()
+			Vin.lib.focus_error()
+		end,
+		"  Diagnostic",
+	},
+	g = { Vin.cmds.git.hunk_go_next, "  Change" },
+}
+
 M.actions = {
 	name = "  Actions",
-	a = { Vin.cmds.lsp.code_action, "✨ Code Action" },
-	f = { Vin.cmds.lsp.format_file, "💅 Format File" },
+	a = { Vin.cmds.lsp.code_action, " Code Action" },
+	c = { Vin.cmds.fzf_lua.find_colorscheme, "  Change Colorscheme" },
+	f = { Vin.cmds.lsp.format_file, "  Format File" },
 	t = {
 		function()
 			require("jester").run_file()
 		end,
-		"🏃 Run tests for File",
+		"  Run tests for File",
 	},
-}
-
-M.vin = {
-	name = "  Vin",
-	c = { Vin.cmds.fzf_lua.find_colorscheme, "  Colorscheme" },
 }
 
 M.symbols = {

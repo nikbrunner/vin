@@ -70,73 +70,8 @@ M.no_leader = {
 	["<C-left>"] = { ":vertical resize -2<CR>", "Resize Left" },
 	["<C-right>"] = { ":vertical resize +2<CR>", "Resize Right" },
 
-	-- go to prev
-	["["] = {
-		name = "Prev",
-		["q"] = {
-			function()
-				vim.cmd([[cprev]])
-				Vin.lib.center_line_vertical()
-			end,
-			"Prev QuickFix Item",
-		},
-		["l"] = {
-			function()
-				vim.cmd([[lprev]])
-				Vin.lib.center_line_vertical()
-			end,
-			"Prev LocList Item",
-		},
-		["b"] = {
-			function()
-				vim.cmd([[bprev]])
-				Vin.lib.center_line_vertical()
-			end,
-			"Prev Buffer",
-		},
-		["e"] = {
-			function()
-				vim.diagnostic.goto_prev()
-				Vin.lib.focus_error()
-			end,
-			" Prev Diagnostic",
-		},
-		["g"] = { Vin.cmds.git.hunk_go_prev, "Prev Change" },
-	},
-
-	-- go to next
-	["]"] = {
-		name = "Next",
-		["q"] = {
-			function()
-				vim.cmd([[cnext]])
-				Vin.lib.center_line_vertical()
-			end,
-			"Next QuickFix Item",
-		},
-		["l"] = {
-			function()
-				vim.cmd([[lnext]])
-				Vin.lib.center_line_vertical()
-			end,
-			"Next LocList Item",
-		},
-		["b"] = {
-			function()
-				vim.cmd([[bnext]])
-				Vin.lib.center_line_vertical()
-			end,
-			"Next Buffer",
-		},
-		["e"] = {
-			function()
-				vim.diagnostic.goto_next()
-				Vin.lib.focus_error()
-			end,
-			" Next Diagnostic",
-		},
-		["g"] = { Vin.cmds.git.hunk_go_next, "Next Change" },
-	},
+	["["] = groups.go_prev,
+	["]"] = groups.go_next,
 
 	v = {
 		name = "Select",
