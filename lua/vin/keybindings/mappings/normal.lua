@@ -99,15 +99,9 @@ M.no_leader = {
 				vim.diagnostic.goto_prev()
 				Vin.lib.focus_error()
 			end,
-		" Prev Diagnostic",
+			" Prev Diagnostic",
 		},
-		["g"] = {
-			function()
-				gitsigns.prev_hunk()
-				Vin.lib.center_line_vertical()
-			end,
-			"Prev Change",
-		},
+		["g"] = { Vin.cmds.git.hunk_go_prev, "Prev Change" },
 	},
 
 	-- go to next
@@ -141,13 +135,7 @@ M.no_leader = {
 			end,
 			" Next Diagnostic",
 		},
-		["g"] = {
-			function()
-				gitsigns.next_hunk()
-				Vin.lib.center_line_vertical()
-			end,
-			"Next Change",
-		},
+		["g"] = { Vin.cmds.git.hunk_go_next, "Next Change" },
 	},
 
 	v = {
