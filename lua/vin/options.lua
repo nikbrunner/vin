@@ -41,6 +41,8 @@ local options = {
 
 vim.opt.shortmess:append("c")
 
+-- vim.opt.winbar = "TODO: setup simple winbar which shows the current filename and remove incline"
+
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
