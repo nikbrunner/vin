@@ -38,7 +38,7 @@ M.go_prev = {
 	e = {
 		function()
 			vim.diagnostic.goto_prev()
-			Vin.lib.focus_error()
+			-- Vin.lib.focus_error()
 		end,
 		" Prev Diagnostic",
 	},
@@ -71,7 +71,7 @@ M.go_next = {
 	e = {
 		function()
 			vim.diagnostic.goto_next()
-			Vin.lib.focus_error()
+			-- Vin.lib.focus_error()
 		end,
 		"  Diagnostic",
 	},
