@@ -77,6 +77,12 @@ bufferline.setup({
 				highlight = "NvimTreeNormal",
 				text_align = "left",
 			},
+			{
+				filetype = "neo-tree",
+				text = "File Tree",
+				highlight = "NeoTreeNormal",
+				text_align = "left",
+			},
 		},
 		color_icons = true, -- whether or not to add the filetype icon highlights
 		show_buffer_icons = true, -- disable filetype icons for buffers
