@@ -22,8 +22,9 @@ M.setup = function()
 		)
 	end
 
+	-- TODO: Toggle Virtual Text
 	local config = {
-		virtual_text = true,
+		virtual_text = false,
 		-- show signs
 		signs = {
 			active = signs,
