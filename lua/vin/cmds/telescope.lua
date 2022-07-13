@@ -43,7 +43,7 @@ Vin.cmds.telescope.find_files_without_preview = function()
 end
 
 Vin.cmds.telescope.find_files_with_preview = function()
-	builtin.find_files()
+	builtin.find_files(themes.get_ivy())
 end
 
 Vin.cmds.telescope.find_in_file = function()
