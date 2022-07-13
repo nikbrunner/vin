@@ -15,8 +15,12 @@
   - folke/todo: filter with issue id?
 - [ ] Setup Winbar
   - [In combination with nvim_navic](https://www.reddit.com/r/neovim/comments/vv1jt3/comment/ifh49ti/?utm_source=share&utm_medium=web2x&context=3)
-– [ ] Make `gx` work
+  - [Custom Config](https://github.com/cseickel/dotfiles/blob/main/config/nvim/lua/status.lua)
+– [x] Make `gx` work
   - I think that has something to do with `netwr`
+- [ ] Rework / Refactor lsp config
+  - [neovim from scratch](https://github.com/LunarVim/Neovim-from-scratch/blob/master/lua/user/lsp/configs.lua)
+  - [another config](https://github.com/ahmedelgabri/dotfiles/blob/c2e2e3718e769020f1468048e33e60ad8a97edfc/config/.vim/lua/_/lsp.lua#L329-L378)
 
 ## Research
 
