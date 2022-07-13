@@ -101,10 +101,10 @@ M.with_leader = {
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
 	-- ["f"] = { Vin.cmds.telescope.find_files_with_preview, "  Find File" },
-	-- ["F"] = {
-	-- 	Vin.cmds.telescope.find_files_with_preview,
-	-- 	WhichKeyIgnoreLabel,
-	-- },
+	["F"] = {
+		Vin.cmds.fzf_lua.find_files_with_preview,
+		WhichKeyIgnoreLabel,
+	},
 	["z"] = { Vin.cmds.zen.toggle_full_screen, "  Zen" },
 	["m"] = { "<C-w>|", "  Maximize Split" },
 	["r"] = { "<C-w>=", "  Restore Splits" },
