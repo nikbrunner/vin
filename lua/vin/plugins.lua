@@ -63,9 +63,12 @@ return packer.startup(function(use) -- My plugins here
 	-- UI Enhancements
 	use({ "kyazdani42/nvim-web-devicons" })
 	use({
-		"kyazdani42/nvim-tree.lua",
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
 		requires = {
-			"kyazdani42/nvim-web-devicons",
+			"nvim-lua/plenary.nvim",
+			"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
 		},
 	})
 	use({ "stevearc/aerial.nvim" })
