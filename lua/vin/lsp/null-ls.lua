@@ -19,8 +19,9 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.gofmt,
 
-		diagnostics.eslint,
-		diagnostics.tsc,
+		-- If enabled I get double entries
+		-- diagnostics.eslint,
+		-- diagnostics.tsc,
 
 		code_actions.eslint,
 		code_actions.gitsigns,
