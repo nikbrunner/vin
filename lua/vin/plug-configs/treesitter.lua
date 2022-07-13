@@ -6,6 +6,7 @@ end
 configs.setup({
 	on_config_done = nil,
 	ensure_installed = {
+		"html",
 		"bash",
 		"javascript",
 		"typescript",
@@ -45,24 +46,6 @@ configs.setup({
 	indent = { enable = false },
 	autotag = {
 		enable = true,
-		filetypes = {
-			"html",
-			"javascript",
-			"typescript",
-			"javascriptreact",
-			"typescriptreact",
-			"svelte",
-			"vue",
-			"tsx",
-			"jsx",
-			"rescript",
-			"xml",
-			"php",
-			"markdown",
-			"glimmer",
-			"handlebars",
-			"hbs",
-		},
 	},
 	textobjects = {
 		swap = {
