@@ -54,8 +54,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "*",
 	callback = function()
 		vim.cmd("ColorizerAttachToBuffer")
-		vim.cmd("Gitsigns refresh")
-		vim.cmd("NvimTreeRefresh")
+		-- vim.cmd("Gitsigns refresh")
 	end,
 	group = lsp_au_group,
 })
