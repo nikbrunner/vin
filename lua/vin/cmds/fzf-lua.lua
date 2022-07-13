@@ -24,12 +24,12 @@ Vin.cmds.fzf_lua.find_files_with_preview = function(opts)
 	opts = opts or {}
 	opts.winopts = opts.winopts
 		or {
-			height = 0.65,
-			width = 0.5,
-			row = 0.5,
+			height = 0.9,
+			width = 0.9,
+			-- fullscreen = true,
 			preview = {
 				layout = "vertical",
-				vertical = "down:50%",
+				vertical = "down:75%",
 			},
 		}
 
