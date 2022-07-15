@@ -58,9 +58,9 @@ window_picker.setup({
 
 	-- if you have include_current_win == true, then current_win_hl_color will
 	-- be highlighted using this background color
-	current_win_hl_color = terra_colors.bg0,
+	current_win_hl_color = terra_colors.semantic.bg0,
 
 	-- all the windows except the curren window will be highlighted using this
 	-- color
-	other_win_hl_color = terra_colors.bg2,
+	other_win_hl_color = terra_colors.semantic.bg2,
 })
