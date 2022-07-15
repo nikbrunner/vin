@@ -106,11 +106,7 @@ return packer.startup(function(use) -- My plugins here
 	})
 	use({ "David-Kunz/jester" })
 	use({ "anuvyklack/pretty-fold.nvim", requires = "anuvyklack/nvim-keymap-amend" })
-	use({
-		"kevinhwang91/nvim-ufo",
-		requires = "kevinhwang91/promise-async",
-		disable = true,
-	})
+	use({ "nmac427/guess-indent.nvim" })
 
 	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" })
 	use({
