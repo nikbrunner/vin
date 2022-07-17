@@ -3,10 +3,6 @@ if not status_ok then
 	return
 end
 
--- I want to able track the first mount of vim,
--- which will be set to false after the first render of neo-tree
-local initial_vim_mount = true
-
 neotree.setup({
 	close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
 	popup_border_style = "rounded",
@@ -24,13 +20,7 @@ neotree.setup({
 	event_handlers = {
 		{
 			event = "after_render",
-			handler = function(arg)
-				-- On the inital mount of vim, navigate to the the first empty window
-				if initial_vim_mount then
-					vim.api.nvim_set_current_win(1000)
-					initial_vim_mount = false
-				end
-			end,
+			handler = function(arg) end,
 		},
 	},
 	default_component_configs = {
@@ -93,11 +83,11 @@ neotree.setup({
 				nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
 			},
 			["<2-LeftMouse>"] = "open",
-			["<cr>"] = "open",
+			-- ["<cr>"] = "open",
 			["<C-s>"] = "open_split",
 			["<C-v>"] = "open_vsplit",
-			["t"] = "open_tabnew",
-			-- ["w"] = "open_with_window_picker",
+			["<C-t>"] = "open_tabnew",
+			["<CR>"] = "open_with_window_picker",
 			["C"] = "close_node",
 			["a"] = "add",
 			["A"] = "add_directory",
