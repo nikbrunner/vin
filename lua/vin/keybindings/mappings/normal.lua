@@ -19,6 +19,9 @@ M.no_leader = {
 	H = { "^", WhichKeyIgnoreLabel },
 	L = { "$", WhichKeyIgnoreLabel },
 
+	-- Trigger Hover Doc
+	K = { vim.lsp.buf.hover, "Hover Doc" },
+
 	-- Better n and N (Keep Search Hit in the middle)
 	n = { "nzzzv", WhichKeyIgnoreLabel },
 	N = { "Nzzzv", WhichKeyIgnoreLabel },
@@ -42,7 +45,7 @@ M.no_leader = {
 	-- Control bindings
 	-- ["<C-p>"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Files" },
 	-- ["<C-b>"] = { "<cmd>Neotree toggle<CR>", " Toggle Tree" },
-	-- ["<C-f>"] = { cmd.utils.pick_window, "  Pick Window" }, -- TODO: window-picker: This doesnt work anymore
+	["<C-f>"] = { Vin.cmds.nav.pick_window, "  Pick Window" },
 	-- ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
 	-- ["<C-e>"] = { Vin.cmds.fzf_lua.find_buffers, "﩯 Buffers" },
 
@@ -54,7 +57,7 @@ M.no_leader = {
 	["<C-p>"] = { "<cmd>BufferLinePick<CR>", "  Pick Buffer" },
 
 	["<F6>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
-	["<F7>"] = { "<cmd>TodoQuickFix<CR>", "Todo Quick Fix" },
+	["<F7>"] = { "<cmd>TodoTrouble<CR>", "Todo Quick Fix" },
 	["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
 	["<F9>"] = { "<cmd>DiagWindowShow<CR>", "Diagnose Window Show" },
 
@@ -93,12 +96,12 @@ M.no_leader = {
 
 M.with_leader = {
 	-- Singles
-	[" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
-	-- [" "] = { Vin.cmds.fzf_lua.find_commands, "  Commands" },
+	-- [" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
+	[" "] = { Vin.cmds.fzf_lua.find_commands, "  Commands" },
 	-- [" "] = { Vin.cmds.fzf_lua.find_buffers, "﬘ Find Buffer" },
 	-- ["e"] = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
 	["e"] = { "<cmd>Neotree left toggle<CR>", "  File Tree" },
-	["o"] = { "<cmd>AerialToggle<CR>", " Symbol Tree" },
+	["o"] = { "<cmd>AerialToggle<CR>", "  Symbol Tree" },
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
 	["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
 	-- ["f"] = { Vin.cmds.telescope.find_files_with_preview, "  Find File" },
@@ -137,6 +140,7 @@ M.with_leader = {
 	q = groups.quit,
 	c = groups.copy,
 	t = groups.tabs,
+	T = groups.terra,
 }
 
 return M
