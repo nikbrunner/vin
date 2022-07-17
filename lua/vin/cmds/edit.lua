@@ -22,3 +22,19 @@ Vin.cmds.edit.log_word = function()
 		vim.cmd("norm oprint(" .. message .. ")")
 	end
 end
+
+Vin.cmds.edit.smart_delete = function()
+	if vim.api.nvim_get_current_line():match("^%s*$") then
+		return '"_dd'
+	else
+		return "dd"
+	end
+end
+
+-- TODO: move this to /keybindings
+vim.keymap.set(
+	"n",
+	"dd",
+	Vin.cmds.edit.smart_delete,
+	{ noremap = true, expr = true }
+)
