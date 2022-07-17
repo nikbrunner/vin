@@ -387,4 +387,16 @@ M.tabs = {
 	["9"] = { "9gt", "Tab 9" },
 }
 
+M.terra = {
+	name = "  Terra",
+	s = {
+		"<cmd>lua require('terra.actions.config').select_season()<CR>",
+		"  Select Season",
+	},
+	c = {
+		"<cmd>lua vim.pretty_print(vim.g.terra_config)<CR>",
+		"  Print Terra Config",
+	},
+}
+
 return M
