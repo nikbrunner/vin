@@ -251,6 +251,7 @@ M.search = {
 	r = { Vin.cmds.telescope.find_related_files, "  Related Files" },
 	t = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 	T = { Vin.cmds.telescope.find_text, "  Find Text Everywhere" },
+	-- TODO: Parse or specify current issue number and provide default search term via `default_text=TODO:2322`
 	d = { "<cmd>TodoTelescope<CR>", "  Todos" },
 	o = { Vin.cmds.telescope.find_open_buffer, "﬘  Open Buffers" },
 	g = {
