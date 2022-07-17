@@ -47,6 +47,7 @@
   - [ ] Setup Bindings
 - [x] [close-buffers.nvim](https://github.com/kazhala/close-buffers.nvim)
 - [x] [treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
+- [ ] [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 - [ ] [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [ ] [stabilize.nvim](https://github.com/luukvbaal/stabilize.nvim)
 - [ ] [Guess Indent](https://github.com/NMAC427/guess-indent.nvim)
