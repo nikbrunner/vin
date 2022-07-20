@@ -61,6 +61,7 @@ M.on_attach = function(client, bufnr)
 		client.name == "tsserver"
 		or client.name == "gopls"
 		or client.name == "sumneko_lua"
+		or client.name == "jsonls"
 	then
 		-- client.resolved_capabilities.document_formatting = false -- 0.7
 		client.server_capabilities.documentFormattingProvider = false -- 0.8
