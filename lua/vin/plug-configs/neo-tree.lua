@@ -83,11 +83,11 @@ neotree.setup({
 				nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
 			},
 			["<2-LeftMouse>"] = "open",
-			-- ["<cr>"] = "open",
+			["<cr>"] = "open",
 			["<C-s>"] = "open_split",
 			["<C-v>"] = "open_vsplit",
 			["<C-t>"] = "open_tabnew",
-			["<CR>"] = "open_with_window_picker",
+			["w"] = "open_with_window_picker",
 			["C"] = "close_node",
 			["a"] = "add",
 			["A"] = "add_directory",
