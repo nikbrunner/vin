@@ -121,7 +121,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "chentoast/marks.nvim" })
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "Shatur/neovim-session-manager", disable = false })
-	use({ "akinsho/toggleterm.nvim", tag = "v1.*" })
+	use({ "akinsho/toggleterm.nvim", branch = "main" })
 	use({ "kdheepak/lazygit.nvim" })
 
 	-- Colorschemes
