@@ -36,8 +36,11 @@ local options = {
 	scrolloff = 12, -- is one of my fav
 	sidescrolloff = 8,
 	guifont = "JetBrains Mono:h16", -- the font used in graphical neovim applications,
-	laststatus = 3, -- Enable global status Line
+	laststatus = 3, -- Enable global status Line,
+	-- spelllang={ "en" , "de"}
 }
+
+vim.cmd([[set spelllang=en,de]])
 
 vim.opt.shortmess:append("c")
 
