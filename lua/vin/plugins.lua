@@ -63,12 +63,9 @@ return packer.startup(function(use) -- My plugins here
 	-- UI Enhancements
 	use({ "kyazdani42/nvim-web-devicons" })
 	use({
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
+		"kyazdani42/nvim-tree.lua",
 		requires = {
-			"nvim-lua/plenary.nvim",
-			"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim",
+			"kyazdani42/nvim-web-devicons", -- optional, for file icons
 		},
 	})
 	use({ "stevearc/aerial.nvim" })
@@ -79,7 +76,12 @@ return packer.startup(function(use) -- My plugins here
 	use({ "goolord/alpha-nvim" })
 	use({ "folke/which-key.nvim" })
 	use({ "stevearc/dressing.nvim" })
-	use({ "cseickel/diagnostic-window.nvim", requires = { "MunifTanjim/nui.nvim" } })
+	-- Disabled since dependency seems to be broken
+	use({
+		"cseickel/diagnostic-window.nvim",
+		requires = { "MunifTanjim/nui.nvim" },
+		disable = true,
+	})
 
 	-- Workflow
 	use({ "antoinemadec/FixCursorHold.nvim" }) -- This is needed to fix lsp doc highlight
