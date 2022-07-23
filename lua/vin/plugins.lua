@@ -104,7 +104,6 @@ return packer.startup(function(use) -- My plugins here
 		requires = "nvim-lua/plenary.nvim",
 	})
 	use({ "David-Kunz/jester" })
-	use({ "anuvyklack/pretty-fold.nvim", requires = "anuvyklack/nvim-keymap-amend" })
 	use({ "nmac427/guess-indent.nvim" })
 
 	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" })
