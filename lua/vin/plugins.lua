@@ -52,14 +52,16 @@ return packer.startup(function(use) -- My plugins here
 	use({ "lewis6991/impatient.nvim" })
 
 	-- UI Enhancements
-	use({ "kyazdani42/nvim-web-devicons" }) 
+	use({ "kyazdani42/nvim-web-devicons" })
 	use({ "kyazdani42/nvim-tree.lua" })
 	use({ "stevearc/aerial.nvim" })
-	use({ "nvim-lualine/lualine.nvim", opt = true })
+	use({ "nvim-lualine/lualine.nvim" })
 	use({ "goolord/alpha-nvim" })
 	use({ "folke/which-key.nvim" })
 	use({ "stevearc/dressing.nvim" })
-	use({ "cseickel/diagnostic-window.nvim", requires = { "MunifTanjim/nui.nvim" },
+	use({
+		"cseickel/diagnostic-window.nvim",
+		requires = { "MunifTanjim/nui.nvim" },
 		-- NOTE: Disabled since dependency seems to be broken
 		disable = true,
 	})
@@ -93,8 +95,8 @@ return packer.startup(function(use) -- My plugins here
 	use({ "kdheepak/lazygit.nvim" })
 
 	-- Colorschemes
-	-- use({ "terra-theme/nvim" })
-	use({ "~/Documents/dev/repos/personal/terra-theme/nvim" })
+	use({ "terra-theme/nvim" })
+	-- use({ "~/Documents/dev/repos/personal/terra-theme/nvim" })
 	use({ "rmehri01/onenord.nvim" })
 	use({ "projekt0n/github-nvim-theme" })
 	use({ "norcalli/nvim-colorizer.lua" })
