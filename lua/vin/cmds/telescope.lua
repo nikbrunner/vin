@@ -85,6 +85,24 @@ Vin.cmds.telescope.find_related_files = function()
 	end
 end
 
+Vin.cmds.telescope.find_files_in_config = function(opts)
+	local path = "~/.config"
+
+	opts = opts or {}
+	opts.cwd = path
+
+	builtin.find_files(opts)
+end
+
+Vin.cmds.telescope.find_files_in_work_notes = function(opts)
+	local notes = "~/Documents/notes/dcd-notes"
+
+	opts = opts or {}
+	opts.cwd = opts.cwd or notes
+
+	builtin.find_files(opts)
+end
+
 Vin.cmds.telescope.find_open_buffer = function()
 	builtin.buffers(themes.get_ivy({}))
 end
@@ -142,4 +160,24 @@ end
 -- Find document symbols with aerial
 Vin.cmds.telescope.find_symbol_with_aerial = function()
 	telescope.extensions.aerial.aerial(themes.get_ivy())
+end
+
+Vin.cmds.telescope.find_spelling = function()
+	builtin.spell_suggest(no_preview())
+end
+
+Vin.cmds.telescope.find_colorscheme = function()
+	builtin.colorscheme(no_preview())
+end
+
+Vin.cmds.telescope.find_oldfiles = function()
+	builtin.oldfiles(no_preview())
+end
+
+Vin.cmds.telescope.find_commands = function()
+	builtin.commands()
+end
+
+Vin.cmds.telescope.find_marks = function()
+	builtin.marks(themes.get_ivy())
 end

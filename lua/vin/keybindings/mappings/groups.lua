@@ -8,7 +8,7 @@ M.advanced_g = {
 	s = { Vin.cmds.telescope.find_symbol_with_aerial, "Go to Symbol" },
 	i = { vim.lsp.buf.implementation, "Go to Implementation" },
 	r = { ":Trouble lsp_references<CR>", "List References" },
-	R = { Vin.cmds.telescope.list_references, "List References with FzfLua" },
+	R = { Vin.cmds.telescope.list_references, "List References with Telescope" },
 	y = { ":Telescope lsp_type_definitions<CR>", "Type Defintions" },
 }
 
@@ -81,7 +81,7 @@ M.go_next = {
 M.actions = {
 	name = "  Actions",
 	a = { Vin.cmds.lsp.code_action, " Code Action" },
-	c = { Vin.cmds.fzf_lua.find_colorscheme, "  Change Colorscheme" },
+	c = { Vin.cmds.telescope.find_colorscheme, "  Change Colorscheme" },
 	f = { Vin.cmds.lsp.format_file, "  Format File" },
 	t = {
 		function()
@@ -95,18 +95,6 @@ M.symbols = {
 	name = " Symbols",
 	d = { Vin.cmds.telescope.find_symbol_with_aerial, " In Document" },
 	w = { Vin.cmds.telescope.find_symbols_in_workspace, " In Workspace" },
-}
-
-M.diagnostics = {
-	name = "Diagnostics",
-	d = {
-		Vin.cmds.fzf_lua.find_problems_in_document,
-		"⚠  Diagnostics ()",
-	},
-	w = {
-		Vin.cmds.fzf_lua.find_problems_in_workspace,
-		"⚠  Diagnostics (Workspace)",
-	},
 }
 
 M.lsp = {
@@ -170,7 +158,7 @@ M.buffer = {
 	j = { ":bnext<CR>", "Next Buffer" },
 	p = { "<cmd>BufferLinePick<CR>", "  Pick" },
 	q = { "<cmd>BufferLinePickClose<CR>", " Pick Quit" },
-	f = { Vin.cmds.fzf_lua.find_buffers, "Find" },
+	f = { Vin.cmds.telescope.find_open_buffer, "Find" },
 	s = {
 		name = "Sort",
 		r = {
@@ -198,7 +186,7 @@ M.git = {
 	p = { Vin.cmds.git.hunk_preview, "  Preview Hunk " },
 	l = { Vin.cmds.git.toggle_current_line_blame, "  Current Line Blame" },
 	o = {
-		Vin.cmds.fzf_lua.find_modified_files_with_preview,
+		Vin.cmds.telescope.find_changed_files,
 		"  Open Changed Files",
 	},
 	d = {
@@ -227,8 +215,8 @@ M.git = {
 	},
 	c = {
 		name = "  Checkout",
-		b = { Vin.cmds.fzf_lua.find_branches, "Branches" },
-		c = { Vin.cmds.fzf_lua.find_commits, "Commits" },
+		b = { "<cmd>Telescope git_branches<CR>", "Branches" },
+		c = { "<cmd>Telescope git_commits<CR>", "Commits" },
 	},
 	g = {
 		name = "  Github",
@@ -241,10 +229,10 @@ M.git = {
 
 M.search = {
 	name = "  Search",
-	["."] = { Vin.cmds.fzf_lua.find_files_in_dotfiles, "· Dots" },
+	["."] = { Vin.cmds.telescope.find_files_in_config, "· ~/.config" },
 	n = {
 		name = "  Notes",
-		w = { Vin.cmds.fzf_lua.find_files_in_work_notes, "Work" },
+		w = { Vin.cmds.telescope.find_files_in_work_notes, "Work" },
 	},
 	p = { Vin.cmds.telescope.find_projects, "  Recent Projects" },
 	f = { Vin.cmds.telescope.find_files_without_preview, "  Files" },
@@ -255,26 +243,23 @@ M.search = {
 	-- TODO: Parse or specify current issue number and provide default search term via `default_text=TODO:2322`
 	d = { "<cmd>TodoTelescope<CR>", "  Todos" },
 	o = { Vin.cmds.telescope.find_open_buffer, "﬘  Open Buffers" },
-	g = {
-		Vin.cmds.fzf_lua.find_modified_files_with_preview,
-		" Open Changed Files",
-	},
+	g = { Vin.cmds.telescope.find_changed_files, " Open Changed Files" },
 	w = { Vin.cmds.telescope.find_word, "  Find Current Word" },
 	q = { Vin.cmds.telescope.find_in_quickfix, "  Quickfix" },
-	S = { Vin.cmds.fzf_lua.find_spelling, "  Spelling" },
-	b = { Vin.cmds.fzf_lua.find_buffers, "﩯 Buffers" },
-	R = { Vin.cmds.fzf_lua.find_old_files, "  Recent Files" },
-	c = { Vin.cmds.fzf_lua.find_commands, "  Commands" },
-	C = { Vin.cmds.fzf_lua.find_colorscheme, "  Colorscheme" },
-	m = { "<cmd>Telescope marks<CR>", " Marks" },
+	S = { Vin.cmds.telescope.find_spelling, "  Spelling" },
+	b = { Vin.cmds.telescope.find_open_buffer, "﩯 Buffers" },
+	R = { Vin.cmds.telescope.find_oldfiles, "  Recent Files" },
+	c = { Vin.cmds.telescope.find_commands, "  Commands" },
+	C = { Vin.cmds.telescope.find_colorscheme, "  Colorscheme" },
+	m = { Vin.cmds.telescope.find_marks, " Marks" },
 	a = {
 		name = "Advanced",
 		s = { Vin.cmds.telescope.find_scss_symbol, " SCSS Symbol" },
-		h = { Vin.cmds.fzf_lua.find_help_tags, "  Help Tags" },
+		h = { "<cmd>Telescope help_tags<CR>", "  Help Tags" },
 		H = { "<cmd>Telescope highlights<CR>", "  Highlights" },
-		m = { Vin.cmds.fzf_lua.find_man_page, "  Man Pages" },
-		r = { Vin.cmds.fzf_lua.find_in_registers, "  Registers" },
-		k = { Vin.cmds.fzf_lua.find_keymaps, "  Keymaps" },
+		m = { "<cmd>Telescope man_pages<CR>", "  Man Pages" },
+		r = { "<cmd>Telescope registers<CR>", "  Registers" },
+		k = { "<cmd>Telescope keymaps<CR>", "  Keymaps" },
 	},
 	s = M.symbols,
 }

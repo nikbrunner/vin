@@ -97,16 +97,14 @@ M.no_leader = {
 M.with_leader = {
 	-- Singles
 	-- [" "] = { Vin.cmds.nav.pick_window, "⦾  Pick Window" },
-	[" "] = { Vin.cmds.fzf_lua.find_commands, "  Commands" },
-	-- [" "] = { Vin.cmds.fzf_lua.find_buffers, "﬘ Find Buffer" },
-	-- ["e"] = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
-	["e"] = { "<cmd>Neotree left toggle<CR>", "  File Tree" },
+	[" "] = { Vin.cmds.telescope.find_commands, "  Commands" },
+	["e"] = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
+	-- ["e"] = { "<cmd>Neotree left toggle<CR>", "  File Tree" },
 	["o"] = { "<cmd>AerialToggle<CR>", "  Symbol Tree" },
 	["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-	["f"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Find File" },
-	-- ["f"] = { Vin.cmds.telescope.find_files_with_preview, "  Find File" },
+	["f"] = { Vin.cmds.telescope.find_files_without_preview, "  Find File" },
 	["F"] = {
-		Vin.cmds.fzf_lua.find_files_with_preview,
+		Vin.cmds.telescope.find_files_with_preview,
 		WhichKeyIgnoreLabel,
 	},
 	["z"] = { Vin.cmds.zen.toggle_full_screen, "  Zen" },
@@ -126,8 +124,6 @@ M.with_leader = {
 	["9"] = { "9gt", WhichKeyIgnoreLabel },
 
 	-- Groups
-	-- v = groups.vin,
-	E = groups.explorer,
 	a = groups.actions,
 	b = groups.buffer,
 	P = groups.packer,

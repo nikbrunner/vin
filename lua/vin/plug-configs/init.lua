@@ -1,6 +1,5 @@
 require("vin.plug-configs.cmp")
 require("vin.plug-configs.telescope")
-require("vin.plug-configs.fzf-lua")
 require("vin.plug-configs.treesitter")
 require("vin.plug-configs.autopairs")
 require("vin.plug-configs.harpoon")
