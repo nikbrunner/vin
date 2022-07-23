@@ -105,20 +105,21 @@ lualine.setup({
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = {},
+		lualine_c = { filename },
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
 	},
 	tabline = {},
 	extensions = {},
-	winbar = {
-		lualine_c = { filename },
-		lualine_x = {
-			{ gps.get_location, cond = gps.is_available },
-		},
-	},
-	inactive_winbar = {
-		lualine_c = { filename },
-	},
+	-- TODO: Enable when it does not throw so much godamn errors
+	-- winbar = {
+	-- 	lualine_c = { filename },
+	-- 	lualine_x = {
+	-- 		{ gps.get_location, cond = gps.is_available },
+	-- 	},
+	-- },
+	-- inactive_winbar = {
+	-- 	lualine_c = { filename },
+	-- },
 })
