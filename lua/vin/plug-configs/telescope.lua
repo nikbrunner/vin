@@ -117,7 +117,8 @@ telescope.setup({
 				{ "~/Documents/dev/repos", max_depth = 4 },
 			},
 			hidden_files = false,
-			theme = "dropdown",
+			theme = "ivy",
+			display_type = "full",
 		},
 		aerial = {
 			show_nesting = false,

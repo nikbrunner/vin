@@ -17,7 +17,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.cmd([[packadd packer.nvim]])
 end
 
-
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -71,7 +70,7 @@ return packer.startup(function(use) -- My plugins here
 	use({
 		"cseickel/diagnostic-window.nvim",
 		requires = { "MunifTanjim/nui.nvim" },
-	-- NOTE: Disabled since dependency seems to be broken
+		-- NOTE: Disabled since dependency seems to be broken
 		disable = true,
 	})
 
@@ -114,7 +113,6 @@ return packer.startup(function(use) -- My plugins here
 	})
 	use({ "chentoast/marks.nvim" })
 	use({ "windwp/nvim-ts-autotag" })
-	use({ "Shatur/neovim-session-manager", disable = false })
 	use({ "akinsho/toggleterm.nvim", branch = "main" })
 	use({ "kdheepak/lazygit.nvim" })
 
