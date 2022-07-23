@@ -216,7 +216,7 @@ M.git = {
 	c = {
 		name = "  Checkout",
 		b = { "<cmd>Telescope git_branches<CR>", "Branches" },
-		c = { "<cmd>Telescope git_commits<CR>", "Commits" },
+		c = { Vin.cmds.telescope.find_commits, "Commits" },
 	},
 	g = {
 		name = "  Github",

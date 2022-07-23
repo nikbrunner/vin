@@ -10,6 +10,8 @@ end
 
 local builtin = require("telescope.builtin")
 local themes = require("telescope.themes")
+local previewers = require("telescope.previewers")
+local conf = require("telescope.config")
 
 local notification = function(message)
 	notify(message, "info", {
@@ -17,6 +19,37 @@ local notification = function(message)
 		icon = "",
 	})
 end
+
+local delta_previewer = previewers.new_termopen_previewer({
+	get_command = function(entry)
+		-- this is for status
+		-- You can get the AM things in entry.status. So we are displaying file if entry.status == '??' or 'A '
+		-- just do an if and return a different command
+		if entry.status == "??" or "A " then
+			return {
+				"git",
+				"-c",
+				"core.pager=delta",
+				"-c",
+				"delta.side-by-side=false",
+				"diff",
+				entry.value,
+			}
+		end
+
+		-- note we can't use pipes
+		-- this command is for git_commits and git_bcommits
+		return {
+			"git",
+			"-c",
+			"core.pager=delta",
+			"-c",
+			"delta.side-by-side=false",
+			"diff",
+			entry.value .. "^!",
+		}
+	end,
+})
 
 local hard_corner_window = function()
 	return {
@@ -67,9 +100,15 @@ Vin.cmds.telescope.find_symbols_in_workspace = function()
 	builtin.lsp_dynamic_workspace_symbols(themes.get_ivy({}))
 end
 
-Vin.cmds.telescope.find_changed_files = function()
+Vin.cmds.telescope.find_changed_files = function(opts)
 	builtin.git_status({
-		width = 0.8,
+		previewer = delta_previewer,
+	})
+end
+
+Vin.cmds.telescope.find_commits = function(opts)
+	builtin.git_commits({
+		previewer = delta_previewer,
 	})
 end
 
