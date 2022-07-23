@@ -117,8 +117,8 @@ return packer.startup(function(use) -- My plugins here
 	use({ "kdheepak/lazygit.nvim" })
 
 	-- Colorschemes
-	use({ "terra-theme/nvim" })
-	-- use({ "~/Documents/dev/repos/personal/terra-theme/nvim" })
+	-- use({ "terra-theme/nvim" })
+	use({ "~/Documents/dev/repos/personal/terra-theme/nvim" })
 	use({ "rmehri01/onenord.nvim" })
 	use({ "projekt0n/github-nvim-theme" })
 	use({ "norcalli/nvim-colorizer.lua" })
@@ -146,6 +146,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "rafcamlet/nvim-luapad" })
 	use({ "onsails/lspkind-nvim" })
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
+	use({ "Maan2003/lsp_lines.nvim" })
 
 	-- Fuzzy finding
 	use({ "nvim-telescope/telescope.nvim" })

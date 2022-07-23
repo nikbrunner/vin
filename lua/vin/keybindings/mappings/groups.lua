@@ -114,13 +114,13 @@ M.lsp = {
 		" Next Diagnostic",
 	},
 	a = { Vin.cmds.lsp.code_action, "Code Action" },
-	d = { Vin.cmds.telescope.go_to_definition, "Go to Definition" },
+	d = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
+	t = { Vin.cmds.lsp_lines.toggle, "Toggle Virtual Lsp Lines" },
 	f = { Vin.cmds.lsp.format_file, "Format" },
 	i = { "<cmd>LspInfo<CR>", "Info" },
 	I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
 	n = { Vin.cmds.lsp.rename, "Rename" },
 	l = { vim.lsp.codelens.run, "CodeLens Action" },
-	q = { "<cmd>Telescope diagnostics<CR>", "Quickfix" },
 	s = M.symbols,
 	r = { Vin.cmds.telescope.list_references, "List References w/ Fuzzy" },
 	R = { ":Trouble lsp_references<CR>", "List References w/ Trouble" },
@@ -128,7 +128,6 @@ M.lsp = {
 	h = { vim.diagnostic.open_float, "Hover Problem" },
 	p = { "<cmd>Trouble document_diagnostics<CR>", "Trouble" },
 	P = { "<cmd>Trouble workspace_diagnostics<CR>", "Trouble" },
-	D = { ":Telescope diagnostics<CR>", "Diagnostics" },
 }
 
 -- Currently not used

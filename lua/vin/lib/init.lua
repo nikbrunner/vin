@@ -54,8 +54,9 @@ Vin.lib.get_current_branch = function()
 	return false
 end
 
+---@alias Branches chunks
 ---Find out alle branches
----@return false|all_branches: {string ...} All branches as table of strings
+---@return false|Branches: {string ...} All branches as table of strings
 Vin.lib.get_all_branches = function()
 	local resultString
 
@@ -63,7 +64,7 @@ Vin.lib.get_all_branches = function()
 
 	if branches_output == nil then
 		print("No branches found!")
-		return
+		return false
 	else
 		local read_branches = branches_output:read("*a")
 		branches_output:close()
