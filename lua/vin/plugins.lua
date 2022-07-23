@@ -52,24 +52,14 @@ return packer.startup(function(use) -- My plugins here
 	use({ "lewis6991/impatient.nvim" })
 
 	-- UI Enhancements
-	use({ "kyazdani42/nvim-web-devicons" })
-	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icons
-		},
-	})
+	use({ "kyazdani42/nvim-web-devicons" }) 
+	use({ "kyazdani42/nvim-tree.lua" })
 	use({ "stevearc/aerial.nvim" })
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	})
+	use({ "nvim-lualine/lualine.nvim", opt = true })
 	use({ "goolord/alpha-nvim" })
 	use({ "folke/which-key.nvim" })
 	use({ "stevearc/dressing.nvim" })
-	use({
-		"cseickel/diagnostic-window.nvim",
-		requires = { "MunifTanjim/nui.nvim" },
+	use({ "cseickel/diagnostic-window.nvim", requires = { "MunifTanjim/nui.nvim" },
 		-- NOTE: Disabled since dependency seems to be broken
 		disable = true,
 	})
@@ -92,25 +82,11 @@ return packer.startup(function(use) -- My plugins here
 	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 	use({ "rcarriga/nvim-notify" })
 	use({ "folke/zen-mode.nvim" })
-	use({
-		"folke/todo-comments.nvim",
-		requires = "nvim-lua/plenary.nvim",
-	})
+	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "David-Kunz/jester" })
 	use({ "nmac427/guess-indent.nvim" })
-
 	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" })
-	use({
-		"akinsho/bufferline.nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
-	use({
-		"tiagovla/scope.nvim",
-		config = function()
-			require("scope").setup()
-		end,
-		disable = true,
-	})
+	use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 	use({ "chentoast/marks.nvim" })
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "akinsho/toggleterm.nvim", branch = "main" })
