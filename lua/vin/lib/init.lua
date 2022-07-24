@@ -188,13 +188,15 @@ end
 
 Vin.lib.focus_error = function()
 	-- get the current window, to be able to jump back to it, after opening the Diag Window
-	-- local current_win = vim.api.nvim_get_current_win()
+	local current_win = vim.api.nvim_get_current_win()
+
 	-- center view on error
 	Vin.lib.center_line_vertical()
+
 	-- show diag window
-	-- Disabled since dependency seems to be broken
-	-- vim.cmd([[DiagWindowShow]])
-	vim.diagnostic.open_float()
+	vim.cmd([[DiagWindowShow]])
+	-- vim.diagnostic.open_float()
+
 	-- refocus original window
-	-- vim.api.nvim_set_current_win(current_win)
+	vim.api.nvim_set_current_win(current_win)
 end

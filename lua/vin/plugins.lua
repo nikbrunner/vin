@@ -61,9 +61,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "stevearc/dressing.nvim" })
 	use({
 		"cseickel/diagnostic-window.nvim",
-		requires = { "MunifTanjim/nui.nvim" },
-		-- NOTE: Disabled since dependency seems to be broken
-		disable = true,
+		requires = { "MunifTanjim/nui.nvim" }
 	})
 
 	-- Workflow
