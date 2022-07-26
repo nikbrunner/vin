@@ -61,7 +61,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "stevearc/dressing.nvim" })
 	use({
 		"cseickel/diagnostic-window.nvim",
-		requires = { "MunifTanjim/nui.nvim" }
+		requires = { "MunifTanjim/nui.nvim" },
 	})
 
 	-- Workflow
@@ -91,7 +91,13 @@ return packer.startup(function(use) -- My plugins here
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "akinsho/toggleterm.nvim", branch = "main" })
 	use({ "kdheepak/lazygit.nvim" })
-
+	use({
+		"anuvyklack/pretty-fold.nvim",
+		requires = {
+			"anuvyklack/fold-preview.nvim",
+			"anuvyklack/keymap-amend.nvim",
+		},
+	})
 	-- Colorschemes
 	use({ "terra-theme/nvim" })
 	-- use({ "~/Documents/dev/repos/personal/terra-theme/nvim" })
