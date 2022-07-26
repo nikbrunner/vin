@@ -127,5 +127,5 @@ telescope.setup({
 })
 
 telescope.load_extension("todo-comments")
-telescope.load_extension("project")
+telescope.load_extension("projects")
 telescope.load_extension("aerial")

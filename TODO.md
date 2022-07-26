@@ -51,7 +51,7 @@
 - [x] [treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
 - [ ] [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [ ] [stabilize.nvim](https://github.com/luukvbaal/stabilize.nvim)
-- [ ] [Guess Indent](https://github.com/NMAC427/guess-indent.nvim)
+- [x] [Guess Indent](https://github.com/NMAC427/guess-indent.nvim)
 - [ ] [nvim-pasta](https://github.com/hrsh7th/nvim-pasta)
 - [ ] [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 - [ ] [feline](https://github.com/feline-nvim/feline.nvim)
@@ -61,7 +61,7 @@
 - [ ] [navigator.lua](https://github.com/ray-x/navigator.lua)
 - [ ] [mason.nvim](https://github.com/williamboman/mason.nvim)
   - Replace `lsp-installer`
-- [ ] [project.nvim](https://github.com/ahmedkhalf/project.nvim)
+- [x] [project.nvim](https://github.com/ahmedkhalf/project.nvim)
   - Includes Rooter and Telescope Extension 
 - [ ] `Lazygit`: Does `Lazygit` work with Git Worktrees?
 - [ ] `cmp`: Format cmp Menu to omit the Entry Name

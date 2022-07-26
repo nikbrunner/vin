@@ -183,7 +183,7 @@ end
 
 -- Find project folders with telescope extension
 Vin.cmds.telescope.find_projects = function()
-	telescope.extensions.project.project({ display_type = "full" })
+	telescope.extensions.projects.projects()
 end
 
 -- Go to definition
