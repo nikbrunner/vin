@@ -82,7 +82,7 @@ end
 ---Global Function to debug and print table as lines
 ---Can be replaced with vim.pretty_print()
 ---@param ... any Input Value to print
----@return void
+---@return nil
 function Vin.lib.put(...)
 	local objects = {}
 	for i = 1, select("#", ...) do
@@ -97,7 +97,7 @@ end
 ---TODO Unused, because disfunctional.
 ---Try this out with a clean install and see if it works
 ---@param modname string Module Name
----@return mod Module Required Module
+---@return mod|nil Module Required Module
 function Vin.lib.prequire(modname)
 	local status_ok, mod = pcall(require, modname)
 	if not status_ok then
@@ -134,7 +134,7 @@ end
 ---Function to check if a table contains a certain value
 ---@param tab table Table to search
 ---@param val unknown Value to search for
----@return index number Index of value in tab
+---@return integer|unknown number Index of value in tab
 function Vin.lib.find_index(tab, val)
 	local index = nil
 	for i, v in ipairs(tab) do
