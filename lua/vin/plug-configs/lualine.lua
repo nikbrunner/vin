@@ -93,7 +93,11 @@ lualine.setup({
 	sections = {
 		lualine_a = { mode },
 		lualine_b = { branch },
-		lualine_c = { filename, diff },
+		lualine_c = {
+			filename,
+			{ gps.get_location, cond = gps.is_available },
+			diff,
+		},
 		lualine_x = {},
 		lualine_y = { filetype },
 		lualine_z = {},
