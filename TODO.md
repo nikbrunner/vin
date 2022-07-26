@@ -27,6 +27,7 @@
 - [ ] `nvim`: Handle Error Cases
 - [ ] [Take Pointers from: Chris@Machine: Creating an unbreakable nvim config](https://www.youtube.com/watch?v=Vghglz2oR0c)
 - [ ] Spell Checking
+- [ ] [Primeagean: Your VimRC2022](https://www.youtube.com/watch?v=x2QJYq4IX6M)
 
 ## Languages
 
@@ -47,7 +48,7 @@
   - [ ] Setup Bindings
 - [x] [close-buffers.nvim](https://github.com/kazhala/close-buffers.nvim)
 - [x] [treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
-- [ ] [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
+- [x] [treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
 - [ ] [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [ ] [stabilize.nvim](https://github.com/luukvbaal/stabilize.nvim)
 - [ ] [Guess Indent](https://github.com/NMAC427/guess-indent.nvim)
@@ -58,6 +59,10 @@
 - [ ] [nvim-spectre](https://github.com/nvim-pack/nvim-spectre)
 - [ ] [nvim-orgmode](https://github.com/nvim-orgmode/orgmode)
 - [ ] [navigator.lua](https://github.com/ray-x/navigator.lua)
+- [ ] [mason.nvim](https://github.com/williamboman/mason.nvim)
+  - Replace `lsp-installer`
+- [ ] [project.nvim](https://github.com/ahmedkhalf/project.nvim)
+  - Includes Rooter and Telescope Extension 
 - [ ] `Lazygit`: Does `Lazygit` work with Git Worktrees?
 - [ ] `cmp`: Format cmp Menu to omit the Entry Name
 - [ ] Checkout lazy Loading for some Plugins
