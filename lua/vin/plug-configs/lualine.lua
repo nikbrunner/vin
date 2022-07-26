@@ -113,6 +113,9 @@ lualine.setup({
 	tabline = {},
 	extensions = {},
 	-- TODO: Enable when it does not throw so much godamn errors
+	-- Source: https://github.com/neovim/neovim/issues/19458
+	--         https://github.com/glepnir/lspsaga.nvim/issues/379
+	--         https://github.com/nvim-lualine/lualine.nvim/issues/754
 	-- winbar = {
 	-- 	lualine_c = { filename },
 	-- 	lualine_x = {
