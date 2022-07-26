@@ -7,7 +7,8 @@ Vin.cmds.edit = {}
 
 Vin.cmds.edit.log_word = function()
 	local current_word = vim.fn.expand("<cword>")
-	local message = '"' .. current_word .. '", ' .. current_word
+	local current_filename = Vin.cmds.general.get_current_filename()
+	local message = '"' .. current_filename .. ":" .. current_word .. '", ' .. current_word
 
 	if
 		vim.bo.filetype == "typescript"
