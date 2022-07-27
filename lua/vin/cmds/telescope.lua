@@ -13,7 +13,7 @@ local themes = require("telescope.themes")
 local previewers = require("telescope.previewers")
 local conf = require("telescope.config")
 
-local notification = function(message)
+local use_notification = function(message)
 	notify(message, "info", {
 		title = "Telescope",
 		icon = "",
@@ -149,36 +149,98 @@ end
 Vin.cmds.telescope.find_scss_symbol = function()
 	local curr_word = vim.fn.expand("<cword>")
 
-	local prompt = "What are you looking for?"
+	local Symbol = {
+		Variable = "variable",
+		Mixin = "mixin",
+	}
 
-	local symbol_types = { "variable", "mixin" }
+	local Action = {
+		GoToDefinition = "go_to_definition",
+		ListReferences = "list_references",
+	}
 
-	local handleFormat = function(item)
-		if item == symbol_types[1] then
-			return "$" .. item
-		elseif item == symbol_types[2] then
-			return "@" .. item
+	-- TODO: Build custom picker
+	local use_telescope = function(text)
+		builtin.grep_string({
+			default_text = text,
+			path_display = { "truncate" },
+			-- layout_strategy = "vertical",
+			layout_config = {
+				width = 0.90,
+				height = 0.90,
+			},
+			-- preview_height = 0.25,
+			-- preview_cutoff = 20,
+			-- mirror = true,
+		})
+	end
+
+	---@param action_callback function
+	local handleSelectAction = function(action_callback)
+		vim.ui.select({
+			Action.GoToDefinition,
+			Action.ListReferences,
+		}, {
+			prompt = "What do you want to do with " .. curr_word .. "?",
+			format_item = function(item)
+				if item == Action.GoToDefinition then
+					return "Go to definition"
+				elseif item == Action.ListReferences then
+					return "List references"
+				end
+			end,
+		}, function(action)
+			action_callback(action)
+		end)
+	end
+
+	---@param symbol_type string
+	local handleSelectSymbol = function(symbol_type)
+		-- SCSS Variables
+		if symbol_type == Symbol.Variable then
+			handleSelectAction(function(action)
+				if action == Action.GoToDefinition then
+					use_telescope("$" .. curr_word .. ": ")
+					use_notification(
+						"Looking for variable defintion of '" .. curr_word .. "'"
+					)
+				elseif action == Action.ListReferences then
+					use_telescope("$" .. curr_word)
+					use_notification(
+						"Looking for variable references of '" .. curr_word .. "'"
+					)
+				end
+			end)
+
+			-- SCSS Mixin
+		elseif symbol_type == Symbol.Mixin then
+			handleSelectAction(function(action)
+				if action == Action.GoToDefinition then
+					use_telescope("@mixin " .. curr_word)
+					use_notification(
+						"Looking for mixin definition of '" .. curr_word .. "'"
+					)
+
+				elseif action == Action.ListReferences then
+					use_telescope("@include " .. curr_word)
+					use_notification(
+						"Looking for mixin references for '" .. curr_word .. "'"
+					)
+				end
+			end)
 		end
 	end
 
-	local handleSelection = function(symbol_type)
-		if symbol_type == symbol_types[1] then
-			local query = "$" .. curr_word .. ": "
-
-			builtin.grep_string({ default_text = query })
-			notification("Looking for '$" .. curr_word .. "'")
-		elseif symbol_type == symbol_types[2] then
-			local query = "@mixin " .. curr_word
-
-			builtin.grep_string({ default_text = query })
-			notification("Looking for '@" .. curr_word .. "'")
-		end
-	end
-
-	vim.ui.select(symbol_types, {
-		prompt = prompt,
-		format_item = handleFormat,
-	}, handleSelection)
+	vim.ui.select({ Symbol.Mixin, Symbol.Variable }, {
+		prompt = "What is '" .. curr_word .. "'?",
+		format_item = function(item)
+			if item == Symbol.Variable then
+				return "$" .. item
+			elseif item == Symbol.Mixin then
+				return "@" .. item
+			end
+		end,
+	}, handleSelectSymbol)
 end
 
 -- Find project folders with telescope extension
