@@ -82,15 +82,18 @@ Either the sessions are to be managed via Neovim or I can also do that via TMUX.
   - Close all open Toggle Term processes on leave
 - Changes `cwd`
   - But I am not sure who is responsible for these things..
+- Respects Git Branch !!!!
 
 #### Neovim
 
 [Here](https://www.reddit.com/r/neovim/comments/vvaw1x/which_in_your_opinion_is_the_best_session) is a reddit discussion about neovim session managers.
 
+- [auto-session](https://github.com/rmagatti/auto-session)
+  - [session-lens](https://github.com/rmagatti/session-lens)
 - [neovim-session-manager](https://github.com/Shatur/neovim-session-manager)
-  - What I am currently using
+  - used in the past
   - Working really great so far except there is a problem with [scope.nvim](https://github.com/tiagovla/scope.nvim/issues/1) for which I also opened an issue
 - [workspaces.nvim](https://github.com/natecraddock/workspaces.nvim)
   - Haven't checked out
 - [possession.nvim](https://github.com/jedrzejboczar/possession.nvim)
-  - Haven't checked out
+  - Tried, made trouble

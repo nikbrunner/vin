@@ -130,5 +130,6 @@ Run: `$ fc-cache -f -v`
 
 ## Other Configs
 
-- [https://github.com/0xsamrath/.dotfiles](https://github.com/0xsamrath/.dotfiles)
-- [https://github.com/LunarVim/nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
+- [0xsamrath/.dotfiles](https://github.com/0xsamrath/.dotfiles)
+- [LunarVim/nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
+- [folke/dot/nvim](https://github.com/folke/dot/tree/master/config/nvim/lua)
