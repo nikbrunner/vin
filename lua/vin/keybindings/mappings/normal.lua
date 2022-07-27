@@ -39,8 +39,9 @@ M.no_leader = {
 	-- ["<Tab>"] = { ":tabnext<CR>", "Next Tab" },
 
 	-- Move text up and down
-	["∆"] = { "<Esc>:m .+1<CR>", "Move Down" },
-	["˚"] = { "<Esc>:m .-2<CR>", "Move Up" },
+	-- NOTE: This is no handled via https://github.com/booperlv/nvim-gomove/blob/main/lua/gomove/init.lua
+	-- ["∆"] = { "<Esc>:m .+1<CR>", "Move Down" },
+	-- ["˚"] = { "<Esc>:m .-2<CR>", "Move Up" },
 
 	-- Control bindings
 	-- ["<C-p>"] = { Vin.cmds.fzf_lua.find_files_without_preview, "  Files" },
@@ -128,6 +129,7 @@ M.with_leader = {
 	b = groups.buffer,
 	P = groups.packer,
 	s = groups.search,
+	S = groups.session,
 	g = groups.git,
 	i = groups.insert,
 	l = groups.lsp,

@@ -98,6 +98,8 @@ return packer.startup(function(use) -- My plugins here
 			"anuvyklack/keymap-amend.nvim",
 		},
 	})
+	use({ "booperlv/nvim-gomove" })
+
 	-- Colorschemes
 	use({ "terra-theme/nvim" })
 	-- use({ "~/Documents/dev/repos/personal/terra-theme/nvim" })

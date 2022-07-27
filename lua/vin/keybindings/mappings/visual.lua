@@ -12,9 +12,9 @@ M.no_leader = {
 	["L"] = { "$", WhichKeyIgnoreLabel },
 
 	-- Move text up and down
-	-- TODO Implement `move_line_down` & `move_line_up`
-	["∆"] = { ":move '>+1<CR>gv-gv", WhichKeyIgnoreLabel },
-	["˚"] = { ":move '<-2<CR>gv-gv", WhichKeyIgnoreLabel },
+	-- NOTE: This is no handled via https://github.com/booperlv/nvim-gomove/blob/main/lua/gomove/init.lua
+	-- ["∆"] = { ":move '>+1<CR>gv-gv", WhichKeyIgnoreLabel },
+	-- ["˚"] = { ":move '<-2<CR>gv-gv", WhichKeyIgnoreLabel },
 }
 
 M.with_leader = {
