@@ -90,6 +90,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "chentoast/marks.nvim" })
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "akinsho/toggleterm.nvim", branch = "main" })
+	use({ "Shatur/neovim-session-manager" })
 	use({ "kdheepak/lazygit.nvim" })
 	use({
 		"anuvyklack/pretty-fold.nvim",

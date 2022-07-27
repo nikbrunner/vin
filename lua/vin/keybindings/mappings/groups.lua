@@ -333,7 +333,6 @@ M.packer = {
 	u = { "<cmd>PackerUpdate<CR>", "Update" },
 }
 
--- TODO: Unused
 M.session = {
 	name = "  Session",
 	s = { Vin.cmds.session.save_current, "Save Current Session" },

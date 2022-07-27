@@ -138,7 +138,7 @@ local buttons = {
 	type = "group",
 	val = {
 		button(".", "   Curr. Dir", ":edit .<CR>"),
-		-- button("l", "   Load", ":SessionManager load_session<CR>"),
+		button("l", "   Load", ":SessionManager load_session<CR>"),
 		button("r", "   Recents", ":Telescope oldfiles<CR>"),
 		button("p", "   Projects", ":Telescope projects<CR>"),
 		button("e", "   New Empty", ":ene <BAR> startinsert<CR>"),
