@@ -356,7 +356,16 @@ M.tabs = {
 	h = { ":tabprevious<CR>", "Previous Tab" },
 	l = { ":tabnext<CR>", "Next Tab" },
 	e = { ":tabmove<CR>", "Move Tab To End" },
-	r = { ":TabRename ", "Rename Tab" },
+	r = {
+		function()
+			vim.ui.input({
+				prompt = "  Enter a Name for the Tab",
+			}, function(input)
+				vim.cmd("TabRename " .. input)
+			end)
+		end,
+		"Rename Tab",
+	},
 	H = { ":tabmove -1<CR>", "Move Left" },
 	L = { ":tabmove +1<CR>", "Move Right" },
 	q = { ":tabclose<CR>", "Close Tab" },

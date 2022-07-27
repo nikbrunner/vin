@@ -9,7 +9,7 @@ dressing.setup({
 		enabled = true,
 
 		-- Default prompt string
-		default_prompt = "➤ ",
+		default_prompt = " ",
 
 		-- Can be 'left', 'right', or 'center'
 		prompt_align = "center",
@@ -90,7 +90,6 @@ dressing.setup({
 			max_height = 0.9,
 			min_height = 10,
 		},
-
 		-- Used to override format_item. See :help dressing-format
 		format_item_override = {},
 
