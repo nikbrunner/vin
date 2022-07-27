@@ -86,7 +86,11 @@ return packer.startup(function(use) -- My plugins here
 	use({ "David-Kunz/jester" })
 	use({ "nmac427/guess-indent.nvim" })
 	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" })
-	use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+	use({
+		"akinsho/bufferline.nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
+		disable = true,
+	})
 	use({ "chentoast/marks.nvim" })
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "akinsho/toggleterm.nvim", branch = "main" })
@@ -100,6 +104,7 @@ return packer.startup(function(use) -- My plugins here
 		},
 	})
 	use({ "booperlv/nvim-gomove" })
+	use({ "nanozuki/tabby.nvim" })
 
 	-- Colorschemes
 	use({ "terra-theme/nvim" })
