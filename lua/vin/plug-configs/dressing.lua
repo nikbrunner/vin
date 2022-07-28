@@ -42,6 +42,8 @@ dressing.setup({
 		-- Priority list of preferred vim.select implementations
 		backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui" },
 
+		telescope = require("telescope.themes").get_ivy(),
+
 		-- Options for fzf selector
 		fzf = {
 			window = {
@@ -91,9 +93,31 @@ dressing.setup({
 			min_height = 10,
 		},
 		-- Used to override format_item. See :help dressing-format
-		format_item_override = {},
+		format_item_override = {
+			codeaction = function(action_tuple)
+				-- local title = action_tuple[2].title:gsub("\r\n", "\\r\\n")
+				-- local client = vim.lsp.get_client_by_id(action_tuple[1])
+				-- return string.format(
+				-- 	"%s\t[%s]",
+				-- 	title:gsub("\n", "\\n"),
+				-- 	client.name
+				-- )
+			end,
+		},
 
 		-- see :help dressing_get_config
-		get_config = nil,
+		get_config = function(opts)
+			if opts.kind == "codeaction" then
+				return {
+					backend = "telescope",
+					telescope = require("telescope.themes").get_cursor(),
+				}
+			elseif opts.prompt == "Load Session" then
+				return {
+					backend = "telescope",
+					telescope = require("telescope.themes").get_dropdown(),
+				}
+			end
+		end,
 	},
 })
