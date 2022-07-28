@@ -3,5 +3,4 @@ if not status_ok then
 	return
 end
 
-lsp_lines.register_lsp_virtual_lines()
-
+lsp_lines.setup()
