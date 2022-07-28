@@ -112,6 +112,7 @@ M.with_leader = {
 	["m"] = { "<C-w>|", "  Maximize Split" },
 	["r"] = { "<C-w>=", "  Restore Splits" },
 	["n"] = { ":nohl<CR>", WhichKeyIgnoreLabel },
+	["M"] = { ":MarkdownPreview github<CR>", WhichKeyIgnoreLabel },
 
 	-- Tab navigation
 	["1"] = { "1gt", WhichKeyIgnoreLabel },

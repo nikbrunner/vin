@@ -141,6 +141,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "booperlv/nvim-gomove" })
 	use({ "nanozuki/tabby.nvim" })
 	use({ "b0o/incline.nvim" })
+	use({ "davidgranstrom/nvim-markdown-preview" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
