@@ -19,6 +19,49 @@ M.no_leader = {
 	H = { "^", WhichKeyIgnoreLabel },
 	L = { "$", WhichKeyIgnoreLabel },
 
+	-- HOP
+	-- s = { ":HopChar2<CR>", "Hop to Char" },
+	s = { ":HopWord<CR>", "Hop to Char" },
+	S = { ":HopLineStart<CR>", "Hop to Line" },
+	f = {
+		function()
+			require("hop").hint_char1({
+				direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+				current_line_only = true,
+			})
+		end,
+		WhichKeyIgnoreLabel,
+	},
+	F = {
+		function()
+			require("hop").hint_char1({
+				direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+				current_line_only = true,
+			})
+		end,
+		WhichKeyIgnoreLabel,
+	},
+	t = {
+		function()
+			require("hop").hint_char1({
+				direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+				current_line_only = true,
+				hint_offset = -1,
+			})
+		end,
+		WhichKeyIgnoreLabel,
+	},
+	T = {
+		function()
+			require("hop").hint_char1({
+				direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+				current_line_only = true,
+				hint_offset = 1,
+			})
+		end,
+		WhichKeyIgnoreLabel,
+	},
+
 	-- Trigger Hover Doc
 	K = { vim.lsp.buf.hover, "Hover Doc" },
 
@@ -112,7 +155,6 @@ M.with_leader = {
 	["m"] = { "<C-w>|", "  Maximize Split" },
 	["r"] = { "<C-w>=", "  Restore Splits" },
 	["n"] = { ":nohl<CR>", WhichKeyIgnoreLabel },
-	["M"] = { ":MarkdownPreview github<CR>", WhichKeyIgnoreLabel },
 
 	-- Tab navigation
 	["1"] = { "1gt", WhichKeyIgnoreLabel },
@@ -139,6 +181,10 @@ M.with_leader = {
 	c = groups.copy,
 	t = groups.tabs,
 	T = groups.terra,
+	A = {
+		name = "Advanced",
+		["m"] = { ":MarkdownPreview github<CR>", WhichKeyIgnoreLabel },
+	},
 }
 
 return M

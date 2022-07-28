@@ -142,6 +142,7 @@ return packer.startup(function(use) -- My plugins here
 	use({ "nanozuki/tabby.nvim" })
 	use({ "b0o/incline.nvim" })
 	use({ "davidgranstrom/nvim-markdown-preview" })
+	use({ "phaazon/hop.nvim", branch = "v2" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
