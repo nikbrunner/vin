@@ -40,7 +40,9 @@ local options = {
 	-- spelllang={ "en" , "de"}
 }
 
+-- TODO: Set via opt?
 vim.cmd([[set spelllang=en,de]])
+vim.cmd([[set sessionoptions=blank,buffers,curdir,tabpages,winsize]])
 
 vim.opt.shortmess:append("c")
 
