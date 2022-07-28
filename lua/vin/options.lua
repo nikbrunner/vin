@@ -37,16 +37,11 @@ local options = {
 	sidescrolloff = 8,
 	guifont = "JetBrains Mono:h16", -- the font used in graphical neovim applications,
 	laststatus = 3, -- Enable global status Line,
-	-- spelllang={ "en" , "de"}
+	spelllang = "en,de",
+	sessionoptions = "blank,buffers,curdir,tabpages,winsize",
 }
 
--- TODO: Set via opt?
-vim.cmd([[set spelllang=en,de]])
-vim.cmd([[set sessionoptions=blank,buffers,curdir,tabpages,winsize]])
-
 vim.opt.shortmess:append("c")
-
--- vim.opt.winbar = "TODO: setup simple winbar which shows the current filename and remove incline"
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
