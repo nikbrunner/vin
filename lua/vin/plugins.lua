@@ -51,6 +51,19 @@ return packer.startup(function(use) -- My plugins here
 	use({ "nvim-lua/plenary.nvim" }) -- Useful lua functions used ny lots of plugins
 	use({ "lewis6991/impatient.nvim" })
 
+	-- LSP
+	use({ "neovim/nvim-lspconfig" }) -- enable LSP
+	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
+	use({ "tamago324/nlsp-settings.nvim" }) -- language server settings defined in json for
+	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
+	use({ "ray-x/lsp_signature.nvim" }) --for parameter hints
+	use({ "j-hui/fidget.nvim" }) -- for LSP progress
+	use({ "folke/lua-dev.nvim" }) -- Lua Development
+	use({ "rafcamlet/nvim-luapad" }) -- Lua Repl
+	use({ "onsails/lspkind-nvim" }) -- Cmp Symbols
+	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }) -- Error displays
+	use({ "Maan2003/lsp_lines.nvim" })
+
 	-- UI Enhancements
 	use({ "kyazdani42/nvim-web-devicons" })
 	use({ "kyazdani42/nvim-tree.lua" })
@@ -59,10 +72,40 @@ return packer.startup(function(use) -- My plugins here
 	use({ "goolord/alpha-nvim" })
 	use({ "folke/which-key.nvim" })
 	use({ "stevearc/dressing.nvim" })
-	use({
-		"cseickel/diagnostic-window.nvim",
-		requires = { "MunifTanjim/nui.nvim" },
-	})
+	use({ "cseickel/diagnostic-window.nvim", requires = { "MunifTanjim/nui.nvim" } })
+
+	-- Completion
+	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
+	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
+	use({ "hrsh7th/cmp-path" }) -- path completions
+	use({ "hrsh7th/cmp-cmdline" }) -- cmdline completions
+	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
+	use({ "hrsh7th/cmp-nvim-lsp" })
+	-- snippets
+	use({ "L3MON4D3/LuaSnip" }) --snippet engine
+	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
+
+	-- Colorschemes
+	-- use({ "terra-theme/nvim" })
+	use({ "~/Documents/dev/repos/personal/terra-theme/nvim" })
+	use({ "rmehri01/onenord.nvim" })
+	use({ "projekt0n/github-nvim-theme" })
+	use({ "norcalli/nvim-colorizer.lua" })
+
+	-- Fuzzy finding
+	use({ "nvim-telescope/telescope.nvim" })
+	use({ "nvim-telescope/telescope-github.nvim" })
+	use({ "ahmedkhalf/project.nvim" })
+
+	-- Treesitter
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use({ "nvim-treesitter/playground", run = ":TSInstall query" })
+	use({ "nvim-treesitter/nvim-treesitter-context" })
+	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
+
+	-- Git
+	use({ "lewis6991/gitsigns.nvim" })
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	-- Workflow
 	use({ "antoinemadec/FixCursorHold.nvim" }) -- This is needed to fix lsp doc highlight
@@ -74,11 +117,8 @@ return packer.startup(function(use) -- My plugins here
 	use({ "RRethy/vim-illuminate" })
 	use({ "tpope/vim-surround" })
 	use({ "wellle/targets.vim" })
-	use({ "mg979/vim-visual-multi", branch = "master" })
 	use({ "djoshea/vim-autoread" })
 	use({ "ThePrimeagen/harpoon" })
-	use({ "gennaro-tedesco/nvim-jqx" })
-	use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
 	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 	use({ "rcarriga/nvim-notify" })
 	use({ "folke/zen-mode.nvim" })
@@ -86,11 +126,6 @@ return packer.startup(function(use) -- My plugins here
 	use({ "David-Kunz/jester" })
 	use({ "nmac427/guess-indent.nvim" })
 	use({ "SmiteshP/nvim-gps", requires = "nvim-treesitter/nvim-treesitter" })
-	use({
-		"akinsho/bufferline.nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
-		disable = true,
-	})
 	use({ "chentoast/marks.nvim" })
 	use({ "windwp/nvim-ts-autotag" })
 	use({ "akinsho/toggleterm.nvim", branch = "main" })
@@ -106,57 +141,6 @@ return packer.startup(function(use) -- My plugins here
 	use({ "booperlv/nvim-gomove" })
 	use({ "nanozuki/tabby.nvim" })
 	use({ "b0o/incline.nvim" })
-
-	-- Colorschemes
-	use({ "terra-theme/nvim" })
-	-- use({ "~/Documents/dev/repos/personal/terra-theme/nvim" })
-	use({ "rmehri01/onenord.nvim" })
-	use({ "projekt0n/github-nvim-theme" })
-	use({ "norcalli/nvim-colorizer.lua" })
-
-	-- cmp plugins
-	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
-	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
-	use({ "hrsh7th/cmp-path" }) -- path completions
-	use({ "hrsh7th/cmp-cmdline" }) -- cmdline completions
-	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
-	use({ "hrsh7th/cmp-nvim-lsp" })
-
-	-- snippets
-	use({ "L3MON4D3/LuaSnip" }) --snippet engine
-	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
-
-	-- LSP
-	use({ "neovim/nvim-lspconfig" }) -- enable LSP
-	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
-	use({ "tamago324/nlsp-settings.nvim" }) -- language server settings defined in json for
-	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
-	use({ "ray-x/lsp_signature.nvim" }) --for parameter hints
-	use({ "j-hui/fidget.nvim" }) -- for LSP progress
-	use({ "folke/lua-dev.nvim" })
-	use({ "rafcamlet/nvim-luapad" })
-	use({ "onsails/lspkind-nvim" })
-	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
-	use({ "Maan2003/lsp_lines.nvim" })
-
-	-- Fuzzy finding
-	use({ "nvim-telescope/telescope.nvim" })
-	use({ "nvim-telescope/telescope-github.nvim" })
-	use({ "ahmedkhalf/project.nvim" })
-
-	-- Treesitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
-	use({ "nvim-treesitter/playground", run = ":TSInstall query" })
-	use({ "nvim-treesitter/nvim-treesitter-context" })
-	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
-
-	-- Git
-	use({ "lewis6991/gitsigns.nvim" })
-	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
-	use({ "pwntester/octo.nvim", disable = true })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
