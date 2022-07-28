@@ -50,6 +50,7 @@ Checkout, evaluate, implement
 - [ ] [navigator.lua](https://github.com/ray-x/navigator.lua)
 - [ ] [hop.nvim](https://github.com/phaazon/hop.nvim)
 - [ ] [octo.nvim](https://github.com/pwntester/octo.nvim)
+- [ ] [nvim-docker](https://github.com/dgrbrady/nvim-docker)
 
 ### Adjust
 
