@@ -16,8 +16,7 @@ Vin.cmds.lsp.format_file = function()
 end
 
 Vin.cmds.lsp.code_action = function()
-	-- vim.lsp.buf.code_action()
-	vim.cmd([[CodeActionMenu]])
+	vim.lsp.buf.code_action()
 
 	notify("Pick a Code Action!", "info", {
 		title = "Refactor",
