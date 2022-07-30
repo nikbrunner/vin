@@ -55,7 +55,7 @@ incline.setup({
 	window = {
 		margin = {
 			horizontal = 0,
-			vertical = 2,
+			vertical = 0,
 		},
 		options = {
 			signcolumn = "no",
@@ -64,8 +64,8 @@ incline.setup({
 		padding = 2,
 		padding_char = " ",
 		placement = {
-			horizontal = "left",
-			vertical = "bottom",
+			vertical = "top",
+			horizontal = "right",
 		},
 		width = "fit",
 		winhighlight = {
