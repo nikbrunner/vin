@@ -9,6 +9,7 @@ local M = {}
 
 M.no_leader = {
 	g = groups.advanced_g,
+	s = groups.hop,
 
 	-- disable Q
 	Q = { "<Nop>", WhichKeyIgnoreLabel },
@@ -19,10 +20,6 @@ M.no_leader = {
 	H = { "^", WhichKeyIgnoreLabel },
 	L = { "$", WhichKeyIgnoreLabel },
 
-	-- HOP
-	-- s = { ":HopChar2<CR>", "Hop to Char" },
-	s = { ":HopWord<CR>", "Hop to Char" },
-	S = { ":HopLineStart<CR>", "Hop to Line" },
 	f = {
 		function()
 			require("hop").hint_char1({

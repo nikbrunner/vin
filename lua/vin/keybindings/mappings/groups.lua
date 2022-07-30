@@ -1,7 +1,7 @@
 local M = {}
 
 M.advanced_g = {
-	name = "Go-To",
+	name = " Go-To",
 	h = { vim.lsp.buf.hover, "Hover Doc" },
 	l = { Vin.lib.focus_error, "Show Problem" },
 	d = { Vin.cmds.telescope.go_to_definition, "Go to Definition" },
@@ -10,6 +10,16 @@ M.advanced_g = {
 	r = { ":Trouble lsp_references<CR>", "List References" },
 	R = { Vin.cmds.telescope.list_references, "List References with Telescope" },
 	y = { ":Telescope lsp_type_definitions<CR>", "Type Defintions" },
+}
+
+M.hop = {
+	name = " Hop",
+	s = { ":HopWord<CR>", "Word" },
+	S = { ":HopWordMW<CR>", "Word Everywhere" },
+	l = { ":HopLineStart<CR>", "Line" },
+	L = { ":HopLineStartMW<CR>", "Line Everywhere" },
+	c = { ":HopChar1<CR>", "Char" },
+	C = { ":HopChar1MW<CR>", "Char Everywhere" },
 }
 
 M.go_prev = {
