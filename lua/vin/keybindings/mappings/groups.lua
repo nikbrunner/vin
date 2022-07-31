@@ -394,7 +394,11 @@ M.terra = {
 	name = "  Terra",
 	s = {
 		"<cmd>lua require('terra.actions.config').select_season()<CR>",
-		"  Select Season",
+		" Select Season",
+	},
+	t = {
+		"<cmd>lua require('terra.actions.config').select_time()<CR>",
+		"  Select Time",
 	},
 	c = {
 		"<cmd>lua vim.pretty_print(vim.g.terra_config)<CR>",
