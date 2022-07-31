@@ -12,6 +12,16 @@ M.advanced_g = {
 	y = { ":Telescope lsp_type_definitions<CR>", "Type Defintions" },
 }
 
+M.actions = {
+	name = "  Actions",
+	a = { Vin.cmds.lsp.code_action, "  Code Action" },
+	c = { Vin.cmds.telescope.find_colorscheme, "  Change Colorscheme" },
+	f = { Vin.cmds.lsp.format_file, "  Format File" },
+	m = { "<cmd>MarkdownPreview github<CR>", "  Preview Markdown" },
+	t = { "lua require('jester').run_file()", "  Run tests for File" },
+	h = { "<cmd>TSHighlightCapturesUnderCursor<CR>", "  Show Highlight" },
+}
+
 M.hop = {
 	name = " Hop",
 	s = { ":HopWord<CR>", "Word" },
@@ -88,19 +98,6 @@ M.go_next = {
 	g = { Vin.cmds.git.hunk_go_next, "  Change" },
 }
 
-M.actions = {
-	name = "  Actions",
-	a = { Vin.cmds.lsp.code_action, " Code Action" },
-	c = { Vin.cmds.telescope.find_colorscheme, "  Change Colorscheme" },
-	f = { Vin.cmds.lsp.format_file, "  Format File" },
-	t = {
-		function()
-			require("jester").run_file()
-		end,
-		"  Run tests for File",
-	},
-}
-
 M.symbols = {
 	name = " Symbols",
 	d = { Vin.cmds.telescope.find_symbol_with_aerial, " In Document" },
@@ -153,7 +150,7 @@ M.explorer = {
 M.quit = {
 	name = "  Quit",
 	s = { ":silent wq<CR>", "Save and Quit Pane (:wq)" },
-	p = { ":silent BufferLinePickClose<CR>", "Pick Buffer" },
+	-- p = { ":silent BufferLinePickClose<CR>", "Pick Buffer" },
 	c = { Vin.cmds.quit.custom_buffers, "Custom Filter" },
 	q = { Vin.cmds.quit.current_buffer, "Current" },
 	o = { Vin.cmds.quit.other_buffers, "Other" },
@@ -161,6 +158,7 @@ M.quit = {
 	a = { Vin.cmds.quit.all_buffers, "All" },
 }
 
+-- NOTE: Whithout Bufferline this sections has no real value
 M.buffer = {
 	name = "﬘ Buffer",
 	k = { ":bprev<CR>", "Previous Buffer" },
@@ -257,7 +255,7 @@ M.search = {
 	q = { Vin.cmds.telescope.find_in_quickfix, "  Quickfix" },
 	S = { Vin.cmds.telescope.find_spelling, "  Spelling" },
 	b = { Vin.cmds.telescope.find_open_buffer, "﩯 Buffers" },
-	R = { Vin.cmds.telescope.find_oldfiles, "  Recent Files" },
+	h = { Vin.cmds.telescope.find_oldfiles, "  Recent Files (History)" },
 	c = { Vin.cmds.telescope.find_commands, "  Commands" },
 	C = { Vin.cmds.telescope.find_colorscheme, "  Colorscheme" },
 	m = { Vin.cmds.telescope.find_marks, " Marks" },
