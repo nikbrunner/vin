@@ -17,6 +17,7 @@
 
 - [ ] `Lazygit`: Does `Lazygit` work with Git Worktrees?
 - [ ] `packer.nvim`: Checkout lazy Loading for some Plugins
+- [ ] Clipboard / Registry Manager
 
 ### Videos
 
@@ -51,6 +52,13 @@ Checkout, evaluate, implement
 - [ ] [hop.nvim](https://github.com/phaazon/hop.nvim)
 - [ ] [octo.nvim](https://github.com/pwntester/octo.nvim)
 - [ ] [nvim-docker](https://github.com/dgrbrady/nvim-docker)
+
+### Implement
+
+- [ ] [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+- [ ] [mason.nvim](#mason.nvim)
+- [ ] [neo-tree + diagnostics](https://this-week-in-neovim.org/2022/Aug/1#new-neo-tree.nvim)
+  - Could replace Trouble?
 
 ### Adjust
 
