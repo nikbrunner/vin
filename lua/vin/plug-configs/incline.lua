@@ -64,7 +64,7 @@ incline.setup({
 		padding = 2,
 		padding_char = " ",
 		placement = {
-			vertical = "top",
+			vertical = "bottom",
 			horizontal = "right",
 		},
 		width = "fit",
