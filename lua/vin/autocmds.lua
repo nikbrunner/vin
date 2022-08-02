@@ -80,7 +80,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 		-- end
 
 		vim.o.foldmethod = "indent"
-		vim.o.foldlevel = 6
+		vim.o.foldlevel = 8
 	end,
 	group = buf_win_enter_au_group,
 })
