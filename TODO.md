@@ -12,6 +12,7 @@
   - folke/todo: filter with issue id?
 - [ ] Rework / Refactor lsp config
   - [neovim from scratch](https://github.com/LunarVim/Neovim-from-scratch/blob/master/lua/user/lsp/configs.lua)
+- [ ] Folding still seems to be somewhat strange (Some Bindings do not work)
 
 ## Research
 
