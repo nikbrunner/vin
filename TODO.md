@@ -19,6 +19,7 @@
 - [ ] `Lazygit`: Does `Lazygit` work with Git Worktrees?
 - [ ] `packer.nvim`: Checkout lazy Loading for some Plugins
 - [ ] Clipboard / Registry Manager
+- [ ] Pin Plugins via Commit Hash
 
 ### Videos
 
