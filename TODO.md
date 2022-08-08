@@ -12,6 +12,7 @@
   - folke/todo: filter with issue id?
 - [ ] Rework / Refactor lsp config
   - [neovim from scratch](https://github.com/LunarVim/Neovim-from-scratch/blob/master/lua/user/lsp/configs.lua)
+  - [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide/tree/master/lua/user/lsp)
 - [ ] Folding still seems to be somewhat strange (Some Bindings do not work)
 
 ## Research
@@ -39,6 +40,8 @@ Videos which contain valuable Information which I want to check out
 ## Plugins
 
 Checkout, evaluate, implement
+
+- [x] Pin commits in Packer
 
 ### Checkout
 

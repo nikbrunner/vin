@@ -3,15 +3,6 @@ if not colorizer_status_ok then
 	return
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
--- vim.cmd([[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePre plugins.lua lua require("notify").notify("Saved plugins.lua.. Syncing Packages! Standby. ✋", "info", { title = "Packer", icon = "📦" })
---     autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup end
--- ]])
-
 vim.cmd([[
   augroup _general_settings
     autocmd!
@@ -62,7 +53,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "*",
 	callback = function()
-		vim.cmd("ColorizerAttachToBuffer")
+      vim.cmd("ColorizerAttachToBuffer")
 		-- vim.cmd("Gitsigns refresh")
 	end,
 	group = lsp_au_group,
