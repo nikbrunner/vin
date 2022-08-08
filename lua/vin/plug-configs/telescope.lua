@@ -120,12 +120,8 @@ telescope.setup({
 			theme = "ivy",
 			display_type = "full",
 		},
-		aerial = {
-			show_nesting = false,
-		},
 	},
 })
 
 telescope.load_extension("todo-comments")
 telescope.load_extension("projects")
-telescope.load_extension("aerial")

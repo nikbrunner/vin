@@ -220,7 +220,6 @@ Vin.cmds.telescope.find_scss_symbol = function()
 					use_notification(
 						"Looking for mixin definition of '" .. curr_word .. "'"
 					)
-
 				elseif action == Action.ListReferences then
 					use_telescope("@include " .. curr_word)
 					use_notification(
@@ -259,9 +258,9 @@ Vin.cmds.telescope.list_references = function()
 end
 
 -- Find document symbols with aerial
-Vin.cmds.telescope.find_symbol_with_aerial = function()
-	telescope.extensions.aerial.aerial(themes.get_ivy())
-end
+-- Vin.cmds.telescope.find_symbol_with_aerial = function()
+-- 	telescope.extensions.aerial.aerial(themes.get_ivy())
+-- end
 
 Vin.cmds.telescope.find_spelling = function()
 	builtin.spell_suggest(no_preview())

@@ -67,7 +67,6 @@ return packer.startup(function(use) -- My plugins here
 	-- UI Enhancements
 	use({ "kyazdani42/nvim-web-devicons" })
 	use({ "kyazdani42/nvim-tree.lua" })
-	use({ "stevearc/aerial.nvim" })
 	use({ "nvim-lualine/lualine.nvim" })
 	use({ "goolord/alpha-nvim" })
 	use({ "folke/which-key.nvim" })

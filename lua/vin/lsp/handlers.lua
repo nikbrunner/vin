@@ -1,10 +1,3 @@
-local present, aerial = pcall(require, "aerial")
-if not present then
-	return
-end
-
-local aerial_config = require("vin.plug-configs.aerial")
-
 local M = {}
 
 M.setup = function()
@@ -66,9 +59,6 @@ M.on_attach = function(client, bufnr)
 		-- client.resolved_capabilities.document_formatting = false -- 0.7
 		client.server_capabilities.documentFormattingProvider = false -- 0.8
 	end
-
-	aerial.on_attach(client, bufnr)
-	aerial.setup(aerial_config)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

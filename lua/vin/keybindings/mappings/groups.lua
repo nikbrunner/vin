@@ -5,7 +5,7 @@ M.advanced_g = {
 	h = { vim.lsp.buf.hover, "Hover Doc" },
 	l = { Vin.lib.focus_error, "Show Problem" },
 	d = { Vin.cmds.telescope.go_to_definition, "Go to Definition" },
-	s = { Vin.cmds.telescope.find_symbol_with_aerial, "Go to Symbol" },
+	-- s = { Vin.cmds.telescope.find_symbol_with_aerial, "Go to Symbol" },
 	i = { vim.lsp.buf.implementation, "Go to Implementation" },
 	r = { ":Trouble lsp_references<CR>", "List References" },
 	R = { Vin.cmds.telescope.list_references, "List References with Telescope" },
@@ -100,7 +100,7 @@ M.go_next = {
 
 M.symbols = {
 	name = " Symbols",
-	d = { Vin.cmds.telescope.find_symbol_with_aerial, " In Document" },
+	-- d = { Vin.cmds.telescope.find_symbol_with_aerial, " In Document" },
 	w = { Vin.cmds.telescope.find_symbols_in_workspace, " In Workspace" },
 }
 

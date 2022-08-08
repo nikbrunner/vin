@@ -135,7 +135,7 @@ M.with_leader = {
 	[";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
 
 	e = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
-	o = { "<cmd>AerialToggle<CR>", "  Symbol Tree" },
+	-- o = { "<cmd>AerialToggle<CR>", "  Symbol Tree" },
 	f = { Vin.cmds.telescope.find_files_without_preview, "  Find File" },
 	F = {
 		Vin.cmds.telescope.find_files_with_preview,
