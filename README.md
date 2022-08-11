@@ -136,3 +136,4 @@ Run: `$ fc-cache -f -v`
 - [cseickel/dotfiles](https://github.com/cseickel/dotfiles/blob/main/config/nvim/lua/status.lua)
 - [ahmedelgabri/dotfiles](https://github.com/ahmedelgabri/dotfiles/blob/c2e2e3718e769020f1468048e33e60ad8a97edfc/config/.vim/lua/_/lsp.lua#L329-L378)
 - [glepnir/nvim](https://github.com/glepnir/nvim)
+- [craftzdog](https://github.com/craftzdog/dotfiles-public/tree/master/.config/nvim)

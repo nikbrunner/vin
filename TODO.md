@@ -28,6 +28,7 @@ Videos which contain valuable Information which I want to check out
 
 - [ ] [Chris@Machine: Creating an unbreakable nvim config](https://www.youtube.com/watch?v=Vghglz2oR0c)
 - [ ] [Primeagean: Your VimRC2022](https://www.youtube.com/watch?v=x2QJYq4IX6M)
+- [ ] [](https://www.youtube.com/watch?v=ajmK0ZNcM4Q)
 
 ## Languages
 
