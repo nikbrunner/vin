@@ -69,6 +69,11 @@ return packer.startup(function(use) -- My plugins here
 	})
 
 	use({
+		"MunifTanjim/nui.nvim",
+		commit = "a5fd005263d238d2fbd6ee335e06139645f11fa9",
+	})
+
+	use({
 		"lewis6991/impatient.nvim",
 		commit = "4ccbe749ce439fa25d387d459e8c339131cc5d1f",
 	})
@@ -216,13 +221,13 @@ return packer.startup(function(use) -- My plugins here
 	})
 
 	-- Colorschemes
-	use({ -- my theme :)
-		"terra-theme/nvim",
-		commit = "16f6c24be96c2d26214dc01d9e166d8e150dffdc",
-	})
+	-- use({ -- my theme :)
+	-- 	"terra-theme/nvim",
+	-- 	commit = "16f6c24be96c2d26214dc01d9e166d8e150dffdc",
+	-- })
 
 	-- Local Development
-	-- use({ "~/Documents/dev/repos/personal/terra-theme/nvim" })
+	use({ "~/Documents/dev/repos/personal/terra-theme/nvim" })
 
 	use({
 		"rmehri01/onenord.nvim",
