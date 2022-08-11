@@ -53,13 +53,13 @@ end
 Vin.cmds.git.hunk_go_prev = function()
 	gitsigns.prev_hunk()
 	Vin.lib.center_line_vertical()
-	Vin.cmds.git.hunk_preview()
+	-- Vin.cmds.git.hunk_preview()
 end
 
 Vin.cmds.git.hunk_go_next = function()
 	gitsigns.next_hunk()
 	Vin.lib.center_line_vertical()
-	Vin.cmds.git.hunk_preview()
+	-- Vin.cmds.git.hunk_preview()
 end
 
 Vin.cmds.git.hunk_stage = function()
