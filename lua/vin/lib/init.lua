@@ -193,9 +193,7 @@ Vin.lib.focus_error = function()
 	-- center view on error
 	Vin.lib.center_line_vertical()
 
-	-- show diag window
-	vim.cmd([[DiagWindowShow]])
-	-- vim.diagnostic.open_float()
+	vim.diagnostic.open_float()
 
 	-- refocus original window
 	vim.api.nvim_set_current_win(current_win)

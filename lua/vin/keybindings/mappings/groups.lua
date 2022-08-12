@@ -2,19 +2,31 @@ local M = {}
 
 M.advanced_g = {
 	name = " Go-To",
-	h = { vim.lsp.buf.hover, "Hover Doc" },
-	l = { Vin.lib.focus_error, "Show Problem" },
-	d = { Vin.cmds.telescope.go_to_definition, "Go to Definition" },
+
+	-- h = { vim.lsp.buf.hover, "Hover Doc" },
+	-- l = { Vin.lib.focus_error, "Show Problem" },
 	-- s = { Vin.cmds.telescope.find_symbol_with_aerial, "Go to Symbol" },
-	i = { vim.lsp.buf.implementation, "Go to Implementation" },
-	r = { ":Trouble lsp_references<CR>", "List References" },
-	R = { Vin.cmds.telescope.list_references, "List References with Telescope" },
-	y = { ":Telescope lsp_type_definitions<CR>", "Type Defintions" },
+	-- r = { ":Trouble lsp_references<CR>", "List References" },
+	-- i = { vim.lsp.buf.implementation, "Go to Implementation" },
+
+	h = { "<cmd>Lspsaga hover_doc<CR>", "Hover Doc" },
+	s = { "<cmd>Lspsaga signature_help<CR>", "Hover Doc" },
+	l = { "<cmd>Lspsaga show_line_diagnostics<CR>", "Show Problem" },
+	d = { Vin.cmds.telescope.go_to_definition, "Go to Definition" },
+	D = { "<cmd>Lspsaga preview_definition<CR>", "Go to Definition" },
+	i = { "<cmd>Lspsaga implement<CR>", "Go to Implementation" },
+	r = { "<cmd>Lspsaga lsp_finder<CR>", "List References" },
+	-- R = { "<cmd>Trouble lsp_references<CR>", "List References w/ Trouble" },
+	y = { "<cmd>Telescope lsp_type_definitions<CR>", "Type Defintions" },
 }
 
 M.actions = {
 	name = "  Actions",
-	a = { Vin.cmds.lsp.code_action, "  Code Action" },
+
+	-- a = { Vin.cmds.lsp.code_action, "  Code Action" },
+
+	a = { "<cmd>Lspsaga code_action", "  Code Action" },
+	A = { "<cmd>Lspsaga range_code_action", "  Range Code Action" },
 	c = { Vin.cmds.telescope.find_colorscheme, "  Change Colorscheme" },
 	f = { Vin.cmds.lsp.format_file, "  Format File" },
 	m = { "<cmd>MarkdownPreview github<CR>", "  Preview Markdown" },
@@ -57,8 +69,10 @@ M.go_prev = {
 	},
 	e = {
 		function()
-			vim.diagnostic.goto_prev()
+			-- vim.diagnostic.goto_prev()
 			-- Vin.lib.focus_error()
+
+			vim.cmd("Lspsaga diagnostic_jump_next")
 		end,
 		" Prev Diagnostic",
 	},
@@ -90,8 +104,10 @@ M.go_next = {
 	},
 	e = {
 		function()
-			vim.diagnostic.goto_next()
+			-- vim.diagnostic.goto_next()
 			-- Vin.lib.focus_error()
+
+			vim.cmd("Lspsaga diagnostic_jump_next")
 		end,
 		"  Diagnostic",
 	},
@@ -120,21 +136,33 @@ M.lsp = {
 		end,
 		" Next Diagnostic",
 	},
-	a = { Vin.cmds.lsp.code_action, "Code Action" },
+
+	-- a = { Vin.cmds.lsp.code_action, "Code Action" },
+	-- n = { Vin.cmds.lsp.rename, "Rename" },
+	-- r = { Vin.cmds.telescope.list_references, "List References w/ Fuzzy" },
+
+	a = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
+	n = { "<cmd>Lspsaga rename<CR>", "Rename" },
+	r = { "<cmd>Lspsaga lsp_finder<CR>", "List References w/ Fuzzy" },
+	-- R = { ":Trouble lsp_references<CR>", "List References w/ Trouble" },
+	R = { Vin.cmds.telescope.list_references, "List References w/ Fuzzy" },
+
+	A = { "<cmd>Lspsaga range_code_action", "  Range Code Action" },
+
 	d = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
-	t = { Vin.cmds.lsp_lines.toggle, "Toggle Virtual Lsp Lines" },
 	f = { Vin.cmds.lsp.format_file, "Format" },
+
 	i = { "<cmd>LspInfo<CR>", "Info" },
 	I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
-	n = { Vin.cmds.lsp.rename, "Rename" },
-	l = { vim.lsp.codelens.run, "CodeLens Action" },
+
+	y = { "<cmd>Telescope lsp_type_definitions<CR>", "Type Definitions" },
+
+	-- p = { "<cmd>Trouble document_diagnostics<CR>", "Trouble Document Diagnostics" },
+	-- P = {
+	-- 	"<cmd>Trouble workspace_diagnostics<CR>",
+	-- 	"Trouble Workspace Diagnostics",
+	-- },
 	s = M.symbols,
-	r = { Vin.cmds.telescope.list_references, "List References w/ Fuzzy" },
-	R = { ":Trouble lsp_references<CR>", "List References w/ Trouble" },
-	y = { ":Telescope lsp_type_definitions<CR>", "Type Definitions" },
-	h = { vim.diagnostic.open_float, "Hover Problem" },
-	p = { "<cmd>Trouble document_diagnostics<CR>", "Trouble" },
-	P = { "<cmd>Trouble workspace_diagnostics<CR>", "Trouble" },
 }
 
 -- Currently not used

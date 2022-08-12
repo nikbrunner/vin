@@ -69,11 +69,6 @@ return packer.startup(function(use) -- My plugins here
 	})
 
 	use({
-		"MunifTanjim/nui.nvim",
-		commit = "a5fd005263d238d2fbd6ee335e06139645f11fa9",
-	})
-
-	use({
 		"lewis6991/impatient.nvim",
 		commit = "4ccbe749ce439fa25d387d459e8c339131cc5d1f",
 	})
@@ -114,6 +109,12 @@ return packer.startup(function(use) -- My plugins here
 		commit = "492492e7d50452a9ace8346d31f6d6da40439f0e",
 	})
 
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		commit = "86512e752606ed3f1a1767fc735cca34bdbdd412",
+	})
+
 	use({ -- Lua Development
 		"folke/lua-dev.nvim",
 		commit = "f5c31936fe06fcbeb59b98f69f74f9c2f91abaec",
@@ -122,17 +123,6 @@ return packer.startup(function(use) -- My plugins here
 	use({ -- Lua Repl
 		"rafcamlet/nvim-luapad",
 		commit = "9815e2659ce8e2ef4b55e401531cf09b6423e0ea",
-	})
-
-	use({ -- Error displays
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-		commit = "da61737d860ddc12f78e638152834487eabf0ee5",
-	})
-
-	use({ -- Aligned lsp error messages
-		"Maan2003/lsp_lines.nvim",
-		commit = "3b57922d2d79762e6baedaf9d66d8ba71f822816",
 	})
 
 	-- UI Enhancements
@@ -165,12 +155,6 @@ return packer.startup(function(use) -- My plugins here
 	use({ -- Style up basic neovim components
 		"stevearc/dressing.nvim",
 		commit = "d886a1bb0b43a81af58e0331fedbe8b02ac414fa",
-	})
-
-	use({ -- Dedicated error window
-		"cseickel/diagnostic-window.nvim",
-		requires = { "MunifTanjim/nui.nvim" },
-		commit = "2b4d9618382502740c7945c4023853ee524adc4c",
 	})
 
 	-- Completion
@@ -230,11 +214,6 @@ return packer.startup(function(use) -- My plugins here
 	use({ "~/Documents/dev/repos/personal/terra-theme/nvim" })
 
 	use({
-		"rmehri01/onenord.nvim",
-		commit = "c2021ba34aecd8027437dadd27edf9fc949c9aa8",
-	})
-
-	use({
 		"projekt0n/github-nvim-theme",
 		commit = "b3f15193d1733cc4e9c9fe65fbfec329af4bdc2a",
 	})
@@ -292,6 +271,7 @@ return packer.startup(function(use) -- My plugins here
 
 	-- Workflow
 	use({ -- This is needed to fix lsp doc highlight
+		-- QUESTION: Is this still needed?
 		"antoinemadec/FixCursorHold.nvim",
 		commit = "5aa5ff18da3cdc306bb724cf1a138533768c9f5e",
 	})
@@ -304,12 +284,6 @@ return packer.startup(function(use) -- My plugins here
 	use({ -- Easily comment stuff
 		"numToStr/Comment.nvim",
 		commit = "fe9bbdbcd2f1b85cc8fccead68122873d94f8397",
-	})
-
-	use({ -- Indent Outline
-		"lukas-reineke/indent-blankline.nvim",
-		commit = "c15bbe9f23d88b5c0b4ca45a446e01a0a3913707",
-		disable = true,
 	})
 
 	use({
@@ -381,25 +355,8 @@ return packer.startup(function(use) -- My plugins here
 	})
 
 	use({
-		"SmiteshP/nvim-gps",
-		requires = "nvim-treesitter/nvim-treesitter",
-		commit = "f4734dff6fc2f33b5fd13412e56c4fce06650a74",
-	})
-
-	use({
-		"chentoast/marks.nvim",
-		commit = "b27cbb78e9082229590b396d3ae4fe07f1aeafe0",
-	})
-
-	use({
 		"windwp/nvim-ts-autotag",
 		commit = "044a05c4c51051326900a53ba98fddacd15fea22",
-	})
-
-	use({
-		"akinsho/toggleterm.nvim",
-		branch = "main",
-		commit = "dfce846c609b83feef3786930c5bd7e4bad851ac",
 	})
 
 	use({
@@ -429,11 +386,6 @@ return packer.startup(function(use) -- My plugins here
 	use({
 		"nanozuki/tabby.nvim",
 		commit = "c473f1ac3db262605b716afcb570f46f27fe8eb3",
-	})
-
-	use({
-		"b0o/incline.nvim",
-		commit = "44d4e6f4dcf2f98cf7b62a14e3c10749fc5c6e35",
 	})
 
 	use({

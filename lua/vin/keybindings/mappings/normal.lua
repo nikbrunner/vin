@@ -3,6 +3,8 @@ if not gitsigns_status_ok then
 	return
 end
 
+local hop_ok, hop = pcall(require, "hop")
+
 local groups = require("vin.keybindings.mappings.groups")
 
 local M = {}
@@ -22,7 +24,7 @@ M.no_leader = {
 
 	f = {
 		function()
-			require("hop").hint_char1({
+			hop.hint_char1({
 				direction = require("hop.hint").HintDirection.AFTER_CURSOR,
 				current_line_only = true,
 			})
@@ -31,7 +33,7 @@ M.no_leader = {
 	},
 	F = {
 		function()
-			require("hop").hint_char1({
+			hop.hint_char1({
 				direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
 				current_line_only = true,
 			})
@@ -40,7 +42,7 @@ M.no_leader = {
 	},
 	t = {
 		function()
-			require("hop").hint_char1({
+			hop.hint_char1({
 				direction = require("hop.hint").HintDirection.AFTER_CURSOR,
 				current_line_only = true,
 				hint_offset = -1,
@@ -50,7 +52,7 @@ M.no_leader = {
 	},
 	T = {
 		function()
-			require("hop").hint_char1({
+			hop.hint_char1({
 				direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
 				current_line_only = true,
 				hint_offset = 1,
@@ -89,12 +91,10 @@ M.no_leader = {
 	["<C-p>"] = { Vin.cmds.telescope.find_files_without_preview, "  Files" },
 
 	["<C-/>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
-	["<C-g>"] = { Vin.cmds.term.lazygit, "Find modified files" },
 
 	["<F6>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
 	["<F7>"] = { "<cmd>TodoTrouble<CR>", "Todo Quick Fix" },
-	["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
-	["<F9>"] = { "<cmd>DiagWindowShow<CR>", "Diagnose Window Show" },
+	-- ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
 
 	-- Better window navigation
 	["<C-h>"] = { "<C-w>h", "Focus Left" },
@@ -135,7 +135,7 @@ M.with_leader = {
 	[";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
 
 	e = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
-	-- o = { "<cmd>AerialToggle<CR>", "  Symbol Tree" },
+	o = { "<cmd>LSoutlineToggle<CR>", "  Symbol Tree" },
 	f = { Vin.cmds.telescope.find_files_without_preview, "  Find File" },
 	F = {
 		Vin.cmds.telescope.find_files_with_preview,
