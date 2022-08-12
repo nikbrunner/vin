@@ -42,6 +42,11 @@ fidget.setup({
 			)
 		end,
 	},
+	sources = {
+		["null-ls"] = {
+			ignore = true,
+		},
+	},
 	debug = {
 		logging = true, -- whether to enable logging, for debugging
 	},
