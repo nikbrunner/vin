@@ -201,13 +201,6 @@ return packer.startup(function(use) -- My plugins here
 	})
 
 	use({
-		-- INFO: cmdline completions
-		-- TODO: Remove
-		"hrsh7th/cmp-cmdline",
-		commit = "9c0e331fe78cab7ede1c051c065ee2fc3cf9432e",
-	})
-
-	use({
 		-- INFO: snippet completions
 		-- TODO: Remove I probably won't need this
 		"saadparwaiz1/cmp_luasnip",
