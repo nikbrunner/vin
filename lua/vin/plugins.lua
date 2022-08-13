@@ -295,14 +295,6 @@ return packer.startup(function(use) -- My plugins here
 		commit = "a45163cb9ee65742cf26b940c2b24cc652f295c9",
 	})
 
-	-- Workflow
-	use({ -- This is needed to fix lsp doc highlight
-		-- QUESTION: Is this still needed?
-		-- TODO: Check if need and remove
-		"antoinemadec/FixCursorHold.nvim",
-		commit = "5aa5ff18da3cdc306bb724cf1a138533768c9f5e",
-	})
-
 	use({
 		-- INFO: Autopairs for Brackets, integrates with both cmp and treesitter
 		"windwp/nvim-autopairs",
