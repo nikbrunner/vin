@@ -1,72 +1,65 @@
 local options = {
-	backup = false, -- creates a backup file
-	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
-	cmdheight = 1, -- more space in the neovim command line for displaying messages
-	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-	conceallevel = 0, -- so that `` is visible in markdown files
+	encoding = "utf-8", -- the encoding written to a file
 	fileencoding = "utf-8", -- the encoding written to a file
-	hlsearch = true, -- highlight all matches on previous search pattern
-	ignorecase = true, -- ignore case in search patterns
-	autoread = true,
-	mouse = "a", -- allow the mouse to be used in neovim
+
+	spelllang = "en,de",
+
+	guifont = "JetBrains Mono:h16", -- the font used in graphical neovim applications,
+	termguicolors = true, -- set term gui colors (most terminals support this)
+
+	sessionoptions = "blank,buffers,curdir,tabpages,winsize",
+
+	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+
+	backup = false, -- creates a backup file
+	undofile = true, -- enable persistent undo
+	writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+	swapfile = false, -- creates a swapfile
 	ruler = false, -- don't show the ruler
+
+	mouse = "a", -- allow the mouse to be used in neovim
+
+	timeoutlen = 0, -- time to wait for a mapped sequence to complete (in milliseconds)
+	updatetime = 100, -- faster completion (4000ms default)
+
+	cmdheight = 1, -- more space in the neovim command line for displaying messages
+	pumheight = 20, -- pop up menu height
 	showcmd = false, -- don't show the commands
-	pumheight = 10, -- pop up menu height
 	showmode = false, -- we don't need to see things like -- INSERT -- anymore
+	laststatus = 3, -- Enable global status Line
 	showtabline = 2, -- always show tabs
-	smartcase = true, -- smart case
-	smartindent = true, -- make indenting smarter again
-	autoindent = true,
+	conceallevel = 0, -- so that `` is visible in markdown files
+
+	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
+
+	scrolloff = 12,
+	sidescrolloff = 8,
 	splitbelow = true, -- force all horizontal splits to go below current window
 	splitright = true, -- force all vertical splits to go to the right of current window
-	swapfile = false, -- creates a swapfile
-	termguicolors = true, -- set term gui colors (most terminals support this)
-	timeoutlen = 0, -- time to wait for a mapped sequence to complete (in milliseconds)
-	undofile = true, -- enable persistent undo
-	updatetime = 100, -- faster completion (4000ms default)
-	writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-	expandtab = true, -- convert tabs to spaces
-	shiftwidth = 4, -- the number of spaces inserted for each indentation
-	tabstop = 4, -- insert 2 spaces for a tab
+	hlsearch = true, -- highlight all matches on previous search pattern
+	wrap = false, -- display lines as one long line
 	cursorline = true, -- highlight the current line
 	number = true, -- set numbered lines
 	relativenumber = true, -- set relative numbered lines
 	numberwidth = 4, -- set number column width to 2 {default 4}
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
-	wrap = false, -- display lines as one long line
-	scrolloff = 12, -- is one of my fav
-	sidescrolloff = 8,
-	guifont = "JetBrains Mono:h16", -- the font used in graphical neovim applications,
-	laststatus = 3, -- Enable global status Line,
-	spelllang = "en,de",
-	sessionoptions = "blank,buffers,curdir,tabpages,winsize",
+
+	autoread = true,
+
+	shiftwidth = 4, -- the number of spaces inserted for each indentation
+	tabstop = 4, -- insert 2 spaces for a tab
+	expandtab = true, -- convert tabs to spaces
+	smartcase = true, -- smart case
+	ignorecase = true, -- ignore case in search patterns
+	smartindent = true, -- make indenting smarter again
+	autoindent = true,
+
 	foldmethod = "indent",
 	foldlevel = 8,
 }
-
-vim.opt.shortmess:append("c")
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
-vim.cmd("set whichwrap+=<,>,[,],h,l")
-vim.cmd([[set iskeyword+=-]])
-vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
-
--- hide vertical borders
--- TODO Set via vim.wo.fillchars="eob: "
-
--- vim.cmd([[set fillchars+=vert:\ ]])
--- vim.cmd([[ set fillchars+=vert:\▕]])
-
--- vim.cmd([[ set fillchars+=stl:\▕]])
--- vim.cmd([[ set fillchars+=stlnc:\▕]])
-
--- vim.cmd([[set fillchars+=stl:\ ]])
--- vim.cmd([[set fillchars+=stlnc:\ ]])
-
-vim.cmd([[set fillchars=eob:\ ]])
-
-vim.cmd([[set shortmess+=FI]])
-vim.cmd([[set noshowcmd]])
+vim.wo.fillchars = "eob: "
