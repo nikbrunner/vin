@@ -390,10 +390,15 @@ return packer.startup(function(use) -- My plugins here
 
 	use({
 		-- INFO: Display all todos in a pretty way
-		-- TODO: Fix
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		commit = "98b1ebf198836bdc226c0562b9f906584e6c400e",
+	})
+
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		commit = "da61737d860ddc12f78e638152834487eabf0ee5",
 	})
 
 	use({

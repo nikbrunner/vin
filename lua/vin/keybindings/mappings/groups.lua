@@ -8,6 +8,7 @@ M.advanced_g = {
 	-- s = { Vin.cmds.telescope.find_symbol_with_aerial, "Go to Symbol" },
 	-- r = { ":Trouble lsp_references<CR>", "List References" },
 	-- i = { vim.lsp.buf.implementation, "Go to Implementation" },
+	-- R = { "<cmd>Trouble lsp_references<CR>", "List References w/ Trouble" },
 
 	h = { "<cmd>Lspsaga hover_doc<CR>", "Hover Doc" },
 	s = { "<cmd>Lspsaga signature_help<CR>", "Hover Doc" },
@@ -16,7 +17,6 @@ M.advanced_g = {
 	D = { "<cmd>Lspsaga preview_definition<CR>", "Go to Definition" },
 	i = { "<cmd>Lspsaga implement<CR>", "Go to Implementation" },
 	r = { "<cmd>Lspsaga lsp_finder<CR>", "List References" },
-	-- R = { "<cmd>Trouble lsp_references<CR>", "List References w/ Trouble" },
 	y = { "<cmd>Telescope lsp_type_definitions<CR>", "Type Defintions" },
 }
 
@@ -140,11 +140,11 @@ M.lsp = {
 	-- a = { Vin.cmds.lsp.code_action, "Code Action" },
 	-- n = { Vin.cmds.lsp.rename, "Rename" },
 	-- r = { Vin.cmds.telescope.list_references, "List References w/ Fuzzy" },
+	-- R = { ":Trouble lsp_references<CR>", "List References w/ Trouble" },
 
 	a = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
 	n = { "<cmd>Lspsaga rename<CR>", "Rename" },
 	r = { "<cmd>Lspsaga lsp_finder<CR>", "List References w/ Fuzzy" },
-	-- R = { ":Trouble lsp_references<CR>", "List References w/ Trouble" },
 	R = { Vin.cmds.telescope.list_references, "List References w/ Fuzzy" },
 
 	A = { "<cmd>Lspsaga range_code_action", "  Range Code Action" },
@@ -157,11 +157,11 @@ M.lsp = {
 
 	y = { "<cmd>Telescope lsp_type_definitions<CR>", "Type Definitions" },
 
-	-- p = { "<cmd>Trouble document_diagnostics<CR>", "Trouble Document Diagnostics" },
-	-- P = {
-	-- 	"<cmd>Trouble workspace_diagnostics<CR>",
-	-- 	"Trouble Workspace Diagnostics",
-	-- },
+	p = { "<cmd>Trouble document_diagnostics<CR>", "Trouble Document Diagnostics" },
+	P = {
+		"<cmd>Trouble workspace_diagnostics<CR>",
+		"Trouble Workspace Diagnostics",
+	},
 	s = M.symbols,
 }
 

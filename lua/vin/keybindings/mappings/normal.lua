@@ -94,7 +94,7 @@ M.no_leader = {
 
 	["<F6>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
 	["<F7>"] = { "<cmd>TodoTrouble<CR>", "Todo Quick Fix" },
-	-- ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
+	["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
 
 	-- Better window navigation
 	["<C-h>"] = { "<C-w>h", "Focus Left" },
