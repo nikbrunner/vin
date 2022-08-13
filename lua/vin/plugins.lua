@@ -409,12 +409,6 @@ return packer.startup(function(use) -- My plugins here
 	})
 
 	use({
-		-- TODO: Replace with Bufferline
-		"nanozuki/tabby.nvim",
-		commit = "c473f1ac3db262605b716afcb570f46f27fe8eb3",
-	})
-
-	use({
 		-- INFO: Preview Markdown Files
 		-- TODO: Replace with https://github.com/iamcco/markdown-preview.nvim
 		"davidgranstrom/nvim-markdown-preview",
