@@ -40,6 +40,8 @@ local options = {
 	laststatus = 3, -- Enable global status Line,
 	spelllang = "en,de",
 	sessionoptions = "blank,buffers,curdir,tabpages,winsize",
+	foldmethod = "indent",
+	foldlevel = 8,
 }
 
 vim.opt.shortmess:append("c")
