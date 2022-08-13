@@ -18,13 +18,14 @@ nvim_tree.setup({
 	-- 	enable = true,
 	-- 	auto_open = true,
 	-- },
-	-- open_on_setup = false,
-	-- open_on_setup_file = true,
-	-- open_on_tab = true,
+	open_on_setup = false,
+	open_on_setup_file = false,
+	open_on_tab = false,
 	ignore_ft_on_setup = {
 		"startify",
 		"dashboard",
 		"alpha",
+		"help",
 	},
 	filters = {
 		dotfiles = false,
@@ -34,7 +35,7 @@ nvim_tree.setup({
 	-- update_cwd = false,
 	-- prefer_startup_root = true,
 	-- sync_root_with_cwd = false,
-	-- reload_on_bufenter = true,
+	-- reload_on_bufenter = false,
 	-- respect_buf_cwd = false,
 	renderer = {
 		add_trailing = false,
