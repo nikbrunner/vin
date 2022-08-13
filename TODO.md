@@ -58,6 +58,7 @@ Checkout, evaluate, implement
 - [ ] [hop.nvim](https://github.com/phaazon/hop.nvim)
 - [ ] [octo.nvim](https://github.com/pwntester/octo.nvim)
 - [ ] [nvim-docker](https://github.com/dgrbrady/nvim-docker)
+- [ ] [telescope-filebrowser](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 
 ### Implement
 

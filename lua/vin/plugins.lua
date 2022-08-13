@@ -17,14 +17,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.cmd([[packadd packer.nvim]])
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -52,218 +44,260 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use) -- My plugins here
-	use({ -- Have packer manage itself
+	use({
+		-- INFO: Have packer manage itself
 		"wbthomason/packer.nvim",
 		commit = "afab89594f4f702dc3368769c95b782dbdaeaf0a",
 	})
 
 	-- Libs for Utility and general Improvements
-	use({ -- An implementation of the Popup API from vim in Neovim
+	use({
+		-- INFO: An implementation of the Popup API from vim in Neovim
+		-- TODO: Check if needed
 		"nvim-lua/popup.nvim",
 		commit = "b7404d35d5d3548a82149238289fa71f7f6de4ac",
 	})
 
-	use({ -- Useful lua functions used ny lots of plugins
+	use({
+		-- INFO: Useful lua functions used ny lots of plugins
 		"nvim-lua/plenary.nvim",
 		commit = "31807eef4ed574854b8a53ae40ea3292033a78ea",
 	})
 
 	use({
+		-- INFO: Stay
 		"lewis6991/impatient.nvim",
 		commit = "4ccbe749ce439fa25d387d459e8c339131cc5d1f",
 	})
 
-	use({ -- color Pigments of color codes
+	use({
+		-- INFO: color Pigments of color codes
 		"norcalli/nvim-colorizer.lua",
 		commit = "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6",
 	})
 
 	-- LSP
-	use({ -- enable LSP
+	use({
+		-- INFO: Configs for native LSP
 		"neovim/nvim-lspconfig",
 		commit = "a78831f97564b4344953ce1ba0f53fc5d034472d",
 	})
 
-	use({ -- simple to use language server installer
+	use({
+		-- INFO: VSCode Like Pictograms for LSP Iitems
+		-- TODO: Own RC File
+		"onsails/lspkind-nvim",
+		commmit = "57e5b5dfbe991151b07d272a06e365a77cc3d0e7",
+	})
+
+	use({
+		-- INFO: simple to use language server installer
+		-- TODO: Replace with mason.nvim
 		"williamboman/nvim-lsp-installer",
 		commit = "d6f873754b7a5f50d4c70f76de1d7e8ea009bf56",
 	})
 
-	use({ -- language server settings defined in json
+	use({
+		-- INFO: language server settings defined in json
 		"tamago324/nlsp-settings.nvim",
 		commit = "1de2ad10b78e229c03106b38c954dd266bc49d42",
 	})
 
-	use({ -- for formatters and linters
+	use({
+		-- INFO: for formatters and linters
 		"jose-elias-alvarez/null-ls.nvim",
 		commit = "5b745e5fa2a18a2c0df8966080f4321fad4f42d7",
 	})
 
-	use({ --for parameter hints
+	use({
+		-- INFO: for parameter hints
+		-- TODO: Check if needed
 		"ray-x/lsp_signature.nvim",
 		commit = "4665921ff8e30601c7c1328625b3abc1427a6143",
 	})
 
-	use({ -- for LSP progress
+	use({
+		-- INFO: for LSP progress
 		"j-hui/fidget.nvim",
 		commit = "492492e7d50452a9ace8346d31f6d6da40439f0e",
 	})
 
 	use({
+		-- INFO: Tool Package for LSP
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 		commit = "86512e752606ed3f1a1767fc735cca34bdbdd412",
 	})
 
-	use({ -- Lua Development
+	use({
+		-- INFO: Lua Development
+		-- TODO: Check if needed
 		"folke/lua-dev.nvim",
 		commit = "f5c31936fe06fcbeb59b98f69f74f9c2f91abaec",
 	})
 
-	use({ -- Lua Repl
-		"rafcamlet/nvim-luapad",
-		commit = "9815e2659ce8e2ef4b55e401531cf09b6423e0ea",
+	-- UI Enhancements
+	use({
+		-- INFO: Style up basic neovim components
+		"stevearc/dressing.nvim",
+		commit = "d886a1bb0b43a81af58e0331fedbe8b02ac414fa",
 	})
 
-	-- UI Enhancements
-	use({ -- Pretty Icons
+	use({
+		-- INFO: Pretty Icons
 		"kyazdani42/nvim-web-devicons",
 		commit = "2d02a56189e2bde11edd4712fea16f08a6656944",
 	})
 
-	use({ -- File Tree
+	use({
+		-- INFO: File Tree
 		"kyazdani42/nvim-tree.lua",
 		requires = "kyazdani42/nvim-web-devicons",
 		commit = "261a5c380c000e23c4a23dcd55b984c856cdb113",
 	})
 
-	use({ -- Status Line
+	use({
+		-- INFO: Status Line
 		"nvim-lualine/lualine.nvim",
 		commit = "03bcf015d1131b64e13e97344e8f456f2af4e60d",
 	})
 
-	use({ -- Starting screen
+	use({
+		-- INFO: Starting screen
+		-- TODO: Check if needed
 		"goolord/alpha-nvim",
 		commit = "d688f46090a582be8f9d7b70b4cf999b780e993d",
 	})
 
-	use({ -- Organizied Mappings
+	use({
+		-- INFO: Organizied Mappings
 		"folke/which-key.nvim",
 		commit = "bd4411a2ed4dd8bb69c125e339d837028a6eea71",
 	})
 
-	use({ -- Style up basic neovim components
-		"stevearc/dressing.nvim",
-		commit = "d886a1bb0b43a81af58e0331fedbe8b02ac414fa",
-	})
-
 	-- Completion
-	use({ -- The completion plugin
+	use({
+		-- INFO: The completion engine
 		"hrsh7th/nvim-cmp",
 		commit = "706371f1300e7c0acb98b346f80dad2dd9b5f679",
 	})
 
-	use({ -- buffer completions
-		"hrsh7th/cmp-buffer",
-		commit = "62fc67a2b0205136bc3e312664624ba2ab4a9323",
-	})
-
-	use({ -- path completions
-		"hrsh7th/cmp-path",
-		commit = "447c87cdd6e6d6a1d2488b1d43108bfa217f56e1",
-	})
-
-	use({ -- cmdline completions
-		"hrsh7th/cmp-cmdline",
-		commit = "9c0e331fe78cab7ede1c051c065ee2fc3cf9432e",
-	})
-
-	use({ -- snippet completions
-		"saadparwaiz1/cmp_luasnip",
-		commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36",
-	})
-
-	use({ -- lsp completion
+	use({
+		-- INFO: Completion for LSP items
 		"hrsh7th/cmp-nvim-lsp",
 		commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8",
 	})
 
-	use({ -- Cmp Symbols
-		"onsails/lspkind-nvim",
-		commmit = "57e5b5dfbe991151b07d272a06e365a77cc3d0e7",
+	use({
+		-- INFO: Completions for words in Buffer
+		"hrsh7th/cmp-buffer",
+		commit = "62fc67a2b0205136bc3e312664624ba2ab4a9323",
+	})
+
+	use({
+		-- INFO: Completions for Path
+		"hrsh7th/cmp-path",
+		commit = "447c87cdd6e6d6a1d2488b1d43108bfa217f56e1",
+	})
+
+	use({
+		-- INFO: cmdline completions
+		-- TODO: Remove
+		"hrsh7th/cmp-cmdline",
+		commit = "9c0e331fe78cab7ede1c051c065ee2fc3cf9432e",
+	})
+
+	use({
+		-- INFO: snippet completions
+		-- TODO: Remove I probably won't need this
+		"saadparwaiz1/cmp_luasnip",
+		commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36",
 	})
 
 	-- snippets
-	use({ --snippet engine
+	use({
+		-- INFO: Snippet Engine. This is indirectly needed for CMP
 		"L3MON4D3/LuaSnip",
 		commit = "c599c560ed26f04f5bdb7e4498b632dc16fb9209",
 	})
 
-	use({ -- a bunch of snippets to use
+	use({
+		-- INFO: a bunch of snippets to use
+		-- TODO: Remove
 		"rafamadriz/friendly-snippets",
 		commit = "7339def34e46237eb7c9a893cb7d42dcb90e05e6",
 	})
 
-	-- Colorschemes
-	-- use({ -- my theme :)
-	-- 	"terra-theme/nvim",
-	-- 	commit = "16f6c24be96c2d26214dc01d9e166d8e150dffdc",
-	-- })
-
-	-- Local Development
-	use({ "~/Documents/dev/repos/personal/terra-theme/nvim" })
+	-- INFO: Colorschemes
+	use({
+		-- INFO: My Theme :)
+		"~/Documents/dev/repos/personal/terra-theme/nvim",
+		-- 	"terra-theme/nvim",
+		-- 	commit = "16f6c24be96c2d26214dc01d9e166d8e150dffdc",
+	})
 
 	use({
+		-- INFO: GitHub Theme
 		"projekt0n/github-nvim-theme",
 		commit = "b3f15193d1733cc4e9c9fe65fbfec329af4bdc2a",
 	})
 
-	-- Fuzzy finding
+	-- INFO: Fuzzy finding
 	use({
+		-- INFO: Flexible fuzzy finder
 		"nvim-telescope/telescope.nvim",
 		commit = "4725867ec66b9a0f5e5ad95a1fd94c2f97fa2d2c",
 	})
 
 	use({
+		-- INFO: Extension to search through GitHub related files
+		-- TODO: Fix my own implementation
 		"nvim-telescope/telescope-github.nvim",
 		commit = "ee95c509901c3357679e9f2f9eaac3561c811736",
 	})
 
 	use({
+		-- TODO: Remove
 		"ahmedkhalf/project.nvim",
 		commit = "090bb11ee7eb76ebb9d0be1c6060eac4f69a240f",
 	})
 
-	-- Treesitter
+	-- INFO: Treesitter
 	use({
+		-- INFO: Abstract Syntax Tree (AST), which helps with Syntax Highliting, Code and Code Analysation
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		commit = "7e410054235ea84c817fc2b93f8df359ba6545eb",
 	})
 
 	use({
+		-- INFO: Treesitter Playground to show the current AST
 		"nvim-treesitter/playground",
 		run = ":TSInstall query",
 		commit = "ce7e4b757598f1c785ed0fd94fc65959acd7d39c",
 	})
 
 	use({
+		-- INFO: Bar at the top which, shows the current scope
 		"nvim-treesitter/nvim-treesitter-context",
 		commit = "8e88b67d0dc386d6ba1b3d09c206f19a50bc0625",
 	})
 
 	use({
+		-- INFO: Better comments which helps in templates files like React etc
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		commit = "7d0b001cd6ec2adc25b8d81496c5ef3bd188f781",
 	})
 
 	-- Git
 	use({
+		-- INFO: Various tools around Git
 		"lewis6991/gitsigns.nvim",
 		commit = "9c3ca027661136a618c82275427746e481c84a4e",
 	})
 
 	use({
+
 		"sindrets/diffview.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		commit = "a45163cb9ee65742cf26b940c2b24cc652f295c9",
@@ -272,104 +306,123 @@ return packer.startup(function(use) -- My plugins here
 	-- Workflow
 	use({ -- This is needed to fix lsp doc highlight
 		-- QUESTION: Is this still needed?
+		-- TODO: Check if need and remove
 		"antoinemadec/FixCursorHold.nvim",
 		commit = "5aa5ff18da3cdc306bb724cf1a138533768c9f5e",
 	})
 
-	use({ -- Autopairs, integrates with both cmp and treesitter
+	use({
+		-- INFO: Autopairs for Brackets, integrates with both cmp and treesitter
 		"windwp/nvim-autopairs",
 		commit = "ca89ab9e7e42aa9279f1cdad15398d6e18ccee86",
 	})
 
-	use({ -- Easily comment stuff
+	use({
+		-- INFO: Automatically closes tags
+		"windwp/nvim-ts-autotag",
+		commit = "044a05c4c51051326900a53ba98fddacd15fea22",
+	})
+
+	use({
+		-- INFO: Easily comment stuff
 		"numToStr/Comment.nvim",
 		commit = "fe9bbdbcd2f1b85cc8fccead68122873d94f8397",
 	})
 
 	use({
+		-- INFO: Tools for closing buffers
 		"kazhala/close-buffers.nvim",
 		commit = "3acbcad1211572342632a6c0151f839e7dead27f",
 	})
 
 	use({
+		-- INFO: Focus a window with a shortcut
 		"s1n7ax/nvim-window-picker",
 		tag = "v1.*",
 		commit = "7557ec199efdd979a838a721494aa83749ea37fe",
 	})
 
 	use({
+		-- INFO: Highlight all occurences of current word under cursor
+		-- TODO: Check if needed
 		"RRethy/vim-illuminate",
 		commit = "6bfa5dc069bd4aa8513a3640d0b73392094749be",
 	})
 
 	use({
-		"tpope/vim-surround",
-		commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea",
-	})
-
-	use({
+		-- INFO: Code Navigation. Enables cib for example
+		-- TODO: Research deeper
 		"wellle/targets.vim",
 		commit = "8d6ff2984cdfaebe5b7a6eee8f226a6dd1226f2d",
 	})
 
 	use({
+		-- INFO: Automatically reload a file that has changed externally
+		-- TODO: Remove
 		"djoshea/vim-autoread",
 		commit = "7e83d47a71fdafc271005fc39c89863204278c77",
 	})
 
 	use({
+		-- INFO: Hotkey files
 		"ThePrimeagen/harpoon",
 		commit = "d3d3d22b6207f46f8ca64946f4d781e975aec0fc",
 	})
 
 	use({
+		-- INFO: Improvements for the QF List
 		"kevinhwang91/nvim-bqf",
 		ft = "qf",
 		commit = "8b62211ad7529c314e80b22968eef6ba275c781c",
 	})
 
 	use({
+		-- INFO: Prettier Notifications for nvim
 		"rcarriga/nvim-notify",
 		commit = "60bb6bfd6992549ee5336bbb761705b62797ce1d",
 	})
 
 	use({
+		-- INFO: Zen Mode
 		"folke/zen-mode.nvim",
 		commit = "f1cc53d32b49cf962fb89a2eb0a31b85bb270f7c",
 	})
 
 	use({
+		-- INFO: Display all todos in a pretty way
+		-- TODO: Fix
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		commit = "98b1ebf198836bdc226c0562b9f906584e6c400e",
 	})
 
 	use({
+		-- TODO: Remove
 		"David-Kunz/jester",
 		commit = "53d9f6c268d8d6d7c6b14a3617b65df22499c0e9",
 	})
 
 	use({
+		-- INFO: Automatically sets the indent by analysing the first 100 lines of the file
 		"nmac427/guess-indent.nvim",
 		commit = "c37467baa1a51b74ed767cbe0540fce44e03d828",
 	})
 
 	use({
-		"windwp/nvim-ts-autotag",
-		commit = "044a05c4c51051326900a53ba98fddacd15fea22",
-	})
-
-	use({
+		-- INFO: Session Manager
 		"Shatur/neovim-session-manager",
 		commit = "6604857365b13bfbcaa7ef377d4e60d2acb0be02",
 	})
 
 	use({
+		-- INFO: Lazygit for Neovim :)
 		"kdheepak/lazygit.nvim",
 		commit = "9c73fd69a4c1cb3b3fc35b741ac968e331642600",
 	})
 
 	use({
+		-- INFO: Prettier folds
+		-- TODO: Check if needed
 		"anuvyklack/pretty-fold.nvim",
 		requires = {
 			"anuvyklack/fold-preview.nvim",
@@ -379,21 +432,27 @@ return packer.startup(function(use) -- My plugins here
 	})
 
 	use({
+		-- INFO: Shifting lines
+		-- TODO: Check if needed
 		"booperlv/nvim-gomove",
 		commit = "2b44ae7ac0804f4e3959228122f7c85bef1964e3",
 	})
 
 	use({
+		-- TODO: Replace with Bufferline
 		"nanozuki/tabby.nvim",
 		commit = "c473f1ac3db262605b716afcb570f46f27fe8eb3",
 	})
 
 	use({
+		-- INFO: Preview Markdown Files
+		-- TODO: Replace with https://github.com/iamcco/markdown-preview.nvim
 		"davidgranstrom/nvim-markdown-preview",
 		commit = "3d6f941beb223b23122973d077522e9e2ee33068",
 	})
 
 	use({
+		-- INFO: Speedy Code Navigation
 		"phaazon/hop.nvim",
 		branch = "v2",
 		commit = "2a1b686aad85a3c241f8cd8fd42eb09c7de5ed79",
