@@ -50,6 +50,8 @@ return packer.startup(function(use) -- My plugins here
 		commit = "afab89594f4f702dc3368769c95b782dbdaeaf0a",
 	})
 
+	use({ "antoinemadec/FixCursorHold.nvim" })
+
 	-- Libs for Utility and general Improvements
 	use({
 		-- INFO: An implementation of the Popup API from vim in Neovim
@@ -173,7 +175,6 @@ return packer.startup(function(use) -- My plugins here
 
 	use({
 		-- INFO: Starting screen
-		-- TODO: Check if needed
 		"goolord/alpha-nvim",
 		commit = "d688f46090a582be8f9d7b70b4cf999b780e993d",
 	})
