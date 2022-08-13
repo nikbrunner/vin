@@ -39,7 +39,6 @@ M.with_leader = {
 	b = groups.buffer,
 	P = groups.packer,
 	s = groups.search,
-	S = groups.session,
 	g = groups.git,
 	i = groups.insert,
 	l = groups.lsp,

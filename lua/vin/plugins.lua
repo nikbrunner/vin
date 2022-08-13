@@ -389,12 +389,6 @@ return packer.startup(function(use) -- My plugins here
 	})
 
 	use({
-		-- INFO: Session Manager
-		"Shatur/neovim-session-manager",
-		commit = "6604857365b13bfbcaa7ef377d4e60d2acb0be02",
-	})
-
-	use({
 		-- INFO: Lazygit for Neovim :)
 		"kdheepak/lazygit.nvim",
 		commit = "9c73fd69a4c1cb3b3fc35b741ac968e331642600",

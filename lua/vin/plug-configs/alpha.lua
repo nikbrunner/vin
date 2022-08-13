@@ -138,7 +138,6 @@ local buttons = {
 	type = "group",
 	val = {
 		button(".", "   Curr. Dir", ":edit .<CR>"),
-		button("l", "   Load", ":SessionManager load_session<CR>"),
 		button("h", "   History", ":Telescope oldfiles<CR>"),
 		button("e", "   New Empty", ":ene <BAR> startinsert<CR>"),
 		button("c", "   Config", ":e ~/.config/nvim/<CR>"),
