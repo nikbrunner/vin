@@ -341,13 +341,6 @@ return packer.startup(function(use) -- My plugins here
 	})
 
 	use({
-		-- INFO: Automatically reload a file that has changed externally
-		-- TODO: Remove
-		"djoshea/vim-autoread",
-		commit = "7e83d47a71fdafc271005fc39c89863204278c77",
-	})
-
-	use({
 		-- INFO: Hotkey files
 		"ThePrimeagen/harpoon",
 		commit = "d3d3d22b6207f46f8ca64946f4d781e975aec0fc",

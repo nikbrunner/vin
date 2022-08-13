@@ -7,6 +7,7 @@ local options = {
 	fileencoding = "utf-8", -- the encoding written to a file
 	hlsearch = true, -- highlight all matches on previous search pattern
 	ignorecase = true, -- ignore case in search patterns
+	autoread = true,
 	mouse = "a", -- allow the mouse to be used in neovim
 	ruler = false, -- don't show the ruler
 	showcmd = false, -- don't show the commands
