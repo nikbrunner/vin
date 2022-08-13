@@ -248,12 +248,6 @@ return packer.startup(function(use) -- My plugins here
 		commit = "ee95c509901c3357679e9f2f9eaac3561c811736",
 	})
 
-	use({
-		-- TODO: Remove
-		"ahmedkhalf/project.nvim",
-		commit = "090bb11ee7eb76ebb9d0be1c6060eac4f69a240f",
-	})
-
 	-- INFO: Treesitter
 	use({
 		-- INFO: Abstract Syntax Tree (AST), which helps with Syntax Highliting, Code and Code Analysation
