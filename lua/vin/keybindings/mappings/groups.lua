@@ -25,8 +25,8 @@ M.actions = {
 
 	-- a = { Vin.cmds.lsp.code_action, "  Code Action" },
 
-	a = { "<cmd>Lspsaga code_action", "  Code Action" },
-	A = { "<cmd>Lspsaga range_code_action", "  Range Code Action" },
+	a = { "<cmd>Lspsaga code_action<CR>", "  Code Action" },
+	A = { "<cmd>Lspsaga range_code_action<CR>", "  Range Code Action" },
 	c = { Vin.cmds.telescope.find_colorscheme, "  Change Colorscheme" },
 	f = { Vin.cmds.lsp.format_file, "  Format File" },
 	m = { "<cmd>MarkdownPreview github<CR>", "  Preview Markdown" },
