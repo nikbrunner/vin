@@ -202,7 +202,6 @@ return packer.startup(function(use) -- My plugins here
 
 	use({
 		-- INFO: snippet completions
-		-- TODO: Remove I probably won't need this
 		"saadparwaiz1/cmp_luasnip",
 		commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36",
 	})
@@ -216,7 +215,7 @@ return packer.startup(function(use) -- My plugins here
 
 	use({
 		-- INFO: a bunch of snippets to use
-		-- TODO: Remove
+		-- INFO: See snippets for react here: https://github.com/rafamadriz/friendly-snippets/blob/main/snippets/javascript/react-ts.json
 		"rafamadriz/friendly-snippets",
 		commit = "7339def34e46237eb7c9a893cb7d42dcb90e05e6",
 	})
