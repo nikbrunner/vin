@@ -30,7 +30,6 @@ M.actions = {
 	c = { Vin.cmds.telescope.find_colorscheme, "  Change Colorscheme" },
 	f = { Vin.cmds.lsp.format_file, "  Format File" },
 	m = { "<cmd>MarkdownPreview github<CR>", "  Preview Markdown" },
-	t = { "lua require('jester').run_file()", "  Run tests for File" },
 	h = { "<cmd>TSHighlightCapturesUnderCursor<CR>", "  Show Highlight" },
 }
 

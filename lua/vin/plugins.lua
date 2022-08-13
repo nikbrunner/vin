@@ -379,12 +379,6 @@ return packer.startup(function(use) -- My plugins here
 	})
 
 	use({
-		-- TODO: Remove
-		"David-Kunz/jester",
-		commit = "53d9f6c268d8d6d7c6b14a3617b65df22499c0e9",
-	})
-
-	use({
 		-- INFO: Automatically sets the indent by analysing the first 100 lines of the file
 		"nmac427/guess-indent.nvim",
 		commit = "c37467baa1a51b74ed767cbe0540fce44e03d828",
