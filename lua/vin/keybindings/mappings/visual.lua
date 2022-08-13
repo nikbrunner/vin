@@ -36,6 +36,7 @@ M.with_leader = {
 
 	-- Groups
 	a = groups.actions,
+	b = groups.buffer,
 	P = groups.packer,
 	s = groups.search,
 	S = groups.session,

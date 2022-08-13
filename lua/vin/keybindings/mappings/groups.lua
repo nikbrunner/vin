@@ -177,7 +177,7 @@ M.explorer = {
 M.quit = {
 	name = "  Quit",
 	s = { ":silent wq<CR>", "Save and Quit Pane (:wq)" },
-	-- p = { ":silent BufferLinePickClose<CR>", "Pick Buffer" },
+	p = { ":silent BufferLinePickClose<CR>", "Pick Buffer" },
 	c = { Vin.cmds.quit.custom_buffers, "Custom Filter" },
 	q = { Vin.cmds.quit.current_buffer, "Current" },
 	o = { Vin.cmds.quit.other_buffers, "Other" },
@@ -191,7 +191,8 @@ M.buffer = {
 	k = { ":bprev<CR>", "Previous Buffer" },
 	j = { ":bnext<CR>", "Next Buffer" },
 	p = { "<cmd>BufferLinePick<CR>", "  Pick" },
-	q = { "<cmd>BufferLinePickClose<CR>", " Pick Quit" },
+	P = { "<cmd>BufferLineTogglePin<CR>", "  Pick" },
+	q = { "<cmd>BufferLinePickClose<CR>", "  Quit" },
 	f = { Vin.cmds.telescope.find_open_buffer, "Find" },
 	s = {
 		name = "Sort",
@@ -200,7 +201,7 @@ M.buffer = {
 			"Sort by relative directory",
 		},
 		d = { "<cmd>BufferLineSortByDirectory<CR>", "Sort by directory" },
-		e = { "<cmd>BufferLineSortByExtensions<CR>", "Sort by extension" },
+		e = { "<cmd>BufferLineSortByExtension<CR>", "Sort by extension" },
 		t = { "<cmd>BufferLineSortByTabs<CR>", "Sort by tabs" },
 	},
 }

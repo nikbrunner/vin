@@ -84,14 +84,18 @@ M.no_leader = {
 	-- ["˚"] = { "<Esc>:m .-2<CR>", "Move Up" },
 
 	-- Control bindings
+
+	-- ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
+
 	["<C-b>"] = { "<cmd>NvimTreeToggle<CR>", " Toggle Tree" },
 	["<C-f>"] = { Vin.cmds.nav.pick_window, "  Pick Window" },
-	["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
+	["<C-q>"] = { ":silent BufferLinePickClose<CR>", "  Pick Close Buffer" },
+	["<C-p>"] = { ":silent BufferLinePick<CR>", "  Pick Buffer" },
 	["<C-e>"] = { Vin.cmds.telescope.find_open_buffer, "﩯 Buffers" },
-	["<C-p>"] = { Vin.cmds.telescope.find_files_without_preview, "  Files" },
 
 	["<C-/>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 
+	-- FN Key Bindings
 	["<F6>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
 	["<F7>"] = { "<cmd>TodoTrouble<CR>", "Todo Quick Fix" },
 	["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
@@ -159,6 +163,7 @@ M.with_leader = {
 
 	-- Groups
 	a = groups.actions,
+	b = groups.buffer,
 	P = groups.packer,
 	s = groups.search,
 	S = groups.session,
