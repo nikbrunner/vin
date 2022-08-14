@@ -18,7 +18,7 @@ if not status_ok then
     vim.cmd([[
     colorscheme default
     set background=dark
-  ]] )
+  ]])
     return
 else
     vim.cmd("colorscheme " .. Vin.colorscheme.initial_theme)
