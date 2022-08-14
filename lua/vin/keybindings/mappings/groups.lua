@@ -21,19 +21,6 @@ M.advanced_g = {
     y = { "<cmd>Telescope lsp_type_definitions<CR>", "Type Defintions" },
 }
 
-M.actions = {
-    name = "  Actions",
-
-    -- a = { Vin.cmds.lsp.code_action, "  Code Action" },
-
-    a = { "<cmd>Lspsaga code_action<CR>", "  Code Action" },
-    A = { "<cmd>Lspsaga range_code_action<CR>", "  Range Code Action" },
-    c = { Vin.cmds.telescope.find_colorscheme, "  Change Colorscheme" },
-    f = { Vin.cmds.lsp.format_file, "  Format File" },
-    m = { "<cmd>MarkdownPreview github<CR>", "  Preview Markdown" },
-    h = { "<cmd>TSHighlightCapturesUnderCursor<CR>", "  Show Highlight" },
-}
-
 M.hop = {
     name = " Hop",
     s = { ":HopWord<CR>", "Word" },

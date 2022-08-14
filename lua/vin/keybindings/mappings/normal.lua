@@ -164,7 +164,6 @@ M.with_leader = {
     ["9"] = { "9gt", WhichKeyIgnoreLabel },
 
     -- Groups
-    a = groups.actions,
     b = groups.buffer,
     P = groups.packer,
     s = groups.search,
