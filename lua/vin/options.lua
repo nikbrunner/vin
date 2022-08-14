@@ -27,7 +27,7 @@ local options = {
 	showcmd = false, -- don't show the commands
 	showmode = false, -- we don't need to see things like -- INSERT -- anymore
 	laststatus = 3, -- Enable global status Line
-	showtabline = 2, -- always show tabs
+	showtabline = 1, -- always show tabs
 	conceallevel = 0, -- so that `` is visible in markdown files
 
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
