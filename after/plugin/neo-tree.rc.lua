@@ -17,12 +17,12 @@ neotree.setup({
         max_lines = 10000, -- How many lines of git status results to process. Anything after this will be dropped.
         -- Anything before this will be used. The last items to be processed are the untracked files.
     },
-    event_handlers = {
-        {
-            event = "after_render",
-            handler = function(arg) end,
-        },
-    },
+    -- event_handlers = {
+    --     {
+    --         event = "after_render",
+    --         handler = function(arg) end,
+    --     },
+    -- },
     default_component_configs = {
         indent = {
             indent_size = 2,
@@ -129,7 +129,6 @@ neotree.setup({
             file = {
                 { "icon" },
                 { "name", use_git_status_colors = true },
-                { "harpoon_index" }, --> This is what actually adds the component in where you want it
                 { "diagnostics" },
                 { "git_status", highlight = "NeoTreeDimText" },
             },

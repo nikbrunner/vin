@@ -36,6 +36,7 @@ M.with_leader = {
 
     -- Groups
     b = groups.buffer,
+    E = groups.explorer,
     P = groups.packer,
     s = groups.search,
     g = groups.git,

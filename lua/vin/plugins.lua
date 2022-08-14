@@ -156,10 +156,14 @@ return packer.startup(function(use) -- My plugins here
 
     use({
         -- INFO: File Tree
-        -- TODO: Replace with neo-tree?
-        "kyazdani42/nvim-tree.lua",
-        requires = "kyazdani42/nvim-web-devicons",
-        commit = "261a5c380c000e23c4a23dcd55b984c856cdb113",
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        commit = "3c70bb4a8a6cf52b534673a3e64c1213a086797f",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        },
     })
 
     -- using packer.nvim
