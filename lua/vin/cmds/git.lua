@@ -1,19 +1,19 @@
 local notify_ok, notify = pcall(require, "notify")
 if not notify_ok then
-	return
+    return
 end
 
 local gitsigns_ok, gitsigns = pcall(require, "gitsigns")
 if not gitsigns_ok then
-	return
+    return
 end
 
 local diffview_notification = function(message)
-	notify(message, "info", {
-		title = "Git",
-		icon = " ",
-		timeout = 1000,
-	})
+    notify(message, "info", {
+        title = "Git",
+        icon = " ",
+        timeout = 1000,
+    })
 end
 
 -- TODO: Move diffview in here?
@@ -21,59 +21,59 @@ end
 Vin.cmds.git = {}
 
 Vin.cmds.git.open_changes_in_qf = function()
-	gitsigns.setqflist()
+    gitsigns.setqflist()
 end
 
 Vin.cmds.git.action = function()
-	-- INFO: Must be enabled via `null-ls`: https://github.com/lewis6991/gitsigns.nvim#null-ls
-	vim.lsp.buf.code_action()
-	Vin.lib.center_line_vertical()
+    -- INFO: Must be enabled via `null-ls`: https://github.com/lewis6991/gitsigns.nvim#null-ls
+    vim.lsp.buf.code_action()
+    Vin.lib.center_line_vertical()
 end
 
 Vin.cmds.git.hunk_preview = function()
-	gitsigns.preview_hunk()
-	Vin.lib.center_line_vertical()
+    gitsigns.preview_hunk()
+    Vin.lib.center_line_vertical()
 end
 
 Vin.cmds.git.toggle_current_line_blame = function()
-	gitsigns.toggle_current_line_blame()
-	diffview_notification("Toggled Current Line Blame")
+    gitsigns.toggle_current_line_blame()
+    diffview_notification("Toggled Current Line Blame")
 end
 
 Vin.cmds.git.blame_line = function()
-	gitsigns.blame_line()
-	Vin.lib.center_line_vertical()
+    gitsigns.blame_line()
+    Vin.lib.center_line_vertical()
 end
 
 Vin.cmds.git.hunk_reset = function()
-	gitsigns.reset_hunk()
-	Vin.lib.center_line_vertical()
+    gitsigns.reset_hunk()
+    Vin.lib.center_line_vertical()
 end
 
 Vin.cmds.git.hunk_go_prev = function()
-	gitsigns.prev_hunk()
-	Vin.lib.center_line_vertical()
-	-- Vin.cmds.git.hunk_preview()
+    gitsigns.prev_hunk()
+    Vin.lib.center_line_vertical()
+    -- Vin.cmds.git.hunk_preview()
 end
 
 Vin.cmds.git.hunk_go_next = function()
-	gitsigns.next_hunk()
-	Vin.lib.center_line_vertical()
-	-- Vin.cmds.git.hunk_preview()
+    gitsigns.next_hunk()
+    Vin.lib.center_line_vertical()
+    -- Vin.cmds.git.hunk_preview()
 end
 
 Vin.cmds.git.hunk_stage = function()
-	gitsigns.stage_hunk()
+    gitsigns.stage_hunk()
 end
 
 Vin.cmds.git.hunk_undo_stage = function()
-	gitsigns.undo_stage_hunk()
+    gitsigns.undo_stage_hunk()
 end
 
 Vin.cmds.git.buffer_stage = function()
-	gitsigns.stage_buffer()
+    gitsigns.stage_buffer()
 end
 
 Vin.cmds.git.buffer_reset = function()
-	gitsigns.reset_buffer()
+    gitsigns.reset_buffer()
 end

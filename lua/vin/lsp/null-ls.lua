@@ -1,6 +1,6 @@
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
-	return
+    return
 end
 
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
@@ -13,17 +13,17 @@ local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
 null_ls.setup({
-	debug = false,
-	sources = {
-		formatting.prettier,
-		formatting.stylua,
-		formatting.gofmt,
+    debug = false,
+    sources = {
+        formatting.prettier,
+        formatting.stylua,
+        formatting.gofmt,
 
-		-- If enabled I get double entries
-		-- diagnostics.eslint,
-		-- diagnostics.tsc,
+        -- If enabled I get double entries
+        -- diagnostics.eslint,
+        -- diagnostics.tsc,
 
-		code_actions.eslint,
-		code_actions.gitsigns,
-	},
+        code_actions.eslint,
+        code_actions.gitsigns,
+    },
 })
