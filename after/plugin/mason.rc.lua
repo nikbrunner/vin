@@ -12,5 +12,11 @@ end
 mason.setup({})
 
 lspconfig.setup({
-    ensure_installed = { "sumneko_lua", "tsserver" },
+    ensure_installed = {
+        "sumneko_lua",
+        "tsserver",
+        "jsonls",
+        "ccsls",
+        "gopls",
+    },
 })
