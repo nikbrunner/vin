@@ -67,7 +67,7 @@ saga.init_lsp_saga({
 	finder_request_timeout = 1500,
 
 	finder_action_keys = {
-		open = "o",
+		open = "<CR>",
 		vsplit = "s",
 		split = "i",
 		tabe = "t",
