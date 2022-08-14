@@ -58,8 +58,13 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(
 
 nvim_lsp.tsserver.setup({
   on_attach = on_attach,
+  capabilities = capabilities,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { "typescript-language-server", "--stdio" },
+})
+
+nvim_lsp.cssls.setup({
+  on_attach = on_attach,
   capabilities = capabilities,
 })
 
@@ -86,22 +91,26 @@ nvim_lsp.jsonls.setup(vim.tbl_deep_extend("force", {
   on_attach = on_attach,
 }, require("lsp.jsonls"))) -- NOTE: This `require` only works because we modify the package path in the `vin/init.lua`
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  underline = true,
-  update_in_insert = false,
-  virtual_text = { spacing = 4, prefix = "●" },
-  severity_sort = true,
-})
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
+    underline = true,
+    update_in_insert = false,
+    virtual_text = { spacing = 4, prefix = "●" },
+    severity_sort = true,
+  }
+)
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = "rounded",
 })
 
-vim.lsp.handlers["textDocument/signatureHelp"] =
-vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "rounded",
-})
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+  vim.lsp.handlers.signature_help,
+  {
+    border = "rounded",
+  }
+)
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
