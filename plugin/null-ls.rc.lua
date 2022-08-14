@@ -1,5 +1,5 @@
-local null_ls_status_ok, null_ls = pcall(require, "null-ls")
-if not null_ls_status_ok then
+local present, null_ls = pcall(require, "null-ls")
+if not present then
     return
 end
 
@@ -13,7 +13,7 @@ local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
 null_ls.setup({
-    debug = false,
+    debug = true,
     sources = {
         formatting.prettier,
         formatting.stylua,

@@ -153,7 +153,7 @@ M.lsp = {
     f = { Vin.cmds.lsp.format_file, "Format" },
 
     i = { "<cmd>LspInfo<CR>", "Info" },
-    I = { "<cmd>LspInstallInfo<CR>", "Installer Info" },
+    m = { "<cmd>Mason<CR>", "Installer Info" },
 
     y = { "<cmd>Telescope lsp_type_definitions<CR>", "Type Definitions" },
 

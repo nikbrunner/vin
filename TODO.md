@@ -6,7 +6,7 @@
 - [ ] Clock in Status line
 - [ ] Make Custom Select/Yank/Delete Block Commands work with Treesitter
   - These currently work only with languages where a block starts and ends with paired brackets
-- [ ] Save Issue ID on Runtime and add a 
+- [ ] Save Issue ID on Runtime and add a
   - If no issue id present, show input field
   - If existent open todo searcher with issue id already present
   - folke/todo: filter with issue id?
@@ -28,12 +28,12 @@ Videos which contain valuable Information which I want to check out
 
 - [ ] [Chris@Machine: Creating an unbreakable nvim config](https://www.youtube.com/watch?v=Vghglz2oR0c)
 - [ ] [Primeagean: Your VimRC2022](https://www.youtube.com/watch?v=x2QJYq4IX6M)
-- [ ] [](https://www.youtube.com/watch?v=ajmK0ZNcM4Q)
+- [ ] [Look at this](https://www.youtube.com/watch?v=ajmK0ZNcM4Q)
 
 ## Languages
 
 - [ ] Markdown [mkdx](https://github.com/SidOfc/mkdx)
-  - [ ] Checkboxes 
+  - [ ] Checkboxes
   - [ ] Auto Spell Checking
   - [ ] Formatter
   - [ ] Preview
@@ -59,11 +59,13 @@ Checkout, evaluate, implement
 - [ ] [octo.nvim](https://github.com/pwntester/octo.nvim)
 - [ ] [nvim-docker](https://github.com/dgrbrady/nvim-docker)
 - [ ] [telescope-filebrowser](https://github.com/nvim-telescope/telescope-file-browser.nvim)
+- [ ] [syntax-tree-surfer](https://github.com/ziontee113/syntax-tree-surfer)
+  - I want to be able to jump to a parent node via treesitter
 
 ### Implement
 
-- [ ] [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
-- [ ] [mason.nvim](#mason.nvim)
+- [x] [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+- [x] [mason.nvim](#mason.nvim)
 - [ ] [neo-tree + diagnostics](https://this-week-in-neovim.org/2022/Aug/1#new-neo-tree.nvim)
   - Could replace Trouble?
 
@@ -78,6 +80,7 @@ Move from `nvim-lsp-installer` to `mason.nvim`.
 
 - [ ] [mason.nvim](https://github.com/williamboman/mason.nvim)
 - [ ] [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
+- [ ] **Bug** `sumneko_lua` The attach function doesn't run
 - [ ] Optional: [lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim)
 
 ## Session Management
@@ -90,7 +93,7 @@ Either the sessions are to be managed via Neovim or I can also do that via TMUX.
 
 - Save, Load and Delete sessions
 - Respects Git Branch
-- Hooks 
+- Hooks
 
 ## Links
 

@@ -93,10 +93,13 @@ return packer.startup(function(use) -- My plugins here
     })
 
     use({
-        -- INFO: simple to use language server installer
-        -- TODO: Replace with mason.nvim
-        "williamboman/nvim-lsp-installer",
-        commit = "d6f873754b7a5f50d4c70f76de1d7e8ea009bf56",
+        "williamboman/mason.nvim",
+        commit = "cb7bdcd2d5a71ffb12127d60bcaad5ba39ab741b",
+    })
+
+    use({
+        "williamboman/mason-lspconfig.nvim",
+        commit = "f0d0d62273b76fa0ef5154ce9d05b1a2a083e79b",
     })
 
     use({

@@ -10,7 +10,7 @@ Vin.cmds.general = {
 }
 
 Vin.cmds.general.save_all = function()
-    vim.cmd([[silent wa]])
+    vim.cmd([[wa]])
     vim.cmd([[silent ColorizerAttachToBuffer]])
 
     -- notify("Saved all files!", "info", {

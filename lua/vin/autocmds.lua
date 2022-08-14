@@ -25,30 +25,29 @@ vim.cmd([[
 ]])
 
 local lsp_au_group = vim.api.nvim_create_augroup("Formatting", { clear = true })
-local buf_write_post_group = vim.api.nvim_create_augroup(
-    "Post Buff Write",
-    { clear = true }
-)
+local buf_write_post_group =
+vim.api.nvim_create_augroup("Post Buff Write", { clear = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    callback = function()
-        vim.lsp.buf.format({ async = true })
-    end,
-    group = lsp_au_group,
+  pattern = "*",
+  callback = function()
+    -- vim.lsp.buf.format({ async = true })
+    vim.lsp.buf.formatting_seq_sync()
+  end,
+  group = lsp_au_group,
 })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-    pattern = "*",
-    callback = function()
-        local colorizer_status_ok, _ = pcall(require, "colorizer")
-        if not colorizer_status_ok then
-            return
-        else
-            vim.cmd("ColorizerAttachToBuffer")
-        end
+  pattern = "*",
+  callback = function()
+    local colorizer_status_ok, _ = pcall(require, "colorizer")
+    if not colorizer_status_ok then
+      return
+    else
+      vim.cmd("ColorizerAttachToBuffer")
+    end
 
-        vim.cmd("Gitsigns refresh")
-    end,
-    group = buf_write_post_group,
+    vim.cmd("Gitsigns refresh")
+  end,
+  group = buf_write_post_group,
 })
