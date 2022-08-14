@@ -1,6 +1,6 @@
 local present, hop = pcall(require, "hop")
 if not present then
-	return
+    return
 end
 
-hop.setup({ keys = "etovxqpdygfblzhckisuran" })
+hop.setup({ keys = "asdfghjkl;" })
