@@ -155,14 +155,17 @@ return packer.startup(function(use) -- My plugins here
     })
 
     use({
-        -- INFO: File Tree
+        -- INFO: neo-tree: File Tree Explorer
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
         commit = "3c70bb4a8a6cf52b534673a3e64c1213a086797f",
         requires = {
             "nvim-lua/plenary.nvim",
             "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
+            {
+                "MunifTanjim/nui.nvim",
+                commit = "0fdbb2ffe1cbd400bb89e0ddeca836191fd7a3ac",
+            },
         },
     })
 
