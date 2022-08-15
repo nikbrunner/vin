@@ -3,7 +3,14 @@ if not status_ok then
     return
 end
 
-local terra_colors = require("terra.colors")
+local current_win_hl_color = nil
+local other_win_hl_color = nil
+
+local terra_colors_present, terra_colors = pcall(require, "terra.colors")
+if terra_colors_present then
+    current_win_hl_color = terra_colors.semantic.bg0
+    other_win_hl_color = terra_colors.semantic.bg2
+end
 
 window_picker.setup({
     -- when there is only one window available to pick from, use that window
@@ -58,9 +65,9 @@ window_picker.setup({
 
     -- if you have include_current_win == true, then current_win_hl_color will
     -- be highlighted using this background color
-    current_win_hl_color = terra_colors.semantic.bg0,
+    current_win_hl_color = current_win_hl_color,
 
     -- all the windows except the curren window will be highlighted using this
     -- color
-    other_win_hl_color = terra_colors.semantic.bg2,
+    other_win_hl_color = other_win_hl_color,
 })
