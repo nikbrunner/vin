@@ -2,10 +2,12 @@
 
 ## Bugs
 
-- [ ] **sumneko_lua** `on_attach` doesnt seem to fire
+- ...
 
 ## General
 
+- [ ] LSP: Dry up
+- [ ] LSP: LSP Settings files
 - [ ] Setup proper session management
 - [ ] Define Comment Doc for all functions
 - [ ] Clock in Status line

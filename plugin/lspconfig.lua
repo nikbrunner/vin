@@ -1,9 +1,9 @@
-vim.lsp.set_log_level("debug")
-
 local status, nvim_lsp = pcall(require, "lspconfig")
 if not status then
     return
 end
+
+-- vim.lsp.set_log_level("debug")
 
 local protocol = require("vim.lsp.protocol")
 
@@ -68,23 +68,30 @@ nvim_lsp.cssls.setup({
     capabilities = capabilities,
 })
 
-nvim_lsp.sumneko_lua.setup({
-    on_attach = on_attach,
-    settings = {
-        Lua = {
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { "vim" },
-            },
+local use_lua_dev = true
 
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false,
+if use_lua_dev then
+    local luadev = require("lua-dev").setup()
+    nvim_lsp.sumneko_lua.setup(luadev)
+else
+    nvim_lsp.sumneko_lua.setup({
+        on_attach = on_attach,
+        settings = {
+            Lua = {
+                diagnostics = {
+                    -- Get the language server to recognize the `vim` global
+                    globals = { "vim" },
+                },
+
+                workspace = {
+                    -- Make the server aware of Neovim runtime files
+                    library = vim.api.nvim_get_runtime_file("", true),
+                    checkThirdParty = false,
+                },
             },
         },
-    },
-})
+    })
+end
 
 nvim_lsp.jsonls.setup(vim.tbl_deep_extend("force", {
     capabilities = capabilities,
