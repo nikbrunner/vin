@@ -8,6 +8,7 @@
 
 - [ ] LSP: Dry up
 - [ ] LSP: LSP Settings files
+- [ ] Ability to import files from `plugin/` folder
 - [ ] Setup proper session management
 - [ ] Define Comment Doc for all functions
 - [ ] Clock in Status line
