@@ -7,7 +7,7 @@ neotree.setup({
     close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
     popup_border_style = "rounded",
     enable_git_status = true,
-    enable_diagnostics = true,
+    enable_diagnostics = false,
     enable_refresh_on_write = true,
     git_status_async = true,
     -- These options are for people with VERY large git repos
@@ -129,7 +129,7 @@ neotree.setup({
             file = {
                 { "icon" },
                 { "name", use_git_status_colors = true },
-                { "diagnostics" },
+                -- { "diagnostics" },
                 { "git_status", highlight = "NeoTreeDimText" },
             },
         },
