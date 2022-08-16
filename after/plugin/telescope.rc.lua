@@ -122,3 +122,4 @@ telescope.setup({
 })
 
 telescope.load_extension("todo-comments")
+telescope.load_extension("possession")

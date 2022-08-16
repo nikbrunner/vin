@@ -139,6 +139,7 @@ local buttons = {
     val = {
         button(".", "   Curr. Dir", ":edit .<CR>"),
         button("h", "   History", ":Telescope oldfiles<CR>"),
+        button("l", "   Session", ":Telescope possession list<CR>"),
         button("e", "   New Empty", ":ene <BAR> startinsert<CR>"),
         button("c", "   Config", ":e ~/.config/nvim/<CR>"),
         button("q", "   Quit", ":qa!<CR>"),

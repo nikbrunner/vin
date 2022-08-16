@@ -359,11 +359,12 @@ M.packer = {
 
 M.session = {
     name = "  Session",
-    s = { Vin.cmds.session.save_current, "Save Current Session" },
-    l = { Vin.cmds.session.load, "Load Session" },
-    L = { Vin.cmds.session.load_last, "Load Last Session" },
-    ["."] = { Vin.cmds.session.load_current_dir, "Load Current Dir Session" },
-    d = { Vin.cmds.session.delete, "Delete Session" },
+    s = { "<cmd>SessionSave<CR>", "Save Current Session" },
+    S = { "<cmd>SessionShow<CR>", "Show Session Info" },
+    c = { "<cmd>SessionClose<CR>", "Close Current Session" },
+    r = { "<cmd>SessionLoad<CR>", "Restore Session" },
+    l = { "<cmd>Telescope possession list<CR>", "List Sessions" },
+    d = { "<cmd>SessionDelete<CR>", "Delete Session" },
 }
 
 M.insert = {
