@@ -89,8 +89,8 @@ M.no_leader = {
 
     -- ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
 
-    -- ["<C-b>"] = { "<cmd>NvimTreeToggle<CR>", " Toggle Tree" },
-    ["<C-b>"] = { "<cmd>Neotree toggle left<CR>", " Toggle Tree" },
+    ["<C-b>"] = { "<cmd>NvimTreeToggle<CR>", " Toggle Tree" },
+    -- ["<C-b>"] = { "<cmd>Neotree toggle left<CR>", " Toggle Tree" },
     ["<C-f>"] = { Vin.cmds.nav.pick_window, "  Pick Window" },
     ["<C-q>"] = { ":silent BufferLinePickClose<CR>", "  Pick Close Buffer" },
     ["<C-p>"] = { ":silent BufferLinePick<CR>", "  Pick Buffer" },
@@ -141,8 +141,8 @@ M.with_leader = {
     [" "] = { Vin.cmds.telescope.find_commands, "  Commands" },
     [";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
 
-    -- e = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
-    e = { "<cmd>Neotree toggle left<CR>", "  File Tree" },
+    e = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
+    -- e = { "<cmd>Neotree toggle left<CR>", "  File Tree" },
     o = { "<cmd>LSoutlineToggle<CR>", "  Symbol Tree" },
     f = { Vin.cmds.telescope.find_files_without_preview, "  Find File" },
     F = {
@@ -167,7 +167,6 @@ M.with_leader = {
 
     -- Groups
     b = groups.buffer,
-    E = groups.explorer,
     P = groups.packer,
     s = groups.search,
     g = groups.git,
