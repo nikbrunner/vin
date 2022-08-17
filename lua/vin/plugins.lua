@@ -159,7 +159,7 @@ return packer.startup(function(use) -- My plugins here
         requires = {
             "kyazdani42/nvim-web-devicons", -- optional, for file icons
         },
-        commit = "09a51266bca28dd87febd63c66bdbd74f7764a63"
+        commit = "09a51266bca28dd87febd63c66bdbd74f7764a63",
     })
 
     -- using packer.nvim
@@ -264,6 +264,11 @@ return packer.startup(function(use) -- My plugins here
     use({
         "nvim-telescope/telescope-file-browser.nvim",
         commit = "4272c52078cc457dfaabce6fa3545e7495651d04",
+    })
+
+    use({
+        "nvim-telescope/telescope-project.nvim",
+        commit = "dc9a1977d159e3feb98774729f5c30584e2b700a",
     })
 
     -- INFO: Treesitter

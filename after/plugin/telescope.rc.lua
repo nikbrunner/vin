@@ -115,7 +115,7 @@ telescope.setup({
                 { "~/Documents/dev/repos", max_depth = 4 },
             },
             hidden_files = false,
-            theme = "ivy",
+            theme = "dropdown",
             display_type = "full",
         },
         file_browser = {
@@ -137,3 +137,4 @@ telescope.setup({
 telescope.load_extension("todo-comments")
 telescope.load_extension("possession")
 telescope.load_extension("file_browser")
+telescope.load_extension("project")
