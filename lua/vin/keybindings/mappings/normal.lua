@@ -138,12 +138,15 @@ M.no_leader = {
 
 M.with_leader = {
     -- Singles
-    [" "] = { Vin.cmds.telescope.find_commands, "  Commands" },
     [";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
 
     e = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
     -- e = { "<cmd>Neotree toggle left<CR>", "  File Tree" },
     o = { "<cmd>LSoutlineToggle<CR>", "  Symbol Tree" },
+    [" "] = {
+        "<cmd>Telescope file_browser<CR>",
+        Vin.icons.ui.Project .. " File Browser",
+    },
     f = { Vin.cmds.telescope.find_files_without_preview, "  Find File" },
     F = {
         Vin.cmds.telescope.find_files_with_preview,

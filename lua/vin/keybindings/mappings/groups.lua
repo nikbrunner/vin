@@ -18,6 +18,7 @@ M.advanced_g = {
     D = { "<cmd>Lspsaga preview_definition<CR>", "Go to Definition" },
     i = { "<cmd>Lspsaga implement<CR>", "Go to Implementation" },
     r = { "<cmd>Lspsaga lsp_finder<CR>", "List References" },
+    R = { "<cmd>Trouble lsp_references<CR>", "List References" },
     y = { "<cmd>Telescope lsp_type_definitions<CR>", "Type Defintions" },
 }
 

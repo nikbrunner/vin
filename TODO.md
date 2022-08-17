@@ -86,7 +86,7 @@ Checkout, evaluate, implement
 - [ ] [navigator.lua](https://github.com/ray-x/navigator.lua)
 - [ ] [octo.nvim](https://github.com/pwntester/octo.nvim)
 - [ ] [nvim-docker](https://github.com/dgrbrady/nvim-docker)
-- [ ] [telescope-filebrowser](https://github.com/nvim-telescope/telescope-file-browser.nvim)
+- [x] [telescope-file-browser](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 - [ ] [syntax-tree-surfer](https://github.com/ziontee113/syntax-tree-surfer)
   - I want to be able to jump to a parent node via treesitter
 - [ ] [neo-tree + diagnostics](https://this-week-in-neovim.org/2022/Aug/1#new-neo-tree.nvim)
