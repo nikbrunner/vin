@@ -36,7 +36,7 @@ possession.setup({
     },
     plugins = {
         close_windows = {
-            hooks = { "before_save", "before_load" },
+            hooks = { "before_save" },
             preserve_layout = true, -- or fun(win): boolean
             match = {
                 floating = true,
@@ -46,14 +46,8 @@ possession.setup({
             },
         },
         delete_buffers = true,
-        delete_hidden_buffers = {
-            hooks = {
-                "before_load",
-                vim.o.sessionoptions:match("buffer") and "before_save",
-            },
-            force = true, -- or fun(buf): boolean
-        },
-        nvim_tree = false,
+        delete_hidden_buffers = false,
+        nvim_tree = true,
         tabby = true,
     },
 })
