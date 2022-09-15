@@ -9,7 +9,6 @@
 - [ ] LSP: Dry up
 - [ ] LSP: LSP Settings files
 - [ ] Ability to import files from `plugin/` folder
-- [ ] Setup proper session management
 - [ ] Define Comment Doc for all functions
 - [ ] Clock in Status line
 - [ ] Make Custom Select/Yank/Delete Block Commands work with Treesitter
@@ -19,35 +18,6 @@
   - If existent open todo searcher with issue id already present
   - folke/todo: filter with issue id?
 - [ ] Folding still seems to be somewhat strange (Some Bindings do not work)
-
-### Session Management
-
-I like sessions, but i still don't have a workflow that suits me fully.
-
-Either the sessions are to be managed via Neovim or I can also do that via TMUX.
-
-**Requirements**
-
-- Save, Load and Delete sessions
-- Respects Git Branch
-- Hooks
-
-#### Links
-
-- [Here](https://www.reddit.com/r/neovim/comments/vvaw1x/which_in_your_opinion_is_the_best_session) is a reddit discussion about neovim session managers.
-- [Informative Article about Sessions](https://alpha2phi.medium.com/neovim-for-beginners-session-c287a431389e)
-
-#### Plugins
-
-- [auto-session](https://github.com/rmagatti/auto-session)
-  - [session-lens](https://github.com/rmagatti/session-lens)
-- [neovim-session-manager](https://github.com/Shatur/neovim-session-manager)
-  - used in the past
-  - Working really great so far except there is a problem with [scope.nvim](https://github.com/tiagovla/scope.nvim/issues/1) for which I also opened an issue
-- [workspaces.nvim](https://github.com/natecraddock/workspaces.nvim)
-  - Haven't checked out
-- [possession.nvim](https://github.com/jedrzejboczar/possession.nvim)
-  - Tried, made trouble
 
 ## Research
 
@@ -70,6 +40,7 @@ Videos which contain valuable Information which I want to check out
   - [ ] Auto Spell Checking
   - [ ] Formatter
   - [ ] Preview
+  - [ ] Marksman
 
 ## Plugins
 

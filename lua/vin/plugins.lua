@@ -442,9 +442,8 @@ return packer.startup(function(use) -- My plugins here
     use({ "b0o/incline.nvim", commit = "44d4e6f4dcf2f98cf7b62a14e3c10749fc5c6e35" })
 
     use({
-        "jedrzejboczar/possession.nvim",
-        requires = { "nvim-lua/plenary.nvim" },
-        commit = "daacdc338edd91be83db0ef73d4d8c92677cfb09",
+        "uga-rosa/ccc.nvim",
+        commit = "12c427f68866626d8fe54c670dfaa440df263f77",
     })
 
     -- Automatically set up your configuration after cloning packer.nvim

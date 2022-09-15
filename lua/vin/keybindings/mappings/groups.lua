@@ -358,10 +358,21 @@ M.packer = {
     u = { "<cmd>PackerUpdate<CR>", "Update" },
 }
 
+-- INFO unused
 M.session = {
     name = "  Session",
-    s = { "<cmd>SessionSave<CR>", "Save Current Session" },
-    S = { "<cmd>SessionShow<CR>", "Show Session Info" },
+    s = {
+        function()
+            vim.ui.input({
+                prompt = "New session name?",
+                default = "",
+            }, function(session_name)
+                vim.cmd("SessionSave " .. session_name)
+            end)
+        end,
+        "Save Current Session",
+    },
+    S = { "<cmd>SessionSave<CR>", "Overwrite Session File" },
     c = { "<cmd>SessionClose<CR>", "Close Current Session" },
     r = { "<cmd>SessionLoad<CR>", "Restore Session" },
     l = { "<cmd>Telescope possession list<CR>", "List Sessions" },

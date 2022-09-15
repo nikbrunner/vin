@@ -99,6 +99,7 @@ M.no_leader = {
     ["<C-/>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 
     -- FN Key Bindings
+    ["<F5>"] = { "<cmd>CccPick<CR>", "Color Picker" },
     ["<F6>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
     ["<F7>"] = { "<cmd>TodoTrouble<CR>", "Todo Quick Fix" },
     ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
@@ -172,7 +173,6 @@ M.with_leader = {
     b = groups.buffer,
     P = groups.packer,
     s = groups.search,
-    S = groups.session,
     g = groups.git,
     i = groups.insert,
     l = groups.lsp,
