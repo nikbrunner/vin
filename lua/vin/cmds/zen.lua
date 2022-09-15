@@ -9,7 +9,7 @@ Vin.cmds.zen.toggle_full_screen = function()
     -- Default without opts is full screen
     zen_mode.toggle({
         window = {
-            width = 0.65,
+            width = 0.5,
         },
     })
 end
