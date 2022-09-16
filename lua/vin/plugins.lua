@@ -74,8 +74,8 @@ return packer.startup(function(use) -- My plugins here
 
     use({
         -- INFO: color Pigments of color codes
-        "norcalli/nvim-colorizer.lua",
-        commit = "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6",
+        "NvChad/nvim-colorizer.lua",
+        commit = "004a2b3ef62b01d3d1db454d1efe76d31934d43b",
     })
 
     -- LSP
