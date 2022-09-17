@@ -446,6 +446,12 @@ return packer.startup(function(use) -- My plugins here
         commit = "12c427f68866626d8fe54c670dfaa440df263f77",
     })
 
+    use({
+        "kylechui/nvim-surround",
+        tag = "*",
+        commit = "d91787d5a716623be7cec3be23c06c0856dc21b8",
+    })
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
