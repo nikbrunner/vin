@@ -63,3 +63,6 @@ Checkout, evaluate, implement
 - [ ] [neo-tree + diagnostics](https://this-week-in-neovim.org/2022/Aug/1#new-neo-tree.nvim)
   - Could replace Trouble?
 - [ ] [prettier.nvim](https://github.com/MunifTanjim/prettier.nvim)
+- [ ] [lab.nvim](https://github.com/0x100101/lab.nvim)
+- [ ] [nvim-scrollbar](https://github.com/petertriho/nvim-scrollbar)
+- [ ] [winshift.nvim](https://github.com/sindrets/winshift.nvim)
