@@ -30,11 +30,13 @@ saga.init_lsp_saga({
     -- diagnostic_header = { " ", " ", " ", "ﴞ " },
     diagnostic_header = { "😡", "😥", "😤", "😐" },
 
-    -- show diagnostic source
-    show_diagnostic_source = true,
-
-    -- add bracket or something with diagnostic source, just have 2 elements
-    diagnostic_source_bracket = {},
+    definition_action_keys = {
+        edit = "<C-c>o",
+        vsplit = "<C-c>v",
+        split = "<C-c>i",
+        tabe = "<C-c>t",
+        quit = "q",
+    },
 
     -- preview lines of lsp_finder and definition preview
     max_preview_lines = 10,
@@ -49,7 +51,9 @@ saga.init_lsp_saga({
     code_action_lightbulb = {
         enable = true,
         sign = true,
+        cache_code_action = true,
         enable_in_insert = false,
+        update_time = 150,
         sign_priority = 20,
         virtual_text = true,
     },
@@ -82,8 +86,8 @@ saga.init_lsp_saga({
     },
 
     rename_action_quit = "<C-c>",
+
     rename_in_select = true,
-    definition_preview_icon = "  ",
 
     -- show symbols in winbar must nightly
     -- NOTE: Disabled until 0.8 is default

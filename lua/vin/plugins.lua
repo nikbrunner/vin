@@ -131,7 +131,7 @@ return packer.startup(function(use) -- My plugins here
         -- INFO: Tool Package for LSP
         "glepnir/lspsaga.nvim",
         branch = "main",
-        commit = "86512e752606ed3f1a1767fc735cca34bdbdd412",
+        commit = "c2ef0115fb917460daf5c76fe3ad3a9357213b54",
     })
 
     use({
