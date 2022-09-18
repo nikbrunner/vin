@@ -85,7 +85,7 @@ saga.init_lsp_saga({
         exec = "<CR>",
     },
 
-    rename_action_quit = "<C-c>",
+    rename_action_quit = "q",
 
     rename_in_select = true,
 
