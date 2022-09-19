@@ -443,7 +443,8 @@ return packer.startup(function(use) -- My plugins here
 
     use({
         "uga-rosa/ccc.nvim",
-        commit = "08abe425363279ff8a80cd237ac0ea003bee4863",
+        branch = "0.7.2",
+        commit = "2d88adb8cd2728fc591e21fc423123a2c2958b95",
     })
 
     use({

@@ -26,22 +26,22 @@ ccc.setup({
 
     save_on_quit = false,
 
-    inputs = {
-        ccc.inputs.hsl,
-        ccc.inputs.rbg,
+    input = {
+        ccc.input.hsl,
+        ccc.input.rbg,
     },
 
-    outputs = {
-        ccc.outputs.hex,
-        ccc.outputs.hex_short,
-        ccc.outputs.css_rgb,
-        ccc.outputs.css_hsl,
+    output = {
+        ccc.output.hex,
+        ccc.output.hex_short,
+        ccc.output.css_rgb,
+        ccc.output.css_hsl,
     },
 
-    pickers = {
-        ccc.pickers.hex,
-        ccc.pickers.hex_short,
-        ccc.pickers.css_rgb,
-        ccc.pickers.css_hsl,
+    picker = {
+        ccc.picker.hex,
+        ccc.picker.hex_short,
+        ccc.picker.css_rgb,
+        ccc.picker.css_hsl,
     },
 })
