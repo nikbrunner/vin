@@ -432,13 +432,6 @@ return packer.startup(function(use) -- My plugins here
         commit = "3d6f941beb223b23122973d077522e9e2ee33068",
     })
 
-    use({
-        -- INFO: Speedy Code Navigation
-        "phaazon/hop.nvim",
-        branch = "v2",
-        commit = "2a1b686aad85a3c241f8cd8fd42eb09c7de5ed79",
-    })
-
     use({ "b0o/incline.nvim", commit = "44d4e6f4dcf2f98cf7b62a14e3c10749fc5c6e35" })
 
     use({

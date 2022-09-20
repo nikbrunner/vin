@@ -3,15 +3,12 @@ if not gitsigns_status_ok then
     return
 end
 
-local hop_ok, hop = pcall(require, "hop")
-
 local groups = require("vin.keybindings.mappings.groups")
 
 local M = {}
 
 M.no_leader = {
     g = groups.advanced_g,
-    s = groups.hop,
 
     -- disable Q
     Q = { "<Nop>", WhichKeyIgnoreLabel },
@@ -21,45 +18,6 @@ M.no_leader = {
     -- Go to Line Start and End
     H = { "^", WhichKeyIgnoreLabel },
     L = { "$", WhichKeyIgnoreLabel },
-
-    f = {
-        function()
-            hop.hint_char1({
-                direction = require("hop.hint").HintDirection.AFTER_CURSOR,
-                current_line_only = true,
-            })
-        end,
-        WhichKeyIgnoreLabel,
-    },
-    F = {
-        function()
-            hop.hint_char1({
-                direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
-                current_line_only = true,
-            })
-        end,
-        WhichKeyIgnoreLabel,
-    },
-    t = {
-        function()
-            hop.hint_char1({
-                direction = require("hop.hint").HintDirection.AFTER_CURSOR,
-                current_line_only = true,
-                hint_offset = -1,
-            })
-        end,
-        WhichKeyIgnoreLabel,
-    },
-    T = {
-        function()
-            hop.hint_char1({
-                direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
-                current_line_only = true,
-                hint_offset = 1,
-            })
-        end,
-        WhichKeyIgnoreLabel,
-    },
 
     -- Trigger Hover Doc
     K = { vim.lsp.buf.hover, "Hover Doc" },

@@ -22,16 +22,6 @@ M.advanced_g = {
     y = { "<cmd>Telescope lsp_type_definitions<CR>", "Type Defintions" },
 }
 
-M.hop = {
-    name = " Hop",
-    s = { ":HopWord<CR>", "Word" },
-    S = { ":HopWordMW<CR>", "Word Everywhere" },
-    l = { ":HopLineStart<CR>", "Line" },
-    L = { ":HopLineStartMW<CR>", "Line Everywhere" },
-    c = { ":HopChar1<CR>", "Char" },
-    C = { ":HopChar1MW<CR>", "Char Everywhere" },
-}
-
 M.go_prev = {
     name = "  Prev",
     q = {
