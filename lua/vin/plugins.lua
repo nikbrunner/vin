@@ -72,12 +72,6 @@ return packer.startup(function(use) -- My plugins here
         commit = "4ccbe749ce439fa25d387d459e8c339131cc5d1f",
     })
 
-    use({
-        -- INFO: color Pigments of color codes
-        "NvChad/nvim-colorizer.lua",
-        commit = "004a2b3ef62b01d3d1db454d1efe76d31934d43b",
-    })
-
     -- LSP
     use({
         -- INFO: Configs for native LSP
@@ -437,7 +431,7 @@ return packer.startup(function(use) -- My plugins here
     use({
         "uga-rosa/ccc.nvim",
         branch = "0.7.2",
-        commit = "2d88adb8cd2728fc591e21fc423123a2c2958b95",
+        commit = "6957eca51f23700f4b67c5f0f39bcecf5f334f86",
     })
 
     use({

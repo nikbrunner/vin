@@ -24,7 +24,13 @@ vim.cmd([[
   augroup end
 ]])
 
+local buf_win_enter_au_group = vim.api.nvim_create_augroup(
+    "Buf Win Enter",
+    { clear = true }
+)
+
 local lsp_au_group = vim.api.nvim_create_augroup("Formatting", { clear = true })
+
 local buf_write_post_group = vim.api.nvim_create_augroup(
     "Post Buff Write",
     { clear = true }
@@ -36,6 +42,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         -- vim.lsp.buf.format({ async = true })
         vim.lsp.buf.formatting_seq_sync()
     end,
+    group = buf_win_enter_au_group,
+})
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    pattern = "*",
+    callback = function()
+        vim.cmd("CccHighlighterEnable")
+    end,
     group = lsp_au_group,
 })
 
@@ -45,8 +59,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
         local colorizer_status_ok, _ = pcall(require, "colorizer")
         if not colorizer_status_ok then
             return
-        else
-            vim.cmd("ColorizerAttachToBuffer")
         end
 
         vim.cmd("Gitsigns refresh")

@@ -11,12 +11,6 @@ Vin.cmds.general = {
 
 Vin.cmds.general.save_all = function()
     vim.cmd([[wa]])
-    vim.cmd([[silent ColorizerAttachToBuffer]])
-
-    -- notify("Saved all files!", "info", {
-    -- 	timeout = 125,
-    -- 	render = "minimal",
-    -- })
 end
 
 Vin.cmds.save_and_exit = function()
