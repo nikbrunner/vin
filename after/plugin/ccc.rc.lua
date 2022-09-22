@@ -12,6 +12,10 @@ ccc.setup({
 
     point_char = "◇",
 
+    highlighter = {
+        auto_enable = true,
+    },
+
     bar_len = 30,
 
     win_opts = {

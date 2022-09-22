@@ -15,7 +15,7 @@ end
 
 Vin.cmds.save_and_exit = function()
     Vin.cmds.general.save_all()
-    vim.cmd(":qa!")
+    vim.cmd([[:qa!]])
 end
 
 -- get the current filename without extension
