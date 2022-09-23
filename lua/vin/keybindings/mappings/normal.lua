@@ -53,6 +53,7 @@ M.no_leader = {
     ["<C-q>"] = { ":silent BufferLinePickClose<CR>", "  Pick Close Buffer" },
     ["<C-p>"] = { ":silent BufferLinePick<CR>", "  Pick Buffer" },
     ["<C-e>"] = { Vin.cmds.telescope.find_open_buffer, "﩯 Buffers" },
+    ["<C-x>"] = { "<cmd>Telescope neoclip<CR>", "Clipboard" },
 
     ["<C-/>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 
