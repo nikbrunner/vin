@@ -53,7 +53,6 @@ M.no_leader = {
     ["<C-q>"] = { ":silent BufferLinePickClose<CR>", "  Pick Close Buffer" },
     ["<C-p>"] = { ":silent BufferLinePick<CR>", "  Pick Buffer" },
     ["<C-e>"] = { Vin.cmds.telescope.find_open_buffer, "﩯 Buffers" },
-    ["<C-x>"] = { "<cmd>Telescope neoclip<CR>", "Clipboard" },
 
     ["<C-/>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 
@@ -103,10 +102,7 @@ M.with_leader = {
     e = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
     -- e = { "<cmd>Neotree toggle left<CR>", "  File Tree" },
     o = { "<cmd>LSoutlineToggle<CR>", "  Symbol Tree" },
-    [" "] = {
-        "<cmd>Telescope file_browser<CR>",
-        Vin.icons.ui.Project .. " File Browser",
-    },
+    [" "] = { "<cmd>Telescope neoclip<CR>", "Clipboard" },
     f = { Vin.cmds.telescope.find_files_without_preview, "  Find File" },
     F = {
         Vin.cmds.telescope.find_files_with_preview,

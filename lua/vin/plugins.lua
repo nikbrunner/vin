@@ -256,11 +256,6 @@ return packer.startup(function(use) -- My plugins here
     })
 
     use({
-        "nvim-telescope/telescope-file-browser.nvim",
-        commit = "4272c52078cc457dfaabce6fa3545e7495651d04",
-    })
-
-    use({
         "nvim-telescope/telescope-project.nvim",
         commit = "dc9a1977d159e3feb98774729f5c30584e2b700a",
     })
