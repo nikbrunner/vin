@@ -15,10 +15,6 @@ M.no_leader = {
 
     ["<CR>"] = { Vin.cmds.general.save_all, WhichKeyIgnoreLabel },
 
-    -- Go to Line Start and End
-    H = { "^", WhichKeyIgnoreLabel },
-    L = { "$", WhichKeyIgnoreLabel },
-
     -- Trigger Hover Doc
     K = { vim.lsp.buf.hover, "Hover Doc" },
 
