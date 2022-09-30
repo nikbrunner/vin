@@ -31,8 +31,8 @@ M.no_leader = {
     -- Navigate buffers and Tabs
     -- ["<S-Tab>"] = { ":tabprevious<CR>", "Prev Tab" },
     -- ["<Tab>"] = { ":tabnext<CR>", "Next Tab" },
-    ["<S-Tab>"] = { ":bprevious<CR>", "Prev Buffer" },
-    ["<Tab>"] = { ":bnext<CR>", "Next Buffer" },
+    ["<M-h>"] = { ":bprevious<CR>", "Prev Buffer" },
+    ["<M-l>"] = { ":bnext<CR>", "Next Buffer" },
 
     -- Move text up and down
     -- NOTE: This is no handled via https://github.com/booperlv/nvim-gomove/blob/main/lua/gomove/init.lua
