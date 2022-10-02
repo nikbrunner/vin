@@ -136,4 +136,4 @@ telescope.setup({
 
 telescope.load_extension("todo-comments")
 telescope.load_extension("project")
-telescope.load_extension("neoclip")
+--[[ telescope.load_extension("neoclip") ]]

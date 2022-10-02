@@ -2,7 +2,7 @@
 vim.cmd([[
   augroup _general_settings
     autocmd!
-    autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200})
+    autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({ higroup = 'Visual', timeout = 200 })
     autocmd FileType qf set nobuflisted
   augroup end
 
@@ -23,27 +23,3 @@ vim.cmd([[
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
 ]])
-
-local lsp_au_group = vim.api.nvim_create_augroup("Formatting", { clear = true })
-
-local buf_write_post_group = vim.api.nvim_create_augroup(
-    "Post Buff Write",
-    { clear = true }
-)
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    callback = function()
-        -- vim.lsp.buf.format({ async = true })
-        vim.lsp.buf.formatting_seq_sync()
-    end,
-    group = buf_write_post_group,
-})
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-    pattern = "*",
-    callback = function()
-        vim.cmd("Gitsigns refresh")
-    end,
-    group = buf_write_post_group,
-})

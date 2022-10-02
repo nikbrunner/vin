@@ -13,7 +13,11 @@ ccc.setup({
     point_char = "◇",
 
     highlighter = {
-        auto_enable = true,
+        -- FIX: Fails when enabled
+        auto_enable = false,
+        filetypes = {},
+        excludes = {},
+        lsp = true,
     },
 
     bar_len = 30,

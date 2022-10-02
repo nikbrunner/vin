@@ -5,6 +5,7 @@
 _G.Vin = {
     lib = {},
     cmds = {},
+    icons = {},
     colorscheme = {},
 }
 

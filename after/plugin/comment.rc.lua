@@ -3,6 +3,7 @@ if not status_ok then
     return
 end
 
+-- FIXME: Seems to not work
 comment.setup({
     pre_hook = function(ctx)
         local U = require("Comment.utils")

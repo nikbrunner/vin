@@ -1,10 +1,10 @@
-local telescope_ok, utils = pcall(require, "telescope.utils")
-if not telescope_ok then
+local telescope_present, utils = pcall(require, "telescope.utils")
+if not telescope_present then
     return
 end
 
-local notify_ok, notify = pcall(require, "notify")
-if not notify_ok then
+local notify_present, notify = pcall(require, "notify")
+if not notify_present then
     return
 end
 
@@ -193,7 +193,9 @@ Vin.lib.focus_error = function()
     -- center view on error
     Vin.lib.center_line_vertical()
 
-    vim.diagnostic.open_float()
+    local config = vim.lsp.diagnostics.float
+    config.scope = "line"
+    vim.diagnostic.open_float(0, config)
 
     -- refocus original window
     vim.api.nvim_set_current_win(current_win)

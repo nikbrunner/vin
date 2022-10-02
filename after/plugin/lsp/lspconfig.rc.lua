@@ -10,11 +10,19 @@ local protocol = require("vim.lsp.protocol")
 local on_attach = function(client, bufnr)
     require("notify").notify("'" .. client.name .. "' attached!", "info", {
         timeout = 100,
-        render = "minimal",
     })
 
+    -- Attach navic if available
+    local navic_status, navic = pcall(require, "nvim-navic")
+    if not navic_status then
+        return
+    else
+        navic.attach(client, bufnr)
+    end
+
     -- Disable formating abilities from the client, which should be handled by null-ls
-    if client.name == "tsserver"
+    if
+        client.name == "tsserver"
         or client.name == "gopls"
         or client.name == "sumneko_lua"
         or client.name == "jsonls"

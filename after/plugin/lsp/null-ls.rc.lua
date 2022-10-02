@@ -12,8 +12,10 @@ local diagnostics = null_ls.builtins.diagnostics
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/code_actions
 local code_actions = null_ls.builtins.code_actions
 
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 null_ls.setup({
-    debug = true,
+    debug = false,
     sources = {
         formatting.prettier,
         formatting.stylua,
@@ -26,4 +28,22 @@ null_ls.setup({
         code_actions.eslint,
         code_actions.gitsigns,
     },
+    on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePost", {
+                group = augroup,
+                buffer = bufnr,
+                callback = function()
+                    vim.lsp.buf.format({
+                        async = true,
+                        bufnr = bufnr,
+                        filter = function(_client)
+                            return _client.name == "null-ls"
+                        end,
+                    })
+                end,
+            })
+        end
+    end,
 })

@@ -35,9 +35,8 @@ M.no_leader = {
     ["<M-l>"] = { ":bnext<CR>", "Next Buffer" },
 
     -- Move text up and down
-    -- NOTE: This is no handled via https://github.com/booperlv/nvim-gomove/blob/main/lua/gomove/init.lua
-    -- ["∆"] = { "<Esc>:m .+1<CR>", "Move Down" },
-    -- ["˚"] = { "<Esc>:m .-2<CR>", "Move Up" },
+    ["<M-k>"] = { "<Esc>:m .-2<CR>", "Move Up" },
+    ["<M-j>"] = { "<Esc>:m .+1<CR>", "Move Down" },
 
     -- Control bindings
 

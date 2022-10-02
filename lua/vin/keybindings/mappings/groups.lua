@@ -128,7 +128,6 @@ M.lsp = {
     A = { "<cmd>Lspsaga range_code_action", "  Range Code Action" },
 
     d = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
-    f = { Vin.cmds.lsp.format_file, "Format" },
 
     i = { "<cmd>LspInfo<CR>", "Info" },
     m = { "<cmd>Mason<CR>", "Installer Info" },

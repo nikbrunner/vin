@@ -1,12 +1,16 @@
-local status_ok, lualine = pcall(require, "lualine")
-if not status_ok then
+local lualine_present, lualine = pcall(require, "lualine")
+if not lualine_present then
+    return
+end
+
+local navic_present, navic = pcall(require, "nvim-navic")
+if not navic_present then
     return
 end
 
 local hide_in_width = function()
     return vim.fn.winwidth(0) > 80
 end
-
 local mode = {
     "mode",
     padding = 3,
@@ -47,7 +51,6 @@ local filename = {
     -- 1: Relative path
     -- 2: Absolute path
     -- 3: Absolute path, with tilde as the home directory
-
     shorting_target = 40, -- Shortens path to leave 40 spaces in the window
     -- for other components. (terrible name, any suggestions?)
     symbols = {
@@ -73,9 +76,11 @@ lualine.setup({
         disabled_filetypes = {
             statusline = {
                 "alpha",
+                "NvimTree",
             },
             winbar = {
                 "alpha",
+                "NvimTree",
             },
         },
         always_divide_middle = true,
@@ -88,7 +93,7 @@ lualine.setup({
     sections = {
         lualine_a = { mode },
         lualine_b = { branch },
-        lualine_c = {},
+        lualine_c = { filename },
         lualine_x = {},
         lualine_y = { filetype },
         lualine_z = {},
@@ -101,17 +106,26 @@ lualine.setup({
         lualine_y = {},
         lualine_z = {},
     },
-    tabline = {},
+    tabline = {
+        lualine_z = { "tabs" },
+    },
     extensions = {},
     -- TODO: Enable when it does not throw so much godamn errors
     -- Source: https://github.com/neovim/neovim/issues/19458
     --         https://github.com/glepnir/lspsaga.nvim/issues/379
     --         https://github.com/nvim-lualine/lualine.nvim/issues/754
-    -- winbar = {
-    -- 	lualine_c = { filename },
-    -- 	lualine_x = {},
-    -- },
-    -- inactive_winbar = {
-    -- 	lualine_c = { filename },
-    -- },
+    winbar = {
+        lualine_c = {
+            {
+                "filename",
+            },
+            {
+                navic.get_location,
+                cond = navic.is_available and hide_in_width,
+            },
+        },
+    },
+    inactive_winbar = {
+        lualine_c = { filename },
+    },
 })
