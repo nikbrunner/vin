@@ -67,3 +67,4 @@ Checkout, evaluate, implement
 - [ ] [nvim-scrollbar](https://github.com/petertriho/nvim-scrollbar)
 - [ ] [winshift.nvim](https://github.com/sindrets/winshift.nvim)
 - [ ] [windows.nvim](https://github.com/anuvyklack/windows.nvim)
+- [ ] [noice.nvim](https://github.com/folke/noice.nvim) (0.9)
