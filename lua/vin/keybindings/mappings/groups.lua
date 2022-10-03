@@ -115,25 +115,15 @@ M.lsp = {
         " Next Diagnostic",
     },
 
-    -- a = { Vin.cmds.lsp.code_action, "Code Action" },
-    -- n = { Vin.cmds.lsp.rename, "Rename" },
-    -- r = { Vin.cmds.telescope.list_references, "List References w/ Fuzzy" },
-    -- R = { ":Trouble lsp_references<CR>", "List References w/ Trouble" },
-
     a = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
-    n = { "<cmd>Lspsaga rename<CR>", "Rename" },
-    r = { "<cmd>Lspsaga lsp_finder<CR>", "List References w/ Fuzzy" },
-    R = { Vin.cmds.telescope.list_references, "List References w/ Fuzzy" },
-
     A = { "<cmd>Lspsaga range_code_action", "  Range Code Action" },
-
+    n = { "<cmd>Lspsaga rename<CR>", "Rename" },
+    r = { Vin.cmds.telescope.list_references, "List References w/ Fuzzy" },
+    R = { ":Trouble lsp_references<CR>", "List References w/ Trouble" },
     d = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
-
     i = { "<cmd>LspInfo<CR>", "Info" },
     m = { "<cmd>Mason<CR>", "Installer Info" },
-
     y = { "<cmd>Telescope lsp_type_definitions<CR>", "Type Definitions" },
-
     p = { "<cmd>Trouble document_diagnostics<CR>", "Trouble Document Diagnostics" },
     P = {
         "<cmd>Trouble workspace_diagnostics<CR>",
@@ -142,7 +132,7 @@ M.lsp = {
     s = M.symbols,
 }
 
--- Currently not used
+-- NOTE: Currently not used
 M.explorer = {
     name = "  Explorer",
     e = { "<cmd>Neotree left toggle<CR>", " Tree" },

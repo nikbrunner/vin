@@ -29,8 +29,6 @@ M.no_leader = {
     ["ZZ"] = { Vin.cmds.save_and_exit, WhichKeyIgnoreLabel },
 
     -- Navigate buffers and Tabs
-    -- ["<S-Tab>"] = { ":tabprevious<CR>", "Prev Tab" },
-    -- ["<Tab>"] = { ":tabnext<CR>", "Next Tab" },
     ["<M-h>"] = { ":bprevious<CR>", "Prev Buffer" },
     ["<M-l>"] = { ":bnext<CR>", "Next Buffer" },
 
@@ -38,17 +36,7 @@ M.no_leader = {
     ["<M-k>"] = { "<Esc>:m .-2<CR>", "Move Up" },
     ["<M-j>"] = { "<Esc>:m .+1<CR>", "Move Down" },
 
-    -- Control bindings
-
-    -- ["<C-q>"] = { ":call ToggleQuickFix()<CR>", "Toggle Quickfix" },
-
-    ["<C-b>"] = { "<cmd>NvimTreeToggle<CR>", " Toggle Tree" },
-    -- ["<C-b>"] = { "<cmd>Neotree toggle left<CR>", " Toggle Tree" },
     ["<C-f>"] = { Vin.cmds.nav.pick_window, "  Pick Window" },
-    ["<C-q>"] = { ":silent BufferLinePickClose<CR>", "  Pick Close Buffer" },
-    ["<C-p>"] = { ":silent BufferLinePick<CR>", "  Pick Buffer" },
-    ["<C-e>"] = { Vin.cmds.telescope.find_open_buffer, "﩯 Buffers" },
-
     ["<C-/>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 
     -- FN Key Bindings
@@ -95,9 +83,8 @@ M.with_leader = {
     [";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
 
     e = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
-    -- e = { "<cmd>Neotree toggle left<CR>", "  File Tree" },
     o = { "<cmd>LSoutlineToggle<CR>", "  Symbol Tree" },
-    [" "] = { "<cmd>Telescope neoclip<CR>", "Clipboard" },
+    [" "] = { Vin.cmds.telescope.find_open_buffer, "﩯 Buffers" },
     f = { Vin.cmds.telescope.find_files_without_preview, "  Find File" },
     F = {
         Vin.cmds.telescope.find_files_with_preview,
