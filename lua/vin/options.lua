@@ -30,7 +30,7 @@ vim.opt.pumheight = 20 -- pop up menu height
 vim.opt.wildoptions = "pum"
 vim.opt.wildignore:append({ "*/node_modules/*" })
 
-vim.opt.laststatus = 2 -- No status line
+vim.opt.laststatus = 0 -- No status line
 --[[ vim.opt.laststatus = 3 -- Enable global status Line ]]
 vim.opt.showtabline = 1 -- always show tabs
 vim.opt.conceallevel = 0 -- so that `` is visible in markdown files

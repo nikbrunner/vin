@@ -100,28 +100,15 @@ lualine.setup({
         lualine_z = { tabs },
     },
     winbar = {
-        lualine_b = { filename },
-        lualine_y = { filetype },
+        lualine_c = { filename },
+        lualine_x = { diff },
+        lualine_y = { "diagnostics" },
     },
     inactive_winbar = {
         lualine_c = { filename },
-        lualine_y = { filetype },
-    },
-    sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { diff },
-        lualine_x = {},
-        lualine_y = { "diagnostics" },
-        lualine_z = {},
-    },
-    inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
         lualine_y = {},
-        lualine_z = {},
     },
+    sections = {},
+    inactive_sections = {},
     extensions = {},
 })
