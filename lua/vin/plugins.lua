@@ -40,8 +40,8 @@ packer.init({
     max_jobs = 15, -- Limit the number of simultaneous jobs. nil means no limit
     auto_clean = true, -- During sync(), remove unused plugins
     compile_on_sync = true, -- During sync(), run packer.compile()
-    ensure_dependencies   = true, -- Should packer install plugin dependencies?
-    preview_updates = true
+    ensure_dependencies = true, -- Should packer install plugin dependencies?
+    preview_updates = true,
 })
 
 -- Install your plugins here
