@@ -8,9 +8,7 @@ end
 local protocol = require("vim.lsp.protocol")
 
 local on_attach = function(client, bufnr)
-    require("notify").notify("'" .. client.name .. "' attached!", "info", {
-        timeout = 100,
-    })
+    require("notify").notify("'" .. client.name .. "' attached!", "info", {})
 
     -- Disable formating abilities from the client, which should be handled by null-ls
     if
