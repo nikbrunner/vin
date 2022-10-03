@@ -93,19 +93,6 @@ function Vin.lib.put(...)
     print(table.concat(objects, "\n"))
 end
 
----Wrapper Function for pcall() command
----TODO Unused, because disfunctional.
----Try this out with a clean install and see if it works
----@param modname string Module Name
----@return mod|nil Module Required Module
-function Vin.lib.prequire(modname)
-    local status_ok, mod = pcall(require, modname)
-    if not status_ok then
-        return nil
-    end
-    return mod
-end
-
 ---Function to split a string by spaces
 ---@param string string Input string
 ---@return chunks table The splitted string as table
