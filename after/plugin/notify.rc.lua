@@ -5,13 +5,7 @@ end
 
 notify.setup({
     -- Animation style
-    stages = "fade",
-
-    -- Function called when a new window is opened, use for changing win settings/config
-    on_open = nil,
-
-    -- Function called when a window is closed
-    on_close = nil,
+    stages = "static",
 
     -- Render function for notifications. See notify-render()
     render = "default",
@@ -21,9 +15,6 @@ notify.setup({
 
     -- Max number of columns for messages
     max_width = 50,
-
-    -- Max number of lines for a message
-    max_height = nil,
 
     -- For stages that change opacity this is treated as the highlight behind the window
     -- Set this to either a highlight group, an RGB hex value e.g. "#000000" or a function returning an RGB code for dynamic values
