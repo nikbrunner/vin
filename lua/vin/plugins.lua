@@ -116,7 +116,7 @@ return packer.startup(function(use) -- My plugins here
     use({
         "glepnir/lspsaga.nvim",
         branch = "main",
-        commit = "0c09e7c620f473275d7643f9d10a405e078c9f16",
+        commit = "9bfd5630b2fbc7e952a310ab0c53a288b1ae7d1b",
     })
 
     -- INFO: Lua Development
