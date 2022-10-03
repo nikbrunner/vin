@@ -143,7 +143,7 @@ Vin.cmds.telescope.find_files_in_work_notes = function(opts)
 end
 
 Vin.cmds.telescope.find_open_buffer = function()
-    builtin.buffers(themes.get_ivy({}))
+    builtin.buffers(themes.get_dropdown({}))
 end
 
 Vin.cmds.telescope.find_scss_symbol = function()
