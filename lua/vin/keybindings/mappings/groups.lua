@@ -387,7 +387,11 @@ M.tabs = {
             vim.ui.input({
                 prompt = "  Enter a Name for the Tab",
             }, function(input)
-                vim.cmd("TabRename " .. input)
+                if input then
+                    vim.cmd("LualineRenameTab " .. input)
+                else
+                    return
+                end
             end)
         end,
         "Rename Tab",

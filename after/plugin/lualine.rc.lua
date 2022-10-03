@@ -60,19 +60,32 @@ local filename = {
     },
 }
 
+local tabs = {
+    "tabs",
+    max_length = vim.o.columns / 3, -- Maximum width of tabs component.
+    mode = 2, -- 0: Shows tab_nr
+    -- 1: Shows tab_name
+    -- 2: Shows tab_nr + tab_name
+}
+
+local gps = {
+    navic.get_location,
+    cond = navic.is_available,
+}
+
 lualine.setup({
     options = {
-        globalstatus = true,
+        globalstatus = false,
         icons_enabled = true,
         theme = "auto",
-        -- component_separators = { left = "", right = "" },
+        --[[ component_separators = { left = "", right = "" }, ]]
         -- section_separators = { left = "", right = "" },
-        -- section_separators = { left = "", right = "" },
-        -- component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
         -- section_separators = { left = "", right = "" },
         -- component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
-        component_separators = { left = "", right = "" },
+        --[[ section_separators = { left = "", right = "" }, ]]
+        --[[ component_separators = { left = "", right = "" }, ]]
         disabled_filetypes = {
             statusline = {
                 "alpha",
@@ -90,42 +103,35 @@ lualine.setup({
             winbar = 1000,
         },
     },
-    sections = {
+    tabline = {
         lualine_a = { mode },
         lualine_b = { branch },
-        lualine_c = { filename },
+        lualine_c = { diff },
+        lualine_z = { tabs },
+    },
+    winbar = {
+        lualine_c = { gps },
+        lualine_y = {},
+    },
+    inactive_winbar = {
+        lualine_c = {},
+        lualine_y = {},
+    },
+    sections = {
+        lualine_a = {},
+        lualine_b = { filename },
+        lualine_c = {},
         lualine_x = {},
-        lualine_y = { filetype },
+        lualine_y = { "diagnostics" },
         lualine_z = {},
     },
     inactive_sections = {
-        lualine_a = {},
+        lualine_a = { filename },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
         lualine_z = {},
     },
-    tabline = {
-        lualine_z = { "tabs" },
-    },
     extensions = {},
-    -- TODO: Enable when it does not throw so much godamn errors
-    -- Source: https://github.com/neovim/neovim/issues/19458
-    --         https://github.com/glepnir/lspsaga.nvim/issues/379
-    --         https://github.com/nvim-lualine/lualine.nvim/issues/754
-    winbar = {
-        lualine_c = {
-            {
-                "filename",
-            },
-            {
-                navic.get_location,
-                cond = navic.is_available and hide_in_width,
-            },
-        },
-    },
-    inactive_winbar = {
-        lualine_c = { filename },
-    },
 })
