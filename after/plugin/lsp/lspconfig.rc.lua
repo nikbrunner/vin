@@ -12,14 +12,6 @@ local on_attach = function(client, bufnr)
         timeout = 100,
     })
 
-    -- Attach navic if available
-    local navic_status, navic = pcall(require, "nvim-navic")
-    if not navic_status then
-        return
-    else
-        navic.attach(client, bufnr)
-    end
-
     -- Disable formating abilities from the client, which should be handled by null-ls
     if
         client.name == "tsserver"

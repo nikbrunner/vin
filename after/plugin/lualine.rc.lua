@@ -3,11 +3,6 @@ if not lualine_present then
     return
 end
 
-local navic_present, navic = pcall(require, "nvim-navic")
-if not navic_present then
-    return
-end
-
 local hide_in_width = function()
     return vim.fn.winwidth(0) > 80
 end
@@ -63,14 +58,9 @@ local filename = {
 local tabs = {
     "tabs",
     max_length = vim.o.columns / 3, -- Maximum width of tabs component.
-    mode = 2, -- 0: Shows tab_nr
+    mode = 0, -- 0: Shows tab_nr
     -- 1: Shows tab_name
     -- 2: Shows tab_nr + tab_name
-}
-
-local gps = {
-    navic.get_location,
-    cond = navic.is_available,
 }
 
 lualine.setup({
@@ -106,27 +96,27 @@ lualine.setup({
     tabline = {
         lualine_a = { mode },
         lualine_b = { branch },
-        lualine_c = { diff },
+        lualine_c = {},
         lualine_z = { tabs },
     },
     winbar = {
-        lualine_c = { gps },
-        lualine_y = {},
+        lualine_b = { filename },
+        lualine_y = { filetype },
     },
     inactive_winbar = {
-        lualine_c = {},
-        lualine_y = {},
+        lualine_c = { filename },
+        lualine_y = { filetype },
     },
     sections = {
         lualine_a = {},
-        lualine_b = { filename },
-        lualine_c = {},
+        lualine_b = {},
+        lualine_c = { diff },
         lualine_x = {},
         lualine_y = { "diagnostics" },
         lualine_z = {},
     },
     inactive_sections = {
-        lualine_a = { filename },
+        lualine_a = {},
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
