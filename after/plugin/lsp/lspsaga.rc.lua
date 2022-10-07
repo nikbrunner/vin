@@ -72,9 +72,9 @@ saga.init_lsp_saga({
 
     finder_action_keys = {
         open = "<CR>",
-        vsplit = "s",
-        split = "i",
-        tabe = "t",
+        vsplit = "<C-v>",
+        split = "<C-s>",
+        tabe = "<C-t>",
         quit = "q",
         scroll_down = "<C-d>",
         scroll_up = "<C-u>", -- quit can be a table
