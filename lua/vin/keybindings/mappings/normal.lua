@@ -41,9 +41,9 @@ M.no_leader = {
 
     -- FN Key Bindings
     ["<F5>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
-    ["<F6>"] = { ":CccPick<CR>", "Color Picker" },
-    ["<F8>"] = { "<cmd>TodoTrouble<CR>", "Todo Quick Fix" },
-    ["<F9>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
+    ["<F7>"] = { ":CccPick<CR>", "Color Picker" },
+    ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
+    ["<F9>"] = { "<cmd>TodoTrouble<CR>", "Todo Quick Fix" },
 
     -- Better window navigation
     ["<C-h>"] = { "<C-w>h", "Focus Left" },
