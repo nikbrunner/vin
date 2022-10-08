@@ -36,6 +36,9 @@ M.no_leader = {
     ["<M-h>"] = { ":bprevious<CR>", "Prev Buffer" },
     ["<M-l>"] = { ":bnext<CR>", "Next Buffer" },
 
+    ["<M-[>"] = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
+    ["<M-]>"] = { "<cmd>LSoutlineToggle<CR>", "  Symbol Tree" },
+
     -- Move text up and down
     ["<M-k>"] = { "<Esc>:m .-2<CR>", "Move Up" },
     ["<M-j>"] = { "<Esc>:m .+1<CR>", "Move Down" },
