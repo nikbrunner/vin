@@ -205,8 +205,8 @@ return packer.startup(function(use) -- My plugins here
     })
 
     use({
-        "~/Documents/dev/repos/personal/terra-theme/nvim",
-        -- 	"terra-theme/nvim",
+        --[[ "~/Documents/dev/repos/personal/terra-theme/nvim", ]]
+        "terra-theme/nvim",
     })
 
     -- INFO: GitHub Theme
