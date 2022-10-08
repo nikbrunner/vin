@@ -101,7 +101,7 @@ saga.init_lsp_saga({
 
     -- show outline
     show_outline = {
-        win_position = "left",
+        win_position = "right",
         --set special filetype win that outline window split.like NvimTree neotree
         -- defx, db_ui
         win_with = "",
