@@ -26,6 +26,10 @@ M.no_leader = {
     j = { "gj", WhichKeyIgnoreLabel },
     k = { "gk", WhichKeyIgnoreLabel },
 
+    -- Easier Start and Beginng of line
+    H = { "^", WhichKeyIgnoreLabel },
+    L = { "$", WhichKeyIgnoreLabel },
+
     ["ZZ"] = { Vin.cmds.save_and_exit, WhichKeyIgnoreLabel },
 
     -- Navigate buffers and Tabs
