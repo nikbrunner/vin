@@ -383,8 +383,14 @@ return packer.startup(function(use) -- My plugins here
         "anuvyklack/pretty-fold.nvim",
         commit = "a7d8b424abe0eedf50116c460fbe6dfd5783b1d5",
         requires = {
-            "anuvyklack/fold-preview.nvim",
-            "anuvyklack/keymap-amend.nvim",
+            {
+                "anuvyklack/fold-preview.nvim",
+                commit = "0cabe8af16c73c2e0cbd9f99e0ec2b993457030c",
+            },
+            {
+                "anuvyklack/keymap-amend.nvim",
+                commit = "b8bf9d820878d5497fdd11d6de55dea82872d98e",
+            },
         },
     })
 
