@@ -1,3 +1,4 @@
+-- Convert to lua
 vim.cmd([[
- au BufRead,BufNewFile tsconfig.json set filetype=jsonc
+ au BufRead,BufNewFile tsconfig.json,.eslintrc.json set filetype=jsonc
 ]])
