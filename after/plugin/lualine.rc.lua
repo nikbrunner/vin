@@ -58,14 +58,14 @@ local filename = {
 local tabs = {
     "tabs",
     max_length = vim.o.columns / 3, -- Maximum width of tabs component.
-    mode = 0, -- 0: Shows tab_nr
+    mode = 2, -- 0: Shows tab_nr
     -- 1: Shows tab_name
     -- 2: Shows tab_nr + tab_name
 }
 
 lualine.setup({
     options = {
-        globalstatus = false,
+        globalstatus = true,
         icons_enabled = true,
         theme = "auto",
         --[[ component_separators = { left = "", right = "" }, ]]
