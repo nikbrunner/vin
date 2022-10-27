@@ -89,7 +89,7 @@ end
 
 Vin.cmds.telescope.find_word = function()
     local curr_word = vim.fn.expand("<cword>")
-    builtin.grep_string(themes.get_ivy({ default_text = curr_word }))
+    builtin.grep_string({ default_text = curr_word })
 end
 
 Vin.cmds.telescope.find_in_quickfix = function()
@@ -97,7 +97,7 @@ Vin.cmds.telescope.find_in_quickfix = function()
 end
 
 Vin.cmds.telescope.find_symbols_in_workspace = function()
-    builtin.lsp_dynamic_workspace_symbols(themes.get_ivy({}))
+    builtin.lsp_dynamic_workspace_symbols()
 end
 
 Vin.cmds.telescope.find_changed_files = function(opts)
@@ -116,11 +116,11 @@ Vin.cmds.telescope.find_related_files = function()
     local current_filename = Vin.cmds.general.get_current_filename()
 
     if current_filename then
-        builtin.find_files(themes.get_ivy({
+        builtin.find_files({
             default_text = current_filename,
-        }))
+        })
     else
-        builtin.find_files(themes.get_ivy())
+        builtin.find_files()
     end
 end
 
@@ -249,12 +249,12 @@ end
 
 -- Go to definition
 Vin.cmds.telescope.go_to_definition = function()
-    builtin.lsp_definitions(themes.get_ivy())
+    builtin.lsp_definitions()
 end
 
 -- List references
 Vin.cmds.telescope.list_references = function()
-    builtin.lsp_references(themes.get_ivy())
+    builtin.lsp_references()
 end
 
 -- Find document symbols with aerial
@@ -279,5 +279,5 @@ Vin.cmds.telescope.find_commands = function()
 end
 
 Vin.cmds.telescope.find_marks = function()
-    builtin.marks(themes.get_ivy())
+    builtin.marks()
 end
