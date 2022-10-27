@@ -403,7 +403,7 @@ return packer.startup(function(use) -- My plugins here
     -- INFO: Preview and edit colors
     use({
         "uga-rosa/ccc.nvim",
-        commit = "c403c7578428868d540e99b2978800f574444328",
+        commit = "312f33f36115e8266b06ea97002b71e4ebc0f006",
     })
 
     -- INFO: Surround text actions
