@@ -21,11 +21,12 @@ null_ls.setup({
         formatting.stylua,
         formatting.gofmt,
 
-        -- If enabled I get double entries
-        -- diagnostics.eslint,
-        -- diagnostics.tsc,
+        --[[ If enabled I get double entries ]]
+        diagnostics.eslint,
+        --[[ diagnostics.eslint_d, ]]
+        --[[ diagnostics.tsc, ]]
 
-        code_actions.eslint,
+        code_actions.eslint_d,
         code_actions.gitsigns,
     },
     on_attach = function(client, bufnr)
