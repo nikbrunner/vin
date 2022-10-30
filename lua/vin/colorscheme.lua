@@ -1,6 +1,6 @@
 Vin.colorscheme = {
-    theme = "terra",
-    --[[ theme = "github_dark_default", ]]
+    --[[ theme = "terra", ]]
+    theme = "github_dark_default",
     --[[ theme = "github_dimmed", ]]
 }
 

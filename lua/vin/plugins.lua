@@ -212,7 +212,7 @@ return packer.startup(function(use) -- My plugins here
     -- INFO: GitHub Theme
     use({
         "projekt0n/github-nvim-theme",
-        commit = "b3f15193d1733cc4e9c9fe65fbfec329af4bdc2a",
+        commit = "a0632f9",
     })
 
     -- INFO: Flexible fuzzy finder
