@@ -25,12 +25,12 @@ vim.opt.updatetime = 100 -- faster completion (4000ms default)
 
 vim.opt.showcmd = false -- don't show the commands
 vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 vim.opt.pumheight = 20 -- pop up menu height
 vim.opt.wildoptions = "pum"
 vim.opt.wildignore:append({ "*/node_modules/*" })
 
-vim.opt.laststatus = 0 -- No status line
+vim.opt.laststatus = 1 -- No status line
 --[[ vim.opt.laststatus = 3 -- Enable global status Line ]]
 vim.opt.showtabline = 1 -- always show tabs
 vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
