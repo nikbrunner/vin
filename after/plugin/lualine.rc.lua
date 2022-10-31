@@ -69,13 +69,13 @@ lualine.setup({
         icons_enabled = true,
         theme = "auto",
         --[[ component_separators = { left = "", right = "" }, ]]
-        -- section_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
-        component_separators = { left = "", right = "" },
-        -- section_separators = { left = "", right = "" },
-        -- component_separators = { left = "", right = "" },
-        --[[ section_separators = { left = "", right = "" }, ]]
-        --[[ component_separators = { left = "", right = "" }, ]]
+        --[[ section_separators = { left = "", right = "" }, ]]
+        --[[ section_separators = { left = "", right = "" }, ]]
+        --[[ component_separators = { left = "", right = "" }, ]]
+        --[[ section_separators = { left = "", right = "" }, ]]
+        --[[ component_separators = { left = "", right = "" }, ]]
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
         disabled_filetypes = {
             statusline = {
                 "alpha",
@@ -94,8 +94,8 @@ lualine.setup({
         },
     },
     tabline = {
-        lualine_a = { mode },
-        lualine_b = { branch },
+        lualine_a = {},
+        lualine_b = {},
         lualine_c = {},
         lualine_z = { tabs },
     },
@@ -108,7 +108,10 @@ lualine.setup({
         lualine_c = { filename },
         lualine_y = {},
     },
-    sections = {},
+    sections = {
+        lualine_a = { mode },
+        lualine_b = { branch },
+    },
     inactive_sections = {},
     extensions = {},
 })
