@@ -362,7 +362,7 @@ return packer.startup(function(use) -- My plugins here
     -- INFO: LSP Problems View
     use({
         "folke/trouble.nvim",
-        commit = "929315ea5f146f1ce0e784c76c943ece6f36d786",
+        commit = "ed65f84",
         requires = "kyazdani42/nvim-web-devicons",
     })
 
