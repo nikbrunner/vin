@@ -47,10 +47,10 @@ M.no_leader = {
     ["<C-/>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
 
     -- FN Key Bindings
-    ["<F5>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
-    ["<F7>"] = { ":CccPick<CR>", "Color Picker" },
+    ["<F6>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
+    ["<F7>"] = { "<cmd>CccPick<CR>", "Color Picker" },
     ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
-    ["<F9>"] = { "<cmd>TodoTrouble<CR>", "Todo Quick Fix" },
+    ["<F9>"] = { "<cmd>TodoTrouble<CR>", "Todo Trouble" },
 
     -- Better window navigation
     ["<C-h>"] = { "<C-w>h", "Focus Left" },

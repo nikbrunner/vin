@@ -102,15 +102,15 @@ M.lsp = {
     name = "  LSP",
     k = {
         function()
-            vim.lsp.diagnostic.goto_prev()
-            Vin.lib.focus_error()
+            --[[ vim.lsp.diagnostic.goto_prev() ]]
+            vim.cmd("Lspsaga diagnostic_jump_prev")
         end,
         " Prev Diagnostic",
     },
     j = {
         function()
-            vim.lsp.diagnostic.goto_next()
-            Vin.lib.focus_error()
+            --[[ vim.lsp.diagnostic.goto_next() ]]
+            vim.cmd("Lspsaga diagnostic_jump_next")
         end,
         " Next Diagnostic",
     },
