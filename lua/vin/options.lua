@@ -58,6 +58,6 @@ vim.opt.smartindent = true -- make indenting smarter again
 vim.opt.autoindent = true
 
 vim.opt.foldmethod = "indent"
-vim.opt.foldlevel = 8
+vim.opt.foldlevel = 10
 
 vim.wo.fillchars = "eob: "
