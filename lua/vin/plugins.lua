@@ -335,12 +335,6 @@ return packer.startup(function(use) -- My plugins here
         commit = "aea31569d1b20aa6a35fa84ec756cb205a4a7134",
     })
 
-    -- INFO: Prettier Notifications for nvim
-    use({
-        "rcarriga/nvim-notify",
-        commit = "414465468c93f693be4e2f69f47586cf37f3f751",
-    })
-
     -- INFO: Zen Mode
     use({
         "folke/zen-mode.nvim",

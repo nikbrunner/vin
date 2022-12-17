@@ -1,4 +1,4 @@
-vim.cmd("colorscheme terra")
+vim.cmd("colorscheme default")
 
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"

@@ -3,22 +3,10 @@ if not telescope_status_ok then
     return
 end
 
-local notify_status_ok, notify = pcall(require, "notify")
-if not notify_status_ok then
-    return
-end
-
 local builtin = require("telescope.builtin")
 local themes = require("telescope.themes")
 local previewers = require("telescope.previewers")
 local conf = require("telescope.config")
-
-local use_notification = function(message)
-    notify(message, "info", {
-        title = "Telescope",
-        icon = "",
-    })
-end
 
 local delta_previewer = previewers.new_termopen_previewer({
     get_command = function(entry)
@@ -201,12 +189,12 @@ Vin.cmds.telescope.find_scss_symbol = function()
             handleSelectAction(function(action)
                 if action == Action.GoToDefinition then
                     use_telescope("$" .. curr_word .. ": ")
-                    use_notification(
+                    vim.notify(
                         "Looking for variable defintion of '" .. curr_word .. "'"
                     )
                 elseif action == Action.ListReferences then
                     use_telescope("$" .. curr_word)
-                    use_notification(
+                    vim.notify(
                         "Looking for variable references of '" .. curr_word .. "'"
                     )
                 end
@@ -217,12 +205,12 @@ Vin.cmds.telescope.find_scss_symbol = function()
             handleSelectAction(function(action)
                 if action == Action.GoToDefinition then
                     use_telescope("@mixin " .. curr_word)
-                    use_notification(
+                    vim.notify(
                         "Looking for mixin definition of '" .. curr_word .. "'"
                     )
                 elseif action == Action.ListReferences then
                     use_telescope("@include " .. curr_word)
-                    use_notification(
+                    vim.notify(
                         "Looking for mixin references for '" .. curr_word .. "'"
                     )
                 end

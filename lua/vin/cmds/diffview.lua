@@ -1,24 +1,10 @@
-local notify_status_ok, notify = pcall(require, "notify")
-if not notify_status_ok then
-    return
-end
-
 Vin.cmds.diffview = {}
-
--- TODO Detect and notify about errors
--- If opening the diff is not successfull notify!
 
 local diffview_notification = function(branchName, message)
     if message == nil then
-        notify("Diff from current state to '" .. branchName .. "'", "info", {
-            title = "Diff",
-            icon = " ",
-        })
+        vim.notify("Diff from current state to '" .. branchName .. "'")
     else
-        notify(message, "info", {
-            title = "Diff",
-            icon = " ",
-        })
+        vim.notify(message)
     end
 end
 

@@ -1,19 +1,10 @@
-local notify_ok, notify = pcall(require, "notify")
-if not notify_ok then
-    return
-end
-
 local gitsigns_ok, gitsigns = pcall(require, "gitsigns")
 if not gitsigns_ok then
     return
 end
 
 local diffview_notification = function(message)
-    notify(message, "info", {
-        title = "Git",
-        icon = " ",
-        timeout = 1000,
-    })
+    vim.notify(message)
 end
 
 -- TODO: Move diffview in here?

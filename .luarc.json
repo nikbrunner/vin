@@ -61,7 +61,6 @@
         "/Users/nikolausbrunner/.local/share/nvim/site/pack/packer/start/nvim-cmp",
         "/Users/nikolausbrunner/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
         "/Users/nikolausbrunner/.local/share/nvim/site/pack/packer/start/nvim-neoclip.lua",
-        "/Users/nikolausbrunner/.local/share/nvim/site/pack/packer/start/nvim-notify",
         "/Users/nikolausbrunner/.local/share/nvim/site/pack/packer/start/nvim-surround",
         "/Users/nikolausbrunner/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
         "/Users/nikolausbrunner/.local/share/nvim/site/pack/packer/start/nvim-treesitter",

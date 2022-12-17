@@ -1,13 +1,3 @@
-local telescope_present, utils = pcall(require, "telescope.utils")
-if not telescope_present then
-    return
-end
-
-local notify_present, notify = pcall(require, "notify")
-if not notify_present then
-    return
-end
-
 -- Vim Function to toggle quickfix list
 -- TODO Convert to Lua
 vim.cmd([[
@@ -21,6 +11,8 @@ endfunction
 ]])
 
 Vin.lib.get_master_branch = function()
+    local utils = require("telescope.utils")
+
     local branches = utils.get_os_command_output({
         "git",
         "branch",

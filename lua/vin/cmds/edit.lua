@@ -1,8 +1,3 @@
-local notify_status_ok, notify = pcall(require, "notify")
-if not notify_status_ok then
-    return
-end
-
 Vin.cmds.edit = {}
 
 Vin.cmds.edit.log_word = function()

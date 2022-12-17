@@ -1,8 +1,3 @@
-local notify_status_ok, notify = pcall(require, "notify")
-if not notify_status_ok then
-    return
-end
-
 Vin.cmds.general = {
     all = {},
     blocks = {},
@@ -31,7 +26,7 @@ Vin.cmds.general.get_current_filename = function()
             return fileName
         end,
         function()
-            notify("get_current_filename()\nParsing filename failed!", "warn")
+            vim.notify("get_current_filename()\nParsing filename failed!")
             return nil
         end
     )
