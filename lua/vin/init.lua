@@ -6,7 +6,6 @@ _G.Vin = {
     lib = {},
     cmds = {},
     icons = {},
-    colorscheme = {},
 }
 
 -- Function to savely load modules when sourcing the the init.lua
@@ -21,7 +20,6 @@ load("vin.autocmds")
 load("vin.lib")
 load("vin.cmds")
 load("vin.plugins")
-load("vin.colorscheme")
 load("vin.keybindings")
 
 -- Allow require to look in after/plugin folder
