@@ -408,6 +408,10 @@ return packer.startup(function(use) -- My plugins here
         commit = "73fd2494b181cdad5dca2be23bfefd6e34621fd2",
     })
 
+    use({
+        "Mofiqul/vscode.nvim",
+    })
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
