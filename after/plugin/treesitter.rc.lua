@@ -33,8 +33,10 @@ configs.setup({
         additional_vim_regex_highlighting = false,
         disable = { "latex" },
     },
+    -- DOCS: https://github.com/JoosepAlviste/nvim-ts-context-commentstring
     context_commentstring = {
         enable = true,
+        enable_autocmd = false,
         config = {
             -- Languages that have a single comment style
             typescript = "// %s",
