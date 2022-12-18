@@ -386,10 +386,6 @@ packer.startup(function(use)
         tag = "*",
     })
 
-    -- INFO: Clipboard manager
-    use({
-        "AckslD/nvim-neoclip.lua",
-    })
 
     use({
         "Mofiqul/vscode.nvim",
