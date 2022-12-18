@@ -45,6 +45,8 @@ packer.init({
     preview_updates = true,
 })
 
+pcall(require, "impatient")
+
 -- Install your plugins here
 return packer.startup(function(use) -- My plugins here
     -- INFO: Have the package-manager manage itself
