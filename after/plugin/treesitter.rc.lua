@@ -7,6 +7,7 @@ configs.setup({
     on_config_done = nil,
     ensure_installed = {
         "html",
+        "help",
         "bash",
         "javascript",
         "typescript",
@@ -14,6 +15,7 @@ configs.setup({
         "tsx",
         "json",
         "lua",
+        "vim",
         "python",
         "rust",
         "go",
@@ -28,7 +30,7 @@ configs.setup({
     },
     highlight = {
         enable = true, -- false will disable the whole extension
-        additional_vim_regex_highlighting = true,
+        additional_vim_regex_highlighting = false,
         disable = { "latex" },
     },
     context_commentstring = {

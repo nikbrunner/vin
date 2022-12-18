@@ -16,7 +16,7 @@ lspconfig.setup({
         "sumneko_lua",
         "tsserver",
         "jsonls",
-        "ccsls",
+        "cssls",
         "gopls",
     },
 })

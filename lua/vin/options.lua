@@ -1,4 +1,10 @@
-vim.cmd("colorscheme vscode")
+local vscode_ok, vscode = pcall(require, "vscode")
+
+if vscode_ok then
+    vim.cmd("colorscheme vscode")
+else
+    vim.cmd("colorscheme default")
+end
 
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
