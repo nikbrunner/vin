@@ -11,6 +11,9 @@ M.no_leader = {
     ["H"] = { "^", WhichKeyIgnoreLabel },
     ["L"] = { "$", WhichKeyIgnoreLabel },
 
+    ["J"] = { ":m '>+1<CR>gv=gv", WhichKeyIgnoreLabel },
+    ["K"] = { ":m '<-2<CR>gv=gv", WhichKeyIgnoreLabel },
+
     -- Move text up and down
     -- NOTE: This is no handled via https://github.com/booperlv/nvim-gomove/blob/main/lua/gomove/init.lua
     ["<M-k>"] = { ":move '<-2<CR>gv-gv", WhichKeyIgnoreLabel },

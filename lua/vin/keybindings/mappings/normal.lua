@@ -26,6 +26,8 @@ M.no_leader = {
     j = { "gj", WhichKeyIgnoreLabel },
     k = { "gk", WhichKeyIgnoreLabel },
 
+    J = { "mzJ`z", WhichKeyIgnoreLabel },
+
     -- Easier Start and Beginng of line
     H = { "^", WhichKeyIgnoreLabel },
     L = { "$", WhichKeyIgnoreLabel },
