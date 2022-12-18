@@ -3,19 +3,28 @@ if not status then
     return
 end
 
--- vim.lsp.set_log_level("debug")
-
 local protocol = require("vim.lsp.protocol")
 
 local on_attach = function(client, bufnr)
     -- Disable formating abilities from the client, which should be handled by null-ls
-    if
-        client.name == "tsserver"
-        or client.name == "gopls"
-        or client.name == "sumneko_lua"
-        or client.name == "jsonls"
-    then
+    local servers_to_disable_formating_capabilities = {
+        "tsserver",
+        "gopls",
+        "sumneko_lua",
+        "jsonls",
+    }
+
+    if vin.lib.includes(servers_to_disable_formating_capabilities, client.name) then
         client.server_capabilities.documentFormattingProvider = false
+
+        -- NOTE: A binding for this command is handled via WhichKey
+        vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+            if vim.lsp.buf.format then
+                vim.lsp.buf.format()
+            elseif vim.lsp.buf.formatting then
+                vim.lsp.buf.formatting()
+            end
+        end, { desc = "Format current buffer with LSP" })
     end
 end
 
@@ -64,7 +73,7 @@ nvim_lsp.cssls.setup({
     capabilities = capabilities,
 })
 
-local neodev = require("neodev").setup()
+require("neodev").setup()
 
 nvim_lsp.sumneko_lua.setup({
     on_attach = on_attach,
@@ -79,6 +88,10 @@ nvim_lsp.sumneko_lua.setup({
                 -- Make the server aware of Neovim runtime files
                 library = vim.api.nvim_get_runtime_file("", true),
                 checkThirdParty = false,
+            },
+
+            completion = {
+                callSnippet = "Replace",
             },
         },
     },

@@ -11,8 +11,6 @@ local input = ccc.input
 local output = ccc.output
 local picker = ccc.picker
 
----@alias show_mode "auto" | "show" | "hide"
-
 ccc.setup({
     ---@type string hex
     default_color = "#000000",
@@ -38,7 +36,7 @@ ccc.setup({
     preserve = false,
     ---@type boolean
     save_on_quit = true,
-    ---@type show_mode
+    ---@type show_mode "auto" | "show" | "hide"
     alpha_show = "auto",
     ---@type ColorInput[]
     inputs = {
@@ -104,8 +102,7 @@ ccc.setup({
         input = false,
         output = false,
         -- stylua: ignore
-        ---@alias RecognizePattern table<ColorPicker, {[1]: ColorInput, [2]: ColorOutput}>
-        ---@type RecognizePattern
+        ---@type RecognizePattern table<ColorPicker, {[1]: ColorInput, [2]: ColorOutput}>
         pattern = {
             [picker.css_rgb] = { input.rgb, output.rgb },
             [picker.css_name] = { input.rgb, output.rgb },

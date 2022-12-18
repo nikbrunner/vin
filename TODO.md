@@ -1,41 +1,21 @@
 # TODO
 
-## Bugs
-
-- ...
-
 ## General
 
-- [ ] LSP: Dry up
-- [ ] LSP: LSP Settings files
-- [ ] Ability to import files from `plugin/` folder
-- [ ] Define Comment Doc for all functions
-- [ ] Clock in Status line
+- [x] Colorscheme: settings do not work
+- [x] Colorscheme: Try external colorscheme, fallback to default on startup
+- [ ] LSP: LSP Zero
+- [ ] Add Incline
+- [ ] Copilot
+- [ ] Align Mappings and (most) plugins with Lvim Config
+- [ ] Convert all files to `M.()` convention
 - [ ] Make Custom Select/Yank/Delete Block Commands work with Treesitter
-  - These currently work only with languages where a block starts and ends with paired brackets
 - [ ] Save Issue ID on Runtime and add a
   - If no issue id present, show input field
   - If existent open todo searcher with issue id already present
   - folke/todo: filter with issue id?
 - [ ] Folding still seems to be somewhat strange (Some Bindings do not work)
-
-## Research
-
-- [ ] `Lazygit`: Does `Lazygit` work with Git Worktrees?
-- [ ] `packer.nvim`: Checkout lazy Loading for some Plugins
-- [ ] Clipboard / Registry Manager
-- [ ] Pin Plugins via Commit Hash
-
-### Videos
-
-Videos which contain valuable Information which I want to check out
-
-- [ ] [Chris@Machine: Creating an unbreakable nvim config](https://www.youtube.com/watch?v=Vghglz2oR0c)
-- [ ] [Primeagean: Your VimRC2022](https://www.youtube.com/watch?v=x2QJYq4IX6M)
-
-## Languages
-
-- [ ] Markdown [mkdx](https://github.com/SidOfc/mkdx)
+- [ ] Setup Markdown [mkdx](https://github.com/SidOfc/mkdx)
   - [ ] Checkboxes
   - [ ] Auto Spell Checking
   - [ ] Formatter

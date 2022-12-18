@@ -1,13 +1,7 @@
-local vscode_ok, vscode = pcall(require, "vscode")
-
-if vscode_ok then
-    vim.cmd("colorscheme vscode")
-else
-    vim.cmd("colorscheme default")
-end
-
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
+
+-- vim.opt.guicursor = "" -- Enable this to always keep a block as a cursor
 
 vim.opt.spelllang = "en,de"
 vim.opt.guifont = "JetBrains Mono:h16" -- the font used in graphical neovim applications,

@@ -18,7 +18,11 @@ todo.setup({
         HACK = { icon = " ", color = "warning" },
         WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
         PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-        NOTE = { icon = " ", color = "hint", alt = { "INFO", "DOCS" } },
+        NOTE = {
+            icon = " ",
+            color = "hint",
+            alt = { "INFO", "DOCS", "QUESTION" },
+        },
         QUESTION = { icon = "?", color = "hint" },
     },
     merge_keywords = true, -- when true, custom keywords will be merged with the defaults

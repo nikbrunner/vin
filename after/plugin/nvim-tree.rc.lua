@@ -65,8 +65,8 @@ nvim_tree.setup({
                 default = "",
                 symlink = "",
                 folder = {
-                    arrow_open = Vin.icons.ui.ArrowOpen,
-                    arrow_closed = Vin.icons.ui.ArrowClosed,
+                    arrow_open = vin.icons.ui.ArrowOpen,
+                    arrow_closed = vin.icons.ui.ArrowClosed,
                     default = "",
                     open = "",
                     empty = "",

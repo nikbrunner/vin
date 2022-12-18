@@ -10,7 +10,7 @@ function! ToggleQuickFix()
 endfunction
 ]])
 
-Vin.lib.get_master_branch = function()
+vin.lib.get_master_branch = function()
     local utils = require("telescope.utils")
 
     local branches = utils.get_os_command_output({
@@ -22,7 +22,7 @@ Vin.lib.get_master_branch = function()
     })[1]
 
     -- TODO split function has been changed. THis needs to be fixed
-    for _, v in pairs(Vin.lib.split_by_space(branches)) do
+    for _, v in pairs(vin.lib.split_by_space(branches)) do
         if v == "main" then
             return "main"
         end
@@ -35,7 +35,7 @@ end
 
 ---Find out current branch
 ---@return false|current_branch_name: string Current Branch Name
-Vin.lib.get_current_branch = function()
+vin.lib.get_current_branch = function()
     for line in io.popen("git branch 2>nul"):lines() do
         local current_branch_name = line:match("%* (.+)$")
         if current_branch_name then
@@ -49,7 +49,7 @@ end
 ---@alias Branches chunks
 ---Find out alle branches
 ---@return false|Branches: {string ...} All branches as table of strings
-Vin.lib.get_all_branches = function()
+vin.lib.get_all_branches = function()
     local resultString
 
     local branches_output = io.popen("git branch -l")
@@ -66,7 +66,7 @@ Vin.lib.get_all_branches = function()
         local stripped = string.gsub(string.gsub(read_branches, "*", ""), "\n", "")
 
         -- Now split the string by spaces into a table and return it
-        local all_branches = Vin.lib.split_by_space(stripped)
+        local all_branches = vin.lib.split_by_space(stripped)
         return all_branches
     end
 end
@@ -75,7 +75,7 @@ end
 ---Can be replaced with vim.pretty_print()
 ---@param ... any Input Value to print
 ---@return nil
-function Vin.lib.put(...)
+function vin.lib.put(...)
     local objects = {}
     for i = 1, select("#", ...) do
         local v = select(i, ...)
@@ -88,7 +88,7 @@ end
 ---Function to split a string by spaces
 ---@param string string Input string
 ---@return chunks table The splitted string as table
-function Vin.lib.split_by_space(string)
+function vin.lib.split_by_space(string)
     local chunks = {}
 
     for substring in string:gmatch("%S+") do
@@ -101,7 +101,7 @@ end
 ---@param tab table Table to search
 ---@param val unknown Value to search for
 ---@return boolean
-function Vin.lib.includes(tab, val)
+function vin.lib.includes(tab, val)
     for index, value in ipairs(tab) do
         if value == val then
             return true
@@ -114,7 +114,7 @@ end
 ---@param tab table Table to search
 ---@param val unknown Value to search for
 ---@return integer|unknown number Index of value in tab
-function Vin.lib.find_index(tab, val)
+function vin.lib.find_index(tab, val)
     local index = nil
     for i, v in ipairs(tab) do
         if v == val then
@@ -126,7 +126,7 @@ end
 
 ---Check the name of current colorscheme
 ---@return string Name of current Color Scheme
-function Vin.lib.get_current_colorscheme()
+function vin.lib.get_current_colorscheme()
     return vim.api.nvim_eval("g:colors_name")
 end
 
@@ -134,7 +134,7 @@ end
 ---@param var_name string The name of the variable
 ---@param default_value unknown The Fallback / Default Value if Variable is not defined
 ---@return any
-function Vin.lib.pget_var(var_name, default_value)
+function vin.lib.pget_var(var_name, default_value)
     local status_ok, value = pcall(function()
         return vim.api.nvim_get_var(var_name)
     end)
@@ -151,7 +151,7 @@ end
 ---@param callback function():unknown Function which gets called if the Condition is true
 ---@param fallback? function():unknown Optional Function which gets called if Condition is false
 ---@return unknown|nil
-function Vin.lib.ccall(condition, callback, fallback)
+function vin.lib.ccall(condition, callback, fallback)
     if condition then
         return callback()
     else
@@ -161,16 +161,16 @@ function Vin.lib.ccall(condition, callback, fallback)
     end
 end
 
-Vin.lib.center_line_vertical = function()
+vin.lib.center_line_vertical = function()
     vim.cmd([[norm zz]])
 end
 
-Vin.lib.focus_error = function()
+vin.lib.focus_error = function()
     -- get the current window, to be able to jump back to it, after opening the Diag Window
     local current_win = vim.api.nvim_get_current_win()
 
     -- center view on error
-    Vin.lib.center_line_vertical()
+    vin.lib.center_line_vertical()
 
     local config = vim.lsp.diagnostics.float
     config.scope = "line"

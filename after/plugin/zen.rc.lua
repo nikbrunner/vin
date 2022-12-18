@@ -40,7 +40,7 @@ zen_mode.setup({
         -- - allow_remote_control socket-only
         -- - listen_on unix:/tmp/kitty
         kitty = {
-            enabled = true,
+            enabled = false,
             font = "+2", -- font size increment
         },
     },

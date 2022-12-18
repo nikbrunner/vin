@@ -1,11 +1,11 @@
 local M = {}
 
 M.advanced_g = {
-    name = " Go-To",
+    name = "Go-To",
 
     -- h = { vim.lsp.buf.hover, "Hover Doc" },
-    -- l = { Vin.lib.focus_error, "Show Problem" },
-    -- s = { Vin.cmds.telescope.find_symbol_with_aerial, "Go to Symbol" },
+    -- l = { vin.lib.focus_error, "Show Problem" },
+    -- s = { vin.cmds.telescope.find_symbol_with_aerial, "Go to Symbol" },
     -- r = { ":Trouble lsp_references<CR>", "List References" },
     -- i = { vim.lsp.buf.implementation, "Go to Implementation" },
     -- R = { "<cmd>Trouble lsp_references<CR>", "List References w/ Trouble" },
@@ -23,83 +23,83 @@ M.advanced_g = {
 }
 
 M.go_prev = {
-    name = "  Prev",
+    name = "Prev",
     q = {
         function()
             vim.cmd([[cprev]])
-            Vin.lib.center_line_vertical()
+            vin.lib.center_line_vertical()
         end,
         "  Prev QuickFix Item",
     },
     l = {
         function()
             vim.cmd([[lprev]])
-            Vin.lib.center_line_vertical()
+            vin.lib.center_line_vertical()
         end,
         "  Prev LocList Item",
     },
     b = {
         function()
             vim.cmd([[bprev]])
-            Vin.lib.center_line_vertical()
+            vin.lib.center_line_vertical()
         end,
         "  Prev Buffer",
     },
     e = {
         function()
             -- vim.diagnostic.goto_prev()
-            -- Vin.lib.focus_error()
+            -- vin.lib.focus_error()
 
             vim.cmd("Lspsaga diagnostic_jump_next")
         end,
         " Prev Diagnostic",
     },
-    g = { Vin.cmds.git.hunk_go_prev, "  Prev Change" },
+    g = { vin.cmds.git.hunk_go_prev, "  Prev Change" },
 }
 
 M.go_next = {
-    name = "  Next",
+    name = "Next",
     q = {
         function()
             vim.cmd([[cnext]])
-            Vin.lib.center_line_vertical()
+            vin.lib.center_line_vertical()
         end,
         "  QuickFix Item",
     },
     l = {
         function()
             vim.cmd([[lnext]])
-            Vin.lib.center_line_vertical()
+            vin.lib.center_line_vertical()
         end,
         "  LocList Item",
     },
     b = {
         function()
             vim.cmd([[bnext]])
-            Vin.lib.center_line_vertical()
+            vin.lib.center_line_vertical()
         end,
         "  Buffer",
     },
     e = {
         function()
             -- vim.diagnostic.goto_next()
-            -- Vin.lib.focus_error()
+            -- vin.lib.focus_error()
 
             vim.cmd("Lspsaga diagnostic_jump_next")
         end,
         "  Diagnostic",
     },
-    g = { Vin.cmds.git.hunk_go_next, "  Change" },
+    g = { vin.cmds.git.hunk_go_next, "  Change" },
 }
 
 M.symbols = {
-    name = " Symbols",
-    -- d = { Vin.cmds.telescope.find_symbol_with_aerial, " In Document" },
-    w = { Vin.cmds.telescope.find_symbols_in_workspace, " In Workspace" },
+    name = "Symbols",
+    -- d = { vin.cmds.telescope.find_symbol_with_aerial, " In Document" },
+    w = { vin.cmds.telescope.find_symbols_in_workspace, " In Workspace" },
 }
 
 M.lsp = {
-    name = "  LSP",
+    name = "LSP",
     k = {
         function()
             --[[ vim.lsp.diagnostic.goto_prev() ]]
@@ -115,10 +115,11 @@ M.lsp = {
         " Next Diagnostic",
     },
 
+    f = { "<cmd>Format<CR>", "Format" },
     a = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
     A = { "<cmd>Lspsaga range_code_action", "  Range Code Action" },
     n = { "<cmd>Lspsaga rename<CR>", "Rename" },
-    r = { Vin.cmds.telescope.list_references, "List References w/ Fuzzy" },
+    r = { vin.cmds.telescope.list_references, "List References w/ Fuzzy" },
     R = { ":Trouble lsp_references<CR>", "List References w/ Trouble" },
     d = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
     i = { "<cmd>LspInfo<CR>", "Info" },
@@ -134,7 +135,7 @@ M.lsp = {
 
 -- NOTE: Currently not used
 M.explorer = {
-    name = "  Explorer",
+    name = "Explorer",
     e = { "<cmd>Neotree left toggle<CR>", " Tree" },
     f = { "<cmd>Neotree float toggle<CR>", " Float" },
     r = { "<cmd>Neotree reveal<CR>", "  Reveal File" },
@@ -143,25 +144,25 @@ M.explorer = {
 }
 
 M.quit = {
-    name = "  Quit",
+    name = "Quit",
     s = { ":silent wq<CR>", "Save and Quit Pane (:wq)" },
     p = { ":silent BufferLinePickClose<CR>", "Pick Buffer" },
-    c = { Vin.cmds.quit.custom_buffers, "Custom Filter" },
-    q = { Vin.cmds.quit.current_buffer, "Current" },
-    o = { Vin.cmds.quit.other_buffers, "Other" },
-    h = { Vin.cmds.quit.hidden_buffers, "Hidden" },
-    a = { Vin.cmds.quit.all_buffers, "All" },
+    c = { vin.cmds.quit.custom_buffers, "Custom Filter" },
+    q = { vin.cmds.quit.current_buffer, "Current" },
+    o = { vin.cmds.quit.other_buffers, "Other" },
+    h = { vin.cmds.quit.hidden_buffers, "Hidden" },
+    a = { vin.cmds.quit.all_buffers, "All" },
 }
 
 -- NOTE: Whithout Bufferline this sections has no real value
 M.buffer = {
-    name = "﬘ Buffer",
+    name = "Buffer",
     k = { ":bprev<CR>", "Previous Buffer" },
     j = { ":bnext<CR>", "Next Buffer" },
     p = { "<cmd>BufferLinePick<CR>", "  Pick" },
     P = { "<cmd>BufferLineTogglePin<CR>", "Pin" },
     q = { "<cmd>BufferLinePickClose<CR>", "  Quit" },
-    f = { Vin.cmds.telescope.find_open_buffer, "Find" },
+    f = { vin.cmds.telescope.find_open_buffer, "Find" },
     s = {
         name = "Sort",
         r = {
@@ -175,54 +176,54 @@ M.buffer = {
 }
 
 M.copy = {
-    name = "  Copy",
-    f = { Vin.cmds.copy.fullPath(), "Copy Full Path" },
-    r = { Vin.cmds.copy.relativePath(), "Copy Relative Path" },
-    n = { Vin.cmds.copy.fileName(), "Copy File Name" },
+    name = "Copy",
+    f = { vin.cmds.copy.fullPath, "Copy Full Path" },
+    r = { vin.cmds.copy.relativePath, "Copy Relative Path" },
+    n = { vin.cmds.copy.fileName, "Copy File Name" },
 }
 
 M.git = {
-    name = "  Git",
+    name = "Git",
     s = { "<cmd>LazyGit<CR>", "  Status" },
-    a = { Vin.cmds.git.action, "  Action" },
-    q = { Vin.cmds.git.open_changes_in_qf, "  List changes in QF" },
-    p = { Vin.cmds.git.hunk_preview, "  Preview Hunk " },
-    l = { Vin.cmds.git.toggle_current_line_blame, "  Current Line Blame" },
+    a = { vin.cmds.git.action, "  Action" },
+    q = { vin.cmds.git.open_changes_in_qf, "  List changes in QF" },
+    p = { vin.cmds.git.hunk_preview, "  Preview Hunk " },
+    l = { vin.cmds.git.toggle_current_line_blame, "  Current Line Blame" },
     o = {
-        Vin.cmds.telescope.find_changed_files,
+        vin.cmds.telescope.find_changed_files,
         "  Open Changed Files",
     },
     d = {
-        name = "  Diffview",
+        name = "Diffview",
         d = { "<cmd>DiffviewOpen<CR>", "Current Diff" },
-        c = { Vin.cmds.diffview.get_diff_to, "Diff   To Custom" },
+        c = { vin.cmds.diffview.get_diff_to, "Diff   To Custom" },
         h = { "<cmd>DiffviewFileHistory %<CR>", "History for Current File" },
         H = { "<cmd>DiffviewFileHistory<CR>", "Git History" },
         r = { "<cmd>DiffviewRefresh<CR>", "Refresh" },
         q = { "<cmd>DiffviewClose<CR>", "Close" },
     },
     h = {
-        name = "  Hunk",
-        k = { Vin.cmds.git.hunk_go_prev, "  Prev Hunk" },
-        j = { Vin.cmds.git.hunk_go_next, "  Next Hunk" },
-        s = { Vin.cmds.git.hunk_stage, "  Stage Hunk" },
-        S = { Vin.cmds.git.hunk_undo_stage, "  Undo Stage Hunk" },
-        p = { Vin.cmds.git.hunk_preview, "  Preview Hunk" },
-        r = { Vin.cmds.git.hunk_reset, "  Reset Hunk" },
-        b = { Vin.cmds.git.blame_line, "  Blame Line" },
+        name = "Hunk",
+        k = { vin.cmds.git.hunk_go_prev, "  Prev Hunk" },
+        j = { vin.cmds.git.hunk_go_next, "  Next Hunk" },
+        s = { vin.cmds.git.hunk_stage, "  Stage Hunk" },
+        S = { vin.cmds.git.hunk_undo_stage, "  Undo Stage Hunk" },
+        p = { vin.cmds.git.hunk_preview, "  Preview Hunk" },
+        r = { vin.cmds.git.hunk_reset, "  Reset Hunk" },
+        b = { vin.cmds.git.blame_line, "  Blame Line" },
     },
     b = {
-        name = "﬘  Buffer",
-        s = { Vin.cmds.git.buffer_stage, "  Stage Buffer" },
-        r = { Vin.cmds.git.buffer_reset, "  Reset Buffer" },
+        name = "Buffer",
+        s = { vin.cmds.git.buffer_stage, "  Stage Buffer" },
+        r = { vin.cmds.git.buffer_reset, "  Reset Buffer" },
     },
     c = {
-        name = "  Checkout",
+        name = "Checkout",
         b = { "<cmd>Telescope git_branches<CR>", "Branches" },
-        c = { Vin.cmds.telescope.find_commits, "Commits" },
+        c = { vin.cmds.telescope.find_commits, "Commits" },
     },
     g = {
-        name = "  Github",
+        name = "Github",
         p = { "<cmd>Telescope gh pull_request<CR>", "Pull Requests" },
         f = { "<cmd>Telescope gh pull_request_files<CR>", "Pull Requests Files" },
         i = { "<cmd>Telescope gh issues<CR>", "Issues" },
@@ -231,33 +232,32 @@ M.git = {
 }
 
 M.search = {
-    name = "  Search",
-    ["."] = { Vin.cmds.telescope.find_files_in_config, "· ~/.config" },
+    name = "Search",
+    ["."] = { vin.cmds.telescope.find_files_in_config, "· ~/.config" },
     n = {
-        name = "  Notes",
-        w = { Vin.cmds.telescope.find_files_in_work_notes, "Work" },
+        name = "Notes",
+        w = { vin.cmds.telescope.find_files_in_work_notes, "Work" },
     },
-    p = { Vin.cmds.telescope.find_projects, "  Recent Projects" },
-    f = { Vin.cmds.telescope.find_files_without_preview, "  Files" },
-    F = { Vin.cmds.telescope.find_files_with_preview, "  Files (With Preview)" },
-    r = { Vin.cmds.telescope.find_related_files, "  Related Files" },
-    t = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
-    T = { Vin.cmds.telescope.find_text, "  Find Text Everywhere" },
+    p = { vin.cmds.telescope.find_projects, "  Recent Projects" },
+    f = { vin.cmds.telescope.find_files_without_preview, "  Files" },
+    F = { vin.cmds.telescope.find_files_with_preview, "  Files (With Preview)" },
+    r = { vin.cmds.telescope.find_related_files, "  Related Files" },
+    t = { vin.cmds.telescope.find_text, "  Find Text Everywhere" },
     -- TODO: Parse or specify current issue number and provide default search term via `default_text=TODO:2322`
     d = { "<cmd>TodoTelescope<CR>", "  Todos" },
-    o = { Vin.cmds.telescope.find_open_buffer, "﬘  Open Buffers" },
-    g = { Vin.cmds.telescope.find_changed_files, " Open Changed Files" },
-    w = { Vin.cmds.telescope.find_word, "  Find Current Word" },
-    q = { Vin.cmds.telescope.find_in_quickfix, "  Quickfix" },
-    S = { Vin.cmds.telescope.find_spelling, "  Spelling" },
-    b = { Vin.cmds.telescope.find_open_buffer, "﩯 Buffers" },
-    h = { Vin.cmds.telescope.find_oldfiles, "  Recent Files (History)" },
-    c = { Vin.cmds.telescope.find_commands, "  Commands" },
-    C = { Vin.cmds.telescope.find_colorscheme, "  Colorscheme" },
-    m = { Vin.cmds.telescope.find_marks, " Marks" },
+    o = { vin.cmds.telescope.find_open_buffer, "﬘  Open Buffers" },
+    g = { vin.cmds.telescope.find_changed_files, " Open Changed Files" },
+    w = { vin.cmds.telescope.find_word, "  Find Current Word" },
+    q = { vin.cmds.telescope.find_in_quickfix, "  Quickfix" },
+    S = { vin.cmds.telescope.find_spelling, "  Spelling" },
+    b = { vin.cmds.telescope.find_open_buffer, "﩯 Buffers" },
+    h = { vin.cmds.telescope.find_oldfiles, "  Recent Files (History)" },
+    c = { vin.cmds.telescope.find_commands, "  Commands" },
+    C = { vin.cmds.telescope.find_colorscheme, "  Colorscheme" },
+    m = { vin.cmds.telescope.find_marks, " Marks" },
     a = {
         name = "Advanced",
-        s = { Vin.cmds.telescope.find_scss_symbol, " SCSS Symbol" },
+        s = { vin.cmds.telescope.find_scss_symbol, " SCSS Symbol" },
         h = { "<cmd>Telescope help_tags<CR>", "  Help Tags" },
         H = { "<cmd>Telescope highlights<CR>", "  Highlights" },
         m = { "<cmd>Telescope man_pages<CR>", "  Man Pages" },
@@ -267,79 +267,79 @@ M.search = {
     s = M.symbols,
 }
 
-M.harpoon = {
-    name = "  Harpoon",
-    a = { Vin.cmds.harpoon.add_file, "  Add File" },
-    m = { Vin.cmds.harpoon.toggle_quick_menu, "  Menu" },
+M.marks = {
+    name = "Marks",
+    a = { vin.cmds.harpoon.add_file, "  Add File" },
+    m = { vin.cmds.harpoon.toggle_quick_menu, "  Menu" },
     ["1"] = {
         function()
-            Vin.cmds.harpoon.jump_to_file(1)
+            vin.cmds.harpoon.jump_to_file(1)
         end,
         " ",
     },
     ["2"] = {
         function()
-            Vin.cmds.harpoon.jump_to_file(2)
+            vin.cmds.harpoon.jump_to_file(2)
         end,
         " ",
     },
     ["3"] = {
         function()
-            Vin.cmds.harpoon.jump_to_file(3)
+            vin.cmds.harpoon.jump_to_file(3)
         end,
         " ",
     },
     ["4"] = {
         function()
-            Vin.cmds.harpoon.jump_to_file(4)
+            vin.cmds.harpoon.jump_to_file(4)
         end,
         " ",
     },
     ["5"] = {
         function()
-            Vin.cmds.harpoon.jump_to_file(5)
+            vin.cmds.harpoon.jump_to_file(5)
         end,
         " ",
     },
     ["6"] = {
         function()
-            Vin.cmds.harpoon.jump_to_file(6)
+            vin.cmds.harpoon.jump_to_file(6)
         end,
         " ",
     },
     ["7"] = {
         function()
-            Vin.cmds.harpoon.jump_to_file(7)
+            vin.cmds.harpoon.jump_to_file(7)
         end,
         " ",
     },
     ["8"] = {
         function()
-            Vin.cmds.harpoon.jump_to_file(8)
+            vin.cmds.harpoon.jump_to_file(8)
         end,
         " ",
     },
     ["9"] = {
         function()
-            Vin.cmds.harpoon.jump_to_file(9)
+            vin.cmds.harpoon.jump_to_file(9)
         end,
         " ",
     },
 }
 
 M.packer = {
-    name = "  Packer",
+    name = "Packer",
     c = { "<cmd>PackerCompile<CR>", "Compile" },
     i = { "<cmd>PackerInstall<CR>", "Install" },
     -- s = { "<cmd>PackerSync<CR>", "Sync" },
-    s = { Vin.cmds.packer.sync_with_snapshot, "Sync" },
+    s = { vin.cmds.packer.sync_with_snapshot, "Sync" },
     S = { "<cmd>PackerStatus<CR>", "Status" },
     u = { "<cmd>PackerUpdate<CR>", "Update" },
 }
 
 -- INFO unused
 M.session = {
-    name = "  Session",
+    name = "Session",
     s = {
         function()
             vim.ui.input({
@@ -358,16 +358,8 @@ M.session = {
     d = { "<cmd>SessionDelete<CR>", "Delete Session" },
 }
 
-M.insert = {
-    name = "  Insert",
-    l = {
-        Vin.cmds.edit.log_word,
-        "Log Word",
-    },
-}
-
 M.tabs = {
-    name = "  Tabs",
+    name = "Tabs",
     n = { ":tabnew<CR>", "New Tab" },
     h = { ":tabprevious<CR>", "Previous Tab" },
     l = { ":tabnext<CR>", "Next Tab" },
@@ -403,7 +395,7 @@ M.tabs = {
 }
 
 M.terra = {
-    name = "  Terra",
+    name = "Terra",
     s = {
         "<cmd>lua require('terra.actions.config').select_season()<CR>",
         " Select Season",
@@ -415,6 +407,15 @@ M.terra = {
     c = {
         "<cmd>lua vim.pretty_print(vim.g.terra_config)<CR>",
         "  Print Terra Config",
+    },
+}
+
+M.debug = {
+    name = "Debug",
+    l = {
+        name = "Log",
+        l = { vin.cmds.edit.log_symbol, "Auto Log Symbol" },
+        d = { vin.cmds.edit.delete_logs, "Delete Logs" },
     },
 }
 

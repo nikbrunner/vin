@@ -3,9 +3,9 @@ if not picker_ok then
     return
 end
 
-Vin.cmds.nav = {}
+vin.cmds.nav = {}
 
-Vin.cmds.nav.pick_window = function()
+vin.cmds.nav.pick_window = function()
     local picked_window_id = picker.pick_window()
 
     if picked_window_id then

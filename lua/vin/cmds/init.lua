@@ -9,3 +9,4 @@ require("vin.cmds.telescope")
 require("vin.cmds.harpoon")
 require("vin.cmds.packer")
 require("vin.cmds.quit")
+

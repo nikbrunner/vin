@@ -1,4 +1,4 @@
-local groups = require("vin.keybindings.mappings.groups")
+local groups = require("vin.keymaps.groups")
 
 local M = {}
 
@@ -13,17 +13,10 @@ M.no_leader = {
 
     ["J"] = { ":m '>+1<CR>gv=gv", WhichKeyIgnoreLabel },
     ["K"] = { ":m '<-2<CR>gv=gv", WhichKeyIgnoreLabel },
-
-    -- Move text up and down
-    -- NOTE: This is no handled via https://github.com/booperlv/nvim-gomove/blob/main/lua/gomove/init.lua
-    ["<M-k>"] = { ":move '<-2<CR>gv-gv", WhichKeyIgnoreLabel },
-    ["<M-j>"] = { ":move '>+1<CR>gv-gv", WhichKeyIgnoreLabel },
 }
 
 M.with_leader = {
     -- Singles
-    ["."] = { "<cmd>Alpha<cr>", "  Dashboard" },
-    ["m"] = { Vin.cmds.zen.toggle_full_screen, "  Maximize Pane" },
     ["n"] = { ":nohl", WhichKeyIgnoreLabel },
 
     -- Tab navigation
@@ -43,9 +36,9 @@ M.with_leader = {
     P = groups.packer,
     s = groups.search,
     g = groups.git,
-    i = groups.insert,
+    d = groups.debug,
     l = groups.lsp,
-    h = groups.harpoon,
+    m = groups.marks,
     q = groups.quit,
     c = groups.copy,
     t = groups.tabs,

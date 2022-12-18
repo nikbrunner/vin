@@ -1,4 +1,4 @@
-Vin.icons = {
+vin.icons = {
     kind = {
         Text = "",
         Function = "",

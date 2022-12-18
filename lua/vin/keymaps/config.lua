@@ -16,7 +16,7 @@ return {
             windows = true, -- default bindings on <c-w>
             nav = true, -- misc bindings to work with windows
             z = true, -- bindings for folds, spelling and others prefixed with z
-            g = false, -- bindings for prefixed with g
+            g = true, -- bindings for prefixed with g
         },
     },
     -- add operators that will trigger motion and text object completion
@@ -32,7 +32,7 @@ return {
     icons = {
         breadcrumb = "/", -- symbol used in the command line area that shows your active key combo
         separator = "·", -- symbol used between a key and it's label
-        group = "+ ", -- symbol prepended to a group
+        group = "", -- symbol prepended to a group
     },
     popup_mappings = {
         scroll_down = "<c-d>", -- binding to scroll down inside the popup

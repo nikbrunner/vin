@@ -1,4 +1,4 @@
-Vin.cmds.diffview = {}
+vin.cmds.diffview = {}
 
 local diffview_notification = function(branchName, message)
     if message == nil then
@@ -9,11 +9,11 @@ local diffview_notification = function(branchName, message)
 end
 
 -- Unused
-Vin.cmds.diffview.get_diff_to_master = function()
+vin.cmds.diffview.get_diff_to_master = function()
     local commonMasterBranchNames = { "master", "main" }
 
     local handleInput = function(branchName)
-        if Vin.lib.includes(commonMasterBranchNames, branchName) then
+        if vin.lib.includes(commonMasterBranchNames, branchName) then
             vim.cmd("DiffviewOpen origin/" .. branchName .. "...HEAD")
             diffview_notification(branchName)
         end
@@ -24,18 +24,18 @@ Vin.cmds.diffview.get_diff_to_master = function()
     }, handleInput)
 end
 
-Vin.cmds.diffview.get_diff_to = function()
+vin.cmds.diffview.get_diff_to = function()
     local choices = {
         "Get Diff to other branch",
         "Enter a Git Rev String (HEAD~2, origin/main...HEAD e.g.)",
     }
 
     local handleDiffToBranch = function()
-        local branches = Vin.lib.get_all_branches()
+        local branches = vin.lib.get_all_branches()
 
         -- Remove the current branch from the selection
-        local current_branch = Vin.lib.get_current_branch()
-        local index_of_current_branch = Vin.lib.find_index(branches, current_branch)
+        local current_branch = vin.lib.get_current_branch()
+        local index_of_current_branch = vin.lib.find_index(branches, current_branch)
         table.remove(branches, index_of_current_branch)
 
         vim.ui.select(branches, {

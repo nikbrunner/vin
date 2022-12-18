@@ -3,7 +3,7 @@ if not gitsigns_status_ok then
     return
 end
 
-local groups = require("vin.keybindings.mappings.groups")
+local groups = require("vin.keymaps.groups")
 
 local M = {}
 
@@ -12,8 +12,6 @@ M.no_leader = {
 
     -- disable Q
     Q = { "<Nop>", WhichKeyIgnoreLabel },
-
-    ["<CR>"] = { Vin.cmds.general.save_all, WhichKeyIgnoreLabel },
 
     -- Trigger Hover Doc
     K = { vim.lsp.buf.hover, "Hover Doc" },
@@ -32,7 +30,7 @@ M.no_leader = {
     H = { "^", WhichKeyIgnoreLabel },
     L = { "$", WhichKeyIgnoreLabel },
 
-    ["ZZ"] = { Vin.cmds.save_and_exit, WhichKeyIgnoreLabel },
+    ["ZZ"] = { vin.cmds.save_and_exit, WhichKeyIgnoreLabel },
 
     -- Navigate buffers and Tabs
     ["<M-h>"] = { ":bprevious<CR>", "Prev Buffer" },
@@ -45,8 +43,8 @@ M.no_leader = {
     ["<M-k>"] = { "<Esc>:m .-2<CR>", "Move Up" },
     ["<M-j>"] = { "<Esc>:m .+1<CR>", "Move Down" },
 
-    ["<C-f>"] = { Vin.cmds.nav.pick_window, "  Pick Window" },
-    ["<C-/>"] = { Vin.cmds.telescope.find_in_file, "  Find Text in File" },
+    ["<C-f>"] = { vin.cmds.nav.pick_window, "  Pick Window" },
+    ["<C-/>"] = { vin.cmds.telescope.find_in_file, "  Find Text in File" },
 
     -- FN Key Bindings
     ["<F6>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
@@ -71,38 +69,34 @@ M.no_leader = {
 
     v = {
         name = "Select",
-        b = { Vin.cmds.general.blocks.select, "Select Block" },
-        v = { Vin.cmds.general.line.select, "Select Line" },
-        A = { Vin.cmds.general.all.select, "Select All" },
+        b = { vin.cmds.general.blocks.select, "Select Block" },
+        v = { vin.cmds.general.line.select, "Select Line" },
+        A = { vin.cmds.general.all.select, "Select All" },
     },
     y = {
         name = "Yank",
-        b = { Vin.cmds.general.blocks.yank, "Yank Block" },
-        A = { Vin.cmds.general.all.yank, "Yank All" },
+        b = { vin.cmds.general.blocks.yank, "Yank Block" },
+        A = { vin.cmds.general.all.yank, "Yank All" },
     },
     d = {
         name = "Delete",
-        b = { Vin.cmds.general.blocks.delete, "Delete Block" },
-        A = { Vin.cmds.general.all.delete, "Delete All" },
+        b = { vin.cmds.general.blocks.delete, "Delete Block" },
+        A = { vin.cmds.general.all.delete, "Delete All" },
     },
 }
 
 M.with_leader = {
     -- Singles
-    [";"] = { "<cmd>Alpha<cr>", "  Dashboard" },
-
-    e = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
-    o = { "<cmd>LSoutlineToggle<CR>", "  Symbol Tree" },
-    [" "] = { Vin.cmds.telescope.find_open_buffer, "﩯 Buffers" },
-    f = { Vin.cmds.telescope.find_files_without_preview, "  Find File" },
-    F = {
-        Vin.cmds.telescope.find_files_with_preview,
-        WhichKeyIgnoreLabel,
-    },
-    z = { Vin.cmds.zen.toggle_full_screen, "  Zen" },
-    m = { "<C-w>|", "  Maximize Split" },
-    r = { "<C-w>=", "  Restore Splits" },
+    e = { "<cmd>NvimTreeToggle<CR>", "File Tree" },
+    o = { "<cmd>LSoutlineToggle<CR>", "Symbol Tree" },
+    [" "] = { vin.cmds.telescope.find_open_buffer, "Buffers" },
+    f = { vin.cmds.telescope.find_files_without_preview, "Find File" },
+    F = { vin.cmds.telescope.find_files_with_preview, WhichKeyIgnoreLabel },
+    z = { vin.cmds.zen.toggle_full_screen, "Zen" },
+    M = { "<C-w>|", "Maximize Split" },
+    r = { "<C-w>=", "Restore Splits" },
     n = { ":nohl<CR>", WhichKeyIgnoreLabel },
+    ["/"] = { vin.cmds.telescope.find_in_file, "Find Text in File" },
 
     -- Tab navigation
     ["1"] = { "1gt", WhichKeyIgnoreLabel },
@@ -120,9 +114,9 @@ M.with_leader = {
     P = groups.packer,
     s = groups.search,
     g = groups.git,
-    i = groups.insert,
+    d = groups.debug,
     l = groups.lsp,
-    h = groups.harpoon,
+    m = groups.marks,
     q = groups.quit,
     c = groups.copy,
     t = groups.tabs,

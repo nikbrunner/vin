@@ -60,9 +60,9 @@ saga.init_lsp_saga({
 
     -- finder icons
     finder_icons = {
-        def = Vin.icons.kind.Method .. " ",
-        ref = Vin.icons.kind.Reference .. " ",
-        link = Vin.icons.kind.Class .. " ",
+        def = vin.icons.kind.Method .. " ",
+        ref = vin.icons.kind.Reference .. " ",
+        link = vin.icons.kind.Class .. " ",
     },
 
     -- finder do lsp request timeout
@@ -90,7 +90,7 @@ saga.init_lsp_saga({
     rename_in_select = true,
 
     -- show symbols in winbar must nightly
-    -- NOTE: Disabled until 0.8 is default
+    -- TODO: Make this work?
     symbol_in_winbar = {
         in_custom = false,
         enable = false,

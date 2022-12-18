@@ -57,51 +57,51 @@ local no_preview = function()
     })
 end
 
-Vin.cmds.telescope = {}
+vin.cmds.telescope = {}
 
-Vin.cmds.telescope.find_files_without_preview = function()
+vin.cmds.telescope.find_files_without_preview = function()
     builtin.find_files(no_preview())
 end
 
-Vin.cmds.telescope.find_files_with_preview = function()
+vin.cmds.telescope.find_files_with_preview = function()
     builtin.find_files()
 end
 
-Vin.cmds.telescope.find_in_file = function()
+vin.cmds.telescope.find_in_file = function()
     builtin.current_buffer_fuzzy_find(themes.get_ivy({}))
 end
 
-Vin.cmds.telescope.find_text = function()
+vin.cmds.telescope.find_text = function()
     builtin.live_grep(themes.get_ivy({}))
 end
 
-Vin.cmds.telescope.find_word = function()
+vin.cmds.telescope.find_word = function()
     local curr_word = vim.fn.expand("<cword>")
     builtin.grep_string({ default_text = curr_word })
 end
 
-Vin.cmds.telescope.find_in_quickfix = function()
+vin.cmds.telescope.find_in_quickfix = function()
     builtin.quickfix(themes.get_ivy({}))
 end
 
-Vin.cmds.telescope.find_symbols_in_workspace = function()
+vin.cmds.telescope.find_symbols_in_workspace = function()
     builtin.lsp_dynamic_workspace_symbols()
 end
 
-Vin.cmds.telescope.find_changed_files = function(opts)
+vin.cmds.telescope.find_changed_files = function(opts)
     builtin.git_status({
         previewer = delta_previewer,
     })
 end
 
-Vin.cmds.telescope.find_commits = function(opts)
+vin.cmds.telescope.find_commits = function(opts)
     builtin.git_commits({
         previewer = delta_previewer,
     })
 end
 
-Vin.cmds.telescope.find_related_files = function()
-    local current_filename = Vin.cmds.general.get_current_filename()
+vin.cmds.telescope.find_related_files = function()
+    local current_filename = vin.cmds.general.get_current_filename()
 
     if current_filename then
         builtin.find_files({
@@ -112,7 +112,7 @@ Vin.cmds.telescope.find_related_files = function()
     end
 end
 
-Vin.cmds.telescope.find_files_in_config = function(opts)
+vin.cmds.telescope.find_files_in_config = function(opts)
     local path = "~/.config"
 
     opts = opts or {}
@@ -121,7 +121,7 @@ Vin.cmds.telescope.find_files_in_config = function(opts)
     builtin.find_files(opts)
 end
 
-Vin.cmds.telescope.find_files_in_work_notes = function(opts)
+vin.cmds.telescope.find_files_in_work_notes = function(opts)
     local notes = "~/Documents/notes/dcd-notes"
 
     opts = opts or {}
@@ -130,11 +130,11 @@ Vin.cmds.telescope.find_files_in_work_notes = function(opts)
     builtin.find_files(opts)
 end
 
-Vin.cmds.telescope.find_open_buffer = function()
+vin.cmds.telescope.find_open_buffer = function()
     builtin.buffers(themes.get_dropdown({}))
 end
 
-Vin.cmds.telescope.find_scss_symbol = function()
+vin.cmds.telescope.find_scss_symbol = function()
     local curr_word = vim.fn.expand("<cword>")
 
     local Symbol = {
@@ -231,41 +231,41 @@ Vin.cmds.telescope.find_scss_symbol = function()
 end
 
 -- Find project folders with telescope extension
-Vin.cmds.telescope.find_projects = function()
+vin.cmds.telescope.find_projects = function()
     telescope.extensions.project.project()
 end
 
 -- Go to definition
-Vin.cmds.telescope.go_to_definition = function()
+vin.cmds.telescope.go_to_definition = function()
     builtin.lsp_definitions()
 end
 
 -- List references
-Vin.cmds.telescope.list_references = function()
+vin.cmds.telescope.list_references = function()
     builtin.lsp_references()
 end
 
 -- Find document symbols with aerial
--- Vin.cmds.telescope.find_symbol_with_aerial = function()
+-- vin.cmds.telescope.find_symbol_with_aerial = function()
 -- 	telescope.extensions.aerial.aerial(themes.get_ivy())
 -- end
 
-Vin.cmds.telescope.find_spelling = function()
+vin.cmds.telescope.find_spelling = function()
     builtin.spell_suggest(no_preview())
 end
 
-Vin.cmds.telescope.find_colorscheme = function()
+vin.cmds.telescope.find_colorscheme = function()
     builtin.colorscheme(no_preview())
 end
 
-Vin.cmds.telescope.find_oldfiles = function()
+vin.cmds.telescope.find_oldfiles = function()
     builtin.oldfiles(no_preview())
 end
 
-Vin.cmds.telescope.find_commands = function()
+vin.cmds.telescope.find_commands = function()
     builtin.commands()
 end
 
-Vin.cmds.telescope.find_marks = function()
+vin.cmds.telescope.find_marks = function()
     builtin.marks()
 end

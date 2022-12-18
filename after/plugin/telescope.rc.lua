@@ -8,8 +8,8 @@ local actions = require("telescope.actions")
 telescope.setup({
     defaults = {
 
-        prompt_prefix = " " .. Vin.icons.ui.Telescope .. " ",
-        selection_caret = " " .. Vin.icons.ui.ArrowClosed .. " ",
+        prompt_prefix = " " .. vin.icons.ui.Telescope .. " ",
+        selection_caret = " " .. vin.icons.ui.ArrowClosed .. " ",
         entry_prefix = "  ",
 
         path_display = { "truncate" },

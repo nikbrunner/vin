@@ -21,7 +21,7 @@ end
 -- You'll need to restart nvim, and then it will work.
 if PACKER_BOOTSTRAP then
     print("==================================")
-    print("    Hi there, my name is Vin!")
+    print("    Hi there, my name is vin!")
     print("    Please take a seat.")
     print("    I'll get everything set up.")
     print("    Plugins are being installed")
@@ -64,7 +64,6 @@ packer.init({
     auto_clean = true, -- During sync(), remove unused plugins
     compile_on_sync = true, -- During sync(), run packer.compile()
     ensure_dependencies = true, -- Should packer install plugin dependencies?
-    preview_updates = true,
 })
 
 -- Init impatient to increase performenace
@@ -84,9 +83,7 @@ packer.startup(function(use)
     use({ "lewis6991/impatient.nvim" })
 
     -- INFO: Configs for native LSP
-    use({
-        "neovim/nvim-lspconfig",
-    })
+    use({ "neovim/nvim-lspconfig" })
 
     -- INFO: VSCode Like Pictograms for LSP Iitems
     use({ "onsails/lspkind-nvim" })
@@ -270,7 +267,7 @@ packer.startup(function(use)
     use({ "ThePrimeagen/harpoon" })
 
     -- INFO: Improvements for the QF List
-    use({ "kevinhwang91/nvim-bqf", ft = "qf" })
+    use({ "kevinhwang91/nvim-bqf", ft = "qf", disable = true })
 
     -- INFO: Zen Mode
     use({ "folke/zen-mode.nvim" })
@@ -307,9 +304,9 @@ packer.startup(function(use)
     use({ "kylechui/nvim-surround", tag = "*" })
 
     -- INFO: Colorschemes
-    use({ "Mofiqul/vscode.nvim" })
-    use({ "terra-theme/nvim" })
-    --[[ use({ "~/Documents/dev/repos/personal/terra-theme/nvim", }) ]]
+    use({ "folke/tokyonight.nvim" })
+    -- use({ "terra-theme/nvim" })
+    use({ "~/Documents/dev/repos/personal/terra-theme/nvim" })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

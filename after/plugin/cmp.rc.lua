@@ -26,6 +26,7 @@ cmp.setup({
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
         ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+        ---@diagnostic disable-next-line: missing-parameter
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
         ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
         ["<C-e>"] = cmp.mapping({
@@ -52,10 +53,10 @@ cmp.setup({
             -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
             before = function(entry, vim_item)
                 vim_item.menu = ({
-                    nvim_lsp = "LSP >",
-                    luasnip = "SNP >",
-                    buffer = "BUF >",
-                    path = "PTH >",
+                    nvim_lsp = "[LSP]",
+                    luasnip = "[SNP]",
+                    buffer = "[BUF]",
+                    path = "[PTH]",
                 })[entry.source.name]
 
                 return vim_item

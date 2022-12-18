@@ -1,24 +1,24 @@
-Vin.cmds.general = {
+vin.cmds.general = {
     all = {},
     blocks = {},
     line = {},
 }
 
-Vin.cmds.general.save_all = function()
+vin.cmds.general.save_all = function()
     vim.cmd([[wa]])
 end
 
-Vin.cmds.save_and_exit = function()
-    Vin.cmds.general.save_all()
+vin.cmds.save_and_exit = function()
+    vin.cmds.general.save_all()
     vim.cmd([[:qa!]])
 end
 
 -- get the current filename without extension
-Vin.cmds.general.get_current_filename = function()
+vin.cmds.general.get_current_filename = function()
     local fileNameWithExt = vim.fn.expand("%:t")
     local dotIndex = string.find(fileNameWithExt, ".", 1, true)
 
-    return Vin.lib.ccall(
+    return vin.lib.ccall(
         dotIndex,
         -- If extension is found return fileName without extension
         function()
@@ -32,34 +32,34 @@ Vin.cmds.general.get_current_filename = function()
     )
 end
 
-Vin.cmds.general.blocks.select = function()
+vin.cmds.general.blocks.select = function()
     vim.cmd([[norm ^v$%]])
 end
 
-Vin.cmds.general.blocks.yank = function()
-    Vin.cmds.general.blocks.select()
+vin.cmds.general.blocks.yank = function()
+    vin.cmds.general.blocks.select()
     vim.cmd([[norm y]])
 end
 
-Vin.cmds.general.blocks.delete = function()
-    Vin.cmds.general.blocks.select()
+vin.cmds.general.blocks.delete = function()
+    vin.cmds.general.blocks.select()
     vim.cmd([[norm d]])
 end
 
-Vin.cmds.general.all.select = function()
+vin.cmds.general.all.select = function()
     vim.cmd([[norm ggVG]])
 end
 
-Vin.cmds.general.all.yank = function()
-    Vin.cmds.general.all.select()
+vin.cmds.general.all.yank = function()
+    vin.cmds.general.all.select()
     vim.cmd([[norm y]])
 end
 
-Vin.cmds.general.all.delete = function()
-    Vin.cmds.general.all.select()
+vin.cmds.general.all.delete = function()
+    vin.cmds.general.all.select()
     vim.cmd([[norm d]])
 end
 
-Vin.cmds.general.line.select = function()
+vin.cmds.general.line.select = function()
     vim.cmd([[norm ^v$]])
 end

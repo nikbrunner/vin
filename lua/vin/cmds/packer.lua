@@ -3,9 +3,10 @@ if not plenary_async_status_ok then
     return
 end
 
-Vin.cmds.packer = {}
+vin.cmds.packer = {}
 
-Vin.cmds.packer.sync_with_snapshot = function()
+vin.cmds.packer.sync_with_snapshot = function()
+    ---@diagnostic disable-next-line: missing-parameter
     plenaryAsync.run(function()
         vim.notify("Syncing packer.")
     end)

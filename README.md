@@ -1,4 +1,4 @@
-# Vin
+# vin
 
 ## Description
 This is my personal NeoVim configuration on which I am working on from time to time, while learning about the whole universe of Vim and NeoVim.
@@ -126,7 +126,7 @@ Run: `$ fc-cache -f -v`
 
 ## Origin of Name
 
-[See here](https://brandon-sanderson.fandom.com/wiki/Vin)
+[See here](https://brandon-sanderson.fandom.com/wiki/vin)
 
 ## Other Configs
 
