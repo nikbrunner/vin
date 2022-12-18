@@ -21,6 +21,9 @@ end
 -- You'll need to restart nvim, and then it will work.
 if PACKER_BOOTSTRAP then
     print("==================================")
+    print("    Hi there, my name is Vin!")
+    print("    Please take a seat.")
+    print("    I'll get everything set up.")
     print("    Plugins are being installed")
     print("    Wait until Packer completes,")
     print("       then restart nvim")
@@ -35,6 +38,7 @@ end
 
 -- Automatically source and re-compile packer whenever you save this init.lua
 local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true })
+
 vim.api.nvim_create_autocmd("BufWritePost", {
     command = "source <afile> | PackerCompile",
     group = packer_group,
@@ -68,24 +72,16 @@ pcall(require, "impatient")
 
 packer.startup(function(use)
     -- INFO: Have the package-manager manage itself
-    use({
-        "wbthomason/packer.nvim",
-    })
+    use({ "wbthomason/packer.nvim" })
 
     -- INFO: An implementation of the Popup API from vim in Neovim
-    use({
-        "nvim-lua/popup.nvim",
-    })
+    use({ "nvim-lua/popup.nvim" })
 
     -- INFO: Useful lua functions used ny lots of plugins
-    use({
-        "nvim-lua/plenary.nvim",
-    })
+    use({ "nvim-lua/plenary.nvim" })
 
     -- INFO: Cache Modules for faster startups
-    use({
-        "lewis6991/impatient.nvim",
-    })
+    use({ "lewis6991/impatient.nvim" })
 
     -- INFO: Configs for native LSP
     use({
@@ -93,56 +89,37 @@ packer.startup(function(use)
     })
 
     -- INFO: VSCode Like Pictograms for LSP Iitems
-    use({
-        "onsails/lspkind-nvim",
-        commmit = "c68b3a003483cf382428a43035079f78474cd11e",
-    })
+    use({ "onsails/lspkind-nvim" })
 
     -- INFO: LSP Installation GUI and Helper
-    use({
-        "williamboman/mason.nvim",
-    })
+    use({ "williamboman/mason.nvim" })
 
     -- INFO: Bridge for Mason to nvim-lspconfig
     use({
         "williamboman/mason-lspconfig.nvim",
+        requires = "williamboman/mason.nvim",
     })
 
     -- INFO: Language Server Settings defined in json (e.g. tsconfig)
-    use({
-        "tamago324/nlsp-settings.nvim",
-    })
+    use({ "tamago324/nlsp-settings.nvim" })
 
     -- INFO: For formatters and linters
-    use({
-        "jose-elias-alvarez/null-ls.nvim",
-    })
+    use({ "jose-elias-alvarez/null-ls.nvim" })
 
     -- INFO: for parameter hints
-    use({
-        "ray-x/lsp_signature.nvim",
-    })
+    use({ "ray-x/lsp_signature.nvim" })
 
     -- INFO: Tool Package for LSP
-    use({
-        "glepnir/lspsaga.nvim",
-        branch = "main",
-    })
+    use({ "glepnir/lspsaga.nvim", branch = "main" })
 
     -- INFO: Lua Development
-    use({
-        "folke/neodev.nvim",
-    })
+    use({ "folke/neodev.nvim" })
 
     -- INFO: Style up basic neovim components
-    use({
-        "stevearc/dressing.nvim",
-    })
+    use({ "stevearc/dressing.nvim" })
 
     -- INFO: Pretty Icons
-    use({
-        "kyazdani42/nvim-web-devicons",
-    })
+    use({ "kyazdani42/nvim-web-devicons" })
 
     -- INFO: File Tree
     use({
@@ -151,19 +128,10 @@ packer.startup(function(use)
     })
 
     -- INFO: Statusline, Tabline, Winbar
-    use({
-        "nvim-lualine/lualine.nvim",
-    })
-
-    -- INFO: Starting screen
-    use({
-        "goolord/alpha-nvim",
-    })
+    use({ "nvim-lualine/lualine.nvim" })
 
     -- INFO: Organizied Mappings
-    use({
-        "folke/which-key.nvim",
-    })
+    use({ "folke/which-key.nvim" })
 
     -- INFO: Snippet Engine. This is indirectly needed for CMP
     use({
@@ -200,15 +168,8 @@ packer.startup(function(use)
         },
     })
 
-    use({
-        --[[ "~/Documents/dev/repos/personal/terra-theme/nvim", ]]
-        "terra-theme/nvim",
-    })
-
     -- INFO: Flexible fuzzy finder
-    use({
-        "nvim-telescope/telescope.nvim",
-    })
+    use({ "nvim-telescope/telescope.nvim" })
 
     use({
         "nvim-telescope/telescope-fzf-native.nvim",
@@ -221,6 +182,7 @@ packer.startup(function(use)
         "nvim-telescope/telescope-github.nvim",
         requires = "nvim-telescope/telescope.nvim",
     })
+
     use({
         "nvim-telescope/telescope-project.nvim",
         requires = "nvim-telescope/telescope.nvim",
@@ -282,80 +244,48 @@ packer.startup(function(use)
     })
 
     -- INFO: Various tools around Git
-    use({
-        "lewis6991/gitsigns.nvim",
-    })
+    use({ "lewis6991/gitsigns.nvim" })
 
     -- INFO: Git Tool to help with checking diffs
-    use({
-        "sindrets/diffview.nvim",
-        requires = "nvim-lua/plenary.nvim",
-    })
+    use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
     -- INFO: Easily comment stuff
-    use({
-        "numToStr/Comment.nvim",
-    })
+    use({ "numToStr/Comment.nvim" })
 
     -- INFO: Tools for closing buffers
-    use({
-        "kazhala/close-buffers.nvim",
-    })
+    use({ "kazhala/close-buffers.nvim" })
 
     -- INFO: Focus a window with a shortcut
-    use({
-        "s1n7ax/nvim-window-picker",
-        tag = "v1.*",
-    })
+    use({ "s1n7ax/nvim-window-picker", tag = "v1.*" })
 
     -- INFO: Highlight all occurences of current word under cursor
-    use({
-        "RRethy/vim-illuminate",
-    })
+    -- TODO: Replace with lua version
+    use({ "RRethy/vim-illuminate" })
 
     -- INFO: Code Navigation. Enables cib for example
     -- TODO: Research deeper
-    use({
-        "wellle/targets.vim",
-    })
+    use({ "wellle/targets.vim" })
 
     -- INFO: Hotkey files
-    use({
-        "ThePrimeagen/harpoon",
-    })
+    use({ "ThePrimeagen/harpoon" })
 
     -- INFO: Improvements for the QF List
-    use({
-        "kevinhwang91/nvim-bqf",
-        ft = "qf",
-    })
+    use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 
     -- INFO: Zen Mode
-    use({
-        "folke/zen-mode.nvim",
-    })
+    use({ "folke/zen-mode.nvim" })
 
     -- INFO: Display all todos in a pretty way
-    use({
-        "folke/todo-comments.nvim",
-        requires = "nvim-lua/plenary.nvim",
-    })
+    use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
 
     -- INFO: LSP Problems View
-    use({
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-    })
+    use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
 
     -- INFO: Automatically sets the indent by analysing the first 100 lines of the file
-    use({
-        "nmac427/guess-indent.nvim",
-    })
+    use({ "nmac427/guess-indent.nvim" })
 
     -- INFO: Lazygit inside Neovim :)
-    use({
-        "kdheepak/lazygit.nvim",
-    })
+    use({ "kdheepak/lazygit.nvim" })
 
     -- INFO: Prettier folds
     use({
@@ -370,26 +300,16 @@ packer.startup(function(use)
         },
     })
 
-    -- INFO: Preview Markdown Files
-    use({
-        "davidgranstrom/nvim-markdown-preview",
-    })
-
     -- INFO: Preview and edit colors
-    use({
-        "uga-rosa/ccc.nvim",
-    })
+    use({ "uga-rosa/ccc.nvim" })
 
     -- INFO: Surround text actions
-    use({
-        "kylechui/nvim-surround",
-        tag = "*",
-    })
+    use({ "kylechui/nvim-surround", tag = "*" })
 
-
-    use({
-        "Mofiqul/vscode.nvim",
-    })
+    -- INFO: Colorschemes
+    use({ "Mofiqul/vscode.nvim" })
+    use({ "terra-theme/nvim" })
+    --[[ use({ "~/Documents/dev/repos/personal/terra-theme/nvim", }) ]]
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
