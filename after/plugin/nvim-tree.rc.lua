@@ -23,7 +23,7 @@ nvim_tree.setup({
     open_on_tab = false,
     hijack_directories = {
         enable = true,
-        auto_open = true,
+        auto_open = false,
     },
     ignore_ft_on_setup = {
         "startify",
@@ -97,7 +97,7 @@ nvim_tree.setup({
     },
     update_focused_file = {
         enable = true,
-        update_cwd = true,
+        update_cwd = false,
         ignore_list = {},
     },
     git = {
