@@ -10,6 +10,13 @@ function! ToggleQuickFix()
 endfunction
 ]])
 
+---Builds typically standard command string
+---@param command string
+---@return string
+vin.lib.cmd = function(command)
+    return table.concat({ "<Cmd>", command, "<CR>" })
+end
+
 vin.lib.get_master_branch = function()
     local utils = require("telescope.utils")
 
@@ -178,4 +185,14 @@ vin.lib.focus_error = function()
 
     -- refocus original window
     vim.api.nvim_set_current_win(current_win)
+end
+
+---@param withExtension boolean Condition which decides if the returned filename should include the file extension
+---@return string
+vin.lib.get_current_filename = function(withExtension)
+    if withExtension then
+        return vim.fn.expand("%:t")
+    else
+        return vim.fn.expand("%:t:r")
+    end
 end

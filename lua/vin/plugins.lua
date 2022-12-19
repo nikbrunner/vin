@@ -297,6 +297,15 @@ packer.startup(function(use)
         },
     })
 
+    -- INFO: Window Maximizer
+    use({
+        "anuvyklack/windows.nvim",
+        requires = {
+            "anuvyklack/middleclass",
+            "anuvyklack/animation.nvim",
+        },
+    })
+
     -- INFO: Preview and edit colors
     use({ "uga-rosa/ccc.nvim" })
 

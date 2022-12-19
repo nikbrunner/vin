@@ -267,8 +267,8 @@ M.search = {
     s = M.symbols,
 }
 
-M.marks = {
-    name = "Marks",
+M.harpoon = {
+    name = "Harpoon",
     a = { vin.cmds.harpoon.add_file, "  Add File" },
     m = { vin.cmds.harpoon.toggle_quick_menu, "  Menu" },
     ["1"] = {

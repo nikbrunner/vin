@@ -15,6 +15,7 @@
   - If existent open todo searcher with issue id already present
   - folke/todo: filter with issue id?
 - [ ] Folding still seems to be somewhat strange (Some Bindings do not work)
+- [ ] Replace all standard `<cmd>something<CR>` commands with `vin.lib.cmd`
 - [ ] Setup Markdown [mkdx](https://github.com/SidOfc/mkdx)
   - [ ] Checkboxes
   - [ ] Auto Spell Checking
