@@ -20,9 +20,9 @@ local get_auto_print_cmd = function(filetype)
     end
 end
 
-vin.cmds.edit.log_word = function()
+vin.cmds.edit.log_symbol = function()
     local current_word = vim.fn.expand("<cword>")
-    local current_filename = vin.lib.general.get_current_filename(true)
+    local current_filename = vin.lib.get_current_filename(true)
 
     local message = table.concat({
         '"',
