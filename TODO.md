@@ -26,25 +26,26 @@
 
 Checkout, evaluate, implement
 
-- [ ] [nvim-navic](https://github.com/SmiteshP/nvim-navic)
-- [ ] [stabilize.nvim](https://github.com/luukvbaal/stabilize.nvim)
-- [ ] [nvim-pasta](https://github.com/hrsh7th/nvim-pasta)
-- [ ] [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
-- [ ] [feline](https://github.com/feline-nvim/feline.nvim)
-- [ ] [nvim-surround](https://github.com/kylechui/nvim-surround)
-- [ ] [nvim-spectre](https://github.com/nvim-pack/nvim-spectre)
-- [ ] [nvim-orgmode](https://github.com/nvim-orgmode/orgmode)
-- [ ] [navigator.lua](https://github.com/ray-x/navigator.lua)
-- [ ] [octo.nvim](https://github.com/pwntester/octo.nvim)
-- [ ] [nvim-docker](https://github.com/dgrbrady/nvim-docker)
-- [x] [telescope-file-browser](https://github.com/nvim-telescope/telescope-file-browser.nvim)
-- [ ] [syntax-tree-surfer](https://github.com/ziontee113/syntax-tree-surfer)
-  - I want to be able to jump to a parent node via treesitter
-- [ ] [neo-tree + diagnostics](https://this-week-in-neovim.org/2022/Aug/1#new-neo-tree.nvim)
-  - Could replace Trouble?
-- [ ] [prettier.nvim](https://github.com/MunifTanjim/prettier.nvim)
-- [ ] [lab.nvim](https://github.com/0x100101/lab.nvim)
-- [ ] [nvim-scrollbar](https://github.com/petertriho/nvim-scrollbar)
-- [ ] [winshift.nvim](https://github.com/sindrets/winshift.nvim)
-- [ ] [windows.nvim](https://github.com/anuvyklack/windows.nvim)
-- [ ] [noice.nvim](https://github.com/folke/noice.nvim) (0.9)
+### window & nvim/tmux navigation
+
+- [aserowy/tmux.nvim](https://github.com/aserowy/tmux.nvim)
+- [winshift.nvim](https://github.com/sindrets/winshift.nvim)
+
+### Editor Navigation
+
+- [navigator.lua](https://github.com/ray-x/navigator.lua)
+- [syntax-tree-surfer](https://github.com/ziontee113/syntax-tree-surfer)
+- [nvim-navic](https://github.com/SmiteshP/nvim-navic)
+- [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
+
+### Session
+
+- [folke/persistence.nvim: 💾 Simple session management for Neovim](https://github.com/folke/persistence.nvim)
+
+### Other
+
+- [nvim-spectre](https://github.com/nvim-pack/nvim-spectre)
+- [nvim-orgmode](https://github.com/nvim-orgmode/orgmode)
+- [octo.nvim](https://github.com/pwntester/octo.nvim)
+- [lab.nvim](https://github.com/0x100101/lab.nvim)
+- [noice.nvim](https://github.com/folke/noice.nvim) (0.9)
