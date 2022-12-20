@@ -70,12 +70,12 @@ lualine.setup({
         theme = "auto",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
-        --[[ section_separators = { left = "", right = "" }, ]]
-        --[[ component_separators = { left = "", right = "" }, ]]
-        --[[ section_separators = { left = "", right = "" }, ]]
-        --[[ component_separators = { left = "", right = "" }, ]]
-        --[[ section_separators = { left = "", right = "" }, ]]
-        --[[ component_separators = { left = "", right = "" }, ]]
+        -- section_separators = { left = "", right = "" },
+        -- component_separators = { left = "", right = "" },
+        -- section_separators = { left = "", right = "" },
+        -- component_separators = { left = "", right = "" },
+        -- section_separators = { left = "", right = "" },
+        -- component_separators = { left = "", right = "" },
         disabled_filetypes = {
             statusline = {
                 "alpha",
@@ -84,6 +84,8 @@ lualine.setup({
             winbar = {
                 "alpha",
                 "NvimTree",
+                "[NoName]",
+                "nvim",
             },
         },
         always_divide_middle = true,
@@ -97,15 +99,15 @@ lualine.setup({
         lualine_a = {},
         lualine_b = {},
         lualine_c = {},
-        lualine_z = { tabs },
+        lualine_y = { tabs },
     },
     winbar = {
-        lualine_c = { filename },
+        lualine_a = { filename },
         lualine_x = { diff },
         lualine_y = { "diagnostics" },
     },
     inactive_winbar = {
-        lualine_c = { filename },
+        lualine_a = { filename },
         lualine_y = {},
     },
     sections = {

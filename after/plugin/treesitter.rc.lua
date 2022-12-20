@@ -8,6 +8,7 @@ configs.setup({
     ensure_installed = {
         "html",
         "help",
+        "jsdoc",
         "bash",
         "javascript",
         "typescript",

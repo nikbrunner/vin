@@ -72,7 +72,7 @@ vin.cmds.telescope.find_in_file = function()
 end
 
 vin.cmds.telescope.find_text = function()
-    builtin.live_grep(themes.get_ivy({}))
+    builtin.live_grep()
 end
 
 vin.cmds.telescope.find_word = function()
