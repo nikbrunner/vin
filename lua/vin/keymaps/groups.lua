@@ -125,7 +125,6 @@ M.lsp = {
     R = { ":Trouble lsp_references<CR>", "List References w/ Trouble" },
     d = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
     i = { "<cmd>LspInfo<CR>", "Info" },
-    m = { "<cmd>Mason<CR>", "Installer Info" },
     y = { "<cmd>Telescope lsp_type_definitions<CR>", "Type Definitions" },
     p = { "<cmd>Trouble document_diagnostics<CR>", "Trouble Document Diagnostics" },
     P = {
@@ -418,6 +417,13 @@ M.debug = {
         l = { vin.cmds.edit.log_symbol, "Auto Log Symbol" },
         d = { vin.cmds.edit.delete_logs, "Delete Logs" },
     },
+}
+
+M.windows = {
+    name = "windows",
+    m = { cmd("WindowsMaximize"), "Maximize Split" },
+    e = { cmd("WindowsEqualize"), "Equalize" },
+    a = { cmd("WindowsToggleAutowidth"), "Toggle Autowidth" },
 }
 
 M.info = {

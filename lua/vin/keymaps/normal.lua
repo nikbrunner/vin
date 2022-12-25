@@ -2,7 +2,6 @@ local gitsigns_status_ok, gitsigns = pcall(require, "gitsigns")
 if not gitsigns_status_ok then
     return
 end
-
 local groups = require("vin.keymaps.groups")
 local cmd = vin.lib.cmd
 
@@ -94,7 +93,6 @@ M.with_leader = {
     f = { vin.cmds.telescope.find_files_without_preview, "Find File" },
     F = { vin.cmds.telescope.find_files_with_preview, WhichKeyIgnoreLabel },
     z = { vin.cmds.zen.toggle_full_screen, "Zen" },
-    m = { cmd("WindowsMaximize"), "Maximize Split" },
     n = { cmd("nohl"), WhichKeyIgnoreLabel },
     ["/"] = { vin.cmds.telescope.find_in_file, "Find Text in File" },
 
@@ -121,6 +119,7 @@ M.with_leader = {
     c = groups.copy,
     t = groups.tabs,
     i = groups.info,
+    w = groups.windows,
     T = groups.terra,
 }
 
