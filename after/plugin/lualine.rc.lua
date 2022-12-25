@@ -79,7 +79,6 @@ lualine.setup({
         disabled_filetypes = {
             statusline = {
                 "alpha",
-                "NvimTree",
             },
             winbar = {
                 "alpha",

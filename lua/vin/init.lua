@@ -17,10 +17,10 @@ load("vin.icons")
 load("vin.options")
 load("vin.autocmds")
 load("vin.lib")
-load("vin.cmds")
 load("vin.plugins")
+load("vin.cmds")
 load("vin.keymaps")
 
--- -- Allow require to look in after/plugin folder
+-- Allow require to look in after/plugin folder
 local home_dir = os.getenv("HOME")
 package.path = home_dir .. "/.config/nvim/after/plugin/?.lua;" .. package.path

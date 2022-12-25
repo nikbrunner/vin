@@ -1,14 +1,10 @@
-local telescope_status_ok, telescope = pcall(require, "telescope")
-if not telescope_status_ok then
-    return
-end
+local _, telescope = pcall(require, "telescope")
+local _, builtin = pcall(require, "telescope.builtin")
+local _, themes = pcall(require, "telescope.themes")
+local _, previewers = pcall(require, "telescope.previewers")
+local _, conf = pcall(require, "telescope.config")
 
-local builtin = require("telescope.builtin")
-local themes = require("telescope.themes")
-local previewers = require("telescope.previewers")
-local conf = require("telescope.config")
-
-local delta_previewer = previewers.new_termopen_previewer({
+local delta_previewer = require("telescope.previewers").new_termopen_previewer({
     get_command = function(entry)
         -- this is for status
         -- You can get the AM things in entry.status. So we are displaying file if entry.status == '??' or 'A '

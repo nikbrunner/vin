@@ -7,6 +7,4 @@ require("vin.cmds.zen")
 require("vin.cmds.general")
 require("vin.cmds.telescope")
 require("vin.cmds.harpoon")
-require("vin.cmds.packer")
 require("vin.cmds.quit")
-

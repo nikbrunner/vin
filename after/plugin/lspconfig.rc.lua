@@ -97,10 +97,11 @@ nvim_lsp.sumneko_lua.setup({
     },
 })
 
-nvim_lsp.jsonls.setup(vim.tbl_deep_extend("force", {
-    capabilities = capabilities,
-    on_attach = on_attach,
-}, require("lsp.jsonls"))) -- NOTE: This `require` only works because we modify the package path in the `vin/init.lua`
+--TODO: Resolve this with moving to lsp.zero
+-- nvim_lsp.jsonls.setup(vim.tbl_deep_extend("force", {
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+-- }, require("lsp.jsonls"))) -- NOTE: This `require` only works because we modify the package path in the `vin/init.lua`
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics,

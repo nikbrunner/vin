@@ -1,7 +1,4 @@
-local gitsigns_ok, gitsigns = pcall(require, "gitsigns")
-if not gitsigns_ok then
-    return
-end
+local _, gitsigns = pcall(require, "gitsigns")
 
 local diffview_notification = function(message)
     vim.notify(message)
