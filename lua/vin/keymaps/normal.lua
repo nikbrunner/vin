@@ -120,6 +120,7 @@ M.with_leader = {
     q = groups.quit,
     c = groups.copy,
     t = groups.tabs,
+    i = groups.info,
     T = groups.terra,
 }
 

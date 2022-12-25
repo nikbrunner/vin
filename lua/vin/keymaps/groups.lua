@@ -1,5 +1,7 @@
 local M = {}
 
+local cmd = vin.lib.cmd
+
 M.advanced_g = {
     name = "Go-To",
 
@@ -416,6 +418,13 @@ M.debug = {
         l = { vin.cmds.edit.log_symbol, "Auto Log Symbol" },
         d = { vin.cmds.edit.delete_logs, "Delete Logs" },
     },
+}
+
+M.info = {
+    name = "info",
+    m = { cmd("Mason"), "Package Manager - [Mason]" },
+    l = { cmd("Lazy"), "Plugin Manager - [Lazy]" },
+    L = { cmd("LspInfo"), "LSP Info" },
 }
 
 return M
