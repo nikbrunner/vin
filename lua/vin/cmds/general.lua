@@ -8,11 +8,6 @@ vin.cmds.general.save_all = function()
     vim.cmd([[wa]])
 end
 
-vin.cmds.save_and_exit = function()
-    vin.cmds.general.save_all()
-    vim.cmd([[:qa!]])
-end
-
 -- get the current filename without extension
 vin.cmds.general.get_current_filename = function()
     local fileNameWithExt = vim.fn.expand("%:t")
@@ -30,6 +25,10 @@ vin.cmds.general.get_current_filename = function()
             return nil
         end
     )
+end
+
+vin.cmds.general.center_line_vertical = function()
+    vim.cmd([[norm zz]])
 end
 
 vin.cmds.general.blocks.select = function()
@@ -58,8 +57,4 @@ end
 vin.cmds.general.all.delete = function()
     vin.cmds.general.all.select()
     vim.cmd([[norm d]])
-end
-
-vin.cmds.general.line.select = function()
-    vim.cmd([[norm ^v$]])
 end

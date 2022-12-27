@@ -3,7 +3,6 @@ if not gitsigns_status_ok then
     return
 end
 local groups = require("vin.keymaps.groups")
-local cmd = vin.lib.cmd
 
 local M = {}
 
@@ -87,13 +86,13 @@ M.no_leader = {
 
 M.with_leader = {
     -- Singles
-    e = { cmd("NvimTreeToggle"), "File Tree" },
-    o = { cmd("LSoutlineToggle"), "Symbol Tree" },
+    e = { "<cmd>NvimTreeToggle<CR>", "File Tree" },
+    o = { "<cmd>LSoutlineToggle<CR>", "Symbol Tree" },
     [" "] = { vin.cmds.telescope.find_open_buffer, "Buffers" },
     f = { vin.cmds.telescope.find_files_without_preview, "Find File" },
     F = { vin.cmds.telescope.find_files_with_preview, WhichKeyIgnoreLabel },
     z = { vin.cmds.zen.toggle_full_screen, "Zen" },
-    n = { cmd("nohl"), WhichKeyIgnoreLabel },
+    n = { "<cmd>nohl<CR>", WhichKeyIgnoreLabel },
     ["/"] = { vin.cmds.telescope.find_in_file, "Find Text in File" },
 
     -- Tab navigation
@@ -114,11 +113,11 @@ M.with_leader = {
     g = groups.git,
     d = groups.debug,
     l = groups.lsp,
-    h = groups.harpoon,
+    m = groups.marks,
     q = groups.quit,
     c = groups.copy,
     t = groups.tabs,
-    i = groups.info,
+    p = groups.packages,
     w = groups.windows,
     T = groups.terra,
 }

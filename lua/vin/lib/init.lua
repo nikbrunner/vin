@@ -10,13 +10,6 @@ function! ToggleQuickFix()
 endfunction
 ]])
 
----Builds typically standard command string
----@param command string
----@return string
-vin.lib.cmd = function(command)
-    return table.concat({ "<Cmd>", command, "<CR>" })
-end
-
 vin.lib.get_master_branch = function()
     local utils = require("telescope.utils")
 
@@ -168,18 +161,14 @@ function vin.lib.ccall(condition, callback, fallback)
     end
 end
 
-vin.lib.center_line_vertical = function()
-    vim.cmd([[norm zz]])
-end
-
 vin.lib.focus_error = function()
     -- get the current window, to be able to jump back to it, after opening the Diag Window
     local current_win = vim.api.nvim_get_current_win()
 
     -- center view on error
-    vin.lib.center_line_vertical()
+    vim.cmd([[norm zz]])
 
-    local config = vim.lsp.diagnostics.float
+    local config = vim.lsp.diagnostic.config
     config.scope = "line"
     vim.diagnostic.open_float(0, config)
 

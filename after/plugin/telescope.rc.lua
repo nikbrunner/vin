@@ -7,7 +7,6 @@ local actions = require("telescope.actions")
 
 telescope.setup({
     defaults = {
-
         prompt_prefix = " " .. vin.icons.ui.Telescope .. " ",
         selection_caret = " " .. vin.icons.ui.ArrowClosed .. " ",
         entry_prefix = "  ",
@@ -16,18 +15,14 @@ telescope.setup({
         initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "ascending",
-        layout_strategy = "flex",
+        layout_strategy = "horizontal",
         layout_config = {
             horizontal = {
-                prompt_position = "top",
-                preview_width = 0.55,
+                preview_width = 0.65,
             },
-            vertical = {
-                mirror = false,
-            },
-            width = 0.87,
-            height = 0.80,
-            preview_cutoff = 120,
+            width = 0.65,
+            height = 0.65,
+            preview_cutoff = 10,
         },
         winblend = 0,
         border = {},
@@ -100,15 +95,7 @@ telescope.setup({
             },
         },
     },
-    pickers = {
-        -- Default configuration for builtin pickers goes here:
-        -- picker_name = {
-        --   picker_config_key = value,
-        --   ...
-        -- }
-        -- Now the picker_config_key will be applied every time you call this
-        -- builtin picker
-    },
+    pickers = {},
     extensions = {
         project = {
             base_dirs = {

@@ -53,7 +53,31 @@ local no_preview = function()
     })
 end
 
+local lsp_window = {
+    show_line = false,
+    layout_config = {
+        width = 0.65,
+        height = 0.65,
+    },
+}
+
 vin.cmds.telescope = {}
+
+vin.cmds.telescope.find_definitions = function()
+    builtin.lsp_definitions(lsp_window)
+end
+
+vin.cmds.telescope.find_references = function()
+    builtin.lsp_references(lsp_window)
+end
+
+vin.cmds.telescope.find_implementations = function()
+    builtin.lsp_implementations(lsp_window)
+end
+
+vin.cmds.telescope.find_type_defintions = function()
+    builtin.lsp_type_definitions(lsp_window)
+end
 
 vin.cmds.telescope.find_files_without_preview = function()
     builtin.find_files(no_preview())
@@ -80,13 +104,13 @@ vin.cmds.telescope.find_in_quickfix = function()
     builtin.quickfix(themes.get_ivy({}))
 end
 
-vin.cmds.telescope.find_symbols_in_workspace = function()
-    builtin.lsp_dynamic_workspace_symbols()
-end
-
 vin.cmds.telescope.find_changed_files = function(opts)
     builtin.git_status({
         previewer = delta_previewer,
+        layout_config = {
+            width = 0.95,
+            height = 0.95,
+        },
     })
 end
 
@@ -106,24 +130,6 @@ vin.cmds.telescope.find_related_files = function()
     else
         builtin.find_files()
     end
-end
-
-vin.cmds.telescope.find_files_in_config = function(opts)
-    local path = "~/.config"
-
-    opts = opts or {}
-    opts.cwd = path
-
-    builtin.find_files(opts)
-end
-
-vin.cmds.telescope.find_files_in_work_notes = function(opts)
-    local notes = "~/Documents/notes/dcd-notes"
-
-    opts = opts or {}
-    opts.cwd = opts.cwd or notes
-
-    builtin.find_files(opts)
 end
 
 vin.cmds.telescope.find_open_buffer = function()
@@ -231,21 +237,6 @@ vin.cmds.telescope.find_projects = function()
     telescope.extensions.project.project()
 end
 
--- Go to definition
-vin.cmds.telescope.go_to_definition = function()
-    builtin.lsp_definitions()
-end
-
--- List references
-vin.cmds.telescope.list_references = function()
-    builtin.lsp_references()
-end
-
--- Find document symbols with aerial
--- vin.cmds.telescope.find_symbol_with_aerial = function()
--- 	telescope.extensions.aerial.aerial(themes.get_ivy())
--- end
-
 vin.cmds.telescope.find_spelling = function()
     builtin.spell_suggest(no_preview())
 end
@@ -264,4 +255,11 @@ end
 
 vin.cmds.telescope.find_marks = function()
     builtin.marks()
+end
+
+---@param path string Path to directory to search in
+vin.cmds.telescope.search_in_dir = function(path)
+    builtin.find_files({
+        cwd = path,
+    })
 end
