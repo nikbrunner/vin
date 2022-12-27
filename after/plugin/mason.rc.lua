@@ -15,8 +15,11 @@ lspconfig.setup({
     ensure_installed = {
         "sumneko_lua",
         "tsserver",
+        "eslint-lsp",
+        "eslint_d",
         "jsonls",
         "cssls",
         "gopls",
     },
+    automatic_installation = true,
 })
