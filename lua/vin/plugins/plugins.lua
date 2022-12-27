@@ -179,11 +179,10 @@ return {
     -- INFO: Hotkey files
     { "ThePrimeagen/harpoon" },
 
-    -- INFO: Improvements for the QF List
-    { "kevinhwang91/nvim-bqf", ft = "qf", disable = true },
-
     -- INFO: Zen Mode
     { "folke/zen-mode.nvim" },
+
+    { "chentoast/marks.nvim" },
 
     -- INFO: Display all todos in a pretty way
     { "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim" },
