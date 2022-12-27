@@ -28,9 +28,6 @@ return {
     -- INFO: for parameter hints
     { "ray-x/lsp_signature.nvim" },
 
-    -- INFO: Tool Package for LSP
-    { "glepnir/lspsaga.nvim", branch = "main" },
-
     -- INFO: Lua Development
     { "folke/neodev.nvim" },
 
