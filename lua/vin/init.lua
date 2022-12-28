@@ -10,11 +10,11 @@ _G.Vin = {
     config = {},
 }
 
+require("vin.lib")
 require("vin.options")
 require("vin.config")
 require("vin.autocmds")
 require("vin.icons")
-require("vin.lib")
 require("vin.plugins")
 require("vin.cmds")
 require("vin.keymaps")

@@ -121,4 +121,21 @@ M.merge = function(array)
     return result
 end
 
+--- Joins any number of strings or numbers into a single string.
+---@param ... any number of strings or numbers to join
+---@return string
+M.join = function(...)
+    -- Initialize an empty result string
+    local result = ""
+
+    -- Iterate over the arguments passed to the function
+    for i, v in ipairs({ ... }) do
+        -- Concatenate the current argument to the result string, after converting it to a string
+        result = result .. tostring(v)
+    end
+
+    -- Return the joined string
+    return result
+end
+
 return M
