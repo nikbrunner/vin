@@ -63,3 +63,11 @@ vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 10
 
 vim.wo.fillchars = "eob: "
+
+-- Neovide
+vim.cmd([[
+    " g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
+    let g:neovide_transparency = 0.0
+    let g:transparency = 0.8
+    let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
+]])
