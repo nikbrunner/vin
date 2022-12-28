@@ -6,9 +6,8 @@ M.get_current_branch = function()
     return vim.fn.system("git rev-parse --abbrev-ref HEAD")
 end
 
----@alias Branches chunks
----Find out alle branches
----@return (false|table) All branches as table of strings
+---Find out all branches
+---@return false|table
 M.get_all_branches = function()
     local resultString
 
