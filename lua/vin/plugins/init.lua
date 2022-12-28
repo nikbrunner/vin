@@ -15,4 +15,4 @@ end
 
 vim.opt.runtimepath:prepend(lazypath)
 
-require("lazy").setup(require("vin.plugins.plugins"), require("vin.plugins.options"))
+require("lazy").setup(require("vin.plugins.list"), require("vin.plugins.options"))
