@@ -3,6 +3,9 @@ return {
     { "nvim-lua/plenary.nvim" },
     { "neovim/nvim-lspconfig" },
     { "onsails/lspkind-nvim" },
+    {
+        "j-hui/fidget.nvim",
+    },
     { "williamboman/mason.nvim" },
     {
         "williamboman/mason-lspconfig.nvim",

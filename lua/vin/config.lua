@@ -1,6 +1,5 @@
 local join = Vin.lib.utils.join
 
-
 -- TODO: Use $XDG_.. Variables
 local HOME_PATH = "~/"
 local CONFIG_PATH = join(HOME_PATH, ".config/")
