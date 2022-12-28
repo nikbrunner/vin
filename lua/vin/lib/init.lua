@@ -185,3 +185,30 @@ vin.lib.get_current_filename = function(withExtension)
         return vim.fn.expand("%:t:r")
     end
 end
+
+--- Merges the elements of multiple arrays into a single array.
+--- Elements that are not arrays are included in the resulting array as is.
+---@param array table A list of arrays and/or single values to be merged.
+---@treturn table The resulting array, containing the elements of the input array.
+vin.lib.merge = function(array)
+    -- Initialize the result array
+    local result = {}
+
+    -- Iterate over the elements of the input array
+    for i, v in pairs(array) do
+        -- Check if the element is an array
+        if type(v) == "table" then
+            -- Iterate over the keys and values of the array
+            for j, w in pairs(v) do
+                -- Copy the key and value into the result array
+                result[j] = w
+            end
+        else
+            -- The element is not an array, so copy it into the result array as is
+            result[i] = v
+        end
+    end
+
+    -- Return the result array
+    return result
+end
