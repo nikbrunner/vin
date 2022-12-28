@@ -15,16 +15,22 @@ M.advanced_g = {
     -- y = { vim.lsp.buf.type_definition, "Find Type Definition" },
 
     -- Telescope
-    d = { cmds.telescope.find_definitions, "Find Definition" },
-    r = { cmds.telescope.find_references, "Find References" },
-    i = { cmds.telescope.find_implementations, "Find Implementations" },
-    y = { cmds.telescope.find_type_defintions, "Find Type Definition" },
+    d = { "<cmd>Telescope lsp_definitions<CR>", "Find Definition" },
+    r = { "<cmd>Telescope lsp_references<CR>", "Find References" },
+    i = { "<cmd>Telescope lsp_implemantations<CR>", "Find Implementations" },
+    y = { "<cmd>Telescope lsp_type_definitions<CR>", "Find Type Definition" },
 
     -- Trouble
-    D = { "<cmd>Trouble lsp_definitions<CR>", "Find Definition" },
-    R = { "<cmd>Trouble lsp_references<CR>", "Find References" },
-    I = { "<cmd>Trouble lsp_implemantations<CR>", "Find Implementations" },
-    Y = { "<cmd>Trouble lsp_type_definitions<CR>", "Find Type Definition" },
+    D = { "<cmd>Trouble lsp_definitions<CR>", "Find Definition (Trouble)" },
+    R = { "<cmd>Trouble lsp_references<CR>", "Find References (Trouble)" },
+    I = {
+        "<cmd>Trouble lsp_implemantations<CR>",
+        "Find Implementations (Trouble)",
+    },
+    Y = {
+        "<cmd>Trouble lsp_type_definitions<CR>",
+        "Find Type Definition (Trouble)",
+    },
 }
 
 M.go_prev = {
@@ -208,22 +214,19 @@ M.search = {
     d = M.diagnostics,
     s = M.symbols,
 
-    p = { vin.cmds.telescope.find_projects, "Recent Projects" },
-    f = { vin.cmds.telescope.find_files_without_preview, "Files" },
-    F = { vin.cmds.telescope.find_files_with_preview, "Files (With Preview)" },
-    r = { vin.cmds.telescope.find_related_files, "Related Files" },
-    t = { vin.cmds.telescope.find_text, "Find Text Everywhere" },
-    o = { vin.cmds.telescope.find_open_buffer, "Open Buffers" },
-    g = { vin.cmds.telescope.find_changed_files, "Open Changed Files" },
-    w = { vin.cmds.telescope.find_word, "Find Current Word" },
-    q = { vin.cmds.telescope.find_in_quickfix, "Quickfix" },
-    S = { vin.cmds.telescope.find_spelling, "Spelling" },
-    b = { vin.cmds.telescope.find_open_buffer, "Buffers" },
-    h = { vin.cmds.telescope.find_oldfiles, "Recent Files (History)" },
-    c = { vin.cmds.telescope.find_commands, "Commands" },
-    C = { vin.cmds.telescope.find_colorscheme, "Colorscheme" },
-    m = { vin.cmds.telescope.find_marks, "Marks" },
+    p = { "<cmd>Telescope project<CR>", "Recent Projects" },
+    f = { "<cmd>Telescope find_files<CR>", "Files" },
+    t = { "<cmd>Telescope live_grep<CR>", "Find Text Everywhere" },
+    b = { "<cmd>Telescope buffers<CR>", "Open Buffers" },
     T = { "<cmd>TodoTelescope<CR>", "Todos" },
+    w = { "<cmd>Telescope grep_string<CR>", "Find Current Word" },
+    S = { "<cmd>Telescope spell_suggest<CR>", "Spelling" },
+    C = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
+    h = { "<cmd>Telescope oldfiles<CR>", "Recent Files (History)" },
+    c = { "<cmd>Telescope commands<CR>", "Commands" },
+    m = { "<cmd>Telescope marks<CR>", "Marks" },
+    g = { vin.cmds.telescope.find_changed_files, "Open Changed Files" },
+    r = { vin.cmds.telescope.find_related_files, "Related Files" },
     a = {
         name = "Advanced",
         s = { vin.cmds.telescope.find_scss_symbol, "SCSS Symbol" },
@@ -234,7 +237,7 @@ M.search = {
         k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
     },
     ["/"] = {
-        name = "Preset Folders",
+        name = "Folders",
         c = {
             function()
                 vin.cmds.telescope.search_in_dir("~/.config")

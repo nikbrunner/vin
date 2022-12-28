@@ -4,13 +4,29 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
+local themes = require("telescope.themes")
+
+local merge = vin.lib.merge
+
+local vertical_window = {
+    show_line = false,
+    layout_strategy = "vertical",
+    layout_config = {
+        width = 0.75,
+        height = 0.75,
+    },
+}
+
+local no_preview = {
+    previewer = false,
+    prompt_title = false,
+}
 
 telescope.setup({
     defaults = {
         prompt_prefix = " " .. vin.icons.ui.Telescope .. " ",
         selection_caret = " " .. vin.icons.ui.ArrowClosed .. " ",
         entry_prefix = "  ",
-
         path_display = { "truncate" },
         initial_mode = "insert",
         selection_strategy = "reset",
@@ -50,8 +66,7 @@ telescope.setup({
             height = 0.65,
             preview_cutoff = 10,
         },
-        winblend = 0,
-        border = {},
+
         borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 
         mappings = {
@@ -121,15 +136,39 @@ telescope.setup({
             },
         },
     },
-    pickers = {},
+    pickers = {
+        lsp_definitions = vertical_window,
+        lsp_references = vertical_window,
+        lsp_implementations = vertical_window,
+        lsp_type_definitions = vertical_window,
+        buffers = vertical_window,
+        current_buffer_fuzzy_find = {
+            theme = "ivy",
+        },
+        spell_suggest = {
+            theme = "cursor",
+        },
+        colorscheme = {
+            theme = "dropdown",
+            enable_preview = true,
+        },
+        oldfiles = merge({
+            theme = "dropdown",
+            no_preview,
+        }),
+        commands = {
+            theme = "ivy",
+        },
+    },
     extensions = {
         project = {
             base_dirs = {
                 { "~/Documents/dev/repos", max_depth = 4 },
             },
-            hidden_files = false,
+            hidden_files = true,
             theme = "dropdown",
-            display_type = "full",
+            display_type = "minimal",
+            sync_with_nvim_tree = true, -- default false
         },
         file_browser = {
             -- theme = "ivy",

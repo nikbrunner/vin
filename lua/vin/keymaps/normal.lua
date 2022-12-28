@@ -43,7 +43,6 @@ M.no_leader = {
     ["<M-j>"] = { "<Esc>:m .+1<CR>", "Move Down" },
 
     ["<C-f>"] = { vin.cmds.nav.pick_window, "  Pick Window" },
-    ["<C-/>"] = { vin.cmds.telescope.find_in_file, "  Find Text in File" },
 
     -- FN Key Bindings
     ["<F6>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
@@ -88,11 +87,11 @@ M.with_leader = {
     -- Singles
     e = { "<cmd>NvimTreeToggle<CR>", "File Tree" },
     o = { "<cmd>LSoutlineToggle<CR>", "Symbol Tree" },
-    f = { vin.cmds.telescope.find_files_with_preview, "Find File" },
+    f = { "<cmd>Telescope find_files<CR>", "Find File" },
     z = { "<cmd>ZenMode<CR>", "Zen" },
     n = { "<cmd>nohl<CR>", "Hide Search HL" },
-    [" "] = { vin.cmds.telescope.find_open_buffer, "Buffers" },
-    ["/"] = { vin.cmds.telescope.find_in_file, "Find Text in File" },
+    [" "] = { "<cmd>Telescope buffers<CR>", "Buffers" },
+    ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find Text in File" },
 
     -- Tab navigation
     ["1"] = { "1gt", WhichKeyIgnoreLabel },

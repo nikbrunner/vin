@@ -35,75 +35,7 @@ local delta_previewer = require("telescope.previewers").new_termopen_previewer({
     end,
 })
 
-local hard_corner_window = function()
-    return {
-        { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-        prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
-        results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
-        preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-    }
-end
-
-local no_preview = function()
-    return themes.get_dropdown({
-        borderchars = hard_corner_window(),
-        width = 0.8,
-        previewer = false,
-        prompt_title = false,
-    })
-end
-
-local lsp_window = {
-    show_line = false,
-    layout_strategy = "vertical",
-    layout_config = {
-        width = 0.75,
-        height = 0.75,
-    },
-}
-
 vin.cmds.telescope = {}
-
-vin.cmds.telescope.find_definitions = function()
-    builtin.lsp_definitions(lsp_window)
-end
-
-vin.cmds.telescope.find_references = function()
-    builtin.lsp_references(lsp_window)
-end
-
-vin.cmds.telescope.find_implementations = function()
-    builtin.lsp_implementations(lsp_window)
-end
-
-vin.cmds.telescope.find_type_defintions = function()
-    builtin.lsp_type_definitions(lsp_window)
-end
-
-vin.cmds.telescope.find_files_without_preview = function()
-    builtin.find_files(no_preview())
-end
-
-vin.cmds.telescope.find_files_with_preview = function()
-    builtin.find_files()
-end
-
-vin.cmds.telescope.find_in_file = function()
-    builtin.current_buffer_fuzzy_find(themes.get_ivy({}))
-end
-
-vin.cmds.telescope.find_text = function()
-    builtin.live_grep()
-end
-
-vin.cmds.telescope.find_word = function()
-    local curr_word = vim.fn.expand("<cword>")
-    builtin.grep_string({ default_text = curr_word })
-end
-
-vin.cmds.telescope.find_in_quickfix = function()
-    builtin.quickfix(themes.get_ivy({}))
-end
 
 vin.cmds.telescope.find_changed_files = function(opts)
     builtin.git_status({
@@ -133,10 +65,6 @@ vin.cmds.telescope.find_related_files = function()
     end
 end
 
-vin.cmds.telescope.find_open_buffer = function()
-    builtin.buffers(themes.get_dropdown({}))
-end
-
 vin.cmds.telescope.find_scss_symbol = function()
     local curr_word = vim.fn.expand("<cword>")
 
@@ -155,14 +83,10 @@ vin.cmds.telescope.find_scss_symbol = function()
         builtin.grep_string({
             default_text = text,
             path_display = { "truncate" },
-            -- layout_strategy = "vertical",
             layout_config = {
                 width = 0.90,
                 height = 0.90,
             },
-            -- preview_height = 0.25,
-            -- preview_cutoff = 20,
-            -- mirror = true,
         })
     end
 
@@ -231,31 +155,6 @@ vin.cmds.telescope.find_scss_symbol = function()
             end
         end,
     }, handleSelectSymbol)
-end
-
--- Find project folders with telescope extension
-vin.cmds.telescope.find_projects = function()
-    telescope.extensions.project.project()
-end
-
-vin.cmds.telescope.find_spelling = function()
-    builtin.spell_suggest(no_preview())
-end
-
-vin.cmds.telescope.find_colorscheme = function()
-    builtin.colorscheme(no_preview())
-end
-
-vin.cmds.telescope.find_oldfiles = function()
-    builtin.oldfiles(no_preview())
-end
-
-vin.cmds.telescope.find_commands = function()
-    builtin.commands()
-end
-
-vin.cmds.telescope.find_marks = function()
-    builtin.marks()
 end
 
 ---@param path string Path to directory to search in
