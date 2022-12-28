@@ -91,7 +91,7 @@ M.with_leader = {
     [" "] = { vin.cmds.telescope.find_open_buffer, "Buffers" },
     f = { vin.cmds.telescope.find_files_without_preview, "Find File" },
     F = { vin.cmds.telescope.find_files_with_preview, WhichKeyIgnoreLabel },
-    z = { vin.cmds.zen.toggle_full_screen, "Zen" },
+    z = { "<cmd>ZenMode<CR>", "Zen" },
     n = { "<cmd>nohl<CR>", WhichKeyIgnoreLabel },
     ["/"] = { vin.cmds.telescope.find_in_file, "Find Text in File" },
 
