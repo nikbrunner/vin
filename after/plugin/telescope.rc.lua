@@ -6,7 +6,7 @@ end
 local actions = require("telescope.actions")
 local themes = require("telescope.themes")
 
-local merge = vin.lib.utils.merge
+local merge = Vin.lib.utils.merge
 
 local vertical_window = {
     show_line = false,
@@ -24,8 +24,8 @@ local no_preview = {
 
 telescope.setup({
     defaults = {
-        prompt_prefix = " " .. vin.icons.ui.Telescope .. " ",
-        selection_caret = " " .. vin.icons.ui.ArrowClosed .. " ",
+        prompt_prefix = " " .. Vin.icons.ui.Telescope .. " ",
+        selection_caret = " " .. Vin.icons.ui.ArrowClosed .. " ",
         entry_prefix = "  ",
         path_display = { "truncate" },
         initial_mode = "insert",

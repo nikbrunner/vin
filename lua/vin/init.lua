@@ -3,7 +3,7 @@
 ---@field cmds table Function wrappers for plugin and custom commands
 ---@field icons table Icons used in the user interface
 ---@field config table Configuration options for the application
-_G.vin = {
+_G.Vin = {
     lib = {},
     cmds = {},
     icons = {},

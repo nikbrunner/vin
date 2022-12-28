@@ -17,4 +17,4 @@ function PaintMe(color)
     vim.cmd.colorscheme(color)
 end
 
-PaintMe(vin.config.colorscheme)
+PaintMe(Vin.config.colorscheme)

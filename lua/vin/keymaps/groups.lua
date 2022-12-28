@@ -1,6 +1,6 @@
 local M = {}
 
-local cmds = vin.cmds
+local cmds = Vin.cmds
 
 M.advanced_g = {
     name = "Go-To",
@@ -38,21 +38,21 @@ M.go_prev = {
     q = {
         function()
             vim.cmd([[cprev]])
-            vin.cmds.general.center_line_vertical()
+            Vin.cmds.general.center_line_vertical()
         end,
         "QuickFix Item",
     },
     l = {
         function()
             vim.cmd([[lprev]])
-            vin.cmds.general.center_line_vertical()
+            Vin.cmds.general.center_line_vertical()
         end,
         "LocList Item",
     },
     b = {
         function()
             vim.cmd([[bprev]])
-            vin.cmds.general.center_line_vertical()
+            Vin.cmds.general.center_line_vertical()
         end,
         "Buffer",
     },
@@ -62,7 +62,7 @@ M.go_prev = {
         end,
         "Diagnostic",
     },
-    g = { vin.cmds.git.hunk_go_prev, "Change" },
+    g = { Vin.cmds.git.hunk_go_prev, "Change" },
 }
 
 M.go_next = {
@@ -70,21 +70,21 @@ M.go_next = {
     q = {
         function()
             vim.cmd([[cnext]])
-            vin.cmds.general.center_line_vertical()
+            Vin.cmds.general.center_line_vertical()
         end,
         "QuickFix Item",
     },
     l = {
         function()
             vim.cmd([[lnext]])
-            vin.cmds.general.center_line_vertical()
+            Vin.cmds.general.center_line_vertical()
         end,
         "LocList Item",
     },
     b = {
         function()
             vim.cmd([[bnext]])
-            vin.cmds.general.center_line_vertical()
+            Vin.cmds.general.center_line_vertical()
         end,
         "Buffer",
     },
@@ -94,7 +94,7 @@ M.go_next = {
         end,
         "Diagnostic",
     },
-    g = { vin.cmds.git.hunk_go_next, "Change" },
+    g = { Vin.cmds.git.hunk_go_next, "Change" },
 }
 
 M.symbols = {
@@ -147,33 +147,33 @@ M.explorer = {
 M.quit = {
     name = "Quit",
     s = { "<cmd>silent wq<CR>", "Save and Quit Pane (:wq)" },
-    c = { vin.cmds.quit.custom_buffers, "Custom Filter" },
-    q = { vin.cmds.quit.current_buffer, "Current" },
-    o = { vin.cmds.quit.other_buffers, "Other" },
-    h = { vin.cmds.quit.hidden_buffers, "Hidden" },
-    a = { vin.cmds.quit.all_buffers, "All" },
+    c = { Vin.cmds.quit.custom_buffers, "Custom Filter" },
+    q = { Vin.cmds.quit.current_buffer, "Current" },
+    o = { Vin.cmds.quit.other_buffers, "Other" },
+    h = { Vin.cmds.quit.hidden_buffers, "Hidden" },
+    a = { Vin.cmds.quit.all_buffers, "All" },
 }
 
 M.copy = {
     name = "Copy",
-    f = { vin.cmds.copy.fullPath, "Copy Full Path" },
-    r = { vin.cmds.copy.relativePath, "Copy Relative Path" },
-    n = { vin.cmds.copy.fileName, "Copy File Name" },
+    f = { Vin.cmds.copy.fullPath, "Copy Full Path" },
+    r = { Vin.cmds.copy.relativePath, "Copy Relative Path" },
+    n = { Vin.cmds.copy.fileName, "Copy File Name" },
 }
 
 M.git = {
     name = "Git",
-    k = { vin.cmds.git.hunk_go_prev, "Change" },
-    j = { vin.cmds.git.hunk_go_next, "Change" },
+    k = { Vin.cmds.git.hunk_go_prev, "Change" },
+    j = { Vin.cmds.git.hunk_go_next, "Change" },
 
     s = { "<cmd>LazyGit<CR>", "Status" },
-    q = { vin.cmds.git.open_changes_in_qf, "List changes in QF" },
-    p = { vin.cmds.git.hunk_preview, "Preview Hunk " },
-    l = { vin.cmds.git.toggle_current_line_blame, "Current Line Blame" },
-    o = { vin.cmds.fuzzy.find_changed_files, "Open Changed Files" },
+    q = { Vin.cmds.git.open_changes_in_qf, "List changes in QF" },
+    p = { Vin.cmds.git.hunk_preview, "Preview Hunk " },
+    l = { Vin.cmds.git.toggle_current_line_blame, "Current Line Blame" },
+    o = { Vin.cmds.fuzzy.find_changed_files, "Open Changed Files" },
     d = {
         name = "Diffview",
-        c = { vin.cmds.git.get_diff_to, "Diff To Custom" },
+        c = { Vin.cmds.git.get_diff_to, "Diff To Custom" },
         d = { "<cmd>DiffviewOpen<CR>", "Current Diff" },
         h = { "<cmd>DiffviewFileHistory %<CR>", "History for Current File" },
         H = { "<cmd>DiffviewFileHistory<CR>", "Git History" },
@@ -182,23 +182,23 @@ M.git = {
     },
     h = {
         name = "Hunk",
-        k = { vin.cmds.git.hunk_go_prev, "Prev Hunk" },
-        j = { vin.cmds.git.hunk_go_next, "Next Hunk" },
-        s = { vin.cmds.git.hunk_stage, "Stage Hunk" },
-        S = { vin.cmds.git.hunk_undo_stage, "Undo Stage Hunk" },
-        p = { vin.cmds.git.hunk_preview, "Preview Hunk" },
-        r = { vin.cmds.git.hunk_reset, "Reset Hunk" },
-        b = { vin.cmds.git.blame_line, "Blame Line" },
+        k = { Vin.cmds.git.hunk_go_prev, "Prev Hunk" },
+        j = { Vin.cmds.git.hunk_go_next, "Next Hunk" },
+        s = { Vin.cmds.git.hunk_stage, "Stage Hunk" },
+        S = { Vin.cmds.git.hunk_undo_stage, "Undo Stage Hunk" },
+        p = { Vin.cmds.git.hunk_preview, "Preview Hunk" },
+        r = { Vin.cmds.git.hunk_reset, "Reset Hunk" },
+        b = { Vin.cmds.git.blame_line, "Blame Line" },
     },
     b = {
         name = "Buffer",
-        s = { vin.cmds.git.buffer_stage, "Stage Buffer" },
-        r = { vin.cmds.git.buffer_reset, "Reset Buffer" },
+        s = { Vin.cmds.git.buffer_stage, "Stage Buffer" },
+        r = { Vin.cmds.git.buffer_reset, "Reset Buffer" },
     },
     c = {
         name = "Checkout",
         b = { "<cmd>Telescope git_branches<CR>", "Branches" },
-        c = { vin.cmds.fuzzy.find_commits, "Commits" },
+        c = { Vin.cmds.fuzzy.find_commits, "Commits" },
     },
     g = {
         name = "Github",
@@ -225,11 +225,11 @@ M.search = {
     h = { "<cmd>Telescope oldfiles<CR>", "Recent Files (History)" },
     c = { "<cmd>Telescope commands<CR>", "Commands" },
     m = { "<cmd>Telescope marks<CR>", "Marks" },
-    g = { vin.cmds.fuzzy.find_changed_files, "Open Changed Files" },
-    r = { vin.cmds.fuzzy.find_related_files, "Related Files" },
+    g = { Vin.cmds.fuzzy.find_changed_files, "Open Changed Files" },
+    r = { Vin.cmds.fuzzy.find_related_files, "Related Files" },
     a = {
         name = "Advanced",
-        s = { vin.cmds.fuzzy.find_scss_symbol, "SCSS Symbol" },
+        s = { Vin.cmds.fuzzy.find_scss_symbol, "SCSS Symbol" },
         h = { "<cmd>Telescope help_tags<CR>", "Help Tags" },
         H = { "<cmd>Telescope highlights<CR>", "Highlights" },
         m = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
@@ -240,13 +240,13 @@ M.search = {
         name = "Folders",
         c = {
             function()
-                vin.cmds.fuzzy.search_in_dir(vin.core.config.pathes.config)
+                Vin.cmds.fuzzy.search_in_dir(Vin.config.pathes.config)
             end,
             "~/.config",
         },
         v = {
             function()
-                vin.cmds.fuzzy.search_in_dir(vin.core.config.pathes.nvimConfig)
+                Vin.cmds.fuzzy.search_in_dir(Vin.config.pathes.nvimConfig)
             end,
             "~/.config/nvim (Vin)",
         },
@@ -254,15 +254,13 @@ M.search = {
             name = "Notes",
             w = {
                 function()
-                    vin.cmds.fuzzy.search_in_dir(vin.core.config.pathes.notes.work)
+                    Vin.cmds.fuzzy.search_in_dir(Vin.config.pathes.notes.work)
                 end,
                 "Work Notes",
             },
             n = {
                 function()
-                    vin.cmds.fuzzy.search_in_dir(
-                        vin.core.config.pathes.notes.private
-                    )
+                    Vin.cmds.fuzzy.search_in_dir(Vin.config.pathes.notes.private)
                 end,
                 "Private Notes",
             },
@@ -272,59 +270,59 @@ M.search = {
 
 M.marks = {
     name = "Marks",
-    a = { vin.cmds.harpoon.add_file, "Add File to Harpoon" },
-    m = { vin.cmds.harpoon.toggle_quick_menu, "Harpoon Menu" },
+    a = { Vin.cmds.harpoon.add_file, "Add File to Harpoon" },
+    m = { Vin.cmds.harpoon.toggle_quick_menu, "Harpoon Menu" },
     ["1"] = {
         function()
-            vin.cmds.harpoon.jump_to_file(1)
+            Vin.cmds.harpoon.jump_to_file(1)
         end,
         " ",
     },
     ["2"] = {
         function()
-            vin.cmds.harpoon.jump_to_file(2)
+            Vin.cmds.harpoon.jump_to_file(2)
         end,
         " ",
     },
     ["3"] = {
         function()
-            vin.cmds.harpoon.jump_to_file(3)
+            Vin.cmds.harpoon.jump_to_file(3)
         end,
         " ",
     },
     ["4"] = {
         function()
-            vin.cmds.harpoon.jump_to_file(4)
+            Vin.cmds.harpoon.jump_to_file(4)
         end,
         " ",
     },
     ["5"] = {
         function()
-            vin.cmds.harpoon.jump_to_file(5)
+            Vin.cmds.harpoon.jump_to_file(5)
         end,
         " ",
     },
     ["6"] = {
         function()
-            vin.cmds.harpoon.jump_to_file(6)
+            Vin.cmds.harpoon.jump_to_file(6)
         end,
         " ",
     },
     ["7"] = {
         function()
-            vin.cmds.harpoon.jump_to_file(7)
+            Vin.cmds.harpoon.jump_to_file(7)
         end,
         " ",
     },
     ["8"] = {
         function()
-            vin.cmds.harpoon.jump_to_file(8)
+            Vin.cmds.harpoon.jump_to_file(8)
         end,
         " ",
     },
     ["9"] = {
         function()
-            vin.cmds.harpoon.jump_to_file(9)
+            Vin.cmds.harpoon.jump_to_file(9)
         end,
         " ",
     },
@@ -392,8 +390,8 @@ M.debug = {
     name = "Debug",
     l = {
         name = "Log",
-        l = { vin.cmds.edit.log_symbol, "Auto Log Symbol" },
-        d = { vin.cmds.edit.delete_logs, "Delete Logs" },
+        l = { Vin.cmds.edit.log_symbol, "Auto Log Symbol" },
+        d = { Vin.cmds.edit.delete_logs, "Delete Logs" },
     },
 }
 

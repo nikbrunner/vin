@@ -1,4 +1,4 @@
-vin.config = {
+Vin.config = {
     colorscheme = "terra",
     pathes = {
         config = "~/.config",

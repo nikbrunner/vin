@@ -15,7 +15,7 @@ local on_attach = function(client, bufnr)
     }
 
     if
-        vin.lib.utils.includes(
+        Vin.lib.utils.includes(
             servers_to_disable_formating_capabilities,
             client.name
         )

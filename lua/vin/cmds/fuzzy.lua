@@ -54,7 +54,7 @@ M.find_commits = function(opts)
 end
 
 M.find_related_files = function()
-    local current_filename = vin.lib.utils.get_current_filename(false)
+    local current_filename = Vin.lib.utils.get_current_filename(false)
 
     if current_filename then
         builtin.find_files({

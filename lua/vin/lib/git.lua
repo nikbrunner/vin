@@ -26,7 +26,7 @@ M.get_all_branches = function()
         local stripped = string.gsub(string.gsub(read_branches, "*", ""), "\n", "")
 
         -- Now split the string by spaces into a table and return it
-        local all_branches = vin.lib.utils.split_by_space(stripped)
+        local all_branches = Vin.lib.utils.split_by_space(stripped)
         return all_branches
     end
 end

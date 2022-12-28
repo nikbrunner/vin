@@ -29,7 +29,7 @@ M.no_leader = {
     H = { "^", WhichKeyIgnoreLabel },
     L = { "$", WhichKeyIgnoreLabel },
 
-    ["ZZ"] = { vin.cmds.save_and_exit, WhichKeyIgnoreLabel },
+    ["ZZ"] = { Vin.cmds.save_and_exit, WhichKeyIgnoreLabel },
 
     -- Navigate buffers and Tabs
     ["<M-h>"] = { ":bprevious<CR>", "Prev Buffer" },
@@ -42,11 +42,11 @@ M.no_leader = {
     ["<M-k>"] = { "<Esc>:m .-2<CR>", "Move Up" },
     ["<M-j>"] = { "<Esc>:m .+1<CR>", "Move Down" },
 
-    ["<C-f>"] = { vin.cmds.nav.pick_window, "  Pick Window" },
+    ["<C-f>"] = { Vin.cmds.nav.pick_window, "  Pick Window" },
 
     -- FN Key Bindings
     -- ["<F6>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
-    ["<F6>"] = { vin.cmds.general.toggleQuickFix, "Todo Quick Fix" },
+    ["<F6>"] = { Vin.cmds.general.toggleQuickFix, "Todo Quick Fix" },
     ["<F7>"] = { "<cmd>CccPick<CR>", "Color Picker" },
     ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
     ["<F9>"] = { "<cmd>TodoTrouble<CR>", "Todo Trouble" },
