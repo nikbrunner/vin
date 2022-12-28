@@ -82,10 +82,10 @@ M.get_diff_to = function()
     }
 
     local handleDiffToBranch = function()
-        local branches = Vin.lib.get_all_branches()
+        local branches = Vin.lib.utils.get_all_branches()
 
         -- Remove the current branch from the selection
-        local current_branch = Vin.lib.get_current_branch()
+        local current_branch = Vin.lib.utils.get_current_branch()
         local index_of_current_branch = Vin.lib.utils.find_index(
             branches,
             current_branch

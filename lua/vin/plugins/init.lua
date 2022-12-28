@@ -16,3 +16,6 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup(require("vin.plugins.list"), require("vin.plugins.options"))
+
+-- Plugin Configs
+require("vin.plugins.configs.lsp")

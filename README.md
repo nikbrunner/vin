@@ -128,6 +128,10 @@ Run: `$ fc-cache -f -v`
 
 [See here](https://brandon-sanderson.fandom.com/wiki/vin)
 
+## Links
+
+- [EmmyLua Documentation - Formatting Annotations · sumneko/lua-language-server Wiki](https://github.com/sumneko/lua-language-server/wiki/Formatting-Annotations)
+
 ## Other Configs
 
 - [0xsamrath/.dotfiles](https://github.com/0xsamrath/.dotfiles)

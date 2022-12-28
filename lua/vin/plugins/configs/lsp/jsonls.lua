@@ -198,4 +198,8 @@ local opts = {
     },
 }
 
-return opts
+-- Setup jsonls with lsp_zero
+local lsp_zero_present, lsp_zero = pcall(require, "lsp-zero")
+if lsp_zero_present then
+    lsp_zero.configure("jsonls", opts)
+end

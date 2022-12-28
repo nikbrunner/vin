@@ -8,6 +8,16 @@ local NOTES_PATH = join(DOCUMENTS_PATH, "notes/")
 
 Vin.config = {
     colorscheme = "terra",
+    lsp = {
+        required_servers = {
+            "tsserver",
+            "cssls",
+            "sumneko_lua",
+            "jsonls",
+            "gopls",
+            "eslint",
+        },
+    },
     pathes = {
         config = CONFIG_PATH,
         nvimConfig = join(CONFIG_PATH, "nvim/"),

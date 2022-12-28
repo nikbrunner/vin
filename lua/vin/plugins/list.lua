@@ -1,41 +1,48 @@
 return {
-    { "nvim-lua/popup.nvim" },
-    { "nvim-lua/plenary.nvim" },
+
+    -- LSP Support
+    { "VonHeikemen/lsp-zero.nvim" },
     { "neovim/nvim-lspconfig" },
-    { "onsails/lspkind-nvim" },
-    {
-        "j-hui/fidget.nvim",
-    },
     { "williamboman/mason.nvim" },
     {
         "williamboman/mason-lspconfig.nvim",
         dependencies = "williamboman/mason.nvim",
     },
+
+    -- LSP Extensions
+    { "onsails/lspkind-nvim" },
     { "tamago324/nlsp-settings.nvim" },
     { "jose-elias-alvarez/null-ls.nvim" },
     { "ray-x/lsp_signature.nvim" },
+    { "j-hui/fidget.nvim" },
     { "folke/neodev.nvim" },
-    { "stevearc/dressing.nvim", event = "VeryLazy" },
-    { "kyazdani42/nvim-web-devicons" },
+
+    -- Autocompletion
     {
-        "kyazdani42/nvim-tree.lua",
-        dependencies = "kyazdani42/nvim-web-devicons", -- optional, for file icons
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-path" },
+            { "saadparwaiz1/cmp_luasnip" },
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "hrsh7th/cmp-nvim-lua" },
+        },
     },
-    { "nvim-lualine/lualine.nvim" },
-    { "folke/which-key.nvim" },
+
+    -- Snippets
     {
         "L3MON4D3/LuaSnip",
         dependencies = { "rafamadriz/friendly-snippets" },
     },
+
+    { "stevearc/dressing.nvim", event = "VeryLazy" },
+
     {
-        "hrsh7th/nvim-cmp",
-        dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "saadparwaiz1/cmp_luasnip",
-        },
+        "kyazdani42/nvim-tree.lua",
+        dependencies = "kyazdani42/nvim-web-devicons",
     },
+    { "nvim-lualine/lualine.nvim" },
+    { "folke/which-key.nvim" },
     { "nvim-telescope/telescope.nvim", event = "VeryLazy" },
     {
         "nvim-telescope/telescope-fzf-native.nvim",
@@ -87,6 +94,9 @@ return {
         "windwp/nvim-ts-autotag",
         dependencies = "nvim-treesitter/nvim-treesitter",
     },
+
+    { "nvim-lua/popup.nvim" },
+    { "nvim-lua/plenary.nvim" },
     { "lewis6991/gitsigns.nvim" },
     { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
     { "numToStr/Comment.nvim" },
@@ -94,7 +104,7 @@ return {
     { "s1n7ax/nvim-window-picker", version = "v1.*" },
     { "RRethy/vim-illuminate" }, -- TODO: Replace with lua version
     { "wellle/targets.vim" },
-    { "ThePrimeagen/harpoon" },
+    { "ThePrimeagen/harpoon", event = "VeryLazy" },
     { "folke/zen-mode.nvim" },
     { "chentoast/marks.nvim" },
     { "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim" },

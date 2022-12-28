@@ -117,13 +117,13 @@ M.lsp = {
 
     k = {
         function()
-            vim.lsp.diagnostic.goto_prev()
+            vim.diagnostic.goto_prev()
         end,
         "Prev Diagnostic",
     },
     j = {
         function()
-            vim.lsp.diagnostic.goto_next()
+            vim.diagnostic.goto_next()
         end,
         "Next Diagnostic",
     },

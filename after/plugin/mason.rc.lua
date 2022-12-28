@@ -1,25 +1,11 @@
-local mason_present, mason = pcall(require, "mason")
-
-if not mason_present then
+local present, mason = pcall(require, "mason")
+if not present then
     return
 end
 
-local mason_lspconfig_present, lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_present then
-    return
-end
-
-mason.setup({})
-
-lspconfig.setup({
-    ensure_installed = {
-        "sumneko_lua",
-        "tsserver",
-        "eslint-lsp",
-        "eslint_d",
-        "jsonls",
-        "cssls",
-        "gopls",
+mason.setup({
+    ui = {
+        -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
+        border = "rounded",
     },
-    automatic_installation = true,
 })
