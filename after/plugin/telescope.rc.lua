@@ -14,11 +14,37 @@ telescope.setup({
         path_display = { "truncate" },
         initial_mode = "insert",
         selection_strategy = "reset",
-        sorting_strategy = "ascending",
+        sorting_strategy = "descending",
         layout_strategy = "flex",
         layout_config = {
             horizontal = {
+                height = 0.9,
+                preview_cutoff = 0,
+                prompt_position = "bottom",
+                width = 0.8,
                 preview_width = 0.65,
+            },
+            vertical = {
+                height = 0.9,
+                preview_cutoff = 0,
+                prompt_position = "bottom",
+                width = 0.8,
+            },
+            bottom_pane = {
+                height = 25,
+                preview_cutoff = 0,
+                prompt_position = "top",
+            },
+            center = {
+                height = 0.4,
+                preview_cutoff = 0,
+                prompt_position = "top",
+                width = 0.5,
+            },
+            cursor = {
+                height = 0.9,
+                preview_cutoff = 40,
+                width = 0.8,
             },
             width = 0.65,
             height = 0.65,

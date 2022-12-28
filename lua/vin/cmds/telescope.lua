@@ -55,9 +55,10 @@ end
 
 local lsp_window = {
     show_line = false,
+    layout_strategy = "vertical",
     layout_config = {
-        width = 0.65,
-        height = 0.65,
+        width = 0.75,
+        height = 0.75,
     },
 }
 
