@@ -88,11 +88,10 @@ M.with_leader = {
     -- Singles
     e = { "<cmd>NvimTreeToggle<CR>", "File Tree" },
     o = { "<cmd>LSoutlineToggle<CR>", "Symbol Tree" },
-    [" "] = { vin.cmds.telescope.find_open_buffer, "Buffers" },
-    f = { vin.cmds.telescope.find_files_without_preview, "Find File" },
-    F = { vin.cmds.telescope.find_files_with_preview, WhichKeyIgnoreLabel },
+    f = { vin.cmds.telescope.find_files_with_preview, "Find File" },
     z = { "<cmd>ZenMode<CR>", "Zen" },
-    n = { "<cmd>nohl<CR>", WhichKeyIgnoreLabel },
+    n = { "<cmd>nohl<CR>", "Hide Search HL" },
+    [" "] = { vin.cmds.telescope.find_open_buffer, "Buffers" },
     ["/"] = { vin.cmds.telescope.find_in_file, "Find Text in File" },
 
     -- Tab navigation
