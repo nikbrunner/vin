@@ -1,4 +1,4 @@
-vin.cmds.edit = {}
+local M = {}
 
 local AUTO_LOG_PREFIX = "Test"
 
@@ -20,9 +20,9 @@ local get_auto_print_cmd = function(filetype)
     end
 end
 
-vin.cmds.edit.log_symbol = function()
+M.log_symbol = function()
     local current_word = vim.fn.expand("<cword>")
-    local current_filename = vin.lib.get_current_filename(true)
+    local current_filename = vin.lib.utils.get_current_filename(true)
 
     local message = table.concat({
         '"',
@@ -49,7 +49,7 @@ vin.cmds.edit.log_symbol = function()
     end
 end
 
-vin.cmds.edit.delete_logs = function()
+M.delete_logs = function()
     local buffer = vim.api.nvim_get_current_buf()
     local lines = vim.api.nvim_buf_get_lines(buffer, 0, -1, false)
     local new_lines = {}
@@ -76,3 +76,5 @@ vin.cmds.edit.delete_logs = function()
     -- Use vim.notify to display the number of deleted lines
     vim.notify("Deleted " .. deleted_lines .. " lines")
 end
+
+return M

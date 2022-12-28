@@ -45,7 +45,8 @@ M.no_leader = {
     ["<C-f>"] = { vin.cmds.nav.pick_window, "  Pick Window" },
 
     -- FN Key Bindings
-    ["<F6>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
+    -- ["<F6>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
+    ["<F6>"] = { vin.cmds.general.toggleQuickFix, "Todo Quick Fix" },
     ["<F7>"] = { "<cmd>CccPick<CR>", "Color Picker" },
     ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
     ["<F9>"] = { "<cmd>TodoTrouble<CR>", "Todo Trouble" },
@@ -65,22 +66,7 @@ M.no_leader = {
     ["["] = groups.go_prev,
     ["]"] = groups.go_next,
 
-    v = {
-        name = "Select",
-        b = { vin.cmds.general.blocks.select, "Select Block" },
-        v = { vin.cmds.general.line.select, "Select Line" },
-        A = { vin.cmds.general.all.select, "Select All" },
-    },
-    y = {
-        name = "Yank",
-        b = { vin.cmds.general.blocks.yank, "Yank Block" },
-        A = { vin.cmds.general.all.yank, "Yank All" },
-    },
-    d = {
-        name = "Delete",
-        b = { vin.cmds.general.blocks.delete, "Delete Block" },
-        A = { vin.cmds.general.all.delete, "Delete All" },
-    },
+    ["vv"] = { "^v$", "Selet Line" },
 }
 
 M.with_leader = {

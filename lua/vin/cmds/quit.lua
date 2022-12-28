@@ -3,26 +3,25 @@ if not status_ok then
     return
 end
 
----@class Quit
-vin.cmds.quit = {}
+local M = {}
 
-vin.cmds.quit.current_buffer = function()
+M.current_buffer = function()
     close.delete({ type = "this" })
 end
 
-vin.cmds.quit.other_buffers = function()
+M.other_buffers = function()
     close.delete({ type = "other" })
 end
 
-vin.cmds.quit.hidden_buffers = function()
+M.hidden_buffers = function()
     close.delete({ type = "hidden", force = true })
 end
 
-vin.cmds.quit.all_buffers = function()
+M.all_buffers = function()
     close.delete({ type = "all", force = true })
 end
 
-vin.cmds.quit.custom_buffers = function()
+M.custom_buffers = function()
     vim.ui.input({
         prompt = "Enter Glob Pattern",
         default = "*.story",
@@ -30,3 +29,5 @@ vin.cmds.quit.custom_buffers = function()
         close.wipe({ glob = input })
     end)
 end
+
+return M

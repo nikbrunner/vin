@@ -14,7 +14,12 @@ local on_attach = function(client, bufnr)
         "jsonls",
     }
 
-    if vin.lib.includes(servers_to_disable_formating_capabilities, client.name) then
+    if
+        vin.lib.utils.includes(
+            servers_to_disable_formating_capabilities,
+            client.name
+        )
+    then
         client.server_capabilities.documentFormattingProvider = false
 
         -- NOTE: A binding for this command is handled via WhichKey

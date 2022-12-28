@@ -35,9 +35,9 @@ local delta_previewer = require("telescope.previewers").new_termopen_previewer({
     end,
 })
 
-vin.cmds.telescope = {}
+local M = {}
 
-vin.cmds.telescope.find_changed_files = function(opts)
+M.find_changed_files = function(opts)
     builtin.git_status({
         previewer = delta_previewer,
         layout_config = {
@@ -47,14 +47,14 @@ vin.cmds.telescope.find_changed_files = function(opts)
     })
 end
 
-vin.cmds.telescope.find_commits = function(opts)
+M.find_commits = function(opts)
     builtin.git_commits({
         previewer = delta_previewer,
     })
 end
 
-vin.cmds.telescope.find_related_files = function()
-    local current_filename = vin.cmds.general.get_current_filename()
+M.find_related_files = function()
+    local current_filename = vin.lib.utils.get_current_filename(false)
 
     if current_filename then
         builtin.find_files({
@@ -65,7 +65,7 @@ vin.cmds.telescope.find_related_files = function()
     end
 end
 
-vin.cmds.telescope.find_scss_symbol = function()
+M.find_scss_symbol = function()
     local curr_word = vim.fn.expand("<cword>")
 
     local Symbol = {
@@ -158,8 +158,10 @@ vin.cmds.telescope.find_scss_symbol = function()
 end
 
 ---@param path string Path to directory to search in
-vin.cmds.telescope.search_in_dir = function(path)
+M.search_in_dir = function(path)
     builtin.find_files({
         cwd = path,
     })
 end
+
+return M

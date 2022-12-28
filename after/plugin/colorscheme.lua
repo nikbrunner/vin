@@ -17,4 +17,4 @@ function PaintMe(color)
     vim.cmd.colorscheme(color)
 end
 
-PaintMe("terra")
+PaintMe(vin.config.colorscheme)

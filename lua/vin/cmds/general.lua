@@ -1,60 +1,35 @@
-vin.cmds.general = {
-    all = {},
-    blocks = {},
-    line = {},
-}
+local M = {}
 
-vin.cmds.general.save_all = function()
-    vim.cmd([[wa]])
-end
-
--- get the current filename without extension
-vin.cmds.general.get_current_filename = function()
-    local fileNameWithExt = vim.fn.expand("%:t")
-    local dotIndex = string.find(fileNameWithExt, ".", 1, true)
-
-    return vin.lib.ccall(
-        dotIndex,
-        -- If extension is found return fileName without extension
-        function()
-            local fileName = string.sub(fileNameWithExt, 1, dotIndex - 1)
-            return fileName
-        end,
-        function()
-            vim.notify("get_current_filename()\nParsing filename failed!")
-            return nil
-        end
-    )
-end
-
-vin.cmds.general.center_line_vertical = function()
+M.center_line_vertical = function()
     vim.cmd([[norm zz]])
 end
 
-vin.cmds.general.blocks.select = function()
-    vim.cmd([[norm ^v$%]])
+M.toggleQuickFix = function()
+    local windows = vim.fn.getwininfo()
+    local has_quickfix_window = false
+    for _, win in pairs(windows) do
+        if win.quickfix then
+            has_quickfix_window = true
+            break
+        end
+    end
+    if has_quickfix_window then
+        vim.cmd("cclose")
+    else
+        vim.cmd("copen")
+    end
 end
 
-vin.cmds.general.blocks.yank = function()
-    vin.cmds.general.blocks.select()
-    vim.cmd([[norm y]])
-end
+-- Vim Function to toggle quickfix list
+-- TODO Convert to Lua
+vim.cmd([[
+function! ToggleQuickFix()
+  if empty(filter(getwininfo(), 'v:val.quickfix'))
+    copen
+  else
+    cclose
+  endif
+endfunction
+]])
 
-vin.cmds.general.blocks.delete = function()
-    vin.cmds.general.blocks.select()
-    vim.cmd([[norm d]])
-end
-
-vin.cmds.general.all.select = function()
-    vim.cmd([[norm ggVG]])
-end
-
-vin.cmds.general.all.yank = function()
-    vin.cmds.general.all.select()
-    vim.cmd([[norm y]])
-end
-
-vin.cmds.general.all.delete = function()
-    vin.cmds.general.all.select()
-    vim.cmd([[norm d]])
-end
+return M

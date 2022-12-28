@@ -170,10 +170,10 @@ M.git = {
     q = { vin.cmds.git.open_changes_in_qf, "List changes in QF" },
     p = { vin.cmds.git.hunk_preview, "Preview Hunk " },
     l = { vin.cmds.git.toggle_current_line_blame, "Current Line Blame" },
-    o = { vin.cmds.telescope.find_changed_files, "Open Changed Files" },
+    o = { vin.cmds.fuzzy.find_changed_files, "Open Changed Files" },
     d = {
         name = "Diffview",
-        c = { vin.cmds.diffview.get_diff_to, "Diff To Custom" },
+        c = { vin.cmds.git.get_diff_to, "Diff To Custom" },
         d = { "<cmd>DiffviewOpen<CR>", "Current Diff" },
         h = { "<cmd>DiffviewFileHistory %<CR>", "History for Current File" },
         H = { "<cmd>DiffviewFileHistory<CR>", "Git History" },
@@ -198,7 +198,7 @@ M.git = {
     c = {
         name = "Checkout",
         b = { "<cmd>Telescope git_branches<CR>", "Branches" },
-        c = { vin.cmds.telescope.find_commits, "Commits" },
+        c = { vin.cmds.fuzzy.find_commits, "Commits" },
     },
     g = {
         name = "Github",
@@ -225,11 +225,11 @@ M.search = {
     h = { "<cmd>Telescope oldfiles<CR>", "Recent Files (History)" },
     c = { "<cmd>Telescope commands<CR>", "Commands" },
     m = { "<cmd>Telescope marks<CR>", "Marks" },
-    g = { vin.cmds.telescope.find_changed_files, "Open Changed Files" },
-    r = { vin.cmds.telescope.find_related_files, "Related Files" },
+    g = { vin.cmds.fuzzy.find_changed_files, "Open Changed Files" },
+    r = { vin.cmds.fuzzy.find_related_files, "Related Files" },
     a = {
         name = "Advanced",
-        s = { vin.cmds.telescope.find_scss_symbol, "SCSS Symbol" },
+        s = { vin.cmds.fuzzy.find_scss_symbol, "SCSS Symbol" },
         h = { "<cmd>Telescope help_tags<CR>", "Help Tags" },
         H = { "<cmd>Telescope highlights<CR>", "Highlights" },
         m = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
@@ -240,13 +240,13 @@ M.search = {
         name = "Folders",
         c = {
             function()
-                vin.cmds.telescope.search_in_dir("~/.config")
+                vin.cmds.fuzzy.search_in_dir(vin.core.config.pathes.config)
             end,
             "~/.config",
         },
         v = {
             function()
-                vin.cmds.telescope.search_in_dir("~/.config/nvim")
+                vin.cmds.fuzzy.search_in_dir(vin.core.config.pathes.nvimConfig)
             end,
             "~/.config/nvim (Vin)",
         },
@@ -254,13 +254,15 @@ M.search = {
             name = "Notes",
             w = {
                 function()
-                    vin.cmds.telescope.search_in_dir("~/Documents/notes/dcd-notes")
+                    vin.cmds.fuzzy.search_in_dir(vin.core.config.pathes.notes.work)
                 end,
                 "Work Notes",
             },
             n = {
                 function()
-                    vin.cmds.telescope.search_in_dir("~/Documents/notes/notes")
+                    vin.cmds.fuzzy.search_in_dir(
+                        vin.core.config.pathes.notes.private
+                    )
                 end,
                 "Private Notes",
             },

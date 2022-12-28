@@ -6,7 +6,7 @@ end
 local actions = require("telescope.actions")
 local themes = require("telescope.themes")
 
-local merge = vin.lib.merge
+local merge = vin.lib.utils.merge
 
 local vertical_window = {
     show_line = false,
