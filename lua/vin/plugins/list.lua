@@ -14,7 +14,6 @@ return {
     { "tamago324/nlsp-settings.nvim" },
     { "jose-elias-alvarez/null-ls.nvim" },
     { "ray-x/lsp_signature.nvim" },
-    { "j-hui/fidget.nvim" },
     { "folke/neodev.nvim" },
 
     -- Autocompletion
@@ -33,6 +32,7 @@ return {
     {
         "L3MON4D3/LuaSnip",
         dependencies = { "rafamadriz/friendly-snippets" },
+        event = "VeryLazy",
     },
 
     { "stevearc/dressing.nvim", event = "VeryLazy" },
