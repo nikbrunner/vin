@@ -1,5 +1,4 @@
 return {
-
     -- LSP Support
     { "VonHeikemen/lsp-zero.nvim" },
     { "neovim/nvim-lspconfig" },
@@ -26,6 +25,11 @@ return {
             { "hrsh7th/cmp-nvim-lsp" },
             { "hrsh7th/cmp-nvim-lua" },
         },
+    },
+
+    {
+        "zbirenbaum/copilot.lua",
+        event = "InsertEnter",
     },
 
     -- Snippets
