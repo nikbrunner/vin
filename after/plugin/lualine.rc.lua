@@ -112,6 +112,7 @@ lualine.setup({
     sections = {
         lualine_a = { mode },
         lualine_b = { branch },
+        lualine_c = {},
     },
     inactive_sections = {},
     extensions = {},
