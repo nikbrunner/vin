@@ -25,18 +25,6 @@ lsp_zero.set_preferences({
     },
 })
 
--- Setup Vim Diagnostic Settings
-vim.diagnostic.config({
-    virtual_text = {
-        prefix = "●",
-    },
-    update_in_insert = true,
-    float = {
-        source = "always", -- Or "if_many"
-        border = "rounded",
-    },
-})
-
 local shared_lsp_opts = {
     -- NOTE: `opts` is a required property for providing options to all mentioned servers
     opts = {
@@ -59,7 +47,21 @@ require("vin.plugins.configs.lsp.denols")
 -- NOTE: Must be called after all of server configurations
 lsp_zero.setup()
 
--- Needs to be called after lsp_zero setup so that the settings don't get overwritten
+-- These needs to be called after lsp_zero.setup() so that the settings don't get overwritten
+
+-- Setup Vim Diagnostic Settings
+vim.diagnostic.config({
+    virtual_text = {
+        prefix = "● ",
+    },
+    signs = true,
+    update_in_insert = false,
+    underline = true,
+    severity_sort = false,
+    float = true,
+})
+
+-- Also important to be called after lsp_zero.setup(), to respect custom CMP settings
 require("vin.plugins.configs.lsp.cmp")
 
 -- Other needed lsp tools
