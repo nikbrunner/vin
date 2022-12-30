@@ -19,6 +19,10 @@ if lsp_zero_present then
             },
         },
     })
+
+    lsp_zero.nvim_workspace({
+        library = vim.api.nvim_get_runtime_file("", true),
+    })
 end
 
 -- Setup neodev if present
