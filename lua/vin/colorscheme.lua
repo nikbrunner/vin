@@ -1,7 +1,7 @@
 local terra_present, terra = pcall(require, "terra")
 if terra_present then
     terra.setup({
-        season = "summer",
+        season = "iceland",
     })
 end
 
