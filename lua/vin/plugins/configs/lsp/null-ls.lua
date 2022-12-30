@@ -20,14 +20,8 @@ null_ls.setup({
         formatting.prettier,
         formatting.stylua,
         formatting.gofmt,
-
-        --[[ If enabled I get double entries ]]
-        diagnostics.eslint,
-        --[[ diagnostics.eslint_d, ]]
-        --[[ diagnostics.tsc, ]]
-
-        code_actions.eslint_d,
-        -- code_actions.gitsigns,
+        code_actions.eslint,
+        code_actions.gitsigns,
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then

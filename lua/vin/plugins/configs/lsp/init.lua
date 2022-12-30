@@ -4,10 +4,11 @@ if not lsp_zero_present then
 end
 
 local merge = Vin.lib.utils.merge
+local required_servers = Vin.config.lsp.required_servers
 
 lsp_zero.preset("recommended")
 
-lsp_zero.ensure_installed(Vin.config.lsp.required_servers)
+lsp_zero.ensure_installed(required_servers)
 
 lsp_zero.set_preferences({
     suggest_lsp_servers = true,
@@ -27,6 +28,7 @@ lsp_zero.set_preferences({
 
 local shared_lsp_opts = {
     -- NOTE: `opts` is a required property for providing options to all mentioned servers
+    -- TODO: disable lsp native formaters?
     opts = {
         flags = {
             debounce_text_changes = 75,
@@ -51,14 +53,15 @@ lsp_zero.setup()
 
 -- Setup Vim Diagnostic Settings
 vim.diagnostic.config({
-    virtual_text = {
-        prefix = "● ",
-    },
+    virtual_text = false,
     signs = true,
     update_in_insert = false,
     underline = true,
     severity_sort = false,
-    float = true,
+    float = {
+        source = "always",
+        border = "rounded",
+    },
 })
 
 -- Also important to be called after lsp_zero.setup(), to respect custom CMP settings

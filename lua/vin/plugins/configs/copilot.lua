@@ -42,4 +42,7 @@ vim.schedule(function()
         },
         copilot_node_command = "node", -- Node.js version must be > 16.x
     })
+
+    -- Setup cmp for copilot
+    require("copilot_cmp").setup()
 end)
