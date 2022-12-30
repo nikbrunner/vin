@@ -1,11 +1,11 @@
 return {
     -- Colorschemes --------------------------------------------
     {
-        --     "terra-theme/nvim",
+        -- "terra-theme/nvim",
         dir = "~/Documents/dev/repos/personal/terra-theme/nvim",
         lazy = false,
         priority = 1000,
-        dev = true,
+        -- dev = true,
     },
     {
         "folke/tokyonight.nvim",
