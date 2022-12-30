@@ -41,15 +41,16 @@ lsp_zero.setup_servers(merge({
     shared_lsp_opts,
 }))
 
-require("vin.plugins.configs.lsp.null-ls")
 require("vin.plugins.configs.lsp.jsonls")
 require("vin.plugins.configs.lsp.sumneko_lua")
 require("vin.plugins.configs.lsp.denols")
+require("vin.plugins.configs.lsp.tsserver")
+require("vin.plugins.configs.lsp.cssls")
 
 -- NOTE: Must be called after all of server configurations
 lsp_zero.setup()
 
--- These needs to be called after lsp_zero.setup() so that the settings don't get overwritten
+-- All these needs to be called after lsp_zero.setup() so that the settings don't get overwritten
 
 -- Setup Vim Diagnostic Settings
 vim.diagnostic.config({
@@ -64,8 +65,6 @@ vim.diagnostic.config({
     },
 })
 
--- Also important to be called after lsp_zero.setup(), to respect custom CMP settings
+-- Also important to be called after lsp_zero.setup(), to respect custom settings
 require("vin.plugins.configs.lsp.cmp")
-
--- Other needed lsp tools
-require("vin.plugins.configs.lsp.lspsignature")
+require("vin.plugins.configs.lsp.null-ls")

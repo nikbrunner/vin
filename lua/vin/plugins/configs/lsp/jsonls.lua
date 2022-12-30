@@ -1,6 +1,16 @@
+local lsp_present, lsp = pcall(require, "lsp-zero")
+if not lsp_present then
+    return
+end
+
+local jsonls_settings_present, jsonls_settings = pcall(
+    require,
+    "nlspsettings.jsonls"
+)
+
 local default_schemas = nil
-local status_ok, jsonls_settings = pcall(require, "nlspsettings.jsonls")
-if status_ok then
+
+if jsonls_settings_present then
     default_schemas = jsonls_settings.get_default_schemas()
 end
 
@@ -198,8 +208,4 @@ local opts = {
     },
 }
 
--- Setup jsonls with lsp_zero
-local lsp_zero_present, lsp_zero = pcall(require, "lsp-zero")
-if lsp_zero_present then
-    lsp_zero.configure("jsonls", opts)
-end
+lsp.configure("jsonls", opts)

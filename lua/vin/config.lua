@@ -14,7 +14,6 @@ Vin.config = {
             "cssls",
             "sumneko_lua",
             "jsonls",
-            "gopls",
             "eslint",
         },
     },
