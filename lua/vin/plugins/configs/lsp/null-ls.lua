@@ -31,13 +31,7 @@ null_ls.setup({
                 group = augroup,
                 buffer = bufnr,
                 callback = function()
-                    vim.lsp.buf.format({
-                        async = true,
-                        bufnr = bufnr,
-                        filter = function(_client)
-                            return _client.name == "null-ls"
-                        end,
-                    })
+                    Vin.cmds.lsp.format_async(bufnr)
                 end,
             })
         end

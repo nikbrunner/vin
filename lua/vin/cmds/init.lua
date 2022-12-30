@@ -7,4 +7,5 @@ Vin.cmds = {
     fuzzy = require("vin.cmds.fuzzy"),
     harpoon = require("vin.cmds.harpoon"),
     quit = require("vin.cmds.quit"),
+    lsp = require("vin.cmds.lsp"),
 }
