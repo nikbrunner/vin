@@ -10,8 +10,10 @@ Vin.config = {
     colorscheme = "terra",
     lsp = {
         required_servers = {
+            "html",
             "tsserver",
             "cssls",
+            "gopls",
             "sumneko_lua",
             "jsonls",
             "eslint",

@@ -26,6 +26,9 @@ lsp_zero.set_preferences({
     },
 })
 
+-- add border to LspInfo window
+require("lspconfig.ui.windows").default_options.border = "rounded"
+
 local shared_lsp_opts = {
     -- NOTE: `opts` is a required property for providing options to all mentioned servers
     -- TODO: disable lsp native formaters?
