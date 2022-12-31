@@ -165,7 +165,7 @@ telescope.setup({
             base_dirs = {
                 { "~/Documents/dev/repos", max_depth = 4 },
             },
-            hidden_files = true,
+            hidden_files = false,
             theme = "dropdown",
             display_type = "minimal",
             sync_with_nvim_tree = true, -- default false
