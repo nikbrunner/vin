@@ -20,20 +20,14 @@ local date = {
     function()
         return os.date("%d.%m.%Y")
     end,
-    padding = {
-        left = 1,
-        right = 0,
-    },
+    padding = 1,
 }
 
 local time = {
     function()
         return os.date("%H:%M:%S")
     end,
-    padding = {
-        left = 1,
-        right = 1,
-    },
+    padding = 1,
 }
 
 local project_name = {
@@ -169,7 +163,6 @@ lualine.setup({
                 "nvim",
                 "[NoName]",
                 "alpha",
-                "NvimTree",
             },
             winbar = {
                 "nvim",
