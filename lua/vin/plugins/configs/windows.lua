@@ -10,7 +10,7 @@ vim.o.equalalways = false
 windows.setup({
     autowidth = {
         enable = false,
-        winwidth = 5,
+        winwidth = 30,
         filetype = {
             help = 2,
         },
