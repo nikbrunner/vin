@@ -138,4 +138,13 @@ M.join = function(...)
     return result
 end
 
+---Run callback if the required version number is met
+---@param required_version string The required version number (e.g. "0.5")
+---@param callback function The callback to run if the version is met
+M.validate_nvim_version = function(required_version, callback)
+    if vim.fn.has("nvim-" .. required_version) then
+        callback()
+    end
+end
+
 return M

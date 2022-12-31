@@ -8,6 +8,7 @@ local NOTES_PATH = join(DOCUMENTS_PATH, "notes/")
 
 Vin.config = {
     colorscheme = "terra",
+    use_nightly = true,
     lsp = {
         required_servers = {
             "html",
