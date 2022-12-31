@@ -25,7 +25,6 @@ return {
     { "onsails/lspkind-nvim" },
     { "tamago324/nlsp-settings.nvim" },
     { "jose-elias-alvarez/null-ls.nvim" },
-    { "ray-x/lsp_signature.nvim" },
     { "folke/neodev.nvim" },
 
     -- Autocompletion ------------------------------------------
@@ -58,6 +57,15 @@ return {
     },
 
     -- UI Enhancements -----------------------------------------
+    {
+        "folke/noice.nvim",
+        lazy = false,
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        },
+    },
+
     {
         "kyazdani42/nvim-tree.lua",
         dependencies = "kyazdani42/nvim-web-devicons",
