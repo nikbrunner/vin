@@ -1,14 +1,20 @@
-Vin.colorscheme = {
-    --[[ theme = "terra", ]]
-    theme = "github_dark_default",
-    --[[ theme = "github_dimmed", ]]
-}
-
-local present, _ = pcall(vim.cmd.colorscheme, Vin.colorscheme.theme)
-if not present then
-    vim.notify("colorscheme " .. Vin.colorscheme.theme .. " not found!")
-    vim.cmd.colorscheme("default")
-    return
-else
-    vim.cmd("colorscheme " .. Vin.colorscheme.theme)
+local terra_present, terra = pcall(require, "terra")
+if terra_present then
+    terra.setup({
+        season = "iceland",
+    })
 end
+
+---@diagnostic disable-next-line: unused-function
+local transparentBackground = function()
+    -- Enable these to make the backgrounds transparent
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end
+
+function PaintMe(color)
+    color = color or "default"
+    vim.cmd.colorscheme(color)
+end
+
+PaintMe(Vin.config.colorscheme)

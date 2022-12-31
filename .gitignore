@@ -45,3 +45,4 @@ luac.out
 plugin/packer_compiled.lua
 
 .DS_Store
+startup.log

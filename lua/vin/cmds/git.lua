@@ -1,79 +1,134 @@
-local notify_ok, notify = pcall(require, "notify")
-if not notify_ok then
-    return
-end
+local _, gitsigns = pcall(require, "gitsigns")
 
-local gitsigns_ok, gitsigns = pcall(require, "gitsigns")
-if not gitsigns_ok then
-    return
-end
+local M = {}
 
-local diffview_notification = function(message)
-    notify(message, "info", {
-        title = "Git",
-        icon = " ",
-        timeout = 1000,
-    })
-end
-
--- TODO: Move diffview in here?
-
-Vin.cmds.git = {}
-
-Vin.cmds.git.open_changes_in_qf = function()
+M.open_changes_in_qf = function()
     gitsigns.setqflist()
 end
 
-Vin.cmds.git.action = function()
-    -- INFO: Must be enabled via `null-ls`: https://github.com/lewis6991/gitsigns.nvim#null-ls
-    vim.lsp.buf.code_action()
-    Vin.lib.center_line_vertical()
-end
-
-Vin.cmds.git.hunk_preview = function()
+M.hunk_preview = function()
     gitsigns.preview_hunk()
-    Vin.lib.center_line_vertical()
 end
 
-Vin.cmds.git.toggle_current_line_blame = function()
+M.toggle_current_line_blame = function()
     gitsigns.toggle_current_line_blame()
-    diffview_notification("Toggled Current Line Blame")
+    vim.notify("Toggled Current Line Blame")
 end
 
-Vin.cmds.git.blame_line = function()
+M.blame_line = function()
     gitsigns.blame_line()
-    Vin.lib.center_line_vertical()
+    Vin.cmds.general.center_line_vertical()
 end
 
-Vin.cmds.git.hunk_reset = function()
+M.hunk_reset = function()
     gitsigns.reset_hunk()
-    Vin.lib.center_line_vertical()
+    Vin.cmds.general.center_line_vertical()
 end
 
-Vin.cmds.git.hunk_go_prev = function()
+M.hunk_go_prev = function()
     gitsigns.prev_hunk()
-    Vin.lib.center_line_vertical()
-    -- Vin.cmds.git.hunk_preview()
+    Vin.cmds.general.center_line_vertical()
 end
 
-Vin.cmds.git.hunk_go_next = function()
+M.hunk_go_next = function()
     gitsigns.next_hunk()
-    Vin.lib.center_line_vertical()
-    -- Vin.cmds.git.hunk_preview()
+    Vin.cmds.general.center_line_vertical()
 end
 
-Vin.cmds.git.hunk_stage = function()
+M.hunk_stage = function()
     gitsigns.stage_hunk()
 end
 
-Vin.cmds.git.hunk_undo_stage = function()
+M.hunk_undo_stage = function()
     gitsigns.undo_stage_hunk()
 end
 
-Vin.cmds.git.buffer_stage = function()
+M.buffer_stage = function()
     gitsigns.stage_buffer()
 end
 
-Vin.cmds.git.buffer_reset = function()
+M.buffer_reset = function()
     gitsigns.reset_buffer()
 end
+
+local diffview_notification = function(branchName, message)
+    if message == nil then
+        vim.notify("Diff from current state to '" .. branchName .. "'")
+    else
+        vim.notify(message)
+    end
+end
+
+-- Unused
+M.get_diff_to_master = function()
+    local commonMasterBranchNames = { "master", "main" }
+
+    local handleInput = function(branchName)
+        if Vin.lib.utils.includes(commonMasterBranchNames, branchName) then
+            vim.cmd("DiffviewOpen origin/" .. branchName .. "...HEAD")
+            diffview_notification(branchName)
+        end
+    end
+
+    vim.ui.select(commonMasterBranchNames, {
+        prompt = "What is your master branch called?",
+    }, handleInput)
+end
+
+M.get_diff_to = function()
+    local choices = {
+        "Get Diff to other branch",
+        "Enter a Git Rev String (HEAD~2, origin/main...HEAD e.g.)",
+    }
+
+    local handleDiffToBranch = function()
+        local branches = Vin.lib.utils.get_all_branches()
+
+        -- Remove the current branch from the selection
+        local current_branch = Vin.lib.utils.get_current_branch()
+        local index_of_current_branch = Vin.lib.utils.find_index(
+            branches,
+            current_branch
+        )
+        table.remove(branches, index_of_current_branch)
+
+        vim.ui.select(branches, {
+            prompt = "Pick a branch",
+        }, function(branchName)
+            if branchName == nil or branchName == "" then
+                return
+            end
+
+            vim.cmd("DiffviewOpen " .. branchName)
+
+            diffview_notification(
+                branchName,
+                "Diff from current branch to '" .. branchName .. "'"
+            )
+        end)
+    end
+
+    local handleDiffToGitRev = function()
+        vim.ui.input({ prompt = "Enter a Git Rev" }, function(git_rev)
+            if git_rev == nil or git_rev == "" then
+                return
+            end
+
+            vim.cmd("DiffviewOpen " .. git_rev)
+        end)
+    end
+
+    local handleChoice = function(choice)
+        if choice == choices[1] then
+            handleDiffToBranch()
+        elseif choice == choices[2] then
+            handleDiffToGitRev()
+        end
+    end
+
+    vim.ui.select(choices, {
+        prompt = "What do you want to do?",
+    }, handleChoice)
+end
+
+return M

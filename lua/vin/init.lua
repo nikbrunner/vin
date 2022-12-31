@@ -1,28 +1,24 @@
----@class Vin
+---@class vin
 ---@field lib table Various general utilities and helper functions
----@field cmds table Function Wrappers for Plugin and Custom Commands
----@field colorscheme table Functions and Vars regarding the colorscheme
+---@field cmds table Function wrappers for plugin and custom commands
+---@field icons table Icons used in the user interface
+---@field config table Configuration options for the application
 _G.Vin = {
     lib = {},
     cmds = {},
     icons = {},
-    colorscheme = {},
+    config = {},
 }
 
--- Function to savely load modules when sourcing the the init.lua
-local function load(mod)
-    package.loaded[mod] = nil
-    return require(mod)
-end
-
-load("vin.icons")
-load("vin.options")
-load("vin.autocmds")
-load("vin.lib")
-load("vin.cmds")
-load("vin.plugins")
-load("vin.colorscheme")
-load("vin.keybindings")
+require("vin.lib")
+require("vin.options")
+require("vin.config")
+require("vin.icons")
+require("vin.plugins")
+require("vin.autocmds")
+require("vin.colorscheme")
+require("vin.cmds")
+require("vin.keymaps")
 
 -- Allow require to look in after/plugin folder
 local home_dir = os.getenv("HOME")
