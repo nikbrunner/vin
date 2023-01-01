@@ -2,7 +2,7 @@ local M = {}
 
 ---Wrapper Function for async formatting
 ---@param bufnr integer
----@param filter function
+---@param filter? function
 M.format_async = function(bufnr, filter)
     filter = filter
         or function(_client)
