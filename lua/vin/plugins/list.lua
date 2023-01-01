@@ -65,7 +65,10 @@ return {
             "rcarriga/nvim-notify",
         },
     },
-
+    {
+        "davidgranstrom/nvim-markdown-preview",
+        lazy = false,
+    },
     {
         "kyazdani42/nvim-tree.lua",
         dependencies = "kyazdani42/nvim-web-devicons",
