@@ -66,8 +66,8 @@ return {
         },
     },
     {
-        "davidgranstrom/nvim-markdown-preview",
-        lazy = false,
+        "goolord/alpha-nvim",
+        dependencies = { "kyazdani42/nvim-web-devicons" },
     },
     {
         "kyazdani42/nvim-tree.lua",
@@ -178,6 +178,10 @@ return {
     { "nvim-lua/popup.nvim" },
     { "nvim-lua/plenary.nvim" },
     { "uga-rosa/ccc.nvim", event = "VeryLazy" }, -- TODO: Replace
+    {
+        "davidgranstrom/nvim-markdown-preview",
+        lazy = false,
+    },
 
     -- Editing & Workflow --------------------------------------
     {
