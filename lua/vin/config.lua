@@ -18,6 +18,7 @@ Vin.config = {
             "sumneko_lua",
             "jsonls",
             "eslint",
+            "marksman",
         },
     },
     pathes = {

@@ -103,5 +103,6 @@ Vin.icons = {
         TypeScript = " ",
         Lua = " ",
         JSON = " ",
+        Markdown = " ",
     },
 }

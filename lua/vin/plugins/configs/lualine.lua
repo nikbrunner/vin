@@ -64,6 +64,7 @@ local client_name_to_icon_map = {
     sumneko_lua = Vin.icons.lang.Lua,
     jsonls = Vin.icons.lang.JSON,
     html = Vin.icons.lang.Html,
+    marksman = Vin.icons.lang.Markdown,
     eslint = " ",
     ["null-ls"] = " ",
 }
