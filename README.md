@@ -1,128 +1,50 @@
-# vin
+# Vin
 
 ## Description
-This is my personal NeoVim configuration on which I am working on from time to time, while learning about the whole universe of Vim and NeoVim.
 
-I tailored this config to my personal needs as a Frontend Engineer.
+This is my personal Neovim configuration on which I am working on from time to time, while learning about the whole universe of Vim / Neovim.
 
-## Screenshots
+I tailored this config to my personal needs as a Frontend Engineer mainly working with React, TypeScript and SCSS.
 
-![](./images/vin.png)
+## Install
 
-## Theme
+### Install Neovim with Homebrew on Mac
 
-[Terra](https://github.com/terra-theme)
+**Stable** Version
 
-## Install Neovim
-
-### Install Script
-
-```sh
-curl -sLf https://raw.githubusercontent.com/nikbrunner/vin/install.sh | sh
-```
-
-### Manual steps
-#### Install Neovim with Homebrew on Mac
-
-Stable Version
-
-```sh
+```bash
 brew install neovim
 ```
 
-Last Version
+**Nightly** Version
 
-```sh
+```bash
 brew install neovim --HEAD
 ```
 
-#### Install Neovim 0.7 from Source
+If you use the `nightly` version, there exists a `nightly` branch on the repository.
 
-You can install Neovim with your package manager e.g. brew, apt, pacman etc.. but remember that when you update your packages Neovim may be upgraded to a newer version.
+### Clone Config
 
-If you would like to make sure Neovim only updates when you want it to than I recommend installing from source:
+If you have an existing Neovim config, rename it to `nvim.old`, and clone this config.
 
-```sh
-git clone https://github.com/neovim/neovim.git
-cd neovim
-git checkout release-0.7
-make CMAKE_BUILD_TYPE=Release
-sudo make install
-```
-
-## Install Config
-
-Make sure to remove or move your current `nvim` directory
-
-```
+```bash
 git clone git@github.com:nikbrunner/vin.git ~/.config/nvim
 ```
 
-Run `nvim` and wait for the plugins to be installed 
-
-**NOTE:** (You will notice treesitter pulling in a bunch of parsers the next time you open Neovim) 
-
-
-each video will be associated with a branch so checkout the one you are interested in
-
-## Get healthy
+Run `nvim` and wait for the plugins to be installed
 
 Open `nvim` and enter the following:
 
-```
+```vim
 :checkhealth
 ```
 
-You'll probably notice you don't have support for copy/paste also that python and node haven't been setup
-
-So let's fix that
-
-First we'll fix copy/paste
-
-- On mac `pbcopy` should be builtin
-
-- On Ubuntu
-
-  ```
-  sudo apt install xsel
-  ```
-
-- On Arch Linux
-
-  ```
-  sudo pacman -S xsel
-  ```
-
-Next we need to install python support (node is optional)
-
-- Neovim python support
-
-  ```
-  pip install pynvim
-  ```
-
-- Neovim node support
-
-  ```
-  npm i -g neovim
-  ```
-
 ## Fonts
 
+Make sure you have a nerd font installed.
+
 - [A nerd font](https://github.com/ryanoasis/nerd-fonts)
-- [codicon](https://github.com/microsoft/vscode-codicons/raw/main/dist/codicon.ttf)
-- [An emoji font](https://github.com/googlefonts/noto-emoji/blob/main/fonts/NotoColorEmoji.ttf)
-
-After moving fonts to `~/.local/share/fonts/`
-
-Run: `$ fc-cache -f -v`
-
-**NOTE:** (If you are seeing boxes without icons, try changing this line from `false` to `true`: [link](https://github.com/ChristianChiarulli/nvim/blob/ac41efa237caf3a498077df19a3f31ca4b35caf3/lua/user/icons.lua#L5))
-
-
-## Wallpaper
-
-![](./images/wallpaper/terra_spring_sunrise.png)
 
 ## Origin of Name
 
