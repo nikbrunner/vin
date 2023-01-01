@@ -46,10 +46,13 @@ local project_name = {
 local last_commit_message = {
     function()
         local f = io.popen("git log --pretty=%s -1")
-        local commit_message = f:read("*a")
-        print("Test: lualine.lua [[commit_message]]", commit_message)
-        f:close()
-        return commit_message
+        if f then
+            local commit_message = f:read("*a")
+            f:close()
+            return commit_message
+        else
+            return ""
+        end
     end,
     padding = 2,
 }
@@ -62,6 +65,7 @@ local client_name_to_icon_map = {
     jsonls = Vin.icons.lang.JSON,
     html = Vin.icons.lang.Html,
     eslint = " ",
+    ["null-ls"] = " ",
 }
 
 local lsp_clients = {
@@ -78,13 +82,6 @@ local lsp_clients = {
         for _, client in pairs(active_clients_for_current_buffer) do
             local client_name = client.name
             table.insert(lsp_client_list, client_name)
-        end
-
-        -- remove `null-ls` from `lsp_client_list` since its not a "real" client
-        for i, client in pairs(lsp_client_list) do
-            if client == "null-ls" then
-                table.remove(lsp_client_list, i)
-            end
         end
 
         -- if copilot is found in the lsp_client_list put it as the first elements in the lsp_client_list
@@ -226,6 +223,7 @@ lualine.setup({
     sections = {
         lualine_a = { mode },
         lualine_b = { date, time },
+        lualine_c = {},
     },
     inactive_sections = {
         lualine_a = {},
