@@ -1,4 +1,4 @@
-if Vin.config.use_nightly then
+Vin.lib.utils.validate_nvim_version(Vin.config.nightly_version, function()
     local present, noice = pcall(require, "noice")
     if not present then
         return
@@ -211,4 +211,4 @@ if Vin.config.use_nightly then
         ---@type NoiceFormatOptions
         format = {}, --- @see section on formatting
     })
-end
+end)
