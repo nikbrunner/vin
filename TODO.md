@@ -1,5 +1,18 @@
 # TODO
 
+<!--toc:start-->
+- [TODO](#todo)
+  - [General](#general)
+  - [LSP](#lsp)
+  - [0.9](#09)
+  - [Ideas](#ideas)
+  - [Plugins](#plugins)
+    - [Window Navigation](#window-navigation)
+    - [Editor Navigation](#editor-navigation)
+    - [Session](#session)
+    - [Other](#other)
+<!--toc:end-->
+
 ## General
 
 - [ ] **LunarVim** - Align Mappings and (most) plugins
@@ -23,7 +36,7 @@
 
 Checkout, evaluate, implement
 
-### window & nvim/tmux navigation
+### Window Navigation
 
 - [aserowy/tmux.nvim](https://github.com/aserowy/tmux.nvim)
 - [winshift.nvim](https://github.com/sindrets/winshift.nvim)

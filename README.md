@@ -1,10 +1,25 @@
 # Vin
 
+<!--toc:start-->
+
+- [Vin](#vin)
+  - [Description](#description)
+  - [Install](#install)
+    - [Install Neovim with Homebrew on Mac](#install-neovim-with-homebrew-on-mac)
+    - [Clone Config](#clone-config)
+  - [Fonts](#fonts)
+  - [Origin of Name](#origin-of-name)
+  - [Links](#links)
+  - [Other Configs](#other-configs)
+  <!--toc:end-->
+
 ## Description
 
-This is my personal Neovim configuration on which I am working on from time to time, while learning about the whole universe of Vim / Neovim.
+This is my personal Neovim configuration on which I am working on from time to time,
+while learning about the whole universe of Vim / Neovim.
 
-I tailored this config to my personal needs as a Frontend Engineer mainly working with React, TypeScript and SCSS.
+I tailored this config to my personal needs as a Frontend Engineer
+mainly working with React, TypeScript and SCSS.
 
 ## Install
 
