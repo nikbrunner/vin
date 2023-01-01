@@ -62,20 +62,29 @@ local client_name_to_icon_map = {
     jsonls = Vin.icons.lang.JSON,
     html = Vin.icons.lang.Html,
     eslint = " ",
-    ["null-ls"] = " ",
 }
 
 local lsp_clients = {
     function()
-        local active_clients = vim.lsp.get_active_clients()
-
         local lsp_client_list = {}
 
-        for _, client in pairs(active_clients) do
-            local client_name = client.name
-            local client_icon = join(client_name_to_icon_map[client_name], " ") or ""
+        -- get all active lsp clients for current buffer
+        local current_bufnr = vim.api.nvim_get_current_buf()
+        local active_clients_for_current_buffer = vim.lsp.get_active_clients({
+            bufnr = current_bufnr,
+        })
 
-            table.insert(lsp_client_list, client_icon .. client_name)
+        -- gather all active clients
+        for _, client in pairs(active_clients_for_current_buffer) do
+            local client_name = client.name
+            table.insert(lsp_client_list, client_name)
+        end
+
+        -- remove `null-ls` from `lsp_client_list` since its not a "real" client
+        for i, client in pairs(lsp_client_list) do
+            if client == "null-ls" then
+                table.remove(lsp_client_list, i)
+            end
         end
 
         -- if copilot is found in the lsp_client_list put it as the first elements in the lsp_client_list
@@ -86,9 +95,21 @@ local lsp_clients = {
             end
         end
 
-        return join("[", table.concat(lsp_client_list, ", "), "]")
+        -- add icon from client_name_to_icon_map to each entry of the lsp_client_list
+        for i, client_name in pairs(lsp_client_list) do
+            local client_icon = join(client_name_to_icon_map[client_name], " ") or ""
+            lsp_client_list[i] = client_icon .. client_name
+        end
+
+        -- if lsp_client_list is empty return empty strings
+        if vim.tbl_isempty(lsp_client_list) then
+            return ""
+        else
+            return join("[", table.concat(lsp_client_list, ", "), "]")
+        end
     end,
     padding = 2,
+    cond = hide_in_width,
     on_click = function()
         vim.cmd("LspInfo")
     end,
@@ -182,25 +203,37 @@ lualine.setup({
         lualine_a = { project_name },
         lualine_b = { branch },
         lualine_c = {},
+        lualine_x = {},
         lualine_y = {},
         lualine_z = { tabs },
     },
     winbar = {
+        lualine_a = {},
         lualine_b = { filetype_icon, filename },
-        lualine_x = { diff, "diagnostics" },
+        lualine_c = {},
+        lualine_x = { lsp_clients, diff, "diagnostics" },
+        lualine_y = {},
+        lualine_z = {},
     },
     inactive_winbar = {
+        lualine_a = {},
         lualine_b = { filetype_icon, filename },
+        lualine_c = {},
+        lualine_x = {},
         lualine_y = {},
+        lualine_z = {},
     },
     sections = {
         lualine_a = { mode },
         lualine_b = { date, time },
-        lualine_c = {},
-        lualine_x = { lsp_clients, "encoding", "fileformat", "filetype" },
-        lualine_y = nil,
-        lualine_z = nil,
     },
-    inactive_sections = {},
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+    },
     extensions = {},
 })
