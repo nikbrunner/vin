@@ -4,11 +4,11 @@ if not lsp_zero_present then
 end
 
 local merge = Vin.lib.utils.merge
-local required_servers = Vin.config.lsp.required_servers
+local ensure_installed = Vin.config.lsp.ensure_installed
 
 lsp_zero.preset("recommended")
 
-lsp_zero.ensure_installed(required_servers)
+lsp_zero.ensure_installed(ensure_installed)
 
 lsp_zero.set_preferences({
     suggest_lsp_servers = true,
@@ -39,7 +39,7 @@ local shared_lsp_opts = {
 }
 
 lsp_zero.setup_servers(merge({
-    required_servers,
+    ensure_installed,
     shared_lsp_opts,
 }))
 
