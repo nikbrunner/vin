@@ -96,6 +96,7 @@ Vin.icons = {
         Squirrel = "",
         Tag = "",
         Watch = "",
+        Vim = "",
     },
     lang = {
         Html = " ",

@@ -11,9 +11,9 @@ end
 
 local mode = {
     function()
-        return " " .. Vin.icons.ui.Target .. " "
+        return Vin.icons.misc.Vim
     end,
-    padding = 0,
+    padding = 1,
 }
 
 local date = {
@@ -173,10 +173,10 @@ lualine.setup({
         -- section_separators = { left = "", right = "" },
         -- section_separators = { left = "", right = "" },
         -- component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
-        component_separators = { left = "", right = "" },
-        -- section_separators = { left = "", right = "" },
-        -- component_separators = { left = "", right = "" },
+        -- section_separators = { left = "", right = "" },
+        -- component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
         disabled_filetypes = {
             statusline = {
                 "nvim",
@@ -198,12 +198,12 @@ lualine.setup({
         },
     },
     tabline = {
-        lualine_a = { project_name },
-        lualine_b = { branch },
+        lualine_a = {},
+        lualine_b = { project_name, branch },
         lualine_c = {},
         lualine_x = {},
-        lualine_y = {},
-        lualine_z = { tabs },
+        lualine_y = { tabs },
+        lualine_z = {},
     },
     winbar = {
         lualine_a = {},
