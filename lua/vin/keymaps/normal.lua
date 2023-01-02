@@ -29,7 +29,6 @@ M.no_leader = {
     H = { "^", WhichKeyIgnoreLabel },
     L = { "$", WhichKeyIgnoreLabel },
 
-    ["ZZ"] = { Vin.cmds.save_and_exit, WhichKeyIgnoreLabel },
 
     -- Navigate buffers and Tabs
     ["<M-h>"] = { ":bprevious<CR>", "Prev Buffer" },
