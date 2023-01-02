@@ -12,6 +12,7 @@ M.split_by_space = function(string)
     return chunks
 end
 
+---TODO: Replace with `vim.tbl_contains`
 ---Function to check if a table includes a certain value
 ---@param tab table Table to search
 ---@param val unknown Value to search for
