@@ -41,11 +41,3 @@ null_ls.setup({
         end
     end,
 })
-
-local fm = {}
-
-for i, formatter in ipairs(Vin.config.null_ls.formatting) do
-    table.insert(fm, i, "null_ls.builtins.formatting." .. formatter)
-end
-
-vim.pretty_print(fm)

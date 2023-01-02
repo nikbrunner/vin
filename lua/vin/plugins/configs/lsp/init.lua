@@ -53,6 +53,7 @@ require("vin.plugins.configs.lsp.cssls")
 lsp_zero.setup()
 
 -- All these needs to be called after lsp_zero.setup() so that the settings don't get overwritten
+require("vin.plugins.configs.lsp.mason")
 
 -- Setup Vim Diagnostic Settings
 vim.diagnostic.config({
