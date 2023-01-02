@@ -45,8 +45,7 @@ M.no_leader = {
     ["<C-f>"] = { Vin.cmds.nav.pick_window, "  Pick Window" },
 
     -- FN Key Bindings
-    -- ["<F6>"] = { ":call ToggleQuickFix()<CR>", "Todo Quick Fix" },
-    ["<F6>"] = { Vin.cmds.general.toggleQuickFix, "Todo Quick Fix" },
+    ["<F6>"] = { Vin.cmds.general.toggle_quickfix, "Toggle Quick Fix" },
     ["<F7>"] = { "<cmd>CccPick<CR>", "Color Picker" },
     ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
     ["<F9>"] = { "<cmd>TodoTrouble<CR>", "Todo Trouble" },
