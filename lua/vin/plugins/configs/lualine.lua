@@ -197,14 +197,7 @@ lualine.setup({
             winbar = 1000,
         },
     },
-    tabline = {
-        lualine_a = {},
-        lualine_b = { project_name, branch },
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = { tabs },
-        lualine_z = {},
-    },
+    tabline = {},
     winbar = {
         lualine_a = {},
         lualine_b = { filetype_icon, filename },
@@ -223,8 +216,9 @@ lualine.setup({
     },
     sections = {
         lualine_a = { mode },
-        lualine_b = { date, time },
-        lualine_c = {},
+        lualine_b = { project_name, branch },
+        lualine_c = { date, time },
+        lualine_z = { tabs },
     },
     inactive_sections = {
         lualine_a = {},
