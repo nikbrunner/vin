@@ -29,7 +29,7 @@
 
 ## LSP
 
-- [ ] Separate `ensure_installed` list from automatically set up LSP servers
+- [x] Separate `ensure_installed` list from automatically set up LSP servers
 
 ## 0.9
 

@@ -3,28 +3,27 @@ if not present then
     return
 end
 
----@see https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-local formatting = null_ls.builtins.formatting
+---Build null_ls sources from entries in VinConfig
+---@param config VinConfig.null_ls
+---@return table
+local buildSources = function(config)
+    local sources = {}
 
----@see https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-local diagnostics = null_ls.builtins.diagnostics
+    for category, entries in pairs(config) do
+        for _, entry in ipairs(entries) do
+            local source = null_ls.builtins[category][entry]
+            table.insert(sources, source)
+        end
+    end
 
----@see https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/code_actions
-local code_actions = null_ls.builtins.code_actions
-
-local lspFormattingGroup = vim.api.nvim_create_augroup("LspFormatting", {})
+    return sources
+end
 
 null_ls.setup({
-    debug = false,
-    sources = {
-        formatting.prettier,
-        formatting.stylua,
-        diagnostics.eslint,
-        diagnostics.markdownlint,
-        code_actions.eslint,
-        code_actions.gitsigns,
-    },
+    sources = buildSources(Vin.config.null_ls),
     on_attach = function(client, bufnr)
+        local lspFormattingGroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
         if client.supports_method("textDocument/formatting") then
             vim.api.nvim_clear_autocmds({
                 group = lspFormattingGroup,
