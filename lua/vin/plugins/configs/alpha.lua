@@ -5,6 +5,10 @@ end
 
 local function vim_version()
     local version = vim.version()
+    if version == nil then
+        return
+    end
+
     local version_string = "Neovim "
         .. version.major
         .. "."
@@ -22,35 +26,38 @@ local function vim_version()
     }
 end
 
-local function getGreeting(name)
-    local tableTime = os.date("*t")
-    local hour = tableTime.hour
-    local greetingsTable = {
+local function get_greeting(name)
+    local table_time = os.date("*t")
+
+    local hour = table_time.hour
+
+    local greetings_map = {
         [1] = "  It's bedtime",
         [2] = "  Good morning",
         [3] = "  Good afternoon",
         [4] = "  Good evening",
         [5] = "望 Good night",
     }
-    local greetingIndex = ""
+
+    local greeting_index = 0
+
     if hour == 23 or hour < 7 then
-        greetingIndex = 1
+        greeting_index = 1
     elseif hour < 12 then
-        greetingIndex = 2
+        greeting_index = 2
     elseif hour >= 12 and hour < 18 then
-        greetingIndex = 3
+        greeting_index = 3
     elseif hour >= 18 and hour < 21 then
-        greetingIndex = 4
+        greeting_index = 4
     elseif hour >= 21 then
-        greetingIndex = 5
+        greeting_index = 5
     end
-    return greetingsTable[greetingIndex] .. ", " .. name
+    return greetings_map[greeting_index] .. ", " .. name
 end
 
-local userName = "Nik"
-local greeting = getGreeting(userName)
+local greeting = get_greeting(Vin.config.username)
 
-local greetHeading = {
+local greet_heading = {
     type = "text",
     val = greeting,
     opts = {
@@ -59,59 +66,32 @@ local greetHeading = {
     },
 }
 
--- TODO Fix for Linux
-local plugins = ""
-if vim.fn.has("linux") == 1 or vim.fn.has("mac") == 1 then
-    local install_path = vim.fn.stdpath("data") .. "/site/pack/packer"
-
-    local handle = io.popen(
-        "fd -d 2 . " .. install_path .. ' | grep pack | wc -l | tr -d "\n" '
-    )
-
-    if handle == nil then
-        return nil
+local get_plugin_count = function()
+    local stats = require("lazy").stats()
+    if stats == nil or stats.count == 0 then
+        return "N/A"
+    else
+        return stats.count
     end
-
-    plugins = handle:read("*a")
-    handle:close()
-
-    plugins = plugins:gsub("^%s*(.-)%s*$", "%1")
-else
-    plugins = "N/A"
 end
 
-local pluginCount = {
+local plugin_count = {
     type = "text",
-    val = "  " .. plugins .. " plugins",
+    val = "  " .. get_plugin_count() .. " plugins",
     opts = {
         position = "center",
         hl = "String",
     },
 }
 
-local quote = [[
-“We are more often frightened than hurt; 
-and we suffer more in imagination than in reality.”
-]]
-local quoteAuthor = "Seneca"
-local fullQuote = quote .. "\n \n                  - " .. quoteAuthor
-
-local fortune = {
-    type = "text",
-    val = fullQuote,
-    opts = {
-        position = "center",
-        hl = "Comment",
-    },
-}
-
-local function button(sc, txt, keybind)
-    local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
+-- QUESTION: Do I need this?
+local function button(shortcut, text, keybind)
+    local shortcut_ = shortcut:gsub("%s", ""):gsub("SPC", "<leader>")
 
     local opts = {
         position = "center",
-        text = txt,
-        shortcut = sc,
+        text = text,
+        shortcut = shortcut,
         cursor = 6,
         width = 19,
         align_shortcut = "right",
@@ -120,14 +100,14 @@ local function button(sc, txt, keybind)
     }
 
     if keybind then
-        opts.keymap = { "n", sc_, keybind, { noremap = true, silent = true } }
+        opts.keymap = { "n", shortcut_, keybind, { noremap = true, silent = true } }
     end
 
     return {
         type = "button",
-        val = txt,
+        val = text,
         on_press = function()
-            local key = vim.api.nvim_replace_termcodes(sc_, true, false, true)
+            local key = vim.api.nvim_replace_termcodes(shortcut_, true, false, true)
             vim.api.nvim_feedkeys(key, "normal", false)
         end,
         opts = opts,
@@ -162,18 +142,18 @@ local buttons = {
 
 local section = {
     buttons = buttons,
-    greetHeading = greetHeading,
+    greet_heading = greet_heading,
     vim_version = vim_version(),
-    pluginCount = pluginCount,
+    plugin_count = plugin_count,
 }
 
 local opts = {
     layout = {
         { type = "padding", val = 4 },
-        section.greetHeading,
+        section.greet_heading,
         { type = "padding", val = 3 },
         section.vim_version,
-        section.pluginCount,
+        section.plugin_count,
         { type = "padding", val = 3 },
         section.buttons,
         { type = "padding", val = 2 },

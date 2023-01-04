@@ -8,6 +8,7 @@ local NOTES_PATH = join(DOCUMENTS_PATH, "notes/")
 
 --- @class Config
 Vin.config = {
+    username = "Nik",
     colorscheme = "terra",
     nightly_version = "0.9",
     lsp = {
