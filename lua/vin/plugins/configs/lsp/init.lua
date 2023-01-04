@@ -4,7 +4,7 @@ if not lsp_zero_present then
 end
 
 local merge = Vin.lib.utils.merge
-local ensure_installed = Vin.config.lsp.ensure_installed
+local ensure_installed = Vin.config.servers.ensure_installed
 
 lsp_zero.preset("recommended")
 

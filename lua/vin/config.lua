@@ -11,6 +11,21 @@ Vin.config = {
     username = "Nik",
     colorscheme = "terra",
     nightly_version = "0.9",
+    servers = {
+        ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+        ---These get hand over to via `lsp-zero` to `mason.nvim`
+        ensure_installed = {
+            "html",
+            "tsserver",
+            "cssls",
+            "gopls",
+            "sumneko_lua",
+            "gopls",
+            "rust_analyzer",
+            "jsonls",
+            "marksman",
+        },
+    },
     null_ls = {
         ---@see https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
         formatting = {
@@ -26,21 +41,6 @@ Vin.config = {
         code_actions = {
             "eslint",
             "gitsigns",
-        },
-    },
-    lsp = {
-        ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-        ---These get hand over to mason.nvim
-        ensure_installed = {
-            "html",
-            "tsserver",
-            "cssls",
-            "gopls",
-            "sumneko_lua",
-            "gopls",
-            "rust_analyzer",
-            "jsonls",
-            "marksman",
         },
     },
     pathes = {
