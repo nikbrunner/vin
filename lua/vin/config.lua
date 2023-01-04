@@ -58,7 +58,6 @@ Vin.config = {
         ---@see https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
         diagnostics = {
             "eslint",
-            "markdownlint",
         },
         ---@see https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/code_actions
         code_actions = {
