@@ -18,6 +18,7 @@
 ## General
 
 - [ ] **LunarVim** - Align Mappings and (most) plugins
+- [ ] Implement Terminal
 
 ## Maps
 
