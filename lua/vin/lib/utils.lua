@@ -143,7 +143,13 @@ end
 ---@param required_version string The required version number (e.g. "0.5")
 ---@param callback function The callback to run if the version is met
 M.validate_nvim_version = function(required_version, callback)
-    if vim.fn.has("nvim-" .. required_version) then
+    if vim.fn.has("nvim-" .. required_version) > 0 then
+        callback()
+    end
+end
+
+M.is_running_nightly = function(callback)
+    if M.validate_nvim_version(Vin.config.nightly_version) then
         callback()
     end
 end

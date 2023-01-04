@@ -1,4 +1,6 @@
-Vin.lib.utils.validate_nvim_version(Vin.config.nightly_version, function()
+local is_running_nightly = Vin.lib.utils.is_running_nightly
+
+is_running_nightly(function()
     local present, noice = pcall(require, "noice")
     if not present then
         return
