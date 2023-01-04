@@ -19,11 +19,11 @@ local buildSources = function(config)
     return sources
 end
 
+local lspFormattingGroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 null_ls.setup({
     sources = buildSources(Vin.config.null_ls),
     on_attach = function(client, bufnr)
-        local lspFormattingGroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
         if client.supports_method("textDocument/formatting") then
             vim.api.nvim_clear_autocmds({
                 group = lspFormattingGroup,
