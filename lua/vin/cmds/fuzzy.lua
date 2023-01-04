@@ -1,9 +1,3 @@
-local _, telescope = pcall(require, "telescope")
-local _, builtin = pcall(require, "telescope.builtin")
-local _, themes = pcall(require, "telescope.themes")
-local _, previewers = pcall(require, "telescope.previewers")
-local _, conf = pcall(require, "telescope.config")
-
 local delta_previewer = require("telescope.previewers").new_termopen_previewer({
     get_command = function(entry)
         -- this is for status
@@ -37,31 +31,37 @@ local delta_previewer = require("telescope.previewers").new_termopen_previewer({
 
 local M = {}
 
-M.find_changed_files = function(opts)
-    builtin.git_status({
+M.telescope = function(builtin, opts)
+    return function()
+        require("telescope.builtin")[builtin](opts or {})
+    end
+end
+
+M.find_changed_files = function()
+    M.telescope("git_status", {
         previewer = delta_previewer,
         layout_config = {
             width = 0.95,
             height = 0.95,
         },
-    })
+    })()
 end
 
-M.find_commits = function(opts)
-    builtin.git_commits({
+M.find_commits = function()
+    M.telescope("git_commits", {
         previewer = delta_previewer,
-    })
+    })()
 end
 
 M.find_related_files = function()
     local current_filename = Vin.lib.utils.get_current_filename(false)
 
     if current_filename then
-        builtin.find_files({
+        M.telescope("find_files", {
             default_text = current_filename,
-        })
+        })()
     else
-        builtin.find_files()
+        M.telescope("find_files")()
     end
 end
 
@@ -78,16 +78,15 @@ M.find_scss_symbol = function()
         ListReferences = "list_references",
     }
 
-    -- TODO: Build custom picker
     local use_telescope = function(text)
-        builtin.grep_string({
+        M.telescope("grep_string", {
             default_text = text,
             path_display = { "truncate" },
             layout_config = {
                 width = 0.90,
                 height = 0.90,
             },
-        })
+        })()
     end
 
     ---@param action_callback function
@@ -159,9 +158,9 @@ end
 
 ---@param path string Path to directory to search in
 M.search_in_dir = function(path)
-    builtin.find_files({
+    M.telescope("find_files", {
         cwd = path,
-    })
+    })()
 end
 
 return M
