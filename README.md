@@ -74,6 +74,7 @@ Make sure you have a nerd font installed.
 - [0xsamrath/.dotfiles](https://github.com/0xsamrath/.dotfiles)
 - [LunarVim/nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
 - [folke/dot/nvim](https://github.com/folke/dot/tree/master/config/nvim/lua)
+- [folke/LazyVim: Starter template for lazy Neovim users](https://github.com/folke/LazyVim)
 - [cseickel/dotfiles](https://github.com/cseickel/dotfiles/blob/main/config/nvim/lua/status.lua)
 - [ahmedelgabri/dotfiles](https://github.com/ahmedelgabri/dotfiles/blob/c2e2e3718e769020f1468048e33e60ad8a97edfc/config/.vim/lua/_/lsp.lua#L329-L378)
 - [glepnir/nvim](https://github.com/glepnir/nvim)
