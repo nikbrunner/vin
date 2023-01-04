@@ -5,25 +5,7 @@ end
 
 configs.setup({
     on_config_done = nil,
-    ensure_installed = {
-        "html",
-        "help",
-        "jsdoc",
-        "bash",
-        "javascript",
-        "typescript",
-        "css",
-        "tsx",
-        "json",
-        "lua",
-        "vim",
-        "python",
-        "rust",
-        "go",
-        "java",
-        "yaml",
-        "markdown",
-    }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    ensure_installed = Vin.config.syntax.ensure_installed, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     ignore_install = {},
     matchup = {
         enable = false, -- mandatory, false will disable the whole extension

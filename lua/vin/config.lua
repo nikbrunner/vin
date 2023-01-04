@@ -12,8 +12,8 @@ Vin.config = {
     colorscheme = "terra",
     nightly_version = "0.9",
     servers = {
+        ---These entries get handed over to via `lsp-zero` to `mason.nvim`
         ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-        ---These get hand over to via `lsp-zero` to `mason.nvim`
         ensure_installed = {
             "html",
             "tsserver",
@@ -24,6 +24,29 @@ Vin.config = {
             "rust_analyzer",
             "jsonls",
             "marksman",
+        },
+    },
+    syntax = {
+        ---These entries handed over to Treesitter
+        ---@see https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
+        ensure_installed = {
+            "html",
+            "help",
+            "jsdoc",
+            "bash",
+            "javascript",
+            "typescript",
+            "css",
+            "tsx",
+            "json",
+            "lua",
+            "vim",
+            "python",
+            "rust",
+            "go",
+            "java",
+            "yaml",
+            "markdown",
         },
     },
     null_ls = {
