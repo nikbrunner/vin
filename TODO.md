@@ -1,21 +1,31 @@
 # TODO
 
 <!--toc:start-->
+
 - [TODO](#todo)
   - [General](#general)
+  - [Maps](#maps)
   - [LSP](#lsp)
   - [0.9](#09)
   - [Ideas](#ideas)
   - [Plugins](#plugins)
-    - [Window Navigation](#window-navigation)
-    - [Editor Navigation](#editor-navigation)
-    - [Session](#session)
-    - [Other](#other)
-<!--toc:end-->
+  - [Window Navigation](#window-navigation)
+  - [Editor Navigation](#editor-navigation)
+  - [Session](#session)
+  - [Other](#other)
+  <!--toc:end-->
 
 ## General
 
 - [ ] **LunarVim** - Align Mappings and (most) plugins
+
+## Maps
+
+- [ ] Unify Mappings with Wrapper Function with opt. description which falls back to `which_key_ignore`
+  - `map("s", "ZenMode")`
+  - `map("s", "ZenMode", "Distraction Free Mode")`
+  - `map("n", "norm nzzzv", "Distraction Free Mode")`
+- [ ] Map for `TSHighlightGroupsUnderCursor`
 
 ## LSP
 
