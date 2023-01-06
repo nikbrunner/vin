@@ -6,11 +6,18 @@ local NVIM_CONFIG_PATH = vim.fn.stdpath("config")
 local DOCUMENTS_PATH = join(HOME_PATH, "Documents/")
 local NOTES_PATH = join(DOCUMENTS_PATH, "notes/")
 
----@class VinConfig
+---@type VinConfig
 Vin.config = {
     username = "Nik",
     colorscheme = "terra",
     nightly_version = "0.9",
+    copilot = {
+        suggestions = {
+            enable = true,
+            auto_trigger = false,
+            enable_cmp = false,
+        },
+    },
     servers = {
         ---These entries get handed over to via `lsp-zero` to `mason.nvim`
         ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md

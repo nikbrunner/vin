@@ -1,10 +1,5 @@
 vim.schedule(function()
     require("copilot").setup({
-        -- plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
-        -- cmp = {
-        --     enabled = true,
-        --     method = "getCompletionsCycling",
-        -- },
         panel = {
             enabled = false,
             auto_refresh = false,
@@ -17,8 +12,8 @@ vim.schedule(function()
             },
         },
         suggestion = {
-            enabled = true,
-            auto_trigger = true,
+            enabled = Vin.config.copilot.suggestions.enable,
+            auto_trigger = Vin.config.copilot.suggestions.auto_trigger,
             debounce = 75,
             keymap = {
                 accept = "<C-l>",
@@ -43,6 +38,7 @@ vim.schedule(function()
         copilot_node_command = "node", -- Node.js version must be > 16.x
     })
 
-    -- Setup cmp for copilot
-    require("copilot_cmp").setup()
+    if Vin.config.copilot.suggestions.enable_cmp then
+        require("copilot_cmp").setup()
+    end
 end)
