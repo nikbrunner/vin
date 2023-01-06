@@ -28,7 +28,7 @@ vim.opt.sessionoptions = "blank,buffers,curdir,tabpages,winsize" -- overwrite de
 vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
 vim.opt.showcmd = false -- don't show the commands
 vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 0 -- always show tabs
+vim.opt.showtabline = 0
 vim.opt.sidescrolloff = 24
 vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 vim.opt.smartcase = true -- smart case
@@ -46,9 +46,16 @@ vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.opt.wildoptions = "pum"
 vim.opt.wrap = false -- display lines as one long line
 vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-
--- Window Options
-vim.wo.fillchars = "eob: "
+vim.opt.fillchars = {
+    vert = "▕", -- alternatives │
+    fold = " ",
+    eob = " ", -- suppress ~ at EndOfBuffer
+    diff = "╱", -- alternatives = ⣿ ░ ─
+    msgsep = "‾",
+    foldopen = "▾",
+    foldsep = "│",
+    foldclose = "▸",
+}
 
 -- Neovide
 vim.cmd([[

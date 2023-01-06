@@ -48,6 +48,10 @@ return {
         "zbirenbaum/copilot-cmp",
         dependencies = { "zbirenbaum/copilot.lua" },
     },
+    {
+        "akinsho/nvim-bufferline.lua",
+        event = "BufAdd",
+    },
 
     -- Snippets ------------------------------------------------
     {
