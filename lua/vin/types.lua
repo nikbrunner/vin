@@ -1,0 +1,4 @@
+---@class VinConfig
+---@field username string Username. Used in Alpha Greeting
+---@field colorscheme "terra" | "tokyonight-night" List of available and preferred colorschemes
+---@field nightly_version string Version number of the current nightly version as string (e.g. "0.9")
