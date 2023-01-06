@@ -19,6 +19,7 @@
 
 - [ ] **LunarVim** - Align Mappings and (most) plugins
 - [ ] Implement Terminal
+- [ ] Complete `VinConfig`
 
 ## Maps
 
@@ -31,6 +32,7 @@
 ## LSP
 
 - [x] Separate `ensure_installed` list from automatically set up LSP servers
+- [ ] Don't attach `eslint` if there is no config found
 
 ## 0.9
 
