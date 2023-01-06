@@ -12,9 +12,9 @@ local transparentBackground = function()
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
-function PaintMe(color)
+function InitColorScheme(color)
     color = color or "default"
     vim.cmd.colorscheme(color)
 end
 
-PaintMe(Vin.config.colorscheme)
+InitColorScheme(Vin.config.colorscheme)
