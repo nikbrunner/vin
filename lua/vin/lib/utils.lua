@@ -5,10 +5,10 @@ local M = {}
 ---@return chunks table The splitted string as table
 M.split_by_space = function(string)
     local chunks = {}
-
     for substring in string:gmatch("%S+") do
         table.insert(chunks, substring)
     end
+
     return chunks
 end
 
@@ -149,9 +149,7 @@ M.validate_nvim_version = function(required_version, callback)
 end
 
 M.is_running_nightly = function(callback)
-    if M.validate_nvim_version(Vin.config.nightly_version) then
-        callback()
-    end
+    M.validate_nvim_version(Vin.config.nightly_version, callback)
 end
 
 return M
