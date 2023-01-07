@@ -1,8 +1,4 @@
----@class vin
----@field lib table Various general utilities and helper functions
----@field cmds table Function wrappers for plugin and custom commands
----@field icons table Icons used in the user interface
----@field config table Configuration options for the application
+---@type Vin
 _G.Vin = {
     lib = {},
     cmds = {},
