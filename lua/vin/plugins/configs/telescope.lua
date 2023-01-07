@@ -4,7 +4,6 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
-local themes = require("telescope.themes")
 
 local merge = Vin.lib.utils.merge
 
@@ -41,7 +40,8 @@ telescope.setup({
                 preview_width = 0.65,
             },
             vertical = {
-                height = 0.9,
+                height = 0.95,
+                preview_height = 0.5,
                 preview_cutoff = 0,
                 prompt_position = "bottom",
                 width = 0.8,
