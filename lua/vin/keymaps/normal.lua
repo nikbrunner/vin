@@ -25,11 +25,6 @@ M.no_leader = {
     H = { "^", WhichKeyIgnoreLabel },
     L = { "$", WhichKeyIgnoreLabel },
 
-
-    -- Navigate buffers and Tabs
-    ["<M-h>"] = { ":bprevious<CR>", "Prev Buffer" },
-    ["<M-l>"] = { ":bnext<CR>", "Next Buffer" },
-
     ["<M-[>"] = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
     ["<M-]>"] = { "<cmd>LSoutlineToggle<CR>", "  Symbol Tree" },
 
@@ -38,6 +33,8 @@ M.no_leader = {
     ["<M-j>"] = { "<Esc>:m .+1<CR>", "Move Down" },
 
     ["<C-f>"] = { Vin.cmds.nav.pick_window, "  Pick Window" },
+    ["<C-p>"] = { "<cmd>BufferLinePick<CR>", "  Pick Buffer" },
+    ["<C-q>"] = { "<cmd>BufferLinePickClose<CR>", "  Close Buffer" },
 
     -- FN Key Bindings
     ["<F6>"] = { Vin.cmds.general.toggle_quickfix, "Toggle Quick Fix" },
