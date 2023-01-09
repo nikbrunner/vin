@@ -119,7 +119,7 @@ local buttons = {
     val = {
         button(".", "   Curr. Dir", ":edit .<CR>"),
         button("h", "   History", ":Telescope oldfiles<CR>"),
-        button("p", "   Projects", ":Telescope projects<CR>"),
+        button("p", "   Projects", ":Telescope project<CR>"),
         button("e", "   New Empty", ":ene <BAR> startinsert<CR>"),
         button(
             "c",
