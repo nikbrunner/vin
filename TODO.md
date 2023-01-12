@@ -49,6 +49,10 @@
 
 Checkout, evaluate, implement
 
+### Test
+
+- [aaronhallaert/continuous-testing.nvim](https://github.com/aaronhallaert/continuous-testing.nvim)
+
 ### Window Navigation
 
 - [aserowy/tmux.nvim](https://github.com/aserowy/tmux.nvim)
