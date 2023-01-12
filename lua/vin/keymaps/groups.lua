@@ -56,11 +56,18 @@ M.go_prev = {
         end,
         "Buffer",
     },
-    e = {
+    d = {
         function()
             vim.diagnostic.goto_prev()
         end,
         "Diagnostic",
+    },
+    t = {
+        function()
+            -- jump to the previous item, skipping the groups
+            require("trouble").previous({ skip_groups = true, jump = true })
+        end,
+        "Next Trouble",
     },
     g = { Vin.cmds.git.hunk_go_prev, "Change" },
 }
@@ -88,11 +95,17 @@ M.go_next = {
         end,
         "Buffer",
     },
-    e = {
+    d = {
         function()
             vim.diagnostic.goto_next()
         end,
         "Diagnostic",
+    },
+    t = {
+        function()
+            require("trouble").next({ skip_groups = true, jump = true })
+        end,
+        "Prev Trouble",
     },
     g = { Vin.cmds.git.hunk_go_next, "Change" },
 }
