@@ -29,9 +29,6 @@ M.no_leader = {
     ["<S-Tab>"] = { "<cmd>bprevious<CR>", "Prev Buffer" },
     ["<Tab>"] = { "<cmd>bnext<CR>", "Next Buffer" },
 
-    ["<M-[>"] = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
-    ["<M-]>"] = { "<cmd>LSoutlineToggle<CR>", "  Symbol Tree" },
-
     -- Move text up and down
     ["<M-k>"] = { "<Esc>:m .-2<CR>", "Move Up" },
     ["<M-j>"] = { "<Esc>:m .+1<CR>", "Move Down" },
@@ -66,8 +63,6 @@ M.no_leader = {
 
 M.with_leader = {
     -- Singles
-    e = { "<cmd>NvimTreeToggle<CR>", "File Tree" },
-    o = { "<cmd>LSoutlineToggle<CR>", "Symbol Tree" },
     f = { "<cmd>Telescope find_files<CR>", "Find File" },
     z = { "<cmd>ZenMode<CR>", "Zen" },
     n = { "<cmd>nohl<CR>", "Hide Search HL" },
@@ -86,6 +81,7 @@ M.with_leader = {
     ["9"] = { "9gt", WhichKeyIgnoreLabel },
 
     -- Groups
+    e = groups.explorer,
     b = groups.buffer,
     s = groups.search,
     g = groups.git,

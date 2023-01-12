@@ -23,6 +23,13 @@ bufferline.setup({
                 text_align = "left",
                 separator = "│", -- use a "true" to enable the default, or set your own character
             },
+            {
+                filetype = "neo-tree",
+                text = "File Explorer",
+                highlight = "NeoTreeFileIcon",
+                text_align = "left",
+                separator = "│", -- use a "true" to enable the default, or set your own character
+            },
         },
     },
 })

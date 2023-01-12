@@ -62,6 +62,11 @@ return {
 
     -- UI Enhancements -----------------------------------------
     {
+        "nvim-neo-tree/neo-tree.nvim",
+        cmd = "Neotree",
+        lazy = false,
+    },
+    {
         "folke/noice.nvim",
         lazy = false,
         dependencies = {
@@ -72,10 +77,6 @@ return {
     {
         "goolord/alpha-nvim",
         dependencies = { "kyazdani42/nvim-web-devicons" },
-    },
-    {
-        "kyazdani42/nvim-tree.lua",
-        dependencies = "kyazdani42/nvim-web-devicons",
     },
     {
         "nvim-lualine/lualine.nvim",

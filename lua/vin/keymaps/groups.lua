@@ -58,7 +58,7 @@ M.go_prev = {
     },
     d = {
         function()
-            vim.diagnostic.goto_prev()
+            vim.diagnostic.goto_prev({})
         end,
         "Diagnostic",
     },
@@ -130,13 +130,13 @@ M.lsp = {
 
     k = {
         function()
-            vim.diagnostic.goto_prev()
+            vim.diagnostic.goto_prev({})
         end,
         "Prev Diagnostic",
     },
     j = {
         function()
-            vim.diagnostic.goto_next()
+            vim.diagnostic.goto_next({})
         end,
         "Next Diagnostic",
     },
@@ -152,8 +152,8 @@ M.explorer = {
     name = "Explorer",
     e = { "<cmd>Neotree left toggle<CR>", "Tree" },
     f = { "<cmd>Neotree float toggle<CR>", "Float" },
-    r = { "<cmd>Neotree reveal<CR>", "Reveal File" },
-    g = { "<cmd>Neotree git_status<CR>", "Git Status" },
+    b = { "<cmd>Neotree left buffers toggle<CR>", "Tree" },
+    g = { "<cmd>Neotree left git_status<CR>", "Git Status" },
     ["."] = { "<cmd>Neotree focus<CR>", "Focus Tree" },
 }
 
@@ -179,9 +179,9 @@ M.git = {
     k = { Vin.cmds.git.hunk_go_prev, "Change" },
     j = { Vin.cmds.git.hunk_go_next, "Change" },
 
-    s = { "<cmd>LazyGit<CR>", "Status" },
+    g = { "<cmd>LazyGit<CR>", "LazyGit" },
+    s = { "<cmd>Neotree git_status float<CR>", "Git Status" },
     q = { Vin.cmds.git.open_changes_in_qf, "List changes in QF" },
-    p = { Vin.cmds.git.hunk_preview, "Preview Hunk " },
     l = { Vin.cmds.git.toggle_current_line_blame, "Current Line Blame" },
     o = { Vin.cmds.fuzzy.find_changed_files, "Open Changed Files" },
     d = {
@@ -213,12 +213,10 @@ M.git = {
         b = { "<cmd>Telescope git_branches<CR>", "Branches" },
         c = { Vin.cmds.fuzzy.find_commits, "Commits" },
     },
-    g = {
+    p = {
         name = "Github",
-        p = { "<cmd>Telescope gh pull_request<CR>", "Pull Requests" },
+        r = { "<cmd>Telescope gh pull_request<CR>", "Pull Requests" },
         f = { "<cmd>Telescope gh pull_request_files<CR>", "Pull Requests Files" },
-        i = { "<cmd>Telescope gh issues<CR>", "Issues" },
-        r = { "<cmd>Telescope gh run<CR>", "Run" },
     },
 }
 
