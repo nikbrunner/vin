@@ -87,7 +87,6 @@ M.with_leader = {
 
     -- Groups
     b = groups.buffer,
-    P = groups.packer,
     s = groups.search,
     g = groups.git,
     d = groups.debug,
