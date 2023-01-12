@@ -25,6 +25,10 @@ M.no_leader = {
     H = { "^", WhichKeyIgnoreLabel },
     L = { "$", WhichKeyIgnoreLabel },
 
+    -- Navigate buffers and Tabs
+    ["<S-Tab>"] = { "<cmd>bprevious<CR>", "Prev Buffer" },
+    ["<Tab>"] = { "<cmd>bnext<CR>", "Next Buffer" },
+
     ["<M-[>"] = { "<cmd>NvimTreeToggle<CR>", "  File Tree" },
     ["<M-]>"] = { "<cmd>LSoutlineToggle<CR>", "  Symbol Tree" },
 
