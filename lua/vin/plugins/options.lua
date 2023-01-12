@@ -24,7 +24,7 @@ return {
         -- install missing plugins on startup. This doesn't increase startup time.
         missing = true,
         -- try to load one of these colorschemes when starting an installation during startup
-        colorscheme = { "terra", "habamax" },
+        colorscheme = { "habamax" },
     },
     ui = {
         -- a number <1 is a percentage., >1 is a fixed size
