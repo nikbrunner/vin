@@ -21,7 +21,7 @@ bufferline.setup({
                 text = "File Explorer",
                 highlight = "NvimTreeFolderName",
                 text_align = "left",
-                separator = "▕", -- use a "true" to enable the default, or set your own character
+                separator = "│", -- use a "true" to enable the default, or set your own character
             },
         },
     },
