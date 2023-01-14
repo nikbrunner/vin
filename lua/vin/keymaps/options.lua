@@ -19,6 +19,25 @@ M.normal = {
     },
 }
 
+M.term = {
+    no_leader = {
+        mode = "t", -- TERMINAL mode
+        buffer = nil,
+        silent = true,
+        noremap = true,
+        nowait = true,
+    },
+
+    with_leader = {
+        mode = "t", -- TERMINAL mode
+        prefix = "<leader>",
+        buffer = nil,
+        silent = true,
+        noremap = true,
+        nowait = true,
+    },
+}
+
 M.insert = {
     no_leader = {
         mode = "i", -- VISUAL mode

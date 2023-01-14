@@ -18,8 +18,7 @@
 ## General
 
 - [ ] **LunarVim** - Align Mappings and (most) plugins
-- [ ] Implement Terminal
-- [ ] Complete `VinConfig`
+- [ ] Complete or resolve `Vin` Types
 
 ## Maps
 
@@ -74,3 +73,4 @@ Checkout, evaluate, implement
 - [nvim-orgmode](https://github.com/nvim-orgmode/orgmode)
 - [octo.nvim](https://github.com/pwntester/octo.nvim)
 - [lab.nvim](https://github.com/0x100101/lab.nvim)
+

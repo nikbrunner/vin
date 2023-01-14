@@ -49,6 +49,9 @@ M.no_leader = {
     ["<C-k>"] = { "<C-w>k", "Focus Up" },
     ["<C-l>"] = { "<C-w>l", "Focus Right" },
 
+    ["<C-_>"] = { Vin.cmds.term.toggle, "Toggle Terminal" },
+    ["<C-g>"] = { Vin.cmds.term.toggle_gitui, "LazyGit" },
+
     -- Resize with arrows
     ["<C-up>"] = { ":resize -2<CR>", "Resize Up" },
     ["<C-down>"] = { ":resize +2<CR>", "Resize Down" },
@@ -58,7 +61,8 @@ M.no_leader = {
     ["["] = groups.go_prev,
     ["]"] = groups.go_next,
 
-    ["vv"] = { "^v$", "Selet Line" },
+    ["vv"] = { "^v$", "Select Line" },
+    ["vA"] = { "ggVG", "Select All" },
 }
 
 M.with_leader = {

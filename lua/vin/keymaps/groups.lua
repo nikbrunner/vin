@@ -179,7 +179,7 @@ M.git = {
     k = { Vin.cmds.git.hunk_go_prev, "Change" },
     j = { Vin.cmds.git.hunk_go_next, "Change" },
 
-    g = { "<cmd>LazyGit<CR>", "LazyGit" },
+    g = { Vin.cmds.term.toggle_gitui, "LazyGit" },
     s = { "<cmd>Neotree git_status float<CR>", "Git Status" },
     q = { Vin.cmds.git.open_changes_in_qf, "List changes in QF" },
     l = { Vin.cmds.git.toggle_current_line_blame, "Current Line Blame" },

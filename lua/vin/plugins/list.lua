@@ -97,6 +97,7 @@ return {
             "anuvyklack/keymap-amend.nvim",
         },
     },
+    { "numToStr/FTerm.nvim" },
 
     -- Git -----------------------------------------------------
     {
@@ -107,10 +108,6 @@ return {
         "sindrets/diffview.nvim",
         event = "VeryLazy",
         dependencies = "nvim-lua/plenary.nvim",
-    },
-    {
-        "kdheepak/lazygit.nvim",
-        event = "VeryLazy",
     },
 
     -- Fuzzy Find ----------------------------------------------

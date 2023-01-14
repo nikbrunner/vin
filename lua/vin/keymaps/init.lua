@@ -12,6 +12,7 @@ local config = require("vin.keymaps.config")
 local normal = require("vin.keymaps.normal")
 local insert = require("vin.keymaps.insert")
 local visual = require("vin.keymaps.visual")
+local term = require("vin.keymaps.term")
 local visual_block = require("vin.keymaps.visual_block")
 
 --Remap space as leader key
@@ -37,3 +38,5 @@ which_key.register(insert.no_leader, options.insert.no_leader)
 
 -- Visual Block Mode
 which_key.register(visual_block.no_leader, options.visual.no_leader)
+
+which_key.register(term.no_leader, options.term.no_leader)
