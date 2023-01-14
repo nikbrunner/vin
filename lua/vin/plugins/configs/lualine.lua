@@ -179,17 +179,13 @@ lualine.setup({
         component_separators = { left = "", right = "" },
         disabled_filetypes = {
             statusline = {
-                "nvim",
-                "[NoName]",
                 "alpha",
-                "neo-tree",
             },
             winbar = {
-                "nvim",
-                "[NoName]",
                 "alpha",
                 "NvimTree",
                 "neo-tree",
+                "",
             },
         },
         always_divide_middle = true,
