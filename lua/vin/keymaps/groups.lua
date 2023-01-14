@@ -397,15 +397,6 @@ M.terra = {
     },
 }
 
-M.debug = {
-    name = "Debug",
-    l = {
-        name = "Log",
-        l = { Vin.cmds.edit.log_symbol, "Auto Log Symbol" },
-        d = { Vin.cmds.edit.delete_logs, "Delete Logs" },
-    },
-}
-
 M.windows = {
     name = "Windows",
     m = { "<cmd>WindowsMaximize<CR>", "Maximize Split" },
@@ -423,6 +414,11 @@ M.insert = {
     name = "Insert",
     o = { "mzo<esc>`z", "New line below" },
     O = { "mzO<esc>`z", "New line above" },
+    l = {
+        name = "Log",
+        l = { Vin.cmds.edit.log_symbol, "Auto Log Symbol" },
+        d = { Vin.cmds.edit.delete_logs, "Delete Logs" },
+    },
 }
 
 return M

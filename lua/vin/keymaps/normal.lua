@@ -85,7 +85,6 @@ M.with_leader = {
     b = groups.buffer,
     s = groups.search,
     g = groups.git,
-    d = groups.debug,
     l = groups.lsp,
     m = groups.marks,
     q = groups.quit,
