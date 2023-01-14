@@ -7,7 +7,7 @@ bufferline.setup({
     options = {
         diagnostics = "nvim_lsp",
         mode = "buffers", -- set to "tabs" to only show tabpages instead
-        always_show_bufferline = true,
+        always_show_bufferline = false,
         show_tab_indicators = false,
         diagnostics_indicator = function(_, _, diag)
             local icons = Vin.icons.diagnostics
