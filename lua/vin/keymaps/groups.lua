@@ -419,4 +419,10 @@ M.packages = {
     l = { "<cmd>Lazy<CR>", "Plugin Manager - [Lazy]" },
 }
 
+M.insert = {
+    name = "Insert",
+    o = { "mzo<esc>`z", "New line below" },
+    O = { "mzO<esc>`z", "New line above" },
+}
+
 return M

@@ -91,6 +91,7 @@ M.with_leader = {
     q = groups.quit,
     c = groups.copy,
     t = groups.tabs,
+    i = groups.insert,
     p = groups.packages,
     w = groups.windows,
     T = groups.terra,
