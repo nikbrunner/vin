@@ -12,9 +12,9 @@ neotree.setup({
         -- "disabled",
         follow_current_file = true,
     },
-        nesting_rules = {
-            ["ts"] = { "spec.ts" },
-        },
+    nesting_rules = {
+        ["ts"] = { "spec.ts" },
+    },
     window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
         -- possible options. These can also be functions that return these options.
         position = "left", -- left, right, top, bottom, float, current
