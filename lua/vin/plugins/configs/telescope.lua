@@ -7,13 +7,14 @@ local actions = require("telescope.actions")
 
 local merge = Vin.lib.utils.merge
 
-local vertical_window = {
+local quick_vertical_window = {
     show_line = false,
     layout_strategy = "vertical",
     layout_config = {
         width = 0.75,
         height = 0.75,
     },
+    initial_mode = "normal",
 }
 
 local no_preview = {
@@ -27,7 +28,7 @@ telescope.setup({
         selection_caret = " " .. Vin.icons.ui.ArrowClosed .. " ",
         entry_prefix = "  ",
         path_display = { "truncate" },
-        initial_mode = "normal",
+        initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "descending",
         layout_strategy = "flex",
@@ -138,15 +139,14 @@ telescope.setup({
     },
     pickers = {
         find_files = {
-            initial_mode = "insert",
             hidden = true,
             file_ignore_patterns = { "^.git/", "^node_modules/" },
         },
-        lsp_definitions = vertical_window,
-        lsp_references = vertical_window,
-        lsp_implementations = vertical_window,
-        lsp_type_definitions = vertical_window,
-        buffers = vertical_window,
+        lsp_definitions = quick_vertical_window,
+        lsp_references = quick_vertical_window,
+        lsp_implementations = quick_vertical_window,
+        lsp_type_definitions = quick_vertical_window,
+        buffers = quick_vertical_window,
         current_buffer_fuzzy_find = {
             theme = "ivy",
         },
