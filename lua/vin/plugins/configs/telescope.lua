@@ -27,7 +27,7 @@ telescope.setup({
         selection_caret = " " .. Vin.icons.ui.ArrowClosed .. " ",
         entry_prefix = "  ",
         path_display = { "truncate" },
-        initial_mode = "insert",
+        initial_mode = "normal",
         selection_strategy = "reset",
         sorting_strategy = "descending",
         layout_strategy = "flex",
@@ -137,6 +137,10 @@ telescope.setup({
         },
     },
     pickers = {
+        find_files = {
+            initial_mode = "insert",
+            hidden = true
+        },
         lsp_definitions = vertical_window,
         lsp_references = vertical_window,
         lsp_implementations = vertical_window,
