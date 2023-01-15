@@ -139,7 +139,8 @@ telescope.setup({
     pickers = {
         find_files = {
             initial_mode = "insert",
-            hidden = true
+            hidden = true,
+            file_ignore_patterns = { "^.git/", "^node_modules/" },
         },
         lsp_definitions = vertical_window,
         lsp_references = vertical_window,
