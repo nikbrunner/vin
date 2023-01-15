@@ -49,7 +49,7 @@ M.no_leader = {
     ["<C-k>"] = { "<C-w>k", "Focus Up" },
     ["<C-l>"] = { "<C-w>l", "Focus Right" },
 
-    ["<C-_>"] = { Vin.cmds.term.toggle, "Toggle Terminal" },
+    ["<C-/>"] = { Vin.cmds.term.toggle, "Toggle Terminal" },
     ["<C-g>"] = { Vin.cmds.term.toggle_gitui, "LazyGit" },
 
     -- Resize with arrows
