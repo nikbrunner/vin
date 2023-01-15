@@ -7,6 +7,15 @@ configs.setup({
     on_config_done = nil,
     ensure_installed = Vin.config.syntax.ensure_installed, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     ignore_install = {},
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = "<CR>",
+            node_incremental = "<CR>",
+            scope_incremental = "<S-CR>",
+            node_decremental = "<BS>",
+        },
+    },
     matchup = {
         enable = false, -- mandatory, false will disable the whole extension
         -- disable = { "c", "ruby" },  -- optional, list of language that will be disabled
