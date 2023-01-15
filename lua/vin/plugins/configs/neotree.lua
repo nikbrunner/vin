@@ -15,6 +15,15 @@ neotree.setup({
     nesting_rules = {
         ["ts"] = { "spec.ts" },
     },
+    event_handlers = {
+        {
+            event = "file_opened",
+            handler = function(file_path)
+                --auto close
+                require("neo-tree").close_all()
+            end
+        },
+    },
     window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
         -- possible options. These can also be functions that return these options.
         position = "left", -- left, right, top, bottom, float, current
