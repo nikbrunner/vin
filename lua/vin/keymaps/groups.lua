@@ -404,10 +404,12 @@ M.windows = {
     a = { "<cmd>WindowsToggleAutowidth<CR>", "Toggle Autowidth" },
 }
 
-M.packages = {
-    name = "Packages",
+M.vin = {
+    name = "Vin",
     m = { "<cmd>Mason<CR>", "Package Manager - [Mason]" },
+    n = { "<cmd>NullLsInfo<CR>", "Tool Manager - [NullLS]" },
     l = { "<cmd>Lazy<CR>", "Plugin Manager - [Lazy]" },
+    i = { "<cmd>LspInfo<CR>", "Info" },
 }
 
 M.insert = {

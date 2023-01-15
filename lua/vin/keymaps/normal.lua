@@ -95,7 +95,7 @@ M.with_leader = {
     c = groups.copy,
     t = groups.tabs,
     i = groups.insert,
-    p = groups.packages,
+    v = groups.vin,
     w = groups.windows,
     T = groups.terra,
 }
