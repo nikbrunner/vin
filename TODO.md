@@ -5,33 +5,39 @@
 - [TODO](#todo)
   - [General](#general)
   - [Maps](#maps)
+    - [Unify Mappings with Wrapper Function with opt. description which falls back to `which_key_ignore`](#unify-mappings-with-wrapper-function-with-opt-description-which-falls-back-to-whichkeyignore)
   - [LSP](#lsp)
   - [0.9](#09)
   - [Ideas](#ideas)
-  - [Plugins](#plugins)
-  - [Window Navigation](#window-navigation)
-  - [Editor Navigation](#editor-navigation)
-  - [Session](#session)
+  - [Plugins](#plugins) 
+  - [Test](#test) 
+  - [Window Navigation](#window-navigation) 
+  - [Editor Navigation](#editor-navigation) 
+  - [Session](#session) 
   - [Other](#other)
   <!--toc:end-->
 
 ## General
 
-- [ ] **LunarVim** - Align Mappings and (most) plugins
-- [ ] Complete or resolve `Vin` Types
-
 ## Maps
 
-- [ ] Unify Mappings with Wrapper Function with opt. description which falls back to `which_key_ignore`
-  - `map("s", "ZenMode")`
-  - `map("s", "ZenMode", "Distraction Free Mode")`
-  - `map("n", "norm nzzzv", "Distraction Free Mode")`
+- [ ] Convert to native mappings. These should get recognized via WhichKey
+- [ ] **LunarVim** - Align Mappings
 - [ ] Map for `TSHighlightGroupsUnderCursor`
+
+### Unify Mappings with Wrapper Function with opt. description which falls back to `which_key_ignore`
+
+```lua
+map("s", "ZenMode")
+map("s", "ZenMode", "Distraction Free Mode")
+map("n", "norm nzzzv", "Distraction Free Mode")
+```
 
 ## LSP
 
-- [x] Separate `ensure_installed` list from automatically set up LSP servers
-- [ ] Don't attach `eslint` if there is no config found
+- [ ] Fix nvim config typings
+  - [ ] Complete or resolve `Vin` Types
+  - [ ] Migrate from `Vin` to `require`
 
 ## 0.9
 
@@ -73,4 +79,3 @@ Checkout, evaluate, implement
 - [nvim-orgmode](https://github.com/nvim-orgmode/orgmode)
 - [octo.nvim](https://github.com/pwntester/octo.nvim)
 - [lab.nvim](https://github.com/0x100101/lab.nvim)
-
