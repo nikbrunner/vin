@@ -234,7 +234,7 @@ return {
         dependencies = "kyazdani42/nvim-web-devicons",
         event = "VeryLazy",
     },
-    -- { "nmac427/guess-indent.nvim" }, -- TODO: Do I need this really?
+    { "nmac427/guess-indent.nvim" },
     {
         "anuvyklack/windows.nvim",
         event = "VeryLazy",
