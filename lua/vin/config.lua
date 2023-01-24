@@ -43,6 +43,7 @@ Vin.config = {
         ensure_installed = {
             "bash",
             "css",
+            "scss",
             "go",
             "help",
             "html",
