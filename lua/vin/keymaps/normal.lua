@@ -71,7 +71,8 @@ M.with_leader = {
     z = { "<cmd>ZenMode<CR>", "Zen" },
     n = { "<cmd>nohl<CR>", "Hide Search HL" },
     [" "] = { "<cmd>Telescope buffers<CR>", "Buffers" },
-    ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find Text in File" },
+    ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Grep in File" },
+    [":"] = { "<cmd>Telescope commands<CR>", "Commands" },
 
     -- Tab navigation
     ["1"] = { "1gt", WhichKeyIgnoreLabel },
