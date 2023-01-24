@@ -67,7 +67,7 @@ M.go_prev = {
             -- jump to the previous item, skipping the groups
             require("trouble").previous({ skip_groups = true, jump = true })
         end,
-        "Next Trouble",
+        "Prev Trouble",
     },
     g = { Vin.cmds.git.hunk_go_prev, "Change" },
 }
@@ -105,7 +105,7 @@ M.go_next = {
         function()
             require("trouble").next({ skip_groups = true, jump = true })
         end,
-        "Prev Trouble",
+        "Next Trouble",
     },
     g = { Vin.cmds.git.hunk_go_next, "Change" },
 }
@@ -214,7 +214,7 @@ M.git = {
         c = { Vin.cmds.fuzzy.find_commits, "Commits" },
     },
     p = {
-        name = "Github",
+        name = "Pull Request",
         r = { "<cmd>Telescope gh pull_request<CR>", "Pull Requests" },
         f = { "<cmd>Telescope gh pull_request_files<CR>", "Pull Requests Files" },
     },
