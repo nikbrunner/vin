@@ -7,9 +7,22 @@ end
 
 ---@diagnostic disable-next-line: unused-function
 local transparentBackground = function()
-    -- Enable these to make the backgrounds transparent
+    -- Standard
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    vim.api.nvim_set_hl(0, "WinSeparator", { link = "NonText" })
+    vim.api.nvim_set_hl(0, "VertSplit", { link = "NonText" })
+
+    -- NeoTree
+    vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NeoTreeEndOfBuffer", { bg = "none" })
+
+    -- NvimTree
+    vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NvimTreeVertSplit", { link = "NonText" })
+    vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { link = "NonText" })
 end
 
 function InitColorScheme(color)
