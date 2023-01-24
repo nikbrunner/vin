@@ -68,6 +68,7 @@ Make sure you have a nerd font installed.
 ## Links
 
 - [EmmyLua Documentation - Formatting Annotations · sumneko/lua-language-server Wiki](https://github.com/sumneko/lua-language-server/wiki/Formatting-Annotations)
+- [Help - Neovim docs](https://neovim.io/doc/user/index.html)
 
 ## Other Configs
 
@@ -80,3 +81,4 @@ Make sure you have a nerd font installed.
 - [glepnir/nvim](https://github.com/glepnir/nvim)
 - [craftzdog](https://github.com/craftzdog/dotfiles-public/tree/master/.config/nvim)
 - [harrisoncramer/nvim: My personal Neovim configuration.](https://github.com/harrisoncramer/nvim/tree/main?utm_source=pocket_reader)
+- [GitHub - alex35mil/dotfiles: My dotfiles](https://github.com/alex35mil/dotfiles

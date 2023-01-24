@@ -9,15 +9,17 @@
   - [LSP](#lsp)
   - [0.9](#09)
   - [Ideas](#ideas)
-  - [Plugins](#plugins) 
-  - [Test](#test) 
-  - [Window Navigation](#window-navigation) 
-  - [Editor Navigation](#editor-navigation) 
-  - [Session](#session) 
+  - [Plugins](#plugins)
+  - [Test](#test)
+  - [Window Navigation](#window-navigation)
+  - [Editor Navigation](#editor-navigation)
+  - [Session](#session)
   - [Other](#other)
   <!--toc:end-->
 
 ## General
+
+- [ ] Convert AutoCommands to Lua
 
 ## Maps
 
@@ -38,6 +40,7 @@ map("n", "norm nzzzv", "Distraction Free Mode")
 - [ ] Fix nvim config typings
   - [ ] Complete or resolve `Vin` Types
   - [ ] Migrate from `Vin` to `require`
+- [ ] Improve Lua Nvim Workspace Settings
 
 ## 0.9
 
@@ -53,6 +56,10 @@ map("n", "norm nzzzv", "Distraction Free Mode")
 ## Plugins
 
 Checkout, evaluate, implement
+
+### Colorschemes
+
+- [JoosepAlviste/palenightfall.nvim: 🌑 Neovim theme inspired by material palenight.](https://github.com/JoosepAlviste/palenightfall.nvim)
 
 ### Test
 
