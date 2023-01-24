@@ -20,8 +20,8 @@ neotree.setup({
             event = "file_opened",
             handler = function(file_path)
                 --auto close
-                require("neo-tree").close_all()
-            end
+                -- require("neo-tree").close_all()
+            end,
         },
     },
     window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
