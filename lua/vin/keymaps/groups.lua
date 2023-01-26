@@ -147,12 +147,11 @@ M.lsp = {
     i = { "<cmd>LspInfo<CR>", "Info" },
 }
 
--- NOTE: Currently not used
 M.explorer = {
     name = "Explorer",
-    e = { "<cmd>Neotree left toggle<CR>", "Tree" },
+    e = { "<cmd>Neotree left toggle<CR>", "Left Tree" },
     f = { "<cmd>Neotree float toggle<CR>", "Float" },
-    b = { "<cmd>Neotree left buffers toggle<CR>", "Tree" },
+    b = { "<cmd>Neotree left buffers toggle<CR>", "Buffers" },
     g = { "<cmd>Neotree left git_status<CR>", "Git Status" },
     ["."] = { "<cmd>Neotree focus<CR>", "Focus Tree" },
 }
