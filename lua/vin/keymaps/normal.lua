@@ -25,6 +25,13 @@ M.no_leader = {
     H = { "^", WhichKeyIgnoreLabel },
     L = { "$", WhichKeyIgnoreLabel },
 
+    -- Toggle Neotree sidbars
+    ["<M-[>"] = { "<cmd>Neotree left toggle<CR>", "Neotree Left Toggle" },
+    ["<M-]>"] = {
+        "<cmd>Neotree git_status right toggle<CR>",
+        "Neotree Right Toggle",
+    },
+
     -- Navigate buffers and Tabs
     ["<S-Tab>"] = { "<cmd>bprevious<CR>", "Prev Buffer" },
     ["<Tab>"] = { "<cmd>bnext<CR>", "Next Buffer" },
@@ -49,8 +56,8 @@ M.no_leader = {
     ["<C-k>"] = { "<C-w>k", "Focus Up" },
     ["<C-l>"] = { "<C-w>l", "Focus Right" },
 
-    ["<C-/>"] = { Vin.cmds.term.toggle, "Toggle Terminal" },
-    ["<C-g>"] = { Vin.cmds.term.toggle_gitui, "LazyGit" },
+    ["<C-e>"] = { "<cmd>Neotree float<CR>", "Quick Floating File Tree" },
+    ["<C-g>"] = { "<cmd>Neotree git_status float<CR>", "Quick Floating Git Files" },
 
     -- Resize with arrows
     ["<C-up>"] = { ":resize -2<CR>", "Resize Up" },

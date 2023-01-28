@@ -149,11 +149,13 @@ M.lsp = {
 
 M.explorer = {
     name = "Explorer",
-    e = { "<cmd>Neotree left toggle<CR>", "Left Tree" },
-    f = { "<cmd>Neotree float toggle<CR>", "Float" },
-    b = { "<cmd>Neotree left buffers toggle<CR>", "Buffers" },
-    g = { "<cmd>Neotree left git_status<CR>", "Git Status" },
-    ["."] = { "<cmd>Neotree focus<CR>", "Focus Tree" },
+    f = { "<cmd>Neotree focus<CR>", "Focus Tree" },
+    e = { "<cmd>Neotree left toggle<CR>", "Left File Tree" },
+    E = { "<cmd>Neotree float toggle<CR>", "Float File Tree" },
+    b = { "<cmd>Neotree left buffers toggle<CR>", "Left Buffer Tree" },
+    B = { "<cmd>Neotree float buffers toggle<CR>", "Float Buffer Tree" },
+    g = { "<cmd>Neotree right git_status<CR>", "Git File Tree" },
+    G = { "<cmd>Neotree float git_status<CR>", "Float Git Tree" },
 }
 
 M.quit = {
