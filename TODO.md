@@ -19,8 +19,6 @@
 
 ## General
 
-- [ ] Convert AutoCommands to Lua
-
 ## Maps
 
 - [ ] Convert to native mappings. These should get recognized via WhichKey
