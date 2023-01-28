@@ -35,9 +35,7 @@ map("n", "norm nzzzv", "Distraction Free Mode")
 
 ## LSP
 
-- [ ] Fix nvim config typings
-  - [ ] Complete or resolve `Vin` Types
-  - [ ] Migrate from `Vin` to `require`
+- [ ] Setup Types
 - [ ] Improve Lua Nvim Workspace Settings
 
 ## 0.9

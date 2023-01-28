@@ -1,4 +1,4 @@
----@type Vin
+---@class Vin
 _G.Vin = {
     lib = {},
     cmds = {},
@@ -15,4 +15,3 @@ require("vin.autocmds")
 require("vin.colorscheme")
 require("vin.cmds")
 require("vin.keymaps")
-require("vin.types")

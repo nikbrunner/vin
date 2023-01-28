@@ -6,7 +6,7 @@ local NVIM_CONFIG_PATH = vim.fn.stdpath("config")
 local DOCUMENTS_PATH = join(HOME_PATH, "Documents/")
 local NOTES_PATH = join(DOCUMENTS_PATH, "notes/")
 
----@type VinConfig
+---@class VinConfig
 Vin.config = {
     username = "Nik",
     colorscheme = "tokyonight-night",
