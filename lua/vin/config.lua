@@ -68,9 +68,7 @@ Vin.config = {
             "stylua",
         },
         ---@see https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-        diagnostics = {
-            "eslint",
-        },
+        diagnostics = {},
         ---@see https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/code_actions
         code_actions = {
             "eslint",
