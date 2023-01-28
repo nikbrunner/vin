@@ -9,7 +9,7 @@ local NOTES_PATH = join(DOCUMENTS_PATH, "notes/")
 ---@type VinConfig
 Vin.config = {
     username = "Nik",
-    colorscheme = "terra",
+    colorscheme = "tokyonight-night",
     nightly_version = "0.9",
     copilot = {
         suggestions = {
