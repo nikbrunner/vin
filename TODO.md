@@ -1,31 +1,25 @@
 # TODO
 
-<!--toc:start-->
-
-- [TODO](#todo)
-  - [General](#general)
-  - [Maps](#maps)
-    - [Unify Mappings with Wrapper Function with opt. description which falls back to `which_key_ignore`](#unify-mappings-with-wrapper-function-with-opt-description-which-falls-back-to-whichkeyignore)
-  - [LSP](#lsp)
-  - [0.9](#09)
-  - [Ideas](#ideas)
-  - [Plugins](#plugins)
-  - [Test](#test)
-  - [Window Navigation](#window-navigation)
-  - [Editor Navigation](#editor-navigation)
-  - [Session](#session)
-  - [Other](#other)
-  <!--toc:end-->
-
 ## General
+
+- [x] arch: Rework PlugIn Structure with LazyVim Plugin Specs
+- [ ] arch: Resolve Vin object and convert to module requires
+- [ ] arch: Rethink Config
+- [ ] plugs: Better color tool (Replace ccc)
+- [ ] chore: Replace `vim.cmd("Command")` with `vim.cmd.Command()`
+- [ ] util: Populatate QuickFix List with Issue Number from Input
+- [ ] util: Populatate QuickFix List with Issue Number from Input
+- [x] lsp: Ensure Setup of non-lsp tools
+- [ ] lsp: Improve Lua Nvim Workspace Settings
+- [ ] lsp: Improve Lsp Structure (Try to get from LazyVim)
+- [ ] config: Move Icons to Config
 
 ## Maps
 
-- [ ] Convert to native mappings. These should get recognized via WhichKey
-- [ ] **LunarVim** - Align Mappings
-- [ ] Map for `TSHighlightGroupsUnderCursor`
+- [ ] maps: Convert to native mappings. These should get recognized via WhichKey
+- [ ] maps: Map for `TSHighlightGroupsUnderCursor`
 
-### Unify Mappings with Wrapper Function with opt. description which falls back to `which_key_ignore`
+**Unify Mappings with Wrapper Function with opt. description which falls back to `which_key_ignore`**
 
 ```lua
 map("s", "ZenMode")
@@ -33,25 +27,7 @@ map("s", "ZenMode", "Distraction Free Mode")
 map("n", "norm nzzzv", "Distraction Free Mode")
 ```
 
-## LSP
-
-- [ ] Setup Types
-- [ ] Improve Lua Nvim Workspace Settings
-
-## 0.9
-
-- [ ] Replace `vim.cmd("Command")` with `vim.cmd.Command()`
-
-## Ideas
-
-- [ ] Generative TODO Comments with an dynamic issue number and lang detection
-  - Example: `// TODO:3232 - Outsource function`
-  - Number or String could be stored on Vin Table during runtime
-  - Run `:TodoTelescope default_text=3232`
-
 ## Plugins
-
-Checkout, evaluate, implement
 
 ### Colorschemes
 
