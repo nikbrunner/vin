@@ -18,23 +18,34 @@ Vin.config = {
             enable_cmp = false,
         },
     },
-    servers = {
-        ---Attention: It is not (yet?) possible to ensure installation of `non-lsp` tools (see here: https://github.com/williamboman/mason-lspconfig.nvim/issues/113)
-        ---These entries get handed over to via `lsp-zero` to `mason.nvim`
-        ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-        ---@see https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
-        ---@see https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
+    mason = {
         ensure_installed = {
-            "cssls",
-            "gopls",
-            "gopls",
-            "html",
-            "jsonls",
-            "marksman",
-            "rust_analyzer",
-            "sumneko_lua",
-            "tsserver",
-            "eslint",
+            ---Attention: It is not (yet?) possible to ensure installation of `non-lsp` tools (see here: https://github.com/williamboman/mason-lspconfig.nvim/issues/113)
+            ---These entries get handed over to via `lsp-zero` to `mason.nvim`
+            ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+            ---@see https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
+            ---@see https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
+            servers = {
+                "cssls",
+                "gopls",
+                "gopls",
+                "bashls",
+                "html",
+                "jsonls",
+                "marksman",
+                "rust_analyzer",
+                "sumneko_lua",
+                "tsserver",
+                "eslint",
+            },
+            --- Via: WhoIsSethDaniel/mason-tool-installer.nvim
+            tools = {
+                "stylua",
+                "luacheck",
+                "shellcheck",
+                "gopls",
+                "prettierd",
+            },
         },
     },
     syntax = {

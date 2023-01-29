@@ -17,18 +17,22 @@ return {
     },
 
     {
+        "williamboman/mason-lspconfig.nvim",
+        dependencies = "mason.nvim",
+        opts = {
+            ensure_installed = Vin.config.mason.ensure_installed.servers,
+        },
+        config = function(_, opts)
+            local masonLspConfig = require("mason-lspconfig")
+            masonLspConfig.setup(opts)
+        end,
+    },
+
+    {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         dependencies = "mason.nvim",
         opts = {
-            -- a list of all tools you want to ensure are installed upon
-            -- start; they should be the names Mason uses for each tool
-            ensure_installed = {
-                "stylua",
-                "luacheck",
-                "shellcheck",
-                "gopls",
-                "prettierd",
-            },
+            ensure_installed = Vin.config.mason.ensure_installed.tools,
         },
     },
 
@@ -44,11 +48,9 @@ return {
             local lsp_zero = require("lsp-zero")
 
             local merge = Vin.lib.utils.merge
-            local ensure_installed = Vin.config.servers.ensure_installed
+            local ensure_installed = Vin.config.mason.ensure_installed.servers
 
             lsp_zero.preset("recommended")
-
-            lsp_zero.ensure_installed(ensure_installed)
 
             lsp_zero.set_preferences({
                 suggest_lsp_servers = true,
@@ -73,7 +75,7 @@ return {
                 -- NOTE: `opts` is a required property for providing options to all mentioned servers
                 opts = {
                     flags = {
-                        debounce_text_changes = 75,
+                        debounce_text_changes = 25,
                     },
                 },
             }
@@ -130,17 +132,9 @@ return {
             return {
                 sources = buildSources(Vin.config.null_ls),
                 on_attach = function(client, bufnr)
-                    local lspFormattingGroup =
-                        vim.api.nvim_create_augroup("LspFormatting", {})
-
                     if client.supports_method("textDocument/formatting") then
-                        vim.api.nvim_clear_autocmds({
-                            group = lspFormattingGroup,
-                            buffer = bufnr,
-                        })
-
                         vim.api.nvim_create_autocmd("BufWritePost", {
-                            group = lspFormattingGroup,
+                            group = vim.api.nvim_create_augroup("LspFormatting", {}),
                             buffer = bufnr,
                             callback = function()
                                 Vin.cmds.lsp.format_async(bufnr)
