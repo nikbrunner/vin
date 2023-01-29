@@ -17,6 +17,22 @@ return {
     },
 
     {
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        dependencies = "mason.nvim",
+        opts = {
+            -- a list of all tools you want to ensure are installed upon
+            -- start; they should be the names Mason uses for each tool
+            ensure_installed = {
+                "stylua",
+                "luacheck",
+                "shellcheck",
+                "gopls",
+                "prettierd",
+            },
+        },
+    },
+
+    {
         "VonHeikemen/lsp-zero.nvim",
         dependencies = {
             "mason.nvim",
@@ -111,14 +127,12 @@ return {
                 return sources
             end
 
-            local lspFormattingGroup = vim.api.nvim_create_augroup(
-                "LspFormatting",
-                {}
-            )
-
             return {
                 sources = buildSources(Vin.config.null_ls),
                 on_attach = function(client, bufnr)
+                    local lspFormattingGroup =
+                        vim.api.nvim_create_augroup("LspFormatting", {})
+
                     if client.supports_method("textDocument/formatting") then
                         vim.api.nvim_clear_autocmds({
                             group = lspFormattingGroup,
