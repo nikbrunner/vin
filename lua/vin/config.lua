@@ -9,7 +9,7 @@ local NOTES_PATH = join(DOCUMENTS_PATH, "notes/")
 ---@class VinConfig
 Vin.config = {
     username = "Nik",
-    colorscheme = "tokyonight-night",
+    colorscheme = "tokyonight",
     nightly_version = "0.9",
     copilot = {
         suggestions = {
@@ -43,7 +43,6 @@ Vin.config = {
         ensure_installed = {
             "bash",
             "css",
-            "scss",
             "go",
             "help",
             "html",
@@ -53,8 +52,12 @@ Vin.config = {
             "json",
             "lua",
             "markdown",
+            "markdown_inline",
             "python",
+            "query",
+            "regex",
             "rust",
+            "scss",
             "tsx",
             "typescript",
             "vim",
@@ -64,7 +67,7 @@ Vin.config = {
     null_ls = {
         ---@see https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
         formatting = {
-            "prettier",
+            "prettierd",
             "stylua",
         },
         ---@see https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics

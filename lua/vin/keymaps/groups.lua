@@ -423,4 +423,16 @@ M.insert = {
     },
 }
 
+M.problems = {
+    name = "Problems",
+    x = {
+        "<cmd>TroubleToggle document_diagnostics<cr>",
+        "Document Diagnostics (Trouble)",
+    },
+    X = {
+        "<cmd>TroubleToggle workspace_diagnostics<cr>",
+        "Workspace Diagnostics (Trouble)",
+    },
+}
+
 return M

@@ -1,4 +1,6 @@
--- Vim Options
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.opt.autoindent = true
 vim.opt.autoread = true
 vim.opt.background = "dark"

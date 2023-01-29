@@ -1,7 +1,25 @@
-return {
+-- Automatically install plugin manager
+-- https://github.com/folke/lazy.nvim#-installation
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "--single-branch",
+        "https://github.com/folke/lazy.nvim.git",
+        lazypath,
+    })
+end
+
+vim.opt.runtimepath:prepend(lazypath)
+
+require("lazy").setup("vin.plugins", {
     root = vim.fn.stdpath("data") .. "/lazy", -- directory where plugins will be installed
+    spec = nil,
     defaults = {
-        lazy = true, -- should plugins be lazy-loaded?
+        lazy = false, -- should plugins be lazy-loaded?
         version = nil,
         -- version = "*", -- enable this to try installing the latest stable versions of plugins
     },
@@ -46,30 +64,7 @@ return {
             lazy = "鈴 ",
         },
         throttle = 20, -- how frequently should the ui process render events
-        custom_keys = {
-            -- you can define custom key maps here.
-            -- To disable one of the defaults, set it to false
-
-            -- open lazygit log
-            ["<localleader>l"] = function(plugin)
-                require("lazy.util").open_cmd({ "lazygit", "log" }, {
-                    cwd = plugin.dir,
-                    terminal = true,
-                    close_on_exit = true,
-                    enter = true,
-                })
-            end,
-
-            -- open a terminal for the plugin dir
-            ["<localleader>t"] = function(plugin)
-                require("lazy.util").open_cmd({ vim.go.shell }, {
-                    cwd = plugin.dir,
-                    terminal = true,
-                    close_on_exit = true,
-                    enter = true,
-                })
-            end,
-        },
+        custom_keys = {},
     },
     diff = {
         -- diff command <d> can be one of:
@@ -130,4 +125,4 @@ return {
         -- only generate markdown helptags for plugins that dont have docs
         skip_if_doc_exists = true,
     },
-}
+})

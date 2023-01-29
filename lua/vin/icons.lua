@@ -1,3 +1,4 @@
+-- TODO: Move to config
 Vin.icons = {
     kind = {
         Text = "",
