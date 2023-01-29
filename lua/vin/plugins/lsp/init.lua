@@ -1,6 +1,7 @@
 return {
     {
         "williamboman/mason.nvim",
+        event = "VeryLazy",
         dependencies = {
             "williamboman/mason-lspconfig.nvim",
         },
@@ -18,6 +19,7 @@ return {
 
     {
         "williamboman/mason-lspconfig.nvim",
+        event = "VeryLazy",
         dependencies = "mason.nvim",
         opts = {
             ensure_installed = Vin.config.mason.ensure_installed.servers,
