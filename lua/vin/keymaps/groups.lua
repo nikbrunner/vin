@@ -238,6 +238,27 @@ M.search = {
     m = { "<cmd>Telescope marks<CR>", "Marks" },
     g = { Vin.cmds.fuzzy.find_changed_files, "Open Changed Files" },
     r = { Vin.cmds.fuzzy.find_related_files, "Related Files" },
+    n = {
+        name = "Noice",
+        a = {
+            function()
+                require("noice").cmd("all")
+            end,
+            "Noice All",
+        },
+        l = {
+            function()
+                require("noice").cmd("last")
+            end,
+            "Noice Last Message",
+        },
+        h = {
+            function()
+                require("noice").cmd("history")
+            end,
+            "Noice History",
+        },
+    },
     a = {
         name = "Advanced",
         s = { Vin.cmds.fuzzy.find_scss_symbol, "SCSS Symbol" },
@@ -454,6 +475,11 @@ M.problems = {
     X = {
         "<cmd>TroubleToggle workspace_diagnostics<cr>",
         "Workspace Diagnostics (Trouble)",
+    },
+    t = { "<cmd>TodoTrouble<cr>", "Todo (Trouble)" },
+    T = {
+        "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",
+        "Todo/Fix/Fixme (Trouble)",
     },
 }
 
