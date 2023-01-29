@@ -53,74 +53,9 @@ return {
             "saadparwaiz1/cmp_luasnip",
             "hrsh7th/cmp-nvim-lua",
             "onsails/lspkind-nvim",
+            "VonHeikemen/lsp-zero.nvim",
         },
-        opts = function()
-            local cmp = require("cmp")
-            local lspkind = require("lspkind")
-
-            return {
-                completion = {
-                    completeopt = "menu,menuone,noinsert",
-                },
-                snippet = {
-                    expand = function(args)
-                        require("luasnip").lsp_expand(args.body)
-                    end,
-                },
-                mapping = cmp.mapping.preset.insert({
-                    ["<C-k>"] = cmp.mapping.select_prev_item(),
-                    ["<C-j>"] = cmp.mapping.select_next_item(),
-                    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-                    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                    ["<C-Space>"] = cmp.mapping(
-                        cmp.mapping.complete(),
-                        { "i", "c" }
-                    ),
-                    ["<C-e>"] = cmp.mapping.abort(),
-                    ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-                }),
-                sources = cmp.config.sources({
-                    { name = "copilot" },
-                    { name = "nvim_lsp" },
-                    { name = "luasnip" },
-                    { name = "buffer" },
-                    { name = "path" },
-                }),
-                formatting = {
-                    fields = { "kind", "abbr", "menu" },
-                    format = lspkind.cmp_format({
-                        mode = "symbol",
-                        -- max_width = 50,
-                        symbol_map = { Copilot = " " },
-                        -- The function below will be called before any actual modifications from lspkind
-                        -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-                        before = function(entry, vim_item)
-                            vim_item.menu = ({
-                                nvim_lsp = "[LSP]",
-                                luasnip = "[Snippet]",
-                                buffer = "[Buffer]",
-                                path = "[Path]",
-                            })[entry.source.name]
-
-                            return vim_item
-                        end,
-                    }),
-                },
-                confirm_opts = {
-                    behavior = cmp.ConfirmBehavior.Replace,
-                    select = true,
-                },
-                window = {
-                    completion = cmp.config.window.bordered(),
-                    documentation = cmp.config.window.bordered(),
-                },
-                experimental = {
-                    ghost_text = {
-                        hl_group = "LspCodeLens",
-                    },
-                },
-            }
-        end,
+        -- INFO: Setup via lsp-zero
     },
 
     {
