@@ -14,10 +14,6 @@ local visual = require("vin.keymaps.visual")
 local term = require("vin.keymaps.term")
 local visual_block = require("vin.keymaps.visual_block")
 
---Remap space as leader key
--- QUESTION: Is this the best way to do this?
-vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
-
 -- Register Mappings for ..
 -- Normal Mode
 which_key.register(normal.no_leader, options.normal.no_leader)
