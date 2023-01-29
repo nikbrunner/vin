@@ -138,7 +138,7 @@ return {
         end,
         config = function(_, opts)
             local null_ls = require("null-ls")
-            null_ls.setup()
+            null_ls.setup(opts)
         end,
     },
 }
