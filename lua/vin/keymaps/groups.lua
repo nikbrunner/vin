@@ -423,6 +423,28 @@ M.insert = {
     },
 }
 
+M.session = {
+    name = "Session",
+    r = {
+        function()
+            require("persistence").load()
+        end,
+        "Restore Session",
+    },
+    l = {
+        function()
+            require("persistence").load({ last = true })
+        end,
+        "Restore Last Session",
+    },
+    d = {
+        function()
+            require("persistence").stop()
+        end,
+        "Don't Save Current Session",
+    },
+}
+
 M.problems = {
     name = "Problems",
     x = {

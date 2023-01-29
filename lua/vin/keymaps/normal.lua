@@ -107,6 +107,7 @@ M.with_leader = {
     w = groups.windows,
     T = groups.terra,
     x = groups.problems,
+    S = groups.session,
 }
 
 return M
