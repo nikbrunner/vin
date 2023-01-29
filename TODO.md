@@ -4,6 +4,7 @@
 
 - [x] arch: Rework PlugIn Structure with LazyVim Plugin Specs
 - [ ] arch: Resolve Vin object and convert to module requires
+- [ ] arch: Split Plug In Specs in Single Files
 - [ ] arch: Rethink Config
 - [ ] plugs: Better color tool (Replace ccc)
 - [ ] chore: Replace `vim.cmd("Command")` with `vim.cmd.Command()`
@@ -12,6 +13,8 @@
 - [x] lsp: Ensure Setup of non-lsp tools
 - [ ] lsp: Improve Lua Nvim Workspace Settings
 - [ ] lsp: Improve Lsp Structure (Try to get from LazyVim)
+- [ ] lsp: Ensure null_ls after lsp_zero
+  - [lsp-zero.nvim/advance-usage.md at main · VonHeikemen/lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim/blob/main/advance-usage.md#intergrate-with-null-ls)
 - [ ] config: Move Icons to Config
 - [ ] plugs: UFO fold
 - [ ] plugs: navic
@@ -50,7 +53,6 @@ map("n", "norm nzzzv", "Distraction Free Mode")
 - [navigator.lua](https://github.com/ray-x/navigator.lua)
 - [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
-
 
 ### Other
 
