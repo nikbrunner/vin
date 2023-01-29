@@ -13,6 +13,9 @@
 - [ ] lsp: Improve Lua Nvim Workspace Settings
 - [ ] lsp: Improve Lsp Structure (Try to get from LazyVim)
 - [ ] config: Move Icons to Config
+- [ ] plugs: UFO fold
+- [ ] plugs: navic
+- [ ] plugs: context
 
 ## Maps
 
@@ -48,9 +51,6 @@ map("n", "norm nzzzv", "Distraction Free Mode")
 - [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
 
-### Session
-
-- [folke/persistence.nvim: 💾 Simple session management for Neovim](https://github.com/folke/persistence.nvim)
 
 ### Other
 
