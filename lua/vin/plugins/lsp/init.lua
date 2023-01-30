@@ -101,16 +101,19 @@ return {
                 shared_lsp_opts,
             }))
 
-            -- get all names of files in the lsp.servers directory
+            -- scan all names of files in the lsp.servers directory
             local server_configs = vim.fn.readdir(
                 vim.fn.stdpath("config") .. "/lua/vin/plugins/lsp/servers"
             )
+
+            local load_server_config = function(server_config_file_name)
+                require("vin.plugins.lsp.servers." .. server_config_file_name).setup(lsp_zero)
+            end
+
             -- for each file name require it
-            for i, server in ipairs(server_configs) do
-                local server_without_file_ext = server:gsub("%..*", "")
-                require("vin.plugins.lsp.servers." .. server_without_file_ext).setup(
-                    lsp_zero
-                )
+            for i, server_config in ipairs(server_configs) do
+                -- Remove file extension from server_config and load it
+                load_server_config(server_config:gsub("%..*", ""))
             end
 
             -- NOTE: Must be called after all of server configurations
