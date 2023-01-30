@@ -45,7 +45,10 @@ return {
             "neovim/nvim-lspconfig",
             "tamago324/nlsp-settings.nvim",
             "folke/neodev.nvim",
-            "jose-elias-alvarez/null-ls.nvim",
+            {
+                "jose-elias-alvarez/null-ls.nvim",
+                event = "BufReadPre",
+            },
             {
                 "hrsh7th/nvim-cmp",
                 version = false, -- last release is way too old
@@ -105,7 +108,9 @@ return {
             -- for each file name require it
             for i, server in ipairs(server_configs) do
                 local server_without_file_ext = server:gsub("%..*", "")
-                require("vin.plugins.lsp.servers." .. server_without_file_ext).setup(lsp_zero)
+                require("vin.plugins.lsp.servers." .. server_without_file_ext).setup(
+                    lsp_zero
+                )
             end
 
             -- NOTE: Must be called after all of server configurations
@@ -125,47 +130,7 @@ return {
             })
 
             require("vin.plugins.lsp.cmp").setup(lsp_zero)
-        end,
-    },
-
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        event = "BufReadPre",
-        dependencies = { "mason.nvim" },
-        opts = function()
-            local null_ls = require("null-ls")
-
-            local buildSources = function(config)
-                local sources = {}
-
-                for category, entries in pairs(config) do
-                    for _, entry in ipairs(entries) do
-                        local source = null_ls.builtins[category][entry]
-                        table.insert(sources, source)
-                    end
-                end
-
-                return sources
-            end
-
-            return {
-                sources = buildSources(Vin.config.null_ls),
-                on_attach = function(client, bufnr)
-                    if client.supports_method("textDocument/formatting") then
-                        vim.api.nvim_create_autocmd("BufWritePost", {
-                            group = vim.api.nvim_create_augroup("LspFormatting", {}),
-                            buffer = bufnr,
-                            callback = function()
-                                Vin.cmds.lsp.format_async(bufnr)
-                            end,
-                        })
-                    end
-                end,
-            }
-        end,
-        config = function(_, opts)
-            local null_ls = require("null-ls")
-            null_ls.setup(opts)
+            require("vin.plugins.lsp.null_ls").setup(Vin.config.null_ls)
         end,
     },
 }
