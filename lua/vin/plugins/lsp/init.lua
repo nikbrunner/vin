@@ -46,12 +46,22 @@ return {
             "tamago324/nlsp-settings.nvim",
             "folke/neodev.nvim",
             "jose-elias-alvarez/null-ls.nvim",
+            {
+                "hrsh7th/nvim-cmp",
+                version = false, -- last release is way too old
+                event = "InsertEnter",
+                dependencies = {
+                    "hrsh7th/cmp-nvim-lsp",
+                    "hrsh7th/cmp-buffer",
+                    "hrsh7th/cmp-path",
+                    "hrsh7th/cmp-nvim-lua",
+                    "saadparwaiz1/cmp_luasnip",
+                    "onsails/lspkind-nvim",
+                },
+            },
         },
         config = function()
             local lsp_zero = require("lsp-zero")
-
-            local merge = Vin.lib.utils.merge
-            local ensure_installed = Vin.config.mason.ensure_installed.servers
 
             lsp_zero.preset("recommended")
 
@@ -83,16 +93,16 @@ return {
                 },
             }
 
-            lsp_zero.setup_servers(merge({
-                ensure_installed,
+            lsp_zero.setup_servers(Vin.lib.utils.merge({
+                Vin.config.mason.ensure_installed.servers,
                 shared_lsp_opts,
             }))
 
-            require("vin.plugins.lsp.jsonls")
-            require("vin.plugins.lsp.sumneko_lua")
-            require("vin.plugins.lsp.denols")
-            require("vin.plugins.lsp.tsserver")
-            require("vin.plugins.lsp.cssls")
+            require("vin.plugins.lsp.jsonls").setup(lsp_zero)
+            require("vin.plugins.lsp.sumneko_lua").setup(lsp_zero)
+            require("vin.plugins.lsp.denols").setup(lsp_zero)
+            require("vin.plugins.lsp.tsserver").setup(lsp_zero)
+            require("vin.plugins.lsp.cssls").setup(lsp_zero)
 
             -- NOTE: Must be called after all of server configurations
             lsp_zero.setup()
@@ -110,59 +120,7 @@ return {
                 },
             })
 
-            local cmp = require("cmp")
-            local lspkind = require("lspkind")
-
-            local cmp_mappings = lsp_zero.defaults.cmp_mappings({
-                ["<C-k>"] = cmp.mapping.select_prev_item(),
-                ["<C-j>"] = cmp.mapping.select_next_item(),
-                -- This is to trigger the completion menu
-                ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-                -- Accept currently selected item. If none selected, `select` first item.
-                -- Set `select` to `false` to only confirm explicitly selected items.
-                ["<CR>"] = cmp.mapping.confirm({ select = true }),
-            })
-
-            local cmp_config = lsp_zero.defaults.cmp_config({
-                mapping = cmp_mappings,
-                sources = {
-                    { name = "copilot" },
-                    { name = "nvim_lsp" },
-                    { name = "buffer" },
-                    { name = "path" },
-                    { name = "luasnip" },
-                },
-                formatting = {
-                    fields = { "kind", "abbr", "menu" },
-                    format = lspkind.cmp_format({
-                        mode = "symbol",
-                        -- max_width = 50,
-                        symbol_map = { Copilot = " " },
-                        -- The function below will be called before any actual modifications from lspkind
-                        -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-                        before = function(entry, vim_item)
-                            vim_item.menu = ({
-                                nvim_lsp = "[LSP]",
-                                luasnip = "[Snippet]",
-                                buffer = "[Buffer]",
-                                path = "[Path]",
-                            })[entry.source.name]
-
-                            return vim_item
-                        end,
-                    }),
-                },
-                confirm_opts = {
-                    behavior = cmp.ConfirmBehavior.Replace,
-                    select = true,
-                },
-                window = {
-                    completion = cmp.config.window.bordered(),
-                    documentation = cmp.config.window.bordered(),
-                },
-            })
-
-            cmp.setup(cmp_config)
+            require("vin.plugins.lsp.cmp").setup(lsp_zero)
         end,
     },
 

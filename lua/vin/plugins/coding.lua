@@ -43,22 +43,6 @@ return {
     },
 
     {
-        "hrsh7th/nvim-cmp",
-        version = false, -- last release is way too old
-        event = "InsertEnter",
-        dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "saadparwaiz1/cmp_luasnip",
-            "hrsh7th/cmp-nvim-lua",
-            "onsails/lspkind-nvim",
-            "VonHeikemen/lsp-zero.nvim",
-        },
-        -- INFO: Setup via lsp-zero
-    },
-
-    {
         "echasnovski/mini.surround",
         opts = {
             mappings = {
