@@ -1,34 +1,5 @@
-return {
-    { "nvim-lua/popup.nvim" }, -- QUESTION: Need?
 
-    {
-        "kazhala/close-buffers.nvim",
-        event = "VeryLazy",
-    },
-
-    {
-        "s1n7ax/nvim-window-picker",
-        event = "VeryLazy",
-        version = "v1.*",
-    },
-
-    {
-        "wellle/targets.vim",
-        event = "VeryLazy",
-    },
-
-    {
-        "davidgranstrom/nvim-markdown-preview",
-        lazy = false,
-    },
-
-    {
-        "folke/persistence.nvim",
-        event = "BufReadPre",
-        opts = { options = { "buffers", "curdir", "tabpages", "winsize", "help" } },
-    },
-
-    {
+    return {
         "RRethy/vim-illuminate",
         event = "BufReadPost",
         opts = { delay = 200 },
@@ -58,5 +29,4 @@ return {
                 desc = "Prev Reference",
             },
         },
-    },
-}
+    }

@@ -39,8 +39,8 @@ function M.setup(lsp_zero, config_sources)
             if client.supports_method("textDocument/formatting") then
                 vim.api.nvim_create_autocmd("BufWritePost", {
                     group = vim.api.nvim_create_augroup("NullFormatGroup", {}),
-                        buffer = bufnr,
-                        callback = format_cmd,
+                    buffer = bufnr,
+                    callback = format_cmd,
                 })
             end
         end,
