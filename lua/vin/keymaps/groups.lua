@@ -141,7 +141,7 @@ M.lsp = {
         "Next Diagnostic",
     },
 
-    f = { cmds.lsp.format_async, "Format" },
+    f = { "<cmd>NullFormat<CR>", "Format (Null)" },
     a = { vim.lsp.buf.code_action, "Code Action" },
     n = { vim.lsp.buf.rename, "Rename" },
     i = { "<cmd>LspInfo<CR>", "Info" },

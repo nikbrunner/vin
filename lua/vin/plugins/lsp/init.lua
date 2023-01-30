@@ -133,7 +133,7 @@ return {
             })
 
             require("vin.plugins.lsp.cmp").setup(lsp_zero)
-            require("vin.plugins.lsp.null_ls").setup(Vin.config.null_ls)
+            require("vin.plugins.lsp.null_ls").setup(lsp_zero, Vin.config.null_ls)
         end,
     },
 }
