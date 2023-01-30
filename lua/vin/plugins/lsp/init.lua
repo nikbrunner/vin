@@ -98,11 +98,15 @@ return {
                 shared_lsp_opts,
             }))
 
-            require("vin.plugins.lsp.jsonls").setup(lsp_zero)
-            require("vin.plugins.lsp.sumneko_lua").setup(lsp_zero)
-            require("vin.plugins.lsp.denols").setup(lsp_zero)
-            require("vin.plugins.lsp.tsserver").setup(lsp_zero)
-            require("vin.plugins.lsp.cssls").setup(lsp_zero)
+            -- get all names of files in the lsp.servers directory
+            local server_configs = vim.fn.readdir(
+                vim.fn.stdpath("config") .. "/lua/vin/plugins/lsp/servers"
+            )
+            -- for each file name require it
+            for i, server in ipairs(server_configs) do
+                local server_without_file_ext = server:gsub("%..*", "")
+                require("vin.plugins.lsp.servers." .. server_without_file_ext).setup(lsp_zero)
+            end
 
             -- NOTE: Must be called after all of server configurations
             lsp_zero.setup()
