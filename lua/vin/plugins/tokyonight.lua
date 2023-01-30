@@ -35,7 +35,20 @@ return {
         --- function will be called with a Highlights and ColorScheme table
         ---@param highlights Highlights
         ---@param colors ColorScheme
-        on_highlights = function(highlights, colors) end,
+        on_highlights = function(highlights, colors)
+            highlights.TreesitterContext = {
+                link = "StatusLine",
+            }
+
+            highlights.TreesitterContextLineNumber = {
+                link = "StatusLine",
+            }
+
+            highlights.NeoTreeWinSeparator = {
+                fg = colors.bg_dark,
+                bg = colors.bg_dark
+            }
+        end,
     },
     config = function(_, opts)
         local tokyo = require("tokyonight")
