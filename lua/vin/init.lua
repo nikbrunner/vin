@@ -8,10 +8,17 @@ _G.Vin = {
 
 require("vin.lib")
 require("vin.options")
-require("vin.config")
 require("vin.icons")
-require("vin.plugins")
+require("vin.config")
+require("vin.lazy")
 require("vin.autocmds")
-require("vin.colorscheme")
 require("vin.cmds")
 require("vin.keymaps")
+
+-- Setup colorscheme
+function InitColorScheme(color)
+    color = color or "default"
+    vim.cmd.colorscheme(color)
+end
+
+InitColorScheme(Vin.config.colorscheme)

@@ -7,22 +7,12 @@ end
 WhichKeyIgnoreLabel = "which_key_ignore"
 
 local options = require("vin.keymaps.options")
-local config = require("vin.keymaps.config")
 
 local normal = require("vin.keymaps.normal")
 local insert = require("vin.keymaps.insert")
 local visual = require("vin.keymaps.visual")
 local term = require("vin.keymaps.term")
 local visual_block = require("vin.keymaps.visual_block")
-
---Remap space as leader key
--- QUESTION: Is this the best way to do this?
-vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
--- Setup Which-Key with Config
-which_key.setup(config)
 
 -- Register Mappings for ..
 -- Normal Mode

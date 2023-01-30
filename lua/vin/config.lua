@@ -9,7 +9,7 @@ local NOTES_PATH = join(DOCUMENTS_PATH, "notes/")
 ---@class VinConfig
 Vin.config = {
     username = "Nik",
-    colorscheme = "tokyonight-night",
+    colorscheme = "tokyonight",
     nightly_version = "0.9",
     copilot = {
         suggestions = {
@@ -18,23 +18,34 @@ Vin.config = {
             enable_cmp = false,
         },
     },
-    servers = {
-        ---Attention: It is not (yet?) possible to ensure installation of `non-lsp` tools (see here: https://github.com/williamboman/mason-lspconfig.nvim/issues/113)
-        ---These entries get handed over to via `lsp-zero` to `mason.nvim`
-        ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-        ---@see https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
-        ---@see https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
+    mason = {
         ensure_installed = {
-            "cssls",
-            "gopls",
-            "gopls",
-            "html",
-            "jsonls",
-            "marksman",
-            "rust_analyzer",
-            "sumneko_lua",
-            "tsserver",
-            "eslint",
+            ---Attention: It is not (yet?) possible to ensure installation of `non-lsp` tools (see here: https://github.com/williamboman/mason-lspconfig.nvim/issues/113)
+            ---These entries get handed over to via `lsp-zero` to `mason.nvim`
+            ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+            ---@see https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
+            ---@see https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
+            servers = {
+                "cssls",
+                "gopls",
+                "gopls",
+                "bashls",
+                "html",
+                "jsonls",
+                "marksman",
+                "rust_analyzer",
+                "sumneko_lua",
+                "tsserver",
+                "eslint",
+            },
+            --- Via: WhoIsSethDaniel/mason-tool-installer.nvim
+            tools = {
+                "stylua",
+                "luacheck",
+                "shellcheck",
+                "gopls",
+                "prettierd",
+            },
         },
     },
     syntax = {
@@ -43,7 +54,6 @@ Vin.config = {
         ensure_installed = {
             "bash",
             "css",
-            "scss",
             "go",
             "help",
             "html",
@@ -53,8 +63,12 @@ Vin.config = {
             "json",
             "lua",
             "markdown",
+            "markdown_inline",
             "python",
+            "query",
+            "regex",
             "rust",
+            "scss",
             "tsx",
             "typescript",
             "vim",
@@ -64,7 +78,7 @@ Vin.config = {
     null_ls = {
         ---@see https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
         formatting = {
-            "prettier",
+            "prettierd",
             "stylua",
         },
         ---@see https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics

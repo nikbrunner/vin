@@ -1,31 +1,32 @@
 # TODO
 
-<!--toc:start-->
-
-- [TODO](#todo)
-  - [General](#general)
-  - [Maps](#maps)
-    - [Unify Mappings with Wrapper Function with opt. description which falls back to `which_key_ignore`](#unify-mappings-with-wrapper-function-with-opt-description-which-falls-back-to-whichkeyignore)
-  - [LSP](#lsp)
-  - [0.9](#09)
-  - [Ideas](#ideas)
-  - [Plugins](#plugins)
-  - [Test](#test)
-  - [Window Navigation](#window-navigation)
-  - [Editor Navigation](#editor-navigation)
-  - [Session](#session)
-  - [Other](#other)
-  <!--toc:end-->
-
 ## General
+
+- [x] arch: Rework PlugIn Structure with LazyVim Plugin Specs
+- [ ] arch: Resolve Vin object and convert to module requires
+- [x] arch: Split Plug In Specs in Single Files
+- [ ] arch: Rethink Config
+- [ ] plugs: Better color tool (Replace ccc)
+- [ ] chore: Replace `vim.cmd("Command")` with `vim.cmd.Command()`
+- [ ] util: Populatate QuickFix List with Issue Number from Input
+- [ ] util: Populatate QuickFix List with Issue Number from Input
+- [x] lsp: Ensure Setup of non-lsp tools
+- [ ] lsp: Fix Lua Nvim Workspace Settings
+- [x] lsp: Improve Lsp Structure (Try to get from LazyVim)
+- [x] lsp: Ensure null_ls after lsp_zero
+  - [lsp-zero.nvim/advance-usage.md at main · VonHeikemen/lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim/blob/main/advance-usage.md#intergrate-with-null-ls)
+- [ ] config: Move Icons to Config
+- [ ] plugs: UFO fold
+- [ ] plugs: navic
+- [ ] plugs: context
 
 ## Maps
 
-- [ ] Convert to native mappings. These should get recognized via WhichKey
-- [ ] **LunarVim** - Align Mappings
-- [ ] Map for `TSHighlightGroupsUnderCursor`
+- [ ] maps: Grep visually selected text `<leader>sv`
+- [ ] maps: Convert to native mappings. These should get recognized via WhichKey
+- [ ] maps: Map for `TSHighlightGroupsUnderCursor`
 
-### Unify Mappings with Wrapper Function with opt. description which falls back to `which_key_ignore`
+**Unify Mappings with Wrapper Function with opt. description which falls back to `which_key_ignore`**
 
 ```lua
 map("s", "ZenMode")
@@ -33,25 +34,7 @@ map("s", "ZenMode", "Distraction Free Mode")
 map("n", "norm nzzzv", "Distraction Free Mode")
 ```
 
-## LSP
-
-- [ ] Setup Types
-- [ ] Improve Lua Nvim Workspace Settings
-
-## 0.9
-
-- [ ] Replace `vim.cmd("Command")` with `vim.cmd.Command()`
-
-## Ideas
-
-- [ ] Generative TODO Comments with an dynamic issue number and lang detection
-  - Example: `// TODO:3232 - Outsource function`
-  - Number or String could be stored on Vin Table during runtime
-  - Run `:TodoTelescope default_text=3232`
-
 ## Plugins
-
-Checkout, evaluate, implement
 
 ### Colorschemes
 
@@ -71,10 +54,6 @@ Checkout, evaluate, implement
 - [navigator.lua](https://github.com/ray-x/navigator.lua)
 - [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
-
-### Session
-
-- [folke/persistence.nvim: 💾 Simple session management for Neovim](https://github.com/folke/persistence.nvim)
 
 ### Other
 

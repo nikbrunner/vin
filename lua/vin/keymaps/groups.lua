@@ -141,7 +141,7 @@ M.lsp = {
         "Next Diagnostic",
     },
 
-    f = { cmds.lsp.format_async, "Format" },
+    f = { "<cmd>NullFormat<CR>", "Format (Null)" },
     a = { vim.lsp.buf.code_action, "Code Action" },
     n = { vim.lsp.buf.rename, "Rename" },
     i = { "<cmd>LspInfo<CR>", "Info" },
@@ -238,6 +238,27 @@ M.search = {
     m = { "<cmd>Telescope marks<CR>", "Marks" },
     g = { Vin.cmds.fuzzy.find_changed_files, "Open Changed Files" },
     r = { Vin.cmds.fuzzy.find_related_files, "Related Files" },
+    n = {
+        name = "Noice",
+        a = {
+            function()
+                require("noice").cmd("all")
+            end,
+            "Noice All",
+        },
+        l = {
+            function()
+                require("noice").cmd("last")
+            end,
+            "Noice Last Message",
+        },
+        h = {
+            function()
+                require("noice").cmd("history")
+            end,
+            "Noice History",
+        },
+    },
     a = {
         name = "Advanced",
         s = { Vin.cmds.fuzzy.find_scss_symbol, "SCSS Symbol" },
@@ -420,6 +441,45 @@ M.insert = {
         name = "Log",
         l = { Vin.cmds.edit.log_symbol, "Auto Log Symbol" },
         d = { Vin.cmds.edit.delete_logs, "Delete Logs" },
+    },
+}
+
+M.session = {
+    name = "Session",
+    r = {
+        function()
+            require("persistence").load()
+        end,
+        "Restore Session",
+    },
+    l = {
+        function()
+            require("persistence").load({ last = true })
+        end,
+        "Restore Last Session",
+    },
+    d = {
+        function()
+            require("persistence").stop()
+        end,
+        "Don't Save Current Session",
+    },
+}
+
+M.problems = {
+    name = "Problems",
+    x = {
+        "<cmd>TroubleToggle document_diagnostics<cr>",
+        "Document Diagnostics (Trouble)",
+    },
+    X = {
+        "<cmd>TroubleToggle workspace_diagnostics<cr>",
+        "Workspace Diagnostics (Trouble)",
+    },
+    t = { "<cmd>TodoTrouble<cr>", "Todo (Trouble)" },
+    T = {
+        "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",
+        "Todo/Fix/Fixme (Trouble)",
     },
 }
 

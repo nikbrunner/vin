@@ -80,6 +80,7 @@ M.with_leader = {
     [" "] = { "<cmd>Telescope buffers<CR>", "Buffers" },
     ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Grep in File" },
     [":"] = { "<cmd>Telescope commands<CR>", "Commands" },
+    ["`"] = {"<cmd>e #<cr>",  "Switch to Other Buffer" },
 
     -- Tab navigation
     ["1"] = { "1gt", WhichKeyIgnoreLabel },
@@ -106,6 +107,8 @@ M.with_leader = {
     v = groups.vin,
     w = groups.windows,
     T = groups.terra,
+    x = groups.problems,
+    S = groups.session,
 }
 
 return M
