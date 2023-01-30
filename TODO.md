@@ -22,6 +22,7 @@
 
 ## Maps
 
+- [ ] maps: Grep visually selected text `<leader>sv`
 - [ ] maps: Convert to native mappings. These should get recognized via WhichKey
 - [ ] maps: Map for `TSHighlightGroupsUnderCursor`
 
