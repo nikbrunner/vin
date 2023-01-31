@@ -45,7 +45,7 @@ return {
             }
 
             highlights.NeoTreeWinSeparator = {
-                fg = colors.bg_dark,
+                fg = colors.fg_dark,
                 bg = colors.bg_dark
             }
         end,
