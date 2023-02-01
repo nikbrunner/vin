@@ -10,8 +10,8 @@ return {
         },
         opts = {
             ensure_installed = Vin.config.syntax.ensure_installed, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-            autotag = { -- QUESTION: Need?
-                enable = false,
+            autotag = {
+                enable = true,
             },
             highlight = {
                 enable = true,
