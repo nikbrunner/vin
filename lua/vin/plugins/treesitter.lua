@@ -153,8 +153,7 @@ return {
             mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
         },
         config = function(_, opts)
-
-local  context = require( "treesitter-context")
+            local context = require("treesitter-context")
             context.setup(opts)
         end,
     },

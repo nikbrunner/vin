@@ -80,7 +80,7 @@ M.with_leader = {
     [" "] = { "<cmd>Telescope buffers<CR>", "Buffers" },
     ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Grep in File" },
     [":"] = { "<cmd>Telescope commands<CR>", "Commands" },
-    ["`"] = {"<cmd>e #<cr>",  "Switch to Other Buffer" },
+    ["`"] = { "<cmd>e #<cr>", "Switch to Other Buffer" },
 
     -- Tab navigation
     ["1"] = { "1gt", WhichKeyIgnoreLabel },

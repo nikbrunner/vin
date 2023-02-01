@@ -1,4 +1,4 @@
-    -- TODO: Replace with mini.comment?
+-- TODO: Replace with mini.comment?
 return {
     "numToStr/Comment.nvim",
     event = "VeryLazy",

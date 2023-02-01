@@ -1,5 +1,4 @@
-
-    return {
-        "davidgranstrom/nvim-markdown-preview",
-        lazy = false,
-    }
+return {
+    "davidgranstrom/nvim-markdown-preview",
+    lazy = false,
+}

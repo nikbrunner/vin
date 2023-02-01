@@ -1,8 +1,10 @@
 local M = {}
 
 function M.setup(lsp_zero)
-    local jsonls_settings_present, jsonls_settings =
-        pcall(require, "nlspsettings.jsonls")
+    local jsonls_settings_present, jsonls_settings = pcall(
+        require,
+        "nlspsettings.jsonls"
+    )
 
     local default_schemas = nil
 
