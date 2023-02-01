@@ -107,21 +107,21 @@ M.with_leader = {
     ["9"] = { "9gt", WhichKeyIgnoreLabel },
 
     -- Groups
-    e = groups.explorer,
     b = groups.buffer,
-    s = groups.search,
+    c = groups.copy,
+    d = groups.debug,
+    e = groups.explorer,
     g = groups.git,
     l = groups.lsp,
     m = groups.marks,
     q = groups.quit,
-    c = groups.copy,
+    s = groups.search,
     t = groups.tabs,
-    i = groups.insert,
     v = groups.vin,
     w = groups.windows,
-    T = groups.terra,
     x = groups.problems,
     S = groups.session,
+    T = groups.terra,
 }
 
 return M

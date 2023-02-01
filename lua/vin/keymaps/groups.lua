@@ -433,17 +433,6 @@ M.vin = {
     i = { "<cmd>LspInfo<CR>", "Info" },
 }
 
-M.insert = {
-    name = "Insert",
-    o = { "mzo<esc>`z", "New line below" },
-    O = { "mzO<esc>`z", "New line above" },
-    l = {
-        name = "Log",
-        l = { Vin.cmds.edit.log_symbol, "Auto Log Symbol" },
-        d = { Vin.cmds.edit.delete_logs, "Delete Logs" },
-    },
-}
-
 M.session = {
     name = "Session",
     r = {
@@ -480,6 +469,19 @@ M.problems = {
     T = {
         "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",
         "Todo/Fix/Fixme (Trouble)",
+    },
+}
+
+M.debug = {
+    name = "Debug",
+    h = {
+        "<cmd>TSHighlightCapturesUnderCursor<CR>",
+        "Treesitter Highlight under Cursor",
+    },
+    l = {
+        name = "Log",
+        l = { Vin.cmds.edit.log_symbol, "Auto Log Symbol" },
+        d = { Vin.cmds.edit.delete_logs, "Delete Logs" },
     },
 }
 
