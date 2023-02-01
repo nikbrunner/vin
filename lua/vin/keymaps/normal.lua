@@ -70,6 +70,19 @@ M.no_leader = {
 
     ["vv"] = { "^v$", "Select Line" },
     ["vA"] = { "ggVG", "Select All" },
+
+    ["zR"] = { require("ufo").openAllFolds, "Open all Folds (Ufo)" },
+    ["zM"] = { require("ufo").closeAllFolds, "Close all Folds (Ufo)" },
+    ["zm"] = { require("ufo").closeFoldsWith, "Close Folds With (Ufo)" },
+    ["zp"] = {
+        function()
+            local winid = require("ufo").peekFoldedLinesUnderCursor()
+            if not winid then
+                vim.lsp.buf.hover()
+            end
+        end,
+        "Preview Fold (Ufo)",
+    },
 }
 
 M.with_leader = {

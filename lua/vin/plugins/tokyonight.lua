@@ -36,6 +36,11 @@ return {
         ---@param highlights Highlights
         ---@param colors ColorScheme
         on_highlights = function(highlights, colors)
+            highlights.Folded = {
+                fg = colors.fg_dark,
+                bg = colors.bg_dark,
+            }
+
             highlights.TreesitterContext = {
                 link = "StatusLine",
             }
@@ -46,6 +51,10 @@ return {
 
             highlights.NeoTreeWinSeparator = {
                 fg = colors.fg_dark,
+                bg = colors.bg_dark,
+            }
+
+            highlights.UfoFoldedBg = {
                 bg = colors.bg_dark,
             }
         end,
