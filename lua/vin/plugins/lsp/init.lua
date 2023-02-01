@@ -91,7 +91,7 @@ return {
                 -- NOTE: `opts` is a required property for providing options to all mentioned servers
                 opts = {
                     flags = {
-                        debounce_text_changes = 25,
+                        debounce_text_changes = 0,
                     },
                 },
             }
@@ -107,7 +107,9 @@ return {
             )
 
             local load_server_config = function(server_config_file_name)
-                require("vin.plugins.lsp.servers." .. server_config_file_name).setup(lsp_zero)
+                require("vin.plugins.lsp.servers." .. server_config_file_name).setup(
+                    lsp_zero
+                )
             end
 
             -- for each file name require it
@@ -115,6 +117,8 @@ return {
                 -- Remove file extension from server_config and load it
                 load_server_config(server_config:gsub("%..*", ""))
             end
+
+            lsp_zero.nvim_workspace()
 
             -- NOTE: Must be called after all of server configurations
             lsp_zero.setup()
