@@ -474,9 +474,9 @@ M.problems = {
 
 M.debug = {
     name = "Debug",
-    h = {
-        "<cmd>TSHighlightCapturesUnderCursor<CR>",
-        "Treesitter Highlight under Cursor",
+    i = {
+        "<cmd>Inspect<CR>",
+        "Inspect",
     },
     l = {
         name = "Log",
