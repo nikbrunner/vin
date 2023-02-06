@@ -31,14 +31,10 @@ return {
 
         local project_name = {
             function()
-                local current_project_folder = vim.fn.fnamemodify(
-                    vim.fn.getcwd(),
-                    ":t"
-                )
-                local parent_project_folder = vim.fn.fnamemodify(
-                    vim.fn.getcwd(),
-                    ":h:t"
-                )
+                local current_project_folder =
+                    vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+                local parent_project_folder =
+                    vim.fn.fnamemodify(vim.fn.getcwd(), ":h:t")
                 return Vin.icons.documents.Folder
                     .. " "
                     .. parent_project_folder
@@ -202,26 +198,25 @@ return {
                 refresh = {
                     statusline = 1000,
                     tabline = 1000,
-                    winbar = 1000,
                 },
             },
             tabline = {},
-            winbar = {
-                lualine_a = {},
-                lualine_b = { filetype_icon, filename },
-                lualine_c = {},
-                lualine_x = { lsp_clients, diff, "diagnostics" },
-                lualine_y = {},
-                lualine_z = {},
-            },
-            inactive_winbar = {
-                lualine_a = {},
-                lualine_b = { filetype_icon, filename },
-                lualine_c = {},
-                lualine_x = {},
-                lualine_y = {},
-                lualine_z = {},
-            },
+            -- winbar = {
+            --     lualine_a = {},
+            --     lualine_b = { filetype_icon, filename },
+            --     lualine_c = {},
+            --     lualine_x = { lsp_clients, diff, "diagnostics" },
+            --     lualine_y = {},
+            --     lualine_z = {},
+            -- },
+            -- inactive_winbar = {
+            --     lualine_a = {},
+            --     lualine_b = { filetype_icon, filename },
+            --     lualine_c = {},
+            --     lualine_x = {},
+            --     lualine_y = {},
+            --     lualine_z = {},
+            -- },
             sections = {
                 lualine_a = { mode },
                 lualine_b = { project_name, branch },
