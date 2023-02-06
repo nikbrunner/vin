@@ -89,11 +89,12 @@ M.with_leader = {
     -- Singles
     f = { "<cmd>Telescope find_files<CR>", "Find File" },
     z = { "<cmd>ZenMode<CR>", "Zen" },
-    n = { "<cmd>nohl<CR>", "Hide Search HL" },
+    n = { "<cmd>nohl<CR>", WhichKeyIgnoreLabel },
     [" "] = { "<cmd>Telescope buffers<CR>", "Buffers" },
     ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Grep in File" },
     [":"] = { "<cmd>Telescope commands<CR>", "Commands" },
-    ["`"] = { "<cmd>e #<cr>", "Switch to Other Buffer" },
+    ["`"] = { "<cmd>e #<CR>", "Switch to Other Buffer" },
+    ["<CR>"] = { "<cmd>wa<CR>", "Save All" },
 
     -- Tab navigation
     ["1"] = { "1gt", WhichKeyIgnoreLabel },
