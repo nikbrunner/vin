@@ -1,7 +1,9 @@
-return {
+---@type LazySpec
+local spec = {
     "utilyre/barbecue.nvim",
     name = "barbecue",
     version = "*",
+    branch = "fix/E36",
     dependencies = {
         "SmiteshP/nvim-navic",
         "nvim-tree/nvim-web-devicons", -- optional dependency
@@ -80,3 +82,5 @@ return {
         kinds = Vin.icons,
     },
 }
+
+return spec
