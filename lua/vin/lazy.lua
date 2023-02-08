@@ -15,7 +15,8 @@ end
 
 vim.opt.runtimepath:prepend(lazypath)
 
-require("lazy").setup("vin.plugins", {
+---@type LazyConfig
+local lazyOpts = {
     root = vim.fn.stdpath("data") .. "/lazy", -- directory where plugins will be installed
     spec = nil,
     defaults = {
@@ -34,9 +35,9 @@ require("lazy").setup("vin.plugins", {
     },
     dev = {
         -- directory where you store your local plugin projects
-        path = "~/Documents/dev/repos/personal",
+        path = "~/Documents/dev/repos/terra-theme",
         ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
-        patterns = {}, -- For example {"folke"}
+        patterns = { "nikbrunner", "terra-theme" }, -- For example {"folke"}
     },
     install = {
         -- install missing plugins on startup. This doesn't increase startup time.
@@ -125,4 +126,6 @@ require("lazy").setup("vin.plugins", {
         -- only generate markdown helptags for plugins that dont have docs
         skip_if_doc_exists = true,
     },
-})
+}
+
+require("lazy").setup("vin.plugins", lazyOpts)
