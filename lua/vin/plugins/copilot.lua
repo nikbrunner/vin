@@ -1,4 +1,8 @@
-return {
+-- NOTE: Usage & Billing: https://github.com/settings/billing
+-- Authentication via Plugin
+
+---@type LazySpec
+local spec = {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
     dependencies = { "zbirenbaum/copilot-cmp" },
@@ -52,3 +56,5 @@ return {
         copilot_node_command = "node", -- Node.js version must be > 16.x
     },
 }
+
+return spec

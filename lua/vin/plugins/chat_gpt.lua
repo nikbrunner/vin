@@ -1,3 +1,6 @@
+-- NOTE: Usage & Billing: https://platform.openai.com/account/usage
+-- API Key is stored in 1Password and is set as a Environment Variable
+
 ---@type LazySpec
 local spec = {
     "jackMort/ChatGPT.nvim",
