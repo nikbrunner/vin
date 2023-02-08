@@ -485,4 +485,10 @@ M.debug = {
     },
 }
 
+M.action = {
+    name = "Actions",
+    i = { "<cmd>ChatGPT<CR>", "ChatGPT" },
+    c = { vim.lsp.buf.code_action, "Code Action" },
+}
+
 return M

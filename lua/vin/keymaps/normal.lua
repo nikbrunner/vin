@@ -108,6 +108,7 @@ M.with_leader = {
     ["9"] = { "9gt", WhichKeyIgnoreLabel },
 
     -- Groups
+    a = groups.action,
     b = groups.buffer,
     c = groups.copy,
     d = groups.debug,
