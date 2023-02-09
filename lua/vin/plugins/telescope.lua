@@ -178,6 +178,7 @@ return {
                 lsp_references = quick_vertical_window,
                 lsp_implementations = quick_vertical_window,
                 lsp_type_definitions = quick_vertical_window,
+                diagnostics = quick_vertical_window,
                 buffers = quick_vertical_window,
                 current_buffer_fuzzy_find = {
                     theme = "ivy",

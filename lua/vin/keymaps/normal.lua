@@ -87,14 +87,15 @@ M.no_leader = {
 
 M.with_leader = {
     -- Singles
+    n = { vim.cmd.nohl, WhichKeyIgnoreLabel },
+    l = { vim.cmd.vs, WhichKeyIgnoreLabel },
+    j = { vim.cmd.sp, WhichKeyIgnoreLabel },
+    ["<CR>"] = { vim.cmd.wa, "Save All (:wa)" },
     f = { "<cmd>Telescope find_files<CR>", "Find File" },
-    z = { "<cmd>ZenMode<CR>", "Zen" },
-    n = { "<cmd>nohl<CR>", WhichKeyIgnoreLabel },
     [" "] = { "<cmd>Telescope buffers<CR>", "Buffers" },
     ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Grep in File" },
     [":"] = { "<cmd>Telescope commands<CR>", "Commands" },
     ["`"] = { "<cmd>e #<CR>", "Switch to Other Buffer" },
-    ["<CR>"] = { "<cmd>wa<CR>", "Save All" },
 
     -- Tab navigation
     ["1"] = { "1gt", WhichKeyIgnoreLabel },
@@ -111,17 +112,16 @@ M.with_leader = {
     a = groups.action,
     b = groups.buffer,
     c = groups.copy,
-    d = groups.debug,
+    d = groups.diagnostics,
     e = groups.explorer,
     g = groups.git,
-    l = groups.lsp,
     m = groups.marks,
-    q = groups.quit,
     s = groups.search,
     t = groups.tabs,
     v = groups.vin,
     w = groups.windows,
     x = groups.problems,
+    q = groups.quit,
     S = groups.session,
     T = groups.terra,
 }

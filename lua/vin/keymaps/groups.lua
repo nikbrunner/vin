@@ -110,24 +110,12 @@ M.go_next = {
     g = { Vin.cmds.git.hunk_go_next, "Change" },
 }
 
-M.symbols = {
-    name = "Symbols",
-    d = { "<cmd>Telescope lsp_document_symbols<CR>", "Symbols In Document" },
-    w = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Symbols In Workspace" },
-}
-
 M.diagnostics = {
     name = "Diagnostics",
+    i = { "<cmd>LspInfo<CR>", "Info" },
     d = { "<cmd>Trouble document_diagnostics<CR>", "Document Diagnostics" },
     w = { "<cmd>Trouble workspace_diagnostics<CR>", "Workspace Diagnostics" },
-}
-
-M.lsp = {
-    name = "LSP",
-    d = M.diagnostics,
-    s = M.symbols,
-    g = M.advanced_g,
-
+    t = { "<cmd>Telescope diagnostics<CR>", "Diagnostics (Telescope)" },
     k = {
         function()
             vim.diagnostic.goto_prev({})
@@ -140,11 +128,6 @@ M.lsp = {
         end,
         "Next Diagnostic",
     },
-
-    f = { "<cmd>NullFormat<CR>", "Format (Null)" },
-    a = { vim.lsp.buf.code_action, "Code Action" },
-    n = { vim.lsp.buf.rename, "Rename" },
-    i = { "<cmd>LspInfo<CR>", "Info" },
 }
 
 M.explorer = {
@@ -160,9 +143,8 @@ M.explorer = {
 
 M.quit = {
     name = "Quit",
-    s = { "<cmd>silent wq<CR>", "Save and Quit Pane (:wq)" },
+    q = { "<cmd>silent wq<CR>", "Save and Quit Pane (:wq)" },
     c = { Vin.cmds.quit.custom_buffers, "Custom Filter" },
-    q = { Vin.cmds.quit.current_buffer, "Current" },
     o = { Vin.cmds.quit.other_buffers, "Other" },
     h = { Vin.cmds.quit.hidden_buffers, "Hidden" },
     a = { Vin.cmds.quit.all_buffers, "All" },
@@ -223,9 +205,6 @@ M.git = {
 
 M.search = {
     name = "Search",
-    d = M.diagnostics,
-    s = M.symbols,
-
     p = { "<cmd>Telescope project<CR>", "Recent Projects" },
     f = { "<cmd>Telescope find_files<CR>", "Files" },
     t = { "<cmd>Telescope live_grep<CR>", "Find Text Everywhere" },
@@ -238,6 +217,14 @@ M.search = {
     m = { "<cmd>Telescope marks<CR>", "Marks" },
     g = { Vin.cmds.fuzzy.find_changed_files, "Open Changed Files" },
     r = { Vin.cmds.fuzzy.find_related_files, "Related Files" },
+    s = {
+        name = "Symbols",
+        d = { "<cmd>Telescope lsp_document_symbols<CR>", "Symbols In Document" },
+        w = {
+            "<cmd>Telescope lsp_dynamics_workspace_symbols<CR>",
+            "Symbols In Workspace",
+        },
+    },
     n = {
         name = "Noice",
         a = {
@@ -430,7 +417,7 @@ M.vin = {
     m = { "<cmd>Mason<CR>", "Package Manager - [Mason]" },
     n = { "<cmd>NullLsInfo<CR>", "Tool Manager - [NullLS]" },
     l = { "<cmd>Lazy<CR>", "Plugin Manager - [Lazy]" },
-    i = { "<cmd>LspInfo<CR>", "Info" },
+    i = { "<cmd>LspInfo<CR>", "Lsp Info" },
 }
 
 M.session = {
@@ -455,26 +442,30 @@ M.session = {
     },
 }
 
-M.problems = {
-    name = "Problems",
-    x = {
-        "<cmd>TroubleToggle document_diagnostics<cr>",
-        "Document Diagnostics (Trouble)",
-    },
-    X = {
-        "<cmd>TroubleToggle workspace_diagnostics<cr>",
-        "Workspace Diagnostics (Trouble)",
-    },
-    t = { "<cmd>TodoTrouble<cr>", "Todo (Trouble)" },
-    T = {
-        "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",
-        "Todo/Fix/Fixme (Trouble)",
-    },
-}
+-- M.problems = {
+--     name = "Problems",
+--     x = {
+--         "<cmd>TroubleToggle document_diagnostics<cr>",
+--         "Document Diagnostics (Trouble)",
+--     },
+--     X = {
+--         "<cmd>TroubleToggle workspace_diagnostics<cr>",
+--         "Workspace Diagnostics (Trouble)",
+--     },
+--     t = { "<cmd>TodoTrouble<cr>", "Todo (Trouble)" },
+--     T = {
+--         "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",
+--         "Todo/Fix/Fixme (Trouble)",
+--     },
+-- }
 
-M.debug = {
-    name = "Debug",
-    i = {
+M.action = {
+    name = "Actions",
+    i = { "<cmd>ChatGPT<CR>", "ChatGPT" },
+    c = { vim.lsp.buf.code_action, "Code Action" },
+    r = { vim.lsp.buf.rename, "Rename" },
+    f = { "<cmd>NullFormat<CR>", "Format (Null)" },
+    I = {
         "<cmd>Inspect<CR>",
         "Inspect",
     },
@@ -483,12 +474,6 @@ M.debug = {
         l = { Vin.cmds.edit.log_symbol, "Auto Log Symbol" },
         d = { Vin.cmds.edit.delete_logs, "Delete Logs" },
     },
-}
-
-M.action = {
-    name = "Actions",
-    i = { "<cmd>ChatGPT<CR>", "ChatGPT" },
-    c = { vim.lsp.buf.code_action, "Code Action" },
 }
 
 return M
