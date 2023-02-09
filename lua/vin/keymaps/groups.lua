@@ -418,6 +418,7 @@ M.vin = {
     n = { "<cmd>NullLsInfo<CR>", "Tool Manager - [NullLS]" },
     l = { "<cmd>Lazy<CR>", "Plugin Manager - [Lazy]" },
     i = { "<cmd>LspInfo<CR>", "Lsp Info" },
+    t = M.terra,
 }
 
 M.session = {

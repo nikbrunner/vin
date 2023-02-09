@@ -54,6 +54,5 @@ M.with_leader = {
     x = groups.problems,
     q = groups.quit,
     S = groups.session,
-    T = groups.terra,
 }
 return M
