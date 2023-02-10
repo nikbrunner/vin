@@ -11,9 +11,10 @@ vim.api.nvim_create_user_command("FTermToggle", fterm.toggle, {})
 local gitui = fterm:new({
     ft = "fterm_gitui", -- You can also override the default filetype, if you want
     cmd = "lazygit",
+    border = "none",
     dimensions = {
-        height = 0.95,
-        width = 0.95,
+        height = 1,
+        width = 1,
     },
 })
 
