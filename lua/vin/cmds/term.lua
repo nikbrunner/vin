@@ -16,6 +16,15 @@ local gitui = fterm:new({
         height = 1,
         width = 1,
     },
+    on_exit = function()
+        local function refresh_all()
+            require("neo-tree.sources.manager").refresh("filesystem")
+            require("neo-tree.sources.manager").refresh("git_status")
+            require("neo-tree.sources.manager").refresh("buffers")
+        end
+
+        refresh_all()
+    end,
 })
 
 local M = {}
