@@ -18,5 +18,8 @@ return {
 
         -- filetypes that you want to prevent from adding to the harpoon list menu.
         excluded_filetypes = { "harpoon" },
+
+        -- set marks specific to each git branch inside git repository
+        mark_branch = false,
     },
 }
