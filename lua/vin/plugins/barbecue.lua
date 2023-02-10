@@ -4,6 +4,7 @@ local spec = {
     name = "barbecue",
     version = nil,
     branch = "fix/E36",
+    enabled = false,
     dependencies = {
         "SmiteshP/nvim-navic",
         "nvim-tree/nvim-web-devicons", -- optional dependency
