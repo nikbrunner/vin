@@ -143,7 +143,7 @@ M.explorer = {
 
 M.quit = {
     name = "Quit",
-    q = { "<cmd>silent wq<CR>", "Save and Quit Pane (:wq)" },
+    q = { "<cmd>silent q<CR>", "Quit Split (:q)" },
     c = { Vin.cmds.quit.custom_buffers, "Custom Filter" },
     o = { Vin.cmds.quit.other_buffers, "Other" },
     h = { Vin.cmds.quit.hidden_buffers, "Hidden" },
