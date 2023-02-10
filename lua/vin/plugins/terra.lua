@@ -11,7 +11,7 @@ local spec = {
 
     ---@type TerraConfig
     opts = {
-        season = "spring",
+        season = "winter",
     },
 
     config = function(_, opts)
