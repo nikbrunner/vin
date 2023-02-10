@@ -170,6 +170,30 @@ return {
             padding = 1,
         }
 
+        local lazy_plug_count = {
+            function()
+                local stats = require("lazy").stats()
+                return Vin.icons.ui.Package .. " " .. stats.count
+            end,
+            color = { fg = "#ff9e65" },
+        }
+
+        local lazy_startup = {
+            function()
+                local stats = require("lazy").stats()
+                local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+                return Vin.icons.ui.Dashboard .. " " .. ms .. "ms"
+            end,
+            color = { fg = "#ffae7e" },
+        }
+
+        local lazy_updates = {
+            require("lazy.status").updates,
+            cond = require("lazy.status").has_updates,
+            color = { fg = "#ffca64" },
+            padding = 1,
+        }
+
         return {
             options = {
                 globalstatus = true,
@@ -200,7 +224,11 @@ return {
                     tabline = 1000,
                 },
             },
-            tabline = {},
+            tabline = {
+                lualine_a = { date, time },
+                lualine_b = { lazy_plug_count, lazy_startup, lazy_updates },
+                lualine_z = { tabs },
+            },
             winbar = {
                 lualine_a = {},
                 lualine_b = { filetype_icon, filename },
@@ -220,8 +248,12 @@ return {
             sections = {
                 lualine_a = { mode },
                 lualine_b = { project_name, branch },
-                lualine_c = { date, time },
-                lualine_z = { tabs },
+                lualine_c = {},
+                -- lualine_x = {},
+                -- lualine_y = {},
+                -- lualine_z = {},
+                -- lualine_x = { "filetype" },
+                -- lualine_z = { tabs },
             },
             inactive_sections = {
                 lualine_a = {},
