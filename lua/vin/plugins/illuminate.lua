@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "RRethy/vim-illuminate",
     event = "BufReadPost",
     opts = { delay = 200 },
@@ -29,3 +30,5 @@ return {
         },
     },
 }
+
+return spec
