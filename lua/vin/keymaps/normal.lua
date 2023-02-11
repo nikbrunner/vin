@@ -40,12 +40,12 @@ M.no_leader = {
     ["<M-k>"] = { "<Esc>:m .-2<CR>", "Move Up" },
     ["<M-j>"] = { "<Esc>:m .+1<CR>", "Move Down" },
 
+    -- Control bindings
     ["<C-f>"] = { Vin.cmds.nav.pick_window, "  Pick Window" },
-    ["<C-p>"] = { "<cmd>BufferLinePick<CR>", "  Pick Buffer" },
-    ["<C-q>"] = { "<cmd>BufferLinePickClose<CR>", "  Close Buffer" },
+    ["<C-q>"] = { Vin.cmds.general.toggle_quickfix, "Toggle Quick Fix" },
+    ["<C-'>"] = { Vin.cmds.term.toggle, "Term" },
 
     -- FN Key Bindings
-    ["<F6>"] = { Vin.cmds.general.toggle_quickfix, "Toggle Quick Fix" },
     ["<F7>"] = { "<cmd>CccPick<CR>", "Color Picker" },
     ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
     ["<F9>"] = { "<cmd>TodoTrouble<CR>", "Todo Trouble" },

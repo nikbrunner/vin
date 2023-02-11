@@ -1,8 +1,7 @@
 local M = {}
 
 M.no_leader = {
-    ["<C-/>"] = { Vin.cmds.term.toggle, "Toggle Term" },
-    ["<C-g>"] = { Vin.cmds.term.toggle_gitui, "GitUi" },
+    ["<C-'>"] = { Vin.cmds.term.toggle, "Term" },
 }
 
 return M
