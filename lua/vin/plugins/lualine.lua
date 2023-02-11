@@ -17,7 +17,7 @@ return {
 
         local date = {
             function()
-                return os.date("%d.%m.%Y")
+                return os.date("%A, %d %B %Y")
             end,
             padding = 1,
         }
@@ -44,6 +44,7 @@ return {
             padding = 2,
         }
 
+        -- NOTE: This doesnt work and breaks the rest of the lualine
         local last_commit_message = {
             function()
                 local f = io.popen("git log --pretty=%s -1")
