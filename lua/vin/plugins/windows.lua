@@ -3,7 +3,7 @@ return {
     event = "VeryLazy",
     dependencies = {
         "anuvyklack/middleclass",
-        "anuvyklack/animation.nvim",
+        -- "anuvyklack/animation.nvim",
     },
     opts = {
         autowidth = {
