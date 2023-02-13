@@ -16,6 +16,7 @@ local gitui = fterm:new({
         height = 0.9,
         width = 0.9,
     },
+    hl = "NormalFloat",
     on_exit = function()
         local function refresh_all()
             require("neo-tree.sources.manager").refresh("filesystem")
