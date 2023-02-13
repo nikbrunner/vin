@@ -1,6 +1,8 @@
 -- TODO: Does this work?
-return {
+---@type LazySpec
+local spec = {
     "echasnovski/mini.surround",
+    enabled = false,
     opts = {
         mappings = {
             add = "gza", -- Add surrounding in Normal and Visual modes
@@ -17,3 +19,5 @@ return {
         require("mini.surround").setup(opts)
     end,
 }
+
+return spec
