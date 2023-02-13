@@ -12,7 +12,7 @@ return {
             function()
                 return Vin.icons.misc.Vim
             end,
-            padding = 1,
+            padding = 2,
         }
 
         local date = {
@@ -235,7 +235,7 @@ return {
                 lualine_b = { filetype_icon, filename },
                 lualine_c = {},
                 lualine_x = { diff, "diagnostics" },
-                lualine_y = { lsp_clients },
+                lualine_y = {},
                 lualine_z = {},
             },
             inactive_winbar = {
@@ -250,11 +250,9 @@ return {
                 lualine_a = { mode },
                 lualine_b = { project_name, branch },
                 lualine_c = {},
-                -- lualine_x = {},
+                lualine_x = { lsp_clients },
                 -- lualine_y = {},
                 -- lualine_z = {},
-                -- lualine_x = { "filetype" },
-                -- lualine_z = { tabs },
             },
             inactive_sections = {
                 lualine_a = {},
