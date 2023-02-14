@@ -25,6 +25,39 @@ M.no_leader = {
     H = { "^", WhichKeyIgnoreLabel },
     L = { "$", WhichKeyIgnoreLabel },
 
+    -- Ctrl Number bindings to jump to Harpon markings
+    -- NOTE: This requires some settings in kitty to be working
+    ["<C-1>"] = {
+        function()
+            Vin.cmds.harpoon.jump_to_file(1)
+        end,
+        " ",
+    },
+    ["<C-2>"] = {
+        function()
+            Vin.cmds.harpoon.jump_to_file(2)
+        end,
+        " ",
+    },
+    ["<C-3>"] = {
+        function()
+            Vin.cmds.harpoon.jump_to_file(3)
+        end,
+        " ",
+    },
+    ["<C-4>"] = {
+        function()
+            Vin.cmds.harpoon.jump_to_file(4)
+        end,
+        " ",
+    },
+    ["<C-5>"] = {
+        function()
+            Vin.cmds.harpoon.jump_to_file(5)
+        end,
+        " ",
+    },
+
     -- Toggle Neotree sidbars
     ["<M-[>"] = { "<cmd>Neotree left toggle<CR>", "Neotree Left Toggle" },
     ["<M-]>"] = {
