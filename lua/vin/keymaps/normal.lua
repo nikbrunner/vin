@@ -91,6 +91,7 @@ M.no_leader = {
 
     ["<C-e>"] = { "<cmd>Neotree float<CR>", "Quick Floating File Tree" },
     ["<C-g>"] = { "<cmd>Neotree git_status float<CR>", "Quick Floating Git Files" },
+    ["<C-p>"] = { "<cmd>FzfLua files<CR>", "Find File" },
 
     -- Resize with arrows
     ["<C-up>"] = { ":resize -2<CR>", "Resize Up" },
@@ -124,7 +125,8 @@ M.with_leader = {
     l = { vim.cmd.vs, WhichKeyIgnoreLabel },
     j = { vim.cmd.sp, WhichKeyIgnoreLabel },
     ["<CR>"] = { vim.cmd.wa, "Save All (:wa)" },
-    f = { "<cmd>Telescope find_files<CR>", "Find File" },
+    -- f = { "<cmd>Telescope find_files<CR>", "Find File" },
+    f = { "<cmd>FzfLua files<CR>", "Find File" },
     [" "] = { "<cmd>Telescope buffers<CR>", "Buffers" },
     ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Grep in File" },
     [":"] = { "<cmd>Telescope commands<CR>", "Commands" },
