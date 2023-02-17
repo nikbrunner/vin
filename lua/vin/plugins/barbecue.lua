@@ -2,8 +2,7 @@
 local spec = {
     "utilyre/barbecue.nvim",
     name = "barbecue",
-    version = nil,
-    branch = "fix/E36",
+    version = "*",
     enabled = false,
     dependencies = {
         "SmiteshP/nvim-navic",
