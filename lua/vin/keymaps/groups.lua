@@ -464,7 +464,7 @@ M.action = {
     name = "Actions",
     i = { "<cmd>ChatGPT<CR>", "ChatGPT" },
     c = { vim.lsp.buf.code_action, "Code Action" },
-    r = { vim.lsp.buf.rename, "Rename" },
+    n = { vim.lsp.buf.rename, "Rename" },
     f = { "<cmd>NullFormat<CR>", "Format (Null)" },
     I = {
         "<cmd>Inspect<CR>",
