@@ -63,7 +63,7 @@ return {
             copilot = Vin.icons.git.Octoface,
             cssls = Vin.icons.lang.Css,
             tsserver = Vin.icons.lang.TypeScript,
-            sumneko_lua = Vin.icons.lang.Lua,
+            lua_ls = Vin.icons.lang.Lua,
             jsonls = Vin.icons.lang.JSON,
             html = Vin.icons.lang.Html,
             marksman = Vin.icons.lang.Markdown,

@@ -34,7 +34,7 @@ Vin.config = {
                 "jsonls",
                 "marksman",
                 "rust_analyzer",
-                "sumneko_lua",
+                "lua_ls",
                 "tsserver",
                 "eslint",
             },
