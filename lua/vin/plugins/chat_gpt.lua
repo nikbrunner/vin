@@ -1,5 +1,6 @@
 -- NOTE: Usage & Billing: https://platform.openai.com/account/usage
 -- API Key is stored in 1Password and is set as a Environment Variable
+-- API Key is exposed via `.zshenv` to prevent commiting it to dotfiles repo
 
 ---@type LazySpec
 local spec = {
