@@ -14,7 +14,7 @@ Vin.config = {
     copilot = {
         suggestions = {
             enable = true,
-            auto_trigger = false,
+            auto_trigger = true,
             enable_cmp = false,
         },
     },
