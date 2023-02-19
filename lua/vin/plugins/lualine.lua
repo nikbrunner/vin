@@ -1,9 +1,9 @@
+local join = require("vin.lib.utils").join
+
 return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function()
-        local join = Vin.lib.utils.join
-
         local hide_in_width = function()
             return vim.fn.winwidth(0) > 80
         end
@@ -31,10 +31,14 @@ return {
 
         local project_name = {
             function()
-                local current_project_folder =
-                    vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-                local parent_project_folder =
-                    vim.fn.fnamemodify(vim.fn.getcwd(), ":h:t")
+                local current_project_folder = vim.fn.fnamemodify(
+                    vim.fn.getcwd(),
+                    ":t"
+                )
+                local parent_project_folder = vim.fn.fnamemodify(
+                    vim.fn.getcwd(),
+                    ":h:t"
+                )
                 return Vin.icons.documents.Folder
                     .. " "
                     .. parent_project_folder

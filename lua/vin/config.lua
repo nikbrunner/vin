@@ -1,4 +1,4 @@
-local join = Vin.lib.utils.join
+local join = require("vin.lib.utils").join
 
 local HOME_PATH = "~/"
 local CONFIG_PATH = join(HOME_PATH, ".config/")

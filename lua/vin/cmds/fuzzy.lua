@@ -1,3 +1,5 @@
+local utils = require("vin.lib.utils")
+
 local delta_previewer = require("telescope.previewers").new_termopen_previewer({
     get_command = function(entry)
         -- this is for status
@@ -54,7 +56,7 @@ M.find_commits = function()
 end
 
 M.find_related_files = function()
-    local current_filename = Vin.lib.utils.get_current_filename(false)
+    local current_filename = utils.get_current_filename(false)
 
     if current_filename then
         M.telescope("find_files", {

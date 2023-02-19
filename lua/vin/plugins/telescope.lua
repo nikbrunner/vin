@@ -22,9 +22,8 @@ return {
         telescope.load_extension("noice")
     end,
     opts = function()
+        local merge = require("vin.lib.utils").merge
         local actions = require("telescope.actions")
-
-        local merge = Vin.lib.utils.merge
 
         local quick_vertical_window = {
             show_line = false,

@@ -1,7 +1,5 @@
 ---@class Vin
 _G.Vin = {
-    lib = {},
-    cmds = {},
     icons = {},
     config = {},
 }
@@ -15,10 +13,5 @@ require("vin.autocmds")
 require("vin.cmds")
 require("vin.keymaps")
 
--- Setup colorscheme
-function InitColorScheme(color)
-    color = color or "default"
-    vim.cmd.colorscheme(color)
-end
-
-InitColorScheme(Vin.config.colorscheme)
+-- Initialize colorscheme
+require("vin.lib.utils").init_colorscheme(Vin.config.colorscheme)

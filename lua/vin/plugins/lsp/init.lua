@@ -1,3 +1,5 @@
+local utils = require("vin.lib.utils")
+
 return {
     {
         "williamboman/mason.nvim",
@@ -96,7 +98,7 @@ return {
                 },
             }
 
-            lsp_zero.setup_servers(Vin.lib.utils.merge({
+            lsp_zero.setup_servers(utils.merge({
                 Vin.config.mason.ensure_installed.servers,
                 shared_lsp_opts,
             }))

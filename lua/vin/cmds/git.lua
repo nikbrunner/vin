@@ -1,4 +1,6 @@
-local _, gitsigns = pcall(require, "gitsigns")
+local general = require("vin.cmds.general")
+local utils = require("vin.lib.utils")
+local gitsigns = require("gitsigns")
 
 local M = {}
 
@@ -17,22 +19,22 @@ end
 
 M.blame_line = function()
     gitsigns.blame_line()
-    Vin.cmds.general.center_line_vertical()
+    general.center_line_vertical()
 end
 
 M.hunk_reset = function()
     gitsigns.reset_hunk()
-    Vin.cmds.general.center_line_vertical()
+    general.center_line_vertical()
 end
 
 M.hunk_go_prev = function()
     gitsigns.prev_hunk()
-    Vin.cmds.general.center_line_vertical()
+    general.center_line_vertical()
 end
 
 M.hunk_go_next = function()
     gitsigns.next_hunk()
-    Vin.cmds.general.center_line_vertical()
+    general.center_line_vertical()
 end
 
 M.hunk_stage = function()
@@ -64,7 +66,7 @@ M.get_diff_to_master = function()
     local commonMasterBranchNames = { "master", "main" }
 
     local handleInput = function(branchName)
-        if Vin.lib.utils.includes(commonMasterBranchNames, branchName) then
+        if utils.includes(commonMasterBranchNames, branchName) then
             vim.cmd("DiffviewOpen origin/" .. branchName .. "...HEAD")
             diffview_notification(branchName)
         end
@@ -82,14 +84,11 @@ M.get_diff_to = function()
     }
 
     local handleDiffToBranch = function()
-        local branches = Vin.lib.utils.get_all_branches()
+        local branches = utils.get_all_branches()
 
         -- Remove the current branch from the selection
-        local current_branch = Vin.lib.utils.get_current_branch()
-        local index_of_current_branch = Vin.lib.utils.find_index(
-            branches,
-            current_branch
-        )
+        local current_branch = utils.get_current_branch()
+        local index_of_current_branch = utils.find_index(branches, current_branch)
         table.remove(branches, index_of_current_branch)
 
         vim.ui.select(branches, {
