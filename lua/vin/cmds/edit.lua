@@ -1,3 +1,5 @@
+local utils = require("vin.lib.utils")
+
 local M = {}
 
 local AUTO_LOG_PREFIX = "Test"
@@ -22,7 +24,7 @@ end
 
 M.log_symbol = function()
     local current_word = vim.fn.expand("<cword>")
-    local current_filename = Vin.lib.utils.get_current_filename(true)
+    local current_filename = utils.get_current_filename(true)
 
     local message = table.concat({
         '"',

@@ -1,8 +1,8 @@
+local disable_client_formating = require("vin.lib.lsp").disable_client_formating
+
 local M = {}
 
 function M.setup(lsp_zero)
-    local disable_client_formating = Vin.lib.lsp.disable_client_formating
-
     -- Setup neodev if present
     -- NOTE: neodev will only setup types for my own neovim config
     -- Source: https://github.com/folke/neodev.nvim#-setup

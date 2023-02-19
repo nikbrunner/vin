@@ -1,3 +1,4 @@
+local cmds = require("vin.cmds")
 local groups = require("vin.keymaps.groups")
 
 local M = {}
@@ -29,31 +30,31 @@ M.no_leader = {
     -- NOTE: This requires some settings in kitty to be working
     ["<C-1>"] = {
         function()
-            Vin.cmds.harpoon.jump_to_file(1)
+            cmds.harpoon.jump_to_file(1)
         end,
         " ",
     },
     ["<C-2>"] = {
         function()
-            Vin.cmds.harpoon.jump_to_file(2)
+            cmds.harpoon.jump_to_file(2)
         end,
         " ",
     },
     ["<C-3>"] = {
         function()
-            Vin.cmds.harpoon.jump_to_file(3)
+            cmds.harpoon.jump_to_file(3)
         end,
         " ",
     },
     ["<C-4>"] = {
         function()
-            Vin.cmds.harpoon.jump_to_file(4)
+            cmds.harpoon.jump_to_file(4)
         end,
         " ",
     },
     ["<C-5>"] = {
         function()
-            Vin.cmds.harpoon.jump_to_file(5)
+            cmds.harpoon.jump_to_file(5)
         end,
         " ",
     },
@@ -74,9 +75,9 @@ M.no_leader = {
     ["<M-j>"] = { "<Esc>:m .+1<CR>", "Move Down" },
 
     -- Control bindings
-    ["<C-f>"] = { Vin.cmds.nav.pick_window, "  Pick Window" },
-    ["<C-q>"] = { Vin.cmds.general.toggle_quickfix, "Toggle Quick Fix" },
-    ["<C-'>"] = { Vin.cmds.term.toggle, "Term" },
+    ["<C-f>"] = { cmds.nav.pick_window, "  Pick Window" },
+    ["<C-q>"] = { cmds.general.toggle_quickfix, "Toggle Quick Fix" },
+    ["<C-'>"] = { cmds.term.toggle, "Term" },
 
     -- FN Key Bindings
     ["<F7>"] = { "<cmd>CccPick<CR>", "Color Picker" },

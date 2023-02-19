@@ -152,4 +152,11 @@ M.is_running_nightly = function(callback)
     M.validate_nvim_version(Vin.config.nightly_version, callback)
 end
 
+---Setup colorscheme
+---@param color string The name of the colorscheme
+M.init_colorscheme = function(color)
+    color = color or "default"
+    vim.cmd.colorscheme(color)
+end
+
 return M

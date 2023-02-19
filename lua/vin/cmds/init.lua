@@ -1,4 +1,4 @@
-Vin.cmds = {
+return {
     general = require("vin.cmds.general"),
     nav = require("vin.cmds.nav"),
     edit = require("vin.cmds.edit"),

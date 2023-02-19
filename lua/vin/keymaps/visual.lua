@@ -6,7 +6,6 @@ M.no_leader = {
     -- Better Indent
     ["<"] = { "<gv", WhichKeyIgnoreLabel },
     [">"] = { ">gv", WhichKeyIgnoreLabel },
-
     -- Move to beginning and end of line
     ["H"] = { "^", WhichKeyIgnoreLabel },
     ["L"] = { "$", WhichKeyIgnoreLabel },

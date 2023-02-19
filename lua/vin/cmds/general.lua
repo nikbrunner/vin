@@ -1,7 +1,7 @@
 local M = {}
 
 M.center_line_vertical = function()
-    vim.cmd([[norm zz]])
+    vim.cmd.norm("zz")
 end
 
 M.toggle_quickfix = function()
