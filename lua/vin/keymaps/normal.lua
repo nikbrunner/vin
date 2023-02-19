@@ -92,7 +92,6 @@ M.no_leader = {
 
     ["<C-e>"] = { "<cmd>Neotree float<CR>", "Quick Floating File Tree" },
     ["<C-g>"] = { "<cmd>Neotree git_status float<CR>", "Quick Floating Git Files" },
-    ["<C-p>"] = { "<cmd>FzfLua files<CR>", "Find File" },
 
     -- Resize with arrows
     ["<C-up>"] = { ":resize -2<CR>", "Resize Up" },
@@ -122,15 +121,14 @@ M.no_leader = {
 
 M.with_leader = {
     -- Singles
-    n = { vim.cmd.nohl, WhichKeyIgnoreLabel },
-    l = { vim.cmd.vs, WhichKeyIgnoreLabel },
-    j = { vim.cmd.sp, WhichKeyIgnoreLabel },
+    ["n"] = { vim.cmd.nohl, WhichKeyIgnoreLabel },
+    ["l"] = { vim.cmd.vs, WhichKeyIgnoreLabel },
+    ["j"] = { vim.cmd.sp, WhichKeyIgnoreLabel },
     ["<CR>"] = { vim.cmd.wa, "Save All (:wa)" },
-    -- f = { "<cmd>Telescope find_files<CR>", "Find File" },
-    f = { "<cmd>FzfLua files<CR>", "Find File" },
-    [" "] = { "<cmd>Telescope buffers<CR>", "Buffers" },
-    ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Grep in File" },
-    [":"] = { "<cmd>Telescope commands<CR>", "Commands" },
+    ["f"] = { cmds.fzf.files.with_preview, "Find File" },
+    [" "] = { cmds.fzf.files.buffers, "Buffers" },
+    ["/"] = { cmds.fzf.text.in_file, "Find in File" },
+    [":"] = { cmds.fzf.misc.commands, "Commands" },
     ["`"] = { "<cmd>e #<CR>", "Switch to Other Buffer" },
 
     -- Tab navigation

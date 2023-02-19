@@ -5,19 +5,11 @@ local cmds = require("vin.cmds")
 M.advanced_g = {
     name = "Go-To",
 
+    d = { vim.lsp.buf.definition, "Find Definition" },
     h = { vim.lsp.buf.hover, "Hover Doc" },
     l = { vim.diagnostic.open_float, "Show Problem" },
-
-    -- LSP Native
-    -- d = { vim.lsp.buf.definition, "Find Definition" },
-    -- r = { vim.lsp.buf.references, "Find References" },
-    -- i = { vim.lsp.buf.implementation, "Find Implementations" },
-    -- y = { vim.lsp.buf.type_definition, "Find Type Definition" },
-
-    -- Telescope
-    d = { "<cmd>Telescope lsp_definitions<CR>", "Find Definition" },
     r = { "<cmd>Telescope lsp_references<CR>", "Find References" },
-    i = { "<cmd>Telescope lsp_implemantations<CR>", "Find Implementations" },
+    i = { "<cmd>Telescope lsp_implementations<CR>", "Find Implementations" },
     y = { "<cmd>Telescope lsp_type_definitions<CR>", "Find Type Definition" },
 
     -- Trouble
@@ -113,9 +105,13 @@ M.go_next = {
 M.diagnostics = {
     name = "Diagnostics",
     i = { "<cmd>LspInfo<CR>", "Info" },
-    d = { "<cmd>Trouble document_diagnostics<CR>", "Document Diagnostics" },
-    w = { "<cmd>Trouble workspace_diagnostics<CR>", "Workspace Diagnostics" },
-    t = { "<cmd>Telescope diagnostics<CR>", "Diagnostics (Telescope)" },
+    d = { cmds.fzf.lsp.diagnostics.document, "Document Diagnostics" },
+    D = { "<cmd>Trouble document_diagnostics<CR>", "Document Diagnostics (Trouble)" },
+    w = { cmds.fzf.lsp.diagnostics.workspace, "Workspace Diagnostics" },
+    W = {
+        "<cmd>Trouble workspace_diagnostics<CR>",
+        "Workspace Diagnostics (Trouble)",
+    },
     k = {
         function()
             vim.diagnostic.goto_prev({})
@@ -166,7 +162,7 @@ M.git = {
     s = { "<cmd>Neotree git_status float<CR>", "Git Status" },
     q = { cmds.git.open_changes_in_qf, "List changes in QF" },
     l = { cmds.git.toggle_current_line_blame, "Current Line Blame" },
-    o = { cmds.telescope.find_changed_files, "Open Changed Files" },
+    o = { cmds.fzf.git.status_with_preview, "Open Changed Files" },
     d = {
         name = "Diffview",
         c = { cmds.git.get_diff_to, "Diff To Custom" },
@@ -193,8 +189,8 @@ M.git = {
     },
     c = {
         name = "Checkout",
-        b = { "<cmd>Telescope git_branches<CR>", "Branches" },
-        c = { cmds.telescope.find_commits, "Commits" },
+        b = { cmds.fzf.git.branches, "Branches" },
+        c = { cmds.fzf.git.commits, "Commits" },
     },
     p = {
         name = "Pull Request",
@@ -205,25 +201,21 @@ M.git = {
 
 M.search = {
     name = "Search",
-    p = { "<cmd>Telescope project<CR>", "Recent Projects" },
-    f = { "<cmd>Telescope find_files<CR>", "Files" },
-    t = { "<cmd>Telescope live_grep<CR>", "Find Text Everywhere" },
-    b = { "<cmd>Telescope buffers<CR>", "Open Buffers" },
-    T = { "<cmd>TodoTelescope<CR>", "Todos" },
-    w = { "<cmd>Telescope grep_string<CR>", "Find Current Word" },
-    S = { "<cmd>Telescope spell_suggest<CR>", "Spelling" },
-    c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
-    h = { "<cmd>Telescope oldfiles<CR>", "Recent Files (History)" },
-    m = { "<cmd>Telescope marks<CR>", "Marks" },
+    b = { cmds.fzf.files.buffers, "Open Buffers" },
+    c = { "<cmd>FzfLua colorscheme<CR>", "Colorscheme" },
+    f = { cmds.fzf.files.with_preview, "Files" },
     g = { cmds.telescope.find_changed_files, "Open Changed Files" },
+    h = { cmds.fzf.files.old_files, "File History" },
+    m = { "<cmd>FzfLua marks<CR>", "Marks" },
     r = { cmds.telescope.find_related_files, "Related Files" },
+    t = { cmds.fzf.text.in_project, "Find Text Everywhere" },
+    w = { cmds.fzf.text.word, "Word Under Cursor" },
+    S = { "<cmd>FzfLua spell_suggest<CR>", "Spelling" },
+    T = { "<cmd>TodoTelescope<CR>", "Todos" },
     s = {
         name = "Symbols",
-        d = { "<cmd>Telescope lsp_document_symbols<CR>", "Symbols In Document" },
-        w = {
-            "<cmd>Telescope lsp_dynamics_workspace_symbols<CR>",
-            "Symbols In Workspace",
-        },
+        d = { cmds.fzf.lsp.symbols.document, "Document" },
+        w = { cmds.fzf.lsp.symbols.workspace, "Workspace" },
     },
     n = {
         name = "Noice",
@@ -249,23 +241,23 @@ M.search = {
     a = {
         name = "Advanced",
         s = { cmds.telescope.find_scss_symbol, "SCSS Symbol" },
-        h = { "<cmd>Telescope help_tags<CR>", "Help Tags" },
-        H = { "<cmd>Telescope highlights<CR>", "Highlights" },
-        m = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
-        r = { "<cmd>Telescope registers<CR>", "Registers" },
-        k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
+        h = { cmds.fzf.misc.help_tags, "Help Tags" },
+        H = { cmds.fzf.misc.highlights, "Highlights" },
+        m = { cmds.fzf.misc.man_page, "Man Pages" },
+        r = { cmds.fzf.misc.registers, "Registers" },
+        k = { cmds.fzf.misc.keymaps, "Keymaps" },
     },
     ["/"] = {
         name = "Folders",
-        c = {
+        C = {
             function()
-                cmds.telescope.search_in_dir(Vin.config.pathes.config)
+                cmds.fzf.files.in_dir(Vin.config.pathes.config)
             end,
             "~/.config",
         },
-        v = {
+        c = {
             function()
-                cmds.telescope.search_in_dir(Vin.config.pathes.nvimConfig)
+                cmds.fzf.files.in_dir(Vin.config.pathes.nvimConfig)
             end,
             "~/.config/nvim (Vin)",
         },
@@ -273,13 +265,13 @@ M.search = {
             name = "Notes",
             w = {
                 function()
-                    cmds.telescope.search_in_dir(Vin.config.pathes.notes.work)
+                    cmds.fzf.files.in_dir(Vin.config.pathes.notes.work)
                 end,
                 "Work Notes",
             },
             n = {
                 function()
-                    cmds.telescope.search_in_dir(Vin.config.pathes.notes.private)
+                    cmds.fzf.files.in_dir(Vin.config.pathes.notes.private)
                 end,
                 "Private Notes",
             },
@@ -418,6 +410,12 @@ M.vin = {
     n = { "<cmd>NullLsInfo<CR>", "Tool Manager - [NullLS]" },
     l = { "<cmd>Lazy<CR>", "Plugin Manager - [Lazy]" },
     i = { "<cmd>LspInfo<CR>", "Lsp Info" },
+    c = {
+        function()
+            cmds.fzf.files.in_dir(Vin.config.pathes.nvimConfig)
+        end,
+        "Search Config Files",
+    },
     t = M.terra,
 }
 
@@ -443,33 +441,13 @@ M.session = {
     },
 }
 
--- M.problems = {
---     name = "Problems",
---     x = {
---         "<cmd>TroubleToggle document_diagnostics<cr>",
---         "Document Diagnostics (Trouble)",
---     },
---     X = {
---         "<cmd>TroubleToggle workspace_diagnostics<cr>",
---         "Workspace Diagnostics (Trouble)",
---     },
---     t = { "<cmd>TodoTrouble<cr>", "Todo (Trouble)" },
---     T = {
---         "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",
---         "Todo/Fix/Fixme (Trouble)",
---     },
--- }
-
 M.action = {
     name = "Actions",
     i = { "<cmd>ChatGPT<CR>", "ChatGPT" },
     c = { vim.lsp.buf.code_action, "Code Action" },
     n = { vim.lsp.buf.rename, "Rename" },
     f = { "<cmd>NullFormat<CR>", "Format (Null)" },
-    I = {
-        "<cmd>Inspect<CR>",
-        "Inspect",
-    },
+    I = { "<cmd>Inspect<CR>", "Inspect", },
     l = {
         name = "Log",
         l = { cmds.edit.log_symbol, "Auto Log Symbol" },

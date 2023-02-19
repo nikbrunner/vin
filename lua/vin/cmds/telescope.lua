@@ -1,3 +1,9 @@
+local present, _ = pcall(require, "telescope")
+if not present then
+    print("Telescope not installed")
+    return
+end
+
 local utils = require("vin.lib.utils")
 
 local delta_previewer = require("telescope.previewers").new_termopen_previewer({
