@@ -166,7 +166,7 @@ M.git = {
     s = { "<cmd>Neotree git_status float<CR>", "Git Status" },
     q = { cmds.git.open_changes_in_qf, "List changes in QF" },
     l = { cmds.git.toggle_current_line_blame, "Current Line Blame" },
-    o = { cmds.fuzzy.find_changed_files, "Open Changed Files" },
+    o = { cmds.telescope.find_changed_files, "Open Changed Files" },
     d = {
         name = "Diffview",
         c = { cmds.git.get_diff_to, "Diff To Custom" },
@@ -194,7 +194,7 @@ M.git = {
     c = {
         name = "Checkout",
         b = { "<cmd>Telescope git_branches<CR>", "Branches" },
-        c = { cmds.fuzzy.find_commits, "Commits" },
+        c = { cmds.telescope.find_commits, "Commits" },
     },
     p = {
         name = "Pull Request",
@@ -215,8 +215,8 @@ M.search = {
     c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
     h = { "<cmd>Telescope oldfiles<CR>", "Recent Files (History)" },
     m = { "<cmd>Telescope marks<CR>", "Marks" },
-    g = { cmds.fuzzy.find_changed_files, "Open Changed Files" },
-    r = { cmds.fuzzy.find_related_files, "Related Files" },
+    g = { cmds.telescope.find_changed_files, "Open Changed Files" },
+    r = { cmds.telescope.find_related_files, "Related Files" },
     s = {
         name = "Symbols",
         d = { "<cmd>Telescope lsp_document_symbols<CR>", "Symbols In Document" },
@@ -248,7 +248,7 @@ M.search = {
     },
     a = {
         name = "Advanced",
-        s = { cmds.fuzzy.find_scss_symbol, "SCSS Symbol" },
+        s = { cmds.telescope.find_scss_symbol, "SCSS Symbol" },
         h = { "<cmd>Telescope help_tags<CR>", "Help Tags" },
         H = { "<cmd>Telescope highlights<CR>", "Highlights" },
         m = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
@@ -259,13 +259,13 @@ M.search = {
         name = "Folders",
         c = {
             function()
-                cmds.fuzzy.search_in_dir(Vin.config.pathes.config)
+                cmds.telescope.search_in_dir(Vin.config.pathes.config)
             end,
             "~/.config",
         },
         v = {
             function()
-                cmds.fuzzy.search_in_dir(Vin.config.pathes.nvimConfig)
+                cmds.telescope.search_in_dir(Vin.config.pathes.nvimConfig)
             end,
             "~/.config/nvim (Vin)",
         },
@@ -273,13 +273,13 @@ M.search = {
             name = "Notes",
             w = {
                 function()
-                    cmds.fuzzy.search_in_dir(Vin.config.pathes.notes.work)
+                    cmds.telescope.search_in_dir(Vin.config.pathes.notes.work)
                 end,
                 "Work Notes",
             },
             n = {
                 function()
-                    cmds.fuzzy.search_in_dir(Vin.config.pathes.notes.private)
+                    cmds.telescope.search_in_dir(Vin.config.pathes.notes.private)
                 end,
                 "Private Notes",
             },

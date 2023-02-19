@@ -4,7 +4,7 @@ return {
     edit = require("vin.cmds.edit"),
     copy = require("vin.cmds.copy"),
     git = require("vin.cmds.git"),
-    fuzzy = require("vin.cmds.fuzzy"),
+    telescope = require("vin.cmds.telescope"),
     harpoon = require("vin.cmds.harpoon"),
     quit = require("vin.cmds.quit"),
     term = require("vin.cmds.term"),
