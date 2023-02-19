@@ -7,46 +7,23 @@ local spec = {
     opts = function()
         local actions = require("fzf-lua.actions")
         return {
-            -- fzf_bin         = 'sk',            -- use skim instead of fzf?
-            -- https://github.com/lotabout/skim
             global_resume = true, -- enable global `resume`?
-            -- can also be sent individually:
-            -- `<any_function>.({ gl ... })`
             global_resume_query = true, -- include typed query in `resume`?
             winopts = {
-                -- split         = "belowright new",-- open in a split instead?
-                -- "belowright new"  : split below
-                -- "aboveleft new"   : split above
-                -- "belowright vnew" : split right
-                -- "aboveleft vnew   : split left
-                -- Only valid when using a float window
-                -- (i.e. when 'split' is not defined, default)
                 height = 0.50, -- window height
                 width = 0.75, -- window width
                 row = 0.35, -- window row position (0=top, 1=bottom)
                 col = 0.50, -- window col position (0=left, 1=right)
-                -- border argument passthrough to nvim_open_win(), also used
-                -- to manually draw the border characters around the preview
-                -- window, can be set to 'false' to remove all borders or to
-                -- 'none', 'single', 'double' or 'rounded' (default)
-                border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-                fullscreen = false, -- start fullscreen?
+                border = "rounded",
                 hl = {
-                    normal = "Normal", -- window normal color (fg+bg)
-                    border = "Normal", -- border color (try 'FloatBorder')
-                    -- Only valid with the builtin previewer:
-                    cursor = "Cursor", -- cursor highlight (grep/LSP matches)
-                    cursorline = "CursorLine", -- cursor line
-                    search = "Search", -- search matches (ctags)
-                    -- title       = 'Normal',        -- preview border title (file/buffer)
-                    -- scrollbar_f = 'PmenuThumb',    -- scrollbar "full" section highlight
-                    -- scrollbar_e = 'PmenuSbar',     -- scrollbar "empty" section highlight
+                    normal = "NeoTreeNormal", -- window normal color (fg+bg)
+                    border = "FloatBorder", -- border color
+                    help_border = "FloatBorder", -- <F1> window border
                 },
                 preview = {
-                    -- default     = 'bat',           -- override the default previewer?
-                    -- default uses the 'builtin' previewer
-                    border = "border", -- border|noborder, applies only to
                     -- native fzf previewers (bat/cat/git/etc)
+                    -- default     = 'bat',
+                    border = "border", -- border|noborder, applies only to
                     wrap = "nowrap", -- wrap|nowrap
                     hidden = "nohidden", -- hidden|nohidden
                     vertical = "down:45%", -- up|down:size
@@ -130,22 +107,6 @@ local spec = {
                 ["--layout"] = "reverse",
                 ["--keep-right"] = "",
             },
-            -- fzf '--color=' options (optional)
-            --[[ fzf_colors = {
-                  ["fg"]          = { "fg", "CursorLine" },
-                  ["bg"]          = { "bg", "Normal" },
-                  ["hl"]          = { "fg", "Comment" },
-                  ["fg+"]         = { "fg", "Normal" },
-                  ["bg+"]         = { "bg", "CursorLine" },
-                  ["hl+"]         = { "fg", "Statement" },
-                  ["info"]        = { "fg", "PreProc" },
-                  ["prompt"]      = { "fg", "Conditional" },
-                  ["pointer"]     = { "fg", "Exception" },
-                  ["marker"]      = { "fg", "Keyword" },
-                  ["spinner"]     = { "fg", "Label" },
-                  ["header"]      = { "fg", "Comment" },
-                  ["gutter"]      = { "bg", "Normal" },
-              }, ]]
             previewers = {
                 cat = {
                     cmd = "cat",
@@ -178,7 +139,7 @@ local spec = {
             },
             -- provider setup
             files = {
-                -- previewer      = "bat",          -- uncomment to override previewer
+                -- previewer = "bat", -- uncomment to override previewer
                 -- (name from 'previewers' table)
                 -- set to 'false' to disable
                 prompt = "Find File❯ ",
@@ -226,7 +187,7 @@ local spec = {
                 },
                 status = {
                     prompt = "Modified Files❯ ",
-                    cmd = "git status -s",
+                    cmd = "git status -su",
                     previewer = "git_diff",
                     file_icons = true,
                     git_icons = true,
@@ -313,11 +274,10 @@ local spec = {
                 file_icons = true, -- show file icons?
                 color_icons = true, -- colorize file|git icons
                 sort_lastused = true, -- sort buffers() by last used
+                cwd_only = true, -- buffers for the cwd only
+                cwd = nil, -- buffers list for a given dir
                 actions = {
-                    ["default"] = actions.buf_edit,
-                    ["ctrl-s"] = actions.buf_split,
-                    ["ctrl-v"] = actions.buf_vsplit,
-                    ["ctrl-t"] = actions.buf_tabedit,
+                    -- actions inherit from 'actions.buffers' and merge
                     -- by supplying a table of functions we're telling
                     -- fzf-lua to not close the fzf window, this way we
                     -- can resume the buffers picker on the same window
@@ -367,46 +327,46 @@ local spec = {
                 live_preview = true, -- apply the colorscheme on preview?
                 actions = { ["default"] = actions.colorscheme },
                 winopts = { height = 0.55, width = 0.30 },
-                post_reset_cb = function()
-                    require("lualine").setup({ options = { theme = "auto" } })
-                    Vin.colorscheme.set_standard_highlights()
-                end,
             },
             quickfix = {
                 file_icons = true,
                 git_icons = true,
             },
             lsp = {
-                prompt = "❯ ",
-                cwd_only = false, -- LSP/diagnostics for cwd only?
+                prompt_postfix = "❯ ", -- will be appended to the LSP label
+                -- to override use 'prompt' instead
+                cwd_only = true, -- LSP/diagnostics for cwd only?
                 async_or_timeout = 5000, -- timeout(ms) or 'true' for async calls
                 file_icons = true,
-                git_icons = false,
-                lsp_icons = true,
-                severity = "hint",
-                icons = {
-                    ["Error"] = { icon = "", color = "red" }, -- error
-                    ["Warning"] = { icon = "", color = "yellow" }, -- warning
-                    ["Information"] = { icon = "", color = "blue" }, -- info
-                    ["Hint"] = { icon = "", color = "magenta" }, -- hint
+                git_icons = true,
+                -- settings for 'lsp_{document|workspace|lsp_live_workspace}_symbols'
+                symbols = {
+                    async_or_timeout = true, -- symbols are async by default
+                    symbol_style = 1, -- style for document/workspace symbols
+                    -- false: disable,    1: icon+kind
+                    --     2: icon only,  3: kind only
+                    -- NOTE: icons are extracted from
+                    -- vim.lsp.protocol.CompletionItemKind
+                    -- colorize using nvim-cmp's CmpItemKindXXX highlights
+                    -- can also be set to 'TS' for treesitter highlights ('TSProperty', etc)
+                    -- or 'false' to disable highlighting
+                    symbol_hl_prefix = "CmpItemKind",
+                    -- additional symbol formatting, works with or without style
+                    symbol_fmt = function(s)
+                        return "[" .. s .. "]"
+                    end,
+                },
+                code_actions = {
+                    prompt = "Code Actions> ",
+                    ui_select = true, -- use 'vim.ui.select'?
+                    async_or_timeout = 5000,
+                    winopts = {
+                        row = 0.40,
+                        height = 0.35,
+                        width = 0.60,
+                    },
                 },
             },
-            -- uncomment to disable the previewer
-            -- nvim = { marks = { previewer = { _ctor = false } } },
-            -- helptags = { previewer = { _ctor = false } },
-            -- manpages = { previewer = { _ctor = false } },
-            -- uncomment to set dummy win location (help|man bar)
-            -- "topleft"  : up
-            -- "botright" : down
-            -- helptags = { previewer = { split = "topleft" } },
-            -- uncomment to use `man` command as native fzf previewer
-            -- manpages = { previewer = { _ctor = require'fzf-lua.previewer'.fuzzy.man_pages } },
-            -- optional override of file extension icon colors
-            -- available colors (terminal):
-            --    clear, bold, black, red, green, yellow
-            --    blue, magenta, cyan, grey, dark_grey, white
-            -- padding can help kitty term users with
-            -- double-width icon rendering
             file_icon_padding = "",
             file_icon_colors = {
                 ["lua"] = "blue",

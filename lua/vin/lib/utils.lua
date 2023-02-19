@@ -123,7 +123,7 @@ M.merge = function(array)
 end
 
 --- Joins any number of strings or numbers into a single string.
----@param ... any number of strings or numbers to join
+---@param ... string[] number of strings or numbers to join
 ---@return string
 M.join = function(...)
     -- Initialize an empty result string
