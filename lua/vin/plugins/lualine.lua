@@ -1,4 +1,5 @@
-local join = require("vin.lib.utils").join
+local concat = table.concat
+local fnamemodify = vim.fn.fnamemodify
 
 return {
     "nvim-lualine/lualine.nvim",
@@ -31,14 +32,8 @@ return {
 
         local project_name = {
             function()
-                local current_project_folder = vim.fn.fnamemodify(
-                    vim.fn.getcwd(),
-                    ":t"
-                )
-                local parent_project_folder = vim.fn.fnamemodify(
-                    vim.fn.getcwd(),
-                    ":h:t"
-                )
+                local current_project_folder = fnamemodify(vim.fn.getcwd(), ":t")
+                local parent_project_folder = fnamemodify(vim.fn.getcwd(), ":h:t")
                 return Vin.icons.documents.Folder
                     .. " "
                     .. parent_project_folder
@@ -102,10 +97,10 @@ return {
 
                 -- add icon from client_name_to_icon_map to each entry of the lsp_client_list
                 for i, client_name in pairs(lsp_client_list) do
-                    local client_icon = join(
+                    local client_icon = concat({
                         client_name_to_icon_map[client_name],
-                        " "
-                    ) or ""
+                        " ",
+                    }) or ""
                     lsp_client_list[i] = client_icon .. client_name
                 end
 
@@ -113,7 +108,7 @@ return {
                 if vim.tbl_isempty(lsp_client_list) then
                     return ""
                 else
-                    return join("[", table.concat(lsp_client_list, ", "), "]")
+                    return concat({ "[", concat(lsp_client_list, ", "), "]" })
                 end
             end,
             padding = 2,

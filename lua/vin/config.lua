@@ -1,10 +1,10 @@
-local join = require("vin.lib.utils").join
+local concat = table.concat
 
 local HOME_PATH = "~/"
-local CONFIG_PATH = join(HOME_PATH, ".config/")
 local NVIM_CONFIG_PATH = vim.fn.stdpath("config")
-local DOCUMENTS_PATH = join(HOME_PATH, "Documents/")
-local NOTES_PATH = join(DOCUMENTS_PATH, "notes/")
+local CONFIG_PATH = concat({ HOME_PATH, ".config/" })
+local DOCUMENTS_PATH = concat({ HOME_PATH, "Documents/" })
+local NOTES_PATH = concat({ DOCUMENTS_PATH, "notes/" })
 
 ---@class VinConfig
 Vin.config = {
@@ -15,7 +15,7 @@ Vin.config = {
         suggestions = {
             enable = true,
             auto_trigger = true,
-            enable_cmp = false,
+            enable_cmp = true,
         },
     },
     mason = {
@@ -93,8 +93,8 @@ Vin.config = {
         config = CONFIG_PATH,
         nvimConfig = NVIM_CONFIG_PATH,
         notes = {
-            work = join(NOTES_PATH, "dcd-notes"),
-            private = join(NOTES_PATH, "notes"),
+            work = concat({ NOTES_PATH, "dcd-notes" }),
+            private = concat({ NOTES_PATH, "notes" }),
         },
     },
 }
