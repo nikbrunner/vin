@@ -19,11 +19,8 @@ local M = {}
 
 M.add_file = function()
     mark.add_file()
-
-    -- Refresh Neotree after add mark
-    -- require("neo-tree.sources.manager").refresh()
-
-    local filename = vim.fn.expand("%:t")
+    local relative_path = vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:.")
+    vim.notify(" " .. relative_path .. " added to Harpoon!")
 end
 
 M.jump_to_file = function(index)
