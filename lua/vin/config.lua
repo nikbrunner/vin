@@ -43,7 +43,6 @@ Vin.config = {
                 "stylua",
                 "luacheck",
                 "shellcheck",
-                "gopls",
                 "prettierd",
             },
         },
