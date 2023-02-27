@@ -4,9 +4,6 @@ return {
     {
         "williamboman/mason.nvim",
         event = "VeryLazy",
-        dependencies = {
-            "williamboman/mason-lspconfig.nvim",
-        },
         opts = {
             ui = {
                 -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
@@ -25,6 +22,7 @@ return {
         dependencies = "mason.nvim",
         opts = {
             ensure_installed = Vin.config.mason.ensure_installed.servers,
+            automatic_installation = true,
         },
         config = function(_, opts)
             local masonLspConfig = require("mason-lspconfig")
