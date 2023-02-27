@@ -6,6 +6,15 @@ return {
         "rcarriga/nvim-notify",
     },
     opts = {
+        notify = {
+            -- Noice can be used as `vim.notify` so you can route any notification like other messages
+            -- Notification messages have their level and other properties set.
+            -- event is always "notify" and kind can be any log level as a string
+            -- The default routes will forward notifications to nvim-notify
+            -- Benefit of using Noice for this is the routing and consistent history view
+            enabled = false,
+            view = "notify",
+        },
         lsp = {
             progress = {
                 enabled = false,
@@ -44,11 +53,15 @@ return {
                 ---@type NoiceViewOptions
                 opts = {}, -- merged with defaults from documentation
             },
-            message = {
-                -- Messages shown by lsp servers
-                enabled = true,
-                view = "notify",
-                opts = {},
+            messages = {
+                -- NOTE: If you enable messages, then the cmdline is enabled automatically.
+                -- This is a current Neovim limitation.
+                enabled = false, -- enables the Noice messages UI
+                view = "notify", -- default view for messages
+                view_error = "notify", -- view for errors
+                view_warn = "notify", -- view for warnings
+                view_history = "messages", -- view for :messages
+                view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
             },
             -- defaults for hover and signature help
             documentation = {
