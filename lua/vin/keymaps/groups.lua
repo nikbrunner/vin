@@ -5,12 +5,12 @@ local cmds = require("vin.cmds")
 M.advanced_g = {
     name = "Go-To",
 
-    d = { vim.lsp.buf.definition, "Find Definition" },
-    h = { vim.lsp.buf.hover, "Hover Doc" },
-    l = { vim.diagnostic.open_float, "Show Problem" },
+    d = { "<cmd>Telescope lsp_definitions<CR>", "Find Definition" },
     r = { "<cmd>Telescope lsp_references<CR>", "Find References" },
     i = { "<cmd>Telescope lsp_implementations<CR>", "Find Implementations" },
     y = { "<cmd>Telescope lsp_type_definitions<CR>", "Find Type Definition" },
+    h = { vim.lsp.buf.hover, "Hover Doc" },
+    l = { vim.diagnostic.open_float, "Show Problem" },
 
     -- Trouble
     D = { "<cmd>Trouble lsp_definitions<CR>", "Find Definition (Trouble)" },
