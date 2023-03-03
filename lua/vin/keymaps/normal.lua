@@ -98,17 +98,6 @@ M.with_leader = {
     [":"] = { cmds.fzf.misc.commands, "Commands" },
     ["`"] = { "<cmd>e #<CR>", "Switch to Other Buffer" },
 
-    -- Tab navigation
-    ["1"] = { "1gt", WhichKeyIgnoreLabel },
-    ["2"] = { "2gt", WhichKeyIgnoreLabel },
-    ["3"] = { "3gt", WhichKeyIgnoreLabel },
-    ["4"] = { "4gt", WhichKeyIgnoreLabel },
-    ["5"] = { "5gt", WhichKeyIgnoreLabel },
-    ["6"] = { "6gt", WhichKeyIgnoreLabel },
-    ["7"] = { "7gt", WhichKeyIgnoreLabel },
-    ["8"] = { "8gt", WhichKeyIgnoreLabel },
-    ["9"] = { "9gt", WhichKeyIgnoreLabel },
-
     -- Groups
     a = groups.action,
     b = groups.buffer,
@@ -125,5 +114,15 @@ M.with_leader = {
     q = groups.quit,
     S = groups.session,
 }
+
+-- Harpoon Mark Navigation
+for n = 1, 9 do
+    M.with_leader[tostring(n)] = {
+        function()
+            cmds.harpoon.jump_to_file(n)
+        end,
+        WhichKeyIgnoreLabel,
+    }
+end
 
 return M
