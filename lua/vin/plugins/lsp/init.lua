@@ -125,7 +125,7 @@ return {
 
             -- Setup Vim Diagnostic Settings
             vim.diagnostic.config({
-                virtual_text = false,
+                virtual_text = Vin.config.diagnostics.virtual_text_enabled,
                 signs = true,
                 update_in_insert = false,
                 underline = true,

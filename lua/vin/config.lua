@@ -11,6 +11,9 @@ Vin.config = {
     username = "Nik",
     colorscheme = "terra",
     nightly_version = "0.9",
+    diagnostics = {
+        virtual_text_enabled = false,
+    },
     copilot = {
         suggestions = {
             enable = true,

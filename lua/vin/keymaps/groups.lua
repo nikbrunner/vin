@@ -105,6 +105,20 @@ M.go_next = {
 M.diagnostics = {
     name = "Diagnostics",
     i = { "<cmd>LspInfo<CR>", "Info" },
+    t = {
+        function()
+            if Vin.config.diagnostics.virtual_text_enabled == true then
+                vim.diagnostic.config({ virtual_text = false })
+                Vin.config.diagnostics.virtual_text_enabled = false
+                vim.notify("Virtual Text Disabled", "info")
+            else
+                vim.diagnostic.config({ virtual_text = true })
+                Vin.config.diagnostics.virtual_text_enabled = true
+                vim.notify("Virtual Text Enabled", "info")
+            end
+        end,
+        "Toggle Virtual Text",
+    },
     d = { cmds.fzf.lsp.diagnostics.document, "Document Diagnostics" },
     D = { "<cmd>Trouble document_diagnostics<CR>", "Document Diagnostics (Trouble)" },
     w = { cmds.fzf.lsp.diagnostics.workspace, "Workspace Diagnostics" },
@@ -128,13 +142,13 @@ M.diagnostics = {
 
 M.explorer = {
     name = "Explorer",
-    f = { "<cmd>Neotree focus<CR>", "Focus Tree" },
+    ["."] = { "<cmd>Neotree focus<CR>", "Focus Tree" },
     e = { "<cmd>Neotree left toggle<CR>", "Left File Tree" },
-    E = { "<cmd>Neotree float toggle<CR>", "Float File Tree" },
-    b = { "<cmd>Neotree left buffers toggle<CR>", "Left Buffer Tree" },
-    B = { "<cmd>Neotree float buffers toggle<CR>", "Float Buffer Tree" },
+    f = { "<cmd>Neotree float toggle<CR>", "Float File Tree" },
     g = { "<cmd>Neotree right git_status<CR>", "Git File Tree" },
+    B = { "<cmd>Neotree float buffers toggle<CR>", "Float Buffer Tree" },
     G = { "<cmd>Neotree float git_status<CR>", "Float Git Tree" },
+    b = { "<cmd>Neotree left buffers toggle<CR>", "Left Buffer Tree" },
 }
 
 M.quit = {
