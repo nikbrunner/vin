@@ -34,8 +34,8 @@ M.no_leader = {
     },
 
     -- Navigate buffers and Tabs
-    ["<S-Tab>"] = { "<cmd>bprevious<CR>", "Prev Buffer" },
-    ["<Tab>"] = { "<cmd>bnext<CR>", "Next Buffer" },
+    ["<S-Tab>"] = { "<cmd>tabprevious<CR>", "Prev Tab" },
+    ["<Tab>"] = { "<cmd>tabnext<CR>", "Next Tab" },
 
     -- Move text up and down
     ["<M-k>"] = { "<Esc>:m .-2<CR>", "Move Up" },
