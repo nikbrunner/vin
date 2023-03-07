@@ -18,7 +18,7 @@ Vin.config = {
         suggestions = {
             enable = true,
             auto_trigger = false,
-            enable_cmp = true,
+            enable_cmp = false,
         },
     },
     mason = {
