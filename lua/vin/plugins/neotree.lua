@@ -1,10 +1,6 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
     cmd = "Neotree",
-    -- QUESTION: What does this?
-    deactivate = function()
-        vim.cmd([[Neotree close]])
-    end,
     init = function()
         vim.g.neo_tree_remove_legacy_commands = 1
         if vim.fn.argc() == 1 then
@@ -15,6 +11,25 @@ return {
         end
     end,
     opts = {
+        -- @see [nvim/neo-tree.lua at loctvl842/nvim · GitHub](https://github.com/loctvl842/nvim/blob/7894bfa85e4e3c06bb81e5169d1c9c41a892aa34/lua/tvl/config/neo-tree.lua)
+        enable_git_status = true,
+        enable_diagnostics = true,
+        sources = {
+            "filesystem",
+            "git_status",
+            "buffers",
+        },
+        source_selector = {
+            winbar = true,
+            statusline = false, -- toggle to show selector on statusline
+            content_layout = "center",
+            tabs_layout = "equal",
+            tab_labels = {
+                filesystem = "" .. " Files",
+                buffers = "" .. " Bufs",
+                git_status = "" .. " Git",
+            },
+        },
         filesystem = {
             bind_to_cwd = false,
             follow_current_file = true,
