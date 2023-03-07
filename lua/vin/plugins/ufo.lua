@@ -28,7 +28,8 @@ function M.fold_virt_text_handler(virtText, lnum, endLnum, width, truncate)
     return newVirtText
 end
 
-return {
+---@type LazySpec
+local spec = {
     "kevinhwang91/nvim-ufo",
     dependencies = {
         "kevinhwang91/promise-async",
@@ -42,7 +43,41 @@ return {
             end,
         },
     },
+    enabled = false,
+    keys = {
 
+        {
+            "zR",
+            function()
+                require("ufo").openAllFolds()
+            end,
+            "Open all Folds (Ufo)",
+        },
+        {
+            "zM",
+            function()
+                require("ufo").closeAllFolds()
+            end,
+            "Close all Folds (Ufo)",
+        },
+        {
+            "zm",
+            function()
+                require("ufo").closeFoldsWith()
+            end,
+            "Close Folds With (Ufo)",
+        },
+        {
+            "zp",
+            function()
+                local winid = require("ufo").peekFoldedLinesUnderCursor()
+                if not winid then
+                    vim.lsp.buf.hover()
+                end
+            end,
+            "Preview Fold (Ufo)",
+        },
+    },
     config = function(_, opts)
         vim.o.foldcolumn = "1"
         vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
@@ -77,3 +112,5 @@ return {
         })
     end,
 }
+
+return spec
