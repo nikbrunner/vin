@@ -144,11 +144,11 @@ M.explorer = {
     name = "Explorer",
     ["."] = { "<cmd>Neotree focus<CR>", "Focus Tree" },
     e = { "<cmd>Neotree left toggle<CR>", "Left File Tree" },
-    f = { "<cmd>Neotree float toggle<CR>", "Float File Tree" },
-    g = { "<cmd>Neotree right git_status<CR>", "Git File Tree" },
+    g = { "<cmd>Neotree git_status<CR>", "Git File Tree" },
+    b = { "<cmd>Neotree buffers toggle<CR>", "Left Buffer Tree" },
+    f = { "<cmd>Neotree float toggle reveal<CR>", "Float File Tree" },
     B = { "<cmd>Neotree float buffers toggle<CR>", "Float Buffer Tree" },
     G = { "<cmd>Neotree float git_status<CR>", "Float Git Tree" },
-    b = { "<cmd>Neotree left buffers toggle<CR>", "Left Buffer Tree" },
 }
 
 M.quit = {

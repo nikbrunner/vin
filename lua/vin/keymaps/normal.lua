@@ -44,7 +44,15 @@ M.no_leader = {
     -- Control bindings
     ["<C-f>"] = { cmds.nav.pick_window, "  Pick Window" },
     ["<C-q>"] = { cmds.general.toggle_quickfix, "Toggle Quick Fix" },
-    ["<C-'>"] = { cmds.term.toggle, "Term" },
+    ["<C-e>"] = {
+        function()
+            vim.cmd("Neotree left close")
+            vim.cmd("Neotree float toggle reveal")
+        end,
+        "Float Explorer",
+    },
+    ["<C-g>"] = { "<cmd>Neotree git_status float<CR>", "Quick Floating Git Files" },
+    ["<C-/>"] = { cmds.term.toggle, "Term" },
 
     -- FN Key Bindings
     ["<F7>"] = { "<cmd>CccPick<CR>", "Color Picker" },
@@ -56,9 +64,6 @@ M.no_leader = {
     ["<C-j>"] = { "<C-w>j", "Focus Down" },
     ["<C-k>"] = { "<C-w>k", "Focus Up" },
     ["<C-l>"] = { "<C-w>l", "Focus Right" },
-
-    ["<C-e>"] = { "<cmd>Neotree float<CR>", "Quick Floating File Tree" },
-    ["<C-g>"] = { "<cmd>Neotree git_status float<CR>", "Quick Floating Git Files" },
 
     -- Resize with arrows
     ["<C-up>"] = { ":resize -2<CR>", "Resize Up" },
