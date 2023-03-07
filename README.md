@@ -82,3 +82,4 @@ Make sure you have a nerd font installed.
 - [craftzdog](https://github.com/craftzdog/dotfiles-public/tree/master/.config/nvim)
 - [harrisoncramer/nvim: My personal Neovim configuration.](https://github.com/harrisoncramer/nvim/tree/main)
 - [GitHub - alex35mil/dotfiles: My dotfiles](https://github.com/alex35mil/dotfiles)
+- [loctvl842/nvim](https://github.com/loctvl842/nvim?search=1)
