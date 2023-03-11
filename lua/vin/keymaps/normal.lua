@@ -41,35 +41,29 @@ M.no_leader = {
     ["<M-k>"] = { "<Esc>:m .-2<CR>", "Move Up" },
     ["<M-j>"] = { "<Esc>:m .+1<CR>", "Move Down" },
 
-    -- Control bindings
-    ["<C-f>"] = { cmds.nav.pick_window, "  Pick Window" },
-    ["<C-q>"] = { cmds.general.toggle_quickfix, "Toggle Quick Fix" },
-    ["<C-e>"] = {
-        function()
-            vim.cmd("Neotree left close")
-            vim.cmd("Neotree float toggle reveal")
-        end,
-        "Float Explorer",
-    },
-    ["<C-g>"] = { "<cmd>Neotree git_status float<CR>", "Quick Floating Git Files" },
-    ["<C-/>"] = { cmds.term.toggle, "Term" },
-
-    -- FN Key Bindings
-    ["<F7>"] = { "<cmd>CccPick<CR>", "Color Picker" },
-    ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
-    ["<F9>"] = { "<cmd>TodoTrouble<CR>", "Todo Trouble" },
-
     -- Better window navigation
     ["<C-h>"] = { "<C-w>h", "Focus Left" },
     ["<C-j>"] = { "<C-w>j", "Focus Down" },
     ["<C-k>"] = { "<C-w>k", "Focus Up" },
     ["<C-l>"] = { "<C-w>l", "Focus Right" },
 
+    -- Control bindings
+    ["<C-q>"] = { cmds.general.toggle_quickfix, "Toggle Quick Fix" },
+    ["<C-f>"] = { cmds.explorer.toggle_float_files, "Float Explorer (Files)" },
+    ["<C-e>"] = { cmds.explorer.toggle_float_buffers, "Float Explorer (Buffers)" },
+    ["<C-g>"] = { cmds.explorer.toggle_float_git, "Float Explorer (Git)" },
+    ["<C-/>"] = { cmds.term.toggle, "Term" },
+
     -- Resize with arrows
     ["<C-up>"] = { ":resize -2<CR>", "Resize Up" },
     ["<C-down>"] = { ":resize +2<CR>", "Resize Down" },
     ["<C-left>"] = { ":vertical resize -2<CR>", "Resize Left" },
     ["<C-right>"] = { ":vertical resize +2<CR>", "Resize Right" },
+
+    -- FN Key Bindings
+    ["<F7>"] = { "<cmd>CccPick<CR>", "Color Picker" },
+    ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
+    ["<F9>"] = { "<cmd>TodoTrouble<CR>", "Todo Trouble" },
 
     ["["] = groups.go_prev,
     ["]"] = groups.go_next,
@@ -89,6 +83,7 @@ M.with_leader = {
     ["/"] = { cmds.fzf.text.in_file, "Find in File" },
     [":"] = { cmds.fzf.misc.commands, "Commands" },
     ["`"] = { "<cmd>e #<CR>", "Switch to Other Buffer" },
+    ["<TAB>"] = { cmds.fzf.misc.tabs, "Switch to Tabs" },
 
     -- Groups
     a = groups.action,

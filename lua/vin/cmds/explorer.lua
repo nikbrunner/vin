@@ -1,0 +1,18 @@
+local M = {}
+
+M.toggle_float_files = function()
+    vim.cmd("Neotree left close")
+    vim.cmd("Neotree float toggle reveal")
+end
+
+M.toggle_float_buffers = function()
+    vim.cmd("Neotree left close")
+    vim.cmd("Neotree float buffers toggle reveal")
+end
+
+M.toggle_float_git = function()
+    vim.cmd("Neotree left close")
+    vim.cmd("Neotree float git_status toggle reveal")
+end
+
+return M

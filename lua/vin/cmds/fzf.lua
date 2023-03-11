@@ -127,8 +127,9 @@ M.misc = {
     man_page = M.fzf("man_page", M.win_presets.large.vertical),
     highlights = M.fzf("highlights", M.win_presets.medium.vertical),
     registers = M.fzf("registers", M.win_presets.medium.vertical),
-    commands = M.fzf("commands", M.win_presets.small.vertical),
-    keymaps = M.fzf("keymaps", M.win_presets.small.vertical),
+    commands = M.fzf("commands", M.win_presets.small.no_preview),
+    keymaps = M.fzf("keymaps", M.win_presets.medium.vertical),
+    tabs = M.fzf("tabs", M.win_presets.medium.vertical),
 }
 
 return M

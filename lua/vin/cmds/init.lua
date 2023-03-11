@@ -10,4 +10,5 @@ return {
     harpoon = require("vin.cmds.harpoon"),
     quit = require("vin.cmds.quit"),
     term = require("vin.cmds.term"),
+    explorer = require("vin.cmds.explorer"),
 }
