@@ -6,6 +6,18 @@ return {
         "rcarriga/nvim-notify",
     },
     opts = {
+        views = {
+            cmdline_popup = {
+                border = {
+                    style = "rounded",
+                    padding = { 0, 5 },
+                },
+                filter_options = {},
+                win_options = {
+                    winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+                },
+            },
+        },
         notify = {
             -- Noice can be used as `vim.notify` so you can route any notification like other messages
             -- Notification messages have their level and other properties set.
@@ -57,7 +69,7 @@ return {
                 -- NOTE: If you enable messages, then the cmdline is enabled automatically.
                 -- This is a current Neovim limitation.
                 enabled = false, -- enables the Noice messages UI
-                view = "notify", -- default view for messages
+                view = "", -- default view for messages
                 view_error = "notify", -- view for errors
                 view_warn = "notify", -- view for warnings
                 view_history = "messages", -- view for :messages
@@ -74,6 +86,20 @@ return {
                     format = { "{message}" },
                     win_options = { concealcursor = "n", conceallevel = 3 },
                 },
+            },
+        },
+        routes = {
+            {
+                filter = {
+                    event = "msg_show",
+                    kind = "",
+                    find = "written",
+                },
+                opts = { skip = true },
+            },
+            {
+                view = "notify",
+                filter = { event = "msg_showmode" },
             },
         },
         presets = {
