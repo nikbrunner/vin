@@ -49,9 +49,8 @@ local spec = {
         },
     },
     enabled = true,
-    lazy = false,
+    event = "BufRead",
     keys = {
-
         {
             "zR",
             function()
