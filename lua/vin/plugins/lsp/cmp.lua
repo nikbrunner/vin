@@ -7,6 +7,8 @@ function M.setup(lsp_zero)
     local cmp_mappings = lsp_zero.defaults.cmp_mappings({
         ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<Tab>"] = nil,
+        ["<S-Tab>"] = nil,
         -- This is to trigger the completion menu
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
         -- Accept currently selected item. If none selected, `select` first item.

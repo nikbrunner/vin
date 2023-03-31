@@ -74,11 +74,21 @@ M.no_leader = {
 
 M.with_leader = {
     -- Singles
-    ["n"] = { vim.cmd.nohl, WhichKeyIgnoreLabel },
     ["l"] = { vim.cmd.vs, WhichKeyIgnoreLabel },
     ["j"] = { vim.cmd.sp, WhichKeyIgnoreLabel },
     ["<CR>"] = { vim.cmd.wa, "Save All (:wa)" },
     ["f"] = { cmds.fzf.files.with_preview, "Find File" },
+    ["r"] = {
+        "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+        "Redraw / clear hlsearch / diff update",
+    },
+    ["u"] = {
+        function()
+            vim.cmd("Neotree left close")
+            vim.cmd("UndotreeToggle")
+        end,
+        "Toggle Undotree",
+    },
     [" "] = { "<cmd>Telescope buffers<CR>", "Buffers" },
     ["/"] = { cmds.fzf.text.in_file, "Find in File" },
     [":"] = { cmds.fzf.misc.commands, "Commands" },

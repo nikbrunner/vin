@@ -143,7 +143,13 @@ M.diagnostics = {
 M.explorer = {
     name = "Explorer",
     ["."] = { "<cmd>Neotree focus<CR>", "Focus Tree" },
-    e = { "<cmd>Neotree left toggle<CR>", "Left File Tree" },
+    e = {
+        function()
+            vim.cmd("UndotreeHide")
+            vim.cmd("Neotree left toggle")
+        end,
+        "Left File Tree",
+    },
     g = { "<cmd>Neotree git_status<CR>", "Git File Tree" },
     b = { "<cmd>Neotree buffers toggle<CR>", "Left Buffer Tree" },
     f = { "<cmd>Neotree float toggle reveal<CR>", "Float File Tree" },
@@ -458,6 +464,12 @@ M.session = {
 M.action = {
     name = "Actions",
     i = { "<cmd>ChatGPT<CR>", "ChatGPT" },
+    d = {
+        function()
+            require("notify").dismiss({ silent = true, pending = true })
+        end,
+        "Dismiss Notifications",
+    },
     c = { vim.lsp.buf.code_action, "Code Action" },
     n = { vim.lsp.buf.rename, "Rename" },
     f = { "<cmd>NullFormat<CR>", "Format (Null)" },
