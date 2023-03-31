@@ -13,8 +13,8 @@ local gitui = fterm:new({
     cmd = "lazygit",
     border = "rounded",
     dimensions = {
-        height = 0.9,
-        width = 0.9,
+        height = 1,
+        width = 1,
     },
     hl = "NormalFloat",
     on_exit = function()
