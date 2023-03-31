@@ -9,7 +9,7 @@ local NOTES_PATH = concat({ DOCUMENTS_PATH, "notes/" })
 ---@class VinConfig
 Vin.config = {
     username = "Nik",
-    colorscheme = "nightfox",
+    colorscheme = "terra",
     nightly_version = "0.9",
     diagnostics = {
         virtual_text_enabled = true,
