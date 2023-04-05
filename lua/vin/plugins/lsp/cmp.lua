@@ -34,12 +34,21 @@ function M.setup(lsp_zero)
                 -- The function below will be called before any actual modifications from lspkind
                 -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
                 before = function(entry, vim_item)
-                    vim_item.menu = ({
-                        nvim_lsp = "[LSP]",
-                        luasnip = "[Snippet]",
-                        buffer = "[Buffer]",
-                        path = "[Path]",
-                    })[entry.source.name]
+                    -- Show import path for LSP items
+                    -- Source: https://stackoverflow.com/a/72937872
+                    if
+                        entry.completion_item.detail ~= nil
+                        and entry.completion_item.detail ~= ""
+                    then
+                        vim_item.menu = entry.completion_item.detail
+                    else
+                        vim_item.menu = ({
+                            nvim_lsp = "[LSP]",
+                            luasnip = "[Snippet]",
+                            buffer = "[Buffer]",
+                            path = "[Path]",
+                        })[entry.source.name]
+                    end
 
                     return vim_item
                 end,
