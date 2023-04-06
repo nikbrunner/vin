@@ -129,7 +129,7 @@ M.misc = {
     registers = M.fzf("registers", M.win_presets.medium.vertical),
     commands = M.fzf("commands", M.win_presets.small.no_preview),
     keymaps = M.fzf("keymaps", M.win_presets.medium.vertical),
-    tabs = M.fzf("tabs", M.win_presets.medium.vertical),
+    tabs = M.fzf("tabs"),
 }
 
 return M
