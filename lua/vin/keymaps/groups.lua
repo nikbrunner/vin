@@ -183,15 +183,6 @@ M.git = {
     q = { cmds.git.open_changes_in_qf, "List changes in QF" },
     l = { cmds.git.toggle_current_line_blame, "Current Line Blame" },
     o = { cmds.fzf.git.status_with_preview, "Open Changed Files" },
-    d = {
-        name = "Diffview",
-        c = { cmds.git.get_diff_to, "Diff To Custom" },
-        d = { "<cmd>DiffviewOpen<CR>", "Current Diff" },
-        h = { "<cmd>DiffviewFileHistory %<CR>", "History for Current File" },
-        H = { "<cmd>DiffviewFileHistory<CR>", "Git History" },
-        r = { "<cmd>DiffviewRefresh<CR>", "Refresh" },
-        q = { "<cmd>DiffviewClose<CR>", "Close" },
-    },
     h = {
         name = "Hunk",
         k = { cmds.git.hunk_go_prev, "Prev Hunk" },
