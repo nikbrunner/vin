@@ -11,7 +11,7 @@ local spec = {
         "nvim-telescope/telescope.nvim",
     },
     opts = {
-        -- welcome_message = WELCOME_MESSAGE, -- set to "" if you don't like the fancy godot robot
+        welcome_message = "hello",
         loading_text = "loading",
         question_sign = "", -- you can use emoji if you want e.g. 🙂
         answer_sign = "ﮧ", -- 🤖
@@ -55,7 +55,7 @@ local spec = {
             },
         },
         openai_params = {
-            model = "text-davinci-003",
+            model = "gpt-3.5-turbo",
             frequency_penalty = 0,
             presence_penalty = 0,
             max_tokens = 300,
@@ -70,13 +70,19 @@ local spec = {
             n = 1,
         },
         keymaps = {
-            close = { "<C-c>", "<Esc>" },
+            close = { "<C-c>" },
+            submit = "<Enter>",
             yank_last = "<C-y>",
+            yank_last_code = "<C-k>",
             scroll_up = "<C-u>",
             scroll_down = "<C-d>",
             toggle_settings = "<C-o>",
             new_session = "<C-n>",
             cycle_windows = "<Tab>",
+            -- in the Sessions pane
+            select_session = "<Space>",
+            rename_session = "r",
+            delete_session = "d",
         },
     },
     config = function(_, opts)
