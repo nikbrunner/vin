@@ -81,6 +81,7 @@ M.no_leader = {
 
 M.with_leader = {
     -- Singles
+    ["r"] = { "<cmd>e!<CR>", "Reload File (:e!)" },
     ["<CR>"] = { vim.cmd.wa, "Save All (:wa)" },
     ["x"] = { vim.cmd.xa, "Save and Quit All (:xa)" },
     ["l"] = { vim.cmd.vs, "Split Vertical (:vs)" },
