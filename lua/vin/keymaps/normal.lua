@@ -60,6 +60,12 @@ M.no_leader = {
     ["<C-right>"] = { ":vertical resize +2<CR>", "Resize Right" },
 
     -- FN Key Bindings
+    ["<F3>"] = {
+        function()
+            require("persistence").load()
+        end,
+        "Restore Last Session",
+    },
     ["<F5>"] = { cmds.term.toggle, "Term" },
     ["<F7>"] = { "<cmd>CccPick<CR>", "Color Picker" },
     ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
@@ -70,30 +76,26 @@ M.no_leader = {
 
     ["vv"] = { "^v$", "Select Line" },
     ["vA"] = { "ggVG", "Select All" },
+    ["yA"] = { "ggVGy", "Copy All" },
 }
 
 M.with_leader = {
     -- Singles
-    ["l"] = { vim.cmd.vs, WhichKeyIgnoreLabel },
-    ["j"] = { vim.cmd.sp, WhichKeyIgnoreLabel },
     ["<CR>"] = { vim.cmd.wa, "Save All (:wa)" },
+    ["x"] = { vim.cmd.xa, "Save and Quit All (:xa)" },
+    ["l"] = { vim.cmd.vs, "Split Vertical (:vs)" },
+    ["j"] = { vim.cmd.sp, "Split Horizontal (:sp)" },
     ["f"] = { cmds.fzf.files.with_preview, "Find File" },
-    ["n"] = {
-        "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-        "No hlsearch / Redraw / Diff Update",
-    },
-    ["u"] = {
-        function()
-            vim.cmd("Neotree left close")
-            vim.cmd("UndotreeToggle")
-        end,
-        "Toggle Undotree",
-    },
     [" "] = { cmds.fzf.misc.buffers, "Buffers" },
-    ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find in File" },
     [":"] = { cmds.fzf.misc.commands, "Commands" },
+    ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find in File" },
     ["<TAB>"] = { cmds.fzf.misc.tabs, "Switch to Tabs" },
-    ["`"] = { "<cmd>e #<CR>", "Switch to Other Buffer" },
+    ["u"] = { cmds.explorer.toggle_undo_tree, "Undotree" },
+    ["n"] = {
+        "<cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+        "Hide Search (:nohl)",
+    },
+    ["~"] = { "<cmd>e #<CR>", "Alternative File" },
 
     -- Groups
     a = groups.action,
@@ -107,7 +109,6 @@ M.with_leader = {
     t = groups.tabs,
     v = groups.vin,
     w = groups.windows,
-    x = groups.problems,
     q = groups.quit,
     S = groups.session,
 }

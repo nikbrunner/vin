@@ -415,6 +415,8 @@ M.windows = {
     m = { "<cmd>WindowsMaximize<CR>", "Maximize Split" },
     e = { "<cmd>WindowsEqualize<CR>", "Equalize" },
     a = { "<cmd>WindowsToggleAutowidth<CR>", "Toggle Autowidth" },
+    l = { vim.cmd.vs, "Vertical Split" },
+    j = { vim.cmd.sp, "Horizontal Split" },
 }
 
 M.vin = {

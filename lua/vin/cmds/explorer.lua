@@ -15,4 +15,9 @@ M.toggle_float_git = function()
     vim.cmd("Neotree float git_status toggle reveal")
 end
 
+M.toggle_undo_tree = function()
+    vim.cmd("Neotree left close")
+    vim.cmd("UndotreeToggle")
+end
+
 return M
