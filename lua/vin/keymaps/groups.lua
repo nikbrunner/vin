@@ -7,10 +7,18 @@ M.advanced_g = {
 
     n = { "<cmd>Navbuddy<CR>", "Navigate" },
 
-    d = { "<cmd>Telescope lsp_definitions<CR>", "Find Definition" },
-    r = { "<cmd>Telescope lsp_references<CR>", "Find References" },
-    i = { "<cmd>Telescope lsp_implementations<CR>", "Find Implementations" },
-    y = { "<cmd>Telescope lsp_type_definitions<CR>", "Find Type Definition" },
+    -- Telescope
+    -- d = { "<cmd>Telescope lsp_definitions<CR>", "Find Definition" },
+    -- r = { "<cmd>Telescope lsp_references<CR>", "Find References" },
+    -- i = { "<cmd>Telescope lsp_implementations<CR>", "Find Implementations" },
+    -- y = { "<cmd>Telescope lsp_type_definitions<CR>", "Find Type Definition" },
+
+    -- Glance
+    d = { "<cmd>Glance definitions<CR>", "Find Definition" },
+    r = { "<cmd>Glance references<CR>", "Find References" },
+    i = { "<cmd>Glance implementations<CR>", "Find Implementations" },
+    y = { "<cmd>Glance type_definitions<CR>", "Find Type Definition" },
+
     h = { vim.lsp.buf.hover, "Hover Doc" },
     l = { vim.diagnostic.open_float, "Show Problem" },
 
