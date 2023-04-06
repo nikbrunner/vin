@@ -13,7 +13,7 @@ local spec = {
 
         return {
             window = {
-                border = "single", -- "rounded", "double", "solid", "none"
+                border = "rounded", -- "rounded", "double", "solid", "none"
                 -- or an array with eight chars building up the border in a clockwise fashion
                 -- starting with the top-left corner. eg: { "╔", "═" ,"╗", "║", "╝", "═", "╚", "║" }.
                 size = "50%", -- Or table format example: { height = "40%", width = "100%"}
