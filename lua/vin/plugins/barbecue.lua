@@ -3,7 +3,7 @@ local spec = {
     "utilyre/barbecue.nvim",
     name = "barbecue",
     version = "*",
-    enabled = false,
+    enabled = true,
     dependencies = {
         "SmiteshP/nvim-navic",
         "nvim-tree/nvim-web-devicons", -- optional dependency
