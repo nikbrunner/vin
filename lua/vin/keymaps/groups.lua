@@ -461,6 +461,7 @@ M.action = {
         end,
         "Dismiss Notifications",
     },
+    R = { "<cmd>LspRestart<CR>", "Restart LSP" },
     c = { vim.lsp.buf.code_action, "Code Action" },
     n = { vim.lsp.buf.rename, "Rename" },
     f = { "<cmd>NullFormat<CR>", "Format (Null)" },
