@@ -178,7 +178,9 @@ return {
                 lsp_implementations = quick_vertical_window,
                 lsp_type_definitions = quick_vertical_window,
                 diagnostics = quick_vertical_window,
-                buffers = quick_vertical_window,
+                buffers = vim.tbl_extend("force", quick_vertical_window, {
+                    initial_mode = "insert",
+                }),
                 current_buffer_fuzzy_find = {
                     theme = "ivy",
                 },
@@ -193,9 +195,9 @@ return {
                     theme = "dropdown",
                     no_preview,
                 }),
-                commands = {
-                    theme = "ivy",
-                },
+                commands = vim.tbl_extend("force", quick_vertical_window, {
+                    initial_mode = "insert",
+                }),
             },
             extensions = {
                 project = {

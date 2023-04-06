@@ -52,7 +52,6 @@ M.no_leader = {
     ["<C-f>"] = { cmds.explorer.toggle_float_files, "Float Explorer (Files)" },
     ["<C-e>"] = { cmds.explorer.toggle_float_buffers, "Float Explorer (Buffers)" },
     ["<C-g>"] = { cmds.explorer.toggle_float_git, "Float Explorer (Git)" },
-    ["<C-/>"] = { cmds.term.toggle, "Term" },
 
     -- Resize with arrows
     ["<C-up>"] = { ":resize -2<CR>", "Resize Up" },
@@ -61,6 +60,7 @@ M.no_leader = {
     ["<C-right>"] = { ":vertical resize +2<CR>", "Resize Right" },
 
     -- FN Key Bindings
+    ["<F5>"] = { cmds.term.toggle, "Term" },
     ["<F7>"] = { "<cmd>CccPick<CR>", "Color Picker" },
     ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
     ["<F9>"] = { "<cmd>TodoTrouble<CR>", "Todo Trouble" },
@@ -78,9 +78,9 @@ M.with_leader = {
     ["j"] = { vim.cmd.sp, WhichKeyIgnoreLabel },
     ["<CR>"] = { vim.cmd.wa, "Save All (:wa)" },
     ["f"] = { cmds.fzf.files.with_preview, "Find File" },
-    ["r"] = {
+    ["n"] = {
         "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-        "Redraw / clear hlsearch / diff update",
+        "No hlsearch / Redraw / Diff Update",
     },
     ["u"] = {
         function()
@@ -89,11 +89,11 @@ M.with_leader = {
         end,
         "Toggle Undotree",
     },
-    [" "] = { "<cmd>Telescope buffers<CR>", "Buffers" },
-    ["/"] = { cmds.fzf.text.in_file, "Find in File" },
+    [" "] = { cmds.fzf.misc.buffers, "Buffers" },
+    ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find in File" },
     [":"] = { cmds.fzf.misc.commands, "Commands" },
-    ["`"] = { "<cmd>e #<CR>", "Switch to Other Buffer" },
     ["<TAB>"] = { cmds.fzf.misc.tabs, "Switch to Tabs" },
+    ["`"] = { "<cmd>e #<CR>", "Switch to Other Buffer" },
 
     -- Groups
     a = groups.action,
