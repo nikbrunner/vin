@@ -3,11 +3,11 @@ return {
     event = "VeryLazy",
     dependencies = {
         "anuvyklack/middleclass",
-        -- "anuvyklack/animation.nvim",
+        "anuvyklack/animation.nvim",
     },
     opts = {
         autowidth = {
-            enable = false,
+            enable = true,
             winwidth = 30,
             filetype = {
                 help = 2,
