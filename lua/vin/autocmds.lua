@@ -1,25 +1,23 @@
--- Check if we need to reload the file when it changed
-vim.api.nvim_create_autocmd(
-    { "FocusGained", "TermClose", "TermLeave" },
-    { command = "checktime" }
-)
+local notify = require("vin.lib.ui").notify
+
+local create_autocmd = vim.api.nvim_create_autocmd
 
 -- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
+create_autocmd("TextYankPost", {
     callback = function()
         vim.highlight.on_yank()
     end,
 })
 
 -- resize splits if window got resized
-vim.api.nvim_create_autocmd({ "VimResized" }, {
+create_autocmd({ "VimResized" }, {
     callback = function()
         vim.cmd("tabdo wincmd =")
     end,
 })
 
 -- go to last loc when opening a buffer
-vim.api.nvim_create_autocmd("BufReadPost", {
+create_autocmd("BufReadPost", {
     callback = function()
         local mark = vim.api.nvim_buf_get_mark(0, '"')
         local lcount = vim.api.nvim_buf_line_count(0)
@@ -30,7 +28,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- close some filetypes with <q>
-vim.api.nvim_create_autocmd("FileType", {
+create_autocmd("FileType", {
     pattern = {
         "qf",
         "help",
@@ -54,10 +52,37 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Set wrapping and spell for gitcommit and markdown filetypes
-vim.api.nvim_create_autocmd("FileType", {
+create_autocmd("FileType", {
     pattern = { "gitcommit", "markdown" },
     callback = function()
         vim.opt_local.wrap = true
         vim.opt_local.spell = true
+    end,
+})
+
+-- Check for file changes on certain events
+create_autocmd({
+    "FocusGained",
+    "BufEnter",
+    "CursorHold",
+    "CursorHoldI",
+    "TermClose",
+    "TermLeave",
+}, {
+    pattern = "*",
+    callback = function(ev)
+        if vim.api.nvim_get_mode().mode ~= "c" then
+            vim.cmd.checktime()
+        end
+    end,
+})
+
+-- Notify when file changed on disk
+create_autocmd("FileChangedShellPost", {
+    pattern = "*",
+    callback = function()
+        notify("File changed on disk. Buffer reloaded.", vim.log.levels.INFO, {
+            title = "File Changed",
+        })
     end,
 })
