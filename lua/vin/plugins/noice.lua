@@ -10,7 +10,7 @@ return {
             cmdline_popup = {
                 border = {
                     style = "rounded",
-                    padding = { 0, 5 },
+                    -- padding = { 1, 5 },
                 },
                 filter_options = {},
                 win_options = {
