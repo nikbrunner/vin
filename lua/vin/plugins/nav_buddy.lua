@@ -13,25 +13,20 @@ local spec = {
 
         return {
             window = {
-                border = "rounded", -- "rounded", "double", "solid", "none"
-                -- or an array with eight chars building up the border in a clockwise fashion
-                -- starting with the top-left corner. eg: { "╔", "═" ,"╗", "║", "╝", "═", "╚", "║" }.
-                size = "50%", -- Or table format example: { height = "40%", width = "100%"}
+                border = "rounded",
+                size = "65%", -- Or table format example: { height = "40%", width = "100%"}
                 position = "50%", -- Or table format example: { row = "100%", col = "0%"}
-                scrolloff = nil, -- scrolloff value within navbuddy window
+                scrolloff = 4, -- scrolloff value within navbuddy window
                 sections = {
                     left = {
-                        size = "20%",
-                        border = nil, -- You can set border style for each section individually as well.
+                        size = "25%",
                     },
                     mid = {
-                        size = "40%",
-                        border = nil,
+                        size = "50%",
                     },
                     right = {
-                        -- No size option for right most section. It fills to
-                        -- remaining area.
-                        border = nil,
+                        size = "25%",
+                        preview = "leaf", -- Options: "leaf", "always" or "never"
                     },
                 },
             },
@@ -111,7 +106,7 @@ local spec = {
 
             lsp = {
                 auto_attach = true, -- If set to true, you don't need to manually use attach function
-                preference = { "nvim_lsp", "nvim-cmp", "nvim-lspconfig", "lua_ls" }, -- list of lsp server names in order of preference
+                preference = {}, -- list of lsp server names in order of preference
             },
 
             source_buffer = {
