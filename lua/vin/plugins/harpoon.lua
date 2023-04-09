@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "ThePrimeagen/harpoon",
     event = "VeryLazy",
     opts = {
@@ -23,3 +24,5 @@ return {
         mark_branch = true,
     },
 }
+
+return spec
