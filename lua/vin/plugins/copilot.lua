@@ -5,18 +5,6 @@
 local spec = {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
-    dependencies = { "zbirenbaum/copilot-cmp" },
-    config = function(_, opts)
-        vim.schedule(function()
-            local copilot = require("copilot")
-            copilot.setup(opts)
-
-            if Vin.config.copilot.suggestions.enable_cmp then
-                local copilot_cmp = require("copilot_cmp")
-                require("copilot_cmp").setup()
-            end
-        end)
-    end,
     opts = {
         panel = {
             enabled = false,
@@ -55,6 +43,12 @@ local spec = {
         },
         copilot_node_command = "node", -- Node.js version must be > 16.x
     },
+    config = function(_, opts)
+        vim.schedule(function()
+            local copilot = require("copilot")
+            copilot.setup(opts)
+        end)
+    end,
 }
 
 return spec
