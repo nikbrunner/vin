@@ -37,7 +37,7 @@ local lazyOpts = {
         -- directory where you store your local plugin projects
         path = "~/Documents/dev/repos/terra-theme",
         ---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
-        patterns = { "nikbrunner", "terra-theme" }, -- For example {"folke"}
+        patterns = {}, -- For example {"folke"}
     },
     install = {
         -- install missing plugins on startup. This doesn't increase startup time.
