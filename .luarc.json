@@ -1,10 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-  "Lua.diagnostics.disable": [
-    "undefined-doc-name",
-    "trailing-space",
-    "unused-local"
-  ],
+  "Lua.diagnostics.disable": ["undefined-doc-name", "trailing-space"],
   "Lua.diagnostics.globals": [
     "vim",
     "require",
