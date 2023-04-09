@@ -6,15 +6,6 @@ end
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
-local icons = {
-    marked = " ",
-    jumped = "  ",
-    error = "  ",
-    success = "  ",
-}
-
-local title = "Harpoon"
-
 local M = {}
 
 M.add_file = function()
