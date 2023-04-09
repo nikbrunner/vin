@@ -11,6 +11,7 @@ Vin.config = {
     username = "Nik",
     colorscheme = "terra",
     nightly_version = "0.10",
+    dot_mode = true,
     diagnostics = {
         virtual_text_enabled = true,
     },

@@ -68,6 +68,20 @@ return {
 
             lsp_zero.preset("recommended")
 
+            local sign_icons = Vin.config.dot_mode
+                    and {
+                        error = Vin.icons.ui.Dot,
+                        warn = Vin.icons.ui.Dot,
+                        hint = Vin.icons.ui.Dot,
+                        info = Vin.icons.ui.Dot,
+                    }
+                or {
+                    error = Vin.icons.diagnostics.Error,
+                    warn = Vin.icons.diagnostics.Warning,
+                    hint = Vin.icons.diagnostics.Hint,
+                    info = Vin.icons.diagnostics.Information,
+                }
+
             lsp_zero.set_preferences({
                 suggest_lsp_servers = true,
                 setup_servers_on_start = true,
@@ -76,12 +90,7 @@ return {
                 cmp_capabilities = true,
                 manage_nvim_cmp = true,
                 call_servers = "local",
-                sign_icons = {
-                    error = "",
-                    warn = "",
-                    hint = "",
-                    info = "",
-                },
+                sign_icons = sign_icons,
             })
 
             -- add border to LspInfo window
@@ -125,7 +134,9 @@ return {
 
             -- Setup Vim Diagnostic Settings
             vim.diagnostic.config({
-                virtual_text = Vin.config.diagnostics.virtual_text_enabled,
+                virtual_text = Vin.config.diagnostics.virtual_text_enabled and {
+                    prefix = Vin.icons.ui.Dot,
+                },
                 signs = true,
                 update_in_insert = false,
                 underline = true,

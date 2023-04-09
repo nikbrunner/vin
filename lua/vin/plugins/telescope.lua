@@ -43,7 +43,7 @@ return {
         return {
             defaults = {
                 prompt_prefix = " " .. Vin.icons.ui.Telescope .. " ",
-                selection_caret = " " .. Vin.icons.ui.ArrowClosed .. " ",
+                selection_caret = " " .. Vin.icons.ui.BoldArrowRight .. " ",
                 entry_prefix = "  ",
                 path_display = { "truncate" },
                 initial_mode = "insert",

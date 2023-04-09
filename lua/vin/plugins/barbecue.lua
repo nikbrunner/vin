@@ -8,9 +8,6 @@ local spec = {
         "SmiteshP/nvim-navic",
         "nvim-tree/nvim-web-devicons", -- optional dependency
     },
-    config = function(_, opts)
-        require("barbecue").setup(opts)
-    end,
     opts = {
         ---whether to show/use navic in the winbar
         ---@type boolean
@@ -65,15 +62,15 @@ local spec = {
         symbols = {
             ---modification indicator
             ---@type string
-            modified = "●",
+            modified = Vin.icons.ui.Dot,
 
             ---truncation indicator
             ---@type string
-            ellipsis = "…",
+            ellipsis = Vin.icons.ui.Ellipsis,
 
             ---entry separator
             ---@type string
-            separator = "/",
+            separator = Vin.icons.ui.ForwardSlash,
         },
 
         ---icons for different context entry kinds
@@ -81,6 +78,9 @@ local spec = {
         ---@type table<string, string>|false
         kinds = Vin.icons,
     },
+    config = function(_, opts)
+        require("barbecue").setup(opts)
+    end,
 }
 
 return spec
