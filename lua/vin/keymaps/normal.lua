@@ -60,6 +60,8 @@ M.no_leader = {
     ["<C-right>"] = { ":vertical resize +2<CR>", "Resize Right" },
 
     -- FN Key Bindings
+    ["<F1>"] = { cmds.fzf.misc.help_tags, "Help" },
+    ["<F2>"] = { vim.lsp.buf.rename, "Rename" },
     ["<F3>"] = {
         function()
             require("persistence").load()
