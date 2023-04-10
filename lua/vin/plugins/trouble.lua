@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "folke/trouble.nvim",
     cmd = { "TroubleToggle", "Trouble" },
     event = "VeryLazy",
@@ -8,10 +9,12 @@ return {
         width = 100, -- width of the list when position is left or right
         icons = true, -- use devicons for filenames
         mode = "workspace_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
-        fold_open = "", -- icon used for open folds
-        fold_closed = "", -- icon used for closed folds
+        fold_open = Vin.icons.ui.ChevronShortDown, -- icon used for open folds
+        fold_closed = Vin.icons.ui.ChevronShortRight, -- icon used for closed folds
         group = true, -- group results by file
         padding = true, -- add an extra new line on top of the list
+        auto_close = true, -- automatically close the list when you have no diagnostics
+        auto_fold = true, -- automatically fold a file trouble list at creation
         action_keys = { -- key mappings for actions in the trouble list
             -- map to {} to remove a mapping, for example:
             -- close = {},
@@ -36,3 +39,5 @@ return {
         use_diagnostic_signs = true, -- enabling this will use the signs defined in your lsp client
     },
 }
+
+return spec
