@@ -155,6 +155,7 @@ Vin.icons = {
         Smiley = "",
         Package = "",
         CircuitBoard = "",
+        Vim = "",
     },
     lang = {
         Html = "",
