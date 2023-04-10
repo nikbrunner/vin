@@ -1,7 +1,7 @@
 ---@type LazySpec
 local spec = {
     "dnlhc/glance.nvim",
-    opts = function(self, opts)
+    opts = function()
         local glance = require("glance")
         local actions = glance.actions
 
@@ -62,7 +62,7 @@ local spec = {
                 },
             },
             hooks = {
-                before_open = function(results, open, jump, method)
+                before_open = function(results, open, jump)
                     if #results == 1 then
                         jump(results[1]) -- argument is optional
                     else
@@ -71,20 +71,20 @@ local spec = {
                 end,
             },
             folds = {
-                fold_closed = "",
-                fold_open = "",
+                fold_closed = Vin.icons.ui.ChevronShortRight,
+                fold_open = Vin.icons.ui.ChevronShortDown,
                 folded = true, -- Automatically fold list on startup
             },
             indent_lines = {
                 enable = true,
-                icon = "│",
+                icon = Vin.icons.ui.LineMiddle,
             },
             winbar = {
                 enable = true, -- Available strating from nvim-0.8+
             },
         }
     end,
-    config = function(self, opts)
+    config = function(_, opts)
         local glance = require("glance")
         glance.setup(opts)
     end,
