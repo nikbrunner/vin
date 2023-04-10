@@ -19,13 +19,13 @@ local spec = {
                 scrolloff = 4, -- scrolloff value within navbuddy window
                 sections = {
                     left = {
-                        size = "25%",
+                        size = "20%",
                     },
                     mid = {
-                        size = "50%",
+                        size = "30%",
                     },
                     right = {
-                        size = "25%",
+                        size = "50%",
                         preview = "leaf", -- Options: "leaf", "always" or "never"
                     },
                 },
