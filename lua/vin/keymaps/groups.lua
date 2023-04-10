@@ -129,10 +129,8 @@ M.diagnostics = {
         end,
         "Toggle Virtual Text",
     },
-    d = { cmds.fzf.lsp.diagnostics.document, "Document Diagnostics" },
-    D = { "<cmd>Trouble document_diagnostics<CR>", "Document Diagnostics (Trouble)" },
-    w = { cmds.fzf.lsp.diagnostics.workspace, "Workspace Diagnostics" },
-    W = {
+    d = { "<cmd>Trouble document_diagnostics<CR>", "Document Diagnostics (Trouble)" },
+    w = {
         "<cmd>Trouble workspace_diagnostics<CR>",
         "Workspace Diagnostics (Trouble)",
     },
