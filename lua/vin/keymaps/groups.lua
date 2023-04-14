@@ -61,6 +61,7 @@ M.go_prev = {
     d = {
         function()
             vim.diagnostic.goto_prev({})
+            cmds.general.center_line_vertical()
         end,
         "Diagnostic",
     },
@@ -100,6 +101,7 @@ M.go_next = {
     d = {
         function()
             vim.diagnostic.goto_next()
+            cmds.general.center_line_vertical()
         end,
         "Diagnostic",
     },
