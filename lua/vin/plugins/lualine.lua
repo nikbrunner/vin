@@ -1,8 +1,12 @@
 local concat = table.concat
 local fnamemodify = vim.fn.fnamemodify
 
-return {
+---@type LazySpec
+local spec = {
     "nvim-lualine/lualine.nvim",
+    dependencies = {
+        "meuter/lualine-so-fancy.nvim",
+    },
     event = "VeryLazy",
     opts = function()
         local hide_in_width = function()
@@ -13,7 +17,11 @@ return {
             function()
                 return Vin.icons.misc.Vim
             end,
-            padding = 2,
+            padding = 1,
+            separator = {
+                left = "",
+                right = "",
+            },
         }
 
         local date = {
@@ -21,6 +29,10 @@ return {
                 return os.date("%A, %d %B %Y")
             end,
             padding = 1,
+            separator = {
+                left = "",
+                right = "",
+            },
         }
 
         local time = {
@@ -28,13 +40,17 @@ return {
                 return os.date("%H:%M:%S")
             end,
             padding = 1,
+            separator = {
+                left = "",
+                right = "",
+            },
         }
 
         local project_name = {
             function()
                 local current_project_folder = fnamemodify(vim.fn.getcwd(), ":t")
                 local parent_project_folder = fnamemodify(vim.fn.getcwd(), ":h:t")
-                return Vin.icons.documents.Folder
+                return Vin.icons.kind.Folder
                     .. " "
                     .. parent_project_folder
                     .. "/"
@@ -168,6 +184,10 @@ return {
             max_length = 20, -- Maximum width of tabs component.
             mode = 0, -- 0: Shows tab_nr 1: Shows tab_name 2: Shows tab_nr + tab_name
             padding = 1,
+            separator = {
+                left = "",
+                right = "",
+            },
         }
 
         local lazy_plug_count = {
@@ -203,10 +223,14 @@ return {
                 -- component_separators = { left = "", right = "" },
                 -- section_separators = { left = "", right = "" },
                 -- component_separators = { left = "", right = "" },
-                section_separators = { left = "", right = "" },
-                component_separators = { left = "", right = "" },
+                -- section_separators = { left = "", right = "" },
+                -- component_separators = { left = "", right = "" },
                 -- section_separators = { left = "", right = "" },
-                -- component_separators = { left = "", right = "" },
+                component_separators = { left = "", right = "" },
+                section_separators = {
+                    left = "",
+                    right = "",
+                },
                 disabled_filetypes = {
                     statusline = {
                         "alpha",
@@ -227,7 +251,7 @@ return {
             tabline = {
                 lualine_a = { date, time },
                 lualine_b = { lazy_plug_count, lazy_startup, lazy_updates },
-                lualine_z = { tabs },
+                lualine_y = { tabs },
             },
             -- Disabled for now for use with barbecue
             -- winbar = {
@@ -247,12 +271,28 @@ return {
             --     lualine_z = {},
             -- },
             sections = {
-                lualine_a = { mode },
-                lualine_b = { project_name, branch },
-                lualine_c = {},
-                lualine_x = { lsp_clients },
-                lualine_y = { "filetype" },
-                -- lualine_z = {},
+                lualine_a = {
+                    mode,
+                },
+                lualine_b = { project_name },
+                lualine_c = { "fancy_branch", "fancy_diff" },
+                lualine_x = {
+                    { "fancy_macro" },
+                    { "fancy_diagnostics" },
+                    { "fancy_searchcount" },
+                    { "fancy_location" },
+                },
+                lualine_y = { "fancy_lsp_servers" },
+                lualine_z = {
+                    {
+                        "fancy_filetype",
+                        ts_icon = "",
+                        separator = {
+                            left = "",
+                            right = "",
+                        },
+                    },
+                },
             },
             inactive_sections = {
                 lualine_a = {},
@@ -266,3 +306,5 @@ return {
         }
     end,
 }
+
+return spec
