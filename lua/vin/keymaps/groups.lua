@@ -4,6 +4,10 @@ local cmds = require("vin.cmds")
 
 local telescope = cmds.telescope
 local harpoon = cmds.harpoon
+local git = cmds.git
+local general = cmds.general
+local quit = cmds.quit
+local copy = cmds.copy
 
 M.advanced_g = {
     name = "Go-To",
@@ -43,28 +47,28 @@ M.go_prev = {
     q = {
         function()
             vim.cmd([[cprev]])
-            cmds.general.center_line_vertical()
+            general.center_line_vertical()
         end,
         "QuickFix Item",
     },
     l = {
         function()
             vim.cmd([[lprev]])
-            cmds.general.center_line_vertical()
+            general.center_line_vertical()
         end,
         "LocList Item",
     },
     b = {
         function()
             vim.cmd([[bprev]])
-            cmds.general.center_line_vertical()
+            general.center_line_vertical()
         end,
         "Buffer",
     },
     d = {
         function()
             vim.diagnostic.goto_prev({})
-            cmds.general.center_line_vertical()
+            general.center_line_vertical()
         end,
         "Diagnostic",
     },
@@ -75,7 +79,7 @@ M.go_prev = {
         end,
         "Prev Trouble",
     },
-    g = { cmds.git.hunk_go_prev, "Change" },
+    g = { git.hunk_go_prev, "Change" },
 }
 
 M.go_next = {
@@ -83,28 +87,28 @@ M.go_next = {
     q = {
         function()
             vim.cmd([[cnext]])
-            cmds.general.center_line_vertical()
+            general.center_line_vertical()
         end,
         "QuickFix Item",
     },
     l = {
         function()
             vim.cmd([[lnext]])
-            cmds.general.center_line_vertical()
+            general.center_line_vertical()
         end,
         "LocList Item",
     },
     b = {
         function()
             vim.cmd([[bnext]])
-            cmds.general.center_line_vertical()
+            general.center_line_vertical()
         end,
         "Buffer",
     },
     d = {
         function()
             vim.diagnostic.goto_next()
-            cmds.general.center_line_vertical()
+            general.center_line_vertical()
         end,
         "Diagnostic",
     },
@@ -114,7 +118,7 @@ M.go_next = {
         end,
         "Next Trouble",
     },
-    g = { cmds.git.hunk_go_next, "Change" },
+    g = { git.hunk_go_next, "Change" },
 }
 
 M.diagnostics = {
@@ -173,43 +177,43 @@ M.explorer = {
 M.quit = {
     name = "Quit",
     q = { "<cmd>silent q<CR>", "Quit Split (:q)" },
-    c = { cmds.quit.custom_buffers, "Custom Filter" },
-    o = { cmds.quit.other_buffers, "Other" },
-    h = { cmds.quit.hidden_buffers, "Hidden" },
-    a = { cmds.quit.all_buffers, "All" },
+    c = { quit.custom_buffers, "Custom Filter" },
+    o = { quit.other_buffers, "Other" },
+    h = { quit.hidden_buffers, "Hidden" },
+    a = { quit.all_buffers, "All" },
 }
 
 M.copy = {
     name = "Copy",
-    f = { cmds.copy.fullPath, "Copy Full Path" },
-    r = { cmds.copy.relativePath, "Copy Relative Path" },
-    n = { cmds.copy.fileName, "Copy File Name" },
+    f = { copy.fullPath, "Copy Full Path" },
+    r = { copy.relativePath, "Copy Relative Path" },
+    n = { copy.fileName, "Copy File Name" },
 }
 
 M.git = {
     name = "Git",
-    k = { cmds.git.hunk_go_prev, "Change" },
-    j = { cmds.git.hunk_go_next, "Change" },
+    k = { git.hunk_go_prev, "Change" },
+    j = { git.hunk_go_next, "Change" },
 
     g = { cmds.term.toggle_gitui, "LazyGit" },
     s = { "<cmd>Neotree git_status float<CR>", "Git Status" },
-    q = { cmds.git.open_changes_in_qf, "List changes in QF" },
-    l = { cmds.git.toggle_current_line_blame, "Current Line Blame" },
+    q = { git.open_changes_in_qf, "List changes in QF" },
+    l = { git.toggle_current_line_blame, "Current Line Blame" },
     o = { telescope.find_changed_files, "Open Changed Files" },
     h = {
         name = "Hunk",
-        k = { cmds.git.hunk_go_prev, "Prev Hunk" },
-        j = { cmds.git.hunk_go_next, "Next Hunk" },
-        s = { cmds.git.hunk_stage, "Stage Hunk" },
-        S = { cmds.git.hunk_undo_stage, "Undo Stage Hunk" },
-        p = { cmds.git.hunk_preview, "Preview Hunk" },
-        r = { cmds.git.hunk_reset, "Reset Hunk" },
-        b = { cmds.git.blame_line, "Blame Line" },
+        k = { git.hunk_go_prev, "Prev Hunk" },
+        j = { git.hunk_go_next, "Next Hunk" },
+        s = { git.hunk_stage, "Stage Hunk" },
+        S = { git.hunk_undo_stage, "Undo Stage Hunk" },
+        p = { git.hunk_preview, "Preview Hunk" },
+        r = { git.hunk_reset, "Reset Hunk" },
+        b = { git.blame_line, "Blame Line" },
     },
     b = {
         name = "Buffer",
-        s = { cmds.git.buffer_stage, "Stage Buffer" },
-        r = { cmds.git.buffer_reset, "Reset Buffer" },
+        s = { git.buffer_stage, "Stage Buffer" },
+        r = { git.buffer_reset, "Reset Buffer" },
     },
     c = {
         name = "Checkout",
