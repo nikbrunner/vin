@@ -251,7 +251,7 @@ return {
                 lualine_b = { project_name, branch },
                 lualine_c = {},
                 lualine_x = { lsp_clients },
-                -- lualine_y = {},
+                lualine_y = { "filetype" },
                 -- lualine_z = {},
             },
             inactive_sections = {
