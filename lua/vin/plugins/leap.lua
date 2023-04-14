@@ -1,12 +1,21 @@
-return {
+---@type LazySpec
+local spec = {
     "ggandor/leap.nvim",
     event = "VeryLazy",
-    dependencies = { { "ggandor/flit.nvim", opts = { labeled_modes = "nv" } } },
+    dependencies = {
+        {
+            "ggandor/flit.nvim",
+            opts = {
+                labeled_modes = "nv",
+            },
+        },
+    },
+    enabled = true,
     config = function(_, opts)
         local leap = require("leap")
-        for k, v in pairs(opts) do
-            leap.opts[k] = v
-        end
+        leap.setup(opts)
         leap.add_default_mappings(true)
     end,
 }
+
+return spec
