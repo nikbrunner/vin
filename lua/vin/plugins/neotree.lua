@@ -1,14 +1,9 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
     cmd = "Neotree",
+    lazy = false,
     init = function()
         vim.g.neo_tree_remove_legacy_commands = 1
-        if vim.fn.argc() == 1 then
-            local stat = vim.loop.fs_stat(vim.fn.argv(0))
-            if stat and stat.type == "directory" then
-                require("neo-tree")
-            end
-        end
     end,
     opts = {
         -- @see [nvim/neo-tree.lua at loctvl842/nvim · GitHub](https://github.com/loctvl842/nvim/blob/7894bfa85e4e3c06bb81e5169d1c9c41a892aa34/lua/tvl/config/neo-tree.lua)
@@ -31,10 +26,12 @@ return {
             },
         },
         filesystem = {
-            bind_to_cwd = false,
+            bind_to_cwd = true,
             follow_current_file = true,
+            -- "open_default" would be nice but sometimes on inital load and i open telescope or fzf it sometimes get stuck
+            hijack_netrw_behavior = "open_current",
             components = {
-                harpoon_index = function(config, node, state)
+                harpoon_index = function(config, node)
                     local Marked = require("harpoon.mark")
                     local path = node:get_id()
                     local succuss, index = pcall(Marked.get_index_of, path)
@@ -65,7 +62,6 @@ return {
             {
                 event = "file_opened",
                 handler = function(file_path)
-                    --auto close
                     require("neo-tree").close_all()
                 end,
             },
@@ -75,10 +71,7 @@ return {
             position = "left", -- left, right, top, bottom, float, current
             width = 40, -- applies to left and right positions
             mappings = {
-                ["<space>"] = {
-                    "toggle_node",
-                    nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
-                },
+                ["<space>"] = false, -- disable for leader
                 ["<2-LeftMouse>"] = "open",
                 ["<cr>"] = "open",
                 ["<esc>"] = "revert_preview",
@@ -93,13 +86,7 @@ return {
                 ["M"] = "close_all_nodes",
                 ["O"] = "expand_all_nodes",
                 ["R"] = "refresh",
-                ["a"] = {
-                    "add",
-                    -- some commands may take optional config options, see `:h neo-tree-mappings` for details
-                    config = {
-                        show_path = "none", -- "none", "relative", "absolute"
-                    },
-                },
+                ["a"] = { "add", config = { show_path = "relative" } }, -- "none", "relative", "absolute"
                 ["A"] = "add_directory", -- also accepts the config.show_path option.
                 ["d"] = "delete",
                 ["r"] = "rename",
