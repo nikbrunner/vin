@@ -17,7 +17,7 @@ local delta_previewer = require("telescope.previewers").new_termopen_previewer({
                 "-c",
                 "core.pager=delta",
                 "-c",
-                "delta.side-by-side=false",
+                "delta.side-by-side=true",
                 "diff",
                 entry.value,
             }
@@ -30,7 +30,7 @@ local delta_previewer = require("telescope.previewers").new_termopen_previewer({
             "-c",
             "core.pager=delta",
             "-c",
-            "delta.side-by-side=false",
+            "delta.side-by-side=true",
             "diff",
             entry.value .. "^!",
         }
@@ -39,24 +39,20 @@ local delta_previewer = require("telescope.previewers").new_termopen_previewer({
 
 local M = {}
 
-M.telescope = function(builtin, opts)
+M.builtin = function(builtin, opts)
     return function()
         require("telescope.builtin")[builtin](opts or {})
     end
 end
 
 M.find_changed_files = function()
-    M.telescope("git_status", {
+    M.builtin("git_status", {
         previewer = delta_previewer,
-        layout_config = {
-            width = 0.95,
-            height = 0.95,
-        },
     })()
 end
 
 M.find_commits = function()
-    M.telescope("git_commits", {
+    M.builtin("git_commits", {
         previewer = delta_previewer,
     })()
 end
@@ -65,11 +61,11 @@ M.find_related_files = function()
     local current_filename = utils.get_current_filename(false)
 
     if current_filename then
-        M.telescope("find_files", {
+        M.builtin("find_files", {
             default_text = current_filename,
         })()
     else
-        M.telescope("find_files")()
+        M.builtin("find_files")()
     end
 end
 
@@ -87,7 +83,7 @@ M.find_scss_symbol = function()
     }
 
     local use_telescope = function(text)
-        M.telescope("grep_string", {
+        M.builtin("grep_string", {
             default_text = text,
             path_display = { "truncate" },
             layout_config = {
@@ -166,7 +162,7 @@ end
 
 ---@param path string Path to directory to search in
 M.search_in_dir = function(path)
-    M.telescope("find_files", {
+    M.builtin("find_files", {
         cwd = path,
     })()
 end

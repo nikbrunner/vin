@@ -60,7 +60,7 @@ M.no_leader = {
     ["<C-right>"] = { ":vertical resize +2<CR>", "Resize Right" },
 
     -- FN Key Bindings
-    ["<F1>"] = { cmds.fzf.misc.help_tags, "Help" },
+    ["<F1>"] = { cmds.telescope.builtin("help_tags"), "Help" },
     ["<F2>"] = { vim.lsp.buf.rename, "Rename" },
     ["<F3>"] = {
         function()
@@ -84,21 +84,24 @@ M.no_leader = {
 M.with_leader = {
     -- Singles
     ["r"] = { "<cmd>e!<CR>", "Reload File (:e!)" },
-    ["<CR>"] = { vim.cmd.wa, "Save All (:wa)" },
-    ["x"] = { vim.cmd.xa, "Save and Quit All (:xa)" },
-    ["l"] = { vim.cmd.vs, "Split Vertical (:vs)" },
-    ["j"] = { vim.cmd.sp, "Split Horizontal (:sp)" },
-    ["f"] = { cmds.fzf.files.with_preview, "Find File" },
-    [" "] = { cmds.fzf.misc.buffers, "Buffers" },
-    [":"] = { cmds.fzf.misc.commands, "Commands" },
-    ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Find in File" },
-    ["<TAB>"] = { cmds.fzf.misc.tabs, "Switch to Tabs" },
-    ["u"] = { cmds.explorer.toggle_undo_tree, "Undotree" },
     ["n"] = {
         "<cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
         "Hide Search (:nohl)",
     },
     ["~"] = { "<cmd>e #<CR>", "Alternative File" },
+    ["<CR>"] = { vim.cmd.wa, "Save All (:wa)" },
+    ["x"] = { vim.cmd.xa, "Save and Quit All (:xa)" },
+    ["l"] = { vim.cmd.vs, "Split Vertical (:vs)" },
+    ["j"] = { vim.cmd.sp, "Split Horizontal (:sp)" },
+    ["f"] = { cmds.telescope.builtin("find_files"), "Find File" },
+    [" "] = { cmds.telescope.builtin("buffers"), "Buffers" },
+    [":"] = { cmds.telescope.builtin("commands"), "Commands" },
+    ["/"] = { cmds.telescope.builtin("current_buffer_fuzzy_find"), "Find in File" },
+    ["<TAB>"] = {
+        "<cmd>Telescope telescope-tabs list_tabs theme=ivy<CR>",
+        "Switch to Tabs",
+    },
+    ["u"] = { cmds.explorer.toggle_undo_tree, "Undotree" },
 
     -- Groups
     a = groups.action,

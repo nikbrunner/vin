@@ -14,12 +14,23 @@ return {
             dependencies = "nvim-telescope/telescope.nvim",
             event = "VeryLazy",
         },
+        {
+            "LukasPietzschmann/telescope-tabs",
+            dependencies = "nvim-telescope/telescope.nvim",
+            config = function()
+                require("telescope-tabs").setup()
+            end,
+        },
     },
     init = function()
         local telescope = require("telescope")
 
         telescope.load_extension("todo-comments")
-        telescope.load_extension("noice")
+
+        local noice_present, _ = pcall(require, "noice")
+        if noice_present then
+            telescope.load_extension("noice")
+        end
     end,
     opts = function()
         local merge = require("vin.lib.utils").merge
@@ -99,13 +110,12 @@ return {
 
                 mappings = {
                     i = {
+                        ["<ESC>"] = actions.close,
                         ["<C-h>"] = actions.cycle_history_next,
                         ["<C-l>"] = actions.cycle_history_prev,
 
                         ["<C-j>"] = actions.move_selection_next,
                         ["<C-k>"] = actions.move_selection_previous,
-
-                        ["<C-c>"] = actions.close,
 
                         ["<Down>"] = actions.move_selection_next,
                         ["<Up>"] = actions.move_selection_previous,
@@ -128,12 +138,12 @@ return {
                         ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
                         ["<M-q>"] = actions.send_selected_to_qflist
                             + actions.open_qflist,
-                        ["<C-l>"] = actions.complete_tag,
+                        -- ["<C-l>"] = actions.complete_tag,
                         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
                     },
 
                     n = {
-                        ["<esc>"] = actions.close,
+                        ["q"] = actions.close,
                         ["<CR>"] = actions.select_default,
                         ["<C-x>"] = actions.select_horizontal,
                         ["<C-v>"] = actions.select_vertical,
@@ -172,12 +182,33 @@ return {
                 find_files = {
                     hidden = true,
                     file_ignore_patterns = { "^.git/", "^node_modules/" },
+                    show_line = false,
+                    theme = "ivy",
+                    initial_mode = "insert",
                 },
                 lsp_definitions = quick_vertical_window,
                 lsp_references = quick_vertical_window,
                 lsp_implementations = quick_vertical_window,
                 lsp_type_definitions = quick_vertical_window,
                 diagnostics = quick_vertical_window,
+                git_status = {
+                    -- theme = "ivy",
+                    layout_strategy = "vertical",
+                    layout_config = {
+                        preview_height = 0.65,
+                        width = {
+                            padding = 0,
+                        },
+                        height = {
+                            padding = 0,
+                        },
+                    },
+                    initial_mode = "insert",
+                },
+                list_tabs = {
+                    theme = "dropdown",
+                    initial_mode = "insert",
+                },
                 buffers = vim.tbl_extend("force", quick_vertical_window, {
                     initial_mode = "insert",
                 }),
@@ -195,9 +226,9 @@ return {
                     theme = "dropdown",
                     no_preview,
                 }),
-                commands = vim.tbl_extend("force", quick_vertical_window, {
-                    initial_mode = "insert",
-                }),
+                commands = {
+                    theme = "ivy",
+                },
             },
             extensions = {
                 project = {

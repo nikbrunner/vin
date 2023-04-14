@@ -2,6 +2,9 @@ local M = {}
 
 local cmds = require("vin.cmds")
 
+local telescope = cmds.telescope
+local harpoon = cmds.harpoon
+
 M.advanced_g = {
     name = "Go-To",
 
@@ -192,7 +195,7 @@ M.git = {
     s = { "<cmd>Neotree git_status float<CR>", "Git Status" },
     q = { cmds.git.open_changes_in_qf, "List changes in QF" },
     l = { cmds.git.toggle_current_line_blame, "Current Line Blame" },
-    o = { cmds.fzf.git.status_with_preview, "Open Changed Files" },
+    o = { telescope.find_changed_files, "Open Changed Files" },
     h = {
         name = "Hunk",
         k = { cmds.git.hunk_go_prev, "Prev Hunk" },
@@ -210,8 +213,8 @@ M.git = {
     },
     c = {
         name = "Checkout",
-        b = { cmds.fzf.git.branches, "Branches" },
-        c = { cmds.fzf.git.commits, "Commits" },
+        b = { telescope.builtin("git_branches"), "Branches" },
+        c = { telescope.find_commits, "Commits" },
     },
     p = {
         name = "Pull Request",
@@ -222,21 +225,21 @@ M.git = {
 
 M.search = {
     name = "Search",
-    b = { cmds.fzf.files.buffers, "Open Buffers" },
-    c = { "<cmd>FzfLua colorschemes<CR>", "Colorscheme" },
-    f = { cmds.fzf.files.with_preview, "Files" },
-    g = { cmds.telescope.find_changed_files, "Open Changed Files" },
-    h = { cmds.fzf.files.old_files, "File History" },
-    m = { "<cmd>FzfLua marks<CR>", "Marks" },
-    r = { cmds.telescope.find_related_files, "Related Files" },
-    t = { cmds.fzf.text.in_project, "Find Text Everywhere" },
-    w = { cmds.fzf.text.word, "Word Under Cursor" },
-    S = { "<cmd>FzfLua spell_suggest<CR>", "Spelling" },
+    b = { telescope.builtin("buffers"), "Open Buffers" },
+    c = { telescope.builtin("colorscheme"), "Colorscheme" },
+    f = { telescope.builtin("find_files"), "Files" },
+    g = { telescope.find_changed_files, "Open Changed Files" },
+    h = { telescope.builtin("oldfiles"), "File History" },
+    m = { telescope.builtin("marks"), "Marks" },
+    r = { telescope.find_related_files, "Related Files" },
+    t = { telescope.builtin("live_grep"), "Find Text Everywhere" },
+    w = { telescope.builtin("grep_string"), "Word Under Cursor" },
+    S = { telescope.builtin("spell_suggest"), "Spelling" },
     T = { "<cmd>TodoTelescope<CR>", "Todos" },
     s = {
         name = "Symbols",
-        d = { cmds.fzf.lsp.symbols.document, "Document" },
-        w = { cmds.fzf.lsp.symbols.workspace, "Workspace" },
+        d = { telescope.builtin("lsp_document_symbols"), "Document" },
+        w = { telescope.builtin("lsp_workspace_symbols"), "Workspace" },
     },
     n = {
         name = "Noice",
@@ -261,24 +264,24 @@ M.search = {
     },
     a = {
         name = "Advanced",
-        s = { cmds.telescope.find_scss_symbol, "SCSS Symbol" },
-        h = { cmds.fzf.misc.help_tags, "Help Tags" },
-        H = { cmds.fzf.misc.highlights, "Highlights" },
-        m = { cmds.fzf.misc.man_page, "Man Pages" },
-        r = { cmds.fzf.misc.registers, "Registers" },
-        k = { cmds.fzf.misc.keymaps, "Keymaps" },
+        s = { telescope.find_scss_symbol, "SCSS Symbol" },
+        h = { telescope.builtin("help_tags"), "Help Tags" },
+        H = { telescope.builtin("highlights"), "Highlights" },
+        m = { telescope.builtin("man_pages"), "Man Pages" },
+        r = { telescope.builtin("registers"), "Registers" },
+        k = { telescope.builtin("keymaps"), "Keymaps" },
     },
     ["/"] = {
         name = "Folders",
         C = {
             function()
-                cmds.fzf.files.in_dir(Vin.config.pathes.config)
+                telescope.search_in_dir(Vin.config.pathes.config)
             end,
             "~/.config",
         },
         c = {
             function()
-                cmds.fzf.files.in_dir(Vin.config.pathes.nvimConfig)
+                telescope.search_in_dir(Vin.config.pathes.nvimConfig)
             end,
             "~/.config/nvim (Vin)",
         },
@@ -286,13 +289,13 @@ M.search = {
             name = "Notes",
             w = {
                 function()
-                    cmds.fzf.files.in_dir(Vin.config.pathes.notes.work)
+                    telescope.search_in_dir(Vin.config.pathes.notes.work)
                 end,
                 "Work Notes",
             },
             n = {
                 function()
-                    cmds.fzf.files.in_dir(Vin.config.pathes.notes.private)
+                    telescope.search_in_dir(Vin.config.pathes.notes.private)
                 end,
                 "Private Notes",
             },
@@ -302,59 +305,59 @@ M.search = {
 
 M.marks = {
     name = "Marks",
-    a = { cmds.harpoon.add_file, "Add File to Harpoon" },
-    m = { cmds.harpoon.toggle_quick_menu, "Harpoon Menu" },
+    a = { harpoon.add_file, "Add File to Harpoon" },
+    m = { harpoon.toggle_quick_menu, "Harpoon Menu" },
     ["1"] = {
         function()
-            cmds.harpoon.jump_to_file(1)
+            harpoon.jump_to_file(1)
         end,
         " ",
     },
     ["2"] = {
         function()
-            cmds.harpoon.jump_to_file(2)
+            harpoon.jump_to_file(2)
         end,
         " ",
     },
     ["3"] = {
         function()
-            cmds.harpoon.jump_to_file(3)
+            harpoon.jump_to_file(3)
         end,
         " ",
     },
     ["4"] = {
         function()
-            cmds.harpoon.jump_to_file(4)
+            harpoon.jump_to_file(4)
         end,
         " ",
     },
     ["5"] = {
         function()
-            cmds.harpoon.jump_to_file(5)
+            harpoon.jump_to_file(5)
         end,
         " ",
     },
     ["6"] = {
         function()
-            cmds.harpoon.jump_to_file(6)
+            harpoon.jump_to_file(6)
         end,
         " ",
     },
     ["7"] = {
         function()
-            cmds.harpoon.jump_to_file(7)
+            harpoon.jump_to_file(7)
         end,
         " ",
     },
     ["8"] = {
         function()
-            cmds.harpoon.jump_to_file(8)
+            harpoon.jump_to_file(8)
         end,
         " ",
     },
     ["9"] = {
         function()
-            cmds.harpoon.jump_to_file(9)
+            harpoon.jump_to_file(9)
         end,
         " ",
     },
@@ -435,7 +438,7 @@ M.vin = {
     i = { "<cmd>LspInfo<CR>", "Lsp Info" },
     c = {
         function()
-            cmds.fzf.files.in_dir(Vin.config.pathes.nvimConfig)
+            telescope.search_in_dir(Vin.config.pathes.nvimConfig)
         end,
         "Search Config Files",
     },
