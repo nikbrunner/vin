@@ -132,7 +132,7 @@ M.validate_nvim_version = function(required_version, callback)
 end
 
 M.is_running_nightly = function(callback)
-    M.validate_nvim_version(Vin.config.nightly_version, callback)
+    M.validate_nvim_version(Vin.config.colorscheme, callback)
 end
 
 ---Setup colorscheme
@@ -140,6 +140,16 @@ end
 M.init_colorscheme = function(color)
     color = color or "default"
     vim.cmd.colorscheme(color)
+end
+
+---Savely load a module, and call a function if the module is present
+---@param module_name string Name of the module to load
+---@param cb fun(loaded_module) Callback function to call if the module is present. Receives the module as argument.
+M.sload = function(module_name, cb)
+    local present, m = pcall(require, module_name)
+    if present then
+        cb(m)
+    end
 end
 
 return M

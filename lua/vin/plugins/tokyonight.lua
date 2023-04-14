@@ -1,4 +1,7 @@
-return {
+local utils = require("vin.lib.utils")
+
+---@type LazySpec
+local spec = {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
@@ -7,7 +10,7 @@ return {
         -- or leave it empty to use the default settings
         style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
         light_style = "day", -- The theme is used when the background is set to light
-        transparent = true, -- Enable this to disable setting the background color
+        transparent = false, -- Enable this to disable setting the background color
         terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
         styles = {
             -- Style to be applied to different syntax groups
@@ -64,9 +67,13 @@ return {
         tokyo.setup(opts)
 
         if opts.transparent then
-            require("notify").setup({
-                background_colour = "#000000",
-            })
+            utils.sload("notify", function(notify)
+                notify.setup({
+                    background_colour = "#00000000",
+                })
+            end)
         end
     end,
 }
+
+return spec
