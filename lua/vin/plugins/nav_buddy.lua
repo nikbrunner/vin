@@ -102,6 +102,15 @@ local spec = {
 
                 ["J"] = actions.move_down, -- Move focused node down
                 ["K"] = actions.move_up, -- Move focused node up
+                ["t"] = actions.telescope({ -- Fuzzy finder at current level.
+                    layout_config = { -- All options that can be
+                        height = 0.60, -- passed to telescope.nvim's
+                        width = 0.60, -- default can be passed here.
+                        prompt_position = "top",
+                        preview_width = 0.50,
+                    },
+                    layout_strategy = "horizontal",
+                }),
             },
 
             lsp = {
