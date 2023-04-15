@@ -46,6 +46,12 @@ return {
             initial_mode = "normal",
         }
 
+        local quick_cursor_window = {
+            show_line = false,
+            theme = "cursor",
+            initial_mode = "insert",
+        }
+
         local no_preview = {
             previewer = false,
             prompt_title = false,
@@ -190,6 +196,8 @@ return {
                 lsp_references = quick_vertical_window,
                 lsp_implementations = quick_vertical_window,
                 lsp_type_definitions = quick_vertical_window,
+                lsp_document_symbols = quick_cursor_window,
+                lsp_workdspace_symbols = quick_cursor_window,
                 diagnostics = quick_vertical_window,
                 git_status = {
                     -- theme = "ivy",
