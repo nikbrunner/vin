@@ -6,7 +6,7 @@ local spec = {
     -- I wish the `dev.path` would be configurable on the LazySpec, but it is not.
     -- Alternatively, I could just use a different `dir` for a specific local path, instead of using the `dev` property
     dev = true,
-    lazy = false,
+    lazy = true,
     priority = 1000,
 
     ---@type TerraConfig

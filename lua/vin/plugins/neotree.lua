@@ -9,20 +9,24 @@ return {
         -- @see [nvim/neo-tree.lua at loctvl842/nvim · GitHub](https://github.com/loctvl842/nvim/blob/7894bfa85e4e3c06bb81e5169d1c9c41a892aa34/lua/tvl/config/neo-tree.lua)
         enable_git_status = true,
         enable_diagnostics = true,
-        sources = {
-            "filesystem",
-            "git_status",
-            "buffers",
-        },
         source_selector = {
             winbar = true,
             statusline = false, -- toggle to show selector on statusline
             content_layout = "center",
             tabs_layout = "equal",
-            tab_labels = {
-                filesystem = "" .. " Files",
-                buffers = "" .. " Bufs",
-                git_status = "" .. " Git",
+            sources = {
+                {
+                    source = "filesystem",
+                    display_name = "  Files ",
+                },
+                {
+                    source = "git_status",
+                    display_name = "  Git ",
+                },
+                {
+                    source = "buffers",
+                    display_name = "  Buffers",
+                },
             },
         },
         filesystem = {
