@@ -39,6 +39,7 @@ create_autocmd("FileType", {
         "startuptime",
         "tsplayground",
         "PlenaryTestPopup",
+        "diagmsg",
     },
     callback = function(event)
         vim.bo[event.buf].buflisted = false

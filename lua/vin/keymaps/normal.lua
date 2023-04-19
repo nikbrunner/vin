@@ -70,8 +70,7 @@ M.no_leader = {
     },
     ["<F5>"] = { cmds.term.toggle, "Term" },
     ["<F7>"] = { "<cmd>CccPick<CR>", "Color Picker" },
-    ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
-    ["<F9>"] = { "<cmd>TodoTrouble<CR>", "Todo Trouble" },
+    ["<F8>"] = { "<cmd>DiagWindowShow<CR>", "Trouble Toggle" },
 
     ["["] = groups.go_prev,
     ["]"] = groups.go_next,
