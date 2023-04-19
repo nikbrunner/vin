@@ -11,7 +11,10 @@ local spec = {
 
     ---@type TerraConfig
     opts = {
-        season = "winter",
+        season = "kurzgesagt_beta",
+        diagnostics = {
+            background = true,
+        },
     },
 
     config = function(_, opts)
