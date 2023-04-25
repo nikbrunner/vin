@@ -47,6 +47,7 @@ Vin.config = {
                 "luacheck",
                 "shellcheck",
                 "prettierd",
+                "black",
             },
         },
     },
@@ -82,6 +83,7 @@ Vin.config = {
         formatting = {
             "prettierd",
             "stylua",
+            "black",
         },
         ---@see https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
         diagnostics = {},
