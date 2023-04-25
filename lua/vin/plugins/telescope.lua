@@ -200,17 +200,7 @@ return {
                 lsp_workdspace_symbols = quick_cursor_window,
                 diagnostics = quick_vertical_window,
                 git_status = {
-                    -- theme = "ivy",
-                    layout_strategy = "vertical",
-                    layout_config = {
-                        preview_height = 0.65,
-                        width = {
-                            padding = 0,
-                        },
-                        height = {
-                            padding = 0,
-                        },
-                    },
+                    theme = "ivy",
                     initial_mode = "insert",
                 },
                 list_tabs = {
