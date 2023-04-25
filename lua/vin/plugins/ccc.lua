@@ -11,8 +11,6 @@ local spec = {
         local output = ccc.output
         local picker = ccc.picker
 
-        ---@alias show_mode "auto" | "show" | "hide"
-
         return {
             ---@type string hex
             default_color = "#000000",
@@ -96,7 +94,7 @@ local spec = {
             -- stylua: ignore
             ---@type {[1]: ColorPicker, [2]: ColorOutput}[]
             convert = {
-                { picker.hex, output.css_rgb },
+                { picker.hex,     output.css_rgb },
                 { picker.css_rgb, output.css_hsl },
                 { picker.css_hsl, output.hex },
             },
@@ -104,8 +102,6 @@ local spec = {
                 input = false,
                 output = false,
                 -- stylua: ignore
-                ---@alias RecognizePattern table<ColorPicker, {[1]: ColorInput, [2]: ColorOutput}>
-                ---@type RecognizePattern
                 pattern = {
                     [picker.css_rgb] = { input.rgb, output.rgb },
                     [picker.css_name] = { input.rgb, output.rgb },

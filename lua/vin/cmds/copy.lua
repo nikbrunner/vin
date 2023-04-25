@@ -1,7 +1,7 @@
 -- Functions to copy path and filenames
 local function copy(path)
     vim.fn.setreg("+", path)
-    vim.notify('Copied "' .. path .. '" to the clipboard!')
+    vim.notify('Copied "' .. path .. '" to the clipboard!', vim.log.levels.INFO)
 end
 
 local M = {}

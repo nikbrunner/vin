@@ -76,7 +76,9 @@ M.delete_logs = function()
     vim.api.nvim_buf_set_lines(buffer, 0, -1, false, new_lines)
 
     -- Use vim.notify to display the number of deleted lines
-    vim.notify("Deleted " .. deleted_lines .. " lines")
+    vim.notify("Deleted " .. deleted_lines .. " lines", vim.log.levels.INFO, {
+        title = "Auto Log",
+    })
 end
 
 return M

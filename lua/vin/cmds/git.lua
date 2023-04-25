@@ -14,7 +14,7 @@ end
 
 M.toggle_current_line_blame = function()
     gitsigns.toggle_current_line_blame()
-    vim.notify("Toggled Current Line Blame")
+    vim.notify("Toggled Current Line Blame", vim.log.levels.INFO, { title = "Git" })
 end
 
 M.blame_line = function()

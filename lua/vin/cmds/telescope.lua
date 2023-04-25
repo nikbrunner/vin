@@ -120,12 +120,20 @@ M.find_scss_symbol = function()
                 if action == Action.GoToDefinition then
                     use_telescope("$" .. curr_word .. ": ")
                     vim.notify(
-                        "Looking for variable defintion of '" .. curr_word .. "'"
+                        "Looking for variable defintion of '" .. curr_word .. "'",
+                        vim.log.levels.INFO,
+                        {
+                            title = "Telescope"
+                        }
                     )
                 elseif action == Action.ListReferences then
                     use_telescope("$" .. curr_word)
                     vim.notify(
-                        "Looking for variable references of '" .. curr_word .. "'"
+                        "Looking for variable references of '" .. curr_word .. "'",
+                        vim.log.levels.INFO,
+                        {
+                            title = "Telescope"
+                        }
                     )
                 end
             end)
@@ -136,12 +144,16 @@ M.find_scss_symbol = function()
                 if action == Action.GoToDefinition then
                     use_telescope("@mixin " .. curr_word)
                     vim.notify(
-                        "Looking for mixin definition of '" .. curr_word .. "'"
+                        "Looking for mixin definition of '" .. curr_word .. "'",
+                        vim.log.levels.INFO,
+                        { title = "Telescope" }
                     )
                 elseif action == Action.ListReferences then
                     use_telescope("@include " .. curr_word)
                     vim.notify(
-                        "Looking for mixin references for '" .. curr_word .. "'"
+                        "Looking for mixin references for '" .. curr_word .. "'",
+                        vim.log.levels.INFO,
+                        { title = "Telescope" }
                     )
                 end
             end)

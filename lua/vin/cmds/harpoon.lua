@@ -11,7 +11,10 @@ local M = {}
 M.add_file = function()
     mark.add_file()
     local relative_path = vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:.")
-    vim.notify(" " .. relative_path .. " added to Harpoon!")
+    vim.notify(" " .. relative_path .. " added to Harpoon!", vim.log.levels.INFO, {
+        title = "Harpoon",
+        timeout = 2000,
+    })
 end
 
 M.jump_to_file = function(index)

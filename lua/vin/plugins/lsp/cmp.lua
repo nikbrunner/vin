@@ -56,7 +56,7 @@ function M.setup(lsp_zero)
         },
         confirm_opts = {
             behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
+            select = false,
         },
         window = {
             completion = cmp.config.window.bordered(),
