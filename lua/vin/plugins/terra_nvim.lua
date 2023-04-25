@@ -1,6 +1,6 @@
 ---@type LazySpec
 local spec = {
-    "terra-theme/terra.nvim",
+    "terra-theme/core.nvim",
 
     -- NOTE: Unfort. dev only looks for the repo name like `nvim` and not `terra-theme/nvim`, which requires adjustment in the LazyConfig `dev.path`
     -- I wish the `dev.path` would be configurable on the LazySpec, but it is not.

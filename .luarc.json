@@ -119,7 +119,7 @@
     "/Users/nikolausbrunner/.local/share/nvim/lazy/windows.nvim/lua",
     "/Users/nikolausbrunner/.local/share/nvim/lazy/zen-mode.nvim/lua",
     "/Users/nikolausbrunner/.local/state/nvim/lazy/readme",
-    "/Users/nikolausbrunner/Documents/dev/repos/terra-theme/terra.nvim",
+    "/Users/nikolausbrunner/Documents/dev/repos/terra-theme/core.nvim",
     "${3rd}/luv/library"
   ]
 }

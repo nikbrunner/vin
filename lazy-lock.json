@@ -67,7 +67,6 @@
   "telescope-github.nvim": { "branch": "master", "commit": "ee95c509901c3357679e9f2f9eaac3561c811736" },
   "telescope-tabs": { "branch": "master", "commit": "df6e9eb2d7338a7ebe45f306582d5456dab8695c" },
   "telescope.nvim": { "branch": "master", "commit": "6258d50b09f9ae087317e392efe7c05a7323492d" },
-  "terra.nvim": { "branch": "main", "commit": "c6da8cf09beee6ea264efe6be3e46139b89b4062" },
   "todo-comments.nvim": { "branch": "main", "commit": "8febc60a76feefd8203077ef78b6a262ea1a41f9" },
   "tokyonight.nvim": { "branch": "main", "commit": "7a2ea2f9958f7c68cc2ac95cb44821e7a088e35b" },
   "trouble.nvim": { "branch": "main", "commit": "d56bfc0c501ced4002a57cb60433362fb2ce9c4d" },
