@@ -36,7 +36,7 @@ return {
                 format = "lsp_progress",
                 --- @type NoiceFormat|string
                 format_done = "lsp_progress_done",
-                throttle = 100, -- frequency to update lsp progress message
+                throttle = 1000, -- frequency to update lsp progress message
                 view = "mini",
             },
             override = {
