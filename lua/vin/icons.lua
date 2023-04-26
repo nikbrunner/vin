@@ -165,4 +165,24 @@ Vin.icons = {
         JSON = "",
         Markdown = "",
     },
+    separators = {
+        left = {
+            round = "",
+            round_thin = "",
+            slant = "",
+            slant_thin = "",
+            arrow = "",
+            arrow_thin = "",
+            straight = "",
+        },
+        right = {
+            round = "",
+            round_thin = "",
+            slant = "",
+            slant_thin = "",
+            arrow = "",
+            arrow_thin = "",
+            straight = "",
+        },
+    },
 }

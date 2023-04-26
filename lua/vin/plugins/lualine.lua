@@ -1,6 +1,3 @@
-local concat = table.concat
-local fnamemodify = vim.fn.fnamemodify
-
 ---@type LazySpec
 local spec = {
     "nvim-lualine/lualine.nvim",
@@ -9,6 +6,15 @@ local spec = {
     },
     event = "VeryLazy",
     opts = function()
+        local concat = table.concat
+        local fnamemodify = vim.fn.fnamemodify
+
+        local separator_left = Vin.config.lualine.separators.left
+        local separator_right = Vin.config.lualine.separators.right
+
+        ---@type TerraColors
+        local terra_colors = require("terra.colors")
+
         local hide_in_width = function()
             return vim.fn.winwidth(0) > 80
         end
@@ -19,8 +25,8 @@ local spec = {
             end,
             padding = 1,
             separator = {
-                left = "",
-                right = "",
+                left = separator_left,
+                right = separator_right,
             },
         }
 
@@ -30,8 +36,8 @@ local spec = {
             end,
             padding = 1,
             separator = {
-                left = "",
-                right = "",
+                left = separator_left,
+                right = separator_right,
             },
         }
 
@@ -41,8 +47,8 @@ local spec = {
             end,
             padding = 1,
             separator = {
-                left = "",
-                right = "",
+                left = separator_left,
+                right = separator_right,
             },
         }
 
@@ -185,8 +191,8 @@ local spec = {
             mode = 0, -- 0: Shows tab_nr 1: Shows tab_name 2: Shows tab_nr + tab_name
             padding = 1,
             separator = {
-                left = "",
-                right = "",
+                left = separator_left,
+                right = separator_right,
             },
         }
 
@@ -195,7 +201,7 @@ local spec = {
                 local stats = require("lazy").stats()
                 return Vin.icons.ui.Package .. " " .. stats.count
             end,
-            color = { fg = "#ff9e65" },
+            color = { fg = terra_colors.palette.dark_yellow },
         }
 
         local lazy_startup = {
@@ -204,13 +210,13 @@ local spec = {
                 local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
                 return Vin.icons.ui.Dashboard .. " " .. ms .. "ms"
             end,
-            color = { fg = "#ffae7e" },
+            color = { fg = terra_colors.palette.dark_yellow },
         }
 
         local lazy_updates = {
             require("lazy.status").updates,
             cond = require("lazy.status").has_updates,
-            color = { fg = "#ffca64" },
+            color = { fg = terra_colors.palette.dark_yellow },
             padding = 1,
         }
 
@@ -219,17 +225,13 @@ local spec = {
                 globalstatus = true,
                 icons_enabled = true,
                 theme = "auto",
-                -- section_separators = { left = "", right = "" },
-                -- component_separators = { left = "", right = "" },
-                -- section_separators = { left = "", right = "" },
-                -- component_separators = { left = "", right = "" },
-                -- section_separators = { left = "", right = "" },
-                -- component_separators = { left = "", right = "" },
-                -- section_separators = { left = "", right = "" },
-                component_separators = { left = "", right = "" },
+                component_separators = {
+                    left = separator_left,
+                    right = separator_right,
+                },
                 section_separators = {
-                    left = "",
-                    right = "",
+                    left = separator_left,
+                    right = separator_right,
                 },
                 disabled_filetypes = {
                     statusline = {
@@ -288,8 +290,8 @@ local spec = {
                         "fancy_filetype",
                         ts_icon = "",
                         separator = {
-                            left = "",
-                            right = "",
+                            left = separator_left,
+                            right = separator_right,
                         },
                     },
                 },

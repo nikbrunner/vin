@@ -12,6 +12,12 @@ Vin.config = {
     colorscheme = "terra",
     nightly_version = "0.10",
     dot_mode = true,
+    lualine = {
+        separators = {
+            left = Vin.icons.separators.left.straight,
+            right = Vin.icons.separators.right.straight,
+        },
+    },
     diagnostics = {
         virtual_text_enabled = true,
     },
