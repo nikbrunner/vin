@@ -19,7 +19,7 @@ return {
                 ":ene <BAR> startinsert <CR>"
             ),
             dashboard.button(
-                "r",
+                "h",
                 " " .. " Recent files",
                 ":Telescope oldfiles <CR>"
             ),
