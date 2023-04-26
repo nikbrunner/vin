@@ -407,7 +407,7 @@ M.terra = {
     name = "Terra",
     s = {
         function()
-            require("terra.actions.config").select_season()
+            require("terra.actions.config").select_theme()
         end,
         "Select Season",
     },
