@@ -65,3 +65,9 @@ vim.cmd([[
     let g:transparency = 0.8
     let g:neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
 ]])
+
+-- Netrw Settings
+vim.g.netrw_banner = 0 -- disable that anoying Netrw banner
+vim.g.netrw_browser_split = 4 -- open in a prior window
+vim.g.netrw_altv = 1 -- open splits to the right
+vim.g.netrw_liststyle = 3 -- treeview
