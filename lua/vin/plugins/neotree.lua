@@ -33,7 +33,7 @@ return {
             bind_to_cwd = true,
             follow_current_file = true,
             -- "open_default" would be nice but sometimes on inital load and i open telescope or fzf it sometimes get stuck
-            hijack_netrw_behavior = "open_current",
+            hijack_netrw_behavior = "open_default",
             components = {
                 harpoon_index = function(config, node)
                     local Marked = require("harpoon.mark")
