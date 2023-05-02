@@ -11,7 +11,7 @@ local spec = {
 
     ---@type TerraConfig
     opts = {
-        season = "kurzgesagt_beta",
+        theme = "kurzgesagt_beta",
         diagnostics = {
             background = true,
         },
