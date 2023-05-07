@@ -5,6 +5,7 @@
 ---@type LazySpec
 local spec = {
     "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
     dependencies = {
         "MunifTanjim/nui.nvim",
         "nvim-lua/plenary.nvim",
@@ -23,7 +24,7 @@ local spec = {
             },
         },
         chat = {
-            welcome_message = "Hello Nik",
+            welcome_message = "Hi Nik",
             loading_text = "Loading, please wait ...",
             question_sign = "", -- 🙂
             answer_sign = "ﮧ", -- 🤖
@@ -87,7 +88,7 @@ local spec = {
             win_options = {
                 winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
             },
-            submit = "<C-s>",
+            submit = "<C-Enter>",
         },
         settings_window = {
             border = {
@@ -101,7 +102,8 @@ local spec = {
             },
         },
         openai_params = {
-            model = "gpt-3.5-turbo",
+            -- model = "gpt-3.5-turbo",
+            model = "gpt-4",
             frequency_penalty = 0,
             presence_penalty = 0,
             max_tokens = 300,
