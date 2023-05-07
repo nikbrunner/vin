@@ -41,7 +41,7 @@ local spec = {
                 },
             },
             keymaps = {
-                close = { "<C-c>" },
+                close = { "<C-c>", "q", "<Esc>" },
                 yank_last = "<C-y>",
                 yank_last_code = "<C-k>",
                 scroll_up = "<C-u>",
@@ -88,7 +88,7 @@ local spec = {
             win_options = {
                 winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
             },
-            submit = "<C-Enter>",
+            submit = "<C-s>",
         },
         settings_window = {
             border = {
@@ -106,7 +106,7 @@ local spec = {
             model = "gpt-4",
             frequency_penalty = 0,
             presence_penalty = 0,
-            max_tokens = 300,
+            max_tokens = 2000,
             temperature = 0,
             top_p = 1,
             n = 1,
