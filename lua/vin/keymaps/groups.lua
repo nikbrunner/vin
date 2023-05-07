@@ -405,17 +405,17 @@ M.tabs = {
 
 M.terra = {
     name = "Terra",
-    s = {
+    t = {
         function()
             require("terra.actions.config").select_theme()
         end,
-        "Select Season",
+        "Select Theme",
     },
-    t = {
+    v = {
         function()
-            require("terra.actions.config").select_time()
+            require("terra.actions.config").select_variant()
         end,
-        "Select Time",
+        "Select Variant",
     },
     c = {
         function()
