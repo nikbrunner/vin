@@ -40,6 +40,7 @@ create_autocmd("FileType", {
         "tsplayground",
         "PlenaryTestPopup",
         "diagmsg",
+        "chatpgpt",
     },
     callback = function(event)
         vim.bo[event.buf].buflisted = false
