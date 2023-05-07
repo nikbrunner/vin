@@ -4,7 +4,7 @@ local spec = {
     event = "BufReadPost",
     enabled = true,
     opts = function()
-        local Dot = Vin.icons.ui.SmallDot
+        local Dot = Vin.icons.ui.Dot
         local LineMiddle = Vin.icons.ui.LineMiddle
 
         local char = Vin.config.dot_mode and Dot or LineMiddle

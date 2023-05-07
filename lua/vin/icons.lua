@@ -130,8 +130,8 @@ Vin.icons = {
         ForwardSlash = "/",
         LineLeft = "▏",
         LineMiddle = "│",
+        BigDot = "󰧟",
         Dot = "",
-        SmallDot = "󰧟",
     },
     diagnostics = {
         BoldError = "",
