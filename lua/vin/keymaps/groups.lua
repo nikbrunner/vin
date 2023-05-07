@@ -473,7 +473,11 @@ M.session = {
 
 M.action = {
     name = "Actions",
-    i = { "<cmd>ChatGPT<CR>", "ChatGPT" },
+    i = {
+        name = "AI Actions",
+        i = { "<cmd>ChatGPT<CR>", "ChatGPT" },
+        e = { "<cmd>ChatGPTEditWithInstructions<CR>", "ChatGPT Edit" },
+    },
     d = {
         function()
             require("notify").dismiss({ silent = true, pending = true })
