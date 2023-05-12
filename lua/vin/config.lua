@@ -10,6 +10,7 @@ local NOTES_PATH = concat({ DOCUMENTS_PATH, "notes/" })
 Vin.config = {
     username = "Nik",
     colorscheme = "terra",
+    transparent = false,
     nightly_version = "0.10",
     dot_mode = true,
     diagnostics = {

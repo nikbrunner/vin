@@ -13,7 +13,7 @@ local spec = {
     opts = {
         theme = "kurzgesagt_beta",
         variant = "night",
-        transparent = false,
+        transparent = Vin.config.transparent,
         diagnostics = {
             background = true,
         },
