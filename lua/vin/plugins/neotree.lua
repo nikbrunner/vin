@@ -33,7 +33,7 @@ return {
             bind_to_cwd = true,
             follow_current_file = true,
             -- "open_default" would be nice but sometimes on inital load and i open telescope or fzf it sometimes get stuck
-            hijack_netrw_behavior = "open_default",
+            hijack_netrw_behavior = "disabled",
             components = {
                 harpoon_index = function(config, node)
                     local Marked = require("harpoon.mark")
@@ -63,12 +63,12 @@ return {
             ["ts"] = { "spec.ts" },
         },
         event_handlers = {
-            {
-                event = "file_opened",
-                handler = function(file_path)
-                    require("neo-tree").close_all()
-                end,
-            },
+            -- {
+            --     event = "file_opened",
+            --     handler = function(file_path)
+            --         require("neo-tree").close_all()
+            --     end,
+            -- },
         },
         window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
             -- possible options. These can also be functions that return these options.
