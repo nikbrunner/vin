@@ -88,7 +88,13 @@ M.with_leader = {
         "Hide Search (:nohl)",
     },
     ["~"] = { "<cmd>e #<CR>", "Alternative File" },
-    ["<CR>"] = { vim.cmd.wa, "Save All (:wa)" },
+    ["<CR>"] = {
+        function()
+            vim.notify("Saved All", "info", { title = "Vin" })
+            vim.cmd.wa()
+        end,
+        "Save All (:wa)",
+    },
     ["x"] = { vim.cmd.xa, "Save and Quit All (:xa)" },
     ["l"] = { vim.cmd.vs, "Split Vertical (:vs)" },
     ["j"] = { vim.cmd.sp, "Split Horizontal (:sp)" },
