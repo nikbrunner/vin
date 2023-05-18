@@ -17,15 +17,15 @@ return {
             sources = {
                 {
                     source = "filesystem",
-                    display_name = " Files",
+                    display_name = Vin.icons.ui.Folder .. " Files",
                 },
                 {
                     source = "git_status",
-                    display_name = " Git",
+                    display_name = Vin.icons.git.Diff .. " Git",
                 },
                 {
                     source = "buffers",
-                    display_name = " Buffers",
+                    display_name = Vin.icons.ui.Stack .. " Buffers",
                 },
             },
         },
