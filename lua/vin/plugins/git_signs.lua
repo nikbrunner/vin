@@ -5,7 +5,7 @@ local spec = {
     opts = function()
         local is_dot_mode_enabled = Vin.config.dot_mode
 
-        local Dot = Vin.icons.ui.Dot
+        local Dot = Vin.icons.ui.BigDot
         local LineMiddle = Vin.icons.ui.LineMiddle
         local Triangle = Vin.icons.ui.Triangle
 
