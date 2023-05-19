@@ -497,4 +497,43 @@ M.action = {
     },
 }
 
+M.obsidian = {
+    name = "Obsidian",
+    b = { "<cmd>ObsidianBacklinks<CR>", "Backlinks" },
+    o = { "<cmd>ObsidianOpen<CR>", "Open" },
+    f = { "<cmd>ObsidianQuickSwitch<CR>", "File" },
+    l = {
+        function()
+            vim.ui.input({
+                prompt = "  Enter a Name for the New File",
+            }, function(input)
+                if input then
+                    -- create the new file
+                    vim.cmd("ObsidianLinkNew " .. input)
+                else
+                    return
+                end
+            end)
+        end,
+        "New Link",
+    },
+    n = {
+        function()
+            vim.ui.input({
+                prompt = "  Enter a Name for the New File",
+            }, function(input)
+                if input then
+                    -- create the new file
+                    vim.cmd("ObsidianNew " .. input)
+                else
+                    return
+                end
+            end)
+        end,
+        "New",
+    },
+    -- [ObsidianTemplate command results in error with telescope · Issue #106 · epwalsh/obsidian.nvim](https://github.com/epwalsh/obsidian.nvim/issues/106)
+    -- i = { "<cmd>ObsidianTemplate<CR>", "Insert Template" },
+}
+
 return M

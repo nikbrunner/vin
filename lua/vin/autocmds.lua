@@ -41,6 +41,7 @@ create_autocmd("FileType", {
         "PlenaryTestPopup",
         "diagmsg",
         "chatpgpt",
+        "ObsidianBacklinks",
     },
     callback = function(event)
         vim.bo[event.buf].buflisted = false

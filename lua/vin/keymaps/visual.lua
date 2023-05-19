@@ -47,6 +47,7 @@ M.with_leader = {
     g = groups.git,
     m = groups.marks,
     s = groups.search,
+    o = groups.obsidian,
     t = groups.tabs,
     v = groups.vin,
     w = groups.windows,

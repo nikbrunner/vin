@@ -87,7 +87,7 @@ M.with_leader = {
         "<cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
         "Hide Search (:nohl)",
     },
-    ["~"] = { "<cmd>e #<CR>", "Alternative File" },
+    ["`"] = { "<cmd>e #<CR>", "Alternative File" },
     ["<CR>"] = {
         function()
             vim.notify("Saved All", "info", { title = "Vin" })
@@ -117,6 +117,7 @@ M.with_leader = {
     g = groups.git,
     m = groups.marks,
     s = groups.search,
+    o = groups.obsidian,
     t = groups.tabs,
     v = groups.vin,
     w = groups.windows,
