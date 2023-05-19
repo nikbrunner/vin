@@ -14,7 +14,7 @@ local spec = {
         return {
             window = {
                 border = "rounded",
-                size = "65%", -- Or table format example: { height = "40%", width = "100%"}
+                size = "75%", -- Or table format example: { height = "40%", width = "100%"}
                 position = "50%", -- Or table format example: { row = "100%", col = "0%"}
                 scrolloff = 4, -- scrolloff value within navbuddy window
                 sections = {
