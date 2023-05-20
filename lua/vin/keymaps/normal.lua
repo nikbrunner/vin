@@ -41,11 +41,13 @@ M.no_leader = {
     ["<M-k>"] = { "<Esc>:m .-2<CR>", "Move Up" },
     ["<M-j>"] = { "<Esc>:m .+1<CR>", "Move Down" },
 
-    -- Better window navigation
-    ["<C-h>"] = { "<C-w>h", "Focus Left" },
-    ["<C-j>"] = { "<C-w>j", "Focus Down" },
-    ["<C-k>"] = { "<C-w>k", "Focus Up" },
-    ["<C-l>"] = { "<C-w>l", "Focus Right" },
+    -- Window navigation
+    -- NOTE: Currently handled via https://github.com/christoomey/vim-tmux-navigator
+    -- NOTE: Also see: https://github.com/christoomey/vim-tmux-navigator/issues/295#issuecomment-922092511
+    -- ["<C-h>"] = { "<C-w>h", "Focus Left" },
+    -- ["<C-j>"] = { "<C-w>j", "Focus Down" },
+    -- ["<C-k>"] = { "<C-w>k", "Focus Up" },
+    -- ["<C-l>"] = { "<C-w>l", "Focus Right" },
 
     -- Control bindings
     ["<C-q>"] = { cmds.general.toggle_quickfix, "Toggle Quick Fix" },
