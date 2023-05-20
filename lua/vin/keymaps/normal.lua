@@ -27,11 +27,11 @@ M.no_leader = {
     L = { "$", WhichKeyIgnoreLabel },
 
     -- Toggle Neotree sidbars
-    ["<M-[>"] = { "<cmd>Neotree left toggle<CR>", "Neotree Left Toggle" },
-    ["<M-]>"] = {
-        "<cmd>Neotree git_status right toggle<CR>",
-        "Neotree Right Toggle",
-    },
+    -- ["<M-[>"] = { "<cmd>Neotree left toggle<CR>", "Neotree Left Toggle" },
+    -- ["<M-]>"] = {
+    --     "<cmd>Neotree git_status right toggle<CR>",
+    --     "Neotree Right Toggle",
+    -- },
 
     -- Navigate buffers and Tabs
     ["<S-Tab>"] = { "<cmd>tabprevious<CR>", "Prev Tab" },
