@@ -9,7 +9,7 @@ local NOTES_PATH = concat({ DOCUMENTS_PATH, "notes/" })
 ---@class VinConfig
 Vin.config = {
     username = "Nik",
-    colorscheme = "terra",
+    colorscheme = "github_dark_high_contrast",
     transparent = true,
     nightly_version = "0.10",
     dot_mode = true,
