@@ -488,7 +488,11 @@ M.action = {
     c = { vim.lsp.buf.code_action, "Code Action" },
     n = { vim.lsp.buf.rename, "Rename" },
     f = { "<cmd>NullFormat<CR>", "Format (Null)" },
-    m = { "<cmd>Glow<CR>", "Preview Markdown (Glow)" },
+    m = {
+        name = "Markdown",
+        o = { "<cmd>PeekOpen<CR>", "Open Markdown Preview" },
+        c = { "<cmd>PeekClose<CR>", "Close Markdown Preview" },
+    },
     I = { "<cmd>Inspect<CR>", "Inspect" },
     l = {
         name = "Log",
