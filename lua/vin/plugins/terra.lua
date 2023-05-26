@@ -11,7 +11,7 @@ local spec = {
 
     ---@type TerraConfig
     opts = {
-        theme = "summer",
+        theme = "spring",
         variant = "night",
         transparent = Vin.config.transparent,
         diagnostics = {
