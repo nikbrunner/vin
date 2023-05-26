@@ -27,6 +27,13 @@ create_autocmd("BufReadPost", {
     end,
 })
 
+create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = { "tsconfig.json", ".eslintrc.json" },
+    callback = function()
+        vim.bo.filetype = "jsonc"
+    end,
+})
+
 -- close some filetypes with <q>
 create_autocmd("FileType", {
     pattern = {
