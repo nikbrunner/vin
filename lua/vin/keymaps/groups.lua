@@ -14,6 +14,8 @@ M.advanced_g = {
 
     n = { "<cmd>Navbuddy<CR>", "Navigate" },
 
+    d = { vim.lsp.buf.definition, "Find Definition" },
+
     -- Telescope
     -- d = { "<cmd>Telescope lsp_definitions<CR>", "Find Definition" },
     -- r = { "<cmd>Telescope lsp_references<CR>", "Find References" },
@@ -21,7 +23,7 @@ M.advanced_g = {
     -- y = { "<cmd>Telescope lsp_type_definitions<CR>", "Find Type Definition" },
 
     -- Glance
-    d = { "<cmd>Glance definitions<CR>", "Find Definition" },
+    -- d = { "<cmd>Glance definitions<CR>", "Find Definition" },
     r = { "<cmd>Glance references<CR>", "Find References" },
     i = { "<cmd>Glance implementations<CR>", "Find Implementations" },
     y = { "<cmd>Glance type_definitions<CR>", "Find Type Definition" },
