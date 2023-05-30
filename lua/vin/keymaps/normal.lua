@@ -92,7 +92,7 @@ M.with_leader = {
     ["`"] = { "<cmd>e #<CR>", "Alternative File" },
     ["<CR>"] = {
         function()
-            vim.notify("Saved All", "info", { title = "Vin" })
+            vim.notify("Saved All", vim.log.levels.INFO, { title = "Vin" })
             vim.cmd.wa()
         end,
         "Save All (:wa)",
