@@ -117,6 +117,7 @@ M.with_leader = {
     d = groups.diagnostics,
     e = groups.explorer,
     g = groups.git,
+    i = groups.insert,
     m = groups.marks,
     s = groups.search,
     o = groups.obsidian,

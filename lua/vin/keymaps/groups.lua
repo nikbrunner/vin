@@ -544,4 +544,14 @@ M.obsidian = {
     -- i = { "<cmd>ObsidianTemplate<CR>", "Insert Template" },
 }
 
+M.insert = {
+    name = "Insert",
+    i = {
+        name = "Icon",
+        i = { "<cmd>IconPickerNormal<CR>", "Icon" },
+        n = { "<cmd>IconPickerNormal nerd_font<CR>", "Icon NerdFont" },
+        e = { "<cmd>IconPickerNormal emoji<CR>", "Icon Emoji" },
+    },
+}
+
 return M
