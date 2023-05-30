@@ -12,7 +12,7 @@ Vin.config = {
     colorscheme = "terra",
     transparent = true,
     nightly_version = "0.10",
-    dot_mode = true,
+    dot_mode = false,
     diagnostics = {
         virtual_text_enabled = true,
     },
@@ -77,6 +77,7 @@ Vin.config = {
             "typescript",
             "vim",
             "yaml",
+            "embedded_template",
         },
     },
     null_ls = {
