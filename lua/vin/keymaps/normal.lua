@@ -112,7 +112,6 @@ M.with_leader = {
 
     -- Groups
     a = groups.action,
-    b = groups.buffer,
     c = groups.copy,
     d = groups.diagnostics,
     e = groups.explorer,
