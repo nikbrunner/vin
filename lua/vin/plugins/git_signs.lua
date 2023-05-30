@@ -5,21 +5,25 @@ local spec = {
     opts = function()
         local is_dot_mode_enabled = Vin.config.dot_mode
 
-        local Dot = Vin.icons.ui.BigDot
-        local LineMiddle = Vin.icons.ui.LineMiddle
-        local Triangle = Vin.icons.ui.Triangle
+        local DotIcon = Vin.icons.ui.BigDot
 
-        local general_char = is_dot_mode_enabled and Dot or LineMiddle
-        local deleted_char = is_dot_mode_enabled and Dot or Triangle
+        local AddIcon = is_dot_mode_enabled and DotIcon or Vin.icons.git.LineAdded
+        local ModifiedIcon = is_dot_mode_enabled and DotIcon
+            or Vin.icons.git.LineModified
+        local DeletedIcon = is_dot_mode_enabled and DotIcon
+            or Vin.icons.git.LineRemoved
+            or Vin.icons.git.LineRemoved
+        local UntrackedIcon = is_dot_mode_enabled and DotIcon
+            or Vin.icons.git.FileUntracked
 
         return {
             signs = {
-                add = { text = general_char },
-                change = { text = general_char },
-                delete = { text = deleted_char },
-                topdelete = { text = deleted_char },
-                changedelete = { text = general_char },
-                untracked = { text = general_char },
+                add = { text = AddIcon },
+                change = { text = ModifiedIcon },
+                delete = { text = DeletedIcon },
+                topdelete = { text = DeletedIcon },
+                changedelete = { text = ModifiedIcon },
+                untracked = { text = UntrackedIcon },
             },
             signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
             numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
