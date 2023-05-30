@@ -34,6 +34,13 @@ create_autocmd({ "BufRead", "BufNewFile" }, {
     end,
 })
 
+create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = "*.ejs",
+    callback = function()
+        vim.bo.filetype = "ejs"
+    end,
+})
+
 -- close some filetypes with <q>
 create_autocmd("FileType", {
     pattern = {
