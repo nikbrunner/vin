@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = {
@@ -22,8 +23,8 @@ return {
         messages = {
             -- NOTE: If you enable messages, then the cmdline is enabled automatically.
             -- This is a current Neovim limitation.
-            enabled = false, -- enables the Noice messages UI
-            view = "messages", -- default view for messages
+            enabled = true, -- enables the Noice messages UI
+            view = "notify", -- default view for messages
             view_error = "notify", -- view for errors
             view_warn = "notify", -- view for warnings
             view_history = "messages", -- view for :messages
@@ -40,14 +41,14 @@ return {
         },
         lsp = {
             progress = {
-                enabled = false,
+                enabled = true,
                 -- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
                 -- See the section on formatting for more details on how to customize.
                 --- @type NoiceFormat|string
                 format = "lsp_progress",
                 --- @type NoiceFormat|string
                 format_done = "lsp_progress_done",
-                throttle = 1000, -- frequency to update lsp progress message
+                throttle = 1000 / 3, -- frequency to update lsp progress message
                 view = "mini",
             },
             override = {
@@ -59,7 +60,7 @@ return {
                 ["cmp.entry.get_documentation"] = true,
             },
             hover = {
-                enabled = true,
+                enabled = false,
                 view = nil, -- when nil, use defaults from documentation
                 ---@type NoiceViewOptions
                 opts = {}, -- merged with defaults from documentation
@@ -70,7 +71,7 @@ return {
             messages = {
                 -- NOTE: If you enable messages, then the cmdline is enabled automatically.
                 -- This is a current Neovim limitation.
-                enabled = false, -- enables the Noice messages UI
+                enabled = true, -- enables the Noice messages UI
                 view = "mini", -- default view for messages
                 view_error = "notify", -- view for errors
                 view_warn = "notify", -- view for warnings
@@ -115,3 +116,5 @@ return {
         },
     },
 }
+
+return spec
