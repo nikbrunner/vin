@@ -4,13 +4,13 @@ local groups = require("vin.keymaps.groups")
 local M = {}
 
 M.no_leader = {
-    g = groups.advanced_g,
+    g = groups.g,
 
     -- disable Q
     Q = { "<Nop>", WhichKeyIgnoreLabel },
 
     -- Trigger Hover Doc
-    K = { vim.lsp.buf.hover, "Hover Doc" },
+    K = { "<cmd>Lspsaga hover_doc<CR>", "Hover Doc" },
 
     -- Better n and N (Keep Search Hit in the middle)
     n = { "nzzzv", WhichKeyIgnoreLabel },
@@ -25,13 +25,6 @@ M.no_leader = {
     -- Easier Start and Beginng of line
     H = { "^", WhichKeyIgnoreLabel },
     L = { "$", WhichKeyIgnoreLabel },
-
-    -- Toggle Neotree sidbars
-    -- ["<M-[>"] = { "<cmd>Neotree left toggle<CR>", "Neotree Left Toggle" },
-    -- ["<M-]>"] = {
-    --     "<cmd>Neotree git_status right toggle<CR>",
-    --     "Neotree Right Toggle",
-    -- },
 
     -- Navigate buffers and Tabs
     ["<S-Tab>"] = { "<cmd>tabprevious<CR>", "Prev Tab" },
@@ -52,8 +45,10 @@ M.no_leader = {
     -- Control bindings
     ["<C-q>"] = { cmds.general.toggle_quickfix, "Toggle Quick Fix" },
     ["<C-f>"] = { cmds.explorer.toggle_float_files, "Float Explorer (Files)" },
-    ["<C-e>"] = { cmds.explorer.toggle_float_buffers, "Float Explorer (Buffers)" },
     ["<C-g>"] = { cmds.explorer.toggle_float_git, "Float Explorer (Git)" },
+
+    -- Disabled, because currently creates conflict: https://github.com/nvimdev/lspsaga.nvim/issues/1070#issuecomment-1575097594
+    -- ["<C-e>"] = { cmds.explorer.toggle_float_buffers, "Float Explorer (Buffers)" },
 
     -- Resize with arrows
     ["<C-up>"] = { ":resize -2<CR>", "Resize Up" },
@@ -63,7 +58,7 @@ M.no_leader = {
 
     -- FN Key Bindings
     ["<F1>"] = { cmds.telescope.builtin("help_tags"), "Help" },
-    ["<F2>"] = { vim.lsp.buf.rename, "Rename" },
+    ["<F2>"] = { "<cmd>Lspsaga rename<CR>", "Rename" },
     ["<F3>"] = {
         function()
             require("persistence").load()
@@ -84,11 +79,12 @@ M.no_leader = {
 
 M.with_leader = {
     -- Singles
-    ["r"] = { "<cmd>e!<CR>", "Reload File (:e!)" },
-    ["n"] = {
-        "<cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-        "Hide Search (:nohl)",
-    },
+    e = { cmds.explorer.toggle_left_files, "File Tree" },
+    o = { "<cmd>Lspsaga outline<CR>", "Symbol Outline" },
+    z = { cmds.explorer.toggle_undo_tree, "Undotree" },
+    n = { vim.cmd.nohlsearch, "No Highlight Search (:nohlsearch)" },
+    x = { vim.cmd.xa, "Save and Quit All (:xa)" },
+    f = { cmds.telescope.builtin("find_files"), "Find File" },
     ["`"] = { "<cmd>e #<CR>", "Alternative File" },
     ["<CR>"] = {
         function()
@@ -97,10 +93,6 @@ M.with_leader = {
         end,
         "Save All (:wa)",
     },
-    ["x"] = { vim.cmd.xa, "Save and Quit All (:xa)" },
-    ["l"] = { vim.cmd.vs, "Split Vertical (:vs)" },
-    ["j"] = { vim.cmd.sp, "Split Horizontal (:sp)" },
-    ["f"] = { cmds.telescope.builtin("find_files"), "Find File" },
     [" "] = { cmds.telescope.builtin("buffers"), "Buffers" },
     [":"] = { cmds.telescope.builtin("commands"), "Commands" },
     ["/"] = { cmds.telescope.builtin("current_buffer_fuzzy_find"), "Find in File" },
@@ -108,18 +100,17 @@ M.with_leader = {
         "<cmd>Telescope telescope-tabs list_tabs theme=ivy<CR>",
         "Switch to Tabs",
     },
-    ["u"] = { cmds.explorer.toggle_undo_tree, "Undotree" },
 
     -- Groups
     a = groups.action,
     c = groups.copy,
     d = groups.diagnostics,
-    e = groups.explorer,
     g = groups.git,
     i = groups.insert,
     m = groups.marks,
     s = groups.search,
-    o = groups.obsidian,
+    u = groups.ui,
+    O = groups.obsidian,
     t = groups.tabs,
     v = groups.vin,
     w = groups.windows,

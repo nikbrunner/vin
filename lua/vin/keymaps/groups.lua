@@ -9,70 +9,55 @@ local general = cmds.general
 local quit = cmds.quit
 local copy = cmds.copy
 
-M.advanced_g = {
-    name = "Go-To",
-
-    n = { "<cmd>Navbuddy<CR>", "Navigate" },
-
-    d = { vim.lsp.buf.definition, "Find Definition" },
-
-    -- Telescope
-    -- d = { "<cmd>Telescope lsp_definitions<CR>", "Find Definition" },
-    -- r = { "<cmd>Telescope lsp_references<CR>", "Find References" },
-    -- i = { "<cmd>Telescope lsp_implementations<CR>", "Find Implementations" },
-    -- y = { "<cmd>Telescope lsp_type_definitions<CR>", "Find Type Definition" },
-
-    -- Glance
-    -- d = { "<cmd>Glance definitions<CR>", "Find Definition" },
-    r = { "<cmd>Glance references<CR>", "Find References" },
-    i = { "<cmd>Glance implementations<CR>", "Find Implementations" },
-    y = { "<cmd>Glance type_definitions<CR>", "Find Type Definition" },
-
-    h = { vim.lsp.buf.hover, "Hover Doc" },
-    l = { vim.diagnostic.open_float, "Show Problem" },
-
-    -- Trouble
-    D = { "<cmd>Trouble lsp_definitions<CR>", "Find Definition (Trouble)" },
+-- For the native LSP api methods search for :h vim.lsp.buf
+M.g = {
+    name = "Go",
+    r = { "<cmd>Lspsaga lsp_finder<CR>", "Lsp Finder & References" },
     R = { "<cmd>Trouble lsp_references<CR>", "Find References (Trouble)" },
-    I = {
-        "<cmd>Trouble lsp_implemantations<CR>",
-        "Find Implementations (Trouble)",
-    },
-    Y = {
-        "<cmd>Trouble lsp_type_definitions<CR>",
-        "Find Type Definition (Trouble)",
-    },
+    d = { "<cmd>Lspsaga goto_definition<CR>", "Find Definition" },
+    D = { "<cmd>Lspsaga peek_definition<CR>", "Peek Definition" },
+    l = { "<cmd>Lspsaga show_line_diagnostics<CR>", "Show Line Diagnostics" },
+    t = { "<cmd>Lspsaga goto_type_definition<CR>", "Find Type Definition" },
+    T = { "<cmd>Lspsaga peek_type_definition<CR>", "Peek Type Definition" },
 }
 
 M.go_prev = {
     name = "Prev",
     q = {
         function()
-            vim.cmd([[cprev]])
+            vim.cmd.cprev()
             general.center_line_vertical()
         end,
         "QuickFix Item",
     },
     l = {
         function()
-            vim.cmd([[lprev]])
+            vim.cmd.lprev()
             general.center_line_vertical()
         end,
         "LocList Item",
     },
     b = {
         function()
-            vim.cmd([[bprev]])
+            vim.cmd.bprev()
             general.center_line_vertical()
         end,
         "Buffer",
     },
     d = {
         function()
-            vim.diagnostic.goto_prev({})
+            vim.cmd.Lspsaga("diagnostic_jump_prev")
             general.center_line_vertical()
         end,
         "Diagnostic",
+    },
+    e = {
+        function()
+            require("lspsaga.diagnostic"):goto_prev({
+                severity = vim.diagnostic.severity.ERROR,
+            })
+        end,
+        "Error",
     },
     t = {
         function()
@@ -88,31 +73,39 @@ M.go_next = {
     name = "Next",
     q = {
         function()
-            vim.cmd([[cnext]])
+            vim.cmd.cnext()
             general.center_line_vertical()
         end,
         "QuickFix Item",
     },
     l = {
         function()
-            vim.cmd([[lnext]])
+            vim.cmd.lnext()
             general.center_line_vertical()
         end,
         "LocList Item",
     },
     b = {
         function()
-            vim.cmd([[bnext]])
+            vim.cmd.bnext()
             general.center_line_vertical()
         end,
         "Buffer",
     },
     d = {
         function()
-            vim.diagnostic.goto_next()
+            vim.cmd.Lspsaga("diagnostic_jump_next")
             general.center_line_vertical()
         end,
         "Diagnostic",
+    },
+    e = {
+        function()
+            require("lspsaga.diagnostic"):goto_next({
+                severity = vim.diagnostic.severity.ERROR,
+            })
+        end,
+        "Error",
     },
     t = {
         function()
@@ -131,11 +124,11 @@ M.diagnostics = {
             if Vin.config.diagnostics.virtual_text_enabled == true then
                 vim.diagnostic.config({ virtual_text = false })
                 Vin.config.diagnostics.virtual_text_enabled = false
-                vim.notify("Virtual Text Disabled", "info")
+                vim.notify("Virtual Text Disabled", vim.log.levels.INFO)
             else
                 vim.diagnostic.config({ virtual_text = true })
                 Vin.config.diagnostics.virtual_text_enabled = true
-                vim.notify("Virtual Text Enabled", "info")
+                vim.notify("Virtual Text Enabled", vim.log.levels.INFO)
             end
         end,
         "Toggle Virtual Text",
@@ -146,34 +139,13 @@ M.diagnostics = {
         "Workspace Diagnostics (Trouble)",
     },
     k = {
-        function()
-            vim.diagnostic.goto_prev({})
-        end,
+        M.go_prev.d[1],
         "Prev Diagnostic",
     },
     j = {
-        function()
-            vim.diagnostic.goto_next({})
-        end,
+        M.go_next.d[1],
         "Next Diagnostic",
     },
-}
-
-M.explorer = {
-    name = "Explorer",
-    ["."] = { "<cmd>Neotree focus<CR>", "Focus Tree" },
-    e = {
-        function()
-            vim.cmd("UndotreeHide")
-            vim.cmd("Neotree left toggle")
-        end,
-        "Left File Tree",
-    },
-    g = { "<cmd>Neotree git_status<CR>", "Git File Tree" },
-    b = { "<cmd>Neotree buffers toggle<CR>", "Left Buffer Tree" },
-    f = { "<cmd>Neotree float toggle reveal<CR>", "Float File Tree" },
-    B = { "<cmd>Neotree float buffers toggle<CR>", "Float Buffer Tree" },
-    G = { "<cmd>Neotree float git_status<CR>", "Float Git Tree" },
 }
 
 M.quit = {
@@ -232,7 +204,6 @@ M.git = {
 M.search = {
     name = "Search",
     b = { telescope.builtin("buffers"), "Open Buffers" },
-    c = { telescope.builtin("colorscheme"), "Colorscheme" },
     f = { telescope.builtin("find_files"), "Files" },
     g = { telescope.find_changed_files, "Open Changed Files" },
     h = { telescope.builtin("oldfiles"), "File History" },
@@ -489,8 +460,8 @@ M.action = {
         "Dismiss Notifications",
     },
     R = { "<cmd>LspRestart<CR>", "Restart LSP" },
-    c = { vim.lsp.buf.code_action, "Code Action" },
-    n = { vim.lsp.buf.rename, "Rename" },
+    c = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
+    n = { "<cmd>Lspsaga rename<CR>", "Rename" },
     f = { "<cmd>NullFormat<CR>", "Format (Null)" },
     m = {
         name = "Markdown",
@@ -560,6 +531,12 @@ M.insert = {
         n = { "<cmd>IconPickerNormal nerd_font<CR>", "Icon NerdFont" },
         e = { "<cmd>IconPickerNormal emoji<CR>", "Icon Emoji" },
     },
+}
+
+M.ui = {
+    name = "UI",
+    r = { "<cmd>e!<CR>", "Reload File (:e!)" },
+    c = { telescope.builtin("colorscheme"), "Colorscheme" },
 }
 
 return M

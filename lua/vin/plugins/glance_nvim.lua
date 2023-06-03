@@ -1,6 +1,7 @@
 ---@type LazySpec
 local spec = {
     "dnlhc/glance.nvim",
+    enabled = false,
     opts = function()
         local glance = require("glance")
         local actions = glance.actions
