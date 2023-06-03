@@ -1,13 +1,6 @@
-local M = {}
-
 local cmds = require("vin.cmds")
 
-local telescope = cmds.telescope
-local harpoon = cmds.harpoon
-local git = cmds.git
-local general = cmds.general
-local quit = cmds.quit
-local copy = cmds.copy
+local M = {}
 
 -- For the native LSP api methods search for :h vim.lsp.buf
 M.g = {
@@ -26,28 +19,28 @@ M.go_prev = {
     q = {
         function()
             vim.cmd.cprev()
-            general.center_line_vertical()
+            cmds.general.center_line_vertical()
         end,
         "QuickFix Item",
     },
     l = {
         function()
             vim.cmd.lprev()
-            general.center_line_vertical()
+            cmds.general.center_line_vertical()
         end,
         "LocList Item",
     },
     b = {
         function()
             vim.cmd.bprev()
-            general.center_line_vertical()
+            cmds.general.center_line_vertical()
         end,
         "Buffer",
     },
     d = {
         function()
             vim.cmd.Lspsaga("diagnostic_jump_prev")
-            general.center_line_vertical()
+            cmds.general.center_line_vertical()
         end,
         "Diagnostic",
     },
@@ -66,7 +59,7 @@ M.go_prev = {
         end,
         "Prev Trouble",
     },
-    g = { git.hunk_go_prev, "Change" },
+    g = { cmds.git.hunk_go_prev, "Change" },
 }
 
 M.go_next = {
@@ -74,28 +67,28 @@ M.go_next = {
     q = {
         function()
             vim.cmd.cnext()
-            general.center_line_vertical()
+            cmds.general.center_line_vertical()
         end,
         "QuickFix Item",
     },
     l = {
         function()
             vim.cmd.lnext()
-            general.center_line_vertical()
+            cmds.general.center_line_vertical()
         end,
         "LocList Item",
     },
     b = {
         function()
             vim.cmd.bnext()
-            general.center_line_vertical()
+            cmds.general.center_line_vertical()
         end,
         "Buffer",
     },
     d = {
         function()
             vim.cmd.Lspsaga("diagnostic_jump_next")
-            general.center_line_vertical()
+            cmds.general.center_line_vertical()
         end,
         "Diagnostic",
     },
@@ -113,7 +106,7 @@ M.go_next = {
         end,
         "Next Trouble",
     },
-    g = { git.hunk_go_next, "Change" },
+    g = { cmds.git.hunk_go_next, "Change" },
 }
 
 M.diagnostics = {
@@ -150,73 +143,76 @@ M.diagnostics = {
 
 M.quit = {
     name = "Quit",
-    q = { "<cmd>silent q<CR>", "Quit Split (:q)" },
-    c = { quit.custom_buffers, "Custom Filter" },
-    o = { quit.other_buffers, "Other" },
-    h = { quit.hidden_buffers, "Hidden" },
-    a = { quit.all_buffers, "All" },
+    q = { vim.cmd.quit, "Quit (:q)" },
+    c = { cmds.quit.custom_buffers, "Custom Filter" },
+    o = { cmds.quit.other_buffers, "Other" },
+    h = { cmds.quit.hidden_buffers, "Hidden" },
+    a = { cmds.quit.all_buffers, "All" },
 }
 
 M.copy = {
     name = "Copy",
-    f = { copy.fullPath, "Copy Full Path" },
-    r = { copy.relativePath, "Copy Relative Path" },
-    n = { copy.fileName, "Copy File Name" },
+    f = { cmds.copy.fullPath, "Copy Full Path" },
+    r = { cmds.copy.relativePath, "Copy Relative Path" },
+    n = { cmds.copy.fileName, "Copy File Name" },
 }
 
 M.git = {
     name = "Git",
-    k = { git.hunk_go_prev, "Change" },
-    j = { git.hunk_go_next, "Change" },
+    k = { cmds.git.hunk_go_prev, "Change" },
+    j = { cmds.git.hunk_go_next, "Change" },
 
     g = { cmds.term.toggle_gitui, "LazyGit" },
-    s = { "<cmd>Neotree git_status float<CR>", "Git Status" },
-    q = { git.open_changes_in_qf, "List changes in QF" },
-    l = { git.toggle_current_line_blame, "Current Line Blame" },
-    o = { telescope.find_changed_files, "Open Changed Files" },
+    s = { cmds.explorer.toggle_float_git, "Git Status" },
+    q = { cmds.git.open_changes_in_qf, "List changes in QF" },
+    l = { cmds.git.toggle_current_line_blame, "Current Line Blame" },
+    o = { cmds.telescope.find_changed_files, "Open Changed Files" },
     h = {
         name = "Hunk",
-        k = { git.hunk_go_prev, "Prev Hunk" },
-        j = { git.hunk_go_next, "Next Hunk" },
-        s = { git.hunk_stage, "Stage Hunk" },
-        S = { git.hunk_undo_stage, "Undo Stage Hunk" },
-        p = { git.hunk_preview, "Preview Hunk" },
-        r = { git.hunk_reset, "Reset Hunk" },
-        b = { git.blame_line, "Blame Line" },
+        k = { cmds.git.hunk_go_prev, "Prev Hunk" },
+        j = { cmds.git.hunk_go_next, "Next Hunk" },
+        s = { cmds.git.hunk_stage, "Stage Hunk" },
+        S = { cmds.git.hunk_undo_stage, "Undo Stage Hunk" },
+        p = { cmds.git.hunk_preview, "Preview Hunk" },
+        r = { cmds.git.hunk_reset, "Reset Hunk" },
+        b = { cmds.git.blame_line, "Blame Line" },
     },
     b = {
         name = "Buffer",
-        s = { git.buffer_stage, "Stage Buffer" },
-        r = { git.buffer_reset, "Reset Buffer" },
+        s = { cmds.git.buffer_stage, "Stage Buffer" },
+        r = { cmds.git.buffer_reset, "Reset Buffer" },
     },
     c = {
         name = "Checkout",
-        b = { telescope.builtin("git_branches"), "Branches" },
-        c = { telescope.find_commits, "Commits" },
+        b = { cmds.telescope.builtin("cmds.git.branches"), "Branches" },
+        c = { cmds.telescope.find_commits, "Commits" },
     },
     p = {
         name = "Pull Request",
-        r = { "<cmd>Telescope gh pull_request<CR>", "Pull Requests" },
-        f = { "<cmd>Telescope gh pull_request_files<CR>", "Pull Requests Files" },
+        r = { "<cmd>cmds.telescope.gh pull_request<CR>", "Pull Requests" },
+        f = {
+            "<cmd>cmds.telescope.gh pull_request_files<CR>",
+            "Pull Requests Files",
+        },
     },
 }
 
 M.search = {
     name = "Search",
-    b = { telescope.builtin("buffers"), "Open Buffers" },
-    f = { telescope.builtin("find_files"), "Files" },
-    g = { telescope.find_changed_files, "Open Changed Files" },
-    h = { telescope.builtin("oldfiles"), "File History" },
-    m = { telescope.builtin("marks"), "Marks" },
-    r = { telescope.find_related_files, "Related Files" },
-    t = { telescope.builtin("live_grep"), "Find Text Everywhere" },
-    w = { telescope.builtin("grep_string"), "Word Under Cursor" },
-    S = { telescope.builtin("spell_suggest"), "Spelling" },
-    T = { "<cmd>TodoTelescope<CR>", "Todos" },
+    b = { cmds.telescope.builtin("buffers"), "Open Buffers" },
+    f = { cmds.telescope.builtin("find_files"), "Files" },
+    g = { cmds.telescope.find_changed_files, "Open Changed Files" },
+    h = { cmds.telescope.builtin("oldfiles"), "File History" },
+    m = { cmds.telescope.builtin("marks"), "Marks" },
+    r = { cmds.telescope.find_related_files, "Related Files" },
+    t = { cmds.telescope.builtin("live_grep"), "Find Text Everywhere" },
+    w = { cmds.telescope.builtin("grep_string"), "Word Under Cursor" },
+    S = { cmds.telescope.builtin("spell_suggest"), "Spelling" },
+    T = { "<cmd>Todocmds.telescope.CR>", "Todos" },
     s = {
         name = "Symbols",
-        d = { telescope.builtin("lsp_document_symbols"), "Document" },
-        w = { telescope.builtin("lsp_workspace_symbols"), "Workspace" },
+        d = { cmds.telescope.builtin("lsp_document_symbols"), "Document" },
+        w = { cmds.telescope.builtin("lsp_workspace_symbols"), "Workspace" },
     },
     n = {
         name = "Noice",
@@ -241,24 +237,24 @@ M.search = {
     },
     a = {
         name = "Advanced",
-        s = { telescope.find_scss_symbol, "SCSS Symbol" },
-        h = { telescope.builtin("help_tags"), "Help Tags" },
-        H = { telescope.builtin("highlights"), "Highlights" },
-        m = { telescope.builtin("man_pages"), "Man Pages" },
-        r = { telescope.builtin("registers"), "Registers" },
-        k = { telescope.builtin("keymaps"), "Keymaps" },
+        s = { cmds.telescope.find_scss_symbol, "SCSS Symbol" },
+        h = { cmds.telescope.builtin("help_tags"), "Help Tags" },
+        H = { cmds.telescope.builtin("highlights"), "Highlights" },
+        m = { cmds.telescope.builtin("man_pages"), "Man Pages" },
+        r = { cmds.telescope.builtin("registers"), "Registers" },
+        k = { cmds.telescope.builtin("keymaps"), "Keymaps" },
     },
     ["/"] = {
         name = "Folders",
         C = {
             function()
-                telescope.search_in_dir(Vin.config.pathes.config)
+                cmds.telescope.search_in_dir(Vin.config.pathes.config)
             end,
             "~/.config",
         },
         c = {
             function()
-                telescope.search_in_dir(Vin.config.pathes.nvimConfig)
+                cmds.telescope.search_in_dir(Vin.config.pathes.nvimConfig)
             end,
             "~/.config/nvim (Vin)",
         },
@@ -266,13 +262,13 @@ M.search = {
             name = "Notes",
             w = {
                 function()
-                    telescope.search_in_dir(Vin.config.pathes.notes.work)
+                    cmds.telescope.search_in_dir(Vin.config.pathes.notes.work)
                 end,
                 "Work Notes",
             },
             n = {
                 function()
-                    telescope.search_in_dir(Vin.config.pathes.notes.private)
+                    cmds.telescope.search_in_dir(Vin.config.pathes.notes.private)
                 end,
                 "Private Notes",
             },
@@ -282,59 +278,59 @@ M.search = {
 
 M.marks = {
     name = "Marks",
-    a = { harpoon.add_file, "Add File to Harpoon" },
-    m = { harpoon.toggle_quick_menu, "Harpoon Menu" },
+    a = { cmds.harpoon.add_file, "Add File to Harpoon" },
+    m = { cmds.harpoon.toggle_quick_menu, "Harpoon Menu" },
     ["1"] = {
         function()
-            harpoon.jump_to_file(1)
+            cmds.harpoon.jump_to_file(1)
         end,
         " ",
     },
     ["2"] = {
         function()
-            harpoon.jump_to_file(2)
+            cmds.harpoon.jump_to_file(2)
         end,
         " ",
     },
     ["3"] = {
         function()
-            harpoon.jump_to_file(3)
+            cmds.harpoon.jump_to_file(3)
         end,
         " ",
     },
     ["4"] = {
         function()
-            harpoon.jump_to_file(4)
+            cmds.harpoon.jump_to_file(4)
         end,
         " ",
     },
     ["5"] = {
         function()
-            harpoon.jump_to_file(5)
+            cmds.harpoon.jump_to_file(5)
         end,
         " ",
     },
     ["6"] = {
         function()
-            harpoon.jump_to_file(6)
+            cmds.harpoon.jump_to_file(6)
         end,
         " ",
     },
     ["7"] = {
         function()
-            harpoon.jump_to_file(7)
+            cmds.harpoon.jump_to_file(7)
         end,
         " ",
     },
     ["8"] = {
         function()
-            harpoon.jump_to_file(8)
+            cmds.harpoon.jump_to_file(8)
         end,
         " ",
     },
     ["9"] = {
         function()
-            harpoon.jump_to_file(9)
+            cmds.harpoon.jump_to_file(9)
         end,
         " ",
     },
@@ -394,7 +390,7 @@ M.terra = {
     },
     c = {
         function()
-            vim.pretty_print(vim.g.terra_config)
+            vim.print(vim.g.terra_config)
         end,
         "Print Terra Config",
     },
@@ -417,7 +413,7 @@ M.vin = {
     i = { "<cmd>LspInfo<CR>", "Lsp Info" },
     c = {
         function()
-            telescope.search_in_dir(Vin.config.pathes.nvimConfig)
+            cmds.telescope.search_in_dir(Vin.config.pathes.nvimConfig)
         end,
         "Search Config Files",
     },
@@ -519,8 +515,7 @@ M.obsidian = {
         end,
         "New",
     },
-    -- [ObsidianTemplate command results in error with telescope · Issue #106 · epwalsh/obsidian.nvim](https://github.com/epwalsh/obsidian.nvim/issues/106)
-    -- i = { "<cmd>ObsidianTemplate<CR>", "Insert Template" },
+    i = { "<cmd>ObsidianTemplate<CR>", "Insert Template" },
 }
 
 M.insert = {
@@ -536,7 +531,7 @@ M.insert = {
 M.ui = {
     name = "UI",
     r = { "<cmd>e!<CR>", "Reload File (:e!)" },
-    c = { telescope.builtin("colorscheme"), "Colorscheme" },
+    c = { cmds.telescope.builtin("colorscheme"), "Colorscheme" },
 }
 
 return M
