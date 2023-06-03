@@ -8,6 +8,13 @@ local spec = {
     },
     enabled = true,
     event = "LspAttach",
+    keys = {
+        {
+            "gn",
+            "<cmd>Navbuddy<CR>",
+            desc = "Open Navbuddy",
+        },
+    },
     opts = function()
         local actions = require("nvim-navbuddy.actions")
 

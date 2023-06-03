@@ -38,20 +38,18 @@ M.with_leader = {
     ["9"] = { "9gt", WhichKeyIgnoreLabel },
 
     -- Groups
-    -- Groups
     a = groups.action,
     c = groups.copy,
     d = groups.diagnostics,
-    e = groups.explorer,
     g = groups.git,
     i = groups.insert,
     m = groups.marks,
     s = groups.search,
-    o = groups.obsidian,
+    u = groups.ui,
+    O = groups.obsidian,
     t = groups.tabs,
     v = groups.vin,
     w = groups.windows,
-    x = groups.problems,
     q = groups.quit,
     S = groups.session,
 }
