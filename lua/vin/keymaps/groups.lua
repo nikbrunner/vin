@@ -507,6 +507,14 @@ M.action = {
 
 M.obsidian = {
     name = "Obsidian",
+    d = {
+        function()
+            if require("obsidian").util.cursor_on_markdown_link() then
+                vim.cmd("ObsidianFollowLink")
+            end
+        end,
+        "Follow Link",
+    },
     b = { "<cmd>ObsidianBacklinks<CR>", "Backlinks" },
     o = { "<cmd>ObsidianOpen<CR>", "Open" },
     f = { "<cmd>ObsidianQuickSwitch<CR>", "File" },
