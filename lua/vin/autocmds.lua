@@ -87,7 +87,7 @@ create_autocmd({
     "TermLeave",
 }, {
     pattern = "*",
-    callback = function(ev)
+    callback = function()
         if vim.api.nvim_get_mode().mode ~= "c" then
             vim.cmd.checktime()
         end
