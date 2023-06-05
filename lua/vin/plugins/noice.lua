@@ -6,7 +6,7 @@ local spec = {
         "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",
     },
-    enabled = true,
+    enabled = false,
     opts = {
         views = {
             cmdline_popup = {
