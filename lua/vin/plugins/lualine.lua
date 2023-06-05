@@ -96,11 +96,17 @@ local spec = {
                     right = separators.right.straight,
                 },
                 disabled_filetypes = {
+                    tabline = {
+                        "alpha",
+                        "dashboard",
+                    },
                     statusline = {
                         "alpha",
+                        "dashboard",
                     },
                     winbar = {
                         "alpha",
+                        "dashboard",
                         "NvimTree",
                         "neo-tree",
                         "",
