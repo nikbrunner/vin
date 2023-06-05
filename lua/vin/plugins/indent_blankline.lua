@@ -2,7 +2,7 @@
 local spec = {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPost",
-    enabled = true,
+    enabled = false,
     opts = function()
         local Dot = Vin.icons.ui.Dot
         local LineMiddle = Vin.icons.ui.LineMiddle
