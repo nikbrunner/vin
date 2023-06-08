@@ -19,6 +19,14 @@ M.with_leader = {
     -- Singles
     n = { vim.cmd.nohlsearch, "No Highlight Search (:nohlsearch)" },
     f = { cmds.telescope.builtin("find_files"), "Find File" },
+    [";"] = {
+        function()
+            vim.cmd("Neotree left close")
+            vim.cmd("Neotree right close")
+            vim.cmd("Dashboard")
+        end,
+        "Dashboard",
+    },
     ["`"] = { "<cmd>e #<CR>", "Alternative File" },
     ["<CR>"] = {
         function()
