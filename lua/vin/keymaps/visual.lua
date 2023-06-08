@@ -1,3 +1,4 @@
+local cmds = require("vin.cmds")
 local groups = require("vin.keymaps.groups")
 
 local M = {}
@@ -16,29 +17,27 @@ M.no_leader = {
 
 M.with_leader = {
     -- Singles
-    n = { vim.cmd.nohl, WhichKeyIgnoreLabel },
-    l = { vim.cmd.vs, WhichKeyIgnoreLabel },
-    j = { vim.cmd.sp, WhichKeyIgnoreLabel },
-    ["<CR>"] = { vim.cmd.wa, "Save All (:wa)" },
-    f = { "<cmd>Telescope find_files<CR>", "Find File" },
-    [" "] = { "<cmd>Telescope buffers<CR>", "Buffers" },
-    ["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Grep in File" },
-    [":"] = { "<cmd>Telescope commands<CR>", "Commands" },
-    ["`"] = { "<cmd>e #<CR>", "Switch to Other Buffer" },
-
-    -- Tab navigation
-    ["1"] = { "1gt", WhichKeyIgnoreLabel },
-    ["2"] = { "2gt", WhichKeyIgnoreLabel },
-    ["3"] = { "3gt", WhichKeyIgnoreLabel },
-    ["4"] = { "4gt", WhichKeyIgnoreLabel },
-    ["5"] = { "5gt", WhichKeyIgnoreLabel },
-    ["6"] = { "6gt", WhichKeyIgnoreLabel },
-    ["7"] = { "7gt", WhichKeyIgnoreLabel },
-    ["8"] = { "8gt", WhichKeyIgnoreLabel },
-    ["9"] = { "9gt", WhichKeyIgnoreLabel },
+    n = { vim.cmd.nohlsearch, "No Highlight Search (:nohlsearch)" },
+    f = { cmds.telescope.builtin("find_files"), "Find File" },
+    ["`"] = { "<cmd>e #<CR>", "Alternative File" },
+    ["<CR>"] = {
+        function()
+            vim.notify("Saved All", vim.log.levels.INFO, { title = "Vin" })
+            vim.cmd.wa()
+        end,
+        "Save All (:wa)",
+    },
+    [" "] = { cmds.telescope.builtin("buffers"), "Buffers" },
+    [":"] = { cmds.telescope.builtin("commands"), "Commands" },
+    ["/"] = { cmds.telescope.builtin("current_buffer_fuzzy_find"), "Find in File" },
+    ["<TAB>"] = {
+        "<cmd>Telescope telescope-tabs list_tabs theme=ivy<CR>",
+        "Switch to Tabs",
+    },
 
     -- Groups
     a = groups.action,
+    e = groups.explorer,
     c = groups.copy,
     d = groups.diagnostics,
     g = groups.git,
@@ -53,4 +52,5 @@ M.with_leader = {
     q = groups.quit,
     S = groups.session,
 }
+
 return M

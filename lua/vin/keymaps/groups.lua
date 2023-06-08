@@ -532,6 +532,20 @@ M.ui = {
     name = "UI",
     r = { "<cmd>e!<CR>", "Reload File (:e!)" },
     c = { cmds.telescope.builtin("colorscheme"), "Colorscheme" },
+M.explorer = {
+    name = "Explorer",
+    e = { cmds.explorer.toggle_left_files, "Files" },
+    E = { "<cmd>Neotree float toggle<CR>", "Files (Float)" },
+
+    b = { cmds.explorer.toggle_buffers, "Buffers" },
+    B = { "<cmd>Neotree float buffers toggle<CR>", "Buffers (Float)" },
+
+    g = { cmds.explorer.toggle_git_status, "Git Status" },
+    G = { "<cmd>Neotree float git_status toggle<CR>", "Git Status (Float)" },
+
+    s = { cmds.explorer.toggle_symbol_outline, "Symbol Outline" },
+
+    u = { cmds.explorer.toggle_undo_tree, "Undotree" },
 }
 
 return M

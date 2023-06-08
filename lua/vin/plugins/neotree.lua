@@ -10,7 +10,7 @@ return {
         enable_git_status = true,
         enable_diagnostics = true,
         source_selector = {
-            winbar = true,
+            winbar = false,
             statusline = false, -- toggle to show selector on statusline
             content_layout = "center",
             tabs_layout = "equal",
@@ -73,7 +73,7 @@ return {
         window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
             -- possible options. These can also be functions that return these options.
             position = "left", -- left, right, top, bottom, float, current
-            width = 40, -- applies to left and right positions
+            width = Vin.config.sidebar_width, -- applies to left and right positions
             mappings = {
                 ["<space>"] = false, -- disable for leader
                 ["<2-LeftMouse>"] = "open",
