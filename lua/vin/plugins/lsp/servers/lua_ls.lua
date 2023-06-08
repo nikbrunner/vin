@@ -33,7 +33,7 @@ function M.setup(lsp_zero)
         })
     end
 
-    lsp_zero.configure("sumneko_lua", {
+    lsp_zero.configure("lua_ls", {
         on_init = function(client)
             -- We want to format with null-ls, so we disable the native formatter
             disable_client_formating(client)
