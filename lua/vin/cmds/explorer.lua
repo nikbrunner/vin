@@ -21,6 +21,12 @@ M.toggle_left_files = function()
     vim.cmd("Neotree left toggle")
 end
 
+M.toggle_buffers = function()
+    vim.cmd("UndotreeHide")
+    vim.cmd("Neotree float close")
+    vim.cmd("Neotree left buffers toggle")
+end
+
 M.toggle_undo_tree = function()
     vim.cmd("Neotree left close")
     vim.cmd("UndotreeToggle")
@@ -34,11 +40,6 @@ end
 M.toggle_git_status = function()
     -- TODO if there exists a symbol outline close it
     vim.cmd("Neotree right git_status toggle")
-end
-
-M.toggle_buffers = function()
-    vim.cmd("Neotree left close")
-    vim.cmd("Neotree float buffers toggle")
 end
 
 return M
