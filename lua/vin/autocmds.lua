@@ -94,12 +94,12 @@ create_autocmd({
     end,
 })
 
--- Notify when file changed on disk
-create_autocmd("FileChangedShellPost", {
-    pattern = "*",
-    callback = function()
-        notify("File changed on disk. Buffer reloaded.", vim.log.levels.INFO, {
-            title = "File Changed",
-        })
-    end,
-})
+-- -- Notify when file changed on disk
+-- create_autocmd("FileChangedShellPost", {
+--     pattern = "*",
+--     callback = function()
+--         notify("File changed on disk. Buffer reloaded.", vim.log.levels.INFO, {
+--             title = "File Changed",
+--         })
+--     end,
+-- })
