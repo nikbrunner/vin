@@ -6,6 +6,40 @@ return {
         vim.g.neo_tree_remove_legacy_commands = 1
     end,
     opts = {
+        -- Fix for NerdFonts v3
+        -- https://github.com/nvim-neo-tree/neo-tree.nvim#configuration-for-nerd-fonts-v3-users
+        default_component_configs = {
+            icon = {
+                folder_empty = "󰜌",
+                folder_empty_open = "󰜌",
+            },
+            git_status = {
+                symbols = {
+                    renamed = "󰁕",
+                    unstaged = "󰄱",
+                },
+            },
+        },
+        document_symbols = {
+            kinds = {
+                File = { icon = "󰈙", hl = "Tag" },
+                Namespace = { icon = "󰌗", hl = "Include" },
+                Package = { icon = "󰏖", hl = "Label" },
+                Class = { icon = "󰌗", hl = "Include" },
+                Property = { icon = "󰆧", hl = "@property" },
+                Enum = { icon = "󰒻", hl = "@number" },
+                Function = { icon = "󰊕", hl = "Function" },
+                String = { icon = "󰀬", hl = "String" },
+                Number = { icon = "󰎠", hl = "Number" },
+                Array = { icon = "󰅪", hl = "Type" },
+                Object = { icon = "󰅩", hl = "Type" },
+                Key = { icon = "󰌋", hl = "" },
+                Struct = { icon = "󰌗", hl = "Type" },
+                Operator = { icon = "󰆕", hl = "Operator" },
+                TypeParameter = { icon = "󰊄", hl = "Type" },
+                StaticMethod = { icon = "󰠄 ", hl = "Function" },
+            },
+        },
         -- @see [nvim/neo-tree.lua at loctvl842/nvim · GitHub](https://github.com/loctvl842/nvim/blob/7894bfa85e4e3c06bb81e5169d1c9c41a892aa34/lua/tvl/config/neo-tree.lua)
         enable_git_status = true,
         enable_diagnostics = true,
