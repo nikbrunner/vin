@@ -5,8 +5,8 @@ function M.setup(lsp_zero)
     local lspkind = require("lspkind")
 
     local cmp_mappings = lsp_zero.defaults.cmp_mappings({
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
-        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
         ["<Tab>"] = cmp.config.disable,
         ["<S-Tab>"] = cmp.config.disable,
         -- This is to trigger the completion menu

@@ -22,13 +22,12 @@ local spec = {
             auto_trigger = Vin.config.copilot.suggestions.auto_trigger,
             debounce = 75,
             keymap = {
-                -- accept = "<C-l>",
                 accept = "<Tab>",
                 accept_word = false,
                 accept_line = false,
-                next = "<C-n>",
-                prev = "<C-p>",
-                dismiss = "<C-h>",
+                next = "<M-]>",
+                prev = "<M-[>",
+                dismiss = "<C-]>",
             },
         },
         filetypes = {

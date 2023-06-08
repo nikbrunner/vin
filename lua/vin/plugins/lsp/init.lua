@@ -40,8 +40,15 @@ return {
 
     {
         "VonHeikemen/lsp-zero.nvim",
+        branch = "v2.x",
         dependencies = {
-            "mason.nvim",
+            {
+                "williamboman/mason.nvim",
+                build = function()
+                    ---@diagnostic disable-next-line: param-type-mismatch
+                    pcall(vim.cmd, "MasonUpdate")
+                end,
+            },
             "neovim/nvim-lspconfig",
             "tamago324/nlsp-settings.nvim",
             "folke/neodev.nvim",
@@ -100,7 +107,7 @@ return {
                 -- NOTE: `opts` is a required property for providing options to all mentioned servers
                 opts = {
                     flags = {
-                        debounce_text_changes = 0,
+                        debounce_text_changes = 50,
                     },
                 },
             }
