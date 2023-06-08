@@ -70,7 +70,8 @@ M.no_leader = {
     },
     ["<F5>"] = { cmds.term.toggle, "Term" },
     ["<F7>"] = { "<cmd>CccPick<CR>", "Color Picker" },
-    ["<F8>"] = { "<cmd>DiagWindowShow<CR>", "Trouble Toggle" },
+    ["<F8>"] = { "<cmd>TroubleToggle<CR>", "Trouble Toggle" },
+    ["<F9>"] = { "<cmd>DiagWindowShow<CR>", "Diag Window" },
 
     ["["] = groups.go_prev,
     ["]"] = groups.go_next,
@@ -83,8 +84,8 @@ M.no_leader = {
 M.with_leader = {
     -- Singles
     n = { vim.cmd.nohlsearch, "No Highlight Search (:nohlsearch)" },
-    x = { vim.cmd.xa, "Save and Quit All (:xa)" },
     f = { cmds.telescope.builtin("find_files"), "Find File" },
+    [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
     ["`"] = { "<cmd>e #<CR>", "Alternative File" },
     ["<CR>"] = {
         function()
