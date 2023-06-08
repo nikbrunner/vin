@@ -147,7 +147,7 @@ M.quit = {
     c = { cmds.quit.custom_buffers, "Custom Filter" },
     o = { cmds.quit.other_buffers, "Other" },
     h = { cmds.quit.hidden_buffers, "Hidden" },
-    a = { cmds.quit.all_buffers, "All" },
+    a = { vim.cmd.xa, "All (:xa)" },
 }
 
 M.copy = {
