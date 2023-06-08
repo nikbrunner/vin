@@ -532,6 +532,14 @@ M.ui = {
     name = "UI",
     r = { "<cmd>e!<CR>", "Reload File (:e!)" },
     c = { cmds.telescope.builtin("colorscheme"), "Colorscheme" },
+    s = {
+        function()
+            require("edgy").select()
+        end,
+        "Select Window (Edgy)",
+    },
+}
+
 M.explorer = {
     name = "Explorer",
     e = { cmds.explorer.toggle_left_files, "Files" },
