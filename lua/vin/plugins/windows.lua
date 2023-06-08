@@ -1,14 +1,16 @@
-return {
+---@type LazySpec
+local spec = {
     "anuvyklack/windows.nvim",
     event = "VeryLazy",
     dependencies = {
         "anuvyklack/middleclass",
         -- "anuvyklack/animation.nvim",
     },
+    enabled = true,
     opts = {
         autowidth = {
             enable = true,
-            winwidth = 30,
+            winwidth = 50,
             filetype = {
                 help = 2,
             },
@@ -33,3 +35,5 @@ return {
         windows.setup(opts)
     end,
 }
+
+return spec
