@@ -5,13 +5,13 @@ return {
     event = "BufReadPost",
     keys = {
         -- TODO: Put in Groups
-        { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
-        {
-            "<leader>xT",
-            "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",
-            desc = "Todo/Fix/Fixme (Trouble)",
-        },
-        { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+        -- { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
+        -- {
+        --     "<leader>xT",
+        --     "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",
+        --     desc = "Todo/Fix/Fixme (Trouble)",
+        -- },
+        -- { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
     },
     opts = {
         signs = true, -- show icons in the signs column

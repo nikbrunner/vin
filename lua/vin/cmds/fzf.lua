@@ -15,8 +15,8 @@ M.win_presets = {
     small = {
         no_preview = {
             winopts = {
-                height = 0.25,
-                width = 0.35,
+                height = 0.35,
+                width = 0.65,
                 preview = {
                     hidden = "hidden",
                 },

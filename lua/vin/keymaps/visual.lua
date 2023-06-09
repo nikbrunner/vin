@@ -17,8 +17,10 @@ M.no_leader = {
 
 M.with_leader = {
     -- Singles
-    n = { vim.cmd.nohlsearch, "No Highlight Search (:nohlsearch)" },
-    f = { cmds.telescope.builtin("find_files"), "Find File" },
+    n = { vim.cmd.nohlsearch, WhichKeyIgnoreLabel },
+    [" "] = { cmds.telescope.builtin("buffers"), "Buffers" },
+    [":"] = { cmds.telescope.builtin("commands"), "Commands" },
+    ["`"] = { "<cmd>e #<CR>", "Alternative File" },
     [";"] = {
         function()
             vim.cmd("Neotree left close")
@@ -27,7 +29,6 @@ M.with_leader = {
         end,
         "Dashboard",
     },
-    ["`"] = { "<cmd>e #<CR>", "Alternative File" },
     ["<CR>"] = {
         function()
             vim.notify("Saved All", vim.log.levels.INFO, { title = "Vin" })
@@ -35,30 +36,27 @@ M.with_leader = {
         end,
         "Save All (:wa)",
     },
-    [" "] = { cmds.telescope.builtin("buffers"), "Buffers" },
-    [":"] = { cmds.telescope.builtin("commands"), "Commands" },
-    ["/"] = { cmds.telescope.builtin("current_buffer_fuzzy_find"), "Find in File" },
     ["<TAB>"] = {
         "<cmd>Telescope telescope-tabs list_tabs theme=ivy<CR>",
         "Switch to Tabs",
     },
 
     -- Groups
+    O = groups.obsidian,
+    S = groups.session,
     a = groups.action,
-    e = groups.explorer,
     c = groups.copy,
     d = groups.diagnostics,
+    e = groups.explorer,
+    f = groups.find,
     g = groups.git,
     i = groups.insert,
     m = groups.marks,
-    s = groups.search,
-    u = groups.ui,
-    O = groups.obsidian,
+    q = groups.quit,
     t = groups.tabs,
+    u = groups.ui,
     v = groups.vin,
     w = groups.windows,
-    q = groups.quit,
-    S = groups.session,
 }
 
 return M

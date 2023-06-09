@@ -197,18 +197,20 @@ M.git = {
     },
 }
 
-M.search = {
-    name = "Search",
+M.find = {
+    name = "Find",
     b = { cmds.telescope.builtin("buffers"), "Open Buffers" },
-    f = { cmds.telescope.builtin("find_files"), "Files" },
+    c = { "<cmd>TodoTrouble<CR>", "Todo" },
+    -- f = { cmds.telescope.builtin("find_files"), "Files" },
+    f = { cmds.fzf.files.without_preview, "Files" }, -- Use fzf for bigger repos
     g = { cmds.telescope.find_changed_files, "Open Changed Files" },
     h = { cmds.telescope.builtin("oldfiles"), "File History" },
     m = { cmds.telescope.builtin("marks"), "Marks" },
     r = { cmds.telescope.find_related_files, "Related Files" },
-    t = { cmds.telescope.builtin("live_grep"), "Find Text Everywhere" },
+    t = { cmds.telescope.builtin("current_buffer_fuzzy_find"), "Find in File" },
+    T = { cmds.telescope.builtin("live_grep"), "Find Text Everywhere" },
     w = { cmds.telescope.builtin("grep_string"), "Word Under Cursor" },
     S = { cmds.telescope.builtin("spell_suggest"), "Spelling" },
-    T = { "<cmd>Todocmds.telescope.CR>", "Todos" },
     s = {
         name = "Symbols",
         d = { cmds.telescope.builtin("lsp_document_symbols"), "Document" },

@@ -1,5 +1,5 @@
 -- NOTE: Usage & Billing: https://github.com/settings/billing
--- Authentication via Plugin
+-- Authentication via Plugin `:Copilot auth`
 
 ---@type LazySpec
 local spec = {
