@@ -14,7 +14,7 @@ local spec = {
         group = true, -- group results by file
         padding = true, -- add an extra new line on top of the list
         auto_close = true, -- automatically close the list when you have no diagnostics
-        auto_fold = true, -- automatically fold a file trouble list at creation
+        auto_fold = false, -- automatically fold a file trouble list at creation
         action_keys = { -- key mappings for actions in the trouble list
             -- map to {} to remove a mapping, for example:
             -- close = {},
