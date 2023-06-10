@@ -1,5 +1,5 @@
-local which_key_status_ok, which_key = pcall(require, "which-key")
-if not which_key_status_ok then
+local present, which_key = pcall(require, "which-key")
+if not present then
     return
 end
 

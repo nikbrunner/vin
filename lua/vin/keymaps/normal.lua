@@ -44,11 +44,8 @@ M.no_leader = {
 
     -- Control bindings
     ["<C-q>"] = { cmds.general.toggle_quickfix, "Toggle Quick Fix" },
-    ["<C-f>"] = { "<cmd>Neotree float toggle<CR>", "Float Explorer (Files)" },
-    ["<C-g>"] = {
-        "<cmd>Neotree float git_status toggle<CR>",
-        "Float Explorer (Git)",
-    },
+    ["<C-f>"] = { cmds.explorer.toggle_float_files, "Float Explorer (Files)" },
+    ["<C-g>"] = { cmds.explorer.toggle_float_git, "Float Explorer (Git)" },
 
     -- Disabled, because currently creates conflict: https://github.com/nvimdev/lspsaga.nvim/issues/1070#issuecomment-1575097594
     -- ["<C-e>"] = { cmds.explorer.toggle_float_buffers, "Float Explorer (Buffers)" },
