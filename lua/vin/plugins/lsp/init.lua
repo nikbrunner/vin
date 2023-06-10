@@ -107,7 +107,7 @@ return {
                 -- NOTE: `opts` is a required property for providing options to all mentioned servers
                 opts = {
                     flags = {
-                        debounce_text_changes = 50,
+                        debounce_text_changes = 0,
                     },
                 },
             }
