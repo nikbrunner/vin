@@ -43,6 +43,13 @@ M.no_leader = {
     -- ["<C-l>"] = { "<C-w>l", "Focus Right" },
 
     -- Control bindings
+    ["<C-s>"] = {
+        function()
+            vim.notify("Saved All", vim.log.levels.INFO, { title = "Vin" })
+            vim.cmd.wa()
+        end,
+        "Save all",
+    },
     ["<C-q>"] = { cmds.general.toggle_quickfix, "Toggle Quick Fix" },
     ["<C-f>"] = { cmds.explorer.toggle_float_files, "Float Explorer (Files)" },
     ["<C-g>"] = { cmds.explorer.toggle_float_git, "Float Explorer (Git)" },
