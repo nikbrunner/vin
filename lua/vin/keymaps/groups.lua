@@ -464,7 +464,7 @@ M.action = {
     m = {
         name = "Markdown",
         o = { "<cmd>PeekOpen<CR>", "Open Markdown Preview" },
-        c = { "<cmd>PeekClose<CR>", "Close Markdown Preview" },
+        q = { "<cmd>PeekClose<CR>", "Quit Markdown Preview" },
     },
     I = { "<cmd>Inspect<CR>", "Inspect" },
     l = {
