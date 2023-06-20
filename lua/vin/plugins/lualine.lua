@@ -8,10 +8,9 @@ local spec = {
     opts = function()
         local fnamemodify = vim.fn.fnamemodify
 
+        -- TODO Fix typing
         ---@type TerraColors
         local terra_colors = require("terra.colors")
-
-        local separators = Vin.icons.separators
 
         local hide_in_width = function()
             return vim.fn.winwidth(0) > 80
@@ -26,7 +25,7 @@ local spec = {
 
         local date = {
             function()
-                return os.date("%A, %d %B %Y")
+                return " " .. os.date("%A, %d %B %Y")
             end,
             padding = 1,
         }
@@ -87,14 +86,6 @@ local spec = {
                 globalstatus = true,
                 icons_enabled = true,
                 theme = "auto",
-                section_separators = {
-                    left = separators.left.round,
-                    right = separators.right.round,
-                },
-                component_separators = {
-                    left = separators.left.straight,
-                    right = separators.right.straight,
-                },
                 disabled_filetypes = {
                     tabline = {
                         "alpha",
