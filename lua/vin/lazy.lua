@@ -106,14 +106,14 @@ local lazyOpts = {
             paths = {}, -- add any custom paths here that you want to indluce in the rtp
             ---@type string[] list any plugins you want to disable here
             disabled_plugins = {
-                -- "gzip",
+                "gzip",
                 -- "matchit",
                 -- "matchparen",
                 -- "netrwPlugin",
-                -- "tarPlugin",
-                -- "tohtml",
-                -- "tutor",
-                -- "zipPlugin",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
             },
         },
     },
