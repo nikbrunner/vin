@@ -1,4 +1,6 @@
-return {
+---@type LazySpec
+local spec = {
     "davidgranstrom/nvim-markdown-preview",
-    lazy = false,
 }
+
+return spec
