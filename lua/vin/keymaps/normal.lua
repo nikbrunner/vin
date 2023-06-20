@@ -88,6 +88,8 @@ M.no_leader = {
 M.with_leader = {
     -- Singles
     n = { vim.cmd.nohlsearch, WhichKeyIgnoreLabel },
+    f = { cmds.telescope.builtin("find_files"), "Find Files" },
+    ["/"] = { cmds.telescope.builtin("current_buffer_fuzzy_find"), "Find in File" },
     [" "] = { cmds.telescope.builtin("buffers"), "Buffers" },
     [":"] = { cmds.telescope.builtin("commands"), "Commands" },
     ["`"] = { "<cmd>e #<CR>", "Alternative File" },
@@ -118,7 +120,7 @@ M.with_leader = {
     c = groups.copy,
     d = groups.diagnostics,
     e = groups.explorer,
-    f = groups.find,
+    s = groups.search,
     g = groups.git,
     i = groups.insert,
     m = groups.marks,

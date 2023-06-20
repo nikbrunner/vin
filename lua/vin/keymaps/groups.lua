@@ -197,18 +197,17 @@ M.git = {
     },
 }
 
-M.find = {
-    name = "Find",
+M.search = {
+    name = "Search",
     b = { cmds.telescope.builtin("buffers"), "Open Buffers" },
     c = { "<cmd>TodoTrouble<CR>", "Todo" },
     -- f = { cmds.telescope.builtin("find_files"), "Files" },
     f = { cmds.fzf.files.with_preview, "Files" }, -- Use fzf for bigger repos
-    g = { cmds.telescope.find_changed_files, "Open Changed Files" },
     h = { cmds.telescope.builtin("oldfiles"), "File History" },
     m = { cmds.telescope.builtin("marks"), "Marks" },
     r = { cmds.telescope.find_related_files, "Related Files" },
     t = { cmds.telescope.builtin("current_buffer_fuzzy_find"), "Find in File" },
-    T = { cmds.telescope.builtin("live_grep"), "Find Text Everywhere" },
+    g = { cmds.telescope.builtin("live_grep"), "Find Text Everywhere" },
     w = { cmds.telescope.builtin("grep_string"), "Word Under Cursor" },
     S = { cmds.telescope.builtin("spell_suggest"), "Spelling" },
     s = {
@@ -457,7 +456,13 @@ M.action = {
         end,
         "Dismiss Notifications",
     },
-    R = { "<cmd>LspRestart<CR>", "Restart LSP" },
+    r = {
+        function()
+            require("spectre").open()
+        end,
+        "Replace in files (Spectre)",
+    },
+    -- l = { "<cmd>LspRestart<CR>", "Restart LSP" },
     c = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
     n = { "<cmd>Lspsaga rename<CR>", "Rename" },
     f = { "<cmd>NullFormat<CR>", "Format (Null)" },
@@ -539,6 +544,12 @@ M.ui = {
             require("edgy").select()
         end,
         "Select Window (Edgy)",
+    },
+    t = {
+        function()
+            require("edgy").toggle()
+        end,
+        "Toggle Window (Edgy)",
     },
 }
 
