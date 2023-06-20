@@ -6,7 +6,7 @@ local spec = {
         "anuvyklack/middleclass",
         -- "anuvyklack/animation.nvim",
     },
-    enabled = false,
+    enabled = true,
     opts = {
         autowidth = {
             enable = true,
