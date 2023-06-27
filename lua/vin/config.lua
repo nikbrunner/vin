@@ -13,7 +13,7 @@ Vin.config = {
     transparent = false,
     nightly_version = "0.10",
     dot_mode = false,
-    sidebar_width = 40,
+    sidebar_width = 50,
     diagnostics = {
         virtual_text_enabled = false,
     },

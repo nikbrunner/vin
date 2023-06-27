@@ -10,9 +10,9 @@ return {
         opts = {
             ---@type table<Edgy.Pos, {size:integer, wo?:vim.wo}>
             options = {
-                left = { size = 50 },
+                left = { size = Vin.config.sidebar_width },
                 bottom = { size = 10 },
-                right = { size = 50 },
+                right = { size = Vin.config.sidebar_width },
                 top = { size = 10 },
             },
             bottom = {
