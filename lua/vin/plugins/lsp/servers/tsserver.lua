@@ -10,6 +10,11 @@ function M.setup(lsp_zero)
             -- We want to format with null-ls, so we disable the native formatter
             disable_client_formating(client)
         end,
+        init_options = {
+            preferences = {
+                importModuleSpecifierPreference = "relative",
+            },
+        },
     })
 end
 
