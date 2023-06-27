@@ -443,8 +443,8 @@ M.session = {
     },
 }
 
-M.action = {
-    name = "Actions",
+M.code = {
+    name = "Code",
     i = {
         name = "AI Actions",
         i = { "<cmd>ChatGPT<CR>", "ChatGPT" },
@@ -456,15 +456,15 @@ M.action = {
         end,
         "Dismiss Notifications",
     },
-    r = {
+    R = {
         function()
             require("spectre").open()
         end,
         "Replace in files (Spectre)",
     },
     -- l = { "<cmd>LspRestart<CR>", "Restart LSP" },
-    c = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
-    n = { "<cmd>Lspsaga rename<CR>", "Rename" },
+    a = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
+    r = { "<cmd>Lspsaga rename<CR>", "Rename" },
     f = { "<cmd>NullFormat<CR>", "Format (Null)" },
     m = {
         name = "Markdown",
@@ -477,6 +477,7 @@ M.action = {
         l = { cmds.edit.log_symbol, "Auto Log Symbol" },
         d = { cmds.edit.delete_logs, "Delete Logs" },
     },
+    c = M.copy,
 }
 
 M.obsidian = {

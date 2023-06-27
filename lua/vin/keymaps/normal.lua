@@ -116,8 +116,7 @@ M.with_leader = {
     -- Groups
     O = groups.obsidian,
     S = groups.session,
-    a = groups.action,
-    c = groups.copy,
+    c = groups.code,
     d = groups.diagnostics,
     e = groups.explorer,
     s = groups.search,
