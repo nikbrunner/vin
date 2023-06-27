@@ -9,13 +9,13 @@ local NOTES_PATH = concat({ DOCUMENTS_PATH, "notes/" })
 ---@class VinConfig
 Vin.config = {
     username = "Nik",
-    colorscheme = "tokyonight",
+    colorscheme = "github_dark_dimmed",
     transparent = false,
     nightly_version = "0.10",
     dot_mode = false,
     sidebar_width = 40,
     diagnostics = {
-        virtual_text_enabled = true,
+        virtual_text_enabled = false,
     },
     copilot = {
         suggestions = {
