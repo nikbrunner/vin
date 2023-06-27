@@ -8,6 +8,13 @@ return {
             vim.opt.splitkeep = "screen"
         end,
         opts = {
+            ---@type table<Edgy.Pos, {size:integer, wo?:vim.wo}>
+            options = {
+                left = { size = 50 },
+                bottom = { size = 10 },
+                right = { size = 50 },
+                top = { size = 10 },
+            },
             bottom = {
                 {
                     ft = "toggleterm",
@@ -61,21 +68,6 @@ return {
                     end,
                     size = { height = 0.5 },
                 },
-                { title = "Neotest Summary", ft = "neotest-summary" },
-                {
-                    title = "Neo-Tree Buffers",
-                    ft = "neo-tree",
-                    filter = function(buf)
-                        return vim.b[buf].neo_tree_source == "buffers"
-                    end,
-                    pinned = true,
-                    open = "Neotree position=top buffers",
-                },
-                {
-                    ft = "Outline",
-                    pinned = true,
-                    open = "SymbolsOutline",
-                },
             },
             right = {
                 {
@@ -86,6 +78,15 @@ return {
                     end,
                     pinned = true,
                     open = "Neotree position=right git_status",
+                },
+                {
+                    title = "Neo-Tree Buffers",
+                    ft = "neo-tree",
+                    filter = function(buf)
+                        return vim.b[buf].neo_tree_source == "buffers"
+                    end,
+                    pinned = true,
+                    open = "Neotree position=top buffers",
                 },
             },
         },
