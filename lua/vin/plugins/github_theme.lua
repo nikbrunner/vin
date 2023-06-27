@@ -31,20 +31,7 @@ local spec = {
                 visual = false,
                 search = false,
             },
-            darken = { -- Darken floating windows and sidebar-like windows
-                floats = false,
-                sidebars = {
-                    enable = true,
-                    list = {}, -- Apply dark background to specific windows
-                },
-            },
-            modules = { -- List of various plugins and additional options
-                -- ...
-            },
         },
-        palettes = {},
-        specs = {},
-        groups = {},
     },
     config = function(_, opts)
         require("github-theme").setup(opts)
