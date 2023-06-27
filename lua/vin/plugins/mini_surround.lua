@@ -2,7 +2,7 @@
 ---@type LazySpec
 local spec = {
     "echasnovski/mini.surround",
-    enabled = false,
+    enabled = true,
     opts = {
         mappings = {
             add = "gza", -- Add surrounding in Normal and Visual modes
@@ -15,7 +15,6 @@ local spec = {
         },
     },
     config = function(_, opts)
-        -- use gz mappings instead of s to prevent conflict with leap
         require("mini.surround").setup(opts)
     end,
 }
