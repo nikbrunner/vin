@@ -16,6 +16,7 @@
   "diagnostic-window.nvim": { "branch": "main", "commit": "2b4d9618382502740c7945c4023853ee524adc4c" },
   "dressing.nvim": { "branch": "master", "commit": "e6eff7a5a950a853c3903d906dbcea03f778db5f" },
   "edgy.nvim": { "branch": "main", "commit": "c2a056a72e59d239218dd5d50848851fba33a378" },
+  "flash.nvim": { "branch": "main", "commit": "85a12eaaa7f7c8b903b5480113434ab773d94452" },
   "friendly-snippets": { "branch": "main", "commit": "5749f093759c29e3694053d048ceb940fe12c3d3" },
   "fzf-lua": { "branch": "main", "commit": "5039478fd0e11657eb8abf81c40b9f61fb6b6914" },
   "github-nvim-theme": { "branch": "main", "commit": "8b363abc5c1eac23603e115810fe72411f67184d" },
