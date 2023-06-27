@@ -4,10 +4,6 @@ return {
         version = false, -- last release is way too old and doesn't work on Windows
         build = ":TSUpdate",
         event = "BufReadPost",
-        keys = {
-            { "<c-space>", desc = "Increment selection" },
-            { "<bs>", desc = "Schrink selection", mode = "x" },
-        },
         opts = {
             ensure_installed = Vin.config.syntax.ensure_installed, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
             autotag = {
@@ -17,7 +13,9 @@ return {
                 enable = true,
                 additional_vim_regex_highlighting = { "markdown" },
             },
-            indent = { enable = true },
+            indent = {
+                enable = true,
+            },
             -- DOCS: https://github.com/JoosepAlviste/nvim-ts-context-commentstring
             context_commentstring = {
                 enable = true,
