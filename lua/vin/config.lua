@@ -13,9 +13,9 @@ Vin.config = {
     transparent = false,
     nightly_version = "0.10",
     dot_mode = false,
-    sidebar_width = 50,
+    sidebar_width = 40,
     diagnostics = {
-        virtual_text_enabled = false,
+        virtual_text_enabled = true,
     },
     copilot = {
         suggestions = {
