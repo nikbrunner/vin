@@ -17,14 +17,14 @@ local spec = {
             or Vin.icons.git.FileUntracked
 
         return {
-            -- signs = {
-            --     add = { text = AddIcon },
-            --     change = { text = ModifiedIcon },
-            --     delete = { text = DeletedIcon },
-            --     topdelete = { text = DeletedIcon },
-            --     changedelete = { text = ModifiedIcon },
-            --     untracked = { text = UntrackedIcon },
-            -- },
+            signs = {
+                add = { text = AddIcon },
+                change = { text = ModifiedIcon },
+                delete = { text = DeletedIcon },
+                topdelete = { text = DeletedIcon },
+                changedelete = { text = ModifiedIcon },
+                untracked = { text = UntrackedIcon },
+            },
             signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
             numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
             linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
