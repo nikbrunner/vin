@@ -60,7 +60,7 @@ Vin.config = {
             "bash",
             "css",
             "go",
-            "help",
+            -- "help",
             "html",
             "java",
             "javascript",
