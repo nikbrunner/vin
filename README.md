@@ -1,5 +1,9 @@
 # Vin
 
+> This repository is not actively maintained at the moment.
+> For now I am using [nikbrunner/lazyvin: Vin, but lazy. Using LazyVim as a base to keep Vin as simple as possible.](https://github.com/nikbrunner/lazyvin) as my main config.
+> I will come back to this config in the future.
+
 <!--toc:start-->
 
 - [Vin](#vin)
