@@ -63,7 +63,12 @@ local spec = {
                 enabled = false,
                 view = nil, -- when nil, use defaults from documentation
                 ---@type NoiceViewOptions
-                opts = {}, -- merged with defaults from documentation
+                opts = {
+                    border = {
+                        style = "rounded",
+                        padding = { 1, 5 },
+                    },
+                }, -- merged with defaults from documentation
             },
             signature = {
                 enabled = false,
