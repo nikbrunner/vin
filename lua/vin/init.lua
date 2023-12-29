@@ -13,8 +13,8 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("vin.keymaps")
 require("vin.options")
+require("vin.keymaps")
 require("lazy").setup("vin.specs", {
     ---@diagnostic disable-next-line: assign-type-mismatch
     install = {
