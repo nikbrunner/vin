@@ -84,8 +84,6 @@ end
 ---@type LazySpec
 M.spec = {
     "ibhagwan/fzf-lua",
-    lazy = false,
-    enabled = M.enabled,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
         {
