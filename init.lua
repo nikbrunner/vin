@@ -1,1 +1,1 @@
-require("vin")
+print("hello world")
