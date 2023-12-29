@@ -117,6 +117,7 @@ M.spec = {
             }),
             desc = "Files",
         },
+        { "<leader>sh", M.fzf("help_tags"), desc = "Help Tags" },
         {
             "<leader>gs",
             M.fzf("git_status", {
