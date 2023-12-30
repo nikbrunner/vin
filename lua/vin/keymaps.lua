@@ -13,6 +13,8 @@ set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 set("n", "<leader>vr", "<cmd>LspRestart<CR>", { desc = "Restart LSP Server" })
 set("n", "<leader>vm", vim.cmd.messages, { desc = "Display messages" })
 
+set("n", "<leader>cf", ":!stylua lua/**/*.lua<CR>", { desc = "Format" })
+
 -- Tab Navigation
 set({ "n", "v" }, "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Tab" })
 set({ "n", "v" }, "<Tab>", vim.cmd.tabnext, { desc = "Next Tab" })
@@ -25,12 +27,6 @@ set("n", "L", "$", { desc = "Move to End of Line" })
 set("n", "vv", "^v$", { desc = "Select Line" })
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
-
--- Uses ; to start commands in Visual and Normal modes
-set({ "n", "v" }, ";", ":", { desc = "Start Command" })
-
--- Easy Save
-set({ "n", "v" }, "<leader><CR>", vim.cmd.wa, { desc = "Write All" })
 
 -- Delete things without polluting clipboard
 set("n", "x", '"_x', { desc = "Delete" })
@@ -53,3 +49,41 @@ set(
     "v:count == 0 ? 'gk' : 'k'",
     { expr = true, silent = true }
 )
+
+set("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+
+-- Clear search with <esc>
+set(
+    { "i", "n" },
+    "<esc>",
+    "<cmd>noh<cr><esc>",
+    { desc = "Escape and clear hlsearch" }
+)
+
+-- Clear search, diff update and redraw
+-- taken from runtime/lua/_editor.lua
+set(
+    "n",
+    "<leader>ur",
+    "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+    { desc = "Redraw / clear hlsearch / diff update" }
+)
+
+-- better indenting
+set("v", "<", "<gv")
+set("v", ">", ">gv")
+
+-- Add undo break-points
+set("i", ",", ",<c-g>u")
+set("i", ".", ".<c-g>u")
+set("i", ";", ";<c-g>u")
+
+-- save file
+set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+
+-- highlights under cursor
+set("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
+
+-- prev/next
+set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
+set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
