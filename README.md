@@ -1,69 +1,34 @@
 # Vin
 
-> This repository is not actively maintained at the moment.
-> For now I am using [nikbrunner/lazyvin: Vin, but lazy. Using LazyVim as a base to keep Vin as simple as possible.](https://github.com/nikbrunner/lazyvin) as my main config.
-> I will come back to this config in the future.
-
-<!--toc:start-->
-
-- [Vin](#vin)
-  - [Description](#description)
-  - [Install](#install)
-    - [Install Neovim with Homebrew on Mac](#install-neovim-with-homebrew-on-mac)
-    - [Clone Config](#clone-config)
-  - [Fonts](#fonts)
-  - [Origin of Name](#origin-of-name)
-  - [Links](#links)
-  - [Other Configs](#other-configs)
-  <!--toc:end-->
-
-## Description
-
-This is my personal Neovim configuration on which I am working on from time to time,
-while learning about the whole universe of Vim / Neovim.
+This is my personal Neovim configuration. 
 
 I tailored this config to my personal needs as a Frontend Engineer
 mainly working with React, TypeScript and SCSS.
 
 ## Install
 
-### Install Neovim with Homebrew on Mac
+> Install requires Neovim 0.9+.
 
-**Stable** Version
+Clone the repository and install the plugins:
 
-```bash
-brew install neovim
+```sh
+git clone git@github.com:nikbrunner/vin ~/.config/vin
+NVIM_APPNAME=vin nvim --headless +"Lazy! sync" +qa
 ```
 
-**Nightly** Version
+Open Neovim with this config:
 
-```bash
-brew install neovim --HEAD
+```sh
+NVIM_APPNAME="vin" nvim
 ```
 
-If you use the `nightly` version, there exists a `nightly` branch on the repository.
-
-### Clone Config
-
-If you have an existing Neovim config, rename it to `nvim.old`, and clone this config.
-
-```bash
-git clone git@github.com:nikbrunner/vin.git ~/.config/nvim
-```
-
-Run `nvim` and wait for the plugins to be installed
-
-Open `nvim` and enter the following:
+Once inside, enter the following, and see if everything is okay.
 
 ```vim
 :checkhealth
 ```
 
-## Fonts
-
-Make sure you have a nerd font installed.
-
-- [A nerd font](https://github.com/ryanoasis/nerd-fonts)
+Make sure you have [a nerd font](https://github.com/ryanoasis/nerd-fonts) installed.
 
 ## Origin of Name
 
