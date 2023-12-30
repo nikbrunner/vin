@@ -22,33 +22,21 @@ M.spec = {
             {
                 "<leader>ee",
                 function()
-                    require("neo-tree.command").execute({
-                        position = "left",
-                        source = "filesystem",
-                        toggle = true,
-                    })
+                    vim.cmd("Neotree left filesystem toggle reveal")
                 end,
                 desc = "Files",
             },
             {
                 "<leader>eg",
                 function()
-                    require("neo-tree.command").execute({
-                        position = "right",
-                        source = "git_status",
-                        toggle = true,
-                    })
+                    vim.cmd("Neotree right git_status toggle reveal")
                 end,
                 desc = "Git Status",
             },
             {
                 "<leader>eb",
                 function()
-                    require("neo-tree.command").execute({
-                        position = "right",
-                        source = "buffers",
-                        toggle = true,
-                    })
+                    vim.cmd("Neotree left buffers toggle reveal")
                 end,
                 desc = "Buffers",
             },
@@ -118,15 +106,6 @@ M.spec = {
             },
         },
 
-        -- event_handlers = {
-        --   {
-        --     event = "file_opened",
-        --     handler = function()
-        --       require("neo-tree").close_all()
-        --     end,
-        --   },
-        -- },
-
         window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
             -- possible options. These can also be functions that return these options.
             position = "left", -- left, right, top, bottom, float, current
@@ -136,7 +115,7 @@ M.spec = {
                 position = "50%", -- 50% means center it
             },
             mappings = {
-                ["<space>"] = false, -- disable for global leader key
+                ["<space>"] = false,
                 ["l"] = "toggle_node",
                 ["<2-LeftMouse>"] = "open",
                 ["<cr>"] = "open",
@@ -182,8 +161,8 @@ M.spec = {
             },
         },
     },
-    config = function()
-        vim.cmd("Neotree left")
+    config = function(_, opts)
+        require("neo-tree").setup(opts)
     end,
 }
 
