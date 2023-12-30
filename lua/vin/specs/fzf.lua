@@ -118,10 +118,13 @@ M.spec = {
         { "<leader>sh", M.fzf("help_tags"), desc = "Help Tags" },
         {
             "<leader>gs",
-            M.fzf("git_status", {
-                winopts = M.win_presets.full.vertical,
-            }),
+            M.fzf("git_status", { winopts = M.win_presets.full.vertical }),
             desc = "Git Status",
+        },
+        {
+            "<leader>uC",
+            M.fzf("colorschemes", { winopts = M.win_presets.small.no_preview }),
+            desc = "Colorschemes",
         },
         {
             "<leader>gC",
