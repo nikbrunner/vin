@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.opt.background = "dark"
+
 vim.opt.mouse = "a" -- allow the mouse to be used in neovim
 
 vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
