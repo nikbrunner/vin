@@ -20,7 +20,7 @@ M.spec = {
                 vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
             end
 
-            -- stylua: ignore start
+           -- stylua: ignore start
             map("n", "]g", gs.next_hunk, "Next Hunk")
             map("n", "[g", gs.prev_hunk, "Prev Hunk")
 
