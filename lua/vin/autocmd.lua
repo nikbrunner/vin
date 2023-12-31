@@ -1,7 +1,15 @@
 local create_autocmd = vim.api.nvim_create_autocmd
+
 local function augroup(name)
     return vim.api.nvim_create_augroup("vin_" .. name, { clear = true })
 end
+
+create_autocmd("UIEnter", {
+    group = augroup("ui_enter"),
+    callback = function()
+        vim.cmd.colorscheme("terra_winter_night")
+    end,
+})
 
 -- Close these filetypes with <Esc> in normal mode
 create_autocmd("FileType", {
@@ -41,7 +49,7 @@ create_autocmd("FileType", {
 })
 
 -- go to last loc when opening a buffer
-vim.api.nvim_create_autocmd("BufReadPost", {
+create_autocmd("BufReadPost", {
     group = augroup("last_loc"),
     callback = function(event)
         local exclude = { "gitcommit" }

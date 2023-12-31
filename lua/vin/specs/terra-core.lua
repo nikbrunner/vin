@@ -34,13 +34,9 @@ M.spec = {
         variant = "night",
         transparent = false,
         diagnostics = {
-            background = true,
+            background = false,
         },
     },
-
-    config = function(_, opts)
-        vim.cmd.colorscheme("terra_winter_night")
-    end,
 }
 
 return M.spec
