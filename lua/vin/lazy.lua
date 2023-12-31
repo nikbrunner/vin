@@ -14,6 +14,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("vin.specs", {
+    defaults = {
+        lazy = true, -- should plugins be lazy-loaded?
+    },
     ---@diagnostic disable-next-line: assign-type-mismatch
     install = {
         colorscheme = {

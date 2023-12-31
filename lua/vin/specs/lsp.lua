@@ -13,6 +13,7 @@ M.specs = {
 
     {
         "williamboman/mason-lspconfig.nvim",
+        lazy = false,
         dependencies = {
             "williamboman/mason.nvim",
             "neovim/nvim-lspconfig",
