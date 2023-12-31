@@ -9,7 +9,7 @@ vim.opt.spelllang = "en,de"
 
 vim.opt.cursorline = true
 
-vim.opt.timeoutlen = 250 -- time to wait for a mapped sequence to complete (in milliseconds)
+-- vim.opt.timeoutlen = 250 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.updatetime = 100 -- faster completion (4000ms default)
 
 vim.opt.expandtab = true
