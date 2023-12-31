@@ -83,8 +83,7 @@ M.spec = {
             end,
             cond = function()
                 ---@diagnostic disable-next-line: undefined-field
-                return package.loaded["noice"]
-                    and require("noice").api.status.mode.has()
+                return package.loaded["noice"] and require("noice").api.status.mode.has()
             end,
         }
 

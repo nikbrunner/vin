@@ -34,29 +34,14 @@ set("n", "J", "mzJ`z", { desc = "Join Lines" })
 
 -- Better up/down
 set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-set(
-    { "n", "x" },
-    "<Down>",
-    "v:count == 0 ? 'gj' : 'j'",
-    { expr = true, silent = true }
-)
+set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-set(
-    { "n", "x" },
-    "<Up>",
-    "v:count == 0 ? 'gk' : 'k'",
-    { expr = true, silent = true }
-)
+set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 set("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
 -- Clear search with <esc>
-set(
-    { "i", "n" },
-    "<esc>",
-    "<cmd>noh<cr><esc>",
-    { desc = "Escape and clear hlsearch" }
-)
+set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua

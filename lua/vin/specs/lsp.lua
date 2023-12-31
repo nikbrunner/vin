@@ -38,8 +38,7 @@ M.specs = {
                 -- The first entry (without a key) will be the default handler
                 -- and will be called for each installed server that doesn't have a dedicated handler.
                 function(server_name) -- default handler (optional)
-                    local capabilities =
-                        require("cmp_nvim_lsp").default_capabilities()
+                    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
                     require("lspconfig")[server_name].setup({
                         capabilities = capabilities,
@@ -51,8 +50,7 @@ M.specs = {
                     -- https://github.com/folke/neodev.nvim?tab=readme-ov-file#-setup
                     require("neodev").setup({})
 
-                    local capabilities =
-                        require("cmp_nvim_lsp").default_capabilities()
+                    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
                     require("lspconfig").lua_ls.setup({
                         capabilities = capabilities,
@@ -67,15 +65,12 @@ M.specs = {
                 end,
 
                 tsserver = function()
-                    local capabilities =
-                        require("cmp_nvim_lsp").default_capabilities()
+                    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
                     require("lspconfig").tsserver.setup({
                         capabilities = capabilities,
                         root_dir = function(...)
-                            return require("lspconfig.util").root_pattern(".git")(
-                                ...
-                            )
+                            return require("lspconfig.util").root_pattern(".git")(...)
                         end,
                         init_options = {
                             hostInfo = "neovim",

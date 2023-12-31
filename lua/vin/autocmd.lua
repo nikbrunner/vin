@@ -33,18 +33,8 @@ create_autocmd("FileType", {
     },
     callback = function(event)
         vim.bo[event.buf].buflisted = false
-        vim.keymap.set(
-            "n",
-            "q",
-            "<cmd>close<CR>",
-            { buffer = event.buf, silent = true }
-        )
-        vim.keymap.set(
-            "n",
-            "<ESC>",
-            "<cmd>close<CR>",
-            { buffer = event.buf, silent = true }
-        )
+        vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = event.buf, silent = true })
+        vim.keymap.set("n", "<ESC>", "<cmd>close<CR>", { buffer = event.buf, silent = true })
     end,
 })
 
@@ -54,10 +44,7 @@ create_autocmd("BufReadPost", {
     callback = function(event)
         local exclude = { "gitcommit" }
         local buf = event.buf
-        if
-            vim.tbl_contains(exclude, vim.bo[buf].filetype)
-            or vim.b[buf].lazyvim_last_loc
-        then
+        if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
             return
         end
         vim.b[buf].lazyvim_last_loc = true

@@ -64,10 +64,7 @@ M.specs = {
                     expandable_indicator = true,
                     fields = { "kind", "abbr", "menu" },
                     format = function(entry, vim_item)
-                        if
-                            entry.completion_item.detail ~= nil
-                            and entry.completion_item.detail ~= ""
-                        then
+                        if entry.completion_item.detail ~= nil and entry.completion_item.detail ~= "" then
                             vim_item.menu = entry.completion_item.detail
                         else
                             vim_item.menu = ({

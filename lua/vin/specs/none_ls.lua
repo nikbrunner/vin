@@ -24,16 +24,11 @@ M.spec = {
                         })
                     end
 
-                    vim.api.nvim_buf_create_user_command(
-                        bufnr,
-                        "NullFormat",
-                        format,
-                        {
-                            bang = true,
-                            range = true,
-                            desc = "Format using null-ls",
-                        }
-                    )
+                    vim.api.nvim_buf_create_user_command(bufnr, "NullFormat", format, {
+                        bang = true,
+                        range = true,
+                        desc = "Format using null-ls",
+                    })
 
                     vim.api.nvim_create_autocmd("BufWritePre", {
                         desc = "Auto format before save",
