@@ -4,6 +4,7 @@ local M = {}
 M.specs = {
     {
         "nvim-treesitter/nvim-treesitter",
+        ---@diagnostic disable-next-line: assign-type-mismatch
         version = false, -- last release is way too old and doesn't work on Windows
         build = ":TSUpdate",
         event = { "VeryLazy" },
@@ -15,28 +16,7 @@ M.specs = {
             indent = {
                 enable = true,
             },
-            ensure_installed = {
-                "bash",
-                "c",
-                "html",
-                "javascript",
-                "jsdoc",
-                "json",
-                "go",
-                "lua",
-                "luadoc",
-                "luap",
-                "markdown",
-                "markdown_inline",
-                "python",
-                "query",
-                "regex",
-                "tsx",
-                "typescript",
-                "vim",
-                "vimdoc",
-                "yaml",
-            },
+            auto_install = true,
             -- DOCS: https://github.com/JoosepAlviste/nvim-ts-context-commentstring
             context_commentstring = {
                 enable = true,
@@ -97,7 +77,6 @@ M.specs = {
                     "const",
                 },
             },
-
         },
         config = function(_, opts)
             local context = require("treesitter-context")
