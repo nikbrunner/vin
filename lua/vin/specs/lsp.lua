@@ -13,6 +13,7 @@ M.specs = {
 
     {
         "williamboman/mason-lspconfig.nvim",
+        dependencies = "williamboman/mason.nvim",
         opts = {
             ensure_installed = {
                 "lua_ls",
@@ -26,9 +27,23 @@ M.specs = {
     },
 
     {
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        dependencies = "williamboman/mason.nvim",
+        opts = {
+            ensure_installed = {
+                "stylua",
+                "luacheck",
+                "shellcheck",
+                "prettierd",
+                "black",
+            },
+        },
+    },
+
+    {
         "neovim/nvim-lspconfig",
         dependencies = {
-            "folke/neodev.nvim"
+            "folke/neodev.nvim",
         },
         opts = {},
         config = function()
