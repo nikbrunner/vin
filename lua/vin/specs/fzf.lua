@@ -110,12 +110,11 @@ M.spec = {
         },
         {
             "<leader>ff",
-            M.fzf("files", {
-                winopts = M.win_presets.medium.vertical,
-            }),
+            M.fzf("files", { winopts = M.win_presets.medium.vertical }),
             desc = "Files",
         },
         { "<leader>sh", M.fzf("help_tags"), desc = "Help Tags" },
+        { "<leader>sH", M.fzf("highlights"), desc = "Highlights" },
         {
             "<leader>gs",
             M.fzf("git_status", { winopts = M.win_presets.full.vertical }),
