@@ -1,7 +1,8 @@
 local M = {}
 
 M.FOLDER_PRESETS = {
-    nvim = "~/.config/nvim",
+    vin = "~/.config/vin",
+    lazyvin = "~/.config/lazyvin",
     config = "~/.config",
 }
 
@@ -44,14 +45,6 @@ M.win_presets = {
                 vertical = "up:50%",
             },
         },
-        vertical = {
-            height = 0.75,
-            width = 0.50,
-            preview = {
-                layout = "vertical",
-                vertical = "up:65%",
-            },
-        },
     },
     large = {
         vertical = {
@@ -87,25 +80,25 @@ M.spec = {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
         -- stylua: ignore start
-        { "<leader><space>",     M.fzf("files", { winopts = M.win_presets.small.no_preview, }), desc = "Files", },
-        { "<leader>,",           M.fzf("oldfiles", { winopts = M.win_presets.small.no_preview, }), desc = "Recent Files", },
-        { "<leader>ff",          M.fzf("files", { winopts = M.win_presets.medium.vertical }), desc = "Files", },
-        { "<leader>fr",          M.fzf("oldfiles", { winopts = M.win_presets.small.no_preview }), desc = "Recent Files (Current Session)", },
-        { "<leader>fR",          M.fzf("oldfiles", { winopts = M.win_presets.small.no_preview, include_current_session = false, }), desc = "Recent Files (All Sessions)", },
+        { "<leader><space>",     M.fzf("files"), desc = "Files", },
+        { "<leader>,",           M.fzf("oldfiles"), desc = "Recent Files", },
+        { "<leader>ff",          M.fzf("files"), desc = "Files", },
+        { "<leader>fr",          M.fzf("oldfiles"), desc = "Recent Files (Current Session)", },
+        { "<leader>fR",          M.fzf("oldfiles", {include_current_session = false, }), desc = "Recent Files (All Sessions)", },
         { "<leader>f/",          M.search_preset_folder, desc = "Preset folders", },
         { "<leader>sh",          M.fzf("help_tags"),  desc = "Help Tags" },
         { "<leader>sH",          M.fzf("highlights"), desc = "Highlights" },
-        { "<leader>ss",          M.fzf("lsp_document_symbols", { winopts = M.win_presets.medium.flex, }), desc = "Document Symbols", },
-        { "<leader>sS",          M.fzf("lsp_live_workspace_symbols", { winopts = M.win_presets.medium.flex, }), desc = "Workspace Symbols", },
-        { "<leader>sR",          M.fzf("resume", { winopts = M.win_presets.large.vertical, }), desc = "Resume", },
-        { "<leader>sg",          M.fzf("live_grep_native", { winopts = M.win_presets.full.vertical, }), desc = "Live Grep", },
-        { "<leader>s<tab>",      M.fzf("tabs", { winopts = M.win_presets.medium.flex, }), desc = "Tabs", },
-        { "<leader>uC",          M.fzf("colorschemes", { winopts = M.win_presets.small.no_preview }), desc = "Colorschemes", },
+        { "<leader>ss",          M.fzf("lsp_document_symbols"), desc = "Document Symbols", },
+        { "<leader>sS",          M.fzf("lsp_live_workspace_symbols"), desc = "Workspace Symbols", },
+        { "<leader>sR",          M.fzf("resume"), desc = "Resume", },
+        { "<leader>sg",          M.fzf("live_grep_native"), desc = "Live Grep", },
+        { "<leader>s<tab>",      M.fzf("tabs"), desc = "Tabs", },
+        { "<leader>uC",          M.fzf("colorschemes"), desc = "Colorschemes", },
         { "<leader>gs",          M.fzf("git_status", { winopts = M.win_presets.full.vertical }), desc = "Git Status", },
         { "<leader>gC",          M.fzf("git_commits", { winopts = M.win_presets.full.vertical, }), desc = "Git Commits", },
-        { "<leader>gB",          M.fzf("git_branches", { winopts = M.win_presets.medium.flex, }), desc = "Git Branches", },
-        { "<leader>gc",          M.fzf("changes", { winopts = M.win_presets.medium.flex, }), desc = "Changes", },
-        { "<leader>/",           M.fzf("lgrep_curbuf", { winopts = M.win_presets.large.vertical, }), desc = "Grep Current Buffer", },
+        { "<leader>gB",          M.fzf("git_branches"), desc = "Git Branches", },
+        { "<leader>gc",          M.fzf("changes"), desc = "Changes", },
+        { "<leader>/",           M.fzf("lgrep_curbuf"), desc = "Grep Current Buffer", },
         -- stylua: ignore end
     },
 
@@ -132,7 +125,7 @@ M.spec = {
                     hidden = "nohidden", -- hidden|nohidden
                     vertical = "up:65%", -- up|down:size
                     horizontal = "right:60%", -- right|left:size
-                    layout = "vertical", -- horizontal|vertical|flex
+                    layout = "flex", -- horizontal|vertical|flex
                     flip_columns = 200, -- #cols to switch to horizontal on flex
                     title = true, -- preview border title (file/buf)?
                     delay = 100, -- delay(ms) displaying the preview
@@ -294,7 +287,7 @@ M.spec = {
                 commits = {
                     prompt = "Commits❯ ",
                     cmd = "git log --pretty=oneline --abbrev-commit --color",
-                    preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
+                    preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1} | delta --width $FZF_PREVIEW_COLUMNS",
                     actions = {
                         ["default"] = actions.git_checkout,
                     },
@@ -302,7 +295,7 @@ M.spec = {
                 bcommits = {
                     prompt = "BCommits❯ ",
                     cmd = "git log --pretty=oneline --abbrev-commit --color",
-                    preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
+                    preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1} | delta --width $FZF_PREVIEW_COLUMNS",
                     actions = {
                         ["default"] = actions.git_buf_edit,
                         ["ctrl-s"] = actions.git_buf_split,
