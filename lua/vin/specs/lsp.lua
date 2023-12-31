@@ -27,9 +27,16 @@ M.specs = {
 
     {
         "neovim/nvim-lspconfig",
+        dependencies = {
+            "folke/neodev.nvim"
+        },
         opts = {},
-        config = function(_, opts)
+        config = function()
+            -- https://github.com/folke/neodev.nvim?tab=readme-ov-file#-setup
+            require("neodev").setup({})
+
             local lspconfig = require("lspconfig")
+
             lspconfig.lua_ls.setup({})
             lspconfig.tsserver.setup({})
         end,
