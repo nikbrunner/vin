@@ -5,8 +5,6 @@ vim.opt.background = "dark"
 
 vim.opt.mouse = "a" -- allow the mouse to be used in neovim
 
-vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
-
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 
 vim.opt.spelllang = "en,de"
