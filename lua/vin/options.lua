@@ -29,6 +29,7 @@ vim.opt.undofile = true -- enable persistent undo
 
 vim.opt.cmdheight = 1
 vim.opt.pumheight = 20 -- pop up menu height
+vim.opt.pumblend = 10 -- Popup blend
 
 vim.opt.laststatus = 3 -- global statusline
 
