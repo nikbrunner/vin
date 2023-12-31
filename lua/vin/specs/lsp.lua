@@ -38,7 +38,43 @@ M.specs = {
             local lspconfig = require("lspconfig")
 
             lspconfig.lua_ls.setup({})
-            lspconfig.tsserver.setup({})
+
+            lspconfig.tsserver.setup({
+                root_dir = function(...)
+                    return require("lspconfig.util").root_pattern(".git")(...)
+                end,
+                init_options = {
+                    hostInfo = "neovim",
+                    ---@see https://github.com/typescript-language-server/typescript-language-server#initializationoptions
+                    preferences = {
+                        importModuleSpecifierPreference = "relative",
+                    },
+                },
+                settings = {
+                    typescript = {
+                        inlayHints = {
+                            includeInlayParameterNameHints = "literal",
+                            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                            includeInlayFunctionParameterTypeHints = true,
+                            includeInlayVariableTypeHints = true,
+                            includeInlayPropertyDeclarationTypeHints = true,
+                            includeInlayFunctionLikeReturnTypeHints = true,
+                            includeInlayEnumMemberValueHints = true,
+                        },
+                    },
+                    javascript = {
+                        inlayHints = {
+                            includeInlayParameterNameHints = "all",
+                            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                            includeInlayFunctionParameterTypeHints = true,
+                            includeInlayVariableTypeHints = true,
+                            includeInlayPropertyDeclarationTypeHints = true,
+                            includeInlayFunctionLikeReturnTypeHints = true,
+                            includeInlayEnumMemberValueHints = true,
+                        },
+                    },
+                },
+            })
         end,
     },
 }
