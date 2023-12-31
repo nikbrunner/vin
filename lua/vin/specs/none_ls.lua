@@ -40,7 +40,6 @@ M.spec = {
             end,
             sources = {
                 formatting.stylua,
-                diagnostics.luacheck,
 
                 formatting.prettierd,
                 diagnostics.eslint_d,
