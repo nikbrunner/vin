@@ -66,7 +66,7 @@ M.specs = {
                         end,
                         init_options = {
                             hostInfo = "neovim",
-                            ---@see https://github.com/typescript-language-server/typescript-language-server#initializationoptions
+                            -- https://github.com/typescript-language-server/typescript-language-server#initializationoptions
                             preferences = {
                                 importModuleSpecifierPreference = "relative",
                             },

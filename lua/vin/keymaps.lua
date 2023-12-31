@@ -4,7 +4,6 @@ local function set(mode, lhs, rhs, opts)
     opts.silent = opts.silent == nil and true or opts.silent
     vim.keymap.set(mode, lhs, rhs, opts)
 end
-local del = vim.keymap.del
 
 -- Vin Group
 set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
@@ -118,7 +117,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         set({ "n", "v" }, "<leader>ca", "<CMD>FzfLua lsp_code_actions<CR>", opts)
         set("n", "<leader>cr", vim.lsp.buf.rename, opts)
 
-        -- set("n", "<leader>cf", ":!stylua lua/**/*.lua<CR>", { desc = "Format" })
         set("n", "<leader>cf", function()
             vim.lsp.buf.format({ async = true })
         end, opts)
