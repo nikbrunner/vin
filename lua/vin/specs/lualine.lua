@@ -15,27 +15,24 @@ M.spec = {
 
         local mode = {
             function()
-                return "  Vin"
+                return " Vin"
             end,
-            padding = {
-                left = 3,
-                right = 3,
-            },
-            separator = { left = "", right = "" },
+            padding = 4,
         }
 
-        local filetype = {
-            "fancy_filetype",
-            ts_icon = "",
-            padding = {
-                left = 1,
-                right = 1,
-            },
-            separator = { left = "", right = "" },
+        local filetype_icon = {
+            "filetype",
+            ts_icon = "",
+            colored = true, -- Displays filetype icon in color if set to true
+            icon_only = true, -- Display only an icon for filetype
+            padding = 2,
         }
 
-        local diagnostics = {
-            "diagnostics",
+        local filename = {
+            "filename",
+            file_status = true, -- Displays file status (readonly status, modified status)
+            newfile_status = true, -- Display new file status (new file means no write after created)
+            path = 1, -- 0: Just the filename
         }
 
         local project_name = {
@@ -89,16 +86,31 @@ M.spec = {
 
         return {
             options = {
-                theme = "auto",
+                theme = "terra",
                 globalstatus = true,
-                section_separators = { left = "", right = "" },
-                component_separators = { left = "", right = "" },
-                -- section_separators = { left = "", right = "" },
-                -- component_separators = { left = "", right = "" },
+                section_separators = { left = "", right = "" },
+                component_separators = { left = "", right = "" },
                 disabled_filetypes = {
                     statusline = { "dashboard", "alpha", "lazy" },
-                    winbar = { "dashboard", "alpha", "edgy", "lazy" },
+                    winbar = { "", "dashboard", "alpha", "edgy", "lazy", "neo-tree" },
                 },
+            },
+
+            winbar = {
+                lualine_a = {},
+                lualine_b = { filetype_icon },
+                lualine_c = { filename },
+                lualine_x = {},
+                lualine_y = {},
+                lualine_z = {},
+            },
+            inactive_winbar = {
+                lualine_a = {},
+                lualine_b = { filetype_icon },
+                lualine_c = { filename },
+                lualine_x = {},
+                lualine_y = {},
+                lualine_z = {},
             },
 
             sections = {
@@ -112,7 +124,7 @@ M.spec = {
                     "tabs",
                 },
                 lualine_c = {
-                    diagnostics,
+                    "diagnostics",
                 },
                 lualine_x = {
                     noice_status,
@@ -126,9 +138,7 @@ M.spec = {
                     lazy_plug_count,
                     lazy_updates,
                 },
-                lualine_z = {
-                    filetype,
-                },
+                lualine_z = {},
             },
             extensions = { "neo-tree", "lazy" },
         }

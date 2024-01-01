@@ -1,1 +1,0 @@
-require("vin.util.winbar")
