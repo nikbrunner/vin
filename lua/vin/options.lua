@@ -1,3 +1,5 @@
+WhichKeyIgnoreLabel = "which_key_ignore"
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -5,7 +7,7 @@ vim.opt.mouse = "a" -- allow the mouse to be used in neovim
 
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 
-vim.opt.spelllang = "en,de"
+vim.opt.spelllang = "en_us,de_de"
 
 vim.opt.cursorline = true
 
