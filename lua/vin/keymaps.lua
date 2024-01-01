@@ -76,7 +76,6 @@ set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 set("n", "gl", vim.diagnostic.open_float)
 set("n", "[d", vim.diagnostic.goto_prev)
 set("n", "]d", vim.diagnostic.goto_next)
-set("n", "<leader>xq", vim.diagnostic.setloclist)
 
 -- lsp mappings
 -- Use LspAttach autocommand to only map the following keys
