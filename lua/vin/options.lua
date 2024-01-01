@@ -19,6 +19,18 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
+vim.opt.foldlevel = 99
+vim.opt.foldmethod = "indent"
+
+vim.opt.fillchars = {
+    foldopen = "",
+    foldclose = "",
+    fold = " ",
+    foldsep = " ",
+    diff = "╱",
+    eob = " ",
+}
+
 vim.opt.number = true -- set numbered lines
 vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
 vim.opt.relativenumber = true -- set relative numbered lines
