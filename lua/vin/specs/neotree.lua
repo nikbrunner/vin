@@ -136,9 +136,7 @@ M.spec = {
                 ["O"] = function(state)
                     local node = state.tree:get_node()
                     local path = node:get_id()
-                    path = vim.fn.shellescape(path, 1)
-                    -- TODO: use `vim.ui.open()` when it's available
-                    vim.cmd("!open " .. path)
+                    vim.ui.open(path)
                 end,
                 ["M"] = "close_all_nodes",
                 ["R"] = "refresh",
