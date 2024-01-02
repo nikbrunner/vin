@@ -91,7 +91,7 @@ M.spec = {
         { "<leader>ss",          M.fzf("lsp_document_symbols"), desc = "Document Symbols", },
         { "<leader>sS",          M.fzf("lsp_live_workspace_symbols"), desc = "Workspace Symbols", },
         { "<leader>sR",          M.fzf("resume"), desc = "Resume", },
-        { "<leader>sg",          M.fzf("live_grep_native"), desc = "Live Grep", },
+        { "<leader>sg",          M.fzf("live_grep_native", { winopts = M.win_presets.large.vertical }), desc = "Live Grep", },
         { "<leader>s<tab>",      M.fzf("tabs"), desc = "Tabs", },
         { "<leader>uC",          M.fzf("colorschemes"), desc = "Colorschemes", },
         { "<leader>gs",          M.fzf("git_status", { winopts = M.win_presets.full.vertical }), desc = "Git Status", },
