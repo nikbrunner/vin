@@ -1,17 +1,11 @@
+local lib = require("vin.lib")
+
 local function set(mode, lhs, rhs, opts)
     opts = opts or {}
     opts.noremap = opts.noremap == nil and true or opts.noremap
     opts.silent = opts.silent == nil and true or opts.silent
     vim.keymap.set(mode, lhs, rhs, opts)
 end
-
--- Vin Group
-set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
-set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
-set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
-set("n", "<leader>vI", "<cmd>NullLsInfo<CR>", { desc = "NullLS Info" })
-set("n", "<leader>vr", "<cmd>LspRestart<CR>", { desc = "Restart LSP Server" })
-set("n", "<leader>vm", vim.cmd.messages, { desc = "Display messages" })
 
 -- map ; to :
 set("n", ";", ":", { desc = "Vim Command" })
@@ -79,6 +73,35 @@ set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 set("n", "gl", vim.diagnostic.open_float)
 set("n", "[d", vim.diagnostic.goto_prev)
 set("n", "]d", vim.diagnostic.goto_next)
+
+-- Vin Group
+set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
+set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
+set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
+set("n", "<leader>vI", "<cmd>NullLsInfo<CR>", { desc = "NullLS Info" })
+set("n", "<leader>vr", "<cmd>LspRestart<CR>", { desc = "Restart LSP Server" })
+set("n", "<leader>vm", vim.cmd.messages, { desc = "Display messages" })
+
+-- Copy Group
+set("n", "<leader>ccf", lib.copy.fullPath, { desc = "Full Path" })
+set("n", "<leader>ccr", lib.copy.relativePath, { desc = "Relative Path" })
+set("n", "<leader>ccn", lib.copy.fileName, { desc = "File Name" })
+
+-- Log Group
+set("n", "<leader>cll", lib.log.log_symbol, { desc = "Auto Log Symbol" })
+set("n", "<leader>cld", lib.log.delete_logs, { desc = "Auto Log Symbol" })
+
+-- Find component
+set("n", "<leader>fc", lib.component.find_and_open_component_file, { desc = "Find component under cursor" })
+set("n", "<leader>fC", lib.component.find_and_open_files, { desc = "Find component" })
+
+-- Tmux Group
+set("n", "<leader>.n", lib.tmux.start_smug_session, { desc = "New Pre-Configured Session" })
+set("n", "<leader>.c", lib.tmux.start_custom_tmux_session, { desc = "Create Custom TMUX Session" })
+set("n", "<leader>.s", lib.tmux.switch_tmux_session, { desc = "Switch Session" })
+set("n", "<leader>.w", lib.tmux.switch_tmux_window, { desc = "Switch Windows" })
+set("n", "<leader>.q", lib.tmux.kill_tmux_session, { desc = "Quit TMUX Session" })
+set("n", "<leader>..", lib.tmux.switch_nvim_instance, { desc = "Switch Neovim Instance" })
 
 -- lsp mappings
 -- Use LspAttach autocommand to only map the following keys

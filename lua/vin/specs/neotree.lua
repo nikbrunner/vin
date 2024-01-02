@@ -1,3 +1,5 @@
+local lib = require("vin.lib")
+
 local M = {}
 
 ---@type LazySpec
@@ -131,7 +133,7 @@ M.spec = {
                 ["C"] = function(state)
                     local node = state.tree:get_node()
                     local filename_without_ext = node.name:gsub("%..*", "")
-                    require("lib.component").find_and_open_component_file(filename_without_ext)
+                    lib.component.find_and_open_component_file(filename_without_ext)
                 end,
                 ["O"] = function(state)
                     local node = state.tree:get_node()
