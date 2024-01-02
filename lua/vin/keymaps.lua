@@ -13,6 +13,9 @@ set("n", "<leader>vI", "<cmd>NullLsInfo<CR>", { desc = "NullLS Info" })
 set("n", "<leader>vr", "<cmd>LspRestart<CR>", { desc = "Restart LSP Server" })
 set("n", "<leader>vm", vim.cmd.messages, { desc = "Display messages" })
 
+-- map ; to :
+set("n", ";", ":", { desc = "Vim Command" })
+
 -- Tab Navigation
 set({ "n", "v" }, "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Tab" })
 set({ "n", "v" }, "<Tab>", vim.cmd.tabnext, { desc = "Next Tab" })
