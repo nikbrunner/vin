@@ -12,7 +12,6 @@ M.spec = {
         {
             "<leader>vtt",
             function()
-                vim.cmd("Neotree close")
                 require("terra-core.utils.config").select_theme()
             end,
             desc = "Select theme",
@@ -20,7 +19,6 @@ M.spec = {
         {
             "<leader>vtv",
             function()
-                vim.cmd("Neotree close")
                 require("terra-core.utils.config").select_variant()
             end,
             desc = "Select variant",
