@@ -1,3 +1,5 @@
+local config = require("vin.config")
+
 local M = {}
 
 ---@type LazySpec[]
@@ -20,18 +22,7 @@ M.specs = {
             "folke/neodev.nvim",
         },
         opts = {
-            ensure_installed = {
-                "astro",
-                "bashls",
-                "cssls",
-                "gopls",
-                "html",
-                "jsonls",
-                "lua_ls",
-                "marksman",
-                "rust_analyzer",
-                "tsserver",
-            },
+            ensure_installed = config.ensure_installed.servers,
 
             -- `:h mason-lspconfig-automatic-server-setup`
             -- `:h mason-lspconfig.setup_handlers`
@@ -46,6 +37,7 @@ M.specs = {
                     })
                 end,
                 -- Next, you can provide a dedicated handler for specific servers.
+                ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
                 -- For a list of lsp-configurations see here: `:h lspconfig-all`
                 ["lua_ls"] = function()
                     -- https://github.com/folke/neodev.nvim?tab=readme-ov-file#-setup
@@ -117,13 +109,7 @@ M.specs = {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         dependencies = "williamboman/mason.nvim",
         opts = {
-            ensure_installed = {
-                "stylua",
-                "luacheck",
-                "shellcheck",
-                "prettierd",
-                "black",
-            },
+            ensure_installed = config.ensure_installed.tools,
         },
     },
 }

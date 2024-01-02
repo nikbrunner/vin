@@ -1,3 +1,4 @@
+require("vin.config")
 require("vin.options")
 require("vin.keymaps")
 require("vin.lazy")

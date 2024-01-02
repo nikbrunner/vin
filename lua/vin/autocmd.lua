@@ -1,4 +1,5 @@
 local create_autocmd = vim.api.nvim_create_autocmd
+local config = require("vin.config")
 
 local function augroup(name)
     return vim.api.nvim_create_augroup("vin_" .. name, { clear = true })
@@ -7,7 +8,7 @@ end
 create_autocmd("UIEnter", {
     group = augroup("ui_enter"),
     callback = function()
-        vim.cmd.colorscheme("terra_winter_night")
+        vim.cmd.colorscheme(config.colorscheme)
     end,
 })
 
