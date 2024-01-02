@@ -35,6 +35,13 @@ M.spec = {
             path = 1, -- 0: Just the filename
         }
 
+        local tabs = {
+            "tabs",
+            cond = function()
+                return vim.fn.tabpagenr("$") > 1
+            end,
+        }
+
         local project_name = {
             function()
                 local current_project_folder = fnamemodify(vim.fn.getcwd(), ":t")
@@ -121,7 +128,7 @@ M.spec = {
                     project_name,
                     "fancy_branch",
                     "francy_diff",
-                    "tabs",
+                    tabs,
                 },
                 lualine_c = {
                     "diagnostics",
