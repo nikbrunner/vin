@@ -67,3 +67,5 @@ vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would sh
 
 vim.opt.splitbelow = true -- force all horizontal splits to go below current window
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
+
+vim.opt.shortmess:append("I")
