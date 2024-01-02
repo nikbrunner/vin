@@ -17,7 +17,10 @@ M.spec = {
             function()
                 return " Vin"
             end,
-            padding = 4,
+            padding = {
+                left = 1,
+                right = 6,
+            },
         }
 
         local filetype_icon = {
