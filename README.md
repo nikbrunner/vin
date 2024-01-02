@@ -1,6 +1,6 @@
 # Vin
 
-This is my personal Neovim configuration. 
+This is my personal Neovim configuration.
 
 I tailored this config to my personal needs as a Frontend Engineer
 mainly working with React, TypeScript and SCSS.
@@ -28,7 +28,28 @@ Once inside, enter the following, and see if everything is okay.
 :checkhealth
 ```
 
+## Setting an alias
+
+If you want to start this config when running `nvim`, you can set an alias, in your `.bashrc` or `.zshrc`:
+
+```sh
+alias nvim="NVIM_APPNAME=vin nvim"
+```
+
+## Uninstall
+
+To remove everything related to this config, run the following commands:
+
+```sh
+rm -rf ~/.config/vin
+rm -rf ~/.local/share/vin
+```
+
 Make sure you have [a nerd font](https://github.com/ryanoasis/nerd-fonts) installed.
+
+## Todo
+
+- [ ] Debugging
 
 ## Origin of Name
 
