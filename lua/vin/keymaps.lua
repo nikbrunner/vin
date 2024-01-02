@@ -10,10 +10,6 @@ end
 -- map ; to :
 set("n", ";", ":", { desc = "Vim Command" })
 
--- Tab Navigation
-set({ "n", "v" }, "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Tab" })
-set({ "n", "v" }, "<Tab>", vim.cmd.tabnext, { desc = "Next Tab" })
-
 -- Easy Start and End of Line
 set("n", "H", "^", { desc = "Move to Start of Line" })
 set("n", "L", "$", { desc = "Move to End of Line" })
@@ -73,6 +69,22 @@ set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 set("n", "gl", vim.diagnostic.open_float)
 set("n", "[d", vim.diagnostic.goto_prev)
 set("n", "]d", vim.diagnostic.goto_next)
+
+-- Tab Navigation
+set("n", "<Tab>", vim.cmd.tabnext, { desc = "Next Tab" })
+set("n", "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Tab" })
+set("n", "<leader><tab><tab>", vim.cmd.tabnew, { desc = "New Tab" })
+set("n", "<leader><tab>o", vim.cmd.tabonly, { desc = "Close All Other Tabs" })
+set("n", "<leader><tab>q", vim.cmd.tabclose, { desc = "Close Tab" })
+set("n", "<leader><tab>1", "1gt", { desc = "Go to Tab 1" })
+set("n", "<leader><tab>2", "2gt", { desc = "Go to Tab 2" })
+set("n", "<leader><tab>3", "3gt", { desc = "Go to Tab 3" })
+set("n", "<leader><tab>4", "4gt", { desc = "Go to Tab 4" })
+set("n", "<leader><tab>5", "5gt", { desc = "Go to Tab 5" })
+set("n", "<leader><tab>6", "6gt", { desc = "Go to Tab 6" })
+set("n", "<leader><tab>7", "7gt", { desc = "Go to Tab 7" })
+set("n", "<leader><tab>8", "8gt", { desc = "Go to Tab 8" })
+set("n", "<leader><tab>9", "9gt", { desc = "Go to Tab 9" })
 
 -- Vin Group
 set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
