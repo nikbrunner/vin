@@ -45,6 +45,7 @@ vim.opt.cmdheight = 1
 vim.opt.pumheight = 20 -- pop up menu height
 vim.opt.pumblend = 10 -- Popup blend
 
+vim.opt.showtabline = 0 -- hide tabline
 vim.opt.laststatus = 3 -- global statusline
 
 vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
