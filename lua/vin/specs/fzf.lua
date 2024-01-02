@@ -64,6 +64,13 @@ M.win_presets = {
                 vertical = "down:65%",
             },
         },
+        horizontal = {
+            fullscreen = true,
+            preview = {
+                layout = "horizontal",
+                vertical = "right:60%",
+            },
+        },
     },
 }
 
@@ -86,7 +93,7 @@ M.spec = {
         { "<leader>fr",          M.fzf("oldfiles"), desc = "Recent Files (Current Session)", },
         { "<leader>fR",          M.fzf("oldfiles", {include_current_session = false, }), desc = "Recent Files (All Sessions)", },
         { "<leader>f/",          M.search_preset_folder, desc = "Preset folders", },
-        { "<leader>sh",          M.fzf("help_tags"),  desc = "Help Tags" },
+        { "<leader>sh",          M.fzf("help_tags", { winopts = M.win_presets.full.horizontal }),  desc = "Help Tags" },
         { "<leader>sH",          M.fzf("highlights"), desc = "Highlights" },
         { "<leader>ss",          M.fzf("lsp_document_symbols"), desc = "Document Symbols", },
         { "<leader>sS",          M.fzf("lsp_live_workspace_symbols"), desc = "Workspace Symbols", },
