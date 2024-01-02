@@ -141,12 +141,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
         set("n", "gy", vim.lsp.buf.type_definition, opts)
         set("n", "gr", "<CMD>FzfLua lsp_references<CR>", opts)
 
-        set({ "n", "v" }, "<leader>ca", "<CMD>FzfLua lsp_code_actions<CR>", opts)
-        set("n", "<leader>cr", vim.lsp.buf.rename, opts)
+        set(
+            { "n", "v" },
+            "<leader>ca",
+            "<CMD>FzfLua lsp_code_actions<CR>",
+            vim.tbl_extend("force", opts, { desc = "Code Actions" })
+        )
+
+        set("n", "<leader>cr", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
 
         set("n", "<leader>cf", function()
             vim.lsp.buf.format({ async = true })
-        end, opts)
+        end, vim.tbl_extend("force", opts, { desc = "Format" }))
 
         set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
         set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
