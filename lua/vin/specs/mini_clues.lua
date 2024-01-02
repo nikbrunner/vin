@@ -4,7 +4,7 @@ local M = {}
 M.spec = {
     "echasnovski/mini.clue",
     version = "*",
-    lazy = false,
+    event = "VeryLazy",
     config = function()
         local miniclue = require("mini.clue")
         miniclue.setup({

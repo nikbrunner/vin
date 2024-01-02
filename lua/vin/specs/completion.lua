@@ -4,7 +4,7 @@ local M = {}
 M.specs = {
     {
         "L3MON4D3/LuaSnip",
-        lazy = false,
+        event = "InsertEnter",
         dependencies = {
             "rafamadriz/friendly-snippets",
             "saadparwaiz1/cmp_luasnip",
@@ -13,6 +13,7 @@ M.specs = {
             require("luasnip.loaders.from_vscode").lazy_load()
         end,
     },
+
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
@@ -20,7 +21,7 @@ M.specs = {
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-nvim-lsp",
         },
-        lazy = false,
+        event = "InsertEnter",
         config = function()
             local cmp = require("cmp")
 
