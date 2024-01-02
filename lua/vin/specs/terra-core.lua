@@ -30,7 +30,7 @@ M.spec = {
         debug = false,
         theme = "fall",
         variant = "night",
-        transparent = false,
+        transparent = true,
         diagnostics = {
             background = false,
         },
