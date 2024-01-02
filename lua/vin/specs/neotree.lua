@@ -43,6 +43,13 @@ M.spec = {
                 desc = "Buffers",
             },
             {
+                "<leader>es",
+                function()
+                    vim.cmd("Neotree right document_symbols toggle reveal")
+                end,
+                desc = "Document Symbols",
+            },
+            {
                 "<C-f>",
                 function()
                     close_side_panels()
@@ -67,7 +74,16 @@ M.spec = {
             },
         }
     end,
+    --- https://github.com/nvim-neo-tree/neo-tree.nvim/blob/v3.x/lua/neo-tree/defaults.lua
     opts = {
+        add_blank_line_at_top = true,
+        hide_root_node = true,
+        sources = {
+            "filesystem",
+            "buffers",
+            "git_status",
+            "document_symbols",
+        },
         nesting_rules = {
             ["package.json"] = {
                 pattern = "^package%.json$", -- <-- Lua pattern
@@ -81,10 +97,24 @@ M.spec = {
         },
         filesystem = {
             hijack_netrw_behavior = "open_default",
+            follow_current_file = {
+                enabled = true, -- This will find and focus the file in the active buffer every time the current file is changed while the tree is open.
+            },
+            -- the current file is changed while the tree is open.
             filtered_items = {
+                visible = false, -- when true, they will just be displayed differently than normal items
+                force_visible_in_empty_folder = false, -- when true, hidden files will be shown if the root folder is otherwise empty
+                show_hidden_count = true, -- when true, the number of hidden items in each folder will be shown as the last entry
                 hide_dotfiles = false,
                 hide_gitignored = true,
                 hide_hidden = false, -- only works on Windows for hidden files/directories
+                always_show = { -- remains visible even if other settings would normally hide it
+                    ".gitignored",
+                },
+                never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
+                    ".DS_Store",
+                    "thumbs.db",
+                },
             },
         },
         source_selector = {
@@ -105,6 +135,55 @@ M.spec = {
                     source = "buffers",
                     display_name = "Buffers",
                 },
+                {
+                    source = "document_symbols",
+                    display_name = "Doc Symbols",
+                },
+            },
+        },
+
+        event_handlers = {
+
+            {
+                event = "file_renamed",
+                handler = function(args)
+                    print(args.source, " renamed to ", args.destination)
+                end,
+            },
+
+            {
+                event = "file_moved",
+                handler = function(args)
+                    print(args.source, " moved to ", args.destination)
+                end,
+            },
+
+            {
+                event = "neo_tree_buffer_enter",
+                handler = function()
+                    vim.cmd("highlight! Cursor blend=100")
+                end,
+            },
+
+            {
+                event = "neo_tree_buffer_leave",
+                handler = function()
+                    vim.cmd("highlight! Cursor guibg=#5f87af blend=0")
+                end,
+            },
+
+            {
+                event = "neo_tree_window_after_open",
+                handler = function()
+                    vim.cmd("wincmd =")
+                end,
+            },
+
+            {
+                event = "neo_tree_window_after_close",
+                handler = function()
+                    vim.cmd("wincmd =")
+                end,
             },
         },
 
@@ -156,6 +235,16 @@ M.spec = {
                 ["?"] = "show_help",
                 ["<"] = "prev_source",
                 [">"] = "next_source",
+            },
+        },
+        document_symbols = {
+            window = {
+                mappings = {
+                    ["<cr>"] = "jump_to_symbol",
+                    ["o"] = "jump_to_symbol",
+                    ["/"] = "filter",
+                    ["f"] = "filter_on_submit",
+                },
             },
         },
     },
