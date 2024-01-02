@@ -86,6 +86,10 @@ set("n", "<leader><tab>7", "7gt", { desc = "Go to Tab 7" })
 set("n", "<leader><tab>8", "8gt", { desc = "Go to Tab 8" })
 set("n", "<leader><tab>9", "9gt", { desc = "Go to Tab 9" })
 
+-- Center scren when using <C-u> and <C-d>
+set({ "n", "i", "c" }, "<C-u>", "<C-u>zz", { desc = "Scroll Up" })
+set({ "n", "i", "c" }, "<C-d>", "<C-d>zz", { desc = "Scroll Down" })
+
 -- Vin Group
 set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
 set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
