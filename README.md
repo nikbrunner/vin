@@ -50,6 +50,8 @@ Make sure you have [a nerd font](https://github.com/ryanoasis/nerd-fonts) instal
 ## Todo
 
 - [ ] Debugging
+- [ ] `obsidian.nvim` Plugin
+- [ ] Spell Checking
 
 ## Origin of Name
 
