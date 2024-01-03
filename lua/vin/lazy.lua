@@ -20,7 +20,7 @@ require("lazy").setup("vin.specs", {
     ---@diagnostic disable-next-line: assign-type-mismatch
     install = {
         colorscheme = {
-            "terra",
+            "terra_winter_night",
             "habamax",
         },
     },
