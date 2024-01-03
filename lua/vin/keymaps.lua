@@ -53,6 +53,18 @@ set(
     { desc = "Redraw / clear hlsearch / diff update" }
 )
 
+set("n", "<leader>ub", function()
+    local background = vim.opt.background:get()
+
+    if background == "dark" then
+        vim.opt.background = "light"
+        vim.notify("Background set to light", vim.log.levels.INFO, { title = "Background" })
+    else
+        vim.opt.background = "dark"
+        vim.notify("Background set to dark", vim.log.levels.INFO, { title = "Background" })
+    end
+end, { desc = "Toggle Background" })
+
 set("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
 
 set("n", "<leader>uc", function()
