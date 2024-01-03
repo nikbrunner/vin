@@ -57,3 +57,12 @@ create_autocmd("BufReadPost", {
         end
     end,
 })
+
+-- On every buff enter and refocus refresh neotree
+create_autocmd("BufEnter", {
+    group = augroup("neotree_refresh"),
+    pattern = { "*" },
+    callback = function()
+        require("neo-tree.sources.manager").refresh()
+    end,
+})
