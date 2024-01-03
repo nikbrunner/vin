@@ -26,7 +26,6 @@
   "middleclass": { "branch": "master", "commit": "9fab4d5bca67262614960960ca35c4740eb2be2c" },
   "mini.clue": { "branch": "main", "commit": "9d04c00d72faabff6a8bc873f5324a75a2d4b13f" },
   "mini.comment": { "branch": "main", "commit": "3d9c8009615857e982f09bc5357fc95f2a2175f3" },
-  "mini.files": { "branch": "main", "commit": "bf79f74d778846222ecbcf373902dd44f52f7de8" },
   "mini.surround": { "branch": "main", "commit": "af8129efcabe95fc08a233e9f91569829bed031f" },
   "neo-tree.nvim": { "branch": "v3.x", "commit": "77d9f484b88fd380386b46ed9206e5374d69d9d8" },
   "neodev.nvim": { "branch": "main", "commit": "2a8630847dbb93455936156c0689678e4eaee319" },

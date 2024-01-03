@@ -112,6 +112,7 @@ M.specs = {
 
     {
         "echasnovski/mini.files",
+        enabled = false,
         opts = {
             mappings = {
                 close = "q",
@@ -130,11 +131,6 @@ M.specs = {
                 width_nofocus = 50,
                 width_preview = 50,
                 preview = true,
-            },
-            options = {
-                -- Whether to use for editing directories
-                -- Disabled by default in LazyVim because neo-tree is used for that
-                use_as_default_explorer = true,
             },
         },
         keys = {
