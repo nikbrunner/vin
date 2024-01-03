@@ -170,6 +170,7 @@ set("n", "<leader>.q", lib.tmux.kill_tmux_session, { desc = "Quit TMUX Session" 
 set("n", "<leader>..", lib.tmux.switch_nvim_instance, { desc = "Switch Neovim Instance" })
 
 -- Quit Group
+set("n", "qq", "<cmd>q<cr>", { desc = "Quit" })
 set("n", "<leader>qq", "<cmd>q<cr>", { desc = "Quit" })
 set("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit all" })
 
