@@ -11,7 +11,7 @@ M.keys = function()
             function()
                 require("harpoon.ui").nav_file(i)
             end,
-            desc = WhichKeyIgnoreLabel,
+            desc = "Go to file " .. i,
             opts,
         }
     end
@@ -22,7 +22,7 @@ M.keys = function()
             function()
                 require("harpoon.ui").nav_file(i)
             end,
-            desc = WhichKeyIgnoreLabel,
+            desc = "Go to file " .. i,
             opts,
         }
     end
