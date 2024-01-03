@@ -105,8 +105,6 @@ M.spec = {
                         ["<C-l>"] = actions.cycle_history_next,
                         ["<C-h>"] = actions.cycle_history_prev,
 
-                        ["<C-k>"] = actions.move_selection_previous,
-                        ["<C-j>"] = actions.move_selection_next,
                         ["<Down>"] = actions.move_selection_next,
                         ["<Up>"] = actions.move_selection_previous,
 
@@ -133,8 +131,6 @@ M.spec = {
                         ["<C-h>"] = actions.cycle_history_next,
                         ["<C-l>"] = actions.cycle_history_prev,
 
-                        ["j"] = actions.move_selection_next,
-                        ["k"] = actions.move_selection_previous,
                         ["<Down>"] = actions.move_selection_next,
                         ["<Up>"] = actions.move_selection_previous,
 
