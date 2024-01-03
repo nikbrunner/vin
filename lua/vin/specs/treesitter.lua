@@ -17,21 +17,6 @@ M.specs = {
                 enable = true,
             },
             auto_install = true,
-            -- DOCS: https://github.com/JoosepAlviste/nvim-ts-context-commentstring
-            context_commentstring = {
-                enable = true,
-                enable_autocmd = false,
-                config = {
-                    -- Languages that have a single comment style
-                    typescript = "// %s",
-                    css = "/* %s */",
-                    scss = "/* %s */",
-                    html = "<!-- %s -->",
-                    svelte = "<!-- %s -->",
-                    vue = "<!-- %s -->",
-                    json = "",
-                },
-            },
             incremental_selection = {
                 enable = true,
                 keymaps = {
@@ -47,6 +32,25 @@ M.specs = {
 
             configs.setup(opts)
         end,
+    },
+
+    {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        event = "VeryLazy",
+        opts = {
+            enable_autocmd = false,
+            -- languages = {
+            --     -- Languages that have a single comment style
+            --     typescript = "// %s",
+            --     css = "/* %s */",
+            --     scss = "/* %s */",
+            --     html = "<!-- %s -->",
+            --     svelte = "<!-- %s -->",
+            --     vue = "<!-- %s -->",
+            --     json = "",
+            -- },
+        },
     },
 
     {
