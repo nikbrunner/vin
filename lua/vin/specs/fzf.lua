@@ -89,13 +89,20 @@ M.spec = {
         -- stylua: ignore start
         { "<leader><space>",     M.fzf("files"), desc = "Files", },
         { "<leader>,",           M.fzf("oldfiles"), desc = "Recent Files", },
-        { "<leader>:",           M.fzf("command_history"), desc = "Command History", },
+        { "<leader>:",           M.fzf("commands"), desc = "Commands", },
         { "<leader>ff",          M.fzf("files"), desc = "Files", },
         { "<leader>fr",          M.fzf("oldfiles"), desc = "Recent Files (Current Session)", },
         { "<leader>fR",          M.fzf("oldfiles", {include_current_session = false, }), desc = "Recent Files (All Sessions)", },
         { "<leader>f/",          M.search_preset_folder, desc = "Preset folders", },
+        { "<leader>sr",          M.fzf("resume"),  desc = "Resume Search" },
         { "<leader>sh",          M.fzf("help_tags", { winopts = M.win_presets.full.horizontal }),  desc = "Help Tags" },
         { "<leader>sH",          M.fzf("highlights"), desc = "Highlights" },
+        { "<leader>sc",          M.fzf("commands"), desc = "Commands", },
+        { "<leader>sC",          M.fzf("command_history"), desc = "Command History", },
+        { "<leader>sk",          M.fzf("keymaps"), desc = "Keymaps", },
+        { "<leader>sw",          M.fzf("mark"), desc = "Current Word", },
+        { "<leader>sm",          M.fzf("grep_cword"), desc = "Marks", },
+        { "<leader>sM",          M.fzf("man_pages"), desc = "Man Pages", },
         { "<leader>ss",          M.fzf("lsp_document_symbols"), desc = "Document Symbols", },
         { "<leader>sS",          M.fzf("lsp_live_workspace_symbols"), desc = "Workspace Symbols", },
         { "<leader>sR",          M.fzf("resume"), desc = "Resume", },
@@ -118,7 +125,7 @@ M.spec = {
 
             winopts = {
                 height = 0.75, -- window height
-                width = 0.5, -- window width
+                width = 0.75, -- window width
                 row = 0.35, -- window row position (0=top, 1=bottom)
                 col = 0.50, -- window col position (0=left, 1=right)
                 -- border = "none",
@@ -134,7 +141,7 @@ M.spec = {
                     vertical = "up:65%", -- up|down:size
                     horizontal = "right:60%", -- right|left:size
                     layout = "flex", -- horizontal|vertical|flex
-                    flip_columns = 200, -- #cols to switch to horizontal on flex
+                    flip_columns = 150, -- #cols to switch to horizontal on flex
                     title = true, -- preview border title (file/buf)?
                     delay = 100, -- delay(ms) displaying the preview
                     winopts = { -- builtin previewer window options
