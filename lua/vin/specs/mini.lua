@@ -109,6 +109,54 @@ M.specs = {
             })
         end,
     },
+
+    {
+        "echasnovski/mini.files",
+        opts = {
+            mappings = {
+                close = "q",
+                go_in = "l",
+                go_in_plus = "<CR>",
+                go_out = "h",
+                go_out_plus = "<ESC>",
+                reset = "<BS>",
+                reveal_cwd = "@",
+                show_help = "g?",
+                synchronize = "s",
+            },
+
+            windows = {
+                width_focus = 50,
+                width_nofocus = 50,
+                width_preview = 50,
+                preview = true,
+            },
+            options = {
+                -- Whether to use for editing directories
+                -- Disabled by default in LazyVim because neo-tree is used for that
+                use_as_default_explorer = true,
+            },
+        },
+        keys = {
+            {
+                "<leader>fm",
+                function()
+                    require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+                end,
+                desc = "Open mini.files (directory of current file)",
+            },
+            {
+                "<leader>fM",
+                function()
+                    require("mini.files").open(vim.loop.cwd(), true)
+                end,
+                desc = "Open mini.files (cwd)",
+            },
+        },
+        config = function(_, opts)
+            require("mini.files").setup(opts)
+        end,
+    },
 }
 
 return M.specs
