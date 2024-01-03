@@ -93,7 +93,6 @@ set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
 set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 set("n", "<leader>vI", "<cmd>NullLsInfo<CR>", { desc = "NullLS Info" })
 set("n", "<leader>vr", "<cmd>LspRestart<CR>", { desc = "Restart LSP Server" })
-set("n", "<leader>vm", vim.cmd.messages, { desc = "Display messages" })
 
 -- Copy Group
 set("n", "<leader>ccf", lib.copy.fullPath, { desc = "Full Path" })

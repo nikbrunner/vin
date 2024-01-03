@@ -31,6 +31,7 @@ create_autocmd("FileType", {
         "fzf",
         "aerial-nav",
         "dropbar_menu",
+        "bmessages_buffer",
     },
     callback = function(event)
         vim.bo[event.buf].buflisted = false
