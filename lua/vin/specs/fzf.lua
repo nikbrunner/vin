@@ -89,6 +89,7 @@ M.spec = {
         -- stylua: ignore start
         { "<leader><space>",     M.fzf("files"), desc = "Files", },
         { "<leader>,",           M.fzf("oldfiles"), desc = "Recent Files", },
+        { "<leader>:",           M.fzf("command_history"), desc = "Command History", },
         { "<leader>ff",          M.fzf("files"), desc = "Files", },
         { "<leader>fr",          M.fzf("oldfiles"), desc = "Recent Files (Current Session)", },
         { "<leader>fR",          M.fzf("oldfiles", {include_current_session = false, }), desc = "Recent Files (All Sessions)", },
