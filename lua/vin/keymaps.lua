@@ -150,9 +150,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         set("n", "<leader>cr", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
 
-        set("n", "<leader>cf", function()
-            vim.lsp.buf.format({ async = true })
-        end, vim.tbl_extend("force", opts, { desc = "Format" }))
+        set("n", "<leader>cf", "<CMD>NullFormat<CR>", vim.tbl_extend("force", opts, { desc = "Format" }))
 
         set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
         set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
