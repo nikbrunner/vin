@@ -53,11 +53,14 @@ rm -rf ~/.local/share/vin
 
 Make sure you have [a nerd font](https://github.com/ryanoasis/nerd-fonts) installed.
 
-## Todo
+## TODO
 
+- [x] Migrate Toggles from LazyVim
+- [x] Spell Checking
 - [ ] Debugging
 - [ ] `obsidian.nvim` Plugin
-- [ ] Spell Checking
+- [ ] Try [conform.nvim](https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#lazy-loading-with-lazynvim)
+- [ ] Integrated Terminal
 
 ## Origin of Name
 

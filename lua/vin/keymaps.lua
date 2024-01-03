@@ -7,6 +7,9 @@ local function set(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+-- save file
+set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+
 -- Easy Start and End of Line
 set("n", "H", "^", { desc = "Move to Start of Line" })
 set("n", "L", "$", { desc = "Move to End of Line" })
@@ -33,15 +36,6 @@ set("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 -- Clear search with <esc>
 set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
--- Clear search, diff update and redraw
--- taken from runtime/lua/_editor.lua
-set(
-    "n",
-    "<leader>ur",
-    "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-    { desc = "Redraw / clear hlsearch / diff update" }
-)
-
 -- better indenting
 set("v", "<", "<gv")
 set("v", ">", ">gv")
@@ -51,11 +45,71 @@ set("i", ",", ",<c-g>u")
 set("i", ".", ".<c-g>u")
 set("i", ";", ";<c-g>u")
 
--- save file
-set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+-- UI Group
+set(
+    "n",
+    "<leader>ur",
+    "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+    { desc = "Redraw / clear hlsearch / diff update" }
+)
 
--- highlights under cursor
 set("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
+
+set("n", "<leader>uc", function()
+    local defaultLevel = 0
+    local currentLevel = vim.o.conceallevel
+    local nextLevel = currentLevel == 0 and 3 or defaultLevel
+    vim.o.conceallevel = nextLevel
+    vim.notify("Conceal level set to " .. nextLevel, vim.log.levels.INFO, { title = "Conceal" })
+end, { desc = "Toggle Conceal" })
+
+set("n", "<leader>ud", function()
+    if vim.diagnostic.is_disabled() then
+        vim.diagnostic.enable()
+        vim.notify("Diagnostics enabled", vim.log.levels.INFO, { title = "Diagnostics" })
+    else
+        vim.diagnostic.disable()
+        vim.notify("Diagnostics disabled", vim.log.levels.WARN, { title = "Diagnostics" })
+    end
+end, { desc = "Toggle Diagnostics" })
+
+set("n", "<leader>us", function()
+    if vim.o.spell then
+        vim.o.spell = false
+        vim.notify("Spell check disabled", vim.log.levels.WARN, { title = "Spell Check" })
+    else
+        vim.o.spell = true
+        vim.notify("Spell check enabled", vim.log.levels.INFO, { title = "Spell Check" })
+    end
+end, { desc = "Toggle Spell" })
+set("n", "z=", function()
+    require("fzf-lua").spell_suggest({ winopts = { height = 0.35, width = 0.65 } })
+end, { desc = "Spelling Suggestions" })
+
+set("n", "<leader>uw", function()
+    if vim.o.wrap then
+        vim.o.wrap = false
+        vim.notify("Text wrapping disabled", vim.log.levels.WARN, { title = "Text Wrapping" })
+    else
+        vim.o.wrap = true
+        vim.notify("Text wrapping enabled", vim.log.levels.INFO, { title = "Text Wrapping" })
+    end
+end, { desc = "Toggle Text Wrapping" })
+
+set("n", "<leader>ul", function()
+    local areNumbersEnabled = vim.opt.number:get()
+    local areRelativeNumbersEnabled = vim.opt.relativenumber:get()
+
+    if areRelativeNumbersEnabled then
+        vim.opt.relativenumber = false
+        vim.opt.number = true
+        vim.notify("Normal line numbers enabled", vim.log.levels.INFO, { title = "Line Numbers" })
+    elseif areNumbersEnabled then
+        vim.opt.number = false
+        vim.opt.relativenumber = true
+        vim.notify("Relative line numbers enabled", vim.log.levels.INFO, { title = "Line Numbers" })
+    end
+end, { desc = "Toggle Line Numbers (Relative vs. Normal" })
 
 -- prev/next
 set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
@@ -66,7 +120,6 @@ set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 set("n", "gl", vim.diagnostic.open_float, { desc = "Open Diagnostic" })
 set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous Diagnostic" })
 set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
-
 
 -- Tab Navigation
 set("n", "<Tab>", vim.cmd.tabnext, { desc = "Next Tab" })
@@ -115,6 +168,10 @@ set("n", "<leader>.s", lib.tmux.switch_tmux_session, { desc = "Switch Session" }
 set("n", "<leader>.w", lib.tmux.switch_tmux_window, { desc = "Switch Windows" })
 set("n", "<leader>.q", lib.tmux.kill_tmux_session, { desc = "Quit TMUX Session" })
 set("n", "<leader>..", lib.tmux.switch_nvim_instance, { desc = "Switch Neovim Instance" })
+
+-- Quit Group
+set("n", "<leader>qq", "<cmd>q<cr>", { desc = "Quit" })
+set("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit all" })
 
 -- lsp mappings
 -- Use LspAttach autocommand to only map the following keys
