@@ -61,7 +61,6 @@ M.spec = {
                 path_display = { "truncate" },
                 layout_config = {
                     horizontal = {
-                        show_line = false,
                         height = 0.9,
                         preview_cutoff = 0,
                         prompt_position = "bottom",
