@@ -1,6 +1,10 @@
-return {
-    utils = require("vin.lib.utils"),
-    git = require("vin.lib.git"),
-    lsp = require("vin.lib.lsp"),
-    ui = require("vin.lib.ui"),
+local M = {}
+
+M = {
+    copy = require("vin.lib.copy"),
+    log = require("vin.lib.log"),
+    component = require("vin.lib.component"),
+    tmux = require("vin.lib.tmux"),
 }
+
+return M
