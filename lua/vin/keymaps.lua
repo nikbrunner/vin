@@ -7,9 +7,6 @@ local function set(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
--- map ; to :
-set("n", ";", ":", { desc = "Vim Command" })
-
 -- Easy Start and End of Line
 set("n", "H", "^", { desc = "Move to Start of Line" })
 set("n", "L", "$", { desc = "Move to End of Line" })
