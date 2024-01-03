@@ -39,6 +39,10 @@ M.specs = {
                     { mode = "n", keys = "g" },
                     { mode = "x", keys = "g" },
 
+                    -- prev/next
+                    { mode = "n", keys = "]" },
+                    { mode = "n", keys = "[" },
+
                     -- Marks
                     { mode = "n", keys = "'" },
                     { mode = "n", keys = "`" },
@@ -67,10 +71,34 @@ M.specs = {
                     -- Keys to scroll inside the clue window
                     scroll_down = "<C-d>",
                     scroll_up = "<C-u>",
+
+                    config = {
+                        width = "auto",
+                    },
                 },
 
                 clues = {
-                    -- Enhance this by adding descriptions for <Leader> mapping groups
+                    { mode = "n", keys = "<leader>.", desc = "TMUX" },
+                    { mode = "n", keys = "<leader>c", desc = "Code Actions" },
+                    { mode = "n", keys = "<leader>cc", desc = "Copy Actions" },
+                    { mode = "n", keys = "<leader>ci", desc = "Code AI Actions" },
+                    { mode = "n", keys = "<leader>e", desc = "Explorer" },
+                    { mode = "n", keys = "<leader>f", desc = "File & Find" },
+                    { mode = "n", keys = "<leader>fp", desc = "Preview (Markdown)" },
+                    { mode = "n", keys = "<leader>g", desc = "Git" },
+                    { mode = "n", keys = "<leader>gb", desc = "Buffer" },
+                    { mode = "n", keys = "<leader>gh", desc = "Hunks" },
+                    { mode = "n", keys = "<leader>v", desc = "Vin" },
+                    { mode = "n", keys = "<leader>vt", desc = "Terra" },
+                    { mode = "n", keys = "<leader>q", desc = "Quit" },
+                    { mode = "n", keys = "<leader>s", desc = "Search" },
+                    { mode = "n", keys = "<leader>m", desc = "Marks" },
+                    { mode = "n", keys = "<leader>u", desc = "UI" },
+                    { mode = "n", keys = "<leader>x", desc = "Diagnostics & Quickfix" },
+                    { mode = "n", keys = "<leader>w", desc = "Windows" },
+                    { mode = "n", keys = "<leader>S", desc = "Sessions" },
+                    { mode = "n", keys = "<leader><tab>", desc = "Tabs" },
+
                     miniclue.gen_clues.builtin_completion(),
                     miniclue.gen_clues.g(),
                     miniclue.gen_clues.marks(),

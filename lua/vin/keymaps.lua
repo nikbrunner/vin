@@ -63,9 +63,10 @@ set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 
 -- global diagnostic mappings
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-set("n", "gl", vim.diagnostic.open_float)
-set("n", "[d", vim.diagnostic.goto_prev)
-set("n", "]d", vim.diagnostic.goto_next)
+set("n", "gl", vim.diagnostic.open_float, { desc = "Open Diagnostic" })
+set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous Diagnostic" })
+set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
+
 
 -- Tab Navigation
 set("n", "<Tab>", vim.cmd.tabnext, { desc = "Next Tab" })
