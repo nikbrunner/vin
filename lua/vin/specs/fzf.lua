@@ -1,15 +1,17 @@
 local M = {}
 
-M.FOLDER_PRESETS = {
+M.folder_presets = {
     vin = "~/.config/vin",
     lazyvin = "~/.config/lazyvin",
     config = "~/.config",
+    personal_notes = require("vin.config").pathes.notes.personal,
+    dcd_notes = require("vin.config").pathes.notes.work.dcd,
 }
 
 M.search_preset_folder = function()
     local choices = {}
 
-    for key, _ in pairs(M.FOLDER_PRESETS) do
+    for key, _ in pairs(M.folder_presets) do
         table.insert(choices, key)
     end
 
@@ -21,7 +23,7 @@ M.search_preset_folder = function()
     }, function(choice)
         M.fzf("files", {
             winopts = M.win_presets.medium.vertical,
-            cwd = M.FOLDER_PRESETS[choice],
+            cwd = M.folder_presets[choice],
         })()
     end)
 end
