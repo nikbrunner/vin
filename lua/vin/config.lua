@@ -1,6 +1,14 @@
 ---@class VinConfig
 local config = {
     colorscheme = "terra_winter_night",
+    pathes = {
+        notes = {
+            personal = vim.fn.expand("~") .. "/Documents/notes/notes",
+            work = {
+                dcd = vim.fn.expand("~") .. "/Documents/notes/dcd-notes",
+            },
+        },
+    },
     ensure_installed = {
         -- :h mason-lspconfig-server-map
         servers = {
