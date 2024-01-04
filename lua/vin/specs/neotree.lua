@@ -96,9 +96,9 @@ M.spec = {
             ["ts"] = { "spec.ts" },
         },
         filesystem = {
-            hijack_netrw_behavior = "open_default",
+            hijack_netrw_behavior = "disabled",
             follow_current_file = {
-                enabled = true, -- This will find and focus the file in the active buffer every time the current file is changed while the tree is open.
+                enabled = false, -- This will find and focus the file in the active buffer every time the current file is changed while the tree is open.
             },
             -- the current file is changed while the tree is open.
             filtered_items = {
@@ -143,35 +143,6 @@ M.spec = {
         },
 
         event_handlers = {
-
-            {
-                event = "file_renamed",
-                handler = function(args)
-                    print(args.source, " renamed to ", args.destination)
-                end,
-            },
-
-            {
-                event = "file_moved",
-                handler = function(args)
-                    print(args.source, " moved to ", args.destination)
-                end,
-            },
-
-            {
-                event = "neo_tree_buffer_enter",
-                handler = function()
-                    vim.cmd("highlight! Cursor blend=100")
-                end,
-            },
-
-            {
-                event = "neo_tree_buffer_leave",
-                handler = function()
-                    vim.cmd("highlight! Cursor guibg=#5f87af blend=0")
-                end,
-            },
-
             {
                 event = "neo_tree_window_after_open",
                 handler = function()
