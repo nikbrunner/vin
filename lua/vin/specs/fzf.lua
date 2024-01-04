@@ -110,7 +110,7 @@ M.spec = {
         { "<leader>sR",          M.fzf("resume"), desc = "Resume", },
         { "<leader>sg",          M.fzf("live_grep_native", { winopts = M.win_presets.large.vertical }), desc = "Live Grep", },
         { "<leader>s<tab>",      M.fzf("tabs"), desc = "Tabs", },
-        { "<leader>uC",          M.fzf("colorschemes"), desc = "Colorschemes", },
+        { "<leader>vc",          M.fzf("colorschemes"), desc = "Colorschemes", },
         { "<leader>gs",          M.fzf("git_status", { winopts = M.win_presets.full.vertical }), desc = "Git Status", },
         { "<leader>gC",          M.fzf("git_commits", { winopts = M.win_presets.full.vertical, }), desc = "Git Commits", },
         { "<leader>gB",          M.fzf("git_branches"), desc = "Git Branches", },

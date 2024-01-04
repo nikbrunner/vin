@@ -81,7 +81,19 @@ set("n", "<leader>uc", function()
     local nextLevel = currentLevel == 0 and 3 or defaultLevel
     vim.o.conceallevel = nextLevel
     vim.notify("Conceal level set to " .. nextLevel, vim.log.levels.INFO, { title = "Conceal" })
-end, { desc = "Toggle Conceal" })
+end, { desc = "Toggle Conceal (0, 3)" })
+
+set("n", "<leader>uC", function()
+    local defaultLevel = 0
+    vim.ui.select({ 0, 1, 2, 3 }, {
+        promt = "Select Conceal Level",
+    }, function(selected)
+        if selected ~= nil then
+            vim.opt.conceallevel = selected or defaultLevel
+            vim.notify("Conceal level set to " .. selected, vim.log.levels.INFO, { title = "Conceal" })
+        end
+    end)
+end, { desc = "Toggle specific conceal level" })
 
 set("n", "<leader>ud", function()
     if vim.diagnostic.is_disabled() then
@@ -102,6 +114,7 @@ set("n", "<leader>us", function()
         vim.notify("Spell check enabled", vim.log.levels.INFO, { title = "Spell Check" })
     end
 end, { desc = "Toggle Spell" })
+
 set("n", "z=", function()
     require("fzf-lua").spell_suggest({ winopts = { height = 0.35, width = 0.65 } })
 end, { desc = "Spelling Suggestions" })
