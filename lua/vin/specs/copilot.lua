@@ -31,7 +31,7 @@ M.spec = {
                 accept_line = false,
                 next = "<M-]>",
                 prev = "<M-[>",
-                dismiss = "<C-[>",
+                dismiss = "<S-Tab>",
             },
         },
         filetypes = {
