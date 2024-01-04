@@ -88,7 +88,7 @@ M.specs = {
                     scroll_up = "<C-u>",
 
                     config = {
-                        width = "auto",
+                        width = 50,
                     },
                 },
 
