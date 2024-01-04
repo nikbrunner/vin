@@ -23,6 +23,12 @@ M.spec = {
             },
         }
 
+        local filetype = {
+            "filetype",
+            colored = false, -- Displays filetype icon in color if set to true
+            padding = 2,
+        }
+
         local filetype_icon = {
             "filetype",
             ts_icon = "",
@@ -148,7 +154,9 @@ M.spec = {
                     lazy_plug_count,
                     lazy_updates,
                 },
-                lualine_z = {},
+                lualine_z = {
+                    filetype,
+                },
             },
             extensions = { "neo-tree", "lazy" },
         }
