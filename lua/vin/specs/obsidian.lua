@@ -33,6 +33,8 @@ M.spec = {
         return {
             "BufReadPre " .. config.pathes.notes.personal .. "/**.md",
             "BufNewFile " .. config.pathes.notes.personal .. "/**.md",
+            "BufReadPre " .. config.pathes.notes.work.dcd .. "/**.md",
+            "BufNewFile " .. config.pathes.notes.work.dcd .. "/**.md",
         }
     end,
     keys = {
@@ -75,6 +77,41 @@ M.spec = {
                 end)
             end,
             desc = "Open Workspace",
+        },
+        {
+            "<leader>os",
+            function()
+                local config = require("vin.config")
+                local lib = require("vin.lib")
+                local current_path = vim.fn.expand("%:p:h")
+
+                ---@diagnostic disable-next-line: param-type-mismatch
+                if string.find(current_path, "dealercenter-digital", 1, true) then
+                    lib.open.open_file_in_floating_window(config.pathes.notes.work.dcd .. "/scratchpad.md")
+                else
+                    lib.open.open_file_in_floating_window(config.pathes.notes.personal .. "/scratchpad.md")
+                end
+            end,
+            desc = "Open Scratchpad",
+        },
+        {
+            "<leader>oJ",
+            function()
+                local config = require("vin.config")
+                local lib = require("vin.lib")
+                local current_path = vim.fn.expand("%:p:h")
+                local current_date = os.date("%y.%m.%d — %A")
+
+                ---@diagnostic disable-next-line: param-type-mismatch
+                if string.find(current_path, "dealercenter-digital", 1, true) then
+                    local todays_note = config.pathes.notes.work.dcd .. "/logs/" .. current_date .. ".md"
+                    lib.open.open_file_in_floating_window(todays_note)
+                else
+                    local todays_note = config.pathes.notes.personal .. "/Agenda/" .. current_date .. ".md"
+                    lib.open.open_file_in_floating_window(todays_note)
+                end
+            end,
+            desc = "Open Today's Note",
         },
     },
     opts = function()
@@ -132,13 +169,13 @@ M.spec = {
                     action = function()
                         return require("obsidian").util.gf_passthrough()
                     end,
-                    opts = { noremap = false, expr = true, buffer = true },
+                    opts = { noremap = false, expr = true, buffer = true, desc = "Go to file" },
                 },
                 ["<leader>oc"] = {
                     action = function()
                         return require("obsidian").util.toggle_checkbox()
                     end,
-                    opts = { buffer = true },
+                    opts = { buffer = true, desc = "Toggle Checkbox" },
                 },
             },
 
@@ -200,11 +237,11 @@ M.spec = {
         }, {
             group = vim.api.nvim_create_augroup("vin_obsidian", { clear = true }),
             pattern = {
-                vim.fn.expand("~") .. "/Documents/notes/**.md",
-                vim.fn.expand("~") .. "/Documents/dcd-notes/**.md",
+                require("vin.config").pathes.notes.personal .. "/**.md",
+                require("vin.config").pathes.notes.work.dcd .. "/**.md",
             },
             callback = function()
-                -- et conceallevel to 1 to make the checkboxes work
+                -- Set conceallevel to 1 to make the checkboxes work
                 vim.opt.conceallevel = 1
             end,
         })

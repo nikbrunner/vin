@@ -5,6 +5,7 @@ M = {
     log = require("vin.lib.log"),
     component = require("vin.lib.component"),
     tmux = require("vin.lib.tmux"),
+    open = require("vin.lib.open"),
 }
 
 return M

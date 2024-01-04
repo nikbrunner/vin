@@ -1,3 +1,4 @@
+local config = require("vin.config")
 local lib = require("vin.lib")
 
 local function set(mode, lhs, rhs, opts)
@@ -50,6 +51,7 @@ set("v", ">", ">gv")
 set("i", ",", ",<c-g>u")
 set("i", ".", ".<c-g>u")
 set("i", ";", ";<c-g>u")
+
 
 -- UI Group
 set(
