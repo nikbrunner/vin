@@ -1,4 +1,5 @@
 local lib = require("vin.lib")
+local config = require("vin.config")
 
 local function set(mode, lhs, rhs, opts)
     opts = opts or {}
@@ -206,6 +207,41 @@ set("n", "<leader>..", lib.tmux.switch_nvim_instance, { desc = "Switch Neovim In
 set("n", "qq", "<cmd>q<cr>", { desc = "Quit" })
 set("n", "<leader>qq", "<cmd>q<cr>", { desc = "Quit" })
 set("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit all" })
+
+set("n", "<C-n>", function()
+    local note_folder = config.pathes.notes.work.dcd .. "/pr_notes"
+    local current_repository_name = vim.fn.system("basename -s .git `git config --get remote.origin.url`")
+    local repository_sub_note_folder = current_repository_name
+    local current_branch_name = vim.fn.system("git rev-parse --abbrev-ref HEAD")
+
+    -- remove new line from current_branch_name
+    current_branch_name = string.gsub(current_branch_name, "\n", "")
+    -- remove new line from current_repository_name
+    current_repository_name = string.gsub(current_repository_name, "\n", "")
+
+    -- check if base pr_notes folder exists, if not create it
+    if vim.fn.isdirectory(note_folder) == 0 then
+        vim.fn.mkdir(note_folder, "p")
+    end
+
+    -- check if repository sub folder exists, if not create it
+    if vim.fn.isdirectory(note_folder .. "/" .. repository_sub_note_folder) == 0 then
+        vim.fn.mkdir(note_folder .. "/" .. repository_sub_note_folder, "p")
+    end
+
+    local note_file_name = current_branch_name .. ".md"
+    local note_file_path = note_folder .. "/" .. repository_sub_note_folder .. "/" .. note_file_name
+
+    -- check if file exists, if not create it
+    if vim.fn.filereadable(note_file_path) == 0 then
+        vim.fn.writefile({ "Insert notes here" }, note_file_path)
+    end
+
+    -- open note in floating window
+    lib.open.open_file_in_float_win(note_file_path)
+end, {
+    desc = "Toggle Note",
+})
 
 -- lsp mappings
 -- Use LspAttach autocommand to only map the following keys
