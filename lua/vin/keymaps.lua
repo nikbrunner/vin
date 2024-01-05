@@ -11,6 +11,8 @@ end
 -- save file
 set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
+set("n", "<C-q>", "<cmd>wqa<cr>", { desc = "Save and quit" })
+
 -- Easy Start and End of Line
 set("n", "H", "^", { desc = "Move to Start of Line" })
 set("n", "L", "$", { desc = "Move to End of Line" })
