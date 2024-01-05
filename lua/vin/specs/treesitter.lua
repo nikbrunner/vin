@@ -40,16 +40,6 @@ M.specs = {
         event = "VeryLazy",
         opts = {
             enable_autocmd = false,
-            -- languages = {
-            --     -- Languages that have a single comment style
-            --     typescript = "// %s",
-            --     css = "/* %s */",
-            --     scss = "/* %s */",
-            --     html = "<!-- %s -->",
-            --     svelte = "<!-- %s -->",
-            --     vue = "<!-- %s -->",
-            --     json = "",
-            -- },
         },
     },
 
