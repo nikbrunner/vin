@@ -68,6 +68,7 @@ M.spec = {
             {
                 "<C-e>",
                 function()
+                    close_side_panels()
                     vim.cmd("Neotree float buffers toggle reveal")
                 end,
                 desc = "Float Buffer Tree",
@@ -119,6 +120,7 @@ M.spec = {
         },
         source_selector = {
             winbar = false,
+            show_scrolled_off_parent_node = true,
             statusline = false, -- toggle to show selector on statusline
             content_layout = "center",
             tabs_layout = "equal",
