@@ -19,6 +19,12 @@ return {
         added = " ",
         modified = " ",
         removed = " ",
+        renamed = "󰁕",
+        untracked = "",
+        ignored = "",
+        unstaged = "󰄱",
+        staged = "",
+        conflict = "",
     },
     kinds = {
         Array = " ",
