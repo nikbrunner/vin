@@ -16,7 +16,7 @@ M.spec = {
             open_horizontal = "s",
             quit = "q",
         },
-        leader_key = ";",
+        leader_key = "<CR>",
     },
 }
 
