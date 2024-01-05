@@ -67,3 +67,27 @@ create_autocmd("BufEnter", {
         require("neo-tree.sources.manager").refresh()
     end,
 })
+
+-- Check if we need to reload the file when it changed
+create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+    group = augroup("checktime"),
+    command = "checktime",
+})
+
+-- Highlight on yank
+create_autocmd("TextYankPost", {
+    group = augroup("highlight_yank"),
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
+
+-- resize splits if window got resized
+create_autocmd({ "VimResized" }, {
+    group = augroup("resize_splits"),
+    callback = function()
+        local current_tab = vim.fn.tabpagenr()
+        vim.cmd("tabdo wincmd =")
+        vim.cmd("tabnext " .. current_tab)
+    end,
+})
