@@ -54,7 +54,6 @@ set("i", ",", ",<c-g>u")
 set("i", ".", ".<c-g>u")
 set("i", ";", ";<c-g>u")
 
-
 -- UI Group
 set(
     "n",
@@ -76,6 +75,11 @@ set("n", "<leader>ub", function()
 end, { desc = "Toggle Background" })
 
 set("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
+
+set("n", "<leader>gg", function()
+    lib.open.open_float_term("lazygit")
+    -- lib.open.open_float_term("nvim " .. config.pathes.notes.personal)
+end, { desc = "Open Terminal" })
 
 set("n", "<leader>uc", function()
     local defaultLevel = 0
