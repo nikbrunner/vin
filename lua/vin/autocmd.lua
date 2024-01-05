@@ -27,7 +27,6 @@ create_autocmd("FileType", {
         "PlenaryTestPopup",
         "diagmsg",
         "chatpgpt",
-        "ObsidianBacklinks",
         "fzf",
         "aerial-nav",
         "dropbar_menu",
