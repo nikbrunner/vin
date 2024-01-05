@@ -31,6 +31,7 @@ create_autocmd("FileType", {
         "aerial-nav",
         "dropbar_menu",
         "bmessages_buffer",
+        "ftterm_lazygit",
     },
     callback = function(event)
         vim.bo[event.buf].buflisted = false
