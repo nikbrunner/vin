@@ -112,23 +112,6 @@ M.spec = {
                 },
             },
 
-            -- winbar = {
-            --     lualine_a = {},
-            --     lualine_b = { filetype_icon },
-            --     lualine_c = { filename },
-            --     lualine_x = {},
-            --     lualine_y = {},
-            --     lualine_z = {},
-            -- },
-            -- inactive_winbar = {
-            --     lualine_a = {},
-            --     lualine_b = { filetype_icon },
-            --     lualine_c = { filename },
-            --     lualine_x = {},
-            --     lualine_y = {},
-            --     lualine_z = {},
-            -- },
-
             sections = {
                 lualine_a = {
                     mode,
@@ -136,6 +119,7 @@ M.spec = {
                 lualine_b = {
                     project_name,
                     "fancy_branch",
+                    { require("arrow.statusline").text_for_statusline_with_icons },
                     "francy_diff",
                     tabs,
                 },
