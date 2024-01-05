@@ -1,4 +1,3 @@
-local config = require("vin.config")
 local lib = require("vin.lib")
 
 local function set(mode, lhs, rhs, opts)

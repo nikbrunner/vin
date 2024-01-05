@@ -1,6 +1,7 @@
 return {
     misc = {
         dots = "󰇘",
+        separator = " ",
     },
     dap = {
         Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
