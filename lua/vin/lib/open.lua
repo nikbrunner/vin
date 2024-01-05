@@ -14,7 +14,7 @@ end
 
 ---Opens a file in a floating window
 ---@param filepath string
-function M.open_file_in_floating_window(filepath)
+function M.open_file_in_float_win(filepath)
     local bufnr = vim.fn.bufnr(filepath, true)
 
     if bufnr ~= -1 then
@@ -52,7 +52,7 @@ end
 
 ---Opens a terminal in a floating window with the given command
 ---@param command string
-function M.open_float_term(command)
+function M.open_cmd_in_float_win(command)
     -- Define the size and position of the floating window
     local width = math.ceil(vim.o.columns * 0.8)
     local height = math.ceil(vim.o.lines * 0.8)
@@ -63,7 +63,7 @@ function M.open_float_term(command)
     local bufnr = vim.api.nvim_create_buf(false, true)
 
     -- Create a floating window
-    local win = vim.api.nvim_open_win(bufnr, true, M.float_win_opts(width, height, row, col))
+    vim.api.nvim_open_win(bufnr, true, M.float_win_opts(width, height, row, col))
 
     -- Run the command in the terminal
     vim.fn.termopen(command, { detach = true })
