@@ -158,7 +158,7 @@ M.spec = {
                     filetype,
                 },
             },
-            extensions = { "neo-tree", "lazy" },
+            extensions = { "lazy" },
         }
     end,
 }
