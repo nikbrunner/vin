@@ -168,6 +168,49 @@ M.specs = {
             require("mini.files").setup(opts)
         end,
     },
+
+    {
+        "echasnovski/mini.notify",
+        version = "*",
+        event = "VeryLazy",
+        keys = {
+            {
+                "<leader>un",
+                function()
+                    require("mini.notify").show_history()
+                end,
+                desc = "Notifications",
+            },
+        },
+        opts = {
+            content = {
+                -- Use notification message as is
+                format = function(notif)
+                    return "[" .. notif.level .. "] " .. notif.msg
+                end,
+            },
+            window = {
+                -- https://github.com/echasnovski/mini.nvim/blob/a118a964c94543c06d8b1f2f7542535dd2e19d36/doc/mini-notify.txt#L186-L198
+                config = function()
+                    local has_statusline = vim.o.laststatus > 0
+                    local bottom_space = vim.o.cmdheight + (has_statusline and 1 or 0)
+                    return {
+                        anchor = "SE",
+                        col = vim.o.columns,
+                        row = vim.o.lines - bottom_space,
+                        border = "single",
+                    }
+                end,
+                winblend = 0,
+            },
+        },
+        config = function(_, opts)
+            require("mini.notify").setup(opts)
+
+            -- Wrap all vim.notify calls with mini.notify
+            vim.notify = require("mini.notify").make_notify()
+        end,
+    },
 }
 
 return M.specs
