@@ -263,7 +263,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
         set("n", "gD", vim.lsp.buf.declaration, opts)
         set("n", "gi", vim.lsp.buf.implementation, opts)
         set("n", "gy", vim.lsp.buf.type_definition, opts)
-        set("n", "gr", function()
+        set("n", "gr", "<CMD>Trouble lsp_references<CR>", opts)
+        set("n", "gR", function()
             require("fzf-lua").lsp_references({
                 jump_to_single_result = true,
                 winopts = {
@@ -276,7 +277,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 },
             })
         end, opts)
-        set("n", "gR", "<CMD>Trouble lsp_references<CR>", opts)
 
         set(
             { "n", "v" },
