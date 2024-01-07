@@ -51,7 +51,7 @@ M.specs = {
                         behavior = cmp.SelectBehavior.Insert,
                     }),
 
-                    ["<C-l>"] = cmp.mapping.complete(),
+                    ["<C-l>"] = cmp.mapping.complete(), -- This triggers the suggestion
                     ["<C-e>"] = cmp.mapping.abort(),
 
                     ["<CR>"] = cmp.mapping.confirm({ select = true }),

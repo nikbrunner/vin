@@ -9,6 +9,12 @@ local config = {
             },
         },
     },
+    branch_notes = {
+        mappings = {
+            toggle_note = "<C-b>",
+            toggle_checkbox = "<C-k>",
+        },
+    },
     ensure_installed = {
         -- :h mason-lspconfig-server-map
         servers = {
