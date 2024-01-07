@@ -1,6 +1,6 @@
 ---@class VinConfig
 local config = {
-    colorscheme = "terra_winter_night",
+    colorscheme = "terra_summer_night",
     pathes = {
         notes = {
             personal = vim.fn.expand("~") .. "/Documents/notes/notes",
