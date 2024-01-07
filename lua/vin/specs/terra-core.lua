@@ -32,7 +32,7 @@ M.spec = {
         variant = "night",
         transparent = true,
         diagnostics = {
-            background = false,
+            background = true,
         },
     },
 }
