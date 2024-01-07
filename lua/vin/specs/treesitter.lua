@@ -20,8 +20,8 @@ M.specs = {
             incremental_selection = {
                 enable = true,
                 keymaps = {
-                    init_selection = "vv",
-                    node_incremental = "vv",
+                    init_selection = "<CR>",
+                    node_incremental = "<CR>",
                     node_decremental = "<BS>",
                 },
             },

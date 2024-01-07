@@ -7,6 +7,7 @@ M.spec = {
     opts = {
         show_icons = true,
         always_show_path = true,
+        leader_key = "m",
         mappings = {
             edit = "e",
             delete_mode = "d",
@@ -16,7 +17,6 @@ M.spec = {
             open_horizontal = "s",
             quit = "q",
         },
-        leader_key = "<CR>",
     },
 }
 
