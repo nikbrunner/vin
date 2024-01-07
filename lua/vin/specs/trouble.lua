@@ -13,7 +13,7 @@ M.spec = {
         padding = true, -- add an extra new line on top of the list
         win_config = { border = "single" }, -- window configuration for floating windows. See |nvim_open_win()|.
         auto_close = true, -- automatically close the list when you have no diagnostics
-        auto_fold = false, -- automatically fold a file trouble list at creation
+        auto_fold = true, -- automatically fold a file trouble list at creation
         cycle_results = false, -- cycle item list when reaching beginning or end of list
     },
     keys = {
