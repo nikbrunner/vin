@@ -26,12 +26,12 @@ M.spec = {
             auto_trigger = true,
             debounce = 150,
             keymap = {
-                accept = "<Right>",
+                accept = "<Tab>",
                 accept_word = false,
                 accept_line = false,
                 next = "<M-]>",
                 prev = "<M-[>",
-                dismiss = "<Left>",
+                dismiss = "<S-Tab>",
             },
         },
         filetypes = {
