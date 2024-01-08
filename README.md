@@ -53,8 +53,6 @@ rm -rf ~/.local/share/vin
 
 Make sure you have [a nerd font](https://github.com/ryanoasis/nerd-fonts) installed.
 
-
-
 ## Origin of Name
 
 [See here](https://brandon-sanderson.fandom.com/wiki/vin)

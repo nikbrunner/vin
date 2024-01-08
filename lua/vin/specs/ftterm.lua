@@ -8,6 +8,20 @@ function M.refresh_neotree()
     vim.notify("NeoTree refreshed", vim.log.levels.INFO, { title = "NeoTree" })
 end
 
+---Normally, `<ctrl-hjkl>` are used to navigate between windows.
+---However, when using FTerm, we want to use them to fire restore their default behavior.
+---@param term Term
+function M.restore_ctrl_hjkl(term)
+    local buf = term.buf
+    local set = vim.keymap.set
+    local opts = { buffer = buf, nowait = true }
+
+    set("t", "<c-h>", "<c-h>", opts)
+    set("t", "<c-j>", "<c-j>", opts)
+    set("t", "<c-k>", "<c-k>", opts)
+    set("t", "<c-l>", "<c-l>", opts)
+end
+
 ---@type LazySpec
 M.spec = {
     "numToStr/FTerm.nvim",
@@ -34,10 +48,24 @@ M.spec = {
         }))
 
         return {
-            -- stylua: ignore start
-            { "<leader>gg", mode = "n", function() lazygit_term:toggle() end, desc = "LazyGit", },
-            { "<leader>gp", mode = "n", function() gh_dash_term:toggle() end, desc = "GitHub Dash", },
-            -- stylua: ignore end
+            {
+                "<leader>gg",
+                mode = "n",
+                function()
+                    lazygit_term:toggle()
+                    M.restore_ctrl_hjkl(lazygit_term)
+                end,
+                desc = "LazyGit",
+            },
+            {
+                "<leader>gp",
+                mode = "n",
+                function()
+                    gh_dash_term:toggle()
+                    M.restore_ctrl_hjkl(gh_dash_term)
+                end,
+                desc = "GitHub Dash",
+            },
         }
     end,
     opts = {},
