@@ -5,6 +5,7 @@ function M.refresh_neotree()
     require("neo-tree.sources.manager").refresh("filesystem")
     require("neo-tree.sources.manager").refresh("git_status")
     require("neo-tree.sources.manager").refresh("buffers")
+    vim.notify("NeoTree refreshed", vim.log.levels.INFO, { title = "NeoTree" })
 end
 
 ---@type LazySpec
@@ -23,6 +24,7 @@ M.spec = {
         local lazygit_term = fterm:new(vim.tbl_extend("force", win_opts, {
             ft = "ftterm_lazygit",
             cmd = "lazygit",
+            dimensions = { height = 1, width = 1 },
             on_exit = M.refresh_neotree,
         }))
 
