@@ -31,9 +31,6 @@ M.spec = {
 
         local filetype_icon = {
             "filetype",
-            ts_icon = "",
-            colored = true, -- Displays filetype icon in color if set to true
-            icon_only = true, -- Display only an icon for filetype
             padding = 2,
         }
 
@@ -140,7 +137,7 @@ M.spec = {
                     "fancy_lsp_servers",
                 },
                 lualine_z = {
-                    filetype,
+                    "fancy_filetype",
                 },
             },
             extensions = { "lazy" },
