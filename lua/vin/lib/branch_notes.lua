@@ -39,8 +39,10 @@ end
 ---@return string
 function M.get_branch_name()
     local branch_name = vim.fn.system("git rev-parse --abbrev-ref HEAD")
-    local sanitized_branch_name = string.gsub(branch_name, "\n", "")
-    return sanitized_branch_name
+    branch_name = string.gsub(branch_name, "\n", "")
+    -- if there is `/` in the branch name, than escape it
+    branch_name = string.gsub(branch_name, "/", "-")
+    return branch_name
 end
 
 ---@return string
