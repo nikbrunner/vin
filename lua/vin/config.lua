@@ -1,6 +1,6 @@
 ---@class VinConfig
 local config = {
-    colorscheme = "terra_summer_night",
+    colorscheme = "terra_winter_night",
     transparent = true,
     pathes = {
         notes = {
