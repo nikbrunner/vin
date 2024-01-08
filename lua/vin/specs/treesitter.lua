@@ -11,6 +11,10 @@ M.specs = {
         opts = {
             highlight = {
                 enable = true,
+                ---@diagnostic disable-next-line: unused-local
+                disable = function(lang, bufnr) -- Disable in files with more than 5K
+                    return vim.api.nvim_buf_line_count(bufnr) > 5000
+                end,
                 additional_vim_regex_highlighting = { "markdown" },
             },
             indent = {
