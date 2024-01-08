@@ -53,15 +53,7 @@ rm -rf ~/.local/share/vin
 
 Make sure you have [a nerd font](https://github.com/ryanoasis/nerd-fonts) installed.
 
-## TODO
 
-- [x] Migrate Toggles from LazyVim
-- [x] Spell Checking
-- [ ] Implement Lsp Rename Util from LazyVim `require("lazyvim.util").lsp.on_rename(event.data.from, event.data.to)`
-- [ ] Debugging
-- [ ] `obsidian.nvim` Plugin
-- [ ] Try [conform.nvim](https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#lazy-loading-with-lazynvim)
-- [ ] Integrated Terminal
 
 ## Origin of Name
 
