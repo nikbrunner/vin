@@ -196,11 +196,11 @@ set("n", "<leader>fc", lib.component.find_and_open_component_file, { desc = "Fin
 set("n", "<leader>fC", lib.component.find_and_open_files, { desc = "Find component" })
 
 -- Tmux Group
-set("n", "<leader>.n", lib.tmux.start_smug_session, { desc = "New Pre-Configured Session" })
+-- set("n", "<leader>.n", lib.tmux.start_smug_session, { desc = "New Pre-Configured Session" }) -- TODO: replace with repo-runner
 set("n", "<leader>.c", lib.tmux.start_custom_tmux_session, { desc = "Create Custom TMUX Session" })
 set("n", "<leader>.s", lib.tmux.switch_tmux_session, { desc = "Switch Session" })
 set("n", "<leader>.w", lib.tmux.switch_tmux_window, { desc = "Switch Windows" })
-set("n", "<leader>.q", lib.tmux.kill_tmux_session, { desc = "Quit TMUX Session" })
+-- set("n", "<leader>.q", lib.tmux.kill_tmux_session, { desc = "Quit TMUX Session" }) -- TODO: replace with repo-runner
 set("n", "<leader>..", lib.tmux.switch_nvim_instance, { desc = "Switch Neovim Instance" })
 
 -- Quit Group
