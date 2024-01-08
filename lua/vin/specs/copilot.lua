@@ -3,18 +3,18 @@
 
 local M = {}
 
+function M.toggle_copilot()
+    require("copilot.suggestion").toggle_auto_trigger()
+    local state = vim.b.copilot_suggestion_auto_trigger
+    vim.notify("Copilot: Auto Trigger " .. (state and "Enabled" or "Disabled"))
+end
+
 ---@type LazySpec
 M.spec = {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
     keys = {
-        {
-            "<leader>cip",
-            function()
-                require("copilot.suggestion").toggle_auto_trigger()
-            end,
-            desc = "Copilot: Toggle Auto Trigger",
-        },
+        { "<leader>cip", M.toggle_copilot, desc = "Copilot: Toggle Auto Trigger" },
     },
     opts = {
         panel = {

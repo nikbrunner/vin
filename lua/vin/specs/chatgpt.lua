@@ -16,24 +16,8 @@ M.spec = {
     },
     ---@type LazyKeys[]
     keys = {
-        {
-            id = "ChatGPT",
-            mode = { "n", "v" },
-            "<leader>cii",
-            "<cmd>ChatGPT<CR>",
-            {
-                desc = "ChatGPT",
-            },
-        },
-        {
-            id = "ChatGPT Edit",
-            mode = { "n", "v" },
-            "<leader>cie",
-            "<cmd>ChatGPTEditWithInstructions<CR>",
-            {
-                desc = "ChatGPT Edit",
-            },
-        },
+        { "<leader>cii", desc = "ChatGPT" },
+        { "<leader>cie", "<cmd>ChatGPTEditWithInstructions<CR>", desc = "ChatGPT Edit", mode = { "n", "v" } },
     },
     opts = {
         openai_params = {
