@@ -9,15 +9,12 @@ create_autocmd("UIEnter", {
     group = augroup("ui_enter"),
     callback = function()
         vim.cmd.colorscheme(config.colorscheme)
+
         local filetype = vim.bo.filetype
         local excluded_filetypes = { "gitcommit" }
 
         if not vim.tbl_contains(excluded_filetypes, filetype) then
-            if vim.fn.system("git status --porcelain") ~= "" then
-                vim.cmd("Neotree git_status float toggle reveal")
-            else
-                vim.cmd("Neotree float toggle reveal")
-            end
+            require("fzf-lua").oldfiles({ cwd_only = true })
         end
     end,
 })
