@@ -130,14 +130,9 @@ M.spec = {
                 width = 0.75, -- window width
                 row = 0.35, -- window row position (0=top, 1=bottom)
                 col = 0.50, -- window col position (0=left, 1=right)
-                -- border = "none",
-                hl = {
-                    normal = "NeoTreeNormal", -- window normal color (fg+bg)
-                    border = "FloatBorder", -- border color
-                    help_border = "FloatBorder", -- <F1> window border
-                },
+                border = "single",
                 preview = {
-                    border = "noborder", -- border|noborder, applies only to
+                    border = "border", -- border|noborder, applies only to
                     wrap = "nowrap", -- wrap|nowrap
                     hidden = "nohidden", -- hidden|nohidden
                     vertical = "up:65%", -- up|down:size
