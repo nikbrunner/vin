@@ -8,12 +8,13 @@ local function set(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
--- save file
-set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+set("n", "Q", "<nop>")
 
-set("n", "<C-q>", "<cmd>wqa<cr>", { desc = "Save and quit" })
+-- Shift lines in visual mode
+set("v", "J", ":m '>+1<CR>gv=gv")
+set("v", "K", ":m '<-2<CR>gv=gv")
 
--- Easy Start and End of Line
+-- Easy going to start/end of line
 set("n", "H", "^", { desc = "Move to Start of Line" })
 set("n", "L", "$", { desc = "Move to End of Line" })
 
@@ -24,6 +25,9 @@ set("n", "yA", "ggVGy", { desc = "Copy All" })
 
 -- Delete things without polluting clipboard
 set("n", "x", '"_x', { desc = "Delete" })
+
+-- In visual mode, replace the selected text with the last yanked content without saving the selection.
+set("x", "<leader>p", [["_dP]])
 
 -- Join lines while keeping position
 set("n", "J", "mzJ`z", { desc = "Join Lines" })
@@ -171,9 +175,13 @@ set("n", "<leader><tab>7", "7gt", { desc = "Go to Tab 7" })
 set("n", "<leader><tab>8", "8gt", { desc = "Go to Tab 8" })
 set("n", "<leader><tab>9", "9gt", { desc = "Go to Tab 9" })
 
--- Center scren when using <C-u> and <C-d>
+-- Center screen when using <C-u> and <C-d>
 set({ "n", "i", "c" }, "<C-u>", "<C-u>zz", { desc = "Scroll Up" })
 set({ "n", "i", "c" }, "<C-d>", "<C-d>zz", { desc = "Scroll Down" })
+
+-- Center screen when going to next/previous search result
+set("n", "n", "nzzzv")
+set("n", "N", "Nzzzv")
 
 -- Vin Group
 set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
