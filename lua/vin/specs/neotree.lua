@@ -174,11 +174,12 @@ M.spec = {
             },
 
             window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
-                -- possible options. These can also be functions that return these options.
-                position = "left", -- left, right, top, bottom, float, current
-                width = 40, -- applies to left and right positions
-                popup = { -- settings that apply to float position only
-                    size = { height = "25" },
+                position = "left",
+                width = 40,
+                popup = {
+                    size = {
+                        height = 20,
+                    },
                     position = "50%", -- 50% means center it
                 },
                 mappings = {
@@ -189,9 +190,9 @@ M.spec = {
                     ["L"] = "open",
                     ["<esc>"] = "revert_preview",
                     ["P"] = { "toggle_preview", config = { use_float = true } },
-                    ["<C-s>"] = "open_split",
+                    ["s"] = "open_split",
                     ["S"] = "split_with_window_picker",
-                    ["<C-v>"] = "open_vsplit",
+                    ["v"] = "open_vsplit",
                     ["V"] = "vsplit_with_window_picker",
                     ["t"] = "open_tabnew",
                     ["w"] = "open_with_window_picker",
