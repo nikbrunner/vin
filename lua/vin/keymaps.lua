@@ -204,7 +204,6 @@ set("n", "<leader>.w", lib.tmux.switch_tmux_window, { desc = "Switch Windows" })
 set("n", "<leader>..", lib.tmux.switch_nvim_instance, { desc = "Switch Neovim Instance" })
 
 -- Quit Group
-set("n", "qq", "<cmd>q<cr>", { desc = "Quit" })
 set("n", "<leader>qq", "<cmd>q<cr>", { desc = "Quit" })
 set("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit all" })
 
