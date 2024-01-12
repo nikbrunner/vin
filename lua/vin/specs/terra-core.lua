@@ -30,7 +30,8 @@ M.spec = {
         debug = false,
         theme = "fall",
         variant = "night",
-        transparency = require("vin.config").transparency,
+        dark_sidebars = true,
+        transparency = "partial",
         diagnostics = {
             background = true,
         },
