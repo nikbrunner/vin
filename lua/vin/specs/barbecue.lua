@@ -12,7 +12,7 @@ local spec = {
 
         ---filetypes not to enable winbar in
         ---@type string[]
-        exclude_filetypes = { "gitcommit", "ftterm_lazygit", "markdown" },
+        exclude_filetypes = { "gitcommit", "ftterm_lazygit" },
 
         ---whether to display path to file
         ---@type boolean
