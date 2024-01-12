@@ -2,8 +2,6 @@
 local config = {
     ---@type TerraConfig.ColorSchemeName
     colorscheme = "terra_fall_night",
-    ---@type TerraConfig.Transparency
-    transparency = "partial",
     pathes = {
         notes = {
             personal = vim.fn.expand("~") .. "/Documents/notes/notes",
