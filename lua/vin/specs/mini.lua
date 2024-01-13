@@ -191,7 +191,6 @@ M.specs = {
 
                     return {
                         anchor = "SE",
-                        width = math.floor(vim.o.columns * 0.5),
                         col = vim.o.columns,
                         row = vim.o.lines - bottom_space,
                         border = "solid",
