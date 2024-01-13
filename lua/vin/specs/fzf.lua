@@ -89,8 +89,8 @@ M.spec = {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
         -- stylua: ignore start
-        { "<leader><space>",     M.fzf("files"), desc = "Files", },
-        { "<leader>,",           M.fzf("oldfiles"), desc = "Recent Files", },
+        { "<leader><space>",     M.fzf("oldfiles"), desc = "Recent Files", },
+        { "<leader>,",           M.fzf("jumps"), desc = "Recent Jumps", },
         { "<leader>:",           M.fzf("commands"), desc = "Commands", },
         { "<leader>ff",          M.fzf("files"), desc = "Files", },
         { "<leader>fr",          M.fzf("oldfiles"), desc = "Recent Files (Current Session)", },
