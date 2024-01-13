@@ -15,7 +15,7 @@ M.spec = {
 
         local mode = {
             function()
-                return " Vin"
+                return require("vin.icons").misc.circle .. "Vin"
             end,
             padding = {
                 left = 1,

@@ -1,6 +1,7 @@
 return {
     misc = {
         dots = "󰇘",
+        circle = " ",
         separator = " ",
     },
     dap = {
