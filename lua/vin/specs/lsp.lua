@@ -108,6 +108,18 @@ M.specs = {
             vim.fn.sign_define("DiagnosticSignInfo", { text = icons.diagnostics.Info, texthl = "DiagnosticSignInfo" })
             vim.fn.sign_define("DiagnosticSignHint", { text = icons.diagnostics.Hint, texthl = "DiagnosticSignHint" })
 
+            vim.diagnostic.config({
+                underline = false,
+                virtual_text = {
+                    prefix = require("vin.icons").misc.circle,
+                },
+                signs = true,
+                update_in_insert = false,
+                float = {
+                    border = "solid",
+                },
+            })
+
             require("mason-lspconfig").setup(opts)
         end,
     },

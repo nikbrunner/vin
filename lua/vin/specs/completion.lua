@@ -20,6 +20,7 @@ M.specs = {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-nvim-lsp",
+            "onsails/lspkind.nvim",
         },
         event = "InsertEnter",
         config = function()
@@ -30,9 +31,11 @@ M.specs = {
                 window = {
                     documentation = cmp.config.window.bordered({
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+                        border = "solid",
                     }),
                     completion = cmp.config.window.bordered({
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+                        border = "solid",
                     }),
                 },
                 snippet = {
@@ -51,7 +54,7 @@ M.specs = {
                         behavior = cmp.SelectBehavior.Insert,
                     }),
 
-                    ["<C-l>"] = cmp.mapping.complete(), -- This triggers the suggestion
+                    ["<C-space>"] = cmp.mapping.complete(), -- This triggers the suggestion
                     ["<C-e>"] = cmp.mapping.abort(),
 
                     ["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -61,22 +64,36 @@ M.specs = {
                     }),
                 }),
 
+                -- formatting = {
+                --     expandable_indicator = true,
+                --     fields = { "kind", "abbr", "menu" },
+                --     format = function(entry, vim_item)
+                --         if entry.completion_item.detail ~= nil and entry.completion_item.detail ~= "" then
+                --             vim_item.menu = entry.completion_item.detail
+                --         else
+                --             vim_item.menu = ({
+                --                 nvim_lsp = "[LSP]",
+                --                 luasnip = "[Snippet]",
+                --                 buffer = "[Buffer]",
+                --                 path = "[Path]",
+                --             })[entry.source.name]
+                --         end
+                --
+                --         return vim_item
+                --     end,
+                -- },
+
+                -- [Menu Appearance · hrsh7th/nvim-cmp Wiki](https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu)
                 formatting = {
                     expandable_indicator = true,
                     fields = { "kind", "abbr", "menu" },
                     format = function(entry, vim_item)
-                        if entry.completion_item.detail ~= nil and entry.completion_item.detail ~= "" then
-                            vim_item.menu = entry.completion_item.detail
-                        else
-                            vim_item.menu = ({
-                                nvim_lsp = "[LSP]",
-                                luasnip = "[Snippet]",
-                                buffer = "[Buffer]",
-                                path = "[Path]",
-                            })[entry.source.name]
-                        end
+                        local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+                        local strings = vim.split(kind.kind, "%s", { trimempty = true })
+                        kind.kind = " " .. (strings[1] or "") .. " "
+                        kind.menu = "    (" .. (strings[2] or "") .. ")"
 
-                        return vim_item
+                        return kind
                     end,
                 },
                 sources = cmp.config.sources({
