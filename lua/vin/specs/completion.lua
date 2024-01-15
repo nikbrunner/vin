@@ -19,15 +19,18 @@ M.specs = {
         dependencies = {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
             "hrsh7th/cmp-nvim-lsp",
             "onsails/lspkind.nvim",
         },
         event = "InsertEnter",
         config = function()
             local cmp = require("cmp")
+            local lspkind = require("lspkind")
+            local max_items = 5
 
             cmp.setup({
-                completeopt = "menu,menuone,noinsert",
+                completeopt = "menu,menuone,preview,noinsert",
                 window = {
                     documentation = cmp.config.window.bordered({
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
@@ -37,6 +40,7 @@ M.specs = {
                         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                         border = "solid",
                     }),
+                    scrollbar = false,
                 },
                 snippet = {
                     expand = function(args)
@@ -64,31 +68,12 @@ M.specs = {
                     }),
                 }),
 
-                -- formatting = {
-                --     expandable_indicator = true,
-                --     fields = { "kind", "abbr", "menu" },
-                --     format = function(entry, vim_item)
-                --         if entry.completion_item.detail ~= nil and entry.completion_item.detail ~= "" then
-                --             vim_item.menu = entry.completion_item.detail
-                --         else
-                --             vim_item.menu = ({
-                --                 nvim_lsp = "[LSP]",
-                --                 luasnip = "[Snippet]",
-                --                 buffer = "[Buffer]",
-                --                 path = "[Path]",
-                --             })[entry.source.name]
-                --         end
-                --
-                --         return vim_item
-                --     end,
-                -- },
-
                 -- [Menu Appearance · hrsh7th/nvim-cmp Wiki](https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu)
                 formatting = {
                     expandable_indicator = true,
                     fields = { "kind", "abbr", "menu" },
                     format = function(entry, vim_item)
-                        local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+                        local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
                         local strings = vim.split(kind.kind, "%s", { trimempty = true })
                         kind.kind = " " .. (strings[1] or "") .. " "
                         kind.menu = "    (" .. (strings[2] or "") .. ")"
@@ -102,6 +87,22 @@ M.specs = {
                 }, {
                     { name = "path" },
                     { name = "buffer" },
+                }),
+            })
+
+            cmp.setup.cmdline({ "/", "?" }, {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = "buffer", max_item_count = max_items },
+                },
+            })
+
+            cmp.setup.cmdline(":", {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = cmp.config.sources({
+                    { name = "path", max_item_count = max_items },
+                }, {
+                    { name = "cmdline", max_item_count = max_items },
                 }),
             })
         end,
