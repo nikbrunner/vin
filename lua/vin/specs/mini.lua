@@ -38,6 +38,7 @@ M.specs = {
         "echasnovski/mini.clue",
         version = "*",
         event = "VeryLazy",
+        enabled = false,
         config = function()
             local miniclue = require("mini.clue")
             miniclue.setup({
