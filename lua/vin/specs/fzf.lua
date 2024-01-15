@@ -155,10 +155,10 @@ M.spec = {
                     },
                 },
 
-                --     on_create = function()
-                --         vim.keymap.set("t", "<C-j>", "<Down>", { silent = true, buffer = true })
-                --         vim.keymap.set("t", "<C-k>", "<Up>", { silent = true, buffer = true })
-                --     end,
+                on_create = function()
+                    vim.keymap.set("t", "<C-j>", "<Down>", { silent = true, buffer = true })
+                    vim.keymap.set("t", "<C-k>", "<Up>", { silent = true, buffer = true })
+                end,
             },
 
             keymap = {
