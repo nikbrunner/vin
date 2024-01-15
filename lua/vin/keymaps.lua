@@ -8,6 +8,10 @@ local function set(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+
+set("n", "<C-q>", "<cmd>wqa<cr>", { desc = "Save and quit" })
+
 set("n", "Q", "<nop>")
 
 -- Shift lines in visual mode
