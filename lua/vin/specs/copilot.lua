@@ -23,14 +23,14 @@ M.spec = {
         },
         suggestion = {
             enabled = true,
-            auto_trigger = true,
+            auto_trigger = false,
             debounce = 150,
             keymap = {
                 accept = "<Tab>",
                 accept_word = false,
                 accept_line = false,
-                next = "<M-]>",
-                prev = "<M-[>",
+                next = "<Right>",
+                prev = "<Left>",
                 dismiss = "<S-Tab>",
             },
         },
