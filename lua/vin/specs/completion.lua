@@ -19,7 +19,6 @@ M.specs = {
         dependencies = {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline",
             "hrsh7th/cmp-nvim-lsp",
             "onsails/lspkind.nvim",
         },
@@ -27,7 +26,6 @@ M.specs = {
         config = function()
             local cmp = require("cmp")
             local lspkind = require("lspkind")
-            local max_items = 5
 
             cmp.setup({
                 completeopt = "menu,menuone,preview,noinsert",
@@ -87,22 +85,6 @@ M.specs = {
                 }, {
                     { name = "path" },
                     { name = "buffer" },
-                }),
-            })
-
-            cmp.setup.cmdline({ "/", "?" }, {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                    { name = "buffer", max_item_count = max_items },
-                },
-            })
-
-            cmp.setup.cmdline(":", {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({
-                    { name = "path", max_item_count = max_items },
-                }, {
-                    { name = "cmdline", max_item_count = max_items },
                 }),
             })
         end,
