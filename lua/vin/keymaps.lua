@@ -15,12 +15,12 @@ set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Easy going to start/end of line
-set("n", "H", "^", { desc = "Move to Start of Line" })
-set("n", "L", "$", { desc = "Move to End of Line" })
+-- set("n", "H", "^", { desc = "Move to Start of Line" })
+-- set("n", "L", "$", { desc = "Move to End of Line" })
 
 -- Navigating the jumplist. This is a hack, because the the escape sequences for <C-o> and <C-i> are not working.
--- set("n", "H", "<C-o>", { desc = "Move back in jump list" })
--- set("n", "L", "<C-i>", { desc = "Move forward in jump list" })
+set("n", "H", "<C-o>zz", { desc = "Move back in jump list" })
+set("n", "L", "<C-i>zz", { desc = "Move forward in jump list" })
 
 -- Combined commands
 set("n", "vv", "^v$", { desc = "Select Line" })
