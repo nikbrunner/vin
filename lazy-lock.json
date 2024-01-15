@@ -16,7 +16,7 @@
   "edgy.nvim": { "branch": "main", "commit": "8355be45610afdf79a0bab32b91ee297997455b4" },
   "flash.nvim": { "branch": "main", "commit": "48817af25f51c0590653bbc290866e4890fe1cbe" },
   "friendly-snippets": { "branch": "main", "commit": "69a2c1675b66e002799f5eef803b87a12f593049" },
-  "fzf-lua": { "branch": "main", "commit": "2fca0f2ae6064aa106feef6b527a7dbefb825724" },
+  "fzf-lua": { "branch": "main", "commit": "953672442741219ca825f906f85ccec83143d66b" },
   "gitsigns.nvim": { "branch": "main", "commit": "4aaacbf5e5e2218fd05eb75703fe9e0f85335803" },
   "hawtkeys.nvim": { "branch": "main", "commit": "8bce74ca1de05554f031849482bccec42e9a16a0" },
   "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
