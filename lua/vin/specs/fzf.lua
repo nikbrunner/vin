@@ -90,7 +90,8 @@ M.spec = {
     keys = {
         -- stylua: ignore start
         { "<leader><space>",     M.fzf("files"), desc = "Files", },
-        { "<leader>r",           M.fzf("oldfiles"), desc = "Recent Files", },
+        { "<leader>r",           M.fzf("oldfiles", { cwd_only = true }), desc = "Recent Files (Only CWD)", },
+        { "<leader>R",           M.fzf("oldfiles", { cwd_only = false }), desc = "Recent Files (All CWD)"},
         { "<leader>,",           M.fzf("jumps"), desc = "Recent Jumps", },
         { "<leader>:",           M.fzf("commands"), desc = "Commands", },
         { "<leader>ff",          M.fzf("files"), desc = "Files", },
