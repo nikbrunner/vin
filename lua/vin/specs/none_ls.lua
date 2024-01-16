@@ -45,7 +45,10 @@ M.spec = {
                 formatting.prettierd,
                 diagnostics.eslint_d,
 
+                diagnostics.yamllint,
+
                 diagnostics.shellcheck,
+                formatting.shfmt,
                 code_actions.shellcheck,
             },
         })

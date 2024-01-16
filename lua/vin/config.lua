@@ -26,6 +26,7 @@ local config = {
             "html",
             "jsonls",
             "lua_ls",
+            "yamlls",
             "marksman",
             "rust_analyzer",
             "tsserver",
@@ -37,6 +38,8 @@ local config = {
             "shellcheck",
             "prettierd",
             "black",
+            "yamllint",
+            "shfmt",
         },
     },
 }
