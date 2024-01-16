@@ -1,0 +1,16 @@
+---
+type:
+  - feat
+  - fix
+  - docs
+  - style
+  - refactor
+  - test
+  - chore
+  - revert
+scope:
+  - specs
+  - lazy-lock
+  - keymaps
+inferIssueFromBranch: false
+detectPullRequest: false
