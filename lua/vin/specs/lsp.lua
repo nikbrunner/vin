@@ -111,7 +111,7 @@ M.specs = {
             vim.diagnostic.config({
                 underline = false,
                 virtual_text = {
-                    prefix = require("vin.icons").misc.circle,
+                    prefix = " " .. require("vin.icons").misc.circle,
                 },
                 signs = true,
                 update_in_insert = false,
