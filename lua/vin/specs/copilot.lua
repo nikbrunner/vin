@@ -14,7 +14,7 @@ M.spec = {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
     keys = {
-        { "<leader>cip", M.toggle_copilot, desc = "Copilot: Toggle Auto Trigger" },
+        { "<leader>cic", M.toggle_copilot, desc = "Copilot: Toggle Auto Trigger" },
     },
     opts = {
         panel = {
