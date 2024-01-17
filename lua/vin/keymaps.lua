@@ -10,6 +10,8 @@ end
 
 set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
+set("i", "kj", "<Esc>", { desc = "Escape" })
+
 set("n", "<C-q>", "<cmd>wqa<cr>", { desc = "Save and quit" })
 
 set("n", "Q", "<nop>")
