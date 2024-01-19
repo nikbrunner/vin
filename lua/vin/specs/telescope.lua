@@ -54,6 +54,7 @@ M.spec = {
             defaults = {
                 prompt_prefix = " ",
                 selection_caret = " ",
+                winblend = 10,
                 initial_mode = "insert",
                 selection_strategy = "reset",
                 sorting_strategy = "descending",
