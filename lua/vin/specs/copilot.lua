@@ -21,7 +21,7 @@ M.spec = {
         },
         suggestion = {
             enabled = true,
-            auto_trigger = false,
+            auto_trigger = true,
             debounce = 150,
             keymap = {
                 accept = "<Tab>",
