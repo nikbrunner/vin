@@ -128,7 +128,7 @@ M.specs = {
 
     {
         "echasnovski/mini.files",
-        enabled = false,
+        enabled = true,
         opts = {
             mappings = {
                 close = "q",
@@ -138,7 +138,7 @@ M.specs = {
                 go_out_plus = "<ESC>",
                 reset = "<BS>",
                 reveal_cwd = "@",
-                show_help = "g?",
+                show_help = "?",
                 synchronize = "s",
             },
 
