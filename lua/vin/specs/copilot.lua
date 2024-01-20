@@ -13,9 +13,7 @@ end
 M.spec = {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
-    keys = {
-        { "<leader>cic", M.toggle_copilot, desc = "Copilot: Toggle Auto Trigger" },
-    },
+    keys = {},
     opts = {
         panel = {
             enabled = false,
@@ -27,11 +25,11 @@ M.spec = {
             debounce = 150,
             keymap = {
                 accept = "<Tab>",
-                accept_word = false,
+                accept_word = "<S-Tab>",
                 accept_line = false,
-                next = "<Right>",
-                prev = "<Left>",
-                dismiss = "<S-Tab>",
+                next = "<M-]>",
+                prev = "<M-[>",
+                dismiss = "/",
             },
         },
         filetypes = {
