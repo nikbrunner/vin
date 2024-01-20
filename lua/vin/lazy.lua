@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local repos_path = "~/Documents/dev/repos/"
 
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -31,6 +32,12 @@ require("lazy").setup("vin.specs", {
                 "netrwPlugin",
             },
         },
+    },
+    dev = {
+        ---@type string | fun(plugin: LazyPlugin): string directory where you store your local plugin projects
+        path = function(plugin)
+            return repos_path .. plugin[1]
+        end,
     },
     checker = {
         -- automatically check for plugin updates

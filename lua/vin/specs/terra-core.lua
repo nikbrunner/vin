@@ -3,7 +3,7 @@ local M = {}
 ---@type LazySpec
 M.spec = {
     "terra-theme/terra-core.nvim",
-    dir = "~/Documents/dev/repos/terra-theme/terra-core.nvim",
+    dev = true,
     lazy = false,
     priority = 1000,
     keys = {
