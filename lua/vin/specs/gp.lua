@@ -4,9 +4,15 @@ local M = {}
 M.spec = {
     "robitx/gp.nvim",
     event = "VeryLazy",
+    keys = {
+        -- TODO: setup
+    },
     opts = {
         openai_api_key = os.getenv("OPENAI_API_KEY"),
         openai_api_endpoint = "https://api.openai.com/v1/chat/completions",
+
+        state_dir = vim.fn.stdpath("config"):gsub("/$", "") .. "/gp/persisted",
+        chat_dir = vim.fn.stdpath("config"):gsub("/$", "") .. "/gp/chats",
 
         -- default command agents (model + persona)
         -- name, model and system_prompt are mandatory fields

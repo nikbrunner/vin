@@ -1,0 +1,1 @@
+/Users/nikolausbrunner/.config/vin/gp/chats/2024-01-20.20-55-45.329.md
