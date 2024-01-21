@@ -194,10 +194,11 @@ M.specs = {
                         anchor = "SE",
                         col = vim.o.columns,
                         row = vim.o.lines - bottom_space,
+                        width = vim.o.columns,
                         border = "solid",
                     }
                 end,
-                winblend = 0,
+                winblend = 30,
             },
         },
         config = function(_, opts)
