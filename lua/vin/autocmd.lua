@@ -98,3 +98,52 @@ create_autocmd({ "VimResized" }, {
         vim.cmd("tabnext " .. current_tab)
     end,
 })
+
+create_autocmd("ColorScheme", {
+    group = vim.api.nvim_create_augroup("wezterm_colorscheme", { clear = true }),
+    callback = function(args)
+        local wezterm_config_filepath = vim.fn.expand("$XDG_CONFIG_HOME/wezterm/wezterm.lua")
+        local vin_config_filepath = vim.fn.expand("$XDG_CONFIG_HOME/vin/lua/vin/config.lua")
+
+        ---@class ColorschemeConfig
+        ---@field name string
+        ---@field background string
+
+        ---TODO: handle coloreschemes for which wezterm uses the default background
+        ---https://wezfurlong.org/wezterm/colorschemes/index.html
+        ---@type table<string, ColorschemeConfig>
+        local neovim_wezterm_colorconfig_map = {
+            ["terra_spring_night"] = { name = "Gruvbox Material (Gogh)", background = "#212523" },
+            ["terra_summer_night"] = { name = "Gruvbox Material (Gogh)", background = "#1f2129" },
+            ["terra_fall_night"] = { name = "Gruvbox Material (Gogh)", background = "#252221" },
+            ["terra_winter_night"] = { name = "terafox", background = "#23272D" },
+        }
+
+        local neovim_colorscheme = args.match
+        local wezterm_colors_config = neovim_wezterm_colorconfig_map[neovim_colorscheme]
+
+        if not wezterm_colors_config then
+            return
+        end
+
+        ---Finds a pattern in a line of a file and replaces it with a value
+        ---@param filepath string
+        ---@param pattern string
+        ---@param value string
+        local function update_config_file(filepath, pattern, value)
+            local lines = vim.fn.readfile(filepath)
+            lines = vim.tbl_map(function(line)
+                if vim.fn.match(line, pattern) ~= -1 then
+                    line = vim.fn.substitute(line, '".*"', value, "")
+                end
+                return line
+            end, lines)
+
+            vim.fn.writefile(lines, filepath)
+        end
+
+        update_config_file(wezterm_config_filepath, "color_scheme", '"' .. wezterm_colors_config.name .. '"')
+        update_config_file(vin_config_filepath, "colorscheme", '"' .. neovim_colorscheme .. '"')
+        update_config_file(wezterm_config_filepath, "background", '"' .. wezterm_colors_config.background .. '"')
+    end,
+})
