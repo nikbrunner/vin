@@ -14,7 +14,9 @@ create_autocmd("UIEnter", {
         local excluded_filetypes = { "gitcommit" }
 
         if not vim.tbl_contains(excluded_filetypes, filetype) then
-            require("fzf-lua").oldfiles({ cwd_only = true })
+            if pcall(require, "fzf-lua") then
+                require("fzf-lua").oldfiles({ cwd_only = true })
+            end
         end
     end,
 })
@@ -71,7 +73,9 @@ create_autocmd("BufEnter", {
     group = augroup("neotree_refresh"),
     pattern = { "*" },
     callback = function()
-        require("neo-tree.sources.manager").refresh()
+        if pcall(require, "neo-tree") then
+            require("neo-tree.sources.manager").refresh()
+        end
     end,
 })
 
