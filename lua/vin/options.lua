@@ -9,7 +9,8 @@ vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboar
 
 vim.opt.spelllang = "en_us,de_de"
 
-vim.opt.cursorline = false
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = false
 
 -- vim.opt.timeoutlen = 250 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.updatetime = 100 -- faster completion (4000ms default)
