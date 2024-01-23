@@ -29,7 +29,7 @@ M.spec = {
         theme = "fall",
         variant = "night",
         dark_sidebars = true,
-        transparency = "none",
+        transparency = "partial",
         diagnostics = {
             background = true,
         },
