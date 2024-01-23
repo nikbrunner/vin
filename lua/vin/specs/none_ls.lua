@@ -4,6 +4,9 @@ local M = {}
 M.spec = {
     "nvimtools/none-ls.nvim",
     event = "VeryLazy",
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+    },
     config = function()
         local null_ls = require("null-ls")
         local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
