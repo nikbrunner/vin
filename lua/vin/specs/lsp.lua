@@ -127,6 +127,8 @@ M.specs = {
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         dependencies = "williamboman/mason.nvim",
+        -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39
+        lazy = false,
         opts = {
             ensure_installed = config.ensure_installed.tools,
         },
