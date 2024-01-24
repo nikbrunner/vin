@@ -1,29 +1,34 @@
 local create_autocmd = vim.api.nvim_create_autocmd
 local config = require("vin.config")
 
-local function augroup(name)
+local M = {}
+
+function M.augroup(name)
     return vim.api.nvim_create_augroup("vin_" .. name, { clear = true })
 end
 
+function M.open_previous_files()
+    local filetype = vim.bo.filetype
+    local excluded_filetypes = { "gitcommit" }
+
+    if not vim.tbl_contains(excluded_filetypes, filetype) then
+        if pcall(require, "fzf-lua") then
+            require("fzf-lua").oldfiles({ cwd_only = true })
+        end
+    end
+end
+
 create_autocmd("UIEnter", {
-    group = augroup("ui_enter"),
+    group = M.augroup("ui_enter"),
     callback = function()
         vim.cmd.colorscheme(config.colorscheme)
-
-        local filetype = vim.bo.filetype
-        local excluded_filetypes = { "gitcommit" }
-
-        if not vim.tbl_contains(excluded_filetypes, filetype) then
-            if pcall(require, "fzf-lua") then
-                require("fzf-lua").oldfiles({ cwd_only = true })
-            end
-        end
+        -- M.open_previous_files()
     end,
 })
 
 -- Close these filetypes with <Esc> in normal mode
 create_autocmd("FileType", {
-    group = augroup("quit_mapping"),
+    group = M.augroup("quit_mapping"),
     pattern = {
         "qf",
         "help",
@@ -53,7 +58,7 @@ create_autocmd("FileType", {
 
 -- go to last loc when opening a buffer
 create_autocmd("BufReadPost", {
-    group = augroup("last_loc"),
+    group = M.augroup("last_loc"),
     callback = function(event)
         local exclude = { "gitcommit" }
         local buf = event.buf
@@ -71,7 +76,7 @@ create_autocmd("BufReadPost", {
 
 -- On every buff enter and refocus refresh neotree
 create_autocmd("BufWrite", {
-    group = augroup("neotree_refresh"),
+    group = M.augroup("neotree_refresh"),
     pattern = { "*" },
     callback = function()
         if pcall(require, "neo-tree") then
@@ -82,13 +87,13 @@ create_autocmd("BufWrite", {
 
 -- Check if we need to reload the file when it changed
 create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-    group = augroup("checktime"),
+    group = M.augroup("checktime"),
     command = "checktime",
 })
 
 -- Highlight on yank
 create_autocmd("TextYankPost", {
-    group = augroup("highlight_yank"),
+    group = M.augroup("highlight_yank"),
     callback = function()
         vim.highlight.on_yank()
     end,
@@ -96,7 +101,7 @@ create_autocmd("TextYankPost", {
 
 -- resize splits if window got resized
 create_autocmd({ "VimResized" }, {
-    group = augroup("resize_splits"),
+    group = M.augroup("resize_splits"),
     callback = function()
         local current_tab = vim.fn.tabpagenr()
         vim.cmd("tabdo wincmd =")
@@ -105,7 +110,7 @@ create_autocmd({ "VimResized" }, {
 })
 
 create_autocmd("ColorScheme", {
-    group = vim.api.nvim_create_augroup("wezterm_colorscheme", { clear = true }),
+    group = M.augroup("colorscheme"),
     callback = function(args)
         local wezterm_config_filepath = vim.fn.expand("$XDG_CONFIG_HOME/wezterm/wezterm.lua")
         local vin_config_filepath = vim.fn.expand("$XDG_CONFIG_HOME/vin/lua/vin/config.lua")
