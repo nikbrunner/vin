@@ -8,7 +8,7 @@ local function set(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
-set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+set("n", "<CR>", vim.cmd.wa, { desc = "Save file" })
 
 set("i", "kj", "<Esc>", { desc = "Escape" })
 
@@ -29,7 +29,7 @@ set("n", "H", "<C-o>zz", { desc = "Move back in jump list" })
 set("n", "L", "<C-i>zz", { desc = "Move forward in jump list" })
 
 -- Combined commands
-set("n", "vv", "^v$", { desc = "Select Line" })
+-- set("n", "vv", "^v$", { desc = "Select Line" })
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
 
