@@ -30,6 +30,7 @@ create_autocmd("FileType", {
         "man",
         "notify",
         "lspinfo",
+        "neo-tree",
         "spectre_panel",
         "startuptime",
         "tsplayground",
@@ -69,7 +70,7 @@ create_autocmd("BufReadPost", {
 })
 
 -- On every buff enter and refocus refresh neotree
-create_autocmd("BufEnter", {
+create_autocmd("BufWrite", {
     group = augroup("neotree_refresh"),
     pattern = { "*" },
     callback = function()
