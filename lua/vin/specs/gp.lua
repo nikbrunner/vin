@@ -5,7 +5,23 @@ M.spec = {
     "robitx/gp.nvim",
     event = "VeryLazy",
     keys = {
-        -- TODO: setup
+        {
+            "<leader>in",
+            "<cmd>GpChatNew vsplit<cr>",
+            { desc = "Open new chat window" },
+        },
+        {
+            "<leader>it",
+            "<cmd>GpChatToggle vsplit<cr>",
+            { desc = "Toggle Chat Window" },
+        },
+        -- TODO: Add more maps (append, prepend, context etc.)
+        -- {
+        --     "<leader>ia",
+        --     "<cmd>GpAppend<cr>",
+        --     mode = { "v" },
+        --     { desc = "Append to conversation" },
+        -- },
     },
     opts = {
         openai_api_key = os.getenv("OPENAI_API_KEY"),
