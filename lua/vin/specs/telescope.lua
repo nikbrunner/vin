@@ -235,14 +235,7 @@ M.spec = {
                 diagnostics = quick_flex_window,
                 git_files = quick_flex_window,
                 git_status = {
-                    show_line = false,
-                    layout_strategy = "vertical",
-                    layout_config = {
-                        width = 0.9,
-                        height = 0.9,
-                        preview_cutoff = 1,
-                        mirror = false,
-                    },
+                    theme = "ivy",
                 },
                 list_tabs = {
                     theme = "dropdown",
