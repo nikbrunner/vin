@@ -113,7 +113,8 @@ M.spec = {
         { "<leader>sg",          M.fzf("live_grep_native", { winopts = M.win_presets.large.vertical }), desc = "Live Grep", },
         { "<leader>s<tab>",      M.fzf("tabs"), desc = "Tabs", },
         { "<leader>vc",          M.fzf("colorschemes"), desc = "Colorschemes", },
-        { "<leader>gs",          M.fzf("git_status", { winopts = M.win_presets.full.vertical }), desc = "Git Status", },
+        -- Currently using telescope for this, because this is broken in neovim 0.10
+        -- { "<leader>gs",          M.fzf("git_status", { winopts = M.win_presets.full.vertical }), desc = "Git Status", }, 
         { "<leader>gC",          M.fzf("git_commits", { winopts = M.win_presets.full.vertical, }), desc = "Git Commits", },
         { "<leader>gB",          M.fzf("git_branches"), desc = "Git Branches", },
         { "<leader>gc",          M.fzf("changes"), desc = "Changes", },

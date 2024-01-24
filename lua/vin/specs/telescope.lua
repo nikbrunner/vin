@@ -17,10 +17,70 @@ M.spec = {
             end,
         },
     },
-    keys = {
-        -- Most fuzzy searching commands are run via fzflua
-        { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
-    },
+    ---@diagnostic disable-next-line: assign-type-mismatch
+    keys = function()
+        local Cmd = {}
+
+        Cmd.delta_previewer = require("telescope.previewers").new_termopen_previewer({
+            get_command = function(entry)
+                if entry.status == "??" or "A " then
+                    return {
+                        "git",
+                        "-c",
+                        "core.pager=delta",
+                        "-c",
+                        "delta.side-by-side=true",
+                        "diff",
+                        entry.value,
+                    }
+                end
+
+                return {
+                    "git",
+                    "-c",
+                    "core.pager=delta",
+                    "-c",
+                    "delta.side-by-side=true",
+                    "diff",
+                    entry.value .. "^!",
+                }
+            end,
+            teardown = function(self)
+                -- Close the terminal buffer (~/.local/share/vin/lazy/telescope.nvim/lua/telescope/previewers/term_previewer.lua)
+                self.state.termopen_bufnr = nil
+                self.state.termopen_id = nil
+            end,
+        })
+
+        function Cmd.builtin(builtin, opts)
+            return function()
+                require("telescope.builtin")[builtin](opts or {})
+            end
+        end
+
+        function Cmd.git_status()
+            if vim.fn.system("git status --porcelain") == "" then
+                vim.notify("No changes to commit", vim.log.levels.INFO)
+                return
+            else
+                Cmd.builtin("git_status", {
+                    previewer = Cmd.delta_previewer,
+                })()
+            end
+        end
+
+        function Cmd.git_commits()
+            Cmd.builtin("git_commits", {
+                previewer = Cmd.delta_previewer,
+            })()
+        end
+
+        return {
+            -- Most fuzzy searching commands are run via fzflua
+            { "<leader>so", Cmd.builtin("vim_options"), desc = "Vim Options" },
+            { "<leader>gs", Cmd.git_status, desc = "Modified Files" },
+        }
+    end,
     opts = function()
         local actions = require("telescope.actions")
 
@@ -54,7 +114,7 @@ M.spec = {
             defaults = {
                 prompt_prefix = " ",
                 selection_caret = " ",
-                winblend = 10,
+                winblend = 5,
                 initial_mode = "insert",
                 selection_strategy = "reset",
                 sorting_strategy = "descending",
@@ -95,9 +155,6 @@ M.spec = {
                         preview_cutoff = 40,
                         width = 0.8,
                     },
-                    width = 0.65,
-                    height = 0.65,
-                    preview_cutoff = 10,
                 },
                 mappings = {
                     i = {
@@ -178,8 +235,14 @@ M.spec = {
                 diagnostics = quick_flex_window,
                 git_files = quick_flex_window,
                 git_status = {
-                    theme = "ivy",
-                    initial_mode = "insert",
+                    show_line = false,
+                    layout_strategy = "vertical",
+                    layout_config = {
+                        width = 0.9,
+                        height = 0.9,
+                        preview_cutoff = 1,
+                        mirror = false,
+                    },
                 },
                 list_tabs = {
                     theme = "dropdown",
