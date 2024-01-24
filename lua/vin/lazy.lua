@@ -22,6 +22,7 @@ require("lazy").setup("vin.specs", {
     install = {
         colorscheme = {
             "terra_winter_night",
+            "default",
             "habamax",
         },
     },

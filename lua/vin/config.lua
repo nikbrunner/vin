@@ -1,6 +1,6 @@
 ---@class VinConfig
 local config = {
-    ---@type TerraConfig.ColorSchemeName
+    ---@type TerraConfig.ColorSchemeName | "default"
     colorscheme = "terra_winter_night",
     pathes = {
         notes = {
