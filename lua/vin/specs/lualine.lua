@@ -7,7 +7,7 @@ M.spec = {
         "meuter/lualine-so-fancy.nvim",
         "piersolenski/wtf.nvim",
     },
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     opts = function()
         local wtf = require("wtf")
 
