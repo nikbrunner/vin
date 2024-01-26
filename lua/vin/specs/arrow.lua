@@ -8,6 +8,7 @@ M.spec = {
         show_icons = true,
         always_show_path = true,
         leader_key = ";",
+        separate_by_branch = true,
         mappings = {
             edit = "e",
             delete_mode = "d",
