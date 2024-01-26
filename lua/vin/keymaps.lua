@@ -8,7 +8,7 @@ local function set(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
-set("n", "<CR>", vim.cmd.wa, { desc = "Save file" })
+set("n", "<C-s>", vim.cmd.wa, { desc = "Save all" })
 
 set("i", "kj", "<Esc>", { desc = "Escape" })
 
