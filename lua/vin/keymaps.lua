@@ -8,11 +8,7 @@ local function set(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
-set("n", "<C-s>", vim.cmd.wa, { desc = "Save all" })
-
 set("i", "kj", "<Esc>", { desc = "Escape" })
-
-set("n", "<C-q>", "<cmd>wqa<cr>", { desc = "Save and quit" })
 
 set("n", "Q", "<nop>")
 
