@@ -135,7 +135,6 @@ M.spec = {
                     lazy_startup,
                     lazy_plug_count,
                     lazy_updates,
-                    "fancy_lsp_servers",
                 },
                 lualine_z = {
                     "fancy_filetype",
