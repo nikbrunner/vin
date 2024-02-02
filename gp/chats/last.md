@@ -1,1 +1,1 @@
-/Users/nikolausbrunner/.config/vin/gp/chats/2024-01-21.16-16-23.232.md
+/Users/nikolausbrunner/.config/vin/gp/chats/2024-02-01.15-14-27.471.md
