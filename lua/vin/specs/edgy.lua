@@ -78,17 +78,17 @@ M.spec = {
                 ft = "neotest-summary",
                 width = 60,
             },
-        },
-
-        bottom = {
-            "Trouble",
             {
                 ft = "help",
                 filter = function(buf)
                     return vim.bo[buf].buftype == "help"
                 end,
-                size = { height = 0.4 },
+                size = { height = 0.4, width = 85 },
             },
+        },
+
+        bottom = {
+            "Trouble",
             {
                 ft = "spectre_panel",
                 title = "Spectre",
