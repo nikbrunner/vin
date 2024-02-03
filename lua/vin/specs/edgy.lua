@@ -107,6 +107,11 @@ M.spec = {
                 ft = "neotest-output-panel",
             },
             {
+                title = "Term",
+                ft = "FTerm",
+                size = { height = 0.35 },
+            },
+            {
                 ft = "noice",
                 size = { height = 0.4 },
                 filter = function(_, win)

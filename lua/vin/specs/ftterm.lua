@@ -49,6 +49,20 @@ M.spec = {
 
         return {
             {
+                "<A-i>",
+                mode = "n",
+                function()
+                    require("FTerm").toggle()
+                end,
+            },
+            {
+                "<A-i>",
+                mode = "t",
+                function()
+                    require("FTerm").toggle()
+                end,
+            },
+            {
                 "<leader>gg",
                 mode = "n",
                 function()
