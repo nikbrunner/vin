@@ -104,7 +104,7 @@ M.spec = {
         { "<leader>sc",          M.fzf("commands"), desc = "Commands", },
         { "<leader>sC",          M.fzf("command_history"), desc = "Command History", },
         { "<leader>sk",          M.fzf("keymaps"), desc = "Keymaps", },
-        { "<leader>sw",          M.fzf("grep_cword"), desc = "Current Word", },
+        { "<leader>sw",          M.fzf("grep_cword"), desc = "Current Word", mode = { "n", "v" } },
         { "<leader>sm",          M.fzf("marks"), desc = "Marks", },
         { "<leader>sM",          M.fzf("man_pages"), desc = "Man Pages", },
         { "<leader>ss",          M.fzf("lsp_document_symbols"), desc = "Document Symbols", },
