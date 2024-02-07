@@ -30,6 +30,9 @@ M.spec = {
         variant = "night",
         dark_sidebars = true,
         transparency = "partial",
+        styles = {
+            cmp_kind_color_mode = "bg",
+        },
         diagnostics = {
             background = true,
         },
