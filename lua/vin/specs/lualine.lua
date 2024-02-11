@@ -77,24 +77,21 @@ M.spec = {
             padding = 1,
         }
 
-        local dap_status = {
-            function()
-                return "  " .. require("dap").status()
-            end,
-            cond = function()
-                return package.loaded["dap"] and require("dap").status() ~= ""
-            end,
-        }
-
-        local noice_status = {
-            function()
-                ---@diagnostic disable-next-line: undefined-field
-                return require("noice").api.status.mode.get()
-            end,
-            cond = function()
-                ---@diagnostic disable-next-line: undefined-field
-                return package.loaded["noice"] and require("noice").api.status.mode.has()
-            end,
+        local copilot = {
+            "copilot",
+            symbols = {
+                status = {
+                    icons = {
+                        enabled = " ",
+                        sleep = " ", -- auto-trigger disabled
+                        disabled = " ",
+                        warning = " ",
+                        unknown = " ",
+                    },
+                },
+            },
+            show_colors = true,
+            show_loading = true,
         }
 
         return {
@@ -120,19 +117,15 @@ M.spec = {
                     tabs,
                 },
                 lualine_c = {
-                    "diagnostics",
+                    "fancy_diagnostics",
                 },
                 lualine_x = {
-                    noice_status,
-                    { "fancy_diagnostics" },
-                    { "fancy_searchcount" },
+                    copilot,
                 },
                 lualine_y = {
                     wtf.get_status,
-                    dap_status,
-                    lazy_startup,
-                    lazy_plug_count,
                     lazy_updates,
+                    "fancy_searchcount",
                     "fancy_location",
                 },
                 lualine_z = {

@@ -70,6 +70,7 @@ M.spec = {
                 ["<leader>s"] = { name = "Search" },
                 ["<leader>t"] = { name = "Test" },
                 ["<leader>i"] = { name = "Intelligence" },
+                ["<leader>ip"] = { name = "Copilot" },
                 ["<leader>T"] = { name = "Terra" },
                 ["<leader>u"] = { name = "UI" },
                 ["<leader>w"] = { name = "Windows" },
