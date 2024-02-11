@@ -126,7 +126,7 @@ create_autocmd("ColorScheme", {
             ["terra_spring_night"] = { name = "Gruvbox dark, hard (base16)", background = "#212523" },
             ["terra_summer_night"] = { name = "Ayu Mirage", background = "#1f2129" },
             ["terra_fall_night"] = { name = "Gruvbox Material (Gogh)", background = "#252221" },
-            ["terra_winter_night"] = { name = "terafox", background = "#23272D" },
+            ["terra_winter_night"] = { name = "nord", background = "#232427" },
         }
 
         local neovim_colorscheme = args.match
