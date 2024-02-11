@@ -12,22 +12,6 @@ M.spec = {
             bt_ignore = { "nofile", "terminal" },
             segments = {
                 {
-                    sign = {
-                        name = { ".*" },
-                        text = { ".*" },
-                    },
-                    click = "v:lua.ScSa",
-                },
-                {
-                    text = { builtin.lnumfunc },
-                    condition = { true, builtin.not_empty },
-                    click = "v:lua.ScLa",
-                },
-                {
-                    sign = { namespace = { "gitsigns" }, colwidth = 2, wrap = true },
-                    click = "v:lua.ScSa",
-                },
-                {
                     text = {
                         function(args)
                             args.fold.close = " "
@@ -37,6 +21,12 @@ M.spec = {
                         end,
                     },
                     click = "v:lua.ScFa",
+                },
+                { text = { "%s" }, click = "v:lua.ScSa" },
+                {
+                    text = { builtin.lnumfunc, " " },
+                    condition = { true, builtin.not_empty },
+                    click = "v:lua.ScLa",
                 },
             },
         }
