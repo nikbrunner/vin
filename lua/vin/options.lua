@@ -29,7 +29,6 @@ vim.opt.fillchars = {
     fold = " ",
     foldsep = " ",
     diff = "╱",
-    eob = " ",
 }
 
 vim.opt.number = true -- set numbered lines
