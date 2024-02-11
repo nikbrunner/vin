@@ -28,13 +28,13 @@ M.spec = {
         debug = false,
         theme = "fall",
         variant = "night",
-        dark_sidebars = true,
-        transparency = "partial",
         styles = {
+            dark_sidebars = true,
+            transparency = "none",
             cmp_kind_color_mode = "bg",
-        },
-        diagnostics = {
-            background = true,
+            diagnostics = {
+                background = true,
+            },
         },
     },
 }
