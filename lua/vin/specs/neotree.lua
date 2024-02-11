@@ -179,6 +179,7 @@ M.spec = {
                 popup = {
                     size = {
                         height = 20,
+                        width = 40,
                     },
                     position = "50%", -- 50% means center it
                 },
