@@ -16,13 +16,9 @@ set("n", "Q", "<nop>")
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
--- Easy going to start/end of line
--- set("n", "H", "^", { desc = "Move to Start of Line" })
--- set("n", "L", "$", { desc = "Move to End of Line" })
-
--- Navigating the jumplist. This is a hack, because the the escape sequences for <C-o> and <C-i> are not working.
-set("n", "H", "<C-o>zz", { desc = "Move back in jump list" })
-set("n", "L", "<C-i>zz", { desc = "Move forward in jump list" })
+-- Jump back and forth in the jump list while keeping the cursor centered
+set("n", "<C-o>", "<C-o>zz", { desc = "Move back in jump list" })
+set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
 
 -- Combined commands
 -- set("n", "vv", "^v$", { desc = "Select Line" })
@@ -166,8 +162,8 @@ set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous Diagnostic" })
 set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
 
 -- Tab Navigation
-set("n", "<Tab>", vim.cmd.tabnext, { desc = "Next Tab" })
-set("n", "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Tab" })
+set("n", "H", vim.cmd.tabnext, { desc = "Next Tab" })
+set("n", "L", vim.cmd.tabprevious, { desc = "Previous Tab" })
 set("n", "<leader><tab><tab>", vim.cmd.tabnew, { desc = "New Tab" })
 set("n", "<leader><tab>o", vim.cmd.tabonly, { desc = "Close All Other Tabs" })
 set("n", "<leader><tab>q", vim.cmd.tabclose, { desc = "Close Tab" })
