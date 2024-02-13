@@ -1,11 +1,28 @@
 local M = {}
 
+vim.g.null_ls_auto_format_enabled = true
+
 ---@type LazySpec
 M.spec = {
     "nvimtools/none-ls.nvim",
     event = "VeryLazy",
     dependencies = {
         "nvim-lua/plenary.nvim",
+    },
+    keys = {
+        {
+            "<leader>cf",
+            "<CMD>NullFormat<CR>",
+            desc = "Format using null-ls",
+        },
+        {
+            "<leader>cF",
+            function()
+                vim.g.null_ls_auto_format_enabled = not vim.g.null_ls_auto_format_enabled
+                vim.notify("Auto format " .. (vim.g.null_ls_auto_format_enabled and "enabled" or "disabled"))
+            end,
+            desc = "Toggle auto format",
+        },
     },
     config = function()
         local null_ls = require("null-ls")
@@ -38,7 +55,11 @@ M.spec = {
                         desc = "Auto format before save",
                         pattern = "<buffer>",
                         group = augroup,
-                        callback = format,
+                        callback = function ()
+                            if vim.g.null_ls_auto_format_enabled then
+                                format()
+                            end
+                        end,
                     })
                 end
             end,

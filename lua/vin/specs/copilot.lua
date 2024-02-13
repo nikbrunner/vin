@@ -19,7 +19,6 @@ end
 M.spec = {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
-    dependencies = { "AndreM222/copilot-lualine" },
     keys = {
         {
             "<leader>ipa",

@@ -263,7 +263,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
         )
 
         set("n", "<leader>cr", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
-
-        set("n", "<leader>cf", "<CMD>NullFormat<CR>", vim.tbl_extend("force", opts, { desc = "Format" }))
     end,
 })

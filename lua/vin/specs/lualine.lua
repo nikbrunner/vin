@@ -6,6 +6,7 @@ M.spec = {
     dependencies = {
         "meuter/lualine-so-fancy.nvim",
         "piersolenski/wtf.nvim",
+        "AndreM222/copilot-lualine",
     },
     event = "VeryLazy",
     opts = function()
@@ -94,6 +95,16 @@ M.spec = {
             show_loading = true,
         }
 
+        local auto_format_indicator = {
+            function()
+                if vim.g.null_ls_auto_format_enabled then
+                    return "AF: ✅"
+                else
+                    return "AF: ❌"
+                end
+            end,
+        }
+
         return {
             options = {
                 theme = "terra",
@@ -121,6 +132,7 @@ M.spec = {
                 },
                 lualine_x = {
                     copilot,
+                    auto_format_indicator,
                 },
                 lualine_y = {
                     wtf.get_status,
