@@ -10,14 +10,14 @@ M.spec = {
         {
             "<leader>vtt",
             function()
-                require("terra-core.utils.config").select_theme()
+                require("terra-core.lib.config").select_theme()
             end,
             desc = "Select theme",
         },
         {
             "<leader>vtv",
             function()
-                require("terra-core.utils.config").select_variant()
+                require("terra-core.lib.config").select_variant()
             end,
             desc = "Select variant",
         },
