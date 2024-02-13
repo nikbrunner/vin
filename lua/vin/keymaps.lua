@@ -21,7 +21,6 @@ set("n", "<C-o>", "<C-o>zz", { desc = "Move back in jump list" })
 set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
 
 -- Combined commands
--- set("n", "vv", "^v$", { desc = "Select Line" })
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
 
@@ -266,11 +265,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
         set("n", "<leader>cr", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
 
         set("n", "<leader>cf", "<CMD>NullFormat<CR>", vim.tbl_extend("force", opts, { desc = "Format" }))
-
-        -- set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-        -- set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
-        -- set("n", "<leader>wl", function()
-        --     print(vim.inspect(vim.lsp.buf.list_workleader_folders()))
-        -- end, opts)
     end,
 })
