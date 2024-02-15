@@ -3,7 +3,7 @@ local M = {}
 ---@type LazySpec
 M.spec = {
     "otavioschwanck/arrow.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "VeryLazy" },
     opts = {
         show_icons = true,
         always_show_path = true,
