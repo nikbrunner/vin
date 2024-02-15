@@ -161,20 +161,19 @@ set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous Diagnostic" })
 set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
 
 -- Tab Navigation
-set("n", "H", vim.cmd.tabnext, { desc = "Next Tab" })
-set("n", "L", vim.cmd.tabprevious, { desc = "Previous Tab" })
-set("n", "<leader><tab><tab>", vim.cmd.tabnew, { desc = "New Tab" })
-set("n", "<leader><tab>o", vim.cmd.tabonly, { desc = "Close All Other Tabs" })
-set("n", "<leader><tab>q", vim.cmd.tabclose, { desc = "Close Tab" })
-set("n", "<leader><tab>1", "1gt", { desc = "Go to Tab 1" })
-set("n", "<leader><tab>2", "2gt", { desc = "Go to Tab 2" })
-set("n", "<leader><tab>3", "3gt", { desc = "Go to Tab 3" })
-set("n", "<leader><tab>4", "4gt", { desc = "Go to Tab 4" })
-set("n", "<leader><tab>5", "5gt", { desc = "Go to Tab 5" })
-set("n", "<leader><tab>6", "6gt", { desc = "Go to Tab 6" })
-set("n", "<leader><tab>7", "7gt", { desc = "Go to Tab 7" })
-set("n", "<leader><tab>8", "8gt", { desc = "Go to Tab 8" })
-set("n", "<leader><tab>9", "9gt", { desc = "Go to Tab 9" })
+set("n", "L", vim.cmd.tabnext, { desc = "Next Tab" })
+set("n", "H", vim.cmd.tabprevious, { desc = "Previous Tab" })
+
+for i = 1, 9 do
+    set("n", "<leader>" .. i, function()
+        -- check if tab exists, otherwise create it
+        if vim.fn.tabpagenr("$") < i then
+            vim.cmd("tabnew")
+        end
+
+        vim.cmd(i .. "tabnext")
+    end, { desc = "Go to Tab " .. i })
+end
 
 -- Center screen when using <C-u> and <C-d>
 set({ "n", "i", "c" }, "<C-u>", "<C-u>zz", { desc = "Scroll Up" })
