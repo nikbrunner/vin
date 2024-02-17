@@ -107,10 +107,11 @@ M.spec = {
         { "<leader>sw",          M.fzf("grep_cword"), desc = "Current Word", mode = { "n", "v" } },
         { "<leader>sm",          M.fzf("marks"), desc = "Marks", },
         { "<leader>sM",          M.fzf("man_pages"), desc = "Man Pages", },
-        { "<leader>ss",          M.fzf("lsp_document_symbols"), desc = "Document Symbols", },
-        { "<leader>sS",          M.fzf("lsp_live_workspace_symbols"), desc = "Workspace Symbols", },
+        { "gs",                  M.fzf("lsp_document_symbols"), desc = "Document Symbols", },
+        { "gS",                  M.fzf("lsp_live_workspace_symbols"), desc = "Workspace Symbols", },
         { "<leader>sR",          M.fzf("resume"), desc = "Resume", },
         { "<leader>sg",          M.fzf("live_grep_native", { winopts = M.win_presets.large.vertical }), desc = "Live Grep", },
+        { "<leader>sG",          M.fzf("live_grep_resume", { winopts = M.win_presets.large.vertical }), desc = "Live Grep Resume", },
         { "<leader>s<tab>",      M.fzf("tabs"), desc = "Tabs", },
         { "<leader>vc",          M.fzf("colorschemes"), desc = "Colorschemes", },
         -- Currently using telescope for this, because this is broken in neovim 0.10
@@ -344,7 +345,7 @@ M.spec = {
                 file_icons = true, -- show file icons?
                 color_icons = true, -- colorize file|git icons
                 rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512",
-                grep_opts = "--binary-files=without-match --line-number --recursive --color=auto --perl-regexp",
+                grep_opts = "--binary-files=without-match --line-number --recursive --color=auto",
                 -- 'live_grep_glob' options:
                 glob_flag = "--iglob", -- for case sensitive globs use '--glob'
                 glob_separator = "%s%-%-", -- query separator pattern (lua): ' --'
