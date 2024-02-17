@@ -125,7 +125,6 @@ M.spec = {
                     project_name,
                     "fancy_branch",
                     "francy_diff",
-                    tabs,
                 },
                 lualine_c = {
                     "fancy_diagnostics",
