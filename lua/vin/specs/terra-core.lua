@@ -1,6 +1,6 @@
 local M = {}
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "terra-theme/terra-core.nvim",
     dev = true,
@@ -22,11 +22,10 @@ M.spec = {
             desc = "Select variant",
         },
     },
-
     ---@type TerraConfig
     opts = {
         debug = false,
-        theme = "fall",
+        theme = "winter",
         variant = "night",
         styles = {
             dark_sidebars = true,
