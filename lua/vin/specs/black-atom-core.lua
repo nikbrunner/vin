@@ -2,7 +2,7 @@ local M = {}
 
 ---@type LazyPluginSpec
 M.spec = {
-    "terra-theme/terra-core.nvim",
+    "black-atom-industries/black-atom-core.nvim",
     dev = true,
     lazy = false,
     priority = 1000,
@@ -36,6 +36,9 @@ M.spec = {
             },
         },
     },
+    config = function(_, opts)
+        require("terra-core").setup(opts)
+    end,
 }
 
 return M.spec
