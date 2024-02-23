@@ -1,12 +1,97 @@
 local M = {}
 
+function M.telescope(cmd, opts)
+    return function()
+        require("telescope.builtin")[cmd](opts or {})
+    end
+end
+
+local delta_previewer = function()
+    return require("telescope.previewers").new_termopen_previewer({
+        get_command = function(entry)
+            if entry.status == "??" or "A " then
+                return {
+                    "git",
+                    "-c",
+                    "core.pager=delta",
+                    "-c",
+                    "delta.side-by-side=true",
+                    "diff",
+                    entry.value,
+                }
+            end
+
+            return {
+                "git",
+                "-c",
+                "core.pager=delta",
+                "-c",
+                "delta.side-by-side=true",
+                "diff",
+                entry.value .. "^!",
+            }
+        end,
+        teardown = function(self)
+            -- Close the terminal buffer (~/.local/share/vin/lazy/telescope.nvim/lua/telescope/previewers/term_previewer.lua)
+            self.state.termopen_bufnr = nil
+            self.state.termopen_id = nil
+        end,
+    })
+end
+
+function M.git_status()
+    if vim.fn.system("git status --porcelain") == "" then
+        vim.notify("No changes to commit", vim.log.levels.INFO)
+        return
+    else
+        M.telescope("git_status", {
+            previewer = delta_previewer(),
+        })()
+    end
+end
+
+function M.git_commits()
+    M.builtin("git_commits", {
+        previewer = delta_previewer(),
+    })()
+end
+
+M.folder_presets = {
+    vin = "~/.config/vin",
+    lazyvin = "~/.config/lazyvin",
+    config = "~/.config",
+    personal_notes = require("vin.config").pathes.notes.personal,
+    dcd_notes = require("vin.config").pathes.notes.work.dcd,
+}
+
+function M.search_preset_folder()
+    local choices = {}
+
+    for key, _ in pairs(M.folder_presets) do
+        table.insert(choices, key)
+    end
+
+    vim.ui.select(choices, {
+        prompt = "Pick a folder: ",
+        format_item = function(choice)
+            return " " .. choice
+        end,
+    }, function(choice)
+        if choice == nil then
+            return
+        end
+
+        M.telescope("find_files", {
+            cwd = M.folder_presets[choice],
+        })()
+    end)
+end
+
 ---@type LazySpec
 M.spec = {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     event = "VeryLazy",
-    ---@diagnostic disable-next-line: assign-type-mismatch
-    version = false, -- telescope did only one release, so use HEAD for now
     dependencies = {
         {
             "nvim-telescope/telescope-fzf-native.nvim",
@@ -17,70 +102,32 @@ M.spec = {
             end,
         },
     },
-    ---@diagnostic disable-next-line: assign-type-mismatch
-    keys = function()
-        local Cmd = {}
-
-        Cmd.delta_previewer = require("telescope.previewers").new_termopen_previewer({
-            get_command = function(entry)
-                if entry.status == "??" or "A " then
-                    return {
-                        "git",
-                        "-c",
-                        "core.pager=delta",
-                        "-c",
-                        "delta.side-by-side=true",
-                        "diff",
-                        entry.value,
-                    }
-                end
-
-                return {
-                    "git",
-                    "-c",
-                    "core.pager=delta",
-                    "-c",
-                    "delta.side-by-side=true",
-                    "diff",
-                    entry.value .. "^!",
-                }
-            end,
-            teardown = function(self)
-                -- Close the terminal buffer (~/.local/share/vin/lazy/telescope.nvim/lua/telescope/previewers/term_previewer.lua)
-                self.state.termopen_bufnr = nil
-                self.state.termopen_id = nil
-            end,
-        })
-
-        function Cmd.builtin(builtin, opts)
-            return function()
-                require("telescope.builtin")[builtin](opts or {})
-            end
-        end
-
-        function Cmd.git_status()
-            if vim.fn.system("git status --porcelain") == "" then
-                vim.notify("No changes to commit", vim.log.levels.INFO)
-                return
-            else
-                Cmd.builtin("git_status", {
-                    previewer = Cmd.delta_previewer,
-                })()
-            end
-        end
-
-        function Cmd.git_commits()
-            Cmd.builtin("git_commits", {
-                previewer = Cmd.delta_previewer,
-            })()
-        end
-
-        return {
-            -- Most fuzzy searching commands are run via fzflua
-            { "<leader>so", Cmd.builtin("vim_options"), desc = "Vim Options" },
-            { "<leader>gs", Cmd.git_status, desc = "Modified Files" },
-        }
-    end,
+    keys = {
+        { "<leader><space>", M.telescope("find_files"), desc = "Files" },
+        { "<leader>:", M.telescope("commands"), desc = "Commands" },
+        { "<leader>,", M.telescope("jumplist"), desc = "Jumplist" },
+        { "<leader>/", M.telescope("current_buffer_fuzzy_find"), desc = "Search in buffer" },
+        { "<leader>r", M.telescope("oldfiles", { cwd_only = true }), desc = "Recent Files" },
+        { "<leader>R", M.telescope("oldfiles", { cwd_only = false }), desc = "Recent Files (All CWD)" },
+        { "<leader>gs", M.git_status, desc = "Git Status" },
+        { "<leader>sH", M.telescope("highlights"), desc = "Highlights" },
+        { "<leader>sd", M.telescope("diagnostics"), desc = "Diagnostics" },
+        { "<leader>sg", M.telescope("live_grep"), desc = "Diagnostics" },
+        { "<leader>sgb", M.telescope("git_branches"), desc = "Git Branches" },
+        { "<leader>sgc", M.telescope("git_commits"), desc = "Git Commits" },
+        { "<leader>sh", M.telescope("help_tags"), desc = "Help" },
+        { "<leader>sk", M.telescope("keymaps"), desc = "Keymaps" },
+        { "<leader>sm", M.telescope("marks"), desc = "Marks" },
+        { "<leader>sM", M.telescope("man_pages"), desc = "Man Pages" },
+        { "<leader>so", M.telescope("vim_options"), desc = "Vim Options" },
+        { "<leader>sr", M.telescope("resume"), desc = "Resume" },
+        { "<leader>st", M.telescope("treesitter"), desc = "Treesitter" },
+        { "<leader>sw", M.telescope("grep_cword"), desc = "Current Word", mode = { "n", "v" } },
+        { "<leader>vc", M.telescope("colorschemes"), desc = "Colorschemes" },
+        { "<leader>s/", M.search_preset_folder, desc = "Preset folders" },
+        { "gs", M.telescope("lsp_document_symbols"), desc = "Document Symbols" },
+        { "gS", M.telescope("lsp_live_workspace_symbols"), desc = "Workspace Symbols" },
+    },
     opts = function()
         local actions = require("telescope.actions")
 
@@ -88,8 +135,8 @@ M.spec = {
             show_line = false,
             layout_strategy = "flex",
             layout_config = {
-                width = 0.65,
-                height = 0.65,
+                width = 0.75,
+                height = 0.75,
                 preview_cutoff = 1,
                 mirror = false,
                 flip_columns = 150,
@@ -237,16 +284,9 @@ M.spec = {
                 git_status = {
                     theme = "ivy",
                 },
-                list_tabs = {
-                    theme = "dropdown",
-                    initial_mode = "insert",
-                },
                 buffers = vim.tbl_extend("keep", quick_flex_window, {
                     initial_mode = "insert",
                 }),
-                current_buffer_fuzzy_find = {
-                    theme = "ivy",
-                },
                 spell_suggest = {
                     theme = "cursor",
                 },
@@ -254,7 +294,9 @@ M.spec = {
                     theme = "dropdown",
                     enable_preview = true,
                 },
-                oldfiles = quick_flex_window,
+                oldfiles = {
+                    theme = "ivy",
+                },
                 commands = {
                     theme = "ivy",
                 },

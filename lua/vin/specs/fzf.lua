@@ -87,6 +87,7 @@ end
 M.spec = {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    enabled = false,
     keys = {
         -- stylua: ignore start
         { "<leader><space>",     M.fzf("files"), desc = "Files", },
@@ -191,7 +192,7 @@ M.spec = {
                 ["--keep-right"] = "",
                 ["--reverse"] = "",
                 -- ["--border"] = "bold",
-                ["--border-label"] = "'[ LazyVin ]'",
+                ["--border-label"] = "[ Vin ]",
                 ["--padding"] = "1,2",
                 ["--no-scrollbar"] = "",
                 ["--no-separator"] = "",
@@ -370,52 +371,6 @@ M.spec = {
                 },
             },
 
-            lines = {
-                previewer = "builtin", -- set to 'false' to disable
-                prompt = "Lines❯ ",
-                show_unlisted = false, -- exclude 'help' buffers
-                no_term_buffers = true, -- exclude 'term' buffers
-                fzf_opts = {
-                    -- do not include bufnr in fuzzy matching
-                    -- tiebreak by line no.
-                    ["--delimiter"] = vim.fn.shellescape("]"),
-                    ["--nth"] = "2..",
-                    ["--tiebreak"] = "index",
-                },
-                actions = {
-                    ["default"] = actions.buf_edit,
-                    ["ctrl-s"] = actions.buf_split,
-                    ["ctrl-v"] = actions.buf_vsplit,
-                    ["ctrl-t"] = actions.buf_tabedit,
-                },
-            },
-
-            blines = {
-                previewer = "builtin", -- set to 'false' to disable
-                prompt = "BLines❯ ",
-                show_unlisted = true, -- include 'help' buffers
-                no_term_buffers = false, -- include 'term' buffers
-                fzf_opts = {
-                    -- hide filename, tiebreak by line no.
-                    ["--delimiter"] = vim.fn.shellescape("[:]"),
-                    ["--with-nth"] = "2..",
-                    ["--tiebreak"] = "index",
-                },
-                actions = {
-                    ["default"] = actions.buf_edit,
-                    ["ctrl-s"] = actions.buf_split,
-                    ["ctrl-v"] = actions.buf_vsplit,
-                    ["ctrl-t"] = actions.buf_tabedit,
-                },
-            },
-
-            colorschemes = {
-                prompt = "Colorschemes❯ ",
-                live_preview = true, -- apply the colorscheme on preview?
-                actions = { ["default"] = actions.colorscheme },
-                winopts = { height = 0.55, width = 0.30 },
-            },
-
             quickfix = {
                 file_icons = true,
                 git_icons = true,
@@ -435,6 +390,7 @@ M.spec = {
                         return "[" .. s .. "]"
                     end,
                 },
+
                 code_actions = {
                     prompt = "Code Actions> ",
                     ui_select = true, -- use 'vim.ui.select'?
@@ -451,11 +407,6 @@ M.spec = {
                         width = 0.60,
                     },
                 },
-            },
-
-            file_icon_padding = "",
-            file_icon_colors = {
-                ["lua"] = "blue",
             },
         }
     end,
