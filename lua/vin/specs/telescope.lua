@@ -50,8 +50,9 @@ function M.git_status()
     end
 end
 
+-- TODO: Why does the delta_previewer not work here?
 function M.git_commits()
-    M.builtin("git_commits", {
+    M.telescope("git_commits", {
         previewer = delta_previewer(),
     })()
 end
@@ -103,19 +104,30 @@ M.spec = {
         },
     },
     keys = {
-        { "<leader><space>", M.telescope("find_files"), desc = "Files" },
-        { "<leader>:", M.telescope("commands"), desc = "Commands" },
+        {
+            "<leader><space>",
+            function()
+                if vim.fn.system("git rev-parse --is-inside-work-tree") == "true\n" then
+                    M.telescope("git_files", { show_untracked = true })()
+                else
+                    M.telescope("find_files")()
+                end
+            end,
+            desc = "Files",
+        },
         { "<leader>,", M.telescope("jumplist"), desc = "Jumplist" },
         { "<leader>/", M.telescope("current_buffer_fuzzy_find"), desc = "Search in buffer" },
+        { "<leader>:", M.telescope("commands"), desc = "Commands" },
+        { "<leader>gb", M.telescope("git_branches"), desc = "Git Branches" },
+        { "<leader>gc", M.telescope("git_commits"), desc = "Git Commits" },
+        { "<leader>gs", M.git_status, desc = "Git Status" },
         { "<leader>r", M.telescope("oldfiles", { cwd_only = true }), desc = "Recent Files" },
         { "<leader>R", M.telescope("oldfiles", { cwd_only = false }), desc = "Recent Files (All CWD)" },
-        { "<leader>gs", M.git_status, desc = "Git Status" },
-        { "<leader>sH", M.telescope("highlights"), desc = "Highlights" },
+        { "<leader>s/", M.search_preset_folder, desc = "Preset folders" },
         { "<leader>sd", M.telescope("diagnostics"), desc = "Diagnostics" },
         { "<leader>sg", M.telescope("live_grep"), desc = "Diagnostics" },
-        { "<leader>sgb", M.telescope("git_branches"), desc = "Git Branches" },
-        { "<leader>sgc", M.telescope("git_commits"), desc = "Git Commits" },
         { "<leader>sh", M.telescope("help_tags"), desc = "Help" },
+        { "<leader>sH", M.telescope("highlights"), desc = "Highlights" },
         { "<leader>sk", M.telescope("keymaps"), desc = "Keymaps" },
         { "<leader>sm", M.telescope("marks"), desc = "Marks" },
         { "<leader>sM", M.telescope("man_pages"), desc = "Man Pages" },
@@ -124,7 +136,6 @@ M.spec = {
         { "<leader>st", M.telescope("treesitter"), desc = "Treesitter" },
         { "<leader>sw", M.telescope("grep_cword"), desc = "Current Word", mode = { "n", "v" } },
         { "<leader>vc", M.telescope("colorschemes"), desc = "Colorschemes" },
-        { "<leader>s/", M.search_preset_folder, desc = "Preset folders" },
         { "gs", M.telescope("lsp_document_symbols"), desc = "Document Symbols" },
         { "gS", M.telescope("lsp_live_workspace_symbols"), desc = "Workspace Symbols" },
     },
@@ -273,6 +284,13 @@ M.spec = {
                     theme = "ivy",
                     initial_mode = "insert",
                 },
+                git_files = {
+                    hidden = true,
+                    file_ignore_patterns = { "^.git/", "^node_modules/" },
+                    show_line = false,
+                    theme = "ivy",
+                    initial_mode = "insert",
+                },
                 lsp_definitions = quick_flex_window,
                 lsp_references = quick_flex_window,
                 lsp_implementations = quick_flex_window,
@@ -280,7 +298,6 @@ M.spec = {
                 lsp_document_symbols = quick_flex_window,
                 lsp_workspace_symbols = quick_flex_window,
                 diagnostics = quick_flex_window,
-                git_files = quick_flex_window,
                 git_status = {
                     theme = "ivy",
                 },
