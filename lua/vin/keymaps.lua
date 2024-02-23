@@ -160,19 +160,17 @@ set("n", "gl", vim.diagnostic.open_float, { desc = "Open Diagnostic" })
 set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous Diagnostic" })
 set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
 
--- Tab Navigation
-set("n", "L", vim.cmd.tabnext, { desc = "Next Tab" })
-set("n", "H", vim.cmd.tabprevious, { desc = "Previous Tab" })
-
 for i = 1, 9 do
     set("n", "<leader>" .. i, function()
-        -- check if tab exists, otherwise create it
-        if vim.fn.tabpagenr("$") < i then
-            vim.cmd("tabnew")
-        end
+        local existing_tab_count = vim.fn.tabpagenr("$")
 
-        vim.cmd(i .. "tabnext")
-    end, { desc = "Go to Tab " .. i })
+        if existing_tab_count < i then
+            vim.cmd("tablast")
+            vim.cmd("tabnew")
+        else
+            vim.cmd(i .. "tabnext")
+        end
+    end, { desc = WhichKeyIgnoreLabel })
 end
 
 -- Center screen when using <C-u> and <C-d>
