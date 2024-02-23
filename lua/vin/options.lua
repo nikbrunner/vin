@@ -12,6 +12,9 @@ vim.opt.spelllang = "en_us,de_de"
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
 
+-- preview for substitution
+vim.opt.inccommand = "split"
+
 -- vim.opt.timeoutlen = 250 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.updatetime = 100 -- faster completion (4000ms default)
 
@@ -23,12 +26,25 @@ vim.opt.shiftwidth = 4
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "indent"
 
+vim.opt.breakindent = true
+
 vim.opt.fillchars = {
     foldopen = "",
     foldclose = "",
     fold = " ",
     foldsep = " ",
     diff = "╱",
+}
+
+-- Sets how neovim will display certain whitespace in the editor.
+--  See :help 'list'
+--  and :help 'listchars'
+vim.opt.list = true
+vim.opt.listchars = {
+    tab = "» ",
+    trail = "·",
+    nbsp = "␣",
+    -- space = "⋅",
 }
 
 vim.opt.number = true -- set numbered lines
