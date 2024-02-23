@@ -107,7 +107,7 @@ M.spec = {
 
         return {
             options = {
-                theme = "terra",
+                theme = "black_atom_core",
                 globalstatus = true,
                 section_separators = { left = "", right = "" },
                 component_separators = { left = "", right = "" },

@@ -1,6 +1,6 @@
 ---@class VinConfig
 local config = {
-    ---@type TerraConfig.ColorSchemeName | "terra_winter_night"
+    ---@type BlackAtomCore.Config.ColorSchemeName
     colorscheme = "terra_winter_night",
     pathes = {
         notes = {

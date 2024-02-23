@@ -8,37 +8,34 @@ M.spec = {
     priority = 1000,
     keys = {
         {
-            "<leader>vtt",
+            "<leader>bt",
             function()
-                require("terra-core.lib.config").select_theme()
+                require("black-atom-core.util").select_theme()
             end,
             desc = "Select theme",
         },
         {
-            "<leader>vtv",
+            "<leader>bv",
             function()
-                require("terra-core.lib.config").select_variant()
+                require("black-atom-core.util").select_variant()
             end,
             desc = "Select variant",
         },
     },
-    ---@type TerraConfig
+    ---@type BlackAtomCore.Config
     opts = {
         debug = false,
         theme = "winter",
         variant = "night",
         styles = {
             dark_sidebars = true,
-            transparency = "partial",
+            transparency = "none",
             cmp_kind_color_mode = "bg",
             diagnostics = {
                 background = true,
             },
         },
     },
-    config = function(_, opts)
-        require("terra-core").setup(opts)
-    end,
 }
 
 return M.spec
