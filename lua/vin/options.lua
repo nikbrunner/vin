@@ -15,8 +15,8 @@ vim.opt.cursorcolumn = false
 -- preview for substitution
 vim.opt.inccommand = "split"
 
--- vim.opt.timeoutlen = 250 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.updatetime = 100 -- faster completion (4000ms default)
+vim.opt.timeoutlen = 300 -- time to wait for a mapped sequence to complete (in milliseconds)
 
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
@@ -44,7 +44,6 @@ vim.opt.listchars = {
     tab = "» ",
     trail = "·",
     nbsp = "␣",
-    -- space = "⋅",
 }
 
 vim.opt.number = true -- set numbered lines
@@ -62,6 +61,7 @@ vim.opt.pumheight = 20 -- pop up menu height
 vim.opt.pumblend = 10 -- Popup blend
 
 vim.opt.showtabline = 2 -- hide tabline
+vim.opt.showmode = false -- hide mode
 vim.opt.laststatus = 3 -- global statusline
 
 vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
@@ -72,8 +72,7 @@ vim.opt.fileencoding = "utf-8"
 
 vim.opt.guifont = "JetBrains Mono:h16" -- the font used in graphical neovim applications,
 
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 24
+vim.opt.scrolloff = 10
 
 vim.opt.hlsearch = true -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true -- ignore case in search patterns
