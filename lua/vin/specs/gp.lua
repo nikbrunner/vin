@@ -1,6 +1,6 @@
 local M = {}
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "robitx/gp.nvim",
     event = "VeryLazy",

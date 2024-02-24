@@ -1,6 +1,6 @@
 local M = {}
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "folke/trouble.nvim",
     cmd = { "TroubleToggle", "Trouble" },

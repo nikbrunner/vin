@@ -83,7 +83,7 @@ M.fzf = function(cmd, opts)
     end
 end
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },

@@ -2,7 +2,7 @@ local M = {}
 
 vim.g.null_ls_auto_format_enabled = true
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "nvimtools/none-ls.nvim",
     event = "VeryLazy",
@@ -55,7 +55,7 @@ M.spec = {
                         desc = "Auto format before save",
                         pattern = "<buffer>",
                         group = augroup,
-                        callback = function ()
+                        callback = function()
                             if vim.g.null_ls_auto_format_enabled then
                                 format()
                             end

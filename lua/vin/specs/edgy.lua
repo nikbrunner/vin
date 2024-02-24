@@ -21,7 +21,7 @@ M.get_height = function(max_height)
     end
 end
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "folke/edgy.nvim",
     event = "VeryLazy",

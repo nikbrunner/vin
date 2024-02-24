@@ -1,6 +1,6 @@
 local M = {}
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "folke/zen-mode.nvim",
     keys = {

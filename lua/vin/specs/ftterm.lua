@@ -22,7 +22,7 @@ function M.restore_ctrl_hjkl(term)
     set("t", "<c-l>", "<c-l>", opts)
 end
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "numToStr/FTerm.nvim",
     ---@diagnostic disable-next-line: assign-type-mismatch

@@ -1,6 +1,6 @@
 local M = {}
 
----@type LazySpec[]
+---@type LazyPluginSpec[]
 M.specs = {
     {
         "echasnovski/mini.comment",

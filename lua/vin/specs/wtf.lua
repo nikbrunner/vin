@@ -1,6 +1,6 @@
 local M = {}
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "piersolenski/wtf.nvim",
     dependencies = {

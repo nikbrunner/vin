@@ -1,6 +1,6 @@
 local M = {}
 
----@type LazySpec[]
+---@type LazyPluginSpec[]
 M.specs = {
     {
         "L3MON4D3/LuaSnip",

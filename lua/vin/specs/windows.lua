@@ -1,6 +1,6 @@
 local M = {}
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "anuvyklack/windows.nvim",
     event = "VeryLazy",

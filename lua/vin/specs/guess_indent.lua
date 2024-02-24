@@ -1,6 +1,6 @@
 local M = {}
 
----@LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "nmac427/guess-indent.nvim",
     event = { "BufReadPre", "BufNewFile" },

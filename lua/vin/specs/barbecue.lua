@@ -1,4 +1,4 @@
----@type LazySpec
+---@type LazyPluginSpec
 local spec = {
     "utilyre/barbecue.nvim",
     event = "BufReadPre",

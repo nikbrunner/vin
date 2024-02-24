@@ -1,6 +1,6 @@
 local M = {}
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "nvim-pack/nvim-spectre",
     cmd = "Spectre",

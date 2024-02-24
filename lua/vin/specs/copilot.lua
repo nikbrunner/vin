@@ -15,7 +15,7 @@ function M.toggle_copilot()
     vim.notify("Copilot: " .. (state and "Enabled" or "Disabled"))
 end
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",

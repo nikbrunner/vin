@@ -29,7 +29,7 @@ function M.fold_virt_text_handler(virtText, lnum, endLnum, width, truncate)
 end
 
 ---@type LazyPluginSpec
-local spec = {
+M.spec = {
     "kevinhwang91/nvim-ufo",
     dependencies = {
         "kevinhwang91/promise-async",
@@ -102,4 +102,4 @@ local spec = {
     end,
 }
 
-return spec
+return M.spec

@@ -6,7 +6,7 @@ function M.telescope(cmd, opts)
     end
 end
 
-local delta_previewer = function()
+function M.delta_previewer()
     return require("telescope.previewers").new_termopen_previewer({
         get_command = function(entry)
             if entry.status == "??" or "A " then
@@ -45,7 +45,7 @@ function M.git_status()
         return
     else
         M.telescope("git_status", {
-            previewer = delta_previewer(),
+            previewer = M.delta_previewer(),
         })()
     end
 end
@@ -53,7 +53,7 @@ end
 -- TODO: Why does the delta_previewer not work here?
 function M.git_commits()
     M.telescope("git_commits", {
-        previewer = delta_previewer(),
+        previewer = M.delta_previewer(),
     })()
 end
 
@@ -88,7 +88,7 @@ function M.search_preset_folder()
     end)
 end
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
@@ -132,7 +132,9 @@ M.spec = {
         { "<leader>sm", M.telescope("marks"), desc = "Marks" },
         { "<leader>sM", M.telescope("man_pages"), desc = "Man Pages" },
         { "<leader>so", M.telescope("vim_options"), desc = "Vim Options" },
-        { "<leader>sr", M.telescope("resume"), desc = "Resume" },
+        { "<leader>sr", M.telescope("registers"), desc = "Registers", mode = { "n", "v" } },
+        { "<C-r>", M.telescope("registers"), desc = "Registers", mode = { "i" } },
+        { "<leader>s.", M.telescope("resume"), desc = "Resume" },
         { "<leader>st", M.telescope("treesitter"), desc = "Treesitter" },
         { "<leader>sw", M.telescope("grep_cword"), desc = "Current Word", mode = { "n", "v" } },
         { "<leader>vc", M.telescope("colorschemes"), desc = "Colorschemes" },

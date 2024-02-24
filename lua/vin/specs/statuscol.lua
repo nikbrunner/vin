@@ -1,5 +1,6 @@
 local M = {}
 
+---TODO: The git marker is on a different column, when there is no fold marker. Solve this.
 ---@type LazyPluginSpec
 M.spec = {
     "luukvbaal/statuscol.nvim",

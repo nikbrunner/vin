@@ -1,6 +1,6 @@
 local M = {}
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "ariel-frischer/bmessages.nvim",
     event = "VeryLazy",

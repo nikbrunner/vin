@@ -1,6 +1,6 @@
 local M = {}
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "uga-rosa/ccc.nvim",
     event = "VeryLazy",

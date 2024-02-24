@@ -2,7 +2,7 @@ local config = require("vin.config")
 
 local M = {}
 
----@type LazySpec[]
+---@type LazyPluginSpec[]
 M.specs = {
     {
         "williamboman/mason.nvim",

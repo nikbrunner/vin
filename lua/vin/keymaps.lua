@@ -8,27 +8,22 @@ local function set(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
-set("i", "kj", "<Esc>", { desc = "Escape" })
-
 set("n", "Q", "<nop>")
 
--- Shift lines in visual mode
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
--- Jump back and forth in the jump list while keeping the cursor centered
+set("n", "H", "^")
+set("n", "L", "$")
+
 set("n", "<C-o>", "<C-o>zz", { desc = "Move back in jump list" })
 set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
 
--- Combined commands
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
 
--- Delete things without polluting clipboard
-set("n", "x", '"_x', { desc = "Delete" })
-
--- In visual mode, replace the selected text with the last yanked content without saving the selection.
-set("x", "<leader>p", [["_dP]])
+set({ "n", "v" }, "<leader>p", '"0p', { desc = "Paste from 0 register" })
+set("n", "x", '"_x', { desc = "Delete without yanking" })
 
 -- Join lines while keeping position
 set("n", "J", "mzJ`z", { desc = "Join Lines" })
@@ -50,16 +45,22 @@ set("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 -- Clear search with <esc>
 set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
--- better indenting
+-- indenting and reselect
 set("v", "<", "<gv")
 set("v", ">", ">gv")
 
--- Add undo break-points
 set("i", ",", ",<c-g>u")
 set("i", ".", ".<c-g>u")
 set("i", ";", ";<c-g>u")
 
--- UI Group
+-- Center screen when using <C-u> and <C-d>
+set({ "n", "i", "c" }, "<C-u>", "<C-u>zz", { desc = "Scroll Up" })
+set({ "n", "i", "c" }, "<C-d>", "<C-d>zz", { desc = "Scroll Down" })
+
+-- Center screen when going to next/previous search result
+set("n", "n", "nzzzv")
+set("n", "N", "Nzzzv")
+
 set(
     "n",
     "<leader>ur",
@@ -173,17 +174,9 @@ for i = 1, 9 do
     end, { desc = WhichKeyIgnoreLabel })
 end
 
--- Center screen when using <C-u> and <C-d>
-set({ "n", "i", "c" }, "<C-u>", "<C-u>zz", { desc = "Scroll Up" })
-set({ "n", "i", "c" }, "<C-d>", "<C-d>zz", { desc = "Scroll Down" })
-
--- Center screen when going to next/previous search result
-set("n", "n", "nzzzv")
-set("n", "N", "Nzzzv")
-
 -- Vin Group
-set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
-set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
+set("n", "<leader>vl", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
+set("n", "<leader>vm", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
 set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 set("n", "<leader>vI", "<cmd>NullLsInfo<CR>", { desc = "NullLS Info" })
 set("n", "<leader>vr", "<cmd>LspRestart<CR>", { desc = "Restart LSP Server" })
@@ -248,12 +241,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             })
         end, opts)
 
-        set(
-            { "n", "v" },
-            "<leader>ca",
-            "<CMD>FzfLua lsp_code_actions<CR>",
-            vim.tbl_extend("force", opts, { desc = "Code Actions" })
-        )
+        set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Actions" }))
 
         set("n", "<leader>cr", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
     end,

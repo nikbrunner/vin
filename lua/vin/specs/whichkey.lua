@@ -1,6 +1,6 @@
 local M = {}
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -53,28 +53,26 @@ M.spec = {
                 ["gz"] = { name = "Surround" },
                 ["]"] = { name = "Next" },
                 ["["] = { name = "Prev" },
+
                 ["<leader>."] = { name = "TMUX" },
                 ["<leader>c"] = { name = "Code" },
                 ["<leader>cc"] = { name = "Copy" },
-                ["<leader>ci"] = { name = "(AI) Actions" },
                 ["<leader>e"] = { name = "Explorer" },
                 ["<leader>f"] = { name = "File & Find" },
-                ["<leader>fp"] = { name = "Preview (Markdown)" },
                 ["<leader>g"] = { name = "Git" },
                 ["<leader>gb"] = { name = "Buffer" },
                 ["<leader>gh"] = { name = "Hunks" },
                 ["<leader>v"] = { name = "Vin" },
-                ["<leader>b"] = { name = "Black Atom Core" },
-                ["<leader>q"] = { name = "Quit" },
+                ["<leader>b"] = { name = "Black Atom" },
                 ["<leader>s"] = { name = "Search" },
-                ["<leader>t"] = { name = "Test" },
                 ["<leader>i"] = { name = "Intelligence" },
-                ["<leader>ip"] = { name = "Copilot" },
                 ["<leader>u"] = { name = "UI" },
-                ["<leader>w"] = { name = "Windows" },
                 ["<leader>x"] = { name = "Diagnostics & Quickfix" },
-                ["<leader>S"] = { name = "Sessions" },
-                ["<leader><tab>"] = { name = "Tabs" },
+
+                -- TODO: placeholder
+                ["<leader>w"] = { name = "Workspace" },
+                ["<leader>d"] = { name = "Document" },
+                ["<leader>t"] = { name = "Test" },
             },
         })
     end,

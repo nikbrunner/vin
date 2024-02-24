@@ -1,7 +1,6 @@
----@diagnostic disable: assign-type-mismatch, missing-fields
 local M = {}
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "numToStr/Navigator.nvim",
     keys = {

@@ -2,7 +2,7 @@ local lib = require("vin.lib")
 
 local M = {}
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",

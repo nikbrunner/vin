@@ -1,11 +1,9 @@
 local M = {}
 
----@type LazySpec[]
+---@type LazyPluginSpec[]
 M.specs = {
     {
         "nvim-treesitter/nvim-treesitter",
-        ---@diagnostic disable-next-line: assign-type-mismatch
-        version = false, -- last release is way too old and doesn't work on Windows
         build = ":TSUpdate",
         event = { "VeryLazy" },
         opts = {

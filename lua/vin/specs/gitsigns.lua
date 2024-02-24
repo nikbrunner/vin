@@ -1,6 +1,6 @@
 local M = {}
 
----@type LazySpec
+---@type LazyPluginSpec
 M.spec = {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -24,19 +24,18 @@ M.spec = {
             map("n", "]g", gs.next_hunk, "Next Hunk")
             map("n", "[g", gs.prev_hunk, "Prev Hunk")
 
-            map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
-            map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
-            map({ "n", "v" }, "<leader>gl", ":Gitsigns toggle_current_line_blame<CR>", "Current Line Blame")
-
-            map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
-            map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
-            map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
-            map("n", "<leader>ghd", gs.diffthis, "Diff This")
+            map({ "n", "v" }, "<leader>ghs", gs.stage_hunk, "Stage Hunk")
+            map({ "n", "v" }, "<leader>ghr", gs.reset_hunk, "Reset Hunk")
+            map({ "n", "v" }, "<leader>gl", gs.toggle_current_line_blame, "Current Line Blame")
+            map({ "n", "v" }, "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
+            map({ "n", "v" }, "<leader>ghp", gs.preview_hunk, "Preview Hunk")
+            map({ "n", "v" }, "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
 
             map("n", "<leader>gbr", gs.reset_buffer, "Reset Buffer")
             map("n", "<leader>gbs", gs.stage_buffer, "Stage Buffer")
 
             map("n", "<leader>gd", function() gs.diffthis("~") end, "Diff This ~")
+            -- stylua: ignore end
         end,
     },
 }
