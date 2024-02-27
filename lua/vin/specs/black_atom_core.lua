@@ -14,19 +14,11 @@ M.spec = {
             end,
             desc = "Select theme",
         },
-        {
-            "<leader>bv",
-            function()
-                require("black-atom-core.util").select_variant()
-            end,
-            desc = "Select variant",
-        },
     },
     ---@type BlackAtomCore.Config
     opts = {
         debug = false,
-        theme = "winter",
-        variant = "night",
+        theme = "terra_winter_night",
         styles = {
             dark_sidebars = true,
             transparency = "partial",
