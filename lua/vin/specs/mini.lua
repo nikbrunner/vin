@@ -45,13 +45,13 @@ M.specs = {
                 function()
                     require("mini.notify").show_history()
                 end,
-                desc = "Notifications",
+                desc = "Notifications History",
             },
         },
         opts = {
             lsp_progress = {
                 -- oh god please stop annoying me
-                enable = false,
+                enable = true,
             },
 
             window = {
