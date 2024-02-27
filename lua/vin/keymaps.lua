@@ -158,8 +158,27 @@ set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 -- global diagnostic mappings
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 set("n", "gl", vim.diagnostic.open_float, { desc = "Open Diagnostic" })
-set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous Diagnostic" })
-set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
+
+set("n", "[d", function()
+    vim.diagnostic.goto_prev()
+end, { desc = "Previous Diagnostic" })
+set("n", "]d", function()
+    vim.diagnostic.goto_next()
+end, { desc = "Next Diagnostic" })
+
+set("n", "[w", function()
+    vim.diagnostic.goto_prev({ severity = "WARN" })
+end, { desc = "Warning" })
+set("n", "]w", function()
+    vim.diagnostic.goto_next({ severity = "WARN" })
+end, { desc = "Warning" })
+
+set("n", "[e", function()
+    vim.diagnostic.goto_prev({ severity = "ERROR" })
+end, { desc = "Error" })
+set("n", "]e", function()
+    vim.diagnostic.goto_next({ severity = "ERROR" })
+end, { desc = "Error" })
 
 for i = 1, 9 do
     set("n", "<leader>" .. i, function()
