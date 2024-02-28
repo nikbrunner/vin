@@ -56,7 +56,7 @@ vim.opt.swapfile = false -- creates a swapfile
 vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.undofile = true -- enable persistent undo
 
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 vim.opt.pumheight = 20 -- pop up menu height
 vim.opt.pumblend = 10 -- Popup blend
 
