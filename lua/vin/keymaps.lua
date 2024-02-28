@@ -13,9 +13,6 @@ set("n", "Q", "<nop>")
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
-set("n", "H", "^")
-set("n", "L", "$")
-
 set("n", "<C-o>", "<C-o>zz", { desc = "Move back in jump list" })
 set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
 
@@ -180,6 +177,8 @@ set("n", "]e", function()
     vim.diagnostic.goto_next({ severity = "ERROR" })
 end, { desc = "Error" })
 
+set("n", "H", vim.cmd.tabprevious, { desc = "Previous Tab" })
+set("n", "L", vim.cmd.tabnext, { desc = "Next Tab" })
 for i = 1, 9 do
     set("n", "<leader>" .. i, function()
         local existing_tab_count = vim.fn.tabpagenr("$")
