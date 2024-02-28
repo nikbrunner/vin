@@ -104,17 +104,18 @@ M.spec = {
         },
     },
     keys = {
-        {
-            "<leader><space>",
-            function()
-                if vim.fn.system("git rev-parse --is-inside-work-tree") == "true\n" then
-                    M.telescope("git_files", { show_untracked = true })()
-                else
-                    M.telescope("find_files")()
-                end
-            end,
-            desc = "Files",
-        },
+        -- For faster performance we use fzf-lua for this binding
+        -- {
+        --     "<leader><space>",
+        --     function()
+        --         if vim.fn.system("git rev-parse --is-inside-work-tree") == "true\n" then
+        --             M.telescope("git_files", { show_untracked = true })()
+        --         else
+        --             M.telescope("find_files")()
+        --         end
+        --     end,
+        --     desc = "Files",
+        -- },
         { "<leader>,", M.telescope("jumplist"), desc = "Jumplist" },
         { "<leader>/", M.telescope("current_buffer_fuzzy_find"), desc = "Search in buffer" },
         { "<leader>:", M.telescope("commands"), desc = "Commands" },
