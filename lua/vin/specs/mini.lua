@@ -23,13 +23,13 @@ M.specs = {
         event = "VeryLazy",
         opts = {
             mappings = {
-                add = "gSa", -- Add surrounding in Normal and Visual modes
-                delete = "gSd", -- Delete surrounding
-                find = "gSf", -- Find surrounding (to the right)
-                find_left = "gSF", -- Find surrounding (to the left)
-                highlight = "gSh", -- Highlight surrounding
-                replace = "gSr", -- Replace surrounding
-                update_n_lines = "gSn", -- Update `n_lines`
+                add = "Sa", -- Add surrounding in Normal and Visual modes
+                delete = "Sd", -- Delete surrounding
+                find = "Sf", -- Find surrounding (to the right)
+                find_left = "SF", -- Find surrounding (to the left)
+                highlight = "Sh", -- Highlight surrounding
+                replace = "Sr", -- Replace surrounding
+                update_n_lines = "Sn", -- Update `n_lines`
             },
         },
     },
