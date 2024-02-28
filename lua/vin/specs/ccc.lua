@@ -47,20 +47,16 @@ M.spec = {
             preserve = false,
             ---@type boolean
             save_on_quit = true,
-            ---@type show_mode
             alpha_show = "auto",
-            ---@type ColorInput[]
             inputs = {
                 input.hsl,
             },
-            ---@type ColorOutput[]
             outputs = {
                 output.hex,
                 output.hex_short,
                 output.css_rgb,
                 output.css_hsl,
             },
-            ---@type ColorPicker[]
             pickers = {
                 picker.hex,
                 picker.css_rgb,
@@ -85,7 +81,6 @@ M.spec = {
                     "{{pattern}}[%w_]",
                 },
             },
-            ---@type hl_mode
             highlight_mode = "bg",
             ---@type function
             output_line = ccc.output_line,
@@ -102,7 +97,6 @@ M.spec = {
                 ---@type boolean
                 lsp = true,
             },
-            ---@type {[1]: ColorPicker, [2]: ColorOutput}[]
             convert = {
                 { picker.hex, output.css_rgb },
                 { picker.css_rgb, output.css_hsl },
@@ -112,8 +106,6 @@ M.spec = {
                 input = false,
                 output = false,
                 pattern = {
-                    [picker.css_rgb] = { input.rgb, output.rgb },
-                    [picker.css_name] = { input.rgb, output.rgb },
                     [picker.hex] = { input.rgb, output.hex },
                     [picker.css_hsl] = { input.hsl, output.css_hsl },
                     [picker.css_hwb] = { input.hwb, output.css_hwb },
