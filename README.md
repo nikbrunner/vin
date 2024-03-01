@@ -57,10 +57,6 @@ Make sure you have [a nerd font](https://github.com/ryanoasis/nerd-fonts) instal
 
 [See here](https://brandon-sanderson.fandom.com/wiki/vin)
 
-## Todo
-
-- [ ] Resolve null-ls (replace with conform.nvim & lint.nvim)
-
 ## Links
 
 ### General

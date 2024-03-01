@@ -97,7 +97,7 @@ M.spec = {
 
         local auto_format_indicator = {
             function()
-                if vim.g.null_ls_auto_format_enabled then
+                if vim.g.vin_autoformat_enabled then
                     return "AF: ✅"
                 else
                     return "AF: ❌"

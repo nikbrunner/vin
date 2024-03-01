@@ -193,7 +193,6 @@ end
 set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
 set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
 set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
-set("n", "<leader>vI", "<cmd>NullLsInfo<CR>", { desc = "NullLS Info" })
 set("n", "<leader>vr", "<cmd>LspRestart<CR>", { desc = "Restart LSP Server" })
 
 -- Copy Group
