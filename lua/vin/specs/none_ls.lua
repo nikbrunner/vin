@@ -65,7 +65,7 @@ M.spec = {
             end,
             sources = {
                 formatting.stylua,
-                formatting.prettierd,
+                formatting.prettier,
                 diagnostics.yamllint,
                 formatting.shfmt,
             },

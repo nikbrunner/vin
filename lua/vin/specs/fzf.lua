@@ -93,7 +93,6 @@ M.spec = {
         { "<leader><space>",     M.fzf("files"), desc = "Files", },
         -- { "<leader>r",           M.fzf("oldfiles", { cwd_only = true }), desc = "Recent Files (Only CWD)", },
         -- { "<leader>R",           M.fzf("oldfiles", { cwd_only = false }), desc = "Recent Files (All CWD)"},
-        -- { "<leader>,",           M.fzf("jumps"), desc = "Recent Jumps", },
         -- { "<leader>:",           M.fzf("commands"), desc = "Commands", },
         -- { "<leader>ff",          M.fzf("files"), desc = "Files", },
         -- { "<leader>fr",          M.fzf("oldfiles", { cwd_only = true }), desc = "Recent Files (Only CWD)" },
@@ -143,7 +142,7 @@ M.spec = {
                     vertical = "up:65%", -- up|down:size
                     horizontal = "right:60%", -- right|left:size
                     layout = "flex", -- horizontal|vertical|flex
-                    flip_columns = 175, -- #cols to switch to horizontal on flex
+                    flip_columns = 250, -- #cols to switch to horizontal on flex
                     title = true, -- preview border title (file/buf)?
                     delay = 100, -- delay(ms) displaying the preview
                     winopts = { -- builtin previewer window options

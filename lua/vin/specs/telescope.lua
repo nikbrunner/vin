@@ -116,7 +116,6 @@ M.spec = {
         --     end,
         --     desc = "Files",
         -- },
-        { "<leader>,", M.telescope("jumplist"), desc = "Jumplist" },
         { "<leader>/", M.telescope("current_buffer_fuzzy_find"), desc = "Search in buffer" },
         { "<leader>:", M.telescope("commands"), desc = "Commands" },
         { "<leader>gb", M.telescope("git_branches"), desc = "Git Branches" },
@@ -140,7 +139,7 @@ M.spec = {
         { "<leader>sw", M.telescope("grep_cword"), desc = "Current Word", mode = { "n", "v" } },
         { "<leader>vc", M.telescope("colorschemes"), desc = "Colorschemes" },
         { "gs", M.telescope("lsp_document_symbols"), desc = "Document Symbols" },
-        { "gS", M.telescope("lsp_live_workspace_symbols"), desc = "Workspace Symbols" },
+        { "gS", M.telescope("lsp_workspace_symbols"), desc = "Workspace Symbols" },
     },
     opts = function()
         local actions = require("telescope.actions")
@@ -242,10 +241,7 @@ M.spec = {
                         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
                         ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
                         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-                        ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
-
-                        ["<c-t>"] = open_with_trouble,
-                        ["<a-t>"] = open_selected_with_trouble,
+                        ["<C-_>"] = actions.which_key,
                     },
                     n = {
                         ["q"] = actions.close,
@@ -315,7 +311,8 @@ M.spec = {
                     enable_preview = true,
                 },
                 oldfiles = {
-                    theme = "ivy",
+                    theme = "dropdown",
+                    previewer = false,
                 },
                 commands = {
                     theme = "ivy",
