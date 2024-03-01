@@ -16,6 +16,8 @@ set("v", "K", ":m '<-2<CR>gv=gv")
 set("n", "<C-o>", "<C-o>zz", { desc = "Move back in jump list" })
 set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
 
+set("n", "<C-s>", vim.cmd.wa, { desc = "Save all" })
+
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
 
@@ -58,12 +60,7 @@ set({ "n", "i", "c" }, "<C-d>", "<C-d>zz", { desc = "Scroll Down" })
 set("n", "n", "nzzzv")
 set("n", "N", "Nzzzv")
 
-set(
-    "n",
-    "<leader>ur",
-    "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-    { desc = "Redraw / clear hlsearch / diff update" }
-)
+set("n", "<leader>ur", ":e!<CR>", { desc = "Redraw / clear hlsearch / diff update" })
 
 set("n", "<leader>ub", function()
     local background = vim.opt.background:get()
