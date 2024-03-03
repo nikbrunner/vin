@@ -6,6 +6,9 @@ M.spec = {
     "luukvbaal/statuscol.nvim",
     branch = "0.10",
     event = "BufEnter",
+    enabled = function()
+        return vim.fn.has("nvim-0.10") == 1
+    end,
     opts = function()
         local builtin = require("statuscol.builtin")
 

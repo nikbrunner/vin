@@ -35,6 +35,9 @@ M.spec = {
         "kevinhwang91/promise-async",
     },
     event = "BufEnter",
+    enabled = function()
+        return vim.fn.has("nvim-0.10") == 1
+    end,
     keys = {
         {
             "zR",
