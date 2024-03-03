@@ -42,6 +42,17 @@ If you want to start this config when running `nvim`, you can set an alias, in y
 alias nvim="NVIM_APPNAME=vin nvim"
 ```
 
+## Check for errors
+
+Documentation: [Lua Language Server - Usage | Wiki](https://luals.github.io/wiki/usage/).
+
+> Note: The `--configpath` flag seems to be broken and requires a full path.
+> See here: [Settings don't seem to be applied when using linter from CLI · Issue #2038 · LuaLS/lua-language-server](https://github.com/LuaLS/lua-language-server/issues/2038)
+
+```sh
+lua-language-server --check ./lua --logpath=. --configpath=/Users/nikolausbrunner/.config/nvim/.luarc.json
+```
+
 ## Uninstall
 
 To remove everything related to this config, run the following commands:
