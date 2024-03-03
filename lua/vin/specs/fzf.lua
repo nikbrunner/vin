@@ -114,7 +114,7 @@ M.spec = {
         { "<leader>sr",          M.fzf("registers", { winopts = M.win_presets.small.no_preview }), desc = "Registers", mode = { "n", "v" } },
         { "<C-r>",               M.fzf("registers", { winopts = M.win_presets.small.no_preview }), desc = "Registers", mode = { "i" } },
 
-        { "<leader>gs",          M.fzf("git_status", { winopts = M.win_presets.full.vertical }), desc = "Git Status", },
+        -- { "<leader>gs",          M.fzf("git_status", { winopts = M.win_presets.full.vertical }), desc = "Git Status", },
         { "<leader>gc",          M.fzf("changes", { winopts = M.win_presets.full.vertical }), desc = "Git Status", },
         { "<leader>gB",          M.fzf("git_branches"), desc = "Git Branches", },
         { "<leader>gC",          M.fzf("git_commits", { winopts = M.win_presets.full.vertical, }), desc = "Git Commits", },
