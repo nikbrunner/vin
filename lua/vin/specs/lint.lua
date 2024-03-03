@@ -9,7 +9,7 @@ M.spec = {
 
         -- I was trying to set this up via `opts` but I have found no way to do it.
         lint.linters_by_ft = {
-            lua = { "luacheck" },
+            -- go = { "gopls" },
         }
 
         vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost", "InsertLeave" }, {
