@@ -19,6 +19,20 @@ M.specs = {
                 enable = true,
             },
             auto_install = true,
+            ensure_installed = {
+                "c",
+                "lua",
+                "rust",
+                "javascript",
+                "typescript",
+                "html",
+                "css",
+                "json",
+                "yaml",
+                "toml",
+                "bash",
+                "go",
+            },
             incremental_selection = {
                 enable = true,
                 keymaps = {
