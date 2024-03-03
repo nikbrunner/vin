@@ -98,9 +98,9 @@ M.spec = {
         local auto_format_indicator = {
             function()
                 if vim.g.vin_autoformat_enabled then
-                    return "AF: ✅"
+                    return "󰉶 On"
                 else
-                    return "AF: ❌"
+                    return "󰉶 Off"
                 end
             end,
         }
@@ -124,20 +124,20 @@ M.spec = {
                 lualine_b = {
                     project_name,
                     "fancy_branch",
+                    "fancy_location",
                     "francy_diff",
                 },
                 lualine_c = {
                     "fancy_diagnostics",
                 },
                 lualine_x = {
-                    copilot,
-                    auto_format_indicator,
+                    "fancy_searchcount",
                 },
                 lualine_y = {
                     wtf.get_status,
+                    copilot,
+                    auto_format_indicator,
                     lazy_updates,
-                    "fancy_searchcount",
-                    "fancy_location",
                 },
                 lualine_z = {
                     "fancy_filetype",
