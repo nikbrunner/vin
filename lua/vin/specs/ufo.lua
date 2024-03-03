@@ -78,10 +78,9 @@ M.spec = {
         fold_virt_text_handler = M.fold_virt_text_handler,
         preview = {
             win_config = {
-                border = "rounded",
-                winblend = 5,
-                winhighlight = "Normal:FloatNormal",
-                maxheight = 20,
+                border = "single",
+                winblend = 10,
+                winhighlight = "Normal:Pmenu",
             },
             mappings = {
                 scrollU = "<C-u>",

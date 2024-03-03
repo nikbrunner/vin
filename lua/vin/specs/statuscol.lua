@@ -1,6 +1,5 @@
 local M = {}
 
----TODO: The git marker is on a different column, when there is no fold marker. Solve this.
 ---@type LazyPluginSpec
 M.spec = {
     "luukvbaal/statuscol.nvim",
@@ -13,25 +12,13 @@ M.spec = {
         local builtin = require("statuscol.builtin")
 
         return {
-            bt_ignore = { "nofile", "terminal" },
+            relculright = true,
+            ft_ignore = { "neo-tree" },
             segments = {
-                {
-                    text = {
-                        function(args)
-                            args.fold.close = " "
-                            args.fold.open = " "
-                            args.fold.sep = "▕ "
-                            return builtin.foldfunc(args)
-                        end,
-                    },
-                    click = "v:lua.ScFa",
-                },
-                { text = { "%s" }, click = "v:lua.ScSa" },
-                {
-                    text = { builtin.lnumfunc, " " },
-                    condition = { true, builtin.not_empty },
-                    click = "v:lua.ScLa",
-                },
+                { sign = { namespace = { "gitsigns" } } },
+                { text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
+                { sign = { namespace = { "diagnostic" } } },
+                { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
             },
         }
     end,
