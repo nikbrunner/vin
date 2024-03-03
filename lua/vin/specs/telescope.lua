@@ -104,42 +104,11 @@ M.spec = {
         },
     },
     keys = {
-        -- For faster performance we use fzf-lua for this binding
-        -- {
-        --     "<leader><space>",
-        --     function()
-        --         if vim.fn.system("git rev-parse --is-inside-work-tree") == "true\n" then
-        --             M.telescope("git_files", { show_untracked = true })()
-        --         else
-        --             M.telescope("find_files")()
-        --         end
-        --     end,
-        --     desc = "Files",
-        -- },
-        { "<leader>/", M.telescope("current_buffer_fuzzy_find"), desc = "Search in buffer" },
-        { "<leader>:", M.telescope("commands"), desc = "Commands" },
-        { "<leader>gb", M.telescope("git_branches"), desc = "Git Branches" },
-        { "<leader>gc", M.telescope("git_commits"), desc = "Git Commits" },
-        { "<leader>gs", M.git_status, desc = "Git Status" },
-        { "<leader>r", M.telescope("oldfiles", { cwd_only = true }), desc = "Recent Files" },
-        { "<leader>R", M.telescope("oldfiles", { cwd_only = false }), desc = "Recent Files (All CWD)" },
-        { "<leader>s/", M.search_preset_folder, desc = "Preset folders" },
-        { "<leader>sd", M.telescope("diagnostics"), desc = "Diagnostics" },
-        { "<leader>sg", M.telescope("live_grep"), desc = "Diagnostics" },
-        { "<leader>sh", M.telescope("help_tags"), desc = "Help" },
-        { "<leader>sH", M.telescope("highlights"), desc = "Highlights" },
-        { "<leader>sk", M.telescope("keymaps"), desc = "Keymaps" },
-        { "<leader>sm", M.telescope("marks"), desc = "Marks" },
-        { "<leader>sM", M.telescope("man_pages"), desc = "Man Pages" },
-        { "<leader>so", M.telescope("vim_options"), desc = "Vim Options" },
-        { "<leader>sr", M.telescope("registers"), desc = "Registers", mode = { "n", "v" } },
-        { "<C-r>", M.telescope("registers"), desc = "Registers", mode = { "i" } },
-        { "<leader>s.", M.telescope("resume"), desc = "Resume" },
+        -- { "<leader>sr", M.telescope("registers"), desc = "Registers", mode = { "n", "v" } },
+        -- { "<C-r>", M.telescope("registers"), desc = "Registers", mode = { "i" } },
+
         { "<leader>st", M.telescope("treesitter"), desc = "Treesitter" },
-        { "<leader>sw", M.telescope("grep_cword"), desc = "Current Word", mode = { "n", "v" } },
-        { "<leader>vc", M.telescope("colorschemes"), desc = "Colorschemes" },
-        { "gs", M.telescope("lsp_document_symbols"), desc = "Document Symbols" },
-        { "gS", M.telescope("lsp_workspace_symbols"), desc = "Workspace Symbols" },
+        { "<leader>so", M.telescope("vim_options"), desc = "Vim Options" },
     },
     opts = function()
         local actions = require("telescope.actions")

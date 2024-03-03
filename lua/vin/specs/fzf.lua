@@ -1,8 +1,7 @@
 local M = {}
 
 M.folder_presets = {
-    vin = "~/.config/vin",
-    lazyvin = "~/.config/lazyvin",
+    nvim = "~/.config/nvim",
     config = "~/.config",
     personal_notes = require("vin.config").pathes.notes.personal,
     dcd_notes = require("vin.config").pathes.notes.work.dcd,
@@ -91,35 +90,39 @@ M.spec = {
     keys = {
         -- stylua: ignore start
         { "<leader><space>",     M.fzf("files"), desc = "Files", },
-        -- { "<leader>r",           M.fzf("oldfiles", { cwd_only = true }), desc = "Recent Files (Only CWD)", },
-        -- { "<leader>R",           M.fzf("oldfiles", { cwd_only = false }), desc = "Recent Files (All CWD)"},
-        -- { "<leader>:",           M.fzf("commands"), desc = "Commands", },
-        -- { "<leader>ff",          M.fzf("files"), desc = "Files", },
-        -- { "<leader>fr",          M.fzf("oldfiles", { cwd_only = true }), desc = "Recent Files (Only CWD)" },
-        -- { "<leader>fR",          M.fzf("oldfiles", { cwd_only = false }), desc = "Recent Files (All CWD)"},
-        -- { "<leader>f/",          M.search_preset_folder, desc = "Preset folders", },
-        -- { "<leader>sr",          M.fzf("resume"),  desc = "Resume Search" },
-        -- { "<leader>sh",          M.fzf("help_tags", { winopts = M.win_presets.full.horizontal }),  desc = "Help Tags" },
-        -- { "<leader>sH",          M.fzf("highlights"), desc = "Highlights" },
-        -- { "<leader>sc",          M.fzf("commands"), desc = "Commands", },
-        -- { "<leader>sC",          M.fzf("command_history"), desc = "Command History", },
-        -- { "<leader>sk",          M.fzf("keymaps"), desc = "Keymaps", },
-        -- { "<leader>sw",          M.fzf("grep_cword"), desc = "Current Word", mode = { "n", "v" } },
-        -- { "<leader>sm",          M.fzf("marks"), desc = "Marks", },
-        -- { "<leader>sM",          M.fzf("man_pages"), desc = "Man Pages", },
-        -- { "gs",                  M.fzf("lsp_document_symbols"), desc = "Document Symbols", },
-        -- { "gS",                  M.fzf("lsp_live_workspace_symbols"), desc = "Workspace Symbols", },
-        -- { "<leader>sR",          M.fzf("resume"), desc = "Resume", },
-        -- { "<leader>sg",          M.fzf("live_grep_native", { winopts = M.win_presets.large.vertical }), desc = "Live Grep", },
-        -- { "<leader>sG",          M.fzf("live_grep_resume", { winopts = M.win_presets.large.vertical }), desc = "Live Grep Resume", },
-        -- { "<leader>s<tab>",      M.fzf("tabs"), desc = "Tabs", },
-        -- { "<leader>vc",          M.fzf("colorschemes"), desc = "Colorschemes", },
-        -- Currently using telescope for this, because this is broken in neovim 0.10
-        -- { "<leader>gs",          M.fzf("git_status", { winopts = M.win_presets.full.vertical }), desc = "Git Status", },
-        -- { "<leader>gC",          M.fzf("git_commits", { winopts = M.win_presets.full.vertical, }), desc = "Git Commits", },
-        -- { "<leader>gB",          M.fzf("git_branches"), desc = "Git Branches", },
-        -- { "<leader>gc",          M.fzf("changes"), desc = "Changes", },
-        -- { "<leader>/",           M.fzf("lgrep_curbuf"), desc = "Grep Current Buffer", },
+        { "<leader>r",           M.fzf("oldfiles", { cwd_only = true }), desc = "Recent Files (Only CWD)", },
+        { "<leader>R",           M.fzf("oldfiles", { cwd_only = false }), desc = "Recent Files (All CWD)"},
+        { "<leader>:",           M.fzf("commands"), desc = "Commands", },
+        { "<leader>/",           M.fzf("lgrep_curbuf"), desc = "Grep Current Buffer", },
+
+        { "<leader>s/",          M.search_preset_folder, desc = "Search Folder", },
+        { "<leader>s.",          M.fzf("resume"),  desc = "Resume Search" },
+        { "<leader>sh",          M.fzf("help_tags", { winopts = M.win_presets.full.horizontal }),  desc = "Help Tags" },
+        { "<leader>sH",          M.fzf("highlights"), desc = "Highlights" },
+        { "<leader>sc",          M.fzf("commands"), desc = "Commands", },
+        { "<leader>sC",          M.fzf("command_history"), desc = "Command History", },
+        { "<leader>sd",          M.fzf("lsp_document_diagnostics"), desc = "Document Diagnostics", },
+        { "<leader>sD",          M.fzf("lsp_workspace_diagnostics"), desc = "Document Diagnostics", },
+        { "<leader>sk",          M.fzf("keymaps"), desc = "Keymaps", },
+        { "<leader>sw",          M.fzf("grep_cword"), desc = "Current Word", mode = { "n", "v" } },
+        { "<leader>sm",          M.fzf("marks"), desc = "Marks", },
+        { "<leader>sM",          M.fzf("man_pages"), desc = "Man Pages", },
+        { "<leader>sg",          M.fzf("live_grep_native", { winopts = M.win_presets.large.vertical }), desc = "Live Grep", },
+        { "<leader>sG",          M.fzf("live_grep_resume", { winopts = M.win_presets.large.vertical }), desc = "Live Grep Resume", },
+        { "<leader>s<Tab>",      M.fzf("tabs"), desc = "Tabs", },
+
+        { "<leader>sr",          M.fzf("registers", { winopts = M.win_presets.small.no_preview }), desc = "Registers", mode = { "n", "v" } },
+        { "<C-r>",               M.fzf("registers", { winopts = M.win_presets.small.no_preview }), desc = "Registers", mode = { "i" } },
+
+        { "<leader>gs",          M.fzf("git_status", { winopts = M.win_presets.full.vertical }), desc = "Git Status", },
+        { "<leader>gc",          M.fzf("changes", { winopts = M.win_presets.full.vertical }), desc = "Git Status", },
+        { "<leader>gB",          M.fzf("git_branches"), desc = "Git Branches", },
+        { "<leader>gC",          M.fzf("git_commits", { winopts = M.win_presets.full.vertical, }), desc = "Git Commits", },
+
+        { "gs",                  M.fzf("lsp_document_symbols"), desc = "Document Symbols", },
+        { "gS",                  M.fzf("lsp_live_workspace_symbols"), desc = "Workspace Symbols", },
+
+        { "<leader>vc",          M.fzf("colorschemes"), desc = "Colorschemes", },
         -- stylua: ignore end
     },
 
@@ -283,6 +286,7 @@ M.spec = {
                     file_icons = true, -- show file icons?
                     color_icons = true, -- colorize file|git icons
                 },
+
                 status = {
                     prompt = "Modified Files❯ ",
                     cmd = "git status -su",
@@ -300,6 +304,7 @@ M.spec = {
                         ["left"] = { actions.git_stage, actions.resume },
                     },
                 },
+
                 commits = {
                     prompt = "Commits❯ ",
                     cmd = "git log --pretty=oneline --abbrev-commit --color",
@@ -308,6 +313,7 @@ M.spec = {
                         ["default"] = actions.git_checkout,
                     },
                 },
+
                 bcommits = {
                     prompt = "BCommits❯ ",
                     cmd = "git log --pretty=oneline --abbrev-commit --color",
@@ -319,6 +325,7 @@ M.spec = {
                         ["ctrl-t"] = actions.git_buf_tabedit,
                     },
                 },
+
                 branches = {
                     prompt = "Branches❯ ",
                     cmd = "git branch --all --color",
@@ -327,6 +334,7 @@ M.spec = {
                         ["default"] = actions.git_switch,
                     },
                 },
+
                 icons = {
                     ["M"] = { icon = "M", color = "yellow" },
                     ["D"] = { icon = "D", color = "red" },

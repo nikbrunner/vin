@@ -113,7 +113,7 @@ create_autocmd("ColorScheme", {
     group = M.augroup("colorscheme"),
     callback = function(args)
         local wezterm_config_filepath = vim.fn.expand("$XDG_CONFIG_HOME/wezterm/wezterm.lua")
-        local vin_config_filepath = vim.fn.expand("$XDG_CONFIG_HOME/vin/lua/vin/config.lua")
+        local vin_config_filepath = vim.fn.expand("$XDG_CONFIG_HOME/nvim/lua/vin/config.lua")
 
         ---@class ColorschemeConfig
         ---@field name string
