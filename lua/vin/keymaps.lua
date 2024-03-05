@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field
 local lib = require("vin.lib")
 local config = require("vin.config")
 
@@ -236,10 +237,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
         set("n", "K", vim.lsp.buf.hover, opts)
         set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
-        set("n", "gd", vim.lsp.buf.definition, opts)
-        set("n", "gD", vim.lsp.buf.declaration, opts)
+        set("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("keep", opts, { desc = "Go to Definition" }))
+
+        set("n", "gD", function()
+            vim.cmd.vsplit()
+            vim.lsp.buf.definition()
+        end, vim.tbl_extend("keep", opts, { desc = "Go to Definition in Split" }))
+
         set("n", "gi", vim.lsp.buf.implementation, opts)
         set("n", "gy", vim.lsp.buf.type_definition, opts)
+
         set("n", "gr", "<CMD>Trouble lsp_references<CR>", opts)
         set("n", "gR", function()
             require("fzf-lua").lsp_references({
