@@ -1,7 +1,7 @@
 ---@class VinConfig
 local config = {
-    ---@type BlackAtomCore.Config.ColorSchemeName
-    colorscheme = "terra_winter_night",
+    colorscheme = "terra_spring_night",
+    colorscheme_lualine = "terra_spring_night",
     pathes = {
         notes = {
             personal = vim.fn.expand("~") .. "/Documents/notes/notes",

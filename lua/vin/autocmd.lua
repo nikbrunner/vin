@@ -123,7 +123,7 @@ create_autocmd("ColorScheme", {
         ---https://wezfurlong.org/wezterm/colorschemes/index.html
         ---@type table<string, ColorschemeConfig>
         local neovim_wezterm_colorconfig_map = {
-            ["terra_spring_night"] = { name = "Gruvbox dark, hard (base16)", background = "#212523" },
+            ["terra_spring_night"] = { name = "Everforest Dark (Gogh)", background = "#212523" },
             ["terra_summer_night"] = { name = "Ayu Mirage", background = "#1f2129" },
             ["terra_fall_night"] = { name = "Gruvbox Material (Gogh)", background = "#252221" },
             ["terra_winter_night"] = { name = "nord", background = "#232427" },
