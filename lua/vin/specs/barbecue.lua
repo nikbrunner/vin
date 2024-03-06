@@ -22,10 +22,14 @@ local spec = {
         ---@type boolean
         show_modified = true,
 
+        ---Whether context text should follow its icon's color.
+        ---@type boolean
+        context_follow_icon_color = true,
+
         symbols = {
             modified = require("vin.icons").git.modified,
             ellipsis = require("vin.icons").misc.dots,
-            separator = require("vin.icons").misc.separator,
+            separator = require("vin.icons").misc.dot,
         },
         kinds = require("vin.icons").kinds,
     },
