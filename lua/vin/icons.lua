@@ -2,7 +2,9 @@ return {
     misc = {
         dots = "󰇘",
         circle = " ",
+        smallCircle = " ",
         separator = " ",
+        dot = ".",
     },
     dap = {
         Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
