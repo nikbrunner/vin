@@ -18,7 +18,7 @@ M.spec = {
     ---@type BlackAtomCore.Config
     opts = {
         debug = false,
-        theme = "terra_winter_night",
+        theme = require("vin.config").colorscheme,
         styles = {
             dark_sidebars = true,
             transparency = "partial",
