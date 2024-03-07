@@ -115,6 +115,7 @@ M.spec = {
             },
             filesystem = {
                 hijack_netrw_behavior = "disabled",
+                use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
                 follow_current_file = {
                     enabled = true, -- This will find and focus the file in the active buffer every time the current file is changed while the tree is open.
                 },
