@@ -3,6 +3,7 @@ local M = {}
 M.folder_presets = {
     nvim = "~/.config/nvim",
     config = "~/.config",
+    scripts = "~/.scripts",
     personal_notes = require("vin.config").pathes.notes.personal,
     dcd_notes = require("vin.config").pathes.notes.work.dcd,
 }
