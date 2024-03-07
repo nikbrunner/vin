@@ -4,7 +4,25 @@ local M = {}
 M.spec = {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
-    opts = {},
+    ---@type dressing.InputOptions
+    opts = {
+        input = {
+            insert_only = false,
+            mappings = {
+                n = {
+                    ["<Esc>"] = "Close",
+                    ["q"] = "Close",
+                    ["<CR>"] = "Confirm",
+                },
+                i = {
+                    ["<C-c>"] = "Close",
+                    ["<CR>"] = "Confirm",
+                    ["<Up>"] = "HistoryPrev",
+                    ["<Down>"] = "HistoryNext",
+                },
+            },
+        },
+    },
 }
 
 return M.spec
