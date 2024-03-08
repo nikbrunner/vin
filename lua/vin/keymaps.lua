@@ -197,25 +197,24 @@ set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 set("n", "<leader>vr", "<cmd>LspRestart<CR>", { desc = "Restart LSP Server" })
 
 -- Copy Group
-set("n", "<leader>ccf", lib.copy.fullPath, { desc = "Full Path" })
-set("n", "<leader>ccr", lib.copy.relativePath, { desc = "Relative Path" })
-set("n", "<leader>ccn", lib.copy.fileName, { desc = "File Name" })
+set("n", "<leader>acf", lib.copy.fullPath, { desc = "Full Path" })
+set("n", "<leader>acr", lib.copy.relativePath, { desc = "Relative Path" })
+set("n", "<leader>acn", lib.copy.fileName, { desc = "Name of file" })
 
 -- Log Group
-set("n", "<leader>cll", lib.log.log_symbol, { desc = "Auto Log Symbol" })
-set("n", "<leader>cld", lib.log.delete_logs, { desc = "Auto Log Symbol" })
+set("n", "<leader>all", lib.log.log_symbol, { desc = "[L]og" })
+set("n", "<leader>ald", lib.log.delete_logs, { desc = "[D]elete" })
 
 -- Find component
 set("n", "<leader>fc", lib.component.find_and_open_component_file, { desc = "Find component under cursor" })
 set("n", "<leader>fC", lib.component.find_and_open_files, { desc = "Find component" })
 
 -- Tmux Group
--- set("n", "<leader>.n", lib.tmux.start_smug_session, { desc = "New Pre-Configured Session" }) -- TODO: replace with repo-runner
-set("n", "<leader>.c", lib.tmux.start_custom_tmux_session, { desc = "Create Custom TMUX Session" })
-set("n", "<leader>.s", lib.tmux.switch_tmux_session, { desc = "Switch Session" })
-set("n", "<leader>.w", lib.tmux.switch_tmux_window, { desc = "Switch Windows" })
+set("n", "<leader>tc", lib.tmux.start_custom_tmux_session, { desc = "Create Custom TMUX Session" })
+set("n", "<leader>ts", lib.tmux.switch_tmux_session, { desc = "Switch Session" })
+set("n", "<leader>tw", lib.tmux.switch_tmux_window, { desc = "Switch Windows" })
+set("n", "<leader>tt", lib.tmux.switch_nvim_instance, { desc = "Switch Neovim Instance" })
 -- set("n", "<leader>.q", lib.tmux.kill_tmux_session, { desc = "Quit TMUX Session" }) -- TODO: replace with repo-runner
-set("n", "<leader>..", lib.tmux.switch_nvim_instance, { desc = "Switch Neovim Instance" })
 
 set("n", config.branch_notes.mappings.toggle_note, function()
     lib.branch_notes.open_branch_note(config)
@@ -262,8 +261,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
             })
         end, opts)
 
-        set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Actions" }))
+        set({ "n", "v" }, "<leader>aa", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
+        set({ "n", "v" }, "<M-CR>", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
 
-        set("n", "<leader>cr", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
+        set("n", "<leader>an", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
     end,
 })
