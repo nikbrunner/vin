@@ -11,10 +11,10 @@ M.spec = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
-        -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     ---@diagnostic disable-next-line: assign-type-mismatch
     keys = function()
+        ---@diagnostic disable-next-line: unused-local
         local function close_side_panels()
             vim.cmd("Neotree left close")
             vim.cmd("Neotree right close")
@@ -22,53 +22,29 @@ M.spec = {
 
         return {
             {
-                "<leader>ee",
-                function()
-                    vim.cmd("Neotree left filesystem toggle reveal")
-                end,
-                desc = "Files",
-            },
-            {
-                "<leader>eg",
-                function()
-                    vim.cmd("Neotree right git_status toggle reveal")
-                end,
-                desc = "Git Status",
-            },
-            {
-                "<leader>eb",
-                function()
-                    vim.cmd("Neotree left buffers toggle reveal")
-                end,
-                desc = "Buffers",
-            },
-            {
                 "<leader>es",
                 function()
-                    vim.cmd("Neotree right document_symbols toggle reveal")
+                    vim.cmd("Neotree float document_symbols toggle reveal")
                 end,
                 desc = "Document Symbols",
             },
             {
-                "<C-f>",
+                "<leader>ee",
                 function()
-                    close_side_panels()
                     vim.cmd("Neotree float toggle reveal")
                 end,
                 desc = "Float Files",
             },
             {
-                "<C-g>",
+                "<leader>eg",
                 function()
-                    close_side_panels()
                     vim.cmd("Neotree float git_status toggle reveal")
                 end,
                 desc = "Float Git Status",
             },
             {
-                "<C-e>",
+                "<leader>eb",
                 function()
-                    close_side_panels()
                     vim.cmd("Neotree float buffers toggle reveal")
                 end,
                 desc = "Float Buffer Tree",
