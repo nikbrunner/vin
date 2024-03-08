@@ -6,10 +6,9 @@ M.spec = {
     event = "VeryLazy",
     keys = {
         {
-            "<leader>cp",
+            "<leader>ap",
             "<cmd>CccPick<CR>",
-            desc = "ColorPicker",
-            mode = "n",
+            desc = "Color Picker",
         },
     },
     opts = function()

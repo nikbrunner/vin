@@ -10,14 +10,14 @@ M.spec = {
     },
     keys = {
         {
-            "<leader>cR",
+            "<leader>ar",
             function()
                 require("spectre").open()
             end,
-            desc = "Replace in files (Spectre)",
+            desc = "Replace in files",
         },
         {
-            "<leader>cR",
+            "<leader>aR",
             mode = { "v" },
             function()
                 local function get_visual_selection()
@@ -30,7 +30,7 @@ M.spec = {
                     search_text = get_visual_selection(),
                 })
             end,
-            desc = "Replace in files (Spectre)",
+            desc = "Replace in files (visual selection)",
         },
     },
 }

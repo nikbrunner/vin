@@ -8,11 +8,11 @@ M.spec = {
     priority = 1000,
     keys = {
         {
-            "<leader>bt",
+            "<leader>uT",
             function()
                 require("black-atom-core.util").select_theme()
             end,
-            desc = "Select theme",
+            desc = "Theme Selector (Black Atom) ",
         },
     },
     ---@type BlackAtomCore.Config

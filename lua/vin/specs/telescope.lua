@@ -107,6 +107,7 @@ M.spec = {
         -- { "<leader>sr", M.telescope("registers"), desc = "Registers", mode = { "n", "v" } },
         -- { "<C-r>", M.telescope("registers"), desc = "Registers", mode = { "i" } },
 
+        { "<leader>/", M.telescope("current_buffer_fuzzy_find"), desc = "Grep Current Buffer" },
         { "<leader>st", M.telescope("treesitter"), desc = "Treesitter" },
         { "<leader>so", M.telescope("vim_options"), desc = "Vim Options" },
         { "<leader>gs", M.git_status, desc = "Git Status" },
@@ -268,6 +269,9 @@ M.spec = {
                 lsp_workspace_symbols = quick_flex_window,
                 diagnostics = quick_flex_window,
                 git_status = {
+                    theme = "ivy",
+                },
+                current_buffer_fuzzy_find = {
                     theme = "ivy",
                 },
                 buffers = vim.tbl_extend("keep", quick_flex_window, {

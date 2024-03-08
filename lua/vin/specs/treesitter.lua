@@ -38,9 +38,10 @@ M.specs = {
             },
             incremental_selection = {
                 enable = true,
+                disable = { "vim", "qf" },
                 keymaps = {
-                    init_selection = "<M-CR>",
-                    node_incremental = "<M-CR>",
+                    init_selection = "<CR>",
+                    node_incremental = "<CR>",
                     node_decremental = "<BS>",
                 },
             },
