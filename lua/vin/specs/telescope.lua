@@ -210,8 +210,8 @@ M.spec = {
 
                         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
                         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-                        ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-                        ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+                        ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist, -- Send either all entries or only selceceted to qflist
+
                         ["<C-_>"] = actions.which_key,
                     },
                     n = {
