@@ -9,6 +9,10 @@ local spec = {
         "nvim-tree/nvim-web-devicons", -- optional dependency
     },
     opts = {
+        ---Whether to attach navic to language servers automatically.
+        ---
+        ---@type boolean
+        attach_navic = false,
 
         ---filetypes not to enable winbar in
         ---@type string[]
@@ -31,6 +35,7 @@ local spec = {
             ellipsis = require("vin.icons").misc.dots,
             separator = require("vin.icons").misc.dot,
         },
+
         kinds = require("vin.icons").kinds,
     },
     config = function(_, opts)
