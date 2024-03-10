@@ -8,20 +8,13 @@ M.spec = {
         {
             "<leader>in",
             "<cmd>GpChatNew vsplit<cr>",
-            { desc = "Open new chat window" },
+            desc = "[N]ew Chat",
         },
         {
             "<leader>it",
             "<cmd>GpChatToggle vsplit<cr>",
-            { desc = "Toggle Chat Window" },
+            desc = "[T]oggle Last Chat",
         },
-        -- TODO: Add more maps (append, prepend, context etc.)
-        -- {
-        --     "<leader>ia",
-        --     "<cmd>GpAppend<cr>",
-        --     mode = { "v" },
-        --     { desc = "Append to conversation" },
-        -- },
     },
     opts = {
         openai_api_key = os.getenv("OPENAI_API_KEY"),

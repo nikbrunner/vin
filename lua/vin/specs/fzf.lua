@@ -22,23 +22,23 @@ M.search_preset_folder = function()
         end,
     }, function(choice)
         M.fzf("files", {
-            winopts = M.win_presets.medium.vertical,
+            winopts = M.win_preset.md.vertical,
             cwd = M.folder_presets[choice],
         })()
     end)
 end
 
-M.win_presets = {
-    small = {
+M.win_preset = {
+    sm = {
         no_preview = {
-            height = 0.35,
-            width = 0.65,
-            preview = {
-                hidden = "hidden",
-            },
+            row = 0.85,
+            col = 0.5,
+            height = 0.25,
+            width = 0.5,
+            preview = { hidden = "hidden" },
         },
     },
-    medium = {
+    md = {
         flex = {
             height = 0.65,
             width = 0.65,
@@ -48,33 +48,24 @@ M.win_presets = {
             },
         },
     },
-    large = {
-        vertical = {
+    lg = {
+        flex = {
             height = 0.9,
             width = 0.9,
             preview = {
-                layout = "vertical",
-                vertical = "up:65%",
-            },
-        },
-    },
-    full = {
-        vertical = {
-            fullscreen = true,
-            preview = {
-                layout = "vertical",
-                vertical = "down:65%",
-            },
-        },
-        horizontal = {
-            fullscreen = true,
-            preview = {
-                layout = "horizontal",
-                vertical = "right:60%",
+                layout = "flex",
+                vertical = "up:65%", -- up|down:size
+                horizontal = "right:60%", -- right|left:size
             },
         },
     },
 }
+
+M.use_win_preset = function(winopts, opts)
+    return function()
+        return vim.tbl_deep_extend("force", { winopts = winopts }, opts or {})
+    end
+end
 
 M.fzf = function(cmd, opts)
     opts = opts or {}
@@ -83,49 +74,57 @@ M.fzf = function(cmd, opts)
     end
 end
 
+
+-- stylua: ignore start
+M.keys = {
+    -- Root layer
+    { "<leader><space>",     M.fzf("files", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "Files", },
+    { "<leader>:",           M.fzf("commands", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "Commands" },
+    { "<leader>r",           M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = true })), desc = "Recent Files" },
+    { "<leader>R",           M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = false })), desc = WhichKeyIgnoreLabel },
+
+    -- [S]earch Group
+    { "<leader>s.",          M.fzf("resume"), desc = "[.] Resume" },
+    { "<leader>s:",          M.fzf("commands", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "[C]ommands" },
+    { "<leader>s/",          M.search_preset_folder, desc = "[/] Search Folder" },
+    { "<leader>sh",          M.fzf("help_tags"), desc = "[H]elp Tags" },
+    { "<leader>sH",          M.fzf("highlights"), desc = "[H]ighlights" },
+    { "<leader>sk",          M.fzf("keymaps"), desc = "[K]eymaps" },
+    { "<leader>sw",          M.fzf("grep_cword"), mode = { "n", "v" }, desc = "[W]ord", },
+    -- TODO: search visual selection
+    { "<leader>sm",          M.fzf("marks"), desc = "[M]arks" },
+    { "<leader>sM",          M.fzf("man_pages"), desc = "[M]an Pages" },
+    { "<leader>sg",          M.fzf("live_grep_native"), desc = "[G]rep" },
+    { "<leader>sG",          M.fzf("live_grep_resume"), desc = "[G]rep Resume" },
+    { "<leader>sr",          M.fzf("registers", M.use_win_preset(M.win_preset.sm.no_preview)), mode = { "n", "v" }, desc = "[R]egisters" },
+    { "<leader>s<Tab>",      M.fzf("tabs"), desc = "[Tab]s" },
+
+    -- [G]it Group
+    { "<leader>gs",          M.fzf("git_status", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "[S]tatus" },
+    { "<leader>gc",          M.fzf("changes"), desc = "[C]hanges" },
+    { "<leader>gB",          M.fzf("git_branches"), desc = "[B]ranches" },
+    { "<leader>gC",          M.fzf("git_commits"), desc = "[C]ommits" },
+
+    -- [U]I Group
+    { "<leader>ut",          M.fzf("colorschemes"), desc = "Toggle [T]themes" },
+    { "<leader>uT",          M.fzf("awesome_colorschemes"), desc = "Toggle 'Awesome' [T]hemes" },
+
+    -- No leader key
+    { "gs",                  M.fzf("lsp_document_symbols"), desc = "Document [S]ymbols" },
+    { "gS",                  M.fzf("lsp_live_workspace_symbols"), desc = "Workspace [S]ymbols" },
+
+
+    -- Insert Mode
+    { "<C-r>",               M.fzf("registers", M.use_win_preset( M.win_preset.sm.no_preview)), mode = { "i" }, desc = "Registers" }
+}
+-- stylua: ignore end
+
 ---@type LazyPluginSpec
 M.spec = {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     enabled = true,
-    keys = {
-        -- stylua: ignore start
-        { "<leader><space>",     M.fzf("files"), desc = "Find Files", },
-        { "<leader>r",           M.fzf("oldfiles", { cwd_only = true }), desc = "Recent Files (Only CWD)", },
-        { "<leader>R",           M.fzf("oldfiles", { cwd_only = false }), desc = "Recent Files (All CWD)"},
-        { "<leader>:",           M.fzf("commands"), desc = "Commands", },
-
-        { "<leader>s/",          M.search_preset_folder, desc = "Search Folder", },
-        { "<leader>s.",          M.fzf("resume"),  desc = "Resume Search" },
-        { "<leader>sh",          M.fzf("help_tags", { winopts = M.win_presets.full.horizontal }),  desc = "Help Tags" },
-        { "<leader>sH",          M.fzf("highlights"), desc = "Highlights" },
-        { "<leader>sc",          M.fzf("commands"), desc = "Commands", },
-        { "<leader>sC",          M.fzf("command_history"), desc = "Command History", },
-        { "<leader>sd",          M.fzf("lsp_document_diagnostics"), desc = "Document Diagnostics", },
-        { "<leader>sD",          M.fzf("lsp_workspace_diagnostics"), desc = "Document Diagnostics", },
-        { "<leader>sk",          M.fzf("keymaps"), desc = "Keymaps", },
-        { "<leader>sw",          M.fzf("grep_cword"), desc = "Current Word", mode = { "n", "v" } },
-        { "<leader>sm",          M.fzf("marks"), desc = "Marks", },
-        { "<leader>sM",          M.fzf("man_pages"), desc = "Man Pages", },
-        { "<leader>sg",          M.fzf("live_grep_native", { winopts = M.win_presets.large.vertical }), desc = "Live Grep", },
-        { "<leader>sG",          M.fzf("live_grep_resume", { winopts = M.win_presets.large.vertical }), desc = "Live Grep Resume", },
-        { "<leader>s<Tab>",      M.fzf("tabs"), desc = "Tabs", },
-
-        { "<leader>sr",          M.fzf("registers", { winopts = M.win_presets.small.no_preview }), desc = "Registers", mode = { "n", "v" } },
-        { "<C-r>",               M.fzf("registers", { winopts = M.win_presets.small.no_preview }), desc = "Registers", mode = { "i" } },
-
-        -- { "<leader>gs",          M.fzf("git_status", { winopts = M.win_presets.full.vertical }), desc = "Git Status", }, -- Not working with neovim v0.10
-        { "<leader>gc",          M.fzf("changes", { winopts = M.win_presets.full.vertical }), desc = "Git Status", },
-        { "<leader>gB",          M.fzf("git_branches"), desc = "Git Branches", },
-        { "<leader>gC",          M.fzf("git_commits", { winopts = M.win_presets.full.vertical, }), desc = "Git Commits", },
-
-        { "gs",                  M.fzf("lsp_document_symbols"), desc = "Document Symbols", },
-        { "gS",                  M.fzf("lsp_live_workspace_symbols"), desc = "Workspace Symbols", },
-
-        { "<leader>ut",          M.fzf("colorschemes"), desc = "Colorschemes", },
-        -- stylua: ignore end
-    },
-
+    keys = M.keys,
     opts = function()
         local actions = require("fzf-lua.actions")
         return {
@@ -133,13 +132,13 @@ M.spec = {
             global_resume_query = true, -- include typed query in `resume`?
 
             winopts = {
-                height = 0.65, -- window height
-                width = 0.65, -- window width
-                row = 0.35, -- window row position (0=top, 1=bottom)
-                col = 0.50, -- window col position (0=left, 1=right)
-                border = "none",
+                height = 0.75,
+                width = 0.75,
+                row = 0.35,
+                col = 0.50,
+                border = "solid",
                 preview = {
-                    border = "none", -- border|noborder, applies only to
+                    border = "border", -- border|noborder, applies only to
                     wrap = "nowrap", -- wrap|nowrap
                     hidden = "nohidden", -- hidden|nohidden
                     vertical = "up:65%", -- up|down:size
@@ -417,7 +416,6 @@ M.spec = {
             },
         }
     end,
-
     config = function(_, opts)
         require("fzf-lua").setup(opts)
     end,

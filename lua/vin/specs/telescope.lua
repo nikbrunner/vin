@@ -93,6 +93,7 @@ M.spec = {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     event = "VeryLazy",
+    enabled = false,
     dependencies = {
         {
             "nvim-telescope/telescope-fzf-native.nvim",
@@ -104,13 +105,9 @@ M.spec = {
         },
     },
     keys = {
-        -- { "<leader>sr", M.telescope("registers"), desc = "Registers", mode = { "n", "v" } },
-        -- { "<C-r>", M.telescope("registers"), desc = "Registers", mode = { "i" } },
-
         { "<leader>/", M.telescope("current_buffer_fuzzy_find"), desc = "Grep Current Buffer" },
-        { "<leader>st", M.telescope("treesitter"), desc = "Treesitter" },
-        { "<leader>so", M.telescope("vim_options"), desc = "Vim Options" },
-        { "<leader>gs", M.git_status, desc = "Git Status" },
+        { "<leader>st", M.telescope("treesitter"), desc = "[T]reesitter" },
+        { "<leader>so", M.telescope("vim_options"), desc = "[O]ptions" },
     },
     opts = function()
         local actions = require("telescope.actions")

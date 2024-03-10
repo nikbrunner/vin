@@ -33,7 +33,7 @@ M.spec = {
             },
 
             window = {
-                border = "single",
+                border = "none",
                 position = "bottom",
                 margin = { 1, 0, 1, 0 },
                 padding = { 1, 1, 1, 1 },
@@ -67,6 +67,7 @@ M.spec = {
                 ["<leader>s"] = { name = "[S]earch" },
                 ["<leader>t"] = { name = "[T]MUX" },
                 ["<leader>i"] = { name = "[I]ntelligence" },
+                ["<leader>ic"] = { name = "[C]opilot" },
                 ["<leader>u"] = { name = "[U]I" },
                 ["<leader>d"] = { name = "[D]iagnostics" },
             },

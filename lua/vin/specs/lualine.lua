@@ -107,7 +107,7 @@ M.spec = {
 
         return {
             options = {
-                theme = require("vin.config").colorscheme_lualine,
+                theme = require("vin.config").lualine_theme,
                 globalstatus = true,
                 section_separators = { left = "", right = "" },
                 component_separators = { left = "", right = "" },
@@ -124,8 +124,13 @@ M.spec = {
                 lualine_b = {
                     project_name,
                     "fancy_branch",
-                    "fancy_location",
                     "francy_diff",
+                    "fancy_location",
+                    {
+                        function()
+                            return require("arrow.statusline").text_for_statusline_with_icons()
+                        end,
+                    },
                 },
                 lualine_c = {
                     "fancy_diagnostics",

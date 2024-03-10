@@ -8,7 +8,7 @@ M.spec = {
     config = function()
         require("tabby.tabline").use_preset("active_wins_at_tail", {
             nerdfont = true,
-            lualine_theme = require("vin.config").colorscheme_lualine,
+            lualine_theme = require("vin.config").lualine_theme,
             buf_name = {
                 mode = "relative",
             },

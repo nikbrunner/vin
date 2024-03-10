@@ -4,13 +4,7 @@ local M = {}
 M.spec = {
     "uga-rosa/ccc.nvim",
     event = "VeryLazy",
-    keys = {
-        {
-            "<leader>ap",
-            "<cmd>CccPick<CR>",
-            desc = "Color Picker",
-        },
-    },
+    keys = { { "<leader>ap", "<cmd>CccPick<CR>", desc = "Color [P]icker" } },
     opts = function()
         -- Documentation: https://github.com/uga-rosa/ccc.nvim
         -- Defaults: https://github.com/uga-rosa/ccc.nvim/blob/main/lua/ccc/config/default.lua

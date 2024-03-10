@@ -17,12 +17,9 @@ set("v", "K", ":m '<-2<CR>gv=gv")
 set("n", "<C-o>", "<C-o>zz", { desc = "Move back in jump list" })
 set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
 
-set("n", "<C-s>", vim.cmd.wa, { desc = "Save all" })
-
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
 
-set({ "n", "v" }, "<leader>p", '"0p', { desc = "Paste from 0 register" })
 set("n", "x", '"_x', { desc = "Delete without yanking" })
 
 -- Join lines while keeping position
@@ -40,7 +37,7 @@ set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent =
 set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
-set("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+set("n", "<leader>`", "<cmd>e #<cr>", { desc = "Alternate File" })
 
 -- Clear search with <esc>
 set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
@@ -175,8 +172,8 @@ set("n", "]e", function()
     vim.diagnostic.goto_next({ severity = "ERROR" })
 end, { desc = "Error" })
 
-set("n", "H", vim.cmd.tabprevious, { desc = "Previous Tab" })
-set("n", "L", vim.cmd.tabnext, { desc = "Next Tab" })
+-- set("n", "H", vim.cmd.tabprevious, { desc = "Previous Tab" })
+-- set("n", "L", vim.cmd.tabnext, { desc = "Next Tab" })
 for i = 1, 9 do
     set("n", "<leader>" .. i, function()
         local existing_tab_count = vim.fn.tabpagenr("$")
@@ -205,15 +202,14 @@ set("n", "<leader>acn", lib.copy.fileName, { desc = "Name of file" })
 set("n", "<leader>all", lib.log.log_symbol, { desc = "[L]og" })
 set("n", "<leader>ald", lib.log.delete_logs, { desc = "[D]elete" })
 
--- Find component
-set("n", "<leader>fc", lib.component.find_and_open_component_file, { desc = "Find component under cursor" })
-set("n", "<leader>fC", lib.component.find_and_open_files, { desc = "Find component" })
+set("n", "<leader>sc", lib.component.find_and_open_files, { desc = "[C]omponent" })
+set("n", "gC", lib.component.find_and_open_component_file, { desc = "[C]omponent under cursor" })
 
 -- Tmux Group
-set("n", "<leader>tc", lib.tmux.start_custom_tmux_session, { desc = "Create Custom TMUX Session" })
-set("n", "<leader>ts", lib.tmux.switch_tmux_session, { desc = "Switch Session" })
-set("n", "<leader>tw", lib.tmux.switch_tmux_window, { desc = "Switch Windows" })
-set("n", "<leader>tt", lib.tmux.switch_nvim_instance, { desc = "Switch Neovim Instance" })
+set("n", "<leader>tc", lib.tmux.start_custom_tmux_session, { desc = "[C]reate Session" })
+set("n", "<leader>ts", lib.tmux.switch_tmux_session, { desc = "Switch [S]ession" })
+set("n", "<leader>tw", lib.tmux.switch_tmux_window, { desc = "Switch [W]indows" })
+set("n", "<leader>tt", lib.tmux.switch_nvim_instance, { desc = "Switch Neovim [I]nstance" })
 -- set("n", "<leader>.q", lib.tmux.kill_tmux_session, { desc = "Quit TMUX Session" }) -- TODO: replace with repo-runner
 
 set("n", config.branch_notes.mappings.toggle_note, function()
@@ -261,9 +257,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
             })
         end, opts)
 
-        set({ "n", "v" }, "<leader>aa", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
-        set({ "n", "v" }, "<M-CR>", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
+        set({ "n", "v" }, "<leader>aa", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [A]ction" }))
+        set({ "n", "v" }, "<M-CR>", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [A]ction" }))
 
-        set("n", "<leader>an", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
+        set("n", "<leader>an", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))
     end,
 })
