@@ -57,7 +57,7 @@ vim.opt.writebackup = false -- if a file is being edited by another program (or 
 vim.opt.undofile = true -- enable persistent undo
 
 vim.opt.cmdheight = 1
-vim.opt.pumheight = 20 -- pop up menu height
+vim.opt.pumheight = 30 -- pop up menu height
 vim.opt.pumblend = 10 -- Popup blend
 
 vim.opt.showtabline = 2 -- hide tabline
@@ -84,3 +84,8 @@ vim.opt.splitbelow = true -- force all horizontal splits to go below current win
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
 
 vim.opt.shortmess:append("I")
+
+-- Abbreviations
+vim.cmd("cabbrev Wqa wqa")
+vim.cmd("cabbrev Wq wq")
+vim.cmd("cabbrev Wa wa")
