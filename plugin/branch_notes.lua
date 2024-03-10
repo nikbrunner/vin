@@ -1,11 +1,27 @@
 local M = {}
 
+---@class BranchNotesConfig
+M.config = {
+    pathes = {
+        notes = {
+            personal = require("vin.config").pathes.notes.personal,
+            work = {
+                dcd = require("vin.config").pathes.notes.work.dcd,
+            },
+        },
+    },
+    mappings = {
+        toggle_note = "<C-b>",
+        toggle_checkbox = "<C-k>",
+    },
+}
+
 function M.is_dealercenter_digital_repo()
     return string.find(vim.fn.expand("%:p:h"), "dealercenter-digital", 1, true)
 end
 
 ---Get the appropriate note folder for the current path
----@param config VinConfig
+---@param config BranchNotesConfig
 ---@return string
 function M.get_notes_folder(config)
     if M.is_dealercenter_digital_repo() then
@@ -96,7 +112,7 @@ M.create_note = function(note_file_path)
     })
 end
 
----@param config VinConfig
+---@param config BranchNotesConfig
 ---@return string
 function M.get_branch_note_path(config)
     local notes_folder_path = M.get_notes_folder(config)
@@ -170,7 +186,7 @@ function M.handle_close_note()
     vim.cmd("bd!")
 end
 
----@param config VinConfig
+---@param config BranchNotesConfig
 ---@return nil
 function M.open_branch_note(config)
     local note_file_path = M.get_branch_note_path(config)
@@ -201,24 +217,20 @@ function M.open_branch_note(config)
             desc = desc,
             buffer = bufnr,
             silent = true,
-            noremap = true, -- No remapping for this mapping
-            nowait = true, -- Do not wait for other key sequences
+            noremap = true,
+            nowait = true,
         }
     end
 
-    vim.keymap.set(
-        { "n", "i" },
-        config.branch_notes.mappings.toggle_note,
-        M.handle_close_note,
-        map_opts("Close branch note")
-    )
-
-    vim.keymap.set(
-        { "n", "i" },
-        config.branch_notes.mappings.toggle_checkbox,
-        M.handle_checkbox,
-        map_opts("Toggle checkbox")
-    )
+    vim.keymap.set("n", config.mappings.toggle_note, M.handle_close_note, map_opts("Close branch note"))
+    vim.keymap.set({ "n", "i" }, config.mappings.toggle_checkbox, M.handle_checkbox, map_opts("Toggle checkbox"))
 end
 
-return M
+---@param config BranchNotesConfig
+function M.setup(config)
+    vim.keymap.set("n", config.mappings.toggle_note, function()
+        M.open_branch_note(config)
+    end, { desc = "Toggle Branch Note" })
+end
+
+M.setup(M.config)

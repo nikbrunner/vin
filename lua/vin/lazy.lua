@@ -16,6 +16,7 @@ end
 ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+-- Setup lazy.nvim
 require("lazy").setup("vin.specs", {
     defaults = {
         lazy = true, -- should plugins be lazy-loaded?
@@ -30,6 +31,10 @@ require("lazy").setup("vin.specs", {
     },
     performance = {
         rtp = {
+            -- Add the /plugin directory to the package.path so that vim can find the plugins
+            paths = {
+                "plugin",
+            },
             -- disable some rtp plugins
             disabled_plugins = {
                 "netrwPlugin",
