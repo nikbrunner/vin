@@ -174,11 +174,6 @@ M.spec = {
                     ["V"] = "vsplit_with_window_picker",
                     ["t"] = "open_tabnew",
                     ["w"] = "open_with_window_picker",
-                    ["C"] = function(state)
-                        local node = state.tree:get_node()
-                        local filename_without_ext = node.name:gsub("%..*", "")
-                        lib.component.find_and_open_component_file(filename_without_ext)
-                    end,
                     ["O"] = function(state)
                         local node = state.tree:get_node()
                         local path = node:get_id()

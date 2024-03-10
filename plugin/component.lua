@@ -1,17 +1,20 @@
+---@class component-nvim.Config
+---@field projects component-nvim.Project[]
+
 ---@class component-nvim.Project
 ---@field root_folder string
 ---@field recognition_pattern string
 ---@field extensions string[]
 
-local M = {
-    config = {
-        ---@type component-nvim.Project[]
-        projects = {
-            {
-                root_folder = "bc-desktop-client",
-                recognition_pattern = "src/*/**/*components/**/*.tsx",
-                extensions = { "tsx", "scss", "story.tsx" },
-            },
+local M = {}
+
+---@type component-nvim.Config
+M.config = {
+    projects = {
+        {
+            root_folder = "bc-desktop-client",
+            recognition_pattern = "src/*/**/*components/**/*.tsx",
+            extensions = { "tsx", "scss", "story.tsx" },
         },
     },
 }
@@ -34,8 +37,9 @@ local function trim_newline(str)
 end
 
 ---Get the current project configuration based on the project path.
+---@param projects component-nvim.Project[]
 ---@return component-nvim.Project | nil
-local function get_current_project_config()
+local function get_current_project_config(projects)
     local current_working_dir = vim.fn.system("git rev-parse --show-toplevel")
 
     if current_working_dir == "" then
@@ -45,9 +49,10 @@ local function get_current_project_config()
 
     local project_folder = vim.fn.fnamemodify(trim_newline(current_working_dir), ":t")
 
-    for _, config in ipairs(M.config.projects) do
-        if config.root_folder == project_folder then
-            return config
+    -- for _, config in ipairs(M.config.projects) do
+    for _, project in ipairs(projects) do
+        if project.root_folder == project_folder then
+            return project
         end
     end
 
@@ -118,10 +123,11 @@ local function find_items(recognition_pattern)
     return item_names
 end
 
-function M.find_and_open_files()
+---@param config component-nvim.Config
+function M.find_and_open_files(config)
     vim.cmd("Neotree close")
 
-    local project_config = get_current_project_config()
+    local project_config = get_current_project_config(config.projects)
 
     if not project_config then
         return
@@ -149,10 +155,12 @@ function M.find_and_open_files()
 end
 
 ---Find and open a component file under the cursor in a new tab.
-function M.find_and_open_component_file(component_name)
+---@param config component-nvim.Config
+---@param component_name? string
+function M.find_and_open_component_file(config, component_name)
     component_name = component_name or vim.fn.expand("<cword>")
 
-    local project_config = get_current_project_config()
+    local project_config = get_current_project_config(config.projects)
 
     if not project_config then
         print("No project config found")
@@ -184,4 +192,14 @@ function M.find_and_open_component_file(component_name)
     end
 end
 
-return M
+function M.setup()
+    vim.keymap.set("n", "<leader>sc", function()
+        M.find_and_open_files(M.config)
+    end, { desc = "[C]omponent" })
+
+    vim.keymap.set("n", "gC", function()
+        M.find_and_open_component_file(M.config)
+    end, { desc = "[C]omponent under cursor" })
+end
+
+M.setup()

@@ -202,23 +202,6 @@ set("n", "<leader>acn", lib.copy.fileName, { desc = "Name of file" })
 set("n", "<leader>all", lib.log.log_symbol, { desc = "[L]og" })
 set("n", "<leader>ald", lib.log.delete_logs, { desc = "[D]elete" })
 
-set("n", "<leader>sc", lib.component.find_and_open_files, { desc = "[C]omponent" })
-set("n", "gC", lib.component.find_and_open_component_file, { desc = "[C]omponent under cursor" })
-
--- Tmux Group
-set("n", "<leader>tc", lib.tmux.start_custom_tmux_session, { desc = "[C]reate Session" })
-set("n", "<leader>ts", lib.tmux.switch_tmux_session, { desc = "Switch [S]ession" })
-set("n", "<leader>tw", lib.tmux.switch_tmux_window, { desc = "Switch [W]indows" })
-set("n", "<leader>tt", lib.tmux.switch_nvim_instance, { desc = "Switch Neovim [I]nstance" })
--- set("n", "<leader>.q", lib.tmux.kill_tmux_session, { desc = "Quit TMUX Session" }) -- TODO: replace with repo-runner
-
-set("n", config.branch_notes.mappings.toggle_note, function()
-    lib.branch_notes.open_branch_note(config)
-end, { desc = "Toggle Branch Note" })
-
--- lsp mappings
--- Use LspAttach autocommand to only map the following keys
--- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(ev)
