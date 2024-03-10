@@ -58,7 +58,7 @@ set({ "n", "i", "c" }, "<C-d>", "<C-d>zz", { desc = "Scroll Down" })
 set("n", "n", "nzzzv")
 set("n", "N", "Nzzzv")
 
-set("n", "<leader>ur", ":e!<CR>", { desc = "Redraw / clear hlsearch / diff update" })
+set("n", "<leader>ur", "zz:e!<CR>zz", { desc = "[R]edraw" })
 
 set("n", "<leader>ub", function()
     local background = vim.opt.background:get()
@@ -70,9 +70,9 @@ set("n", "<leader>ub", function()
         vim.opt.background = "dark"
         vim.notify("Background set to dark", vim.log.levels.INFO, { title = "Background" })
     end
-end, { desc = "Toggle Background" })
+end, { desc = "Toggle [B]ackground" })
 
-set("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
+set("n", "<leader>ui", vim.show_pos, { desc = "[I]nspect Position" })
 
 set("n", "<leader>uc", function()
     local defaultLevel = 0
@@ -80,7 +80,7 @@ set("n", "<leader>uc", function()
     local nextLevel = currentLevel == 0 and 3 or defaultLevel
     vim.o.conceallevel = nextLevel
     vim.notify("Conceal level set to " .. nextLevel, vim.log.levels.INFO, { title = "Conceal" })
-end, { desc = "Toggle Conceal (0, 3)" })
+end, { desc = "Toggle [C]onceal (0, 3)" })
 
 set("n", "<leader>uC", function()
     local defaultLevel = 0
@@ -92,7 +92,7 @@ set("n", "<leader>uC", function()
             vim.notify("Conceal level set to " .. selected, vim.log.levels.INFO, { title = "Conceal" })
         end
     end)
-end, { desc = "Toggle specific conceal level" })
+end, { desc = "Toggle Specific [C]onceal Level" })
 
 set("n", "<leader>ud", function()
     if vim.diagnostic.is_disabled() then
@@ -102,7 +102,7 @@ set("n", "<leader>ud", function()
         vim.diagnostic.disable()
         vim.notify("Diagnostics disabled", vim.log.levels.WARN, { title = "Diagnostics" })
     end
-end, { desc = "Toggle Diagnostics" })
+end, { desc = "Toggle [D]iagnostics" })
 
 set("n", "<leader>us", function()
     if vim.o.spell then
@@ -112,11 +112,11 @@ set("n", "<leader>us", function()
         vim.o.spell = true
         vim.notify("Spell check enabled", vim.log.levels.INFO, { title = "Spell Check" })
     end
-end, { desc = "Toggle Spell" })
+end, { desc = "Toggle [S]pell" })
 
 set("n", "z=", function()
     require("fzf-lua").spell_suggest({ winopts = { height = 0.35, width = 0.65 } })
-end, { desc = "Spelling Suggestions" })
+end, { desc = "[S]pelling Suggestions" })
 
 set("n", "<leader>uw", function()
     if vim.o.wrap then
@@ -126,7 +126,7 @@ set("n", "<leader>uw", function()
         vim.o.wrap = true
         vim.notify("Text wrapping enabled", vim.log.levels.INFO, { title = "Text Wrapping" })
     end
-end, { desc = "Toggle Text Wrapping" })
+end, { desc = "Toggle Text [W]rapping" })
 
 set("n", "<leader>ul", function()
     local areNumbersEnabled = vim.opt.number:get()
@@ -141,7 +141,7 @@ set("n", "<leader>ul", function()
         vim.opt.relativenumber = true
         vim.notify("Relative line numbers enabled", vim.log.levels.INFO, { title = "Line Numbers" })
     end
-end, { desc = "Toggle Line Numbers (Relative vs. Normal" })
+end, { desc = "Toggle [L]ine Numbers" })
 
 -- prev/next
 set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
@@ -188,10 +188,10 @@ for i = 1, 9 do
 end
 
 -- Vin Group
-set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
-set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
-set("n", "<leader>vi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
-set("n", "<leader>vr", "<cmd>LspRestart<CR>", { desc = "Restart LSP Server" })
+set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "[P]lugin Manager - [LazyVim]" })
+set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "[P]ackage Manager - [Mason]" })
+set("n", "<leader>vl", "<cmd>LspInfo<CR>", { desc = "[L]SP Info" })
+set("n", "<leader>vL", "<cmd>LspRestart<CR>", { desc = "Restart [L]SP " })
 
 -- Copy Group
 set("n", "<leader>acf", lib.copy.fullPath, { desc = "Full Path" })

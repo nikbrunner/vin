@@ -8,12 +8,12 @@ M.spec = {
         {
             "<leader>vm",
             "<CMD>Bmessagessp<CR>",
-            desc = "Show messages (Split)",
+            desc = "[M]essages",
         },
         {
             "<leader>vM",
             "<CMD>Bmessagesvs<CR>",
-            desc = "Show messages (Vertical)",
+            desc = "[M]essages (VS)",
         },
     },
     opts = {},
