@@ -3,7 +3,9 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "folke/zen-mode.nvim",
-    keys = { { "<leader>z", "<CMD>ZenMode<CR>", desc = "Zen" } },
+    keys = {
+        { "<leader>z", "<CMD>ZenMode<CR>", desc = "Zen" },
+    },
     opts = {
         window = {
             backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
@@ -13,6 +15,15 @@ M.spec = {
                 relativenumber = true,
             },
         },
+        plugins = {
+            tmux = { enabled = true }, -- disables the tmux statusline
+        },
+        on_open = function()
+            vim.opt.laststatus = 0
+        end,
+        on_close = function()
+            vim.opt.laststatus = 3
+        end,
     },
 }
 
