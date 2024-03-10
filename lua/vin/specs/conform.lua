@@ -63,7 +63,7 @@ M.spec = {
         {
             "<leader>vf",
             "<cmd>ConformInfo<CR>",
-            desc = "ConformInfo",
+            desc = "[F]ormat Info",
         },
     },
 }

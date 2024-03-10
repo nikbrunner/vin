@@ -45,7 +45,7 @@ M.specs = {
                 function()
                     require("mini.notify").show_history()
                 end,
-                desc = "Notifications History",
+                desc = "[N]otifications History",
             },
         },
         opts = {
