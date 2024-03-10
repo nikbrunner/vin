@@ -33,7 +33,7 @@ local spec = {
         symbols = {
             modified = require("vin.icons").git.modified,
             ellipsis = require("vin.icons").misc.dots,
-            separator = require("vin.icons").misc.dot,
+            separator = require("vin.icons").misc.forwardSlash,
         },
 
         kinds = require("vin.icons").kinds,

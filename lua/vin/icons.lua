@@ -5,6 +5,7 @@ return {
         smallCircle = " ",
         separator = " ",
         dot = ".",
+        forwardSlash = "󰿟",
     },
     dap = {
         Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
