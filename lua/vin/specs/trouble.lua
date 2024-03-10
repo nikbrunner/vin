@@ -17,10 +17,10 @@ M.spec = {
         cycle_results = false, -- cycle item list when reaching beginning or end of list
     },
     keys = {
-        { "<leader>dd", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
-        { "<leader>dD", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
-        { "<leader>dl", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
-        { "<leader>dq", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
+        { "<leader>dd", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "[D]ocument Diagnostics" },
+        { "<leader>dw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "[W]orkspace Diagnostics" },
+        { "<leader>dl", "<cmd>TroubleToggle loclist<cr>", desc = "[L]ocation List" },
+        { "<leader>dq", "<cmd>TroubleToggle quickfix<cr>", desc = "[Q]uickfix List" },
         {
             "[q",
             function()

@@ -14,7 +14,7 @@ M.spec = {
             function()
                 require("spectre").open()
             end,
-            desc = "Replace in files",
+            desc = "Search & [R]eplace",
         },
         {
             "<leader>aR",
@@ -30,7 +30,7 @@ M.spec = {
                     search_text = get_visual_selection(),
                 })
             end,
-            desc = "Replace in files (visual selection)",
+            desc = "Search & [R]eplace (visual selection)",
         },
     },
 }

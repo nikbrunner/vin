@@ -26,28 +26,28 @@ M.spec = {
                 function()
                     vim.cmd("Neotree float document_symbols toggle reveal")
                 end,
-                desc = "Document Symbols",
+                desc = "[S]ymbols",
             },
             {
-                "<leader>ee",
+                "<leader>ef",
                 function()
                     vim.cmd("Neotree float toggle reveal")
                 end,
-                desc = "Float Files",
+                desc = "[F]iles",
             },
             {
                 "<leader>eg",
                 function()
                     vim.cmd("Neotree float git_status toggle reveal")
                 end,
-                desc = "Float Git Status",
+                desc = "[G]it Status",
             },
             {
-                "<leader>eb",
+                "<leader>er",
                 function()
                     vim.cmd("Neotree float buffers toggle reveal")
                 end,
-                desc = "Float Buffer Tree",
+                desc = "[R]ecents",
             },
         }
     end,

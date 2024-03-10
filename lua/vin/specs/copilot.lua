@@ -21,14 +21,14 @@ M.spec = {
     event = "InsertEnter",
     keys = {
         {
-            "<leader>ipa",
+            "<leader>ica",
             M.toggle_copilot_auto_suggestion,
-            desc = "Toggle Copilot Auto Suggestion",
+            desc = "Toggle [A]uto Suggestion",
         },
         {
-            "<leader>ipt",
+            "<leader>ict",
             M.toggle_copilot,
-            desc = "Toggle Copilot",
+            desc = "Toggle [S]tatus (On/Off)",
         },
     },
     opts = {

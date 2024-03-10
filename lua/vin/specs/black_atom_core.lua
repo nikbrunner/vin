@@ -7,13 +7,13 @@ M.spec = {
     lazy = false,
     priority = 1000,
     keys = {
-        {
-            "<leader>uT",
-            function()
-                require("black-atom-core.util").select_theme()
-            end,
-            desc = "Theme Selector (Black Atom) ",
-        },
+        -- {
+        --     "<leader>uT",
+        --     function()
+        --         require("black-atom-core.util").select_theme()
+        --     end,
+        --     desc = "Theme Selector (Black Atom) ",
+        -- },
     },
     ---@type BlackAtomCore.Config
     opts = {
