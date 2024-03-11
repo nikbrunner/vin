@@ -35,14 +35,14 @@ M.spec = {
             window = {
                 border = "none",
                 position = "bottom",
-                margin = { 1, 0, 1, 0 },
-                padding = { 1, 1, 1, 1 },
+                margin = { 1, 0, 1, 0.65 },
+                padding = { 2, 2, 2, 2 },
                 winblend = 0,
             },
 
             layout = {
-                height = { min = 5, max = 10 },
-                width = { min = 20, max = 50 },
+                height = { min = 5, max = 65 },
+                width = { min = 20, max = 65 },
                 spacing = 5,
                 align = "center",
             },

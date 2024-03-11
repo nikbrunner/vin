@@ -154,11 +154,21 @@ M.spec = {
                 position = "left",
                 width = 40,
                 popup = {
+                    position = "50%", -- 50% means center it
                     size = {
                         height = 35,
                         width = 65,
                     },
-                    position = "50%", -- 50% means center it
+                    border = {
+                        padding = { 2, 8 },
+                        -- style = "solid",
+                        -- text = {
+                        --     top = "[ Vin ]",
+                        --     top_align = "center",
+                        --     bottom = require("vin.icons").misc.circle,
+                        --     bottom_align = "center",
+                        -- },
+                    },
                 },
                 mappings = {
                     ["<space>"] = false,
