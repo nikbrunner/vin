@@ -93,7 +93,7 @@ M.spec = {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     event = "VeryLazy",
-    enabled = false,
+    enabled = true,
     dependencies = {
         {
             "nvim-telescope/telescope-fzf-native.nvim",
@@ -105,7 +105,6 @@ M.spec = {
         },
     },
     keys = {
-        { "<leader>/", M.telescope("current_buffer_fuzzy_find"), desc = "Grep Current Buffer" },
         { "<leader>st", M.telescope("treesitter"), desc = "[T]reesitter" },
         { "<leader>so", M.telescope("vim_options"), desc = "[O]ptions" },
     },
@@ -120,7 +119,7 @@ M.spec = {
                 height = 0.75,
                 preview_cutoff = 1,
                 mirror = false,
-                flip_columns = 150,
+                -- flip_columns = 150,
             },
         }
 
@@ -147,6 +146,7 @@ M.spec = {
                 selection_strategy = "reset",
                 sorting_strategy = "descending",
                 layout_strategy = "flex",
+                flip_columns = 150,
                 path_display = { "truncate" },
                 layout_config = {
                     horizontal = {

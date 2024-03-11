@@ -79,6 +79,7 @@ end
 M.keys = {
     -- Root layer
     { "<leader><space>",     M.fzf("files", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "Files", },
+    { "<leader>/",           M.fzf("lgrep_curbuf"), desc = "Grep Current File" },
     { "<leader>:",           M.fzf("commands", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "Commands" },
     { "<leader>r",           M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = true })), desc = "Recent Files" },
     { "<leader>R",           M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = false })), desc = WhichKeyIgnoreLabel },
