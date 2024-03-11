@@ -16,6 +16,12 @@ M.spec = {
             "<C-s>",
             function()
                 require("arrow.persist").toggle()
+                local state = require("arrow.statusline").in_on_arrow_file()
+                if state then
+                    vim.notify("Arrow: Marked File", vim.log.levels.INFO, { title = "Arrow" })
+                else
+                    vim.notify("Arrow: Unmarked File", vim.log.levels.INFO, { title = "Arrow" })
+                end
             end,
             desc = "Mark File",
         },
