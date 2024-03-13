@@ -1,7 +1,7 @@
 return {
     misc = {
         dots = "󰇘",
-        circle = "",
+        circle = " ",
         smallCircle = " ",
         separator = " ",
         dot = ".",
