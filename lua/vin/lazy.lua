@@ -1,5 +1,4 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-local repos_path = "~/Documents/dev/repos/"
 
 ---@diagnostic disable-next-line: undefined-field
 if not vim.loop.fs_stat(lazypath) then
@@ -44,7 +43,7 @@ require("lazy").setup("vin.specs", {
     dev = {
         ---@type string | fun(plugin: LazyPlugin): string directory where you store your local plugin projects
         path = function(plugin)
-            return repos_path .. plugin[1]
+            return require("vin.config").pathes.repos .. plugin[1]
         end,
     },
     checker = {
