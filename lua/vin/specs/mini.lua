@@ -56,19 +56,14 @@ M.specs = {
 
             window = {
                 -- https://github.com/echasnovski/mini.nvim/blob/a118a964c94543c06d8b1f2f7542535dd2e19d36/doc/mini-notify.txt#L186-L198
-                config = function()
-                    local has_statusline = vim.o.laststatus > 0
-                    local bottom_space = vim.o.cmdheight + (has_statusline and 1 or 0)
-
-                    return {
-                        anchor = "SE",
-                        col = vim.o.columns,
-                        row = vim.o.lines - bottom_space,
-                        width = math.floor(vim.o.columns * 0.4),
-                        border = "solid",
-                    }
-                end,
-                winblend = 30,
+                config = {
+                    anchor = "SE",
+                    col = vim.o.columns,
+                    row = 4,
+                    width = math.floor(vim.o.columns * 0.4),
+                    border = "solid",
+                },
+                winblend = 0,
             },
         },
         config = function(_, opts)
