@@ -1,6 +1,6 @@
 ---@class VinConfig
 local config = {
-    colorscheme = "terra_spring_night",
+    colorscheme = "terra_winter_night",
     lualine_theme = "black_atom_core",
     pathes = {
         repos = "~/repos/",
