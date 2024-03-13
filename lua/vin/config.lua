@@ -3,6 +3,7 @@ local config = {
     colorscheme = "terra_spring_night",
     lualine_theme = "black_atom_core",
     pathes = {
+        repos = "~/repos/",
         notes = {
             personal = vim.fn.expand("~") .. "/Documents/notes/notes",
             work = {
