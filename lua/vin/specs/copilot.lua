@@ -30,6 +30,11 @@ M.spec = {
             M.toggle_copilot,
             desc = "Toggle [S]tatus (On/Off)",
         },
+        {
+            "<leader>ics",
+            "<cmd>Copilot status<CR>",
+            desc = "Status",
+        },
     },
     opts = {
         panel = {
