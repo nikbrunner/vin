@@ -34,7 +34,7 @@ M.win_preset = {
             row = 0.85,
             col = 0.5,
             height = 0.25,
-            width = 0.5,
+            width = 0.65,
             preview = { hidden = "hidden" },
         },
     },
@@ -88,6 +88,13 @@ M.keys = {
     { "<leader>s.",          M.fzf("resume"), desc = "[.] Resume" },
     { "<leader>s:",          M.fzf("commands", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "[C]ommands" },
     { "<leader>s/",          M.search_preset_folder, desc = "[/] Search Folder" },
+    {
+        "<leader>sd",
+        function()
+            require("fzf-lua").files({ cmd = "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME ls-files" })
+        end,
+        desc = "[D]otfiles"
+    },
     { "<leader>sh",          M.fzf("help_tags"), desc = "[H]elp Tags" },
     { "<leader>sH",          M.fzf("highlights"), desc = "[H]ighlights" },
     { "<leader>sk",          M.fzf("keymaps"), desc = "[K]eymaps" },
@@ -116,7 +123,7 @@ M.keys = {
 
 
     -- Insert Mode
-    { "<C-r>",               M.fzf("registers", M.use_win_preset( M.win_preset.sm.no_preview)), mode = { "i" }, desc = "Registers" }
+    -- { "<C-r>",               M.fzf("registers", M.use_win_preset( M.win_preset.sm.no_preview)), mode = { "i" }, desc = "Registers" }
 }
 -- stylua: ignore end
 
@@ -204,7 +211,7 @@ M.spec = {
             fzf_colors = {
                 ["fg"] = { "fg", "Normal" },
                 ["fg+"] = { "fg", "CursorLineNr" },
-                ["bg"] = { "bg", "NeoTreeNormal" },
+                ["bg"] = { "bg", "NormalFloat" },
                 ["hl"] = { "fg", "Comment" },
                 ["bg+"] = { "bg", "Normal" },
                 ["border"] = { "fg", "CursorLineNr" },
@@ -217,7 +224,7 @@ M.spec = {
                 ["marker"] = { "fg", "Keyword" },
                 ["spinner"] = { "fg", "Label" },
                 ["header"] = { "fg", "Comment" },
-                ["gutter"] = { "bg", "NeoTreeNormal" },
+                ["gutter"] = { "bg", "NormalFloat" },
             },
 
             previewers = {
