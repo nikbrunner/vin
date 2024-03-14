@@ -108,6 +108,7 @@ M.spec = {
     keys = {
         { "<leader>st", M.builtin("treesitter"), desc = "[T]reesitter" },
         { "<leader>so", M.builtin("vim_options"), desc = "[O]ptions" },
+        { "<leader>gs", M.git_status, desc = "[S]tatus" },
     },
     opts = function()
         local actions = require("telescope.actions")
