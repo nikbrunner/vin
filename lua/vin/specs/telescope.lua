@@ -1,6 +1,6 @@
 local M = {}
 
-function M.telescope(cmd, opts)
+function M.builtin(cmd, opts)
     return function()
         require("telescope.builtin")[cmd](opts or {})
     end
@@ -44,7 +44,7 @@ function M.git_status()
         vim.notify("No changes to commit", vim.log.levels.INFO)
         return
     else
-        M.telescope("git_status", {
+        M.builtin("git_status", {
             previewer = M.delta_previewer(),
         })()
     end
@@ -52,7 +52,7 @@ end
 
 -- TODO: Why does the delta_previewer not work here?
 function M.git_commits()
-    M.telescope("git_commits", {
+    M.builtin("git_commits", {
         previewer = M.delta_previewer(),
     })()
 end
@@ -82,7 +82,7 @@ function M.search_preset_folder()
             return
         end
 
-        M.telescope("find_files", {
+        M.builtin("find_files", {
             cwd = M.folder_presets[choice],
         })()
     end)
@@ -99,14 +99,15 @@ M.spec = {
             "nvim-telescope/telescope-fzf-native.nvim",
             build = "make",
             enabled = vim.fn.executable("make") == 1,
-            config = function()
-                require("telescope").load_extension("fzf")
-            end,
         },
     },
+    init = function()
+        require("telescope").load_extension("fzf")
+        require("telescope").load_extension("yank_history")
+    end,
     keys = {
-        { "<leader>st", M.telescope("treesitter"), desc = "[T]reesitter" },
-        { "<leader>so", M.telescope("vim_options"), desc = "[O]ptions" },
+        { "<leader>st", M.builtin("treesitter"), desc = "[T]reesitter" },
+        { "<leader>so", M.builtin("vim_options"), desc = "[O]ptions" },
     },
     opts = function()
         local actions = require("telescope.actions")
@@ -179,9 +180,9 @@ M.spec = {
                     },
                     cursor = {
                         show_line = false,
-                        height = 0.9,
+                        height = 10,
                         preview_cutoff = 40,
-                        width = 0.8,
+                        width = 35,
                     },
                 },
                 mappings = {
