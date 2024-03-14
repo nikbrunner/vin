@@ -108,7 +108,7 @@ M.keys = {
     { "<leader>s<Tab>",      M.fzf("tabs"), desc = "[Tab]s" },
 
     -- [G]it Group
-    { "<leader>gs",          M.fzf("git_status", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "[S]tatus" },
+    -- { "<leader>gs",          M.fzf("git_status", M.use_win_preset(M.win_preset.lg.flex)), desc = "[S]tatus" },
     { "<leader>gc",          M.fzf("changes"), desc = "[C]hanges" },
     { "<leader>gB",          M.fzf("git_branches"), desc = "[B]ranches" },
     { "<leader>gC",          M.fzf("git_commits"), desc = "[C]ommits" },
