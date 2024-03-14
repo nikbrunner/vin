@@ -150,9 +150,10 @@ M.spec = {
                 },
             },
 
-            window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
+            window = {
                 position = "left",
                 width = 40,
+                -- https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup
                 popup = {
                     position = "50%", -- 50% means center it
                     size = {
