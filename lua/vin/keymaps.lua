@@ -58,16 +58,23 @@ set({ "n", "i", "c" }, "<C-d>", "<C-d>zz", { desc = "Scroll Down" })
 set("n", "n", "nzzzv")
 set("n", "N", "Nzzzv")
 
-set("n", "<leader>ur", "zz:e!<CR>zz", { desc = "[R]edraw" })
+set("n", "<leader>ur", function()
+    -- Reload the config file and colorscheme
+    package.loaded["vin.config"] = nil
+    vim.cmd.colorscheme(require("vin.config").colorscheme)
+    vim.cmd("norm zz:e!<CR>zz")
+end, { desc = "[R]edraw" })
 
 set("n", "<leader>ub", function()
     local background = vim.opt.background:get()
 
     if background == "dark" then
         vim.opt.background = "light"
+        require("vin.lib.ui").handle_colors(config, config.colorscheme, "light")
         vim.notify("Background set to light", vim.log.levels.INFO, { title = "Background" })
     else
         vim.opt.background = "dark"
+        require("vin.lib.ui").handle_colors(config, config.colorscheme, "dark")
         vim.notify("Background set to dark", vim.log.levels.INFO, { title = "Background" })
     end
 end, { desc = "Toggle [B]ackground" })
@@ -246,3 +253,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         set("n", "<leader>an", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))
     end,
 })
+
+-- quit group
+set("n", "<leader>qa", "<cmd>wqa<CR>", { desc = "Quit All" })
+set("n", "<leader>qo", "<cmd>only<CR>", { desc = "Quit Others" })

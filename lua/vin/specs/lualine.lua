@@ -9,6 +9,7 @@ M.spec = {
         "AndreM222/copilot-lualine",
     },
     event = "VeryLazy",
+    init = function() end,
     opts = function()
         local wtf = require("wtf")
 
@@ -95,6 +96,12 @@ M.spec = {
             show_loading = true,
         }
 
+        local arrow_indicator = {
+            function()
+                return require("arrow.statusline").text_for_statusline_with_icons()
+            end,
+        }
+
         local auto_format_indicator = {
             function()
                 if vim.g.vin_autoformat_enabled then
@@ -107,7 +114,7 @@ M.spec = {
 
         return {
             options = {
-                theme = require("vin.config").lualine_theme,
+                theme = "auto",
                 globalstatus = true,
                 section_separators = { left = "", right = "" },
                 component_separators = { left = "", right = "" },
@@ -126,11 +133,7 @@ M.spec = {
                     "fancy_branch",
                     "francy_diff",
                     "fancy_location",
-                    {
-                        function()
-                            return require("arrow.statusline").text_for_statusline_with_icons()
-                        end,
-                    },
+                    arrow_indicator,
                 },
                 lualine_c = {
                     "fancy_diagnostics",
@@ -142,7 +145,9 @@ M.spec = {
                     wtf.get_status,
                     copilot,
                     auto_format_indicator,
+                    lazy_plug_count,
                     lazy_updates,
+                    lazy_startup,
                 },
                 lualine_z = {
                     "fancy_filetype",
@@ -150,6 +155,15 @@ M.spec = {
             },
             extensions = { "lazy" },
         }
+    end,
+    config = function(_, opts)
+        require("lualine").setup(opts)
+
+        -- I override the default c section colors, because I don't like the default colors
+        local mods = { "normal", "insert", "visual", "replace", "command", "terminal" }
+        for _, mod in ipairs(mods) do
+            vim.api.nvim_set_hl(0, "lualine_c_" .. mod, { link = "Normal" })
+        end
     end,
 }
 

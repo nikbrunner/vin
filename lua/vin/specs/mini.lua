@@ -37,7 +37,7 @@ M.specs = {
     {
         "echasnovski/mini.notify",
         version = "*",
-        event = "VeryLazy",
+        lazy = false,
         enabled = true,
         keys = {
             {
