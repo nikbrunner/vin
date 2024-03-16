@@ -17,7 +17,7 @@ register_log_formats(filetype_log_map, {
     "javascriptreact",
     "astro",
 }, function(message, value)
-    return string.format('console.log("%s", %s)', message, value)
+    return string.format('console.log("%s", %s);', message, value)
 end)
 
 register_log_formats(filetype_log_map, { "lua" }, function(message, value)
