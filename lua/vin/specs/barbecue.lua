@@ -6,7 +6,7 @@ local spec = {
     version = "*",
     dependencies = {
         "SmiteshP/nvim-navic",
-        "nvim-tree/nvim-web-devicons", -- optional dependency
+        "nvim-tree/nvim-web-devicons",
     },
     opts = {
         ---Whether to attach navic to language servers automatically.
@@ -28,7 +28,7 @@ local spec = {
 
         ---Whether context text should follow its icon's color.
         ---@type boolean
-        context_follow_icon_color = true,
+        context_follow_icon_color = false,
 
         symbols = {
             modified = require("vin.icons").git.modified,
