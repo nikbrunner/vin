@@ -1,5 +1,4 @@
 local create_autocmd = vim.api.nvim_create_autocmd
-local config = require("vin.config")
 
 local M = {}
 
@@ -21,12 +20,25 @@ end
 create_autocmd("UIEnter", {
     group = M.augroup("ui_enter"),
     callback = function()
-        vim.cmd.colorscheme(config.colorscheme)
-        -- M.open_previous_files()
+        local config = require("vin.config")
+        require("vin.lib.ui").handle_colors(config, config.colorscheme, config.background)
+        M.open_previous_files()
     end,
 })
 
--- Close these filetypes with <Esc> in normal mode
+create_autocmd("ColorScheme", {
+    group = M.augroup("colorscheme_sync"),
+    callback = function(args)
+        local config = require("vin.config")
+        local colorscheme = args.match
+        ---@diagnostic disable-next-line: undefined-field
+        local background = vim.opt.background:get()
+        require("vin.lib.ui").handle_colors(config, colorscheme, background)
+        vim.cmd("Lazy reload lualine.nvim")
+    end,
+})
+
+-- Close these filetypes with <Esc> & q in normal mode
 create_autocmd("FileType", {
     group = M.augroup("quit_mapping"),
     pattern = {
@@ -74,17 +86,6 @@ create_autocmd("BufReadPost", {
     end,
 })
 
--- On every buff enter and refocus refresh neotree
-create_autocmd("BufWrite", {
-    group = M.augroup("neotree_refresh"),
-    pattern = { "*" },
-    callback = function()
-        if pcall(require, "neo-tree") then
-            require("neo-tree.sources.manager").refresh()
-        end
-    end,
-})
-
 -- Check if we need to reload the file when it changed
 create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
     group = M.augroup("checktime"),
@@ -106,54 +107,5 @@ create_autocmd({ "VimResized" }, {
         local current_tab = vim.fn.tabpagenr()
         vim.cmd("tabdo wincmd =")
         vim.cmd("tabnext " .. current_tab)
-    end,
-})
-
-create_autocmd("ColorScheme", {
-    group = M.augroup("colorscheme"),
-    callback = function(args)
-        local wezterm_config_filepath = vim.fn.expand("$XDG_CONFIG_HOME/wezterm/wezterm.lua")
-        local vin_config_filepath = vim.fn.expand("$XDG_CONFIG_HOME/nvim/lua/vin/config.lua")
-
-        ---@class ColorschemeConfig
-        ---@field name string
-        ---@field background string
-
-        ---TODO: handle coloreschemes for which wezterm uses the default background
-        ---https://wezfurlong.org/wezterm/colorschemes/index.html
-        ---@type table<string, ColorschemeConfig>
-        local neovim_wezterm_colorconfig_map = {
-            ["terra_spring_night"] = { name = "Everforest Dark (Gogh)", background = "#212523" },
-            ["terra_summer_night"] = { name = "Ayu Mirage", background = "#1f2129" },
-            ["terra_fall_night"] = { name = "Gruvbox Material (Gogh)", background = "#252221" },
-            ["terra_winter_night"] = { name = "nord", background = "#232427" },
-        }
-
-        local neovim_colorscheme = args.match
-        local wezterm_colors_config = neovim_wezterm_colorconfig_map[neovim_colorscheme]
-
-        if not wezterm_colors_config then
-            return
-        end
-
-        ---Finds a pattern in a line of a file and replaces it with a value
-        ---@param filepath string
-        ---@param pattern string
-        ---@param value string
-        local function update_config_file(filepath, pattern, value)
-            local lines = vim.fn.readfile(filepath)
-            lines = vim.tbl_map(function(line)
-                if vim.fn.match(line, pattern) ~= -1 then
-                    line = vim.fn.substitute(line, '".*"', value, "")
-                end
-                return line
-            end, lines)
-
-            vim.fn.writefile(lines, filepath)
-        end
-
-        update_config_file(wezterm_config_filepath, "color_scheme", '"' .. wezterm_colors_config.name .. '"')
-        update_config_file(vin_config_filepath, "colorscheme", '"' .. neovim_colorscheme .. '"')
-        update_config_file(wezterm_config_filepath, "background", '"' .. wezterm_colors_config.background .. '"')
     end,
 })
