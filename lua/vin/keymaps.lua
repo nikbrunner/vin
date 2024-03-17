@@ -67,14 +67,15 @@ end, { desc = "[R]edraw" })
 
 set("n", "<leader>ub", function()
     local background = vim.opt.background:get()
+    local colorscheme = vim.g.colors_name
 
     if background == "dark" then
         vim.opt.background = "light"
-        require("vin.lib.ui").handle_colors(config, config.colorscheme, "light")
+        require("vin.lib.ui").handle_colors(config, colorscheme, "light")
         vim.notify("Background set to light", vim.log.levels.INFO, { title = "Background" })
     else
         vim.opt.background = "dark"
-        require("vin.lib.ui").handle_colors(config, config.colorscheme, "dark")
+        require("vin.lib.ui").handle_colors(config, colorscheme, "dark")
         vim.notify("Background set to dark", vim.log.levels.INFO, { title = "Background" })
     end
 end, { desc = "Toggle [B]ackground" })
