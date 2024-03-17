@@ -5,21 +5,51 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "terra_winter_night",
+    colorscheme = "terra_spring_night",
     ---@type "dark" | "light"
     background = "dark",
     ---See for Wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
     colors_config_map = {
-        ["terra_spring_night"] = { wezterm = "Everforest Dark (Gogh)", enable_custom_highlights = false },
-        ["terra_summer_night"] = { wezterm = "Ayu Mirage", enable_custom_highlights = false },
-        ["terra_fall_night"] = { wezterm = "Gruvbox Material (Gogh)", enable_custom_highlights = false },
-        ["terra_winter_night"] = { wezterm = "nord", enable_custom_highlights = false },
-        ["catppuccin"] = { wezterm = "catppuccin", enable_custom_highlights = true },
-        ["catppuccin-mocha"] = { wezterm = "catppuccin-mocha", enable_custom_highlights = true },
-        ["catppuccin-frappe"] = { wezterm = "catppuccin-frappe", enable_custom_highlights = true },
-        ["catppuccin-machiato"] = { wezterm = "catppuccin-machiato", enable_custom_highlights = true },
-        ["catppuccin-latte"] = { wezterm = "catppuccin-latte", enable_custom_highlights = true },
-        ["quiet"] = { wezterm = "Google Light (Gogh)", enable_custom_highlights = true },
+        ["terra_spring_night"] = {
+            wezterm = "Everforest Dark (Gogh)",
+            enable_custom_highlights = false,
+        },
+        ["terra_summer_night"] = {
+            wezterm = "Ayu Mirage",
+            enable_custom_highlights = false,
+        },
+        ["terra_fall_night"] = {
+            wezterm = "Gruvbox Material (Gogh)",
+            enable_custom_highlights = false,
+        },
+        ["terra_winter_night"] = {
+            wezterm = "nord",
+            enable_custom_highlights = false,
+        },
+        ["catppuccin"] = {
+            wezterm = "catppuccin",
+            enable_custom_highlights = true,
+        },
+        ["catppuccin-mocha"] = {
+            wezterm = "catppuccin-mocha",
+            enable_custom_highlights = true,
+        },
+        ["catppuccin-frappe"] = {
+            wezterm = "catppuccin-frappe",
+            enable_custom_highlights = true,
+        },
+        ["catppuccin-machiato"] = {
+            wezterm = "catppuccin-machiato",
+            enable_custom_highlights = true,
+        },
+        ["catppuccin-latte"] = {
+            wezterm = "catppuccin-latte",
+            enable_custom_highlights = true,
+        },
+        ["quiet"] = {
+            wezterm = "Google Light (Gogh)",
+            enable_custom_highlights = true,
+        },
     },
     ---For every colorscheme I set, I want some consistency in the in the highlights.
     ---See also: vin/lib/highlights#set_custom_highlights
