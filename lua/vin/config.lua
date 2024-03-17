@@ -5,7 +5,7 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "habamax",
+    colorscheme = "terra_spring_night",
     ---@type "dark" | "light"
     background = "dark",
     ---See for Wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
