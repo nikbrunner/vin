@@ -9,7 +9,7 @@ M.spec = {
         "AndreM222/copilot-lualine",
     },
     event = "VeryLazy",
-    init = function() end,
+    enabled = false,
     opts = function()
         local wtf = require("wtf")
 

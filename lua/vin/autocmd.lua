@@ -34,7 +34,6 @@ create_autocmd("ColorScheme", {
         ---@diagnostic disable-next-line: undefined-field
         local background = vim.opt.background:get()
         require("vin.lib.ui").handle_colors(config, colorscheme, background)
-        vim.cmd("Lazy reload lualine.nvim")
     end,
 })
 
