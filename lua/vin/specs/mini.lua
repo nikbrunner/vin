@@ -134,7 +134,7 @@ M.specs = {
                         local fileinfo = m.section_fileinfo({ trunc_width = 120 })
 
                         return m.combine_groups({
-                            { hl = mode_hl, strings = { mode, wrap, spell } },
+                            { hl = mode_hl, strings = { mode } },
                             {
                                 hl = "@function",
                                 strings = { project_name(), git },
@@ -151,6 +151,8 @@ M.specs = {
                                 hl = "Normal",
                                 strings = (not m.is_truncated(120) and {
                                     wtf(),
+                                    wrap,
+                                    spell,
                                     auto_format_indicator(),
                                     lazy_plug_count(),
                                     lazy_updates(),
