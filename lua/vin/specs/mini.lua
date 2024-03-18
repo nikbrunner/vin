@@ -165,6 +165,10 @@ M.specs = {
                 },
             }
         end,
+        config = function(_, opts)
+            require("mini.statusline").setup(opts)
+            vim.opt.laststatus = 3
+        end,
     },
 }
 
