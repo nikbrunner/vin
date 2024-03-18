@@ -16,14 +16,13 @@ M.spec = {
             },
         },
         plugins = {
-            tmux = { enabled = true }, -- disables the tmux statusline
+            tmux = {
+                enabled = true,
+            },
+            options = {
+                laststatus = 3,
+            },
         },
-        on_open = function()
-            vim.opt.laststatus = 0
-        end,
-        on_close = function()
-            vim.opt.laststatus = 3
-        end,
     },
 }
 
