@@ -5,7 +5,7 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "quiet",
+    colorscheme = "catppuccin-latte",
     ---@type "dark" | "light"
     background = "light",
     ---See for Wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
