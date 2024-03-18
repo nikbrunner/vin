@@ -5,9 +5,9 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "catppuccin-latte",
+    colorscheme = "terra_spring_night",
     ---@type "dark" | "light"
-    background = "light",
+    background = "dark",
     ---See for Wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
     colors_config_map = {
         ["terra_spring_night"] = {
