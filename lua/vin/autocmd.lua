@@ -12,7 +12,16 @@ function M.open_previous_files()
 
     if not vim.tbl_contains(excluded_filetypes, filetype) then
         if pcall(require, "fzf-lua") then
-            require("fzf-lua").oldfiles({ cwd_only = true })
+            require("fzf-lua").oldfiles({
+                cwd_only = true,
+                winopts = {
+                    row = 0.85,
+                    col = 0.5,
+                    height = 0.25,
+                    width = 0.65,
+                    preview = { hidden = "hidden" },
+                },
+            })
         end
     end
 end
@@ -21,8 +30,14 @@ create_autocmd("UIEnter", {
     group = M.augroup("ui_enter"),
     callback = function()
         local config = require("vin.config")
+
         require("vin.lib.ui").handle_colors(config, config.colorscheme, config.background)
-        M.open_previous_files()
+
+        -- check if the currend cwd is a git repo. if yes, open up the previous files picker
+        local is_git_dir = vim.fn.finddir(".git", vim.fn.expand("%:p:h") .. ";")
+        if is_git_dir ~= "" then
+            M.open_previous_files()
+        end
     end,
 })
 
