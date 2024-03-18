@@ -228,6 +228,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         set("n", "gD", function()
             vim.cmd.vsplit()
             vim.lsp.buf.definition()
+            vim.cmd("norm zz")
         end, vim.tbl_extend("keep", opts, { desc = "Go to Definition in Split" }))
 
         set("n", "gi", vim.lsp.buf.implementation, opts)
@@ -248,7 +249,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             })
         end, opts)
 
-        set({ "n", "v" }, "<leader>ac", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "[C]ode Action" }))
+        set({ "n", "v" }, "<leader>aa", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [A]ction" }))
         set({ "n", "v" }, "<M-CR>", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [A]ction" }))
 
         set("n", "<leader>an", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))
