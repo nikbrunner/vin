@@ -223,16 +223,26 @@ vim.api.nvim_create_autocmd("LspAttach", {
         set("n", "K", vim.lsp.buf.hover, opts)
         set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
-        set("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("keep", opts, { desc = "Go to Definition" }))
+        set("n", "gd", function()
+            require("fzf-lua").lsp_definitions({
+                jump_to_single_result = true,
+                jump_type = "vsplit",
+                winopts = {
+                    height = 0.95,
+                    width = 0.75,
+                    preview = {
+                        layout = "vertical",
+                        vertical = "up:65%",
+                    },
+                },
+            })
+        end, { desc = "Go to Definition" })
 
         set("n", "gD", function()
             vim.cmd.vsplit()
             vim.lsp.buf.definition()
             vim.cmd("norm zz")
         end, vim.tbl_extend("keep", opts, { desc = "Go to Definition in Split" }))
-
-        set("n", "gi", vim.lsp.buf.implementation, opts)
-        set("n", "gy", vim.lsp.buf.type_definition, opts)
 
         set("n", "gr", "<CMD>Trouble lsp_references<CR>", opts)
         set("n", "gR", function()
@@ -248,6 +258,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 },
             })
         end, opts)
+
+        set("n", "gi", vim.lsp.buf.implementation, opts)
+        set("n", "gy", vim.lsp.buf.type_definition, opts)
 
         set({ "n", "v" }, "<leader>aa", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [A]ction" }))
         set({ "n", "v" }, "<M-CR>", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [A]ction" }))
