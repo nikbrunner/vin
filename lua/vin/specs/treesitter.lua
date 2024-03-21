@@ -40,8 +40,8 @@ M.specs = {
                 enable = true,
                 disable = { "vim", "qf" },
                 keymaps = {
-                    init_selection = "<CR>",
-                    node_incremental = "<CR>",
+                    init_selection = "<M-CR>",
+                    node_incremental = "<M-CR>",
                     node_decremental = "<BS>",
                 },
             },
