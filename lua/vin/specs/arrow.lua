@@ -2,16 +2,10 @@ local M = {}
 
 ---@type LazyPluginSpec
 M.spec = {
-    "otavioschwanck/arrow.nvim",
+    "nikbrunner/arrow.nvim",
+    dev = true,
     event = { "VeryLazy" },
     keys = {
-        {
-            "<leader>m",
-            function()
-                require("arrow.ui").openMenu()
-            end,
-            desc = "Marks Menu",
-        },
         {
             "<C-s>",
             function()
@@ -41,7 +35,7 @@ M.spec = {
         },
     },
     opts = {
-        leader_key = nil,
+        leader_key = "s",
         show_icons = true,
         always_show_path = true,
         separate_by_branch = true,
