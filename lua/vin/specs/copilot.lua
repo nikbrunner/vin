@@ -62,7 +62,7 @@ M.spec = {
                 accept_word = "<M-Right>",
                 next = "<M-]>",
                 prev = "<M-[>",
-                dismiss = "/",
+                dismiss = "<Left>",
             },
         },
         filetypes = {
