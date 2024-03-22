@@ -8,3 +8,4 @@ map({ "n", "o", "x" }, "0", "g0", {})
 map({ "n", "o", "x" }, "$", "g$", {})
 
 vim.opt.wrap = true
+vim.opt.conceallevel = 2
