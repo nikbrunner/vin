@@ -13,7 +13,7 @@ M.spec = {
 
         {
             "<C-r>",
-            "<cmd>Telescope yank_history theme=cursor previewer=false<cr>",
+            "<cmd>Telescope yank_history theme=ivy<cr>",
             desc = "[Y]ank History",
             mode = { "i", "n", "x" },
         },
