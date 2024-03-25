@@ -40,8 +40,8 @@ M.specs = {
                 enable = true,
                 disable = { "vim", "qf" },
                 keymaps = {
-                    init_selection = "<M-CR>",
-                    node_incremental = "<M-CR>",
+                    init_selection = "vv",
+                    node_incremental = "v",
                     node_decremental = "<BS>",
                 },
             },
@@ -177,7 +177,7 @@ M.specs = {
             multiline_threshold = 20, -- Maximum number of lines to show for a single context
             trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
             zindex = 20, -- The Z-index of the context window
-            mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
+            mode = "topline", -- Line used to calculate context. Choices: 'cursor', 'topline'
             patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
                 -- For all filetypes
                 -- Note that setting an entry here replaces all other patterns for this entry.
