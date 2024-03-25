@@ -4,8 +4,8 @@ local M = {}
 ---@param colorscheme string
 ---@param background string
 function M.handle_colors(config, colorscheme, background)
-    vim.cmd.colorscheme(colorscheme)
     vim.opt.background = background
+    vim.cmd.colorscheme(colorscheme)
     vim.notify_once("Setting colorscheme: " .. colorscheme, vim.log.levels.INFO, { title = "Vin" })
 
     require("vin.lib.files").sync_vin_colorscheme(config, colorscheme, background)
