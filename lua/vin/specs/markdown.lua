@@ -3,8 +3,6 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "MeanderingProgrammer/markdown.nvim",
-    -- name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
-    event = "BufRead",
     ft = "markdown",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {
