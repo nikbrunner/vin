@@ -106,7 +106,7 @@ M.spec = {
         require("telescope").load_extension("yank_history")
     end,
     keys = {
-        { "<leader>st", M.builtin("treesitter"), desc = "[T]reesitter" },
+        { "<leader>sT", M.builtin("treesitter"), desc = "[T]reesitter" },
         { "<leader>so", M.builtin("vim_options"), desc = "[O]ptions" },
         { "<leader>gs", M.git_status, desc = "[S]tatus" },
     },
