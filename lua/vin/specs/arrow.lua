@@ -35,7 +35,7 @@ M.spec = {
         },
     },
     opts = {
-        leader_key = "s",
+        leader_key = "<leader>m",
         show_icons = true,
         always_show_path = true,
         separate_by_branch = true,
