@@ -82,7 +82,7 @@ M.specs = {
                 },
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
-                    { name = "luasnip" },
+                    -- { name = "luasnip" },
                     { name = "cmp_yanky" },
                 }, {
                     { name = "path" },
