@@ -4,6 +4,7 @@ local M = {}
 M.spec = {
     "SuperBo/fugit2.nvim",
     opts = {},
+    enabled = false,
     dependencies = {
         "MunifTanjim/nui.nvim",
         "nvim-tree/nvim-web-devicons",
