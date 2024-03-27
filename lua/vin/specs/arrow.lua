@@ -4,6 +4,21 @@ local M = {}
 M.spec = {
     "nikbrunner/arrow.nvim",
     dev = true,
+    dependencies = {
+        "WolfeCub/harpeek.nvim",
+        keys = {
+            {
+                "<leader>mp",
+                function()
+                    require("harpeek").toggle()
+                end,
+                desc = "Toggle [P]eek",
+            },
+        },
+        config = function()
+            require("harpeek").setup()
+        end,
+    },
     event = { "VeryLazy" },
     keys = {
         {
@@ -35,7 +50,7 @@ M.spec = {
         },
     },
     opts = {
-        leader_key = "<leader>m",
+        leader_key = "<leader>mm",
         show_icons = true,
         always_show_path = true,
         separate_by_branch = true,
