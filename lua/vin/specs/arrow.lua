@@ -1,7 +1,5 @@
 local M = {}
 
-vim.g.vin_harpeek_win_open = false
-
 ---@type LazyPluginSpec
 M.spec = {
     "nikbrunner/arrow.nvim",
@@ -10,15 +8,9 @@ M.spec = {
         "WolfeCub/harpeek.nvim",
         keys = {
             {
-                "<leader>mm",
+                "<leader>mp",
                 function()
-                    if vim.g.vin_harpeek_win_open then
-                        require("harpeek").close()
-                        vim.g.vin_harpeek_win_open = false
-                    else
-                        require("harpeek").open()
-                        vim.g.vin_harpeek_win_open = true
-                    end
+                    require("harpeek").toggle()
                 end,
             },
         },
@@ -57,7 +49,7 @@ M.spec = {
         },
     },
     opts = {
-        leader_key = "<leader>m",
+        leader_key = "<leader>mm",
         show_icons = true,
         always_show_path = true,
         separate_by_branch = true,
