@@ -1,9 +1,31 @@
 local M = {}
 
+vim.g.vin_harpeek_win_open = false
+
 ---@type LazyPluginSpec
 M.spec = {
     "nikbrunner/arrow.nvim",
     dev = true,
+    dependencies = {
+        "WolfeCub/harpeek.nvim",
+        keys = {
+            {
+                "<leader>mm",
+                function()
+                    if vim.g.vin_harpeek_win_open then
+                        require("harpeek").close()
+                        vim.g.vin_harpeek_win_open = false
+                    else
+                        require("harpeek").open()
+                        vim.g.vin_harpeek_win_open = true
+                    end
+                end,
+            },
+        },
+        config = function()
+            require("harpeek").setup()
+        end,
+    },
     event = { "VeryLazy" },
     keys = {
         {
