@@ -11,7 +11,7 @@ local config = {
     ---See for Wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
     colors_config_map = {
         ["terra_spring_night"] = {
-            wezterm = "Google Dark (Gogh)",
+            wezterm = "Gruvbox Material (Gogh)",
             enable_custom_highlights = false,
         },
         ["terra_spring_day"] = {
