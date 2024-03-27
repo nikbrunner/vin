@@ -33,10 +33,15 @@ create_autocmd("UIEnter", {
 
         require("vin.lib.ui").handle_colors(config, config.colorscheme, config.background)
 
-        -- check if the currend cwd is a git repo. if yes, open up the previous files picker
-        local is_git_dir = vim.fn.finddir(".git", vim.fn.expand("%:p:h") .. ";")
-        if is_git_dir ~= "" then
-            M.open_previous_files()
+        local is_git_dir = vim.fn.finddir(".git", vim.fn.expand("%:p:h") .. ";") ~= ""
+        local has_uncommited_changes = vim.fn.system("git status --porcelain") ~= ""
+
+        if is_git_dir and has_uncommited_changes then
+            require("neo-tree.command").execute({
+                action = "focus",
+                source = "git_status",
+                position = "float",
+            })
         end
     end,
 })
