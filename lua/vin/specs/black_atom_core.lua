@@ -4,11 +4,16 @@ local M = {}
 M.spec = {
     "black-atom-industries/black-atom-core.nvim",
     dependencies = {
-        { "black-atom-industries/black-atom-terra-collection.nvim", dev = true },
+        {
+            "black-atom-industries/black-atom-terra-collection.nvim",
+            dev = true,
+            pin = true,
+            opts = {},
+        },
     },
     dev = true,
+    pin = true,
     lazy = false,
-    priority = 1000,
     ---@type BlackAtomCore.Config
     opts = {
         debug = false,
