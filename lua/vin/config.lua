@@ -5,28 +5,28 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "terra_spring_night",
+    colorscheme = "terra-spring-night",
     ---@type "dark" | "light"
     background = "dark",
     ---See for Wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
     colors_config_map = {
-        ["terra_spring_night"] = {
+        ["terra-spring-night"] = {
             wezterm = "Gruvbox Material (Gogh)",
             enable_custom_highlights = false,
         },
-        ["terra_spring_day"] = {
+        ["terra-spring-day"] = {
             wezterm = "Google Light (Gogh)",
             enable_custom_highlights = false,
         },
-        ["terra_summer_night"] = {
+        ["terra-summer-night"] = {
             wezterm = "Ayu Mirage",
             enable_custom_highlights = false,
         },
-        ["terra_fall_night"] = {
+        ["terra-fall-night"] = {
             wezterm = "Gruvbox Material (Gogh)",
             enable_custom_highlights = false,
         },
-        ["terra_winter_night"] = {
+        ["terra-winter-night"] = {
             wezterm = "nord",
             enable_custom_highlights = false,
         },
