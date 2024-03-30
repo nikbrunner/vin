@@ -5,7 +5,7 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "terra-spring-night",
+    colorscheme = "terra-summer-night",
     ---@type "dark" | "light"
     background = "dark",
     ---See for Wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
@@ -20,6 +20,10 @@ local config = {
         },
         ["terra-summer-night"] = {
             wezterm = "Ayu Mirage",
+            enable_custom_highlights = false,
+        },
+        ["terra-summer-day"] = {
+            wezterm = "Google Light (Gogh)",
             enable_custom_highlights = false,
         },
         ["terra-fall-night"] = {
