@@ -40,17 +40,24 @@ M.specs = {
                 ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
                 -- For a list of lsp-configurations see here: `:h lspconfig-all`
                 ["lua_ls"] = function()
-                    -- https://github.com/folke/neodev.nvim?tab=readme-ov-file#-setup
+                    -- https://github.com/folke/neodev.nvim
                     require("neodev").setup({})
 
                     local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+                    local project_files = {
+                        config.pathes.repos .. "/black-atom-industries/black-atom-core.nvim/lua",
+                        config.pathes.repos .. "/black-atom-industries/black-atom-terra-collection.nvim/lua",
+                    }
 
                     require("lspconfig").lua_ls.setup({
                         capabilities = capabilities,
                         settings = {
                             Lua = {
-                                diagnostics = {
-                                    globals = { "vim" },
+                                diagnostics = { globals = { "vim" } },
+                                workspace = {
+                                    checkThirdParty = false,
+                                    library = project_files,
                                 },
                             },
                         },
