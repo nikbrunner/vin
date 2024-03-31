@@ -70,6 +70,7 @@ M.spec = {
             help = false,
             gitcommit = true,
             gitrebase = false,
+            jsonc = true,
         },
     },
 }
