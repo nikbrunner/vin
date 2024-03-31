@@ -23,6 +23,7 @@ M.specs = {
             "onsails/lspkind.nvim",
         },
         event = "InsertEnter",
+        ---@see [nvim-cmp/lua/cmp/config/default.lua at main · hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/config/default.lua)
         config = function()
             local cmp = require("cmp")
             local lspkind = require("lspkind")
