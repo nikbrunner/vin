@@ -70,6 +70,11 @@ end
 M.fzf = function(cmd, opts)
     opts = opts or {}
     return function()
+        require("neo-tree.command").execute({
+            action = "close",
+            position = "float",
+        })
+
         require("fzf-lua")[cmd](opts)
     end
 end
