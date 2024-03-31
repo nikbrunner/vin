@@ -23,7 +23,7 @@ M.spec = {
                 title = "Bookmarks",
                 row = 0.85,
                 col = vim.o.columns,
-                border = "rounded",
+                border = "solid",
             },
             format = "relative",
         },
