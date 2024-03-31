@@ -8,32 +8,31 @@ M.spec = {
         "WolfeCub/harpeek.nvim",
         keys = {
             {
-                "<leader>mp",
+                "S",
                 function()
                     require("harpeek").toggle()
                 end,
                 desc = "Toggle [P]eek",
             },
         },
-        config = function()
-            require("harpeek").setup()
+        opts = {
+            -- You can replace the hightlight group used on the currently selected buffer
+            hl_group = "CursorLineNr",
+            -- You can override any window options. For example here we set a different position & border.
+            winopts = {
+                title = "Bookmarks",
+                row = 0.85,
+                col = vim.o.columns,
+                border = "rounded",
+            },
+            format = "relative",
+        },
+        config = function(_, opts)
+            require("harpeek").setup(opts)
         end,
     },
     event = { "VeryLazy" },
     keys = {
-        {
-            "<C-s>",
-            function()
-                require("arrow.persist").toggle()
-                local state = require("arrow.statusline").in_on_arrow_file()
-                if state then
-                    vim.notify("Arrow: Marked File", vim.log.levels.INFO, { title = "Arrow" })
-                else
-                    vim.notify("Arrow: Unmarked File", vim.log.levels.INFO, { title = "Arrow" })
-                end
-            end,
-            desc = "Mark File",
-        },
         {
             "H",
             function()
@@ -50,7 +49,7 @@ M.spec = {
         },
     },
     opts = {
-        leader_key = "<leader>m",
+        leader_key = "s",
         show_icons = true,
         always_show_path = true,
         separate_by_branch = true,
