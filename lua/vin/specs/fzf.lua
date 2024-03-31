@@ -33,7 +33,7 @@ M.win_preset = {
         no_preview = {
             row = 0.85,
             col = 0.5,
-            height = 0.25,
+            height = 0.35,
             width = 0.65,
             preview = { hidden = "hidden" },
         },
@@ -55,7 +55,7 @@ M.win_preset = {
             preview = {
                 layout = "flex",
                 vertical = "up:65%", -- up|down:size
-                horizontal = "right:60%", -- right|left:size
+                horizontal = "right:50%", -- right|left:size
             },
         },
     },
@@ -78,7 +78,7 @@ end
 -- stylua: ignore start
 M.keys = {
     -- Root layer
-    { "<leader><space>",     M.fzf("files", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "Files", },
+    { "<leader><space>",     M.fzf("files", M.use_win_preset(M.win_preset.lg.flex)), desc = "Files", },
     { "<leader>/",           M.fzf("lgrep_curbuf"), desc = "Grep Current File" },
     { "<leader>:",           M.fzf("commands", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "Commands" },
     { "<leader>r",           M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = true })), desc = "Recent Files" },
@@ -141,19 +141,19 @@ M.spec = {
             global_resume_query = true, -- include typed query in `resume`?
 
             winopts = {
-                height = 0.75,
-                width = 0.75,
+                height = 0.85,
+                width = 0.85,
                 row = 0.35,
                 col = 0.50,
-                border = "none",
+                border = "single",
                 preview = {
-                    border = "noborder", -- border|noborder, applies only to
+                    border = "border", -- border|noborder, applies only to
                     wrap = "nowrap", -- wrap|nowrap
                     hidden = "nohidden", -- hidden|nohidden
                     vertical = "up:65%", -- up|down:size
                     horizontal = "right:60%", -- right|left:size
                     layout = "flex", -- horizontal|vertical|flex
-                    flip_columns = 250, -- #cols to switch to horizontal on flex
+                    flip_columns = 150, -- #cols to switch to horizontal on flex
                     title = true, -- preview border title (file/buf)?
                     delay = 100, -- delay(ms) displaying the preview
                     winopts = { -- builtin previewer window options
@@ -201,9 +201,9 @@ M.spec = {
                 ["--layout"] = "reverse",
                 ["--keep-right"] = "",
                 ["--reverse"] = "",
-                -- ["--border"] = "bold",
+                -- ["--border"] = "block",
                 ["--border-label"] = "[ Vin ]",
-                ["--padding"] = "1,2",
+                ["--padding"] = "2,6",
                 ["--no-scrollbar"] = "",
                 ["--no-separator"] = "",
                 ["--no-info"] = "",
