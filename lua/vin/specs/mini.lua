@@ -59,7 +59,7 @@ M.specs = {
                 config = {
                     anchor = "SE",
                     col = vim.o.columns,
-                    row = 4,
+                    row = vim.o.lines - 2,
                     width = math.floor(vim.o.columns * 0.4),
                     border = "solid",
                 },
