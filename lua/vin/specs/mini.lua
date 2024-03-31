@@ -60,7 +60,7 @@ M.specs = {
                     anchor = "SE",
                     col = vim.o.columns,
                     row = vim.o.lines - 2,
-                    width = math.floor(vim.o.columns * 0.4),
+                    width = math.floor(vim.o.columns * 0.5),
                     border = "solid",
                 },
                 winblend = 0,
