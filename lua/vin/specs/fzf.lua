@@ -87,7 +87,7 @@ M.keys = {
     { "<leader>/",           M.fzf("lgrep_curbuf"), desc = "Grep Current File" },
     { "<leader>:",           M.fzf("commands", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "Commands" },
     { "<leader>r",           M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = true })), desc = "Recent Files" },
-    { "<leader>R",           M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = false })), desc = WhichKeyIgnoreLabel },
+    { "<leader>R",           M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = false })), desc = "Recent Files (Everywhere)" },
 
     -- [S]earch Group
     { "<leader>s.",          M.fzf("resume"), desc = "[.] Resume" },
@@ -208,7 +208,7 @@ M.spec = {
                 ["--reverse"] = "",
                 -- ["--border"] = "block",
                 ["--border-label"] = "[ Vin ]",
-                ["--padding"] = "2,6",
+                ["--padding"] = "0,3",
                 ["--no-scrollbar"] = "",
                 ["--no-separator"] = "",
                 ["--no-info"] = "",
