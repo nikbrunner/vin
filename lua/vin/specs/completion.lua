@@ -46,6 +46,12 @@ M.specs = {
                         require("luasnip").lsp_expand(args.body)
                     end,
                 },
+                view = {
+                    ---@diagnostic disable-next-line: missing-fields
+                    entries = {
+                        follow_cursor = true,
+                    },
+                },
                 mapping = cmp.mapping.preset.insert({
                     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-u>"] = cmp.mapping.scroll_docs(4),
