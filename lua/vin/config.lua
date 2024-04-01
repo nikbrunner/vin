@@ -1,5 +1,5 @@
 local base_pathes = {
-    repos = vim.fn.expand("~/repos/"),
+    repos = vim.fn.expand("~/repos"),
     config_home = vim.fn.expand("$XDG_CONFIG_HOME"),
 }
 

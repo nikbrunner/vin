@@ -43,7 +43,7 @@ require("lazy").setup("vin.specs", {
     dev = {
         ---@type string | fun(plugin: LazyPlugin): string directory where you store your local plugin projects
         path = function(plugin)
-            return require("vin.config").pathes.repos .. plugin[1]
+            return require("vin.config").pathes.repos .. "/" .. plugin[1]
         end,
     },
     checker = {
