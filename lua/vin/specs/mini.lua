@@ -63,7 +63,7 @@ M.specs = {
                     width = math.floor(vim.o.columns * 0.5),
                     border = "solid",
                 },
-                winblend = 0,
+                winblend = 10,
             },
         },
         config = function(_, opts)
