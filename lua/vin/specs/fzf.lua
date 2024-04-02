@@ -58,13 +58,19 @@ M.win_preset = {
                 horizontal = "right:50%", -- right|left:size
             },
         },
+        vertical = {
+            height = 0.95,
+            width = 0.95,
+            preview = {
+                layout = "vertical",
+                vertical = "up:65%", -- up|down:size
+            },
+        },
     },
 }
 
 M.use_win_preset = function(winopts, opts)
-    return function()
-        return vim.tbl_deep_extend("force", { winopts = winopts }, opts or {})
-    end
+    return vim.tbl_deep_extend("force", { winopts = winopts }, opts or {})
 end
 
 M.fzf = function(cmd, opts)
@@ -107,7 +113,7 @@ M.keys = {
     -- TODO: search visual selection
     { "<leader>sm",          M.fzf("marks"), desc = "[M]arks" },
     { "<leader>sM",          M.fzf("man_pages"), desc = "[M]an Pages" },
-    { "<leader>sg",          M.fzf("live_grep_native"), desc = "[G]rep" },
+    { "<leader>sg",          M.fzf("live_grep_native", M.use_win_preset(M.win_preset.lg.vertical)), desc = "[G]rep" },
     { "<leader>sG",          M.fzf("live_grep_resume"), desc = "[G]rep Resume" },
     { "<leader>sr",          M.fzf("registers", M.use_win_preset(M.win_preset.sm.no_preview)), mode = { "n", "v" }, desc = "[R]egisters" },
     { "<leader>s<Tab>",      M.fzf("tabs"), desc = "[Tab]s" },
