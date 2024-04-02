@@ -8,11 +8,11 @@ M.spec = {
         "WolfeCub/harpeek.nvim",
         keys = {
             {
-                "S",
+                "<leader>M",
                 function()
                     require("harpeek").toggle()
                 end,
-                desc = "Toggle [P]eek",
+                desc = "[M]arks Preview",
             },
         },
         opts = {
@@ -49,7 +49,7 @@ M.spec = {
         },
     },
     opts = {
-        leader_key = "s",
+        leader_key = "<leader>m",
         show_icons = true,
         always_show_path = true,
         separate_by_branch = true,
