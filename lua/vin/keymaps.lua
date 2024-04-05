@@ -244,8 +244,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.cmd("norm zz")
         end, vim.tbl_extend("keep", opts, { desc = "Go to Definition in Split" }))
 
-        set("n", "gr", "<CMD>Trouble lsp_references<CR>", opts)
-        set("n", "gR", function()
+        set("n", "gr", function()
             require("fzf-lua").lsp_references({
                 jump_to_single_result = true,
                 winopts = {
@@ -258,6 +257,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 },
             })
         end, opts)
+        set("n", "gR", "<CMD>Trouble lsp_references<CR>", opts)
 
         set("n", "gi", vim.lsp.buf.implementation, opts)
         set("n", "gy", vim.lsp.buf.type_definition, opts)
