@@ -22,6 +22,13 @@ M.spec = {
 
         return {
             {
+                "<leader>ee",
+                function()
+                    vim.cmd("Neotree left toggle reveal")
+                end,
+                desc = "[S]ymbols",
+            },
+            {
                 "<leader>es",
                 function()
                     vim.cmd("Neotree float document_symbols toggle reveal")
@@ -152,7 +159,7 @@ M.spec = {
 
             window = {
                 position = "left",
-                width = 40,
+                width = 50,
                 -- https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup
                 popup = {
                     position = "50%", -- 50% means center it
