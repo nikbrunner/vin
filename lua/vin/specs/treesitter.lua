@@ -173,11 +173,11 @@ M.specs = {
         enabled = true,
         opts = {
             enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-            max_lines = 3, -- How many lines the window should span. Values <= 0 mean no limit.
+            max_lines = 1, -- How many lines the window should span. Values <= 0 mean no limit.
             multiline_threshold = 20, -- Maximum number of lines to show for a single context
             trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
             zindex = 20, -- The Z-index of the context window
-            mode = "topline", -- Line used to calculate context. Choices: 'cursor', 'topline'
+            mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
             patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
                 -- For all filetypes
                 -- Note that setting an entry here replaces all other patterns for this entry.
