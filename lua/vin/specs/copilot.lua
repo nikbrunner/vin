@@ -54,14 +54,13 @@ M.spec = {
         },
         suggestion = {
             enabled = true,
-            auto_trigger = true,
+            auto_trigger = false,
             debounce = 150,
             keymap = {
                 accept = "<Tab>",
-                accept_word = "<S-Tab>",
+                dismiss = "<S-Tab>",
                 next = "<M-]>",
                 prev = "<M-[>",
-                dismiss = "<Left>",
             },
         },
         filetypes = {
@@ -71,6 +70,7 @@ M.spec = {
             gitcommit = true,
             gitrebase = false,
             jsonc = true,
+            ["neo-tree"] = false,
         },
     },
 }
