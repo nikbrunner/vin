@@ -91,7 +91,6 @@ M.specs = {
                     { name = "nvim_lsp" },
                     -- { name = "luasnip" },
                     { name = "cmp_yanky" },
-                }, {
                     { name = "path" },
                     { name = "buffer" },
                 }),
