@@ -1,5 +1,7 @@
+local M = {}
+
 ---@type LazyPluginSpec
-local spec = {
+M.spec = {
     "utilyre/barbecue.nvim",
     event = "BufReadPre",
     name = "barbecue",
@@ -12,7 +14,7 @@ local spec = {
         ---Whether to attach navic to language servers automatically.
         ---
         ---@type boolean
-        attach_navic = false,
+        attach_navic = true,
 
         ---filetypes not to enable winbar in
         ---@type string[]
@@ -43,4 +45,4 @@ local spec = {
     end,
 }
 
-return spec
+return M.spec
