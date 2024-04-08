@@ -23,7 +23,11 @@ function M.sync_wezterm_colorscheme(config, colorscheme)
     local pathes = config.pathes
     local current_bg = require("vin.lib.colors").get_hex_color("Normal").bg
 
-    M.update_file(pathes.config.wezterm, "background", '"' .. current_bg .. '"')
+    if current_bg then
+        M.update_file(pathes.config.wezterm, "background", '"' .. current_bg .. '"')
+    else
+        print("Could not find background color. Transparent background can not be handled atm.")
+    end
 
     local wezterm_colorscheme = config.colors_config_map[colorscheme] and config.colors_config_map[colorscheme].wezterm
     if wezterm_colorscheme then
