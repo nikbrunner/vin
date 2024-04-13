@@ -128,16 +128,16 @@ M.specs = {
                         local wrap = vim.wo.wrap and (m.is_truncated(120) and "W" or "WRAP") or ""
                         local git = m.section_git({ trunc_width = 75 })
                         local diagnostics = m.section_diagnostics({ trunc_width = 75 })
-                        local filename = m.section_filename({ trunc_width = 140 })
                         local searchcount = m.section_searchcount({ trunc_width = 75 })
                         local location = m.section_location({ trunc_width = 120 })
-                        local fileinfo = m.section_fileinfo({ trunc_width = 120 })
+                        local fileinfo = m.section_fileinfo({ trunc_width = 200 })
+                        local colorscheme = m.is_truncated(200) and "" or " " .. vim.g.colors_name
 
                         return m.combine_groups({
                             { hl = mode_hl, strings = { mode } },
                             {
-                                hl = "@function",
-                                strings = { project_name(), git },
+                                hl = "Function",
+                                strings = (m.is_truncated(250) and { git } or { project_name(), git }),
                             },
 
                             "%<", -- Mark general truncate point
@@ -146,10 +146,10 @@ M.specs = {
 
                             "%=", -- End left alignment
 
-                            { hl = "Normal", strings = { searchcount } },
+                            { hl = "Comment", strings = { searchcount } },
                             {
-                                hl = "Normal",
-                                strings = (not m.is_truncated(120) and {
+                                hl = "Comment",
+                                strings = (m.is_truncated(120) and {} or {
                                     wtf(),
                                     wrap,
                                     spell,
@@ -157,9 +157,10 @@ M.specs = {
                                     lazy_plug_count(),
                                     lazy_updates(),
                                     lazy_startup(),
-                                } or {}),
+                                    colorscheme,
+                                }),
                             },
-                            { hl = "Normal", strings = { fileinfo } },
+                            { hl = mode_hl, strings = { fileinfo } },
                         })
                     end,
                 },
