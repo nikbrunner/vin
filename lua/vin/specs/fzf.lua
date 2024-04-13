@@ -128,6 +128,10 @@ M.keys = {
     { "<leader>ut",          M.fzf("colorschemes"), desc = "Toggle [T]themes" },
     { "<leader>uT",          M.fzf("awesome_colorschemes"), desc = "Toggle 'Awesome' [T]hemes" },
 
+    -- [D]iagnostics Group
+    { "<leader>dd",          M.fzf("lsp_document_diagnostics", M.use_win_preset(M.win_preset.lg.vertical)), desc = "Document Diagnostics" },
+    { "<leader>dw",          M.fzf("lsp_workspace_diagnostics", M.use_win_preset(M.win_preset.lg.vertical)), desc = "Document Diagnostics" },
+
     -- No leader key
     { "gs",                  M.fzf("lsp_document_symbols"), desc = "Document [S]ymbols" },
     { "gS",                  M.fzf("lsp_live_workspace_symbols"), desc = "Workspace [S]ymbols" },
