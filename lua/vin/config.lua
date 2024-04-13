@@ -5,10 +5,10 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "terra-spring-day",
+    colorscheme = "terra-spring-night",
     ---@type "dark" | "light"
-    background = "light",
-    ---See for Wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
+    background = "dark",
+    ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
     colors_config_map = {
         ["terra-spring-night"] = {
             wezterm = "Gruvbox Material (Gogh)",
@@ -58,9 +58,17 @@ local config = {
             wezterm = "Google Light (Gogh)",
             enable_custom_highlights = true,
         },
+        ["habamax"] = {
+            wezterm = "Google Dark (Gogh)",
+            enable_custom_highlights = true,
+        },
         ["github_dark_default"] = {
             wezterm = "GitHub Dark",
-            enable_custom_highlights = true,
+            enable_custom_highlights = false,
+        },
+        ["github_light_default"] = {
+            wezterm = "GitHub Light",
+            enable_custom_highlights = false,
         },
     },
     ---For every colorscheme I set, I want some consistency in the in the highlights.
