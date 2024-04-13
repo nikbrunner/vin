@@ -201,12 +201,12 @@ set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "[P]ackage Manager - [Mason]" 
 set("n", "<leader>vl", "<cmd>LspInfo<CR>", { desc = "[L]SP Info" })
 set("n", "<leader>vL", "<cmd>LspRestart<CR>", { desc = "Restart [L]SP " })
 
--- Copy Group
+-- Action Copy Group
 set("n", "<leader>acf", lib.copy.fullPath, { desc = "Full Path" })
 set("n", "<leader>acr", lib.copy.relativePath, { desc = "Relative Path" })
 set("n", "<leader>acn", lib.copy.fileName, { desc = "Name of file" })
 
--- Log Group
+-- Action Log Group
 set("n", "<leader>all", lib.log.log_symbol, { desc = "[L]og" })
 set("n", "<leader>ald", lib.log.delete_logs, { desc = "[D]elete" })
 
