@@ -3,14 +3,6 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "black-atom-industries/black-atom-core.nvim",
-    dependencies = {
-        {
-            "black-atom-industries/black-atom-terra-collection.nvim",
-            dev = true,
-            pin = true,
-            opts = {},
-        },
-    },
     dev = true,
     pin = true,
     lazy = false,
