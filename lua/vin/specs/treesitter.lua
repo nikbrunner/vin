@@ -170,7 +170,7 @@ M.specs = {
         "nvim-treesitter/nvim-treesitter-context",
         dependencies = "nvim-treesitter/nvim-treesitter",
         event = "VeryLazy",
-        enabled = true,
+        enabled = false,
         opts = {
             enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
             max_lines = 1, -- How many lines the window should span. Values <= 0 mean no limit.
