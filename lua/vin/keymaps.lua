@@ -201,10 +201,9 @@ set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "[P]ackage Manager - [Mason]" 
 set("n", "<leader>vl", "<cmd>LspInfo<CR>", { desc = "[L]SP Info" })
 set("n", "<leader>vL", "<cmd>LspRestart<CR>", { desc = "Restart [L]SP " })
 
--- Action Copy Group
-set("n", "<leader>acf", lib.copy.fullPath, { desc = "Full Path" })
-set("n", "<leader>acr", lib.copy.relativePath, { desc = "Relative Path" })
-set("n", "<leader>acn", lib.copy.fileName, { desc = "Name of file" })
+set("n", "<leader>ac", function()
+    lib.copy.list_paths()
+end, { desc = "Copy" })
 
 -- Action Log Group
 set("n", "<leader>all", lib.log.log_symbol, { desc = "[L]og" })
