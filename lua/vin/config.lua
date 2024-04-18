@@ -67,7 +67,7 @@ local config = {
             enable_custom_highlights = false,
         },
         ["github_light_default"] = {
-            wezterm = "GitHub Light",
+            wezterm = "Google Light (Gogh)",
             enable_custom_highlights = false,
         },
     },
