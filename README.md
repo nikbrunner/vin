@@ -68,6 +68,11 @@ Make sure you have [a nerd font](https://github.com/ryanoasis/nerd-fonts) instal
 
 [See here](https://brandon-sanderson.fandom.com/wiki/vin)
 
+## TODO
+
+- [ ] Fix buffer and path completion
+- [ ] [pmizio/typescript-tools.nvim: ⚡ TypeScript integration NeoVim deserves ⚡](https://github.com/pmizio/typescript-tools.nvim)
+
 ## Links
 
 ### General
