@@ -36,10 +36,10 @@ M.list_paths = function(opts)
 
     function M.file_paths()
         local paths = {
-            { type = "name", name = vim.fn.expand("%:t") },
-            { type = "path", name = vim.fn.expand("%") },
-            { type = "home", name = vim.fn.expand("%:~") },
-            { type = "root", name = vim.fn.expand("%:p:h") },
+            { type = "File", name = vim.fn.expand("%:t") },
+            { type = "Relative", name = vim.fn.expand("%") },
+            { type = "Home", name = vim.fn.expand("%:~") },
+            { type = "Full", name = vim.fn.expand("%:p:h") },
         }
         return paths
     end
@@ -47,7 +47,7 @@ M.list_paths = function(opts)
     local displayer = entry_display.create({
         separator = " ",
         items = {
-            { width = 4 },
+            { width = 15 },
             { remaining = true },
         },
     })
@@ -81,13 +81,13 @@ M.list_paths = function(opts)
                             max_width = #v.value.name
                         end
                     end
-                    max_width = max_width + 14
+                    max_width = max_width + 25
                     -- if vim. < max_width then return win_width - 4 end
                     return max_width
                 end,
             },
             sorter = config.generic_sorter(opts),
-            prompt_title = "File Path Picker",
+            prompt_title = "Copy File Meta Information",
 
             attach_mappings = function(prompt_bufnr, map)
                 actions.select_default:replace(function()
