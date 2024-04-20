@@ -71,6 +71,7 @@ local config = {
             enable_custom_highlights = false,
         },
     },
+    open_neotree_on_startup = false,
     ---For every colorscheme I set, I want some consistency in the in the highlights.
     ---See also: vin/lib/highlights#set_custom_highlights
     custom_highlights = {

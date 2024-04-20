@@ -33,15 +33,17 @@ create_autocmd("UIEnter", {
 
         require("vin.lib.ui").handle_colors(config, config.colorscheme, config.background)
 
-        local is_git_dir = vim.fn.finddir(".git", vim.fn.expand("%:p:h") .. ";") ~= ""
-        local has_uncommited_changes = vim.fn.system("git status --porcelain") ~= ""
+        if config.open_neotree_on_startup then
+            local is_git_dir = vim.fn.finddir(".git", vim.fn.expand("%:p:h") .. ";") ~= ""
+            local has_uncommited_changes = vim.fn.system("git status --porcelain") ~= ""
 
-        if is_git_dir and has_uncommited_changes then
-            require("neo-tree.command").execute({
-                action = "focus",
-                source = "git_status",
-                position = "float",
-            })
+            if is_git_dir and has_uncommited_changes then
+                require("neo-tree.command").execute({
+                    action = "focus",
+                    source = "git_status",
+                    position = "float",
+                })
+            end
         end
     end,
 })
