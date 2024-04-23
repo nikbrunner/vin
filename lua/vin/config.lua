@@ -5,7 +5,7 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "github_dark_default",
+    colorscheme = "black-atom-dark",
     ---@type "dark" | "light"
     background = "dark",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
@@ -32,6 +32,10 @@ local config = {
         },
         ["terra-winter-night"] = {
             wezterm = "nord",
+            enable_custom_highlights = false,
+        },
+        ["black-atom-dark"] = {
+            wezterm = "carbonfox",
             enable_custom_highlights = false,
         },
         ["catppuccin"] = {
