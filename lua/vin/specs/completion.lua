@@ -88,9 +88,8 @@ M.specs = {
                     end,
                 },
                 sources = cmp.config.sources({
-                    { name = "nvim_lsp", priority = 20 },
-                    { name = "cmp_yanky", priority = 10 },
-                }, {
+                    { name = "nvim_lsp" },
+                    { name = "cmp_yanky" },
                     { name = "path" },
                     { name = "buffer" },
                 }),
