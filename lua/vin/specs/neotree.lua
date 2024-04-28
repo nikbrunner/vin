@@ -65,6 +65,11 @@ M.spec = {
         local icons = require("vin.icons")
         return {
             default_component_configs = {
+                indent = {
+                    with_markers = false,
+                    expander_collapsed = "",
+                    expander_expanded = "",
+                },
                 git_status = {
                     symbols = {
                         added = icons.git.added,
@@ -79,8 +84,10 @@ M.spec = {
                     },
                 },
                 icon = {
-                    -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
-                    -- then these will never be used.
+                    folder_closed = icons.misc.chevron_small_right,
+                    folder_open = icons.misc.chevron_small_down,
+                    folder_empty = icons.misc.chevron_small_right,
+                    folder_empty_open = icons.misc.chevron_small_down,
                     default = "",
                 },
             },
@@ -166,7 +173,7 @@ M.spec = {
 
             window = {
                 position = "left",
-                width = 50,
+                width = 0.25,
                 -- https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup
                 popup = {
                     position = "50%", -- 50% means center it
