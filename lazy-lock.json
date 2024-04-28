@@ -1,6 +1,7 @@
 {
   "LuaSnip": { "branch": "master", "commit": "8f3d3465ba5c7ade0a8adb41eca5736f291a3fa8" },
   "Navigator.nvim": { "branch": "master", "commit": "91d86506ac2a039504d5205d32a1d4bc7aa57072" },
+  "arrow.nvim": { "branch": "master", "commit": "a133010d392e5e12f28e3315d634c74912b3ec24" },
   "barbecue": { "branch": "main", "commit": "cd7e7da622d68136e13721865b4d919efd6325ed" },
   "bmessages.nvim": { "branch": "main", "commit": "13e7c9a34377ce799a6da46b5c172ed7ee36e5fd" },
   "catppuccin": { "branch": "main", "commit": "a1439ad7c584efb3d0ce14ccb835967f030450fe" },
