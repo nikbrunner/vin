@@ -56,7 +56,6 @@ M.spec = {
                 ["["] = { name = "Prev" },
 
                 ["<leader>a"] = { name = "[A]ction" },
-                ["<leader>ac"] = { name = "[C]opy" },
                 ["<leader>al"] = { name = "[L]og" },
                 ["<leader>e"] = { name = "[E]xplorer" },
                 ["<leader>f"] = { name = "[F]ind" },

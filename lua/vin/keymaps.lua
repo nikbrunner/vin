@@ -203,7 +203,7 @@ set("n", "<leader>vL", "<cmd>LspRestart<CR>", { desc = "Restart [L]SP " })
 
 set("n", "<leader>ac", function()
     lib.copy.list_paths()
-end, { desc = "Copy" })
+end, { desc = "[C]opy" })
 
 -- Action Log Group
 set("n", "<leader>all", lib.log.log_symbol, { desc = "[L]og" })

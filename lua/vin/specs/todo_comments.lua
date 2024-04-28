@@ -42,7 +42,7 @@ M.spec = {
                     end)
                 end
             end,
-            { desc = "Add todo (/w parsing from branch issue" },
+            desc = "Add todo (/w parsing from branch issue",
         },
         {
             "]t",
