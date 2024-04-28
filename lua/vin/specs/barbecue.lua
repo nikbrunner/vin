@@ -6,10 +6,7 @@ M.spec = {
     event = "BufReadPre",
     name = "barbecue",
     version = "*",
-    dependencies = {
-        "SmiteshP/nvim-navic",
-        "nvim-tree/nvim-web-devicons",
-    },
+    dependencies = { "SmiteshP/nvim-navic" },
     opts = {
         ---Whether to attach navic to language servers automatically.
         ---

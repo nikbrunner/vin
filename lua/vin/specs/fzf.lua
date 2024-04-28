@@ -145,9 +145,6 @@ M.keys = {
 ---@type LazyPluginSpec
 M.spec = {
     "ibhagwan/fzf-lua",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    ---@see https://www.reddit.com/r/neovim/comments/1bqf1w3/psa_fzflua_pulls_cause_an_error_my_github_account/
-    enabled = true,
     keys = M.keys,
     opts = function()
         local actions = require("fzf-lua.actions")

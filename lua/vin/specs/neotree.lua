@@ -9,12 +9,10 @@ M.spec = {
     event = "VeryLazy",
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
     },
     ---@diagnostic disable-next-line: assign-type-mismatch
     keys = function()
-        ---@diagnostic disable-next-line: unused-local
         local function close_side_panels()
             vim.cmd("Neotree left close")
             vim.cmd("Neotree right close")
@@ -31,6 +29,7 @@ M.spec = {
             {
                 "<leader>es",
                 function()
+                    close_side_panels()
                     vim.cmd("Neotree float document_symbols toggle reveal")
                 end,
                 desc = "[S]ymbols",
@@ -38,6 +37,7 @@ M.spec = {
             {
                 "<leader>ef",
                 function()
+                    close_side_panels()
                     vim.cmd("Neotree float toggle reveal")
                 end,
                 desc = "[F]iles",
@@ -45,6 +45,7 @@ M.spec = {
             {
                 "<leader>eg",
                 function()
+                    close_side_panels()
                     vim.cmd("Neotree float git_status toggle reveal")
                 end,
                 desc = "[G]it Status",
@@ -52,6 +53,7 @@ M.spec = {
             {
                 "<leader>er",
                 function()
+                    close_side_panels()
                     vim.cmd("Neotree float buffers toggle reveal")
                 end,
                 desc = "[R]ecents",
@@ -75,6 +77,11 @@ M.spec = {
                         staged = icons.git.staged,
                         conflict = icons.git.conflict,
                     },
+                },
+                icon = {
+                    -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
+                    -- then these will never be used.
+                    default = "",
                 },
             },
             add_blank_line_at_top = true,
