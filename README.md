@@ -73,6 +73,7 @@ Make sure you have [a nerd font](https://github.com/ryanoasis/nerd-fonts) instal
 - [ ] Fix buffer and path completion
 - [ ] [pmizio/typescript-tools.nvim: ⚡ TypeScript integration NeoVim deserves ⚡](https://github.com/pmizio/typescript-tools.nvim)
 - [ ] [andrewferrier/debugprint.nvim: Debugging in NeoVim the print() way!](https://github.com/andrewferrier/debugprint.nvim)
+- [ ] [SuperBo/fugit2.nvim: Neovim git GUI powered by libgit2](https://github.com/SuperBo/fugit2.nvim)
 
 ## Links
 
