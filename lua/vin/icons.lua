@@ -6,6 +6,10 @@ return {
         separator = " ",
         dot = ".",
         forwardSlash = "󰿟",
+        chevron_hard_right = "󰅂 ",
+        chevron_hard_down = "󰅀 ",
+        chevron_small_right = " ",
+        chevron_small_down = " ",
     },
     dap = {
         Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
