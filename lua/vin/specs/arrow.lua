@@ -2,8 +2,7 @@ local M = {}
 
 ---@type LazyPluginSpec
 M.spec = {
-    "nikbrunner/arrow.nvim",
-    dev = true,
+    "otavioschwanck/arrow.nvim",
     dependencies = {
         "WolfeCub/harpeek.nvim",
         keys = {
@@ -31,26 +30,18 @@ M.spec = {
             require("harpeek").setup(opts)
         end,
     },
-    event = { "VeryLazy" },
     keys = {
         {
-            "H",
+            "<leader>m",
             function()
-                require("arrow.persist").previous()
+                require("arrow.ui").openMenu()
             end,
-            desc = "Previous Marked File",
-        },
-        {
-            "L",
-            function()
-                require("arrow.persist").next()
-            end,
-            desc = "Next Marked File",
+            desc = "Marks",
         },
     },
     opts = {
-        leader_key = "<leader>m",
-        show_icons = true,
+        leader_key = nil,
+        show_icons = false,
         always_show_path = true,
         separate_by_branch = true,
         mappings = {

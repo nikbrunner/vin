@@ -110,10 +110,6 @@ M.specs = {
                             return require("wtf").get_status()
                         end
 
-                        local arrow_indicator = function()
-                            return require("arrow.statusline").text_for_statusline_with_icons()
-                        end
-
                         local auto_format_indicator = function()
                             if vim.g.vin_autoformat_enabled then
                                 return "󰉶 On"
@@ -142,7 +138,7 @@ M.specs = {
 
                             "%<", -- Mark general truncate point
 
-                            { hl = "Comment", strings = { location, arrow_indicator(), diagnostics } },
+                            { hl = "Comment", strings = { location, diagnostics } },
 
                             "%=", -- End left alignment
 
