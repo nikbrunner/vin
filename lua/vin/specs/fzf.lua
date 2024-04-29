@@ -272,8 +272,9 @@ M.spec = {
             files = {
                 prompt = "  ",
                 multiprocess = true, -- run command in a separate process
-                git_icons = true, -- show git icons?
-                file_icons = true, -- show file icons?
+                git_icons = false, -- show git icons?
+                file_icons = false, -- show file icons?
+                formatter = "path.filename_first",
                 color_icons = true, -- colorize file|git icons
                 find_opts = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
                 rg_opts = "--color=never --files --hidden --follow -g '!.git'",
