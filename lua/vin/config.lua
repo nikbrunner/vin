@@ -5,9 +5,9 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "black-atom-neutron",
+    colorscheme = "black_atom_command",
     ---@type "dark" | "light"
-    background = "light",
+    background = "dark",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
     colors_config_map = {
         ["terra-spring-night"] = {
@@ -34,7 +34,7 @@ local config = {
             wezterm = "nord",
             enable_custom_highlights = false,
         },
-        ["black-atom-quark"] = {
+        ["black_atom_command"] = {
             wezterm = "Tokyo Night Moon",
             enable_custom_highlights = false,
         },
