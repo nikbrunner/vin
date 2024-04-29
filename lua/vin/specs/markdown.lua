@@ -7,7 +7,7 @@ M.spec = {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {
         -- Characters that will replace the # at the start of markdown headings
-        headings = { "󰲡  ", "󰲣  ", "󰲥  ", "󰲧  ", "󰲩  ", "󰲫  " },
+        headings = { "󰲡 ", "󰲣  ", "󰲥  ", "󰲧  ", "󰲩  ", "󰲫  " },
         -- Character to use for the bullet point in lists
         bullet = "○",
         highlights = {
