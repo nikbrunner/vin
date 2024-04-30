@@ -35,6 +35,9 @@ return {
         staged = "",
         conflict = "",
     },
+    filetype = {
+        rc = "󰅩",
+    },
     kinds = {
         Array = " ",
         Boolean = "󰨙 ",
