@@ -173,7 +173,7 @@ M.spec = {
 
             window = {
                 position = "left",
-                width = 0.25,
+                width = 0.2,
                 -- https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup
                 popup = {
                     position = "50%", -- 50% means center it
