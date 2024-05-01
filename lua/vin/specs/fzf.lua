@@ -383,6 +383,7 @@ M.spec = {
             oldfiles = {
                 prompt = "History❯ ",
                 cwd_only = true,
+                formatter = "path.filename_first",
                 stat_file = true, -- verify files exist on disk
                 include_current_session = true, -- include bufs from current session
             },
