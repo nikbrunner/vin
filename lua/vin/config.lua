@@ -5,9 +5,9 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "black_atom_command",
+    colorscheme = "black-atom-research",
     ---@type "dark" | "light"
-    background = "dark",
+    background = "light",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
     colors_config_map = {
         ["terra-spring-night"] = {
@@ -34,19 +34,19 @@ local config = {
             wezterm = "nord",
             enable_custom_highlights = false,
         },
-        ["black_atom_command"] = {
+        ["black-atom-engineering"] = {
             wezterm = "Tokyo Night Moon",
             enable_custom_highlights = false,
         },
-        ["black-atom-hadron"] = {
+        ["black-atom-operations"] = {
             wezterm = "Tokyo Night Moon",
             enable_custom_highlights = false,
         },
-        ["black-atom-neutron"] = {
+        ["black-atom-research"] = {
             wezterm = "catppuccin-latte",
             enable_custom_highlights = false,
         },
-        ["black-atom-photon"] = {
+        ["black-atom-medical"] = {
             wezterm = "catppuccin-latte",
             enable_custom_highlights = false,
         },
@@ -91,13 +91,13 @@ local config = {
     ---For every colorscheme I set, I want some consistency in the in the highlights.
     ---See also: vin/lib/highlights#set_custom_highlights
     custom_highlights = {
-        enable = true,
+        enable = false,
         ---If true, the contrast between floating windows and the background will be increased.-
         ---@type boolean
         enable_contrast = true,
         ---A higher value means lower contrast between the two backgrounds.
         ---@type number A float number between (0 & 1).
-        contrast_factor = 0.95,
+        contrast_factor = 0.9,
     },
     pathes = {
         repos = base_pathes.repos,
