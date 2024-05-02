@@ -99,17 +99,17 @@ M.spec = {
                 "git_status",
                 "document_symbols",
             },
-            nesting_rules = {
-                ["package.json"] = {
-                    pattern = "^package%.json$", -- <-- Lua pattern
-                    files = { "package-lock.json", "yarn*" }, -- <-- glob pattern
-                },
-                ["go"] = {
-                    pattern = "(.*)%.go$", -- <-- Lua pattern with capture
-                    files = { "%1_test.go" }, -- <-- glob pattern with capture
-                },
-                ["ts"] = { "spec.ts" },
-            },
+            -- nesting_rules = {
+            --     ["package.json"] = {
+            --         pattern = "^package%.json$", -- <-- Lua pattern
+            --         files = { "package-lock.json", "yarn*" }, -- <-- glob pattern
+            --     },
+            --     ["go"] = {
+            --         pattern = "(.*)%.go$", -- <-- Lua pattern with capture
+            --         files = { "%1_test.go" }, -- <-- glob pattern with capture
+            --     },
+            --     ["ts"] = { "spec.ts" },
+            -- },
             filesystem = {
                 hijack_netrw_behavior = "disabled",
                 use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
