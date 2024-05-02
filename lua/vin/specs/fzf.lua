@@ -283,7 +283,7 @@ M.spec = {
                 prompt = "  ",
                 multiprocess = true, -- run command in a separate process
                 git_icons = true, -- show git icons?
-                file_icons = true, -- show file icons?
+                file_icons = false, -- show file icons?
                 formatter = "path.filename_first",
                 color_icons = false, -- colorize file|git icons
                 find_opts = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
@@ -314,7 +314,7 @@ M.spec = {
                     cmd = "git ls-files --exclude-standard",
                     multiprocess = false, -- run command in a separate process
                     git_icons = true, -- show git icons?
-                    file_icons = true, -- show file icons?
+                    file_icons = false, -- show file icons?
                     color_icons = true, -- colorize file|git icons
                 },
 
@@ -322,7 +322,7 @@ M.spec = {
                     prompt = "Modified Files❯ ",
                     cmd = "git status -su",
                     previewer = "git_diff",
-                    file_icons = true,
+                    file_icons = false,
                     git_icons = true,
                     formatter = "path.filename_first",
                     color_icons = true,
@@ -382,7 +382,7 @@ M.spec = {
                 input_prompt = "Grep For❯ ",
                 multiprocess = true, -- run command in a separate process
                 git_icons = true, -- show git icons?
-                file_icons = true, -- show file icons?
+                file_icons = false, -- show file icons?
                 color_icons = true, -- colorize file|git icons
                 rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512",
                 grep_opts = "--binary-files=without-match --line-number --recursive --color=auto",
@@ -401,7 +401,7 @@ M.spec = {
 
             buffers = {
                 prompt = "Buffers❯ ",
-                file_icons = true, -- show file icons?
+                file_icons = false, -- show file icons?
                 color_icons = true, -- colorize file|git icons
                 sort_lastused = true, -- sort buffers() by last used
                 cwd_only = true, -- buffers for the cwd only
@@ -412,7 +412,7 @@ M.spec = {
             },
 
             quickfix = {
-                file_icons = true,
+                file_icons = false,
                 git_icons = true,
             },
 
@@ -420,7 +420,7 @@ M.spec = {
                 prompt_postfix = "❯ ", -- will be appended to the LSP label
                 cwd_only = true, -- LSP/diagnostics for cwd only?
                 async_or_timeout = 5000, -- timeout(ms) or 'true' for async calls
-                file_icons = true,
+                file_icons = false,
                 git_icons = true,
                 symbols = {
                     async_or_timeout = true, -- symbols are async by default
