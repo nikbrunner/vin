@@ -67,6 +67,16 @@ M.win_preset = {
             },
         },
     },
+    fullscreen = {
+        flex = {
+            fullscreen = true,
+            preview = {
+                layout = "flex",
+                vertical = "up:65%", -- up|down:size
+                horizontal = "right:65%", -- right|left:size
+            },
+        },
+    },
 }
 
 M.use_win_preset = function(winopts, opts)
@@ -119,7 +129,7 @@ M.keys = {
     { "<leader>s<Tab>",      M.fzf("tabs"), desc = "[Tab]s" },
 
     -- [G]it Group
-    -- { "<leader>gs",          M.fzf("git_status", M.use_win_preset(M.win_preset.lg.flex)), desc = "[S]tatus" },
+    { "<leader>gs",          M.fzf("git_status", M.use_win_preset(M.win_preset.fullscreen.flex)), desc = "[S]tatus" },
     { "<leader>gc",          M.fzf("changes"), desc = "[C]hanges" },
     { "<leader>gB",          M.fzf("git_branches"), desc = "[B]ranches" },
     { "<leader>gC",          M.fzf("git_commits"), desc = "[C]ommits" },
@@ -314,6 +324,7 @@ M.spec = {
                     previewer = "git_diff",
                     file_icons = true,
                     git_icons = true,
+                    formatter = "path.filename_first",
                     color_icons = true,
                     actions = {
                         ["default"] = actions.file_edit_or_qf,
