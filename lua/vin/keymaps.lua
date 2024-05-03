@@ -11,6 +11,9 @@ end
 
 set("n", "Q", "<nop>")
 
+set({ "n", "x" }, "H", "^")
+set({ "n", "x" }, "L", "$")
+
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -266,7 +269,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
         set("n", "crn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))
     end,
 })
-
--- quit group
-set("n", "<leader>qa", "<cmd>wqa<CR>", { desc = "Quit All" })
-set("n", "<leader>qo", "<cmd>only<CR>", { desc = "Quit Others" })
