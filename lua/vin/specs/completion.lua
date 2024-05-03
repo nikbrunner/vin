@@ -3,24 +3,23 @@ local M = {}
 ---@type LazyPluginSpec[]
 M.specs = {
     {
-        "L3MON4D3/LuaSnip",
-        event = "InsertEnter",
-        dependencies = {
-            "rafamadriz/friendly-snippets",
-            "saadparwaiz1/cmp_luasnip",
-        },
-        config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
-        end,
-    },
-
-    {
         "hrsh7th/nvim-cmp",
         dependencies = {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-nvim-lsp",
             "onsails/lspkind.nvim",
+            {
+                "L3MON4D3/LuaSnip",
+                event = "InsertEnter",
+                dependencies = {
+                    "rafamadriz/friendly-snippets",
+                    "saadparwaiz1/cmp_luasnip",
+                },
+                config = function()
+                    require("luasnip.loaders.from_vscode").lazy_load()
+                end,
+            },
         },
         event = "InsertEnter",
         --- https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/config/default.lua
@@ -89,8 +88,9 @@ M.specs = {
                 },
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
-                    { name = "path" },
+                }, {
                     { name = "buffer" },
+                    { name = "path" },
                 }),
             })
         end,

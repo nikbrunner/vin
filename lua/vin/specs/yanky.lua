@@ -1,8 +1,8 @@
 local M = {}
+
 ---@type LazyPluginSpec
 M.spec = {
     "gbprod/yanky.nvim",
-    dependencies = { "chrisgrieser/cmp_yanky" },
     opts = {},
     keys = {
         { "<c-p>", "<Plug>(YankyPreviousEntry)" },
