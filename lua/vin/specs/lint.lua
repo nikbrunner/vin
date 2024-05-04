@@ -10,7 +10,6 @@ M.spec = {
         -- I was trying to set this up via `opts` but I have found no way to do it.
         lint.linters_by_ft = {
             go = { "gopls" },
-            lua = { "luacheck" },
             typescriptreact = { "eslint" },
             typescript = { "eslint" },
             javascript = { "eslint" },
