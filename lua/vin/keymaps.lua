@@ -204,7 +204,7 @@ set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "[P]ackage Manager - [Mason]" 
 set("n", "<leader>vl", "<cmd>LspInfo<CR>", { desc = "[L]SP Info" })
 set("n", "<leader>vL", "<cmd>LspRestart<CR>", { desc = "Restart [L]SP " })
 
-set("n", "<leader>ac", function()
+set({ "n", "v" }, "<leader>ac", function()
     lib.copy.list_paths()
 end, { desc = "[C]opy" })
 
