@@ -51,7 +51,7 @@ M.specs = {
         opts = {
             lsp_progress = {
                 -- oh god please stop annoying me
-                enable = true,
+                enable = false,
             },
 
             window = {
@@ -60,7 +60,7 @@ M.specs = {
                     anchor = "SE",
                     col = vim.o.columns,
                     row = vim.o.lines - 2,
-                    width = math.floor(vim.o.columns * 0.5),
+                    width = math.floor(vim.o.columns * 0.35),
                     border = "solid",
                 },
                 winblend = 10,
