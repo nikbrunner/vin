@@ -17,7 +17,8 @@
   "friendly-snippets": { "branch": "main", "commit": "d5f74ce4dfdd82848f3f4eac65fe6e29ac5df4c2" },
   "fzf-lua": { "branch": "main", "commit": "cb208cd24bacac5893249ea3a8624d705d2135f9" },
   "github-nvim-theme": { "branch": "main", "commit": "66dcec1bd3d12f8b0bf3c885069888551a650049" },
-  "gitsigns.nvim": { "branch": "main", "commit": "9cafac31a091267838e1e90fd6e083d37611f516" },
+  "gitlinker.nvim": { "branch": "master", "commit": "cc59f732f3d043b626c8702cb725c82e54d35c25" },
+  "gitsigns.nvim": { "branch": "main", "commit": "bc933d24a669608968ff4791b14d2d9554813a65" },
   "gp.nvim": { "branch": "main", "commit": "52938ffbd47b5e06d0f9b7c8b146f26d6021fbac" },
   "guess-indent.nvim": { "branch": "main", "commit": "b8ae749fce17aa4c267eec80a6984130b94f80b2" },
   "lazy.nvim": { "branch": "main", "commit": "3f13f080434ac942b150679223d54f5ca91e0d52" },
@@ -55,4 +56,3 @@
   "wtf.nvim": { "branch": "main", "commit": "8e7bec4d3cb2ea2e3d078b9af8c4cc68d1066c33" },
   "yanky.nvim": { "branch": "main", "commit": "7c5cbf0122ff2dfbb6a92f14885894f65949cc8b" },
   "zen-mode.nvim": { "branch": "main", "commit": "78557d972b4bfbb7488e17b5703d25164ae64e6a" }
-}

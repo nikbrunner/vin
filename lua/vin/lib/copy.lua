@@ -5,20 +5,37 @@ local function copy(path)
     vim.notify('Copied "' .. path .. '" to the clipboard!', vim.log.levels.INFO)
 end
 
-function M.fullPath()
-    local full_path = vim.fn.expand("%:p")
-    copy(full_path)
+function M.full_path()
+    return vim.fn.expand("%:p")
 end
 
-function M.relativePath()
-    -- Source: https://www.reddit.com/r/neovim/comments/q2s3t1/how_to_get_current_filename_relative_to_project/
-    local relative_path = vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:.")
-    copy(relative_path)
+function M.full_path_from_home()
+    return vim.fn.expand("%:~")
 end
 
-function M.fileName()
-    local file_name = vim.fn.expand("%:t")
-    copy(file_name)
+function M.file_name()
+    return vim.fn.expand("%:t")
+end
+
+function M.get_github_url()
+    -- It is import to make this conversion and not use it directly, because the
+    -- line range selection results in "V" and not in "v", what the plugin requires as argument
+    local current_vim_mode = vim.api.nvim_get_mode().mode
+    local mode_for_plugin = current_vim_mode == "n" and "n" or "v"
+
+    return require("gitlinker").get_buf_range_url(mode_for_plugin, { print_url = false })
+end
+
+function M.get_current_relative_path(with_line_number)
+    local current_file = vim.fn.expand("%")
+    local current_line = vim.fn.line(".")
+    local relative_path = vim.fn.fnamemodify(current_file, ":~:.")
+
+    if with_line_number then
+        return relative_path .. "#L" .. current_line
+    end
+
+    return relative_path
 end
 
 M.list_paths = function(opts)
@@ -36,18 +53,22 @@ M.list_paths = function(opts)
 
     function M.file_paths()
         local paths = {
-            { type = "File", name = vim.fn.expand("%:t") },
-            { type = "Relative", name = vim.fn.expand("%") },
-            { type = "Home", name = vim.fn.expand("%:~") },
-            { type = "Full", name = vim.fn.expand("%:p:h") },
+            { type = "Filename", name = M.file_name() },
+            { type = "Relative /w Line Number", name = M.get_current_relative_path(true) },
+            { type = "Relative", name = M.get_current_relative_path(false) },
+            { type = "Full Path (Home)", name = M.full_path_from_home() },
+            { type = "Full Path (Absolute)", name = M.full_path() },
+            { type = "GitHub", name = M.get_github_url() },
         }
         return paths
     end
 
+    local menu_height = #M.file_paths() + 4
+
     local displayer = entry_display.create({
-        separator = " ",
+        separator = " " .. require("vin.icons").misc.separator .. " ",
         items = {
-            { width = 15 },
+            { width = 25 },
             { remaining = true },
         },
     })
@@ -71,37 +92,40 @@ M.list_paths = function(opts)
             }),
             layout_strategy = "cursor",
             layout_config = {
-                height = 9,
+                height = menu_height,
                 width = function(res)
-                    -- log.debug(res.finder.results)
                     local max_width = 0
                     for _, v in ipairs(res.finder.results) do
-                        -- log.debug(#v.value.name)
                         if #v.value.name > max_width then
                             max_width = #v.value.name
                         end
                     end
-                    max_width = max_width + 25
-                    -- if vim. < max_width then return win_width - 4 end
+                    max_width = max_width + 50
                     return max_width
                 end,
             },
             sorter = config.generic_sorter(opts),
             prompt_title = "Copy File Meta Information",
-
             attach_mappings = function(prompt_bufnr, map)
                 actions.select_default:replace(function()
                     local selection = actions_state.get_selected_entry()
                     actions.close(prompt_bufnr)
-                    -- copy to clipboard
-                    vim.fn.setreg('"', selection.value.name)
+                    copy(selection.value.name)
+                end)
+
+                map("i", "<M-CR>", function()
+                    local selection = actions_state.get_selected_entry()
+                    if selection.value.type == "GitHub" then
+                        require("gitlinker.actions").open_in_browser(selection.value.name)
+                    end
+                    actions.close(prompt_bufnr)
+                    vim.notify("Opening GitHub Link in Browser", vim.log.levels.INFO)
                 end)
 
                 map("i", "<CR>", function()
                     local selection = actions_state.get_selected_entry()
                     actions.close(prompt_bufnr)
-                    -- copy to system clipboard
-                    vim.fn.setreg("+", selection.value.name)
+                    copy(selection.value.name)
                     vim.notify("Copied `" .. selection.value.name .. "` to Clipboard", vim.log.levels.INFO)
                 end)
 
