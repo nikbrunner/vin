@@ -402,6 +402,7 @@ M.spec = {
             buffers = {
                 prompt = "Buffers❯ ",
                 file_icons = false, -- show file icons?
+                formatter = "path.filename_first",
                 color_icons = true, -- colorize file|git icons
                 sort_lastused = true, -- sort buffers() by last used
                 cwd_only = true, -- buffers for the cwd only
