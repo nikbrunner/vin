@@ -5,7 +5,7 @@ M.spec = {
     "otavioschwanck/arrow.nvim",
     event = "BufEnter",
     opts = {
-        leader_key = ";",
+        leader_key = "<leader>m",
         buffer_leader_key = "m",
         show_icons = false,
         always_show_path = true,
