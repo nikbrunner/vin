@@ -41,7 +41,7 @@ M.specs = {
         enabled = true,
         keys = {
             {
-                "<leader>un",
+                "<leader>vn",
                 function()
                     require("mini.notify").show_history()
                 end,
