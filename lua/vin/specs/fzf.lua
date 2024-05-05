@@ -34,7 +34,7 @@ M.win_preset = {
             row = 0.85,
             col = 0.5,
             height = 0.35,
-            width = 0.65,
+            width = 0.5,
             preview = { hidden = "hidden" },
         },
     },
@@ -168,7 +168,7 @@ M.spec = {
                 width = 0.85,
                 row = 0.35,
                 col = 0.50,
-                border = "solid",
+                border = "single",
                 preview = {
                     border = "border", -- border|noborder, applies only to
                     wrap = "nowrap", -- wrap|nowrap
@@ -226,7 +226,7 @@ M.spec = {
                 ["--reverse"] = "",
                 -- ["--border"] = "block",
                 ["--border-label"] = "[ Vin ]",
-                ["--padding"] = "0,3",
+                ["--padding"] = "1,6",
                 ["--no-scrollbar"] = "",
                 ["--no-separator"] = "",
                 ["--no-info"] = "",
@@ -243,7 +243,7 @@ M.spec = {
                 ["query"] = { "fg", "Statement" },
                 ["info"] = { "fg", "PreProc" },
                 ["label"] = { "fg", "CursorLineNr" },
-                -- ["prompt"] = { "fg", "Conditional" },
+                ["prompt"] = { "fg", "Conditional" },
                 ["pointer"] = { "fg", "Exception" },
                 ["marker"] = { "fg", "Keyword" },
                 ["spinner"] = { "fg", "Label" },
