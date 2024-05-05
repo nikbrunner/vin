@@ -156,6 +156,7 @@ M.keys = {
 M.spec = {
     "ibhagwan/fzf-lua",
     keys = M.keys,
+    -- authors repo: https://github.com/ibhagwan/nvim-lua/blob/main/lua/plugins/fzf-lua/setup.lua
     opts = function()
         local actions = require("fzf-lua.actions")
         return {
@@ -236,13 +237,13 @@ M.spec = {
                 ["fg+"] = { "fg", "CursorLineNr" },
                 ["bg"] = { "bg", "NormalFloat" },
                 ["hl"] = { "fg", "Comment" },
+                ["hl+"] = { "fg", "Statement" },
                 ["bg+"] = { "bg", "Normal" },
                 ["border"] = { "fg", "CursorLineNr" },
-                ["hl+"] = { "fg", "Statement" },
                 ["query"] = { "fg", "Statement" },
                 ["info"] = { "fg", "PreProc" },
                 ["label"] = { "fg", "CursorLineNr" },
-                ["prompt"] = { "fg", "Conditional" },
+                -- ["prompt"] = { "fg", "Conditional" },
                 ["pointer"] = { "fg", "Exception" },
                 ["marker"] = { "fg", "Keyword" },
                 ["spinner"] = { "fg", "Label" },
@@ -279,12 +280,16 @@ M.spec = {
                 },
             },
 
+            -- ❤️ https://github.com/ibhagwan/fzf-lua/issues/1051#issuecomment-2094803850
+            defaults = {
+                formatter = "path.filename_first",
+            },
+
             files = {
                 prompt = "  ",
                 multiprocess = true, -- run command in a separate process
                 git_icons = true, -- show git icons?
                 file_icons = false, -- show file icons?
-                formatter = "path.filename_first",
                 color_icons = false, -- colorize file|git icons
                 find_opts = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
                 rg_opts = "--color=never --files --hidden --follow -g '!.git'",
@@ -324,7 +329,6 @@ M.spec = {
                     previewer = "git_diff",
                     file_icons = false,
                     git_icons = true,
-                    formatter = "path.filename_first",
                     color_icons = true,
                     actions = {
                         ["default"] = actions.file_edit_or_qf,
@@ -394,7 +398,6 @@ M.spec = {
             oldfiles = {
                 prompt = "History❯ ",
                 cwd_only = true,
-                formatter = "path.filename_first",
                 stat_file = true, -- verify files exist on disk
                 include_current_session = true, -- include bufs from current session
             },
@@ -402,7 +405,6 @@ M.spec = {
             buffers = {
                 prompt = "Buffers❯ ",
                 file_icons = false, -- show file icons?
-                formatter = "path.filename_first",
                 color_icons = true, -- colorize file|git icons
                 sort_lastused = true, -- sort buffers() by last used
                 cwd_only = true, -- buffers for the cwd only
