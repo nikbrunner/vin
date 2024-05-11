@@ -29,6 +29,7 @@ M.spec = {
             yaml = { "prettierd", "prettier" },
             go = { "gofmt" },
             sh = { "shfmt" },
+            c = { "clang-format" },
         },
     },
     keys = {
