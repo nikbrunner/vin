@@ -13,6 +13,12 @@ M.spec = {
             "x x x x x _ x x x x x",
             "_ _ x x x _ x x x _ _",
         },
+        comment_preview = {
+            position = "inside",
+            keymap_overrides = {
+                ["SS_TILD_SLSH"] = "~/",
+            },
+        },
     },
     config = function(_, opts)
         require("qmk").setup(opts)
