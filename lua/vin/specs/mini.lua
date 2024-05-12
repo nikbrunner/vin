@@ -126,7 +126,7 @@ M.specs = {
                         local diagnostics = m.section_diagnostics({ trunc_width = 75 })
                         local searchcount = m.section_searchcount({ trunc_width = 75 })
                         local location = m.section_location({ trunc_width = 120 })
-                        local fileinfo = m.section_fileinfo({ trunc_width = 200 })
+                        local fileinfo = m.section_fileinfo({ trunc_width = 125 })
                         local colorscheme = m.is_truncated(200) and "" or " " .. vim.g.colors_name
 
                         return m.combine_groups({
