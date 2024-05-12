@@ -69,7 +69,7 @@ vim.opt.fileencoding = "utf-8"
 
 vim.opt.guifont = "JetBrains Mono:h16"
 
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 4
 
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
