@@ -39,9 +39,9 @@ exmap wa obcommand editor:save-file
 nmap <CR> :wa
 
 " Close and Quit
-exmap q obcommand workspace:close-window
+exmap q obcommand workspace:close
 exmap qg obcommand workspace:close-tab-group
-exmap qw obcommand workspace:close
+exmap qw obcommand workspace:close-window
 exmap only obcommand workspace:close-others
 
 " Theme
