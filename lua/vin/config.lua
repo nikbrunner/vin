@@ -5,9 +5,9 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "black-atom-medical",
+    colorscheme = "black-atom-engineering",
     ---@type "dark" | "light"
-    background = "light",
+    background = "dark",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
     colors_config_map = {
         ["terra-spring-night"] = {
