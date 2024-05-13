@@ -1,1 +1,1 @@
-/Users/nikolausbrunner/.config/vin/gp/chats/2024-02-01.15-14-27.471.md
+/Users/nbr/.config/nvim/gp/chats/2024-05-13.21-48-44.674.md
