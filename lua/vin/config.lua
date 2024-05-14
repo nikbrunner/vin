@@ -5,9 +5,9 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "black-atom-engineering",
+    colorscheme = "black-atom-medical",
     ---@type "dark" | "light"
-    background = "dark",
+    background = "light",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
     colors_config_map = {
         ["terra-spring-night"] = {
@@ -108,12 +108,6 @@ local config = {
         notes = {
             personal = base_pathes.repos .. "/nikbrunner/notes",
             work = { dcd = base_pathes.repos .. "/nikbrunner/dcd-notes" },
-        },
-    },
-    branch_notes = {
-        mappings = {
-            toggle_note = "<C-b>",
-            toggle_checkbox = "<C-k>",
         },
     },
     ensure_installed = {

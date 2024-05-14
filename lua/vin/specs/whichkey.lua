@@ -64,6 +64,7 @@ M.spec = {
                 ["<leader>gh"] = { name = "[H]unks" },
                 ["<leader>v"] = { name = "[V]in" },
                 ["<leader>s"] = { name = "[S]earch" },
+                ["<leader>p"] = { name = "[P]ad" },
                 ["<leader>t"] = { name = "[T]MUX" },
                 ["<leader>i"] = { name = "[I]ntelligence" },
                 ["<leader>ic"] = { name = "[C]opilot" },
