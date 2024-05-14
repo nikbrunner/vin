@@ -1,1 +1,1 @@
-/Users/nbr/.config/nvim/gp/chats/2024-05-13.21-48-44.674.md
+/Users/nbr/.config/nvim/gp/chats/2024-05-14.14-25-56.189.md
