@@ -14,13 +14,11 @@ function M.handle_colors(config, colorscheme, background)
     local colorscheme_config = config.colors_config_map[colorscheme]
 
     -- If the colorscheme has custom highlights disabled, then don't set them
-    if colorscheme_config and not colorscheme_config.enable_custom_highlights then
-        return
+    local enable_custom_highlights = colorscheme_config.enable_custom_highlights or false
+    if colorscheme_config and enable_custom_highlights then
+        require("vin.lib.highlights").set_custom_highlights()
+        vim.notify_once("Setting custom highlights for colorscheme: " .. colorscheme, vim.log.levels.INFO, { title = "Vin" })
     end
-
-    -- Otherwise, set the custom highlights, and notify the user
-    require("vin.lib.highlights").set_custom_highlights()
-    vim.notify_once("Setting custom highlights for colorscheme: " .. colorscheme, vim.log.levels.INFO, { title = "Vin" })
 end
 
 return M

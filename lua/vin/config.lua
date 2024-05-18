@@ -5,71 +5,28 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "black-atom-medical",
+    colorscheme = "black-atom-operations",
     ---@type "dark" | "light"
-    background = "light",
+    background = "dark",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
     colors_config_map = {
-        ["terra-spring-night"] = {
-            wezterm = "Gruvbox Material (Gogh)",
-            enable_custom_highlights = false,
-        },
-        ["terra-spring-day"] = {
-            wezterm = "Google Light (Gogh)",
-            enable_custom_highlights = false,
-        },
-        ["terra-summer-night"] = {
-            wezterm = "Ayu Mirage",
-            enable_custom_highlights = false,
-        },
-        ["terra-summer-day"] = {
-            wezterm = "Google Light (Gogh)",
-            enable_custom_highlights = false,
-        },
-        ["terra-fall-night"] = {
-            wezterm = "Gruvbox Material (Gogh)",
-            enable_custom_highlights = false,
-        },
-        ["terra-winter-night"] = {
-            wezterm = "nord",
-            enable_custom_highlights = false,
-        },
-        ["black-atom-engineering"] = {
-            wezterm = "Tokyo Night Moon",
-            enable_custom_highlights = false,
-        },
-        ["black-atom-operations"] = {
-            wezterm = "Tokyo Night Moon",
-            enable_custom_highlights = false,
-        },
-        ["black-atom-research"] = {
-            wezterm = "catppuccin-latte",
-            enable_custom_highlights = false,
-        },
-        ["black-atom-medical"] = {
-            wezterm = "catppuccin-latte",
-            enable_custom_highlights = false,
-        },
-        ["catppuccin"] = {
-            wezterm = "catppuccin",
-            enable_custom_highlights = true,
-        },
-        ["catppuccin-mocha"] = {
-            wezterm = "catppuccin-mocha",
-            enable_custom_highlights = true,
-        },
-        ["catppuccin-frappe"] = {
-            wezterm = "catppuccin-frappe",
-            enable_custom_highlights = true,
-        },
-        ["catppuccin-machiato"] = {
-            wezterm = "catppuccin-machiato",
-            enable_custom_highlights = true,
-        },
-        ["catppuccin-latte"] = {
-            wezterm = "catppuccin-latte",
-            enable_custom_highlights = true,
-        },
+        ["terra-spring-night"] = { wezterm = "Black Atom - Terra Spring Night" },
+        ["terra-spring-day"] = { wezterm = "Google Light (Gogh)" },
+        ["terra-summer-night"] = { wezterm = "Black Atom - Terra Summer Night" },
+        ["terra-summer-day"] = { wezterm = "Google Light (Gogh)" },
+        ["terra-fall-night"] = { wezterm = "Black Atom - Terra Fall Night" },
+        ["terra-winter-night"] = { wezterm = "Black Atom - Terra Winter Night" },
+        ["black-atom-engineering"] = { wezterm = "Black Atom - Engineering" },
+        ["black-atom-operations"] = { wezterm = "Black Atom - Operations" },
+        ["black-atom-medical"] = { wezterm = "Black Atom - Medical" },
+        ["black-atom-research"] = { wezterm = "Black Atom - Research" },
+        ["github_dark_default"] = { wezterm = "GitHub Dark" },
+        ["github_light_default"] = { wezterm = "Google Light (Gogh)" },
+        ["catppuccin"] = { wezterm = "catppuccin" },
+        ["catppuccin-mocha"] = { wezterm = "catppuccin-mocha" },
+        ["catppuccin-frappe"] = { wezterm = "catppuccin-frappe" },
+        ["catppuccin-machiato"] = { wezterm = "catppuccin-machiato" },
+        ["catppuccin-latte"] = { wezterm = "catppuccin-latte" },
         ["quiet"] = {
             wezterm = "Google Light (Gogh)",
             enable_custom_highlights = true,
@@ -77,14 +34,6 @@ local config = {
         ["habamax"] = {
             wezterm = "Google Dark (Gogh)",
             enable_custom_highlights = true,
-        },
-        ["github_dark_default"] = {
-            wezterm = "GitHub Dark",
-            enable_custom_highlights = false,
-        },
-        ["github_light_default"] = {
-            wezterm = "Google Light (Gogh)",
-            enable_custom_highlights = false,
         },
     },
     open_neotree_on_startup = false,
