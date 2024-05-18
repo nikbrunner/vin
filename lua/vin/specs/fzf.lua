@@ -32,9 +32,9 @@ M.win_preset = {
     sm = {
         no_preview = {
             row = 0.85,
-            col = 0.5,
+            col = 1,
             height = 0.35,
-            width = 0.5,
+            width = 85,
             preview = { hidden = "hidden" },
         },
     },
@@ -56,6 +56,16 @@ M.win_preset = {
                 layout = "flex",
                 vertical = "up:65%", -- up|down:size
                 horizontal = "right:50%", -- right|left:size
+            },
+        },
+        vertical_corner = {
+            row = 0.85,
+            col = 1,
+            height = 0.9,
+            width = 85,
+            preview = {
+                layout = "vertical",
+                vertical = "up:65%", -- up|down:size
             },
         },
         vertical = {
@@ -95,11 +105,45 @@ M.fzf = function(cmd, opts)
     end
 end
 
+M.columns = vim.o.columns
+
+M.responsive_vertical_window = function(cmd, win_width, breakpoint, opts)
+    -- TODO: win_width does not update on resize. I don't understand why.
+    opts = opts or {}
+
+    local function get_win_opts()
+        if win_width <= breakpoint then
+            return {
+                height = 0.9,
+                width = 0.9,
+                preview = {
+                    layout = "vertical",
+                    vertical = "up:65%",
+                },
+            }
+        else
+            return {
+                row = 0.85,
+                col = 1,
+                height = 0.9,
+                width = 0.5,
+                preview = {
+                    layout = "vertical",
+                    vertical = "up:65%", -- up|down:size
+                },
+            }
+        end
+    end
+
+    opts = vim.tbl_deep_extend("force", { winopts = get_win_opts() }, opts)
+
+    return M.fzf(cmd, opts)
+end
 
 -- stylua: ignore start
 M.keys = {
     -- Root layer
-    { "<leader><space>",     M.fzf("files", M.use_win_preset(M.win_preset.lg.flex)), desc = "Files", },
+    { "<leader><space>",     M.responsive_vertical_window("files", vim.api.nvim_win_get_width(0), 175), desc = "Files" },
     { "<leader>/",           M.fzf("lgrep_curbuf"), desc = "Grep Current File" },
     { "<leader>:",           M.fzf("commands", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "Commands" },
     { "<leader>r",           M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = true })), desc = "Recent Files" },
@@ -146,7 +190,6 @@ M.keys = {
     { "gs",                  M.fzf("lsp_document_symbols"), desc = "Document [S]ymbols" },
     { "gS",                  M.fzf("lsp_live_workspace_symbols"), desc = "Workspace [S]ymbols" },
 
-
     -- Insert Mode
     -- { "<C-r>",               M.fzf("registers", M.use_win_preset( M.win_preset.sm.no_preview)), mode = { "i" }, desc = "Registers" }
 }
@@ -168,7 +211,7 @@ M.spec = {
                 width = 0.85,
                 row = 0.35,
                 col = 0.50,
-                border = "single",
+                border = "none",
                 preview = {
                     border = "border", -- border|noborder, applies only to
                     wrap = "nowrap", -- wrap|nowrap
@@ -290,6 +333,7 @@ M.spec = {
                 multiprocess = true, -- run command in a separate process
                 git_icons = true, -- show git icons?
                 file_icons = false, -- show file icons?
+                header = false,
                 color_icons = false, -- colorize file|git icons
                 find_opts = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
                 rg_opts = "--color=never --files --hidden --follow -g '!.git'",
