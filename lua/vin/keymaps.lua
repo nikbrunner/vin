@@ -183,8 +183,8 @@ set("n", "]e", function()
     vim.diagnostic.goto_next({ severity = "ERROR" })
 end, { desc = "Error" })
 
--- set("n", "H", vim.cmd.tabprevious, { desc = "Previous Tab" })
--- set("n", "L", vim.cmd.tabnext, { desc = "Next Tab" })
+set("n", "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Tab" })
+set("n", "<Tab>", vim.cmd.tabnext, { desc = "Next Tab" }) -- attention: this will block native binding <ctrl-i>
 for i = 1, 9 do
     set("n", "<leader>" .. i, function()
         local existing_tab_count = vim.fn.tabpagenr("$")
