@@ -16,6 +16,7 @@ M.spec = {
         end,
         formatters_by_ft = {
             css = { { "prettierd", "prettier" } },
+            scss = { { "prettierd", "prettier" } },
             graphql = { { "prettierd", "prettier" } },
             html = { { "prettierd", "prettier" } },
             javascript = { { "prettierd", "prettier" } },
@@ -27,6 +28,7 @@ M.spec = {
             typescript = { { "prettierd", "prettier" } },
             typescriptreact = { { "prettierd", "prettier" } },
             yaml = { "prettierd", "prettier" },
+            toml = { "taplo" },
             go = { "gofmt" },
             sh = { "shfmt" },
             c = { "clang-format" },
