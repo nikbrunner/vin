@@ -10,7 +10,7 @@ function M.open_previous_files()
     local filetype = vim.bo.filetype
     local excluded_filetypes = { "gitcommit" }
 
-    if not vim.tbl_contains(excluded_filetypes, filetype) then
+    if not vim.list_contains(excluded_filetypes, filetype) then
         if pcall(require, "fzf-lua") then
             require("fzf-lua").oldfiles({
                 cwd_only = true,
@@ -95,7 +95,7 @@ create_autocmd("BufReadPost", {
     callback = function(event)
         local exclude = { "gitcommit" }
         local buf = event.buf
-        if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
+        if vim.list_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
             return
         end
         vim.b[buf].lazyvim_last_loc = true

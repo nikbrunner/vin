@@ -106,13 +106,7 @@ set("n", "<leader>uC", function()
 end, { desc = "Toggle Specific [C]onceal Level" })
 
 set("n", "<leader>ud", function()
-    if vim.diagnostic.is_disabled() then
-        vim.diagnostic.enable()
-        vim.notify("Diagnostics enabled", vim.log.levels.INFO, { title = "Diagnostics" })
-    else
-        vim.diagnostic.disable()
-        vim.notify("Diagnostics disabled", vim.log.levels.WARN, { title = "Diagnostics" })
-    end
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled({}))
 end, { desc = "Toggle [D]iagnostics" })
 
 set("n", "<leader>us", function()
@@ -157,31 +151,6 @@ end, { desc = "Toggle [L]ine Numbers" })
 -- prev/next
 set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
 set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
-
--- global diagnostic mappings
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-set("n", "gl", vim.diagnostic.open_float, { desc = "Open Diagnostic" })
-
-set("n", "[d", function()
-    vim.diagnostic.goto_prev()
-end, { desc = "Previous Diagnostic" })
-set("n", "]d", function()
-    vim.diagnostic.goto_next()
-end, { desc = "Next Diagnostic" })
-
-set("n", "[w", function()
-    vim.diagnostic.goto_prev({ severity = "WARN" })
-end, { desc = "Warning" })
-set("n", "]w", function()
-    vim.diagnostic.goto_next({ severity = "WARN" })
-end, { desc = "Warning" })
-
-set("n", "[e", function()
-    vim.diagnostic.goto_prev({ severity = "ERROR" })
-end, { desc = "Error" })
-set("n", "]e", function()
-    vim.diagnostic.goto_next({ severity = "ERROR" })
-end, { desc = "Error" })
 
 set("n", "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Tab" })
 set("n", "<Tab>", vim.cmd.tabnext, { desc = "Next Tab" }) -- attention: this will block native binding <ctrl-i>
@@ -269,9 +238,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end, { desc = "Toggle Inlay [H]ints" })
 
         set({ "n", "v" }, "<leader>aa", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [A]ction" }))
-        set({ "n", "v" }, "crr", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [A]ction" }))
 
         set("n", "<leader>an", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))
-        set("n", "crn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))
+
+        set("n", "gl", vim.diagnostic.open_float, { desc = "Open Diagnostic" })
+
+        set("n", "[w", function()
+            vim.diagnostic.goto_prev({ severity = "WARN" })
+        end, { desc = "Warning" })
+        set("n", "]w", function()
+            vim.diagnostic.goto_next({ severity = "WARN" })
+        end, { desc = "Warning" })
+
+        set("n", "[e", function()
+            vim.diagnostic.goto_prev({ severity = "ERROR" })
+        end, { desc = "Error" })
+        set("n", "]e", function()
+            vim.diagnostic.goto_next({ severity = "ERROR" })
+        end, { desc = "Error" })
     end,
 })
