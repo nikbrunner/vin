@@ -5,7 +5,7 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "black-atom-engineering",
+    colorscheme = "black-atom-operations",
     ---@type "dark" | "light"
     background = "dark",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
@@ -28,7 +28,7 @@ local config = {
         ["catppuccin-machiato"] = { wezterm = "catppuccin-machiato" },
         ["catppuccin-latte"] = { wezterm = "catppuccin-latte" },
     },
-    open_neotree_on_startup = true,
+    open_neotree_on_startup = false,
     pathes = {
         repos = base_pathes.repos,
         config = {
