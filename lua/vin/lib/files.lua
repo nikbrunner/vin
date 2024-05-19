@@ -29,7 +29,7 @@ function M.sync_wezterm_colorscheme(config, colorscheme)
         print("Could not find background color. Transparent background can not be handled atm.")
     end
 
-    local wezterm_colorscheme = config.colors_config_map[colorscheme] and config.colors_config_map[colorscheme].wezterm
+    local wezterm_colorscheme = config.colorscheme_term_map[colorscheme] and config.colorscheme_term_map[colorscheme].wezterm
     if wezterm_colorscheme then
         M.update_file(pathes.config.wezterm, "color_scheme", '"' .. wezterm_colorscheme .. '"')
     end
