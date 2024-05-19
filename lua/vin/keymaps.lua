@@ -70,7 +70,7 @@ end, { desc = "[R]edraw" })
 
 set("n", "<leader>ub", function()
     local background = vim.opt.background:get()
-    local colorscheme = vim.g.colors_name
+    local colorscheme = vim.g.colors_name or "default"
 
     if background == "dark" then
         vim.opt.background = "light"

@@ -5,11 +5,11 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "black-atom-operations",
+    colorscheme = "black-atom-engineering",
     ---@type "dark" | "light"
     background = "dark",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
-    colors_config_map = {
+    colorscheme_term_map = {
         ["terra-spring-night"] = { wezterm = "Black Atom - Terra Spring Night" },
         ["terra-spring-day"] = { wezterm = "Google Light (Gogh)" },
         ["terra-summer-night"] = { wezterm = "Black Atom - Terra Summer Night" },
@@ -27,27 +27,8 @@ local config = {
         ["catppuccin-frappe"] = { wezterm = "catppuccin-frappe" },
         ["catppuccin-machiato"] = { wezterm = "catppuccin-machiato" },
         ["catppuccin-latte"] = { wezterm = "catppuccin-latte" },
-        ["quiet"] = {
-            wezterm = "Google Light (Gogh)",
-            enable_custom_highlights = true,
-        },
-        ["habamax"] = {
-            wezterm = "Google Dark (Gogh)",
-            enable_custom_highlights = true,
-        },
     },
     open_neotree_on_startup = false,
-    ---For every colorscheme I set, I want some consistency in the in the highlights.
-    ---See also: vin/lib/highlights#set_custom_highlights
-    custom_highlights = {
-        enable = false,
-        ---If true, the contrast between floating windows and the background will be increased.-
-        ---@type boolean
-        enable_contrast = true,
-        ---A higher value means lower contrast between the two backgrounds.
-        ---@type number A float number between (0 & 1).
-        contrast_factor = 0.9,
-    },
     pathes = {
         repos = base_pathes.repos,
         config = {
