@@ -28,6 +28,8 @@ function M.fold_virt_text_handler(virtText, lnum, endLnum, width, truncate)
     return newVirtText
 end
 
+M.ignored_ft = { "neo-tree" }
+
 ---@type LazyPluginSpec
 M.spec = {
     "kevinhwang91/nvim-ufo",
@@ -35,9 +37,6 @@ M.spec = {
         "kevinhwang91/promise-async",
     },
     event = "BufEnter",
-    enabled = function()
-        return vim.fn.has("nvim-0.10") == 1
-    end,
     keys = {
         {
             "zR",
@@ -101,6 +100,15 @@ M.spec = {
         vim.o.fillchars = [[fold: ,foldopen:,foldsep: ,foldclose:]]
 
         ufo.setup(opts)
+
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = M.ignored_ft,
+            callback = function()
+                require("ufo").detach()
+                vim.opt_local.foldenable = false
+                vim.wo.foldcolumn = "0"
+            end,
+        })
     end,
 }
 
