@@ -86,6 +86,7 @@ sh ./obsidian/sync.sh
 
 ### Other Configs
 
+- [dotfiles/.config/nvim at mac · MariaSolOs/dotfiles](https://github.com/MariaSolOs/dotfiles/tree/mac/.config/nvim)
 - [0xsamrath/.dotfiles](https://github.com/0xsamrath/.dotfiles)
 - [LunarVim/nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
 - [dot/nvim · folke/dot](https://github.com/folke/dot/tree/master/nvim)
