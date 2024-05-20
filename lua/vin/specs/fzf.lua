@@ -442,7 +442,7 @@ M.spec = {
             oldfiles = {
                 prompt = "History❯ ",
                 cwd_only = true,
-                stat_file = true, -- verify files exist on disk
+                stat_file = false,
                 include_current_session = true, -- include bufs from current session
             },
 
