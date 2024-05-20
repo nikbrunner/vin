@@ -85,7 +85,7 @@ nmap gd :followlink
 exmap followlinkinnewpane obcommand editor:open-link-in-new-leaf
 nmap gD :followlinkinnewpane
 
-exmap goToSymbol obcommand darlal-switcher-plus:switcher-plus:open-symbols-active
+exmap goToSymbol obcommand darlal-switcher-plus:switcher-plus:open-symbols
 nmap gs :goToSymbol
 
 " Actions
