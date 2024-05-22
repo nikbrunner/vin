@@ -140,15 +140,6 @@ M.specs = {
     },
 
     {
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        dependencies = "nvim-treesitter/nvim-treesitter",
-        event = "VeryLazy",
-        opts = {
-            enable_autocmd = false,
-        },
-    },
-
-    {
         "nvim-treesitter/nvim-treesitter-textobjects",
         event = "VeryLazy",
         config = function()
