@@ -30,6 +30,11 @@ M.specs = {
                 -- The first entry (without a key) will be the default handler
                 -- and will be called for each installed server that doesn't have a dedicated handler.
                 function(server_name) -- default handler (optional)
+                    -- TypeScript tools is used for setup @see `lua/vin/specs/typescript_tools.lua`
+                    if server_name == "tsserver" then
+                        return nil
+                    end
+
                     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
                     require("lspconfig")[server_name].setup({
@@ -58,48 +63,6 @@ M.specs = {
                                 workspace = {
                                     checkThirdParty = false,
                                     library = project_files,
-                                },
-                            },
-                        },
-                    })
-                end,
-
-                tsserver = function()
-                    local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-                    require("lspconfig").tsserver.setup({
-                        capabilities = capabilities,
-                        root_dir = function(...)
-                            return require("lspconfig.util").root_pattern(".git")(...)
-                        end,
-                        init_options = {
-                            hostInfo = "neovim",
-                            -- https://github.com/typescript-language-server/typescript-language-server#initializationoptions
-                            preferences = {
-                                importModuleSpecifierPreference = "relative",
-                            },
-                        },
-                        settings = {
-                            typescript = {
-                                inlayHints = {
-                                    includeInlayEnumMemberValueHints = true,
-                                    includeInlayFunctionLikeReturnTypeHints = true,
-                                    includeInlayFunctionParameterTypeHints = true,
-                                    includeInlayParameterNameHints = "all",
-                                    includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                                    includeInlayPropertyDeclarationTypeHints = true,
-                                    includeInlayVariableTypeHints = true,
-                                },
-                            },
-                            javascript = {
-                                inlayHints = {
-                                    includeInlayEnumMemberValueHints = true,
-                                    includeInlayFunctionLikeReturnTypeHints = true,
-                                    includeInlayFunctionParameterTypeHints = true,
-                                    includeInlayParameterNameHints = "all",
-                                    includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                                    includeInlayPropertyDeclarationTypeHints = true,
-                                    includeInlayVariableTypeHints = true,
                                 },
                             },
                         },
