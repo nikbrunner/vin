@@ -45,7 +45,6 @@ vim.opt.listchars = {
 }
 
 vim.opt.number = true
-vim.opt.numberwidth = 4
 vim.opt.relativenumber = true
 
 vim.opt.autoread = true
