@@ -16,9 +16,10 @@ M.spec = {
             ft_ignore = { "neo-tree" },
             segments = {
                 { sign = { namespace = { "gitsigns" } } },
-                { text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
-                { sign = { namespace = { "diagnostic" } } },
-                { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+                { text = { builtin.foldfunc }, click = "v:lua.ScFa", sign = { colwidth = 2 } },
+                { sign = { namespace = { "diagnostic" }, foldclosed = true } },
+                { text = { builtin.lnumfunc }, click = "v:lua.ScLa", sign = { colwidth = 2 } },
+                { text = { " " } },
             },
         }
     end,
