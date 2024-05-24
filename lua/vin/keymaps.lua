@@ -11,9 +11,6 @@ end
 
 set("n", "Q", "<nop>")
 
-set({ "n", "x" }, "H", "^")
-set({ "n", "x" }, "L", "$")
-
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -152,8 +149,8 @@ end, { desc = "Toggle [L]ine Numbers" })
 set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
 set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 
-set("n", "<S-Tab>", vim.cmd.tabprevious, { desc = "Previous Tab" })
-set("n", "<Tab>", vim.cmd.tabnext, { desc = "Next Tab" }) -- attention: this will block native binding <ctrl-i>
+set("n", "<H>", vim.cmd.tabprevious, { desc = "Previous Tab" })
+set("n", "<L>", vim.cmd.tabnext, { desc = "Next Tab" }) -- attention: this will block native binding <ctrl-i>
 for i = 1, 9 do
     set("n", "<leader>" .. i, function()
         local existing_tab_count = vim.fn.tabpagenr("$")
