@@ -25,8 +25,13 @@ vim.opt.shiftwidth = 4
 
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "indent"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 vim.opt.breakindent = true
+
+vim.opt.wildmode = "longest:full,full"
+
+vim.opt.jumpoptions = "stack"
 
 vim.opt.fillchars = {
     foldopen = "",
