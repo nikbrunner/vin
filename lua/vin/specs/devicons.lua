@@ -4,7 +4,7 @@ local M = {}
 M.spec = {
     "nvim-tree/nvim-web-devicons",
     event = "VeryLazy",
-    enabled = false,
+    enabled = true,
     opts = function()
         local icons = require("vin.icons")
 
