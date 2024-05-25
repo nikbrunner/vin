@@ -2,11 +2,11 @@ local M = {}
 
 ---@type LazyPluginSpec
 M.spec = {
-    "black-atom-industries/black-atom-core.nvim",
+    "black-atom-industries/black-atom.nvim",
     dev = true,
     pin = true,
     lazy = false,
-    ---@type BlackAtomCore.Config
+    ---@type BlackAtom.Config
     opts = {
         debug = false,
         theme = require("vin.config").colorscheme,

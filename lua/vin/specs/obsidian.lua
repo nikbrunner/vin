@@ -100,7 +100,7 @@ M.spec = {
         -- },
     },
     opts = function()
-        local terra_colors = require("black-atom-core.api").get_colors()
+        local terra_colors = require("black-atom.api").get_colors()
         local config = require("vin.config")
 
         return {
