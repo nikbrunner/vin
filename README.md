@@ -6,7 +6,7 @@
 
 <img src="./assets/v2.png" width="100%" style="display: block;" />
 
-> Vin 2.0 with [Terra Winter Night](https://github.com/terra-theme/terra-core.nvim) Theme and [JetBrains Mono Font](https://www.jetbrains.com/lp/mono/).
+> Vin 2.0 with [Terra Winter Night](https://github.com/black-atom-industries/black-atom.nvim) Theme and [JetBrains Mono Font](https://www.jetbrains.com/lp/mono/).
 
 ---
 

@@ -51,8 +51,7 @@ M.specs = {
                     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
                     local project_files = {
-                        config.pathes.repos .. "/black-atom-industries/black-atom-core.nvim/lua",
-                        config.pathes.repos .. "/black-atom-industries/black-atom-terra-collection.nvim/lua",
+                        config.pathes.repos .. "/black-atom-industries/black-atom.nvim/lua",
                     }
 
                     require("lspconfig").lua_ls.setup({
