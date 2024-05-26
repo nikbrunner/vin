@@ -5,7 +5,7 @@ M.spec = {
     "nikbrunner/ohne-accidents.nvim",
     dev = true,
     event = "UIEnter",
-    enabled = false,
+    enabled = true,
     pin = true,
     keys = {
         {
@@ -17,6 +17,8 @@ M.spec = {
     ---@type OhneAccidentsConfig
     opts = {
         api = "notify",
+        multiLine = false,
+        useLastCommit = true,
     },
 }
 
