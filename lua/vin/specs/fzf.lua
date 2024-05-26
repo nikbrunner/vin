@@ -32,7 +32,7 @@ M.win_preset = {
     sm = {
         no_preview = {
             row = 0.85,
-            col = 1,
+            col = 0.5,
             height = 0.35,
             width = 85,
             preview = { hidden = "hidden" },
@@ -326,15 +326,15 @@ M.spec = {
             -- ❤️ https://github.com/ibhagwan/fzf-lua/issues/1051#issuecomment-2094803850
             defaults = {
                 formatter = "path.filename_first",
+                git_icons = true, -- show git icons?
+                file_icons = true, -- show file icons?
+                color_icons = false, -- colorize file|git icons
             },
 
             files = {
                 prompt = "  ",
                 multiprocess = true, -- run command in a separate process
-                git_icons = true, -- show git icons?
-                file_icons = false, -- show file icons?
                 header = false,
-                color_icons = false, -- colorize file|git icons
                 find_opts = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
                 rg_opts = "--color=never --files --hidden --follow -g '!.git'",
                 fd_opts = "--color=never --type f --hidden --follow --exclude .git",
@@ -362,18 +362,12 @@ M.spec = {
                     prompt = "Git Files❯ ",
                     cmd = "git ls-files --exclude-standard",
                     multiprocess = false, -- run command in a separate process
-                    git_icons = true, -- show git icons?
-                    file_icons = false, -- show file icons?
-                    color_icons = true, -- colorize file|git icons
                 },
 
                 status = {
                     prompt = "Modified Files❯ ",
                     cmd = "git status -su",
                     previewer = "git_diff",
-                    file_icons = false,
-                    git_icons = true,
-                    color_icons = true,
                     actions = {
                         ["default"] = actions.file_edit_or_qf,
                         ["ctrl-s"] = actions.file_split,
@@ -429,9 +423,6 @@ M.spec = {
                 prompt = "Grep Text❯ ",
                 input_prompt = "Grep For❯ ",
                 multiprocess = true, -- run command in a separate process
-                git_icons = true, -- show git icons?
-                file_icons = false, -- show file icons?
-                color_icons = true, -- colorize file|git icons
                 rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512",
                 grep_opts = "--binary-files=without-match --line-number --recursive --color=auto",
                 -- 'live_grep_glob' options:
@@ -448,8 +439,6 @@ M.spec = {
 
             buffers = {
                 prompt = "Buffers❯ ",
-                file_icons = false, -- show file icons?
-                color_icons = true, -- colorize file|git icons
                 sort_lastused = true, -- sort buffers() by last used
                 cwd_only = true, -- buffers for the cwd only
                 cwd = nil, -- buffers list for a given dir
@@ -458,17 +447,10 @@ M.spec = {
                 },
             },
 
-            quickfix = {
-                file_icons = false,
-                git_icons = true,
-            },
-
             lsp = {
                 prompt_postfix = "❯ ", -- will be appended to the LSP label
                 cwd_only = true, -- LSP/diagnostics for cwd only?
                 async_or_timeout = 5000, -- timeout(ms) or 'true' for async calls
-                file_icons = false,
-                git_icons = true,
                 symbols = {
                     async_or_timeout = true, -- symbols are async by default
                     symbol_style = 1, -- style for document/workspace symbols
