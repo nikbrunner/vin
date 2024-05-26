@@ -10,7 +10,8 @@ M.spec = {
         vim.notify = require("notify")
     end,
     opts = {
-        background_colour = "#191919",
+        background_colour = "Normal",
+        stages = "static",
     },
 }
 
