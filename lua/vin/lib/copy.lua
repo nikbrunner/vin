@@ -49,6 +49,8 @@ M.list_paths = function(opts)
 
     local log = require("plenary.log"):new()
 
+    local github_url = M.get_github_url()
+
     log.level = "debug"
 
     function M.file_paths()
@@ -58,7 +60,7 @@ M.list_paths = function(opts)
             { type = "Relative", name = M.get_current_relative_path(false) },
             { type = "Full Path (Home)", name = M.full_path_from_home() },
             { type = "Full Path (Absolute)", name = M.full_path() },
-            { type = "GitHub", name = M.get_github_url() },
+            github_url and { type = "GitHub", name = M.get_github_url() } or nil,
         }
         return paths
     end
