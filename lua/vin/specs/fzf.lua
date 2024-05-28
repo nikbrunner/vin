@@ -83,7 +83,7 @@ M.win_preset = {
             preview = {
                 layout = "flex",
                 vertical = "up:65%", -- up|down:size
-                horizontal = "right:65%", -- right|left:size
+                horizontal = "left:50%", -- right|left:size
             },
         },
     },
@@ -105,45 +105,11 @@ M.fzf = function(cmd, opts)
     end
 end
 
-M.columns = vim.o.columns
-
-M.responsive_vertical_window = function(cmd, win_width, breakpoint, opts)
-    -- TODO: win_width does not update on resize. I don't understand why.
-    opts = opts or {}
-
-    local function get_win_opts()
-        if win_width <= breakpoint then
-            return {
-                height = 0.9,
-                width = 0.9,
-                preview = {
-                    layout = "vertical",
-                    vertical = "up:65%",
-                },
-            }
-        else
-            return {
-                row = 0.85,
-                col = 1,
-                height = 0.9,
-                width = 0.5,
-                preview = {
-                    layout = "vertical",
-                    vertical = "up:65%", -- up|down:size
-                },
-            }
-        end
-    end
-
-    opts = vim.tbl_deep_extend("force", { winopts = get_win_opts() }, opts)
-
-    return M.fzf(cmd, opts)
-end
-
 -- stylua: ignore start
 M.keys = {
     -- Root layer
-    { "<leader><space>",     M.responsive_vertical_window("files", vim.api.nvim_win_get_width(0), 175), desc = "Files" },
+    -- { "<leader><space>",     M.responsive_vertical_window("files", vim.api.nvim_win_get_width(0), 175), desc = "Files" },
+    { "<leader><space>",     M.fzf("files", M.use_win_preset(M.win_preset.fullscreen.flex)), desc = "Files" },
     { "<leader>/",           M.fzf("lgrep_curbuf"), desc = "Grep Current File" },
     { "<leader>:",           M.fzf("commands", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "Commands" },
     { "<leader>r",           M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = true })), desc = "Recent Files" },
@@ -211,7 +177,7 @@ M.spec = {
                 width = 0.85,
                 row = 0.35,
                 col = 0.50,
-                border = "none",
+                border = "solid",
                 preview = {
                     border = "border", -- border|noborder, applies only to
                     wrap = "nowrap", -- wrap|nowrap
@@ -219,7 +185,7 @@ M.spec = {
                     vertical = "up:65%", -- up|down:size
                     horizontal = "right:60%", -- right|left:size
                     layout = "flex", -- horizontal|vertical|flex
-                    flip_columns = 150, -- #cols to switch to horizontal on flex
+                    flip_columns = 200, -- #cols to switch to horizontal on flex
                     title = true, -- preview border title (file/buf)?
                     delay = 100, -- delay(ms) displaying the preview
                     winopts = { -- builtin previewer window options
