@@ -19,6 +19,7 @@ end
 M.spec = {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
+    enabled = false,
     keys = {
         {
             "<leader>ica",
