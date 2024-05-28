@@ -5,11 +5,11 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "black-atom-operations",
+    colorscheme = "black-atom-medical",
     ---@type "dark" | "light"
-    background = "dark",
+    background = "light",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
-    colorscheme_term_map = {
+    colorscheme_config_map = {
         ["default"] = { wezterm = "neovim" },
         ["terra-spring-night"] = { wezterm = "Black Atom - Terra Spring Night" },
         ["terra-spring-day"] = { wezterm = "Black Atom - Terra Spring Day" },

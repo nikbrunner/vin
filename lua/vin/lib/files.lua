@@ -4,7 +4,7 @@ local M = {}
 ---@param filepath string
 ---@param pattern string
 ---@param value string
-function M.update_file(filepath, pattern, value)
+function M.update_line_in_file(filepath, pattern, value)
     local lines = vim.fn.readfile(filepath)
     lines = vim.tbl_map(function(line)
         if vim.fn.match(line, pattern) ~= -1 then
@@ -21,17 +21,11 @@ end
 ---@param colorscheme string
 function M.sync_wezterm_colorscheme(config, colorscheme)
     local pathes = config.pathes
-    local current_bg = require("vin.lib.colors").get_hex_color("Normal").bg
 
-    if current_bg then
-        M.update_file(pathes.config.wezterm, "background", '"' .. current_bg .. '"')
-    else
-        print("Could not find background color. Transparent background can not be handled atm.")
-    end
+    local colorscheme_config = config.colorscheme_config_map[colorscheme]
 
-    local wezterm_colorscheme = config.colorscheme_term_map[colorscheme] and config.colorscheme_term_map[colorscheme].wezterm
-    if wezterm_colorscheme then
-        M.update_file(pathes.config.wezterm, "color_scheme", '"' .. wezterm_colorscheme .. '"')
+    if colorscheme_config and colorscheme_config.wezterm then
+        M.update_line_in_file(pathes.config.wezterm, "color_scheme", '"' .. colorscheme_config.wezterm .. '"')
     end
 end
 
@@ -39,8 +33,8 @@ end
 ---@param colorscheme string
 ---@param background string
 function M.sync_vin_colorscheme(config, colorscheme, background)
-    M.update_file(config.pathes.config.vin, "colorscheme", '"' .. colorscheme .. '"')
-    M.update_file(config.pathes.config.vin, "background", '"' .. background .. '"')
+    M.update_line_in_file(config.pathes.config.vin, "colorscheme", '"' .. colorscheme .. '"')
+    M.update_line_in_file(config.pathes.config.vin, "background", '"' .. background .. '"')
 end
 
 return M
