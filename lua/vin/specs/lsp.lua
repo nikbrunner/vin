@@ -37,13 +37,13 @@ M.specs = {
 
                     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+                    ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+                    -- For a list of lsp-configurations see here: `:h lspconfig-all`
                     require("lspconfig")[server_name].setup({
                         capabilities = capabilities,
                     })
                 end,
-                -- Next, you can provide a dedicated handler for specific servers.
-                ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-                -- For a list of lsp-configurations see here: `:h lspconfig-all`
+                -- https://luals.github.io/wiki/settings/#settings
                 ["lua_ls"] = function()
                     -- https://github.com/folke/neodev.nvim
                     require("neodev").setup({})
@@ -63,6 +63,8 @@ M.specs = {
                                     checkThirdParty = false,
                                     library = project_files,
                                 },
+                                telemetry = { enable = false },
+                                hint = { enable = true },
                             },
                         },
                     })
