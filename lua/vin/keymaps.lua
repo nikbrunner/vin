@@ -149,8 +149,8 @@ end, { desc = "Toggle [L]ine Numbers" })
 set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
 set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 
-set("n", "<H>", vim.cmd.tabprevious, { desc = "Previous Tab" })
-set("n", "<L>", vim.cmd.tabnext, { desc = "Next Tab" }) -- attention: this will block native binding <ctrl-i>
+set("n", "H", vim.cmd.tabprevious, { desc = "Previous Tab" })
+set("n", "L", vim.cmd.tabnext, { desc = "Next Tab" }) -- attention: this will block native binding <ctrl-i>
 for i = 1, 9 do
     set("n", "<leader>" .. i, function()
         local existing_tab_count = vim.fn.tabpagenr("$")
@@ -189,22 +189,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local opts = { buffer = ev.buf }
 
         set("n", "K", vim.lsp.buf.hover, opts)
+        -- set("n", "gd", vim.lsp.buf.definition, opts)
         set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
-        set("n", "gd", function()
-            require("fzf-lua").lsp_definitions({
-                jump_to_single_result = true,
-                jump_type = "vsplit",
-                winopts = {
-                    height = 0.95,
-                    width = 0.75,
-                    preview = {
-                        layout = "vertical",
-                        vertical = "up:65%",
-                    },
-                },
-            })
-        end, { desc = "Go to Definition" })
+        -- set("n", "gd", function()
+        --     require("fzf-lua").lsp_definitions({
+        --         jump_to_single_result = true,
+        --         jump_type = "vsplit",
+        --         winopts = {
+        --             height = 0.95,
+        --             width = 0.75,
+        --             preview = {
+        --                 layout = "vertical",
+        --                 vertical = "up:65%",
+        --             },
+        --         },
+        --     })
+        -- end, { desc = "Go to Definition" })
 
         set("n", "gD", function()
             vim.cmd.vsplit()
@@ -212,20 +213,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.cmd("norm zz")
         end, vim.tbl_extend("keep", opts, { desc = "Go to Definition in Split" }))
 
-        set("n", "gr", function()
-            require("fzf-lua").lsp_references({
-                jump_to_single_result = true,
-                winopts = {
-                    height = 0.95,
-                    width = 0.75,
-                    preview = {
-                        layout = "vertical",
-                        vertical = "up:65%",
-                    },
-                },
-            })
-        end, opts)
-        set("n", "gR", "<CMD>Trouble lsp_references<CR>", opts)
+        -- set("n", "gr", function()
+        --     require("fzf-lua").lsp_references({
+        --         jump_to_single_result = true,
+        --         winopts = {
+        --             height = 0.95,
+        --             width = 0.75,
+        --             preview = {
+        --                 layout = "vertical",
+        --                 vertical = "up:65%",
+        --             },
+        --         },
+        --     })
+        -- end, opts)
 
         set("n", "gi", vim.lsp.buf.implementation, opts)
         set("n", "gy", vim.lsp.buf.type_definition, opts)
