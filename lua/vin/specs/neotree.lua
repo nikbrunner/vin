@@ -24,15 +24,7 @@ M.spec = {
                 function()
                     vim.cmd("Neotree left toggle reveal")
                 end,
-                desc = "[S]ymbols",
-            },
-            {
-                "<leader>es",
-                function()
-                    close_side_panels()
-                    vim.cmd("Neotree float document_symbols toggle reveal")
-                end,
-                desc = "[S]ymbols",
+                desc = "[E]xplorer",
             },
             {
                 "<leader>ef",
