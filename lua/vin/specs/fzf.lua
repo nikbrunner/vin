@@ -34,7 +34,7 @@ M.win_preset = {
             row = 0.85,
             col = 0.5,
             height = 0.35,
-            width = 85,
+            width = 0.5,
             preview = { hidden = "hidden" },
         },
     },
