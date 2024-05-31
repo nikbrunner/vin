@@ -2,11 +2,9 @@ local M = {}
 
 ---@type LazyPluginSpec
 M.spec = {
-    "nikbrunner/ohne-accidents.nvim",
-    dev = true,
+    "blumaa/ohne-accidents.nvim",
+    branch = "chore/add-option-to-use-notify-api-instead-of-echo",
     event = "UIEnter",
-    enabled = true,
-    pin = true,
     keys = {
         {
             "<leader>vc",
