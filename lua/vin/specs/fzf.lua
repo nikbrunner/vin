@@ -124,18 +124,6 @@ M.keys = {
         desc = "[C]ommands",
     },
     {
-        "<leader>f",
-        function()
-            require("vin.lib.find").search_preset_folder(function(folder_of_choice)
-                M.fzf("files", {
-                    winopts = M.win_preset.fullscreen.flex,
-                    cwd = folder_of_choice,
-                })()
-            end)
-        end,
-        desc = "Find in Folder",
-    },
-    {
         "<leader>sd",
         function()
             require("fzf-lua").files({ cmd = "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME ls-files" })
