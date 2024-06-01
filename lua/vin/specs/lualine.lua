@@ -46,18 +46,6 @@ M.spec = {
             t = colors.palette.red,
         }
 
-        local theme = {
-            normal = {
-                a = { fg = bg.dark, bg = colors.palette.blue },
-                b = { fg = colors.palette.blue, bg = colors.palette.white },
-                c = { fg = colors.palette.white, bg = bg.main },
-                z = { fg = colors.palette.white, bg = bg.main },
-            },
-            insert = { a = { fg = bg.dark, bg = colors.palette.dark_yellow } },
-            visual = { a = { fg = bg.dark, bg = colors.palette.dark_yellow } },
-            replace = { a = { fg = bg.dark, bg = colors.palette.green } },
-        }
-
         local space = {
             function()
                 return " "
@@ -185,7 +173,7 @@ M.spec = {
         require("lualine").setup({
             options = {
                 icons_enabled = true,
-                theme = theme,
+                theme = "black_atom",
                 component_separators = { left = "", right = "" },
                 section_separators = { left = "", right = "" },
                 disabled_filetypes = {
