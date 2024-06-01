@@ -6,6 +6,7 @@ local M = {
     files = require("vin.lib.files"),
     git = require("vin.lib.git"),
     ui = require("vin.lib.ui"),
+    find = require("vin.lib.find"),
 }
 
 return M

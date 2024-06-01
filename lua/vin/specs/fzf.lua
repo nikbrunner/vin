@@ -1,33 +1,5 @@
 local M = {}
 
-M.folder_presets = {
-    nvim = "~/.config/nvim",
-    config = "~/.config",
-    scripts = "~/.scripts",
-    personal_notes = require("vin.config").pathes.notes.personal,
-    dcd_notes = require("vin.config").pathes.notes.work.dcd,
-}
-
-M.search_preset_folder = function()
-    local choices = {}
-
-    for key, _ in pairs(M.folder_presets) do
-        table.insert(choices, key)
-    end
-
-    vim.ui.select(choices, {
-        prompt = "Pick a folder: ",
-        format_item = function(choice)
-            return " " .. choice
-        end,
-    }, function(choice)
-        M.fzf("files", {
-            winopts = M.win_preset.md.vertical,
-            cwd = M.folder_presets[choice],
-        })()
-    end)
-end
-
 M.win_preset = {
     sm = {
         no_preview = {
@@ -86,6 +58,13 @@ M.win_preset = {
                 horizontal = "left:50%", -- right|left:size
             },
         },
+        vertical = {
+            fullscreen = true,
+            preview = {
+                layout = "vertical",
+                vertical = "up:65%",
+            },
+        },
     },
 }
 
@@ -105,61 +84,179 @@ M.fzf = function(cmd, opts)
     end
 end
 
--- stylua: ignore start
 M.keys = {
     -- Root layer
-    -- { "<leader><space>",     M.responsive_vertical_window("files", vim.api.nvim_win_get_width(0), 175), desc = "Files" },
-    { "<leader><space>",     M.fzf("files", M.use_win_preset(M.win_preset.fullscreen.flex)), desc = "Files" },
-    { "<leader>/",           M.fzf("lgrep_curbuf"), desc = "Grep Current File" },
-    { "<leader>:",           M.fzf("commands", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "Commands" },
-    { "<leader>r",           M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = true })), desc = "Recent Files" },
-    { "<leader>R",           M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = false })), desc = "Recent Files (Everywhere)" },
+    {
+        "<leader><space>",
+        M.fzf("files", M.use_win_preset(M.win_preset.fullscreen.flex)),
+        desc = "Files",
+    },
+    {
+        "<leader>/",
+        M.fzf("lgrep_curbuf"),
+        desc = "Grep Current File",
+    },
+    {
+        "<leader>:",
+        M.fzf("commands", M.use_win_preset(M.win_preset.sm.no_preview)),
+        desc = "Commands",
+    },
+    {
+        "<leader>r",
+        M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = true })),
+        desc = "Recent Files",
+    },
+    {
+        "<leader>R",
+        M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = false })),
+        desc = "Recent Files (Everywhere)",
+    },
 
     -- [S]earch Group
-    { "<leader>s.",          M.fzf("resume"), desc = "[.] Resume" },
-    { "<leader>s:",          M.fzf("commands", M.use_win_preset(M.win_preset.sm.no_preview)), desc = "[C]ommands" },
-    { "<leader>s/",          M.search_preset_folder, desc = "[/] Search Folder" },
+    {
+        "<leader>s.",
+        M.fzf("resume"),
+        desc = "[.] Resume",
+    },
+    {
+        "<leader>s:",
+        M.fzf("commands", M.use_win_preset(M.win_preset.sm.no_preview)),
+        desc = "[C]ommands",
+    },
+    {
+        "<leader>f",
+        function()
+            require("vin.lib.find").search_preset_folder(function(folder_of_choice)
+                M.fzf("files", {
+                    winopts = M.win_preset.fullscreen.flex,
+                    cwd = folder_of_choice,
+                })()
+            end)
+        end,
+        desc = "Find in Folder",
+    },
     {
         "<leader>sd",
         function()
             require("fzf-lua").files({ cmd = "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME ls-files" })
         end,
-        desc = "[D]otfiles"
+        desc = "[D]otfiles",
     },
-    { "<leader>sh",          M.fzf("help_tags"), desc = "[H]elp Tags" },
-    { "<leader>sH",          M.fzf("highlights"), desc = "[H]ighlights" },
-    { "<leader>sk",          M.fzf("keymaps"), desc = "[K]eymaps" },
-    { "<leader>sw",          M.fzf("grep_cword"), mode = { "n", "v" }, desc = "[W]ord", },
+    {
+        "<leader>sh",
+        M.fzf("help_tags"),
+        desc = "[H]elp Tags",
+    },
+    {
+        "<leader>sH",
+        M.fzf("highlights"),
+        desc = "[H]ighlights",
+    },
+    {
+        "<leader>sk",
+        M.fzf("keymaps"),
+        desc = "[K]eymaps",
+    },
+    {
+        "<leader>sw",
+        M.fzf("grep_cword"),
+        mode = { "n", "v" },
+        desc = "[W]ord",
+    },
     -- TODO: search visual selection
-    { "<leader>sm",          M.fzf("marks"), desc = "[M]arks" },
-    { "<leader>sM",          M.fzf("man_pages"), desc = "[M]an Pages" },
-    { "<leader>sg",          M.fzf("live_grep_native", M.use_win_preset(M.win_preset.lg.vertical)), desc = "[G]rep" },
-    { "<leader>sG",          M.fzf("live_grep_resume"), desc = "[G]rep Resume" },
-    { "<leader>sr",          M.fzf("registers", M.use_win_preset(M.win_preset.sm.no_preview)), mode = { "n", "v" }, desc = "[R]egisters" },
-    { "<leader>s<Tab>",      M.fzf("tabs"), desc = "[Tab]s" },
+    {
+        "<leader>sm",
+        M.fzf("marks"),
+        desc = "[M]arks",
+    },
+    {
+        "<leader>sM",
+        M.fzf("man_pages"),
+        desc = "[M]an Pages",
+    },
+    {
+        "<leader>sg",
+        M.fzf("live_grep_native", M.use_win_preset(M.win_preset.lg.vertical)),
+        desc = "[G]rep",
+    },
+    {
+        "<leader>sG",
+        M.fzf("live_grep_resume"),
+        desc = "[G]rep Resume",
+    },
+    {
+        "<leader>sr",
+        M.fzf("registers", M.use_win_preset(M.win_preset.sm.no_preview)),
+        mode = { "n", "v" },
+        desc = "[R]egisters",
+    },
+    {
+        "<leader>s<Tab>",
+        M.fzf("tabs"),
+        desc = "[Tab]s",
+    },
 
     -- [G]it Group
-    { "<leader>gs",          M.fzf("git_status", M.use_win_preset(M.win_preset.fullscreen.flex)), desc = "[S]tatus" },
-    { "<leader>gc",          M.fzf("changes"), desc = "[C]hanges" },
-    { "<leader>gB",          M.fzf("git_branches"), desc = "[B]ranches" },
-    { "<leader>gC",          M.fzf("git_commits"), desc = "[C]ommits" },
+    {
+        "<leader>gs",
+        M.fzf("git_status", M.use_win_preset(M.win_preset.fullscreen.vertical)),
+        desc = "[S]tatus",
+    },
+    {
+        "<leader>gc",
+        M.fzf("changes"),
+        desc = "[C]hanges",
+    },
+    {
+        "<leader>gB",
+        M.fzf("git_branches"),
+        desc = "[B]ranches",
+    },
+    {
+        "<leader>gC",
+        M.fzf("git_commits"),
+        desc = "[C]ommits",
+    },
 
     -- [U]I Group
-    { "<leader>ut",          M.fzf("colorschemes"), desc = "Toggle [T]themes" },
-    { "<leader>uT",          M.fzf("awesome_colorschemes"), desc = "Toggle 'Awesome' [T]hemes" },
+    {
+        "<leader>ut",
+        M.fzf("colorschemes"),
+        desc = "Toggle [T]themes",
+    },
+    {
+        "<leader>uT",
+        M.fzf("awesome_colorschemes"),
+        desc = "Toggle 'Awesome' [T]hemes",
+    },
 
     -- [D]iagnostics Group
-    { "<leader>dd",          M.fzf("lsp_document_diagnostics", M.use_win_preset(M.win_preset.lg.vertical)), desc = "Document Diagnostics" },
-    { "<leader>dw",          M.fzf("lsp_workspace_diagnostics", M.use_win_preset(M.win_preset.lg.vertical)), desc = "Document Diagnostics" },
+    {
+        "<leader>dd",
+        M.fzf("lsp_document_diagnostics", M.use_win_preset(M.win_preset.lg.vertical)),
+        desc = "Document Diagnostics",
+    },
+    {
+        "<leader>dw",
+        M.fzf("lsp_workspace_diagnostics", M.use_win_preset(M.win_preset.lg.vertical)),
+        desc = "Document Diagnostics",
+    },
 
     -- No leader key
-    { "gs",                  M.fzf("lsp_document_symbols"), desc = "Document [S]ymbols" },
-    { "gS",                  M.fzf("lsp_live_workspace_symbols"), desc = "Workspace [S]ymbols" },
+    {
+        "gs",
+        M.fzf("lsp_document_symbols"),
+        desc = "Document [S]ymbols",
+    },
+    {
+        "gS",
+        M.fzf("lsp_live_workspace_symbols"),
+        desc = "Workspace [S]ymbols",
+    },
 
     -- Insert Mode
     -- { "<C-r>",               M.fzf("registers", M.use_win_preset( M.win_preset.sm.no_preview)), mode = { "i" }, desc = "Registers" }
 }
--- stylua: ignore end
 
 ---@type LazyPluginSpec
 M.spec = {
@@ -301,9 +398,9 @@ M.spec = {
                 prompt = "  ",
                 multiprocess = true, -- run command in a separate process
                 header = false,
-                find_opts = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
-                rg_opts = "--color=never --files --hidden --follow -g '!.git'",
-                fd_opts = "--color=never --type f --hidden --follow --exclude .git",
+                find_opts = [[-type f -not -path '*/\.git/*' -not -name '.DS_Store' -printf '%P\n']],
+                rg_opts = "--color=never --files --hidden --follow -g '!.git' -g '!.DS_Store'",
+                fd_opts = "--color=never --type f --hidden --follow --exclude .git --exclude .DS_Store",
                 -- by default, cwd appears in the header only if {opts} contain a cwd
                 -- parameter to a different folder than the current working directory
                 -- uncomment if you wish to force display of the cwd as part of the
