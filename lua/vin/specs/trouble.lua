@@ -9,6 +9,7 @@ M.spec = {
         ---@type trouble.Window.opts
         win = {
             auto_jump = true, -- auto jump to the item when there's only one
+            auto_close = true,
             border = "double",
             position = "bottom",
             padding = { 1, 4 },
@@ -65,7 +66,7 @@ M.spec = {
         },
     },
     keys = {
-        { "gd", "<cmd>Trouble lsp_definitions<cr>", desc = "LSP Definitions (Trouble)" },
+        -- { "gd", "<cmd>Trouble lsp_definitions<cr>", desc = "LSP Definitions (Trouble)" },
         { "gr", "<cmd>Trouble lsp_references<cr>", desc = "LSP References (Trouble)" },
         { "<leader>dq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
         { "<leader>di", "<cmd>Trouble lsp toggle<cr>", desc = "LSP Definitions / references / ... (Trouble)" },

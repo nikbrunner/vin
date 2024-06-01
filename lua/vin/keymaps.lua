@@ -189,7 +189,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local opts = { buffer = ev.buf }
 
         set("n", "K", vim.lsp.buf.hover, opts)
-        -- set("n", "gd", vim.lsp.buf.definition, opts)
+        set("n", "gd", vim.lsp.buf.definition, opts)
         set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
         -- set("n", "gd", function()
