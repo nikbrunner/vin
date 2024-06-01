@@ -195,8 +195,8 @@ M.spec = {
                     space,
                 },
                 lualine_c = {
-                    filename,
                     filetype,
+                    filename,
                     diff,
                     diagnostics,
                     space,
