@@ -8,7 +8,7 @@ M.spec = {
     event = "BufEnter",
     ---@type fff.Config
     opts = {
-        cd_on_pick = true,
+        change_dir = true,
         paths = {
             static = {
                 ["~/.scripts"] = vim.fn.expand("$HOME") .. "/.scripts",
