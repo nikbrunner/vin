@@ -14,12 +14,27 @@ M.specs = {
     },
 
     {
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+            library = {
+                "~/.local/share/nvim/lazy/lazy.nvim/lua/lazy/types.lua",
+                "~/.local/share/nvim/lazy/ohne-accidents.nvim/lua/ohne-accidents.lua",
+                vim.env.LAZY .. "/luvit-meta/library", -- see below
+                -- You can also add plugins you always want to have loaded.
+                -- Useful if the plugin has globals or types you want to use
+                -- vim.env.LAZY .. "/LazyVim", -- see below
+            },
+        },
+    },
+
+    {
         "williamboman/mason-lspconfig.nvim",
         event = "VeryLazy",
         dependencies = {
             "williamboman/mason.nvim",
             "neovim/nvim-lspconfig",
-            "folke/neodev.nvim",
+            "folke/lazydev.nvim",
         },
         opts = {
             ensure_installed = config.ensure_installed.servers,
@@ -45,9 +60,6 @@ M.specs = {
                 end,
                 -- https://luals.github.io/wiki/settings/#settings
                 ["lua_ls"] = function()
-                    -- https://github.com/folke/neodev.nvim
-                    require("neodev").setup({})
-
                     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
                     local project_files = {
@@ -58,7 +70,10 @@ M.specs = {
                         capabilities = capabilities,
                         settings = {
                             Lua = {
-                                diagnostics = { globals = { "vim" } },
+                                diagnostics = {
+                                    enable = false, -- Diagnostics handled via `lazydev.nvim`
+                                    globals = { "vim" },
+                                },
                                 workspace = {
                                     checkThirdParty = false,
                                     library = project_files,

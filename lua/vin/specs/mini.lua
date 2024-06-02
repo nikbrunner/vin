@@ -113,7 +113,7 @@ M.specs = {
                         local searchcount = m.section_searchcount({ trunc_width = 75 })
                         local location = m.section_location({ trunc_width = 120 })
                         local fileinfo = m.section_fileinfo({ trunc_width = 125 })
-                        local filename = MiniStatusline.section_filename({ trunc_width = 140 })
+                        local filename = m.section_filename({ trunc_width = 140 })
                         local colorscheme_name = vim.g.colors_name or "default"
                         local colorscheme = m.is_truncated(200) and "" or " " .. colorscheme_name
 

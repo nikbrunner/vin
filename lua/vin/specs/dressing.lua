@@ -4,7 +4,6 @@ local M = {}
 M.spec = {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
-    ---@type dressing.InputOptions
     opts = {
         input = {
             insert_only = false,
