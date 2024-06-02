@@ -1,11 +1,13 @@
 local M = {}
 
+---@module "lazy"
 ---@type LazyPluginSpec
 M.spec = {
-    "nikbrunner/fff.nvim",
+    "nikbrunner/fff_backup.nvim",
     dependencies = "ibhagwan/fzf-lua",
     dev = true,
     event = "BufEnter",
+    ---@module "fff"
     ---@type fff.Config
     opts = {
         change_dir = true,
