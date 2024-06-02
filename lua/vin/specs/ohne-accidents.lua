@@ -1,9 +1,11 @@
 local M = {}
 
+---@module "lazy"
 ---@type LazyPluginSpec
 M.spec = {
-    "blumaa/ohne-accidents.nvim",
+    "nikbrunner/ohne-accidents.nvim",
     event = "UIEnter",
+    dev = true,
     keys = {
         {
             "<leader>vc",
