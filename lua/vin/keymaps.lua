@@ -58,6 +58,16 @@ set({ "n", "i", "c" }, "<C-d>", "<C-d>zz", { desc = "Scroll Down" })
 set("n", "n", "nzzzv")
 set("n", "N", "Nzzzv")
 
+set("n", "<leader>.", function()
+    local git_root = require("vin.lib.git").find_git_root()
+    if git_root then
+        vim.cmd("cd " .. git_root)
+        vim.notify("Changed directory to " .. git_root, vim.log.levels.INFO, { title = "Git Root" })
+    else
+        vim.notify("No Git root found", vim.log.levels.ERROR, { title = "Git Root" })
+    end
+end, { desc = "Change directory to next Git root" })
+
 set("n", "<leader>ur", function()
     -- Reload the config file and colorscheme
     package.loaded["vin.config"] = nil
