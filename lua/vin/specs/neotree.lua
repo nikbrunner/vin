@@ -1,5 +1,3 @@
-local lib = require("vin.lib")
-
 local M = {}
 
 ---@type LazyPluginSpec
@@ -61,6 +59,14 @@ M.spec = {
                     with_markers = false,
                     expander_collapsed = "",
                     expander_expanded = "",
+                },
+                diagnostics = {
+                    symbols = {
+                        hint = icons.diagnostics.Hint,
+                        info = icons.diagnostics.Info,
+                        warn = icons.diagnostics.Warn,
+                        error = icons.diagnostics.Error,
+                    },
                 },
                 git_status = {
                     symbols = {
