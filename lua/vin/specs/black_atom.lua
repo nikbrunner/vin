@@ -6,6 +6,7 @@ M.spec = {
     dev = true,
     pin = true,
     lazy = false,
+    ---@module "black-atom"
     ---@type BlackAtom.Config
     opts = {
         debug = false,

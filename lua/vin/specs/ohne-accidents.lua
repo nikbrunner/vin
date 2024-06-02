@@ -11,6 +11,7 @@ M.spec = {
             desc = "Time since last config change",
         },
     },
+    ---@module "ohne-accidents"
     ---@type OhneAccidentsConfig
     opts = {
         api = "notify",
