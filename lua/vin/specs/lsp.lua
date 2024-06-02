@@ -18,9 +18,7 @@ M.specs = {
         ft = "lua",
         opts = {
             library = {
-                "~/.local/share/nvim/lazy/lazy.nvim/lua/lazy/types.lua",
-                "~/.local/share/nvim/lazy/ohne-accidents.nvim/lua/ohne-accidents.lua",
-                vim.env.LAZY .. "/luvit-meta/library", -- see below
+                vim.env.LAZY .. "/luvit-meta/library",
                 -- You can also add plugins you always want to have loaded.
                 -- Useful if the plugin has globals or types you want to use
                 -- vim.env.LAZY .. "/LazyVim", -- see below

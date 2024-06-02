@@ -3,11 +3,13 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "stevearc/conform.nvim",
+    ---@module "conform"
     event = { "BufReadPre", "BufNewFile" },
     cmd = { "ConformInfo" },
     init = function()
         vim.g.vin_autoformat_enabled = true
     end,
+    ---@type conform.setupOpts
     opts = {
         format_on_save = function()
             if vim.g.vin_autoformat_enabled then
