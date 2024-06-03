@@ -18,10 +18,8 @@ M.specs = {
         ft = "lua",
         opts = {
             library = {
-                vim.env.LAZY .. "/luvit-meta/library",
-                -- You can also add plugins you always want to have loaded.
-                -- Useful if the plugin has globals or types you want to use
-                -- vim.env.LAZY .. "/LazyVim", -- see below
+                "lazy.nvim",
+                "/luvit-meta/library",
             },
         },
     },
@@ -56,28 +54,22 @@ M.specs = {
                         capabilities = capabilities,
                     })
                 end,
+                -- Much is handled by `lazydev` here
                 -- https://luals.github.io/wiki/settings/#settings
                 ["lua_ls"] = function()
                     local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-                    local project_files = {
-                        config.pathes.repos .. "/black-atom-industries/black-atom.nvim/lua",
-                    }
 
                     require("lspconfig").lua_ls.setup({
                         capabilities = capabilities,
                         settings = {
                             Lua = {
-                                diagnostics = {
-                                    enable = false, -- Diagnostics handled via `lazydev.nvim`
-                                    globals = { "vim" },
-                                },
                                 workspace = {
                                     checkThirdParty = false,
-                                    library = project_files,
                                 },
                                 telemetry = { enable = false },
                                 hint = { enable = true },
+                                codeLens = { enable = true },
+                                completion = { callSnippet = "Replace" },
                             },
                         },
                     })
