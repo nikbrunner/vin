@@ -5,7 +5,6 @@ M.spec = {
     "nikbrunner/fff.nvim",
     dependencies = { "ibhagwan/fzf-lua" },
     dev = true,
-    event = "BufEnter",
     ---@module "fff"
     ---@type fff.Config
     opts = {
