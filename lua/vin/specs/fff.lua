@@ -3,8 +3,8 @@ local M = {}
 ---@module "lazy"
 ---@type LazyPluginSpec
 M.spec = {
-    "nikbrunner/fff_backup.nvim",
-    dependencies = "ibhagwan/fzf-lua",
+    "nikbrunner/fff.nvim",
+    dependencies = { "ibhagwan/fzf-lua" },
     dev = true,
     event = "BufEnter",
     ---@module "fff"
@@ -34,7 +34,7 @@ M.spec = {
             function()
                 require("fff").find()
             end,
-            desc = "Find File in Folder",
+            desc = "FFF",
         },
     },
 }
