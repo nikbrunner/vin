@@ -1,6 +1,5 @@
 local M = {}
 
----@module "lazy"
 ---@type LazyPluginSpec
 M.spec = {
     "blumaa/ohne-accidents.nvim",
