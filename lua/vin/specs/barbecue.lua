@@ -15,7 +15,7 @@ M.spec = {
 
         ---filetypes not to enable winbar in
         ---@type string[]
-        exclude_filetypes = { "gitcommit", "ftterm_lazygit" },
+        exclude_filetypes = { "gitcommit", "ftterm_lazygit", ".luacheckrc" },
 
         ---whether to display path to file
         ---@type boolean
