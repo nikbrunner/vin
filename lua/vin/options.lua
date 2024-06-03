@@ -90,3 +90,10 @@ vim.opt.shortmess:append("I")
 vim.cmd("cabbrev Wqa wqa")
 vim.cmd("cabbrev Wq wq")
 vim.cmd("cabbrev Wa wa")
+
+vim.filetype.add({
+    -- I only needed this because barbecue vomits if i vist this file, because it thinks its lua
+    filename = {
+        [".luacheckrc"] = ".luacheckrc",
+    },
+})
