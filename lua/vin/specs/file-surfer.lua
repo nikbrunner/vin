@@ -2,11 +2,11 @@ local M = {}
 
 ---@type LazyPluginSpec
 M.spec = {
-    "nikbrunner/fff.nvim",
+    "nikbrunner/file-surfer.nvim",
     dependencies = { "ibhagwan/fzf-lua" },
     dev = true,
-    ---@module "fff"
-    ---@type fff.Config
+    ---@module "file-surfer"
+    ---@type file-surfer.Config
     opts = {
         change_dir = true,
         paths = {
@@ -30,9 +30,9 @@ M.spec = {
         {
             "<leader>f",
             function()
-                require("fff").find()
+                require("file-surfer").find()
             end,
-            desc = "FFF",
+            desc = "󱝆 Surf",
         },
     },
 }
