@@ -10,14 +10,14 @@ M.spec = {
     },
     keys = {
         {
-            "<leader>ar",
+            "<leader>cr",
             function()
                 require("spectre").open()
             end,
             desc = "Search & [R]eplace",
         },
         {
-            "<leader>aR",
+            "<leader>cR",
             mode = { "v" },
             function()
                 local function get_visual_selection()

@@ -180,13 +180,13 @@ set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "[P]ackage Manager - [Mason]" 
 set("n", "<leader>vl", "<cmd>LspInfo<CR>", { desc = "[L]SP Info" })
 set("n", "<leader>vL", "<cmd>LspRestart<CR>", { desc = "Restart [L]SP " })
 
-set({ "n", "v" }, "<leader>ac", function()
+set({ "n", "v" }, "<leader>cc", function()
     lib.copy.list_paths()
 end, { desc = "[C]opy" })
 
 -- Action Log Group
-set("n", "<leader>all", lib.log.log_symbol, { desc = "[L]og" })
-set("n", "<leader>ald", lib.log.delete_logs, { desc = "[D]elete" })
+set("n", "<leader>cll", lib.log.log_symbol, { desc = "[L]og" })
+set("n", "<leader>cld", lib.log.delete_logs, { desc = "[D]elete" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -244,10 +244,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
         end, { desc = "Toggle Inlay [H]ints" })
 
-        set({ "n", "v" }, "<leader>aa", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [A]ction" }))
+        set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [A]ction" }))
         set({ "n", "v" }, "<M-CR>", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [A]ction" }))
 
-        set("n", "<leader>an", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))
+        set("n", "<leader>cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))
 
         set("n", "gl", vim.diagnostic.open_float, { desc = "Open Diagnostic" })
 
