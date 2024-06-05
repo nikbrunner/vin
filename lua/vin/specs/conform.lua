@@ -38,7 +38,7 @@ M.spec = {
     },
     keys = {
         {
-            "<leader>af",
+            "<leader>cf",
             function()
                 require("conform").format({
                     async = false,
@@ -49,7 +49,7 @@ M.spec = {
             desc = "[F]ormat",
         },
         {
-            "<leader>aF",
+            "<leader>cF",
             function()
                 if vim.g.vin_autoformat_enabled then
                     vim.g.vin_autoformat_enabled = false

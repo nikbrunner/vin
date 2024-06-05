@@ -7,7 +7,7 @@ M.spec = {
     enabled = false,
     event = { "InsertLeave", "TextChanged" },
     keys = {
-        { "<leader>as", ":ASToggle<CR>", desc = "Toggle auto save" },
+        { "<leader>cs", ":ASToggle<CR>", desc = "Toggle auto save" },
     },
     opts = {
         enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
