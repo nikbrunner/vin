@@ -3,6 +3,7 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "black-atom-industries/black-atom.nvim",
+    dependencies = "black-atom-industries/black-atom-vault",
     dev = true,
     pin = true,
     lazy = false,
@@ -13,7 +14,7 @@ M.spec = {
         theme = require("vin.config").colorscheme,
         styles = {
             dark_sidebars = true,
-            transparency = "partial",
+            transparency = "none",
             cmp_kind_color_mode = "bg",
             diagnostics = {
                 background = true,
