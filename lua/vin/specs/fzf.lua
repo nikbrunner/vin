@@ -124,13 +124,6 @@ M.keys = {
         desc = "[C]ommands",
     },
     {
-        "<leader>sd",
-        function()
-            require("fzf-lua").files({ cmd = "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME ls-files" })
-        end,
-        desc = "[D]otfiles",
-    },
-    {
         "<leader>sh",
         M.fzf("help_tags"),
         desc = "[H]elp Tags",
@@ -218,16 +211,16 @@ M.keys = {
         desc = "Toggle 'Awesome' [T]hemes",
     },
 
-    -- [D]iagnostics Group
+    -- [D]iagnostics Group - Currently handled by Trouble
     {
-        "<leader>dd",
+        "<leader>sd",
         M.fzf("lsp_document_diagnostics", M.use_win_preset(M.win_preset.lg.vertical)),
         desc = "Document Diagnostics",
     },
     {
-        "<leader>dw",
+        "<leader>sD",
         M.fzf("lsp_workspace_diagnostics", M.use_win_preset(M.win_preset.lg.vertical)),
-        desc = "Document Diagnostics",
+        desc = "Workspace Diagnostics",
     },
 
     -- No leader key
