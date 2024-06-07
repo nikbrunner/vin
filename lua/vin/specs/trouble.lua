@@ -18,6 +18,7 @@ M.spec = {
         modes = {
             diagnostics = {
                 focus = false,
+                auto_close = true,
                 ---@type trouble.Window.opts
                 win = {
                     position = "bottom",
