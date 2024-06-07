@@ -244,8 +244,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
         end, { desc = "Toggle Inlay [H]ints" })
 
-        set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [A]ction" }))
-        set({ "n", "v" }, "<M-CR>", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [A]ction" }))
+        set({ "n", "v" }, "<leader>cr", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [R]efator" }))
+        set({ "n", "v" }, "<M-CR>", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [R]efator" }))
 
         set("n", "<leader>cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))
 
