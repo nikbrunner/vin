@@ -108,7 +108,7 @@ M.spec = {
                 info = { fg = colors.palette.magenta },
                 hint = { fg = colors.palette.cyan },
             },
-            color = { bg = colors.semantics.bg.active, fg = colors.semantics.fg.invert, gui = "bold" },
+            color = { bg = colors.semantics.bg.secondary.light, fg = colors.semantics.fg.invert, gui = "bold" },
             separator = { left = "", right = "" },
         }
 
