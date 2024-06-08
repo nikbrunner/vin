@@ -18,6 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup(
     "vin.specs",
+    ---Tell `lazydev` to load the types of of `lazy` with the `---@module` syntax
     ---@type LazyConfig
     {
         defaults = {
