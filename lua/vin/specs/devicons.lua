@@ -9,7 +9,7 @@ M.spec = {
         local icons = require("vin.icons")
 
         return {
-            color_icons = false,
+            color_icons = true,
             strict = true,
             override_by_filename = {
                 [".luacheckrc"] = { icon = icons.filetype.rc },

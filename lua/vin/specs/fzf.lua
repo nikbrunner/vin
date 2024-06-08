@@ -239,6 +239,8 @@ M.keys = {
     -- { "<C-r>",               M.fzf("registers", M.use_win_preset( M.win_preset.sm.no_preview)), mode = { "i" }, desc = "Registers" }
 }
 
+-- NOTE: handover `search=<searchTerm>` to prefill the fzf picker
+
 ---@type LazyPluginSpec
 M.spec = {
     "ibhagwan/fzf-lua",
@@ -249,6 +251,16 @@ M.spec = {
         return {
             global_resume = true, -- enable global `resume`?
             global_resume_query = true, -- include typed query in `resume`?
+            file_icon_padding = " ",
+
+            -- ❤️ https://github.com/ibhagwan/fzf-lua/issues/1051#issuecomment-2094803850
+            defaults = {
+                formatter = "path.filename_first",
+                git_icons = true, -- show git icons?
+                file_icons = true, -- show file icons?
+                color_icons = true, -- colorize file|git icons
+                -- multiline = 2,
+            },
 
             winopts = {
                 height = 0.85,
@@ -306,17 +318,16 @@ M.spec = {
             fzf_opts = {
                 ["--ansi"] = "",
                 ["--prompt"] = "  ",
-                ["--info"] = false,
                 ["--height"] = "100%",
                 ["--layout"] = "reverse",
                 ["--keep-right"] = "",
                 ["--reverse"] = "",
-                -- ["--border"] = "block",
+                ["--border"] = false,
+                ["--preview-window"] = "border-sharp",
+                ["--highlight-line"] = true,
                 ["--border-label"] = "[ Vin ]",
                 ["--padding"] = "1,6",
                 ["--no-scrollbar"] = "",
-                ["--no-separator"] = "",
-                ["--no-info"] = "",
             },
 
             fzf_colors = {
@@ -325,7 +336,7 @@ M.spec = {
                 ["bg"] = { "bg", "NormalFloat" },
                 ["hl"] = { "fg", "Comment" },
                 ["hl+"] = { "fg", "Statement" },
-                ["bg+"] = { "bg", "Normal" },
+                ["bg+"] = { "bg", "Visual" },
                 ["border"] = { "fg", "CursorLineNr" },
                 ["query"] = { "fg", "Statement" },
                 ["info"] = { "fg", "PreProc" },
@@ -367,18 +378,11 @@ M.spec = {
                 },
             },
 
-            -- ❤️ https://github.com/ibhagwan/fzf-lua/issues/1051#issuecomment-2094803850
-            defaults = {
-                formatter = "path.filename_first",
-                git_icons = true, -- show git icons?
-                file_icons = true, -- show file icons?
-                color_icons = false, -- colorize file|git icons
-            },
-
             files = {
                 prompt = "  ",
                 multiprocess = true, -- run command in a separate process
                 header = false,
+                multiline = 2,
                 find_opts = [[-type f -not -path '*/\.git/*' -not -name '.DS_Store' -printf '%P\n']],
                 rg_opts = "--color=never --files --hidden --follow -g '!.git' -g '!.DS_Store'",
                 fd_opts = "--color=never --type f --hidden --follow --exclude .git --exclude .DS_Store",
@@ -466,8 +470,9 @@ M.spec = {
             grep = {
                 prompt = "Grep Text❯ ",
                 input_prompt = "Grep For❯ ",
+                -- multiline = 2,
                 multiprocess = true, -- run command in a separate process
-                rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512",
+                rg_opts = "--no-heading --color=always --smart-case --max-columns=512",
                 grep_opts = "--binary-files=without-match --line-number --recursive --color=auto",
                 -- 'live_grep_glob' options:
                 glob_flag = "--iglob", -- for case sensitive globs use '--glob'
