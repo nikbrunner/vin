@@ -6,8 +6,10 @@ M.spec = {
     dependencies = {
         "meuter/lualine-so-fancy.nvim",
         "piersolenski/wtf.nvim",
+        "black-atom-industries/black-atom.nvim",
     },
     event = "VeryLazy",
+    enabled = false,
     config = function()
         local colors = require("black-atom.api").get_colors()
 

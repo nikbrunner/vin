@@ -320,7 +320,7 @@ M.spec = {
                 fzf = {
                     ["ctrl-c"] = "abort",
                     ["ctrl-a"] = "toggle-all",
-                    ["ctrl-q"] = "select-all+accept",
+                    -- ["ctrl-q"] = actions.file_sel_to_qf,
 
                     ["f3"] = "toggle-preview-wrap",
                     ["f4"] = "toggle-preview",
