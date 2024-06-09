@@ -111,7 +111,7 @@ M.specs = {
     {
         "echasnovski/mini.statusline",
         event = "VeryLazy",
-        enabled = false,
+        enabled = true,
         opts = function()
             return {
                 content = {

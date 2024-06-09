@@ -50,10 +50,21 @@ end
 -- Darken a color by blending it with black or a custom color
 ---@param hex_string string
 ---@param amount number
----@param bg string
+---@param bg? string
 ---@return string
 function M.darken(hex_string, amount, bg)
+    bg = bg or "#000000"
     return M.blend(hex_string, bg, math.abs(amount))
+end
+
+-- Lighten a color by blending it with white or a custom color
+---@param hex_string string
+---@param amount number
+---@param fg? string
+---@return string
+function M.lighten(hex_string, amount, fg)
+    fg = fg or "#ffffff"
+    return M.blend(hex_string, fg, math.abs(amount))
 end
 
 return M
