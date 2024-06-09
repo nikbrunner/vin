@@ -180,11 +180,11 @@ set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "[P]ackage Manager - [Mason]" 
 set("n", "<leader>vl", "<cmd>LspInfo<CR>", { desc = "[L]SP Info" })
 set("n", "<leader>vL", "<cmd>LspRestart<CR>", { desc = "Restart [L]SP " })
 
+-- [C] Action Group
 set({ "n", "v" }, "<leader>cc", function()
     lib.copy.list_paths()
 end, { desc = "[C]opy" })
 
--- Action Log Group
 set("n", "<leader>cll", lib.log.log_symbol, { desc = "[L]og" })
 set("n", "<leader>cld", lib.log.delete_logs, { desc = "[D]elete" })
 
@@ -194,28 +194,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-        -- Buffer local mappings.
-        -- See `:help vim.lsp.buf.* for documentation on any of the below functions
+        -- See `:help vim.lsp.buf for documentation on any of the below functions
         local opts = { buffer = ev.buf }
 
         set("n", "K", vim.lsp.buf.hover, opts)
         set("n", "gd", vim.lsp.buf.definition, opts)
         set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
-
-        -- set("n", "gd", function()
-        --     require("fzf-lua").lsp_definitions({
-        --         jump_to_single_result = true,
-        --         jump_type = "vsplit",
-        --         winopts = {
-        --             height = 0.95,
-        --             width = 0.75,
-        --             preview = {
-        --                 layout = "vertical",
-        --                 vertical = "up:65%",
-        --             },
-        --         },
-        --     })
-        -- end, { desc = "Go to Definition" })
 
         set("n", "gD", function()
             vim.cmd.vsplit()
@@ -223,29 +207,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.cmd("norm zz")
         end, vim.tbl_extend("keep", opts, { desc = "Go to Definition in Split" }))
 
-        -- set("n", "gr", function()
-        --     require("fzf-lua").lsp_references({
-        --         jump_to_single_result = true,
-        --         winopts = {
-        --             height = 0.95,
-        --             width = 0.75,
-        --             preview = {
-        --                 layout = "vertical",
-        --                 vertical = "up:65%",
-        --             },
-        --         },
-        --     })
-        -- end, opts)
-
         set("n", "gi", vim.lsp.buf.implementation, opts)
         set("n", "gy", vim.lsp.buf.type_definition, opts)
 
         set("n", "<leader>uh", function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
         end, { desc = "Toggle Inlay [H]ints" })
-
-        set({ "n", "v" }, "<leader>cr", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [R]efator" }))
-        set({ "n", "v" }, "<M-CR>", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code [R]efator" }))
 
         set("n", "<leader>cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))
 

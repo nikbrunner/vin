@@ -84,6 +84,7 @@ M.fzf = function(cmd, opts)
     end
 end
 
+---@type LazyKeysSpec[]
 M.keys = {
     -- Root layer
     {
@@ -110,6 +111,20 @@ M.keys = {
         "<leader>R",
         M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = false })),
         desc = "Recent Files (Everywhere)",
+    },
+
+    -- [C]ode Group
+    {
+        "<leader>cr",
+        mode = { "n", "v" },
+        M.fzf("lsp_code_actions", M.use_win_preset(M.win_preset.lg.vertical)),
+        desc = "Code [R]efator",
+    },
+    {
+        "<M-CR>",
+        mode = { "n", "v" },
+        M.fzf("lsp_code_actions", M.use_win_preset(M.win_preset.lg.vertical)),
+        desc = "Code [R]efator",
     },
 
     -- [S]earch Group
@@ -373,6 +388,12 @@ M.spec = {
                     cmd_untracked = "git diff --color --no-index /dev/null",
                     pager = "delta --width $FZF_PREVIEW_COLUMNS",
                 },
+                codeaction_native = {
+                    cmd_deleted = "git diff --color HEAD --",
+                    cmd_modified = "git diff --color HEAD",
+                    cmd_untracked = "git diff --color --no-index /dev/null",
+                    pager = "delta --width $FZF_PREVIEW_COLUMNS",
+                },
                 man = {
                     cmd = "man -c %s | col -bx",
                 },
@@ -511,19 +532,10 @@ M.spec = {
 
                 code_actions = {
                     prompt = "Code Actions> ",
-                    ui_select = true, -- use 'vim.ui.select'?
                     async_or_timeout = 5000,
-                    -- TODO: Enable if TS and ESLint are ready
-                    -- @see: [[Feature Request] lsp actions preview · Issue #944 · ibhagwan/fzf-lua](https://github.com/ibhagwan/fzf-lua/issues/944)
-                    previewer = false,
-                    -- previewer = "codeaction_native",
+                    previewer = "codeaction_native",
+                    -- TODO: report bug that winopts get discarded if i use the delta previewer
                     -- preview_pager = "delta --side-by-side --width=$FZF_PREVIEW_COLUMNS --hunk-header-style='omit' --file-style='omit'",
-                    winopts = {
-                        relative = "cursor",
-                        row = 0.40,
-                        height = 0.35,
-                        width = 0.60,
-                    },
                 },
             },
         }
