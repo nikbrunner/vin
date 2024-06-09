@@ -33,6 +33,14 @@ M.spec = {
                 desc = "[F]iles",
             },
             {
+                "<C-e>",
+                function()
+                    close_side_panels()
+                    vim.cmd("Neotree float toggle reveal")
+                end,
+                desc = "[F]iles",
+            },
+            {
                 "<leader>eg",
                 function()
                     close_side_panels()
