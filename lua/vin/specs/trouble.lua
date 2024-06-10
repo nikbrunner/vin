@@ -27,10 +27,11 @@ M.spec = {
             },
             lsp = {
                 focus = false,
+                pinned = true,
                 ---@type trouble.Window.opts
                 win = {
-                    position = "right",
-                    size = { width = 0.35 },
+                    position = "bottom",
+                    size = { height = 0.35 },
                 },
             },
             symbols = {
