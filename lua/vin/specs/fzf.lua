@@ -115,10 +115,10 @@ M.keys = {
 
     -- [C]ode Group
     {
-        "<leader>cr",
+        "<leader>ca",
         mode = { "n", "v" },
         M.fzf("lsp_code_actions", M.use_win_preset(M.win_preset.lg.vertical)),
-        desc = "Code [R]efator",
+        desc = "Code [A]ction",
     },
     {
         "<M-CR>",
