@@ -117,7 +117,7 @@ M.keys = {
     {
         "<leader>ca",
         mode = { "n", "v" },
-        M.fzf("lsp_code_actions", M.use_win_preset(M.win_preset.lg.vertical)),
+        M.fzf("lsp_code_actions"),
         desc = "Code [A]ction",
     },
     {
@@ -320,13 +320,14 @@ M.spec = {
                 fzf = {
                     ["ctrl-c"] = "abort",
                     ["ctrl-a"] = "toggle-all",
-                    -- ["ctrl-q"] = actions.file_sel_to_qf,
 
                     ["f3"] = "toggle-preview-wrap",
                     ["f4"] = "toggle-preview",
 
                     ["ctrl-d"] = "preview-page-down",
                     ["ctrl-u"] = "preview-page-up",
+
+                    ["ctrl-q"] = "select-all+accept",
                 },
             },
 
@@ -343,6 +344,7 @@ M.spec = {
                 ["--border-label"] = "[ Vin ]",
                 ["--padding"] = "1,6",
                 ["--no-scrollbar"] = "",
+                ["--nth"] = "..",
             },
 
             fzf_colors = {
@@ -414,16 +416,6 @@ M.spec = {
                 cwd_prompt = false,
                 cwd_prompt_shorten_len = 32, -- shorten prompt beyond this length
                 cwd_prompt_shorten_val = 1, -- shortened path parts length
-                actions = {
-                    ["default"] = actions.file_edit_or_qf,
-                    ["ctrl-s"] = actions.file_split,
-                    ["ctrl-v"] = actions.file_vsplit,
-                    ["ctrl-t"] = actions.file_tabedit,
-                    ["ctrl-q"] = actions.file_sel_to_qf,
-                    ["ctrl-y"] = function(selected)
-                        print(selected[1])
-                    end,
-                },
             },
 
             git = {
@@ -493,11 +485,14 @@ M.spec = {
                 input_prompt = "Grep For❯ ",
                 -- multiline = 2,
                 multiprocess = true, -- run command in a separate process
-                rg_opts = "--no-heading --color=always --smart-case --max-columns=512",
+                rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512",
                 grep_opts = "--binary-files=without-match --line-number --recursive --color=auto",
                 -- 'live_grep_glob' options:
                 glob_flag = "--iglob", -- for case sensitive globs use '--glob'
                 glob_separator = "%s%-%-", -- query separator pattern (lua): ' --'
+                -- actions = {
+                --     ["ctrl-q"] = "select-all+accept",
+                -- },
             },
 
             oldfiles = {
@@ -533,9 +528,13 @@ M.spec = {
                 code_actions = {
                     prompt = "Code Actions> ",
                     async_or_timeout = 5000,
-                    previewer = "codeaction_native",
-                    -- TODO: report bug that winopts get discarded if i use the delta previewer
-                    -- preview_pager = "delta --side-by-side --width=$FZF_PREVIEW_COLUMNS --hunk-header-style='omit' --file-style='omit'",
+                    previewer = false,
+                    winopts = {
+                        row = 0.5,
+                        col = 0.5,
+                        height = 0.35,
+                        width = 0.60,
+                    },
                 },
             },
         }
