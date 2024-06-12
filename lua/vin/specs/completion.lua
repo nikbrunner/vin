@@ -65,7 +65,8 @@ M.specs = {
                     ["<C-l>"] = cmp.mapping.complete(), -- This triggers the suggestion
                     ["<C-e>"] = cmp.mapping.abort(),
 
-                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                    ["<C-y>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+                    ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
                 }),
 
                 -- [Menu Appearance · hrsh7th/nvim-cmp Wiki](https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu)
