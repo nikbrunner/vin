@@ -3,9 +3,8 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "otavioschwanck/arrow.nvim",
-    event = "BufEnter",
     opts = {
-        leader_key = "<leader>m",
+        leader_key = nil,
         buffer_leader_key = "m",
         show_icons = false,
         always_show_path = true,
@@ -21,6 +20,15 @@ M.spec = {
         },
         window = {
             border = "solid",
+        },
+    },
+    keys = {
+        {
+            "<leader>m",
+            function()
+                require("arrow.ui").openMenu()
+            end,
+            desc = "[M]arks",
         },
     },
 }
