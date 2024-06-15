@@ -20,6 +20,8 @@ set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
 
+set("n", "<leader>w", vim.cmd.wa, { desc = "[W]rite all" })
+
 set("n", "x", '"_x', { desc = "Delete without yanking" })
 
 -- Join lines while keeping position
@@ -66,7 +68,7 @@ set("n", "<leader>.", function()
     else
         vim.notify("No Git root found", vim.log.levels.ERROR, { title = "Git Root" })
     end
-end, { desc = "Change directory to next Git root" })
+end, { desc = "[.] CD to Git Root" })
 
 set("n", "<leader>ur", function()
     -- Reload the config file and colorscheme
