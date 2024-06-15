@@ -75,10 +75,13 @@ end
 M.fzf = function(cmd, opts)
     opts = opts or {}
     return function()
-        require("neo-tree.command").execute({
-            action = "close",
-            position = "float",
-        })
+        local is_neotree_installed = pcall(require, "neo-tree")
+        if is_neotree_installed then
+            require("neo-tree.command").execute({
+                action = "close",
+                position = "float",
+            })
+        end
 
         require("fzf-lua")[cmd](opts)
     end
