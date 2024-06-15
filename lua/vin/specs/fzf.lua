@@ -93,7 +93,7 @@ M.keys = {
     {
         "<leader><space>",
         M.fzf("files", M.use_win_preset(M.win_preset.fullscreen.flex)),
-        desc = "Files",
+        desc = "Find Files",
     },
     {
         "<leader>/",
@@ -108,12 +108,12 @@ M.keys = {
     {
         "<leader>r",
         M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = true })),
-        desc = "Recent Files",
+        desc = "[R]ecent Files",
     },
     {
         "<leader>R",
         M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = false })),
-        desc = "Recent Files (Everywhere)",
+        desc = "[R]ecent Files (Everywhere)",
     },
 
     -- [C]ode Group

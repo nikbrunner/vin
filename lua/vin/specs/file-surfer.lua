@@ -32,7 +32,7 @@ M.spec = {
             function()
                 require("file-surfer").find()
             end,
-            desc = "󱝆 Surf",
+            desc = "[F]ile Surfer",
         },
     },
 }
