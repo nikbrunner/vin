@@ -3,6 +3,7 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
     branch = "v3.x",
     event = "VeryLazy",
     dependencies = {
