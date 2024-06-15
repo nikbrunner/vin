@@ -5,7 +5,7 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "solarized-osaka",
+    colorscheme = "github_dark_default",
     ---@type "dark" | "light"
     background = "dark",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
@@ -28,7 +28,6 @@ local config = {
         ["catppuccin-frappe"] = { wezterm = "catppuccin-frappe" },
         ["catppuccin-machiato"] = { wezterm = "catppuccin-machiato" },
         ["catppuccin-latte"] = { wezterm = "catppuccin-latte" },
-        ["solarized-osaka"] = { wezterm = "Solarized Dark Higher Contrast" },
     },
     open_neotree_on_startup = false,
     pathes = {
