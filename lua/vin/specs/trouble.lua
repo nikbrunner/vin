@@ -6,10 +6,10 @@ M.spec = {
     event = "LspAttach",
     ---@type trouble.Config
     opts = {
+        focus = true,
+        follow = false, -- Follow the current item
         ---@type trouble.Window.opts
         win = {
-            auto_jump = true, -- auto jump to the item when there's only one
-            auto_close = true,
             border = "double",
             position = "bottom",
             padding = { 1, 4 },
@@ -17,8 +17,6 @@ M.spec = {
         ---@type table<string, trouble.Mode>
         modes = {
             diagnostics = {
-                focus = false,
-                auto_close = true,
                 ---@type trouble.Window.opts
                 win = {
                     position = "bottom",
@@ -26,7 +24,6 @@ M.spec = {
                 },
             },
             lsp = {
-                focus = false,
                 pinned = true,
                 ---@type trouble.Window.opts
                 win = {
@@ -44,6 +41,8 @@ M.spec = {
             },
             lsp_defnitions = {
                 focus = true,
+                auto_jump = true, -- auto jump to the item when there's only one
+                auto_close = true,
                 ---@type trouble.Window.opts
                 win = {
                     border = "single",
@@ -53,12 +52,16 @@ M.spec = {
                     size = { height = 0.35 },
                 },
             },
+
             lsp_references = {
                 focus = true,
+                auto_refresh = false, -- auto refresh when open
                 title = "LSP References",
+                params = {
+                    include_declaration = false,
+                },
                 ---@type trouble.Window.opts
                 win = {
-                    border = "single",
                     position = "bottom",
                     title = "LSP References",
                     padding = { 1, 4 },
@@ -68,13 +71,15 @@ M.spec = {
         },
     },
     keys = {
-        -- { "gd", "<cmd>Trouble lsp_definitions<cr>", desc = "LSP Definitions (Trouble)" },
+        { "gd", "<cmd>Trouble lsp_definitions<cr>", desc = "LSP Definitions (Trouble)" },
         { "gr", "<cmd>Trouble lsp_references<cr>", desc = "LSP References (Trouble)" },
         { "<leader>dq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
         { "<leader>di", "<cmd>Trouble lsp toggle<cr>", desc = "LSP Definitions / references / ... (Trouble)" },
-        { "<leader>dd", "<cmd>Trouble diagnostics toggle  filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
-        { "<leader>dD", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
-        { "<leader>es", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (Trouble)" },
+        { "<leader>dci", "<cmd>Trouble lsp_incoming_calls<cr>", desc = "[C]alls [I]ncoming" },
+        { "<leader>dco", "<cmd>Trouble lsp_outgoing_calls<cr>", desc = "[C]alls [O]utgoing" },
+        { "<leader>dd", "<cmd>Trouble diagnostics toggle  filter.buf=0<cr>", desc = "Diagnostics [D]ocument" },
+        { "<leader>dw", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics [W]orkspace" },
+        -- { "<leader>es", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (Trouble)" },
         {
             "[q",
             function()
