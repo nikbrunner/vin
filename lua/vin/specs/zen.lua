@@ -4,7 +4,7 @@ local M = {}
 M.spec = {
     "folke/zen-mode.nvim",
     keys = {
-        { "<leader>z", "<CMD>ZenMode<CR>", desc = "Zen" },
+        { "<leader>z", "<CMD>ZenMode<CR>", desc = "[Z]en" },
     },
     opts = {
         window = {
@@ -18,10 +18,12 @@ M.spec = {
         plugins = {
             tmux = {
                 -- Causing too much issues
-                enabled = false,
+                enabled = true,
             },
             options = {
-                laststatus = 3,
+                laststatus = 0,
+                foldcolumn = "0",
+                fillchars = [[fold: ,foldopen:,foldsep: ,foldclose:]],
             },
         },
     },
