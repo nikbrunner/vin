@@ -28,11 +28,11 @@ M.spec = {
     },
     keys = {
         {
-            "<leader>f",
+            "<leader>p",
             function()
                 require("file-surfer").find()
             end,
-            desc = "[F]ile Surfer",
+            desc = "[P]roject Files",
         },
     },
 }
