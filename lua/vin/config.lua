@@ -5,9 +5,9 @@ local base_pathes = {
 
 ---@class VinConfig
 local config = {
-    colorscheme = "github_dark_default",
+    colorscheme = "black-atom-medical",
     ---@type "dark" | "light"
-    background = "dark",
+    background = "light",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
     colorscheme_config_map = {
         ["default"] = { wezterm = "neovim" },
