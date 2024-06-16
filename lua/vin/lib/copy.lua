@@ -18,8 +18,6 @@ function M.file_name()
 end
 
 function M.get_github_url()
-    -- It is import to make this conversion and not use it directly, because the
-    -- line range selection results in "V" and not in "v", what the plugin requires as argument
     local current_vim_mode = vim.api.nvim_get_mode().mode
     local mode_for_plugin = current_vim_mode == "n" and "n" or "v"
 
@@ -38,20 +36,9 @@ function M.get_current_relative_path(with_line_number)
     return relative_path
 end
 
-M.list_paths = function(opts)
-    local actions = require("telescope.actions")
-    local actions_state = require("telescope.actions.state")
-    local entry_display = require("telescope.pickers.entry_display")
-
-    local pickers = require("telescope.pickers")
-    local finders = require("telescope.finders")
-    local config = require("telescope.config").values
-
-    local log = require("plenary.log"):new()
-
+M.list_paths = function()
+    local fzf = require("fzf-lua")
     local github_url = M.get_github_url()
-
-    log.level = "debug"
 
     function M.file_paths()
         local paths = {
@@ -60,102 +47,66 @@ M.list_paths = function(opts)
             { type = "Relative", name = M.get_current_relative_path(false) },
             { type = "Full Path (Home)", name = M.full_path_from_home() },
             { type = "Full Path (Absolute)", name = M.full_path() },
-            github_url and { type = "GitHub", name = M.get_github_url() } or nil,
+            github_url and { type = "GitHub", name = github_url } or nil,
         }
-        return paths
+        return vim.tbl_filter(function(path)
+            return path
+        end, paths)
     end
 
-    local menu_height = #M.file_paths() + 4
+    local results = M.file_paths()
 
-    local displayer = entry_display.create({
-        separator = " " .. require("vin.icons").misc.separator .. " ",
-        items = {
-            { width = 25 },
-            { remaining = true },
+    local entries = {}
+    local max_length = 0
+    for _, path in ipairs(results) do
+        local entry = path.type .. ": " .. path.name
+        table.insert(entries, entry)
+        if #entry > max_length then
+            max_length = #entry
+        end
+    end
+
+    local win_width = math.min(0.9, (max_length / vim.o.columns) + 0.1)
+
+    fzf.fzf_exec(entries, {
+        prompt = "Copy File Meta> ",
+        previewer = false,
+        winopts = {
+            row = 0.85,
+            col = 0.5,
+            height = 0.35,
+            width = win_width,
+            preview = { hidden = "hidden" },
+        },
+        actions = {
+            ["default"] = function(selected)
+                local _, path_name = selected[1]:match("^(.-): (.*)$")
+                copy(path_name)
+                vim.notify('Copied "' .. path_name .. '" to the clipboard!', vim.log.levels.INFO)
+            end,
+            ["ctrl-p"] = function(selected)
+                local _, path_name = selected[1]:match("^(.-): (.*)$")
+                vim.api.nvim_paste(path_name, true, -1)
+            end,
+            ["P"] = function(selected)
+                local _, path_name = selected[1]:match("^(.-): (.*)$")
+                vim.api.nvim_put({ path_name }, "l", false, false)
+            end,
+            ["p"] = function(selected)
+                local _, path_name = selected[1]:match("^(.-): (.*)$")
+                vim.api.nvim_put({ path_name }, "l", true, false)
+            end,
+            ["alt-enter"] = function(selected)
+                local path_type, path_name = selected[1]:match("^(.-): (.*)$")
+                if path_type == "GitHub" then
+                    require("gitlinker.actions").open_in_browser(path_name)
+                    vim.notify("Opening GitHub Link in Browser", vim.log.levels.INFO)
+                else
+                    vim.notify("No action for this path type" .. path_type, vim.log.levels.WARN)
+                end
+            end,
         },
     })
-
-    pickers
-        .new(opts, {
-            finder = finders.new_table({
-                results = M.file_paths(),
-                entry_maker = function(entry)
-                    return {
-                        value = entry,
-                        display = function()
-                            return displayer({
-                                { entry.type, "TelescopeResultsNumber" },
-                                entry.name,
-                            })
-                        end,
-                        ordinal = entry.name,
-                    }
-                end,
-            }),
-            layout_strategy = "cursor",
-            layout_config = {
-                height = menu_height,
-                width = function(res)
-                    local max_width = 0
-                    for _, v in ipairs(res.finder.results) do
-                        if #v.value.name > max_width then
-                            max_width = #v.value.name
-                        end
-                    end
-                    max_width = max_width + 50
-                    return max_width
-                end,
-            },
-            sorter = config.generic_sorter(opts),
-            prompt_title = "Copy File Meta Information",
-            attach_mappings = function(prompt_bufnr, map)
-                actions.select_default:replace(function()
-                    local selection = actions_state.get_selected_entry()
-                    actions.close(prompt_bufnr)
-                    copy(selection.value.name)
-                end)
-
-                map("i", "<M-CR>", function()
-                    local selection = actions_state.get_selected_entry()
-                    if selection.value.type == "GitHub" then
-                        require("gitlinker.actions").open_in_browser(selection.value.name)
-                    end
-                    actions.close(prompt_bufnr)
-                    vim.notify("Opening GitHub Link in Browser", vim.log.levels.INFO)
-                end)
-
-                map("i", "<CR>", function()
-                    local selection = actions_state.get_selected_entry()
-                    actions.close(prompt_bufnr)
-                    copy(selection.value.name)
-                    vim.notify("Copied `" .. selection.value.name .. "` to Clipboard", vim.log.levels.INFO)
-                end)
-
-                map("i", "<c-p>", function()
-                    local selection = actions_state.get_selected_entry()
-                    actions.close(prompt_bufnr)
-                    -- paste
-                    vim.api.nvim_paste(selection.value.name, true, -1)
-                end)
-
-                map("i", "P", function()
-                    local selection = actions_state.get_selected_entry()
-                    actions.close(prompt_bufnr)
-                    -- paste above current line
-                    vim.api.nvim_put({ selection.value.name }, "l", false, false)
-                end)
-
-                map("i", "p", function()
-                    local selection = actions_state.get_selected_entry()
-                    actions.close(prompt_bufnr)
-                    -- paste below current line
-                    vim.api.nvim_put({ selection.value.name }, "l", true, false)
-                end)
-
-                return true
-            end,
-        })
-        :find()
 end
 
 return M
