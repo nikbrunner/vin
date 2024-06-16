@@ -1,10 +1,7 @@
-local base_pathes = {
-    repos = vim.fn.expand("~/repos"),
-    config_home = vim.fn.expand("$XDG_CONFIG_HOME"),
-}
+local M = {}
 
 ---@class VinConfig
-local config = {
+M.config = {
     colorscheme = "black-atom-medical",
     ---@type "dark" | "light"
     background = "light",
@@ -32,14 +29,16 @@ local config = {
     open_previous_files_on_startup = true,
     open_neotree_on_startup = false,
     pathes = {
-        repos = base_pathes.repos,
+        repos = vim.fn.expand("~/repos"),
         config = {
-            vin = base_pathes.config_home .. "/nvim/lua/vin/config.lua",
-            wezterm = base_pathes.config_home .. "/wezterm/wezterm.lua",
+            vin = vim.fn.expand("$XDG_CONFIG_HOME") .. "/nvim/lua/vin/config.lua",
+            wezterm = vim.fn.expand("$XDG_CONFIG_HOME") .. "/wezterm/wezterm.lua",
         },
         notes = {
-            personal = base_pathes.repos .. "/nikbrunner/notes",
-            work = { dcd = base_pathes.repos .. "/nikbrunner/dcd-notes" },
+            personal = vim.fn.expand("~/repos") .. "/nikbrunner/notes",
+            work = {
+                dcd = vim.fn.expand("~/repos") .. "/nikbrunner/dcd-notes",
+            },
         },
     },
     ensure_installed = {
@@ -70,4 +69,4 @@ local config = {
     },
 }
 
-return config
+return M.config
