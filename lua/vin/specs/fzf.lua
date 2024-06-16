@@ -97,7 +97,7 @@ M.keys = {
     },
     {
         "<leader>/",
-        M.fzf("lgrep_curbuf"),
+        M.fzf("lgrep_curbuf", M.use_win_preset(M.win_preset.lg.vertical)),
         desc = "Grep Current File",
     },
     {
