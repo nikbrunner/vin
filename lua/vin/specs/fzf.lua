@@ -27,7 +27,7 @@ M.win_preset = {
             preview = {
                 layout = "flex",
                 vertical = "up:65%", -- up|down:size
-                horizontal = "right:50%", -- right|left:size
+                horizontal = "left:50%", -- right|left:size
             },
         },
         vertical_corner = {
@@ -92,7 +92,7 @@ M.keys = {
     -- Root layer
     {
         "<leader><space>",
-        M.fzf("files", M.use_win_preset(M.win_preset.fullscreen.flex)),
+        M.fzf("files", M.use_win_preset(M.win_preset.lg.flex)),
         desc = "Find Files",
     },
     {
@@ -285,7 +285,7 @@ M.spec = {
                 width = 0.85,
                 row = 0.35,
                 col = 0.50,
-                border = "solid",
+                border = "none",
                 preview = {
                     border = "border", -- border|noborder, applies only to
                     wrap = "nowrap", -- wrap|nowrap
