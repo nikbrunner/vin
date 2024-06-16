@@ -29,6 +29,7 @@ local config = {
         ["catppuccin-machiato"] = { wezterm = "catppuccin-machiato" },
         ["catppuccin-latte"] = { wezterm = "catppuccin-latte" },
     },
+    open_previous_files_on_startup = true,
     open_neotree_on_startup = false,
     pathes = {
         repos = base_pathes.repos,

@@ -11,18 +11,16 @@ function M.open_previous_files()
     local excluded_filetypes = { "gitcommit" }
 
     if not vim.list_contains(excluded_filetypes, filetype) then
-        if pcall(require, "fzf-lua") then
-            require("fzf-lua").oldfiles({
-                cwd_only = true,
-                winopts = {
-                    row = 0.85,
-                    col = 0.5,
-                    height = 0.25,
-                    width = 0.65,
-                    preview = { hidden = "hidden" },
-                },
-            })
-        end
+        require("fzf-lua").oldfiles({
+            cwd_only = true,
+            winopts = {
+                row = 0.85,
+                col = 0.5,
+                height = 0.25,
+                width = 0.65,
+                preview = { hidden = "hidden" },
+            },
+        })
     end
 end
 
@@ -33,7 +31,21 @@ create_autocmd("UIEnter", {
 
         require("vin.lib.ui").handle_colors(config, config.colorscheme, config.background)
 
+        if config.open_previous_files_on_startup then
+            if not pcall(require, "fzf-lua") then
+                print("Fzf-lua is not installed")
+                return
+            end
+
+            M.open_previous_files()
+        end
+
         if config.open_neotree_on_startup then
+            if not pcall(require, "neo-tree") then
+                print("NeoTree is not installed")
+                return
+            end
+
             local is_git_dir = vim.fn.finddir(".git", vim.fn.expand("%:p:h") .. ";") ~= ""
             local has_uncommited_changes = vim.fn.system("git status --porcelain") ~= ""
 
