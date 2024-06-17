@@ -544,6 +544,11 @@ M.spec = {
     end,
     config = function(_, opts)
         require("fzf-lua").setup(opts)
+
+        -- https://github.com/folke/trouble.nvim?tab=readme-ov-file#fzf-lua
+        local config = require("fzf-lua.config")
+        local actions = require("trouble.sources.fzf").actions
+        config.defaults.actions.files["ctrl-t"] = actions.open
     end,
 }
 
