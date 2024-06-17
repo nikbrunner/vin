@@ -16,7 +16,7 @@ M.specs = {
                 additional_vim_regex_highlighting = { "markdown" },
             },
             indent = {
-                enable = true,
+                enable = false,
             },
             auto_install = true,
             ensure_installed = {
