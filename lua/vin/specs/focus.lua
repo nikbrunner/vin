@@ -1,3 +1,4 @@
+---@diagnostic disable: inject-field
 local M = {}
 
 M.state = {
@@ -11,7 +12,7 @@ M.spec = {
     event = "VeryLazy",
     opts = {
         autoresize = {
-            minwidth = 10, -- Force minimum width for the unfocused window
+            minwidth = 35, -- Force minimum width for the unfocused window
             minheight = 5, -- Force minimum height for the unfocused window
         },
         ui = {
