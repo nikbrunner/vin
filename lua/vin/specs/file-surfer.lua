@@ -4,6 +4,7 @@ local M = {}
 M.spec = {
     "nikbrunner/file-surfer.nvim",
     dependencies = { "ibhagwan/fzf-lua" },
+    event = "VeryLazy",
     dev = true,
     ---@module "file-surfer"
     ---@type file-surfer.Config
