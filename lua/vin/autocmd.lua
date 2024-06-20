@@ -120,9 +120,12 @@ create_autocmd("BufReadPost", {
 })
 
 -- Check if we need to reload the file when it changed
-create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+create_autocmd({ "BufEnter", "FocusGained", "TermClose", "TermLeave" }, {
     group = M.augroup("checktime"),
-    command = "checktime",
+    callback = function()
+        vim.cmd("checktime")
+        require("gitsigns").refresh()
+    end,
 })
 
 -- Highlight on yank
