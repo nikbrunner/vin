@@ -6,6 +6,7 @@ M.spec = {
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     ft = { "ts", "tsx", "js", "jsx" },
     event = "BufRead",
+    enabled = false,
     opts = {
         on_attach = function()
             vim.notify("TypeScript Tools attached!", vim.log.levels.INFO, { title = "TypeScript Tools" })
