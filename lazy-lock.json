@@ -54,5 +54,4 @@
   "wtf.nvim": { "branch": "main", "commit": "8e7bec4d3cb2ea2e3d078b9af8c4cc68d1066c33" },
   "yanky.nvim": { "branch": "main", "commit": "73215b77d22ebb179cef98e7e1235825431d10e4" },
   "yazi.nvim": { "branch": "master", "commit": "60f589ed67b3a7b1b92a81f9345069f52aa64132" },
-  "zen-mode.nvim": { "branch": "main", "commit": "78557d972b4bfbb7488e17b5703d25164ae64e6a" }
 }
