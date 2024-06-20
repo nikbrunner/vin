@@ -6,9 +6,6 @@ nmap k gk
 
 nmap <Esc> :nohl
 
-nmap H ^
-nmap L $
-
 " Quickly remove search highlights
 " Note: This does not remove the highlight when jumping to a link header.
 nmap <Esc> :nohl
@@ -25,9 +22,9 @@ exmap changelog obcommand app:show-release-notes
 
 " Workspace
 exmap previoustab obcommand workspace:previous-tab
-nmap <S-Tab> :previoustab
+nmap H :previoustab
 exmap nexttab obcommand workspace:next-tab
-nmap <Tab> :nexttab
+nmap L :nexttab
 
 " Split
 exmap vs obcommand workspace:split-vertical
