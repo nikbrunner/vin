@@ -2,9 +2,9 @@ local M = {}
 
 ---@class VinConfig
 M.config = {
-    colorscheme = "black-atom-engineering",
+    colorscheme = "terra-spring-day",
     ---@type "dark" | "light"
-    background = "dark",
+    background = "light",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
     colorscheme_config_map = {
         ["default"] = { wezterm = "neovim" },
