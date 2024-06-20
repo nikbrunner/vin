@@ -20,8 +20,6 @@ M.config = {
 }
 
 local function close_all_windows_except_current()
-    vim.cmd("Neotree close")
-
     local current_win = vim.api.nvim_get_current_win()
     local all_wins = vim.api.nvim_tabpage_list_wins(0)
     for _, win in ipairs(all_wins) do
@@ -125,8 +123,6 @@ end
 
 ---@param config component-nvim.Config
 function M.find_and_open_files(config)
-    vim.cmd("Neotree close")
-
     local project_config = get_current_project_config(config.projects)
 
     if not project_config then
