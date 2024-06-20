@@ -124,9 +124,9 @@ M.keys = {
         desc = "Code [A]ction",
     },
     {
-        "<M-CR>",
+        "g.",
         mode = { "n", "v" },
-        M.fzf("lsp_code_actions", M.use_win_preset(M.win_preset.lg.vertical)),
+        M.fzf("lsp_code_actions"),
         desc = "Code [R]efator",
     },
 
