@@ -32,12 +32,9 @@ M.spec = {
                             comment = "TODO: " .. " " .. todo_comment
                         end
 
+                        -- TODO:  Can this done in one line? vim.cmd(...)
                         vim.cmd("norm O" .. comment .. " ")
-
-                        local current_line_num = vim.fn.line(".")
-
-                        require("mini.comment").toggle_lines(current_line_num, current_line_num)
-
+                        vim.cmd("norm gcc")
                         vim.cmd.wa()
                     end)
                 end
