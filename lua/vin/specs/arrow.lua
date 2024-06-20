@@ -1,8 +1,10 @@
 local M = {}
 
+-- TODO:  try out grapple instead
 ---@type LazyPluginSpec
 M.spec = {
     "otavioschwanck/arrow.nvim",
+    enabled = false,
     opts = {
         leader_key = nil,
         buffer_leader_key = "m",
