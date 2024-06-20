@@ -3,31 +3,39 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "yujinyuz/gitpad.nvim",
-    opts = {
-        on_attach = function(bufnr)
-            vim.api.nvim_buf_set_keymap(bufnr, "n", "q", "<Cmd>wq<CR>", { noremap = true, silent = true })
-        end,
-    },
+    opts = function()
+        local cwd = vim.fn.getcwd()
+        local does_include = string.find(cwd, "dealercenter-digital", 1, true)
+        local dir = does_include and require("vin.config").pathes.notes.work.dcd
+            or require("vin.config").pathes.notes.personal
+
+        return {
+            dir = dir .. "/gitpad",
+            on_attach = function(bufnr)
+                vim.api.nvim_buf_set_keymap(bufnr, "n", "q", "<Cmd>wq<CR>", { noremap = true, silent = true })
+            end,
+        }
+    end,
     config = function(_, opts)
         require("gitpad").setup(opts)
     end,
     keys = {
         {
-            "<leader>pp",
+            "<leader>np",
             function()
                 require("gitpad").toggle_gitpad()
             end,
             desc = "[P]roject",
         },
         {
-            "<leader>pb",
+            "<leader>nb",
             function()
                 require("gitpad").toggle_gitpad_branch()
             end,
             desc = "[B]ranch",
         },
         {
-            "<leader>pd",
+            "<leader>nd",
             function()
                 local date_filename = "daily-" .. os.date("%Y-%m-%d.md")
                 require("gitpad").toggle_gitpad({ filename = date_filename })
@@ -35,7 +43,7 @@ M.spec = {
             desc = "[D]aily",
         },
         {
-            "<leader>pf",
+            "<leader>nf",
             function()
                 local filename = vim.fn.expand("%:p") -- or just use vim.fn.bufname()
                 if filename == "" then
