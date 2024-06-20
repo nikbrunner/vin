@@ -3,6 +3,7 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "folke/zen-mode.nvim",
+    enabled = false,
     keys = {
         { "<leader>z", "<CMD>ZenMode<CR>", desc = "[Z]en" },
     },
