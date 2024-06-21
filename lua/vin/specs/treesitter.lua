@@ -10,7 +10,7 @@ M.specs = {
             highlight = {
                 enable = true,
                 ---@diagnostic disable-next-line: unused-local
-                disable = function(lang, bufnr) -- Disable in files with more than 5K
+                disable = function(lang, bufnr)
                     return vim.api.nvim_buf_line_count(bufnr) > 5000
                 end,
                 additional_vim_regex_highlighting = { "markdown" },
@@ -140,28 +140,11 @@ M.specs = {
     },
 
     {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        event = "VeryLazy",
-        config = function()
-            local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
-
-            -- vim way: ; goes to the direction you were moving.
-            vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
-            vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
-
-            -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
-            vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
-            vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
-            vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
-            vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
-        end,
-    },
-
-    {
         "nvim-treesitter/nvim-treesitter-context",
         dependencies = "nvim-treesitter/nvim-treesitter",
         event = "VeryLazy",
         enabled = true,
+        ---@type TSContext.Config
         opts = {
             enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
             max_lines = 1, -- How many lines the window should span. Values <= 0 mean no limit.
@@ -171,13 +154,11 @@ M.specs = {
             mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
             on_attach = function(bufnr)
                 local disabled_filetypes = { "markdown", "vim" }
-                return not vim.list_contains(disabled_filetypes, vim.bo[bufnr].filetype)
+                local line_count = vim.api.nvim_buf_line_count(bufnr)
+                local should_not_attach = vim.list_contains(disabled_filetypes, vim.bo[bufnr].filetype) or line_count > 5000
+                return not should_not_attach
             end,
-            patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
-                -- For all filetypes
-                -- Note that setting an entry here replaces all other patterns for this entry.
-                -- By setting the 'default' entry below, you can control which nodes you want to
-                -- appear in the context window.
+            patterns = {
                 default = {
                     "class",
                     "function",
