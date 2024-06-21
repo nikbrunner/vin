@@ -17,10 +17,14 @@ set("v", "K", ":m '<-2<CR>gv=gv")
 set("n", "<C-o>", "<C-o>zz", { desc = "Move back in jump list" })
 set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
 
+set("n", "<C-s>", vim.cmd.wa, { desc = "Save" })
+set("n", "<C-q>", function()
+    vim.cmd.q({ bang = true })
+end, { desc = "Quit" })
+set("i", "<C-s>", "<ESC>:wa<CR>", { desc = "Save and Escape" })
+
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
-
-set("n", "<leader>w", vim.cmd.wa, { desc = "[W]rite all" })
 
 set("n", "x", '"_x', { desc = "Delete without yanking" })
 
