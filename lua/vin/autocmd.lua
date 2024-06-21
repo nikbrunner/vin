@@ -1,4 +1,4 @@
-local create_autocmd = vim.api.nvim_create_autocmd
+local auto = vim.api.nvim_create_autocmd
 
 local M = {}
 
@@ -16,15 +16,15 @@ function M.open_previous_files()
             winopts = {
                 row = 0.85,
                 col = 0.5,
-                height = 0.25,
-                width = 0.65,
+                height = 0.35,
+                width = 0.75,
                 preview = { hidden = "hidden" },
             },
         })
     end
 end
 
-create_autocmd("UIEnter", {
+auto("UIEnter", {
     group = M.augroup("ui_enter"),
     callback = function()
         local config = require("vin.config")
@@ -60,7 +60,7 @@ create_autocmd("UIEnter", {
     end,
 })
 
-create_autocmd("ColorScheme", {
+auto("ColorScheme", {
     group = M.augroup("colorscheme_sync"),
     callback = function(args)
         local config = require("vin.config")
@@ -72,7 +72,7 @@ create_autocmd("ColorScheme", {
 })
 
 -- Close these filetypes with <Esc> & q in normal mode
-create_autocmd("FileType", {
+auto("FileType", {
     group = M.augroup("quit_mapping"),
     pattern = {
         "qf",
@@ -102,7 +102,7 @@ create_autocmd("FileType", {
 })
 
 -- go to last loc when opening a buffer
-create_autocmd("BufReadPost", {
+auto("BufReadPost", {
     group = M.augroup("last_loc"),
     callback = function(event)
         local exclude = { "gitcommit" }
@@ -120,7 +120,7 @@ create_autocmd("BufReadPost", {
 })
 
 -- Check if we need to reload the file when it changed
-create_autocmd({ "BufEnter", "FocusGained", "TermClose", "TermLeave" }, {
+auto({ "BufEnter", "FocusGained", "TermClose", "TermLeave" }, {
     group = M.augroup("checktime"),
     callback = function()
         vim.cmd("checktime")
@@ -129,7 +129,7 @@ create_autocmd({ "BufEnter", "FocusGained", "TermClose", "TermLeave" }, {
 })
 
 -- Highlight on yank
-create_autocmd("TextYankPost", {
+auto("TextYankPost", {
     group = M.augroup("highlight_yank"),
     callback = function()
         vim.highlight.on_yank()
@@ -137,7 +137,7 @@ create_autocmd("TextYankPost", {
 })
 
 -- resize splits if window got resized
-create_autocmd({ "VimResized" }, {
+auto({ "VimResized" }, {
     group = M.augroup("resize_splits"),
     callback = function()
         local current_tab = vim.fn.tabpagenr()

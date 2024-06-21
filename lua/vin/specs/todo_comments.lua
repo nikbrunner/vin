@@ -13,8 +13,8 @@ M.spec = {
     keys = {
         {
             "<leader>st",
-            "<cmd>TodoTelescope<CR>",
-            desc = "Todos",
+            "<cmd>TodoTrouble<CR>",
+            desc = "[T]odos",
         },
         {
             "<leader>ct",
