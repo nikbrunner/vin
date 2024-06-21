@@ -231,12 +231,12 @@ M.keys = {
 
     -- [D]iagnostics Group - Currently handled by Trouble
     {
-        "<leader>sd",
+        "<leader>dd",
         M.fzf("lsp_document_diagnostics", M.use_win_preset(M.win_preset.lg.vertical)),
         desc = "Document Diagnostics",
     },
     {
-        "<leader>sD",
+        "<leader>dw",
         M.fzf("lsp_workspace_diagnostics", M.use_win_preset(M.win_preset.lg.vertical)),
         desc = "Workspace Diagnostics",
     },
