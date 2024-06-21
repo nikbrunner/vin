@@ -10,6 +10,8 @@ M.spec = {
             or require("vin.config").pathes.notes.personal
 
         return {
+            title = "Vinpad",
+            border = "double",
             dir = dir .. "/gitpad",
             on_attach = function(bufnr)
                 vim.api.nvim_buf_set_keymap(bufnr, "n", "q", "<Cmd>wq<CR>", { noremap = true, silent = true })
