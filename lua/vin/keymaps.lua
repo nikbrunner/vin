@@ -72,7 +72,7 @@ set("n", "<leader>.", function()
     else
         vim.notify("No Git root found", vim.log.levels.ERROR, { title = "Git Root" })
     end
-end, { desc = "[.] CD to Git Root" })
+end, { desc = "CD Git Root" })
 
 set("n", "<leader>ur", function()
     -- Reload the config file and colorscheme

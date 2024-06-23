@@ -65,34 +65,6 @@ M.spec = {
             end,
             desc = "[M]aximize Split",
         },
-        {
-            "<leader>h",
-            function()
-                require("focus").split_command("h")
-            end,
-            desc = "Split to Left",
-        },
-        {
-            "<leader>j",
-            function()
-                require("focus").split_command("j")
-            end,
-            desc = "Split to Bottom",
-        },
-        {
-            "<leader>k",
-            function()
-                require("focus").split_command("k")
-            end,
-            desc = "Split to Top",
-        },
-        {
-            "<leader>l",
-            function()
-                require("focus").split_command("l")
-            end,
-            desc = "Split to Right",
-        },
     },
 }
 
