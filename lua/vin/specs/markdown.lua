@@ -3,7 +3,7 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "MeanderingProgrammer/markdown.nvim",
-    enabled = false,
+    enabled = true,
     ft = "markdown",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {
