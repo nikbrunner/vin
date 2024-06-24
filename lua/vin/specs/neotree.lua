@@ -3,7 +3,7 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "nvim-neo-tree/neo-tree.nvim",
-    enabled = false,
+    enabled = true,
     branch = "v3.x",
     event = "VeryLazy",
     dependencies = {
@@ -132,7 +132,7 @@ M.spec = {
                     hide_gitignored = true,
                     hide_hidden = false, -- only works on Windows for hidden files/directories
                     always_show = { -- remains visible even if other settings would normally hide it
-                        ".gitignored",
+                        ".gitignore",
                     },
                     never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
                         ".DS_Store",
