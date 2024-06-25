@@ -549,6 +549,41 @@ M.spec = {
         local config = require("fzf-lua.config")
         local actions = require("trouble.sources.fzf").actions
         config.defaults.actions.files["ctrl-t"] = actions.open
+
+        vim.api.nvim_create_autocmd("LspAttach", {
+            group = vim.api.nvim_create_augroup("FzfLuaLspAttachGroup", { clear = true }),
+            callback = function()
+                vim.keymap.set("n", "gd", function()
+                    require("fzf-lua").lsp_definitions({
+                        jump_to_single_result = true,
+                        jump_type = "vsplit",
+                        winopts = {
+                            height = 0.95,
+                            width = 0.75,
+                            preview = {
+                                layout = "vertical",
+                                vertical = "up:65%",
+                            },
+                        },
+                    })
+                end, { desc = "Go to [D]efinition" })
+
+                vim.keymap.set("n", "gr", function()
+                    require("fzf-lua").lsp_references({
+                        jump_to_single_result = true,
+                        jump_type = "vsplit",
+                        winopts = {
+                            height = 0.95,
+                            width = 0.75,
+                            preview = {
+                                layout = "vertical",
+                                vertical = "up:65%",
+                            },
+                        },
+                    })
+                end, { desc = "Go to [R]eferences" })
+            end,
+        })
     end,
 }
 
