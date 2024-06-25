@@ -244,12 +244,12 @@ M.keys = {
     -- No leader key
     {
         "gs",
-        M.fzf("lsp_document_symbols"),
+        M.fzf("lsp_document_symbols", M.use_win_preset(M.win_preset.lg.vertical)),
         desc = "Document [S]ymbols",
     },
     {
         "gS",
-        M.fzf("lsp_live_workspace_symbols"),
+        M.fzf("lsp_live_workspace_symbols", M.use_win_preset(M.win_preset.lg.vertical)),
         desc = "Workspace [S]ymbols",
     },
 
