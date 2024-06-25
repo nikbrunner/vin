@@ -11,11 +11,21 @@ M.spec = {
         headings = { "󰲡 ", "󰲣  ", "󰲥  ", "󰲧  ", "󰲩  ", "󰲫  " },
         -- Character to use for the bullet point in lists
         bullet = "○",
+        checkbox = {
+            -- Character that will replace the [ ] in unchecked checkboxes
+            unchecked = "󰄱 ",
+            -- Character that will replace the [x] in checked checkboxes
+            checked = "󰄲 ",
+        },
         highlights = {
             -- Used when displaying code blocks
             code = "CursorLine",
             -- Used when displaying bullet points in list
             bullet = "@string",
+            checkbox = {
+                unchecked = "@markup.todo.unchecked",
+                checked = "@markup.todo.checked",
+            },
             table = {
                 -- Used when displaying header in a markdown table
                 head = "@markup.heading",
