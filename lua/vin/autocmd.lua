@@ -29,32 +29,30 @@ auto("UIEnter", {
     callback = function()
         local config = require("vin.config")
 
+        local is_git_dir = vim.fn.finddir(".git", vim.fn.expand("%:p:h") .. ";") ~= ""
+        local has_uncommited_changes = vim.fn.system("git status --porcelain") ~= ""
+
         require("vin.lib.ui").handle_colors(config, config.colorscheme, config.background)
 
-        if config.open_previous_files_on_startup then
-            if not pcall(require, "fzf-lua") then
-                print("Fzf-lua is not installed")
-                return
-            end
-
-            M.open_previous_files()
-        end
-
-        if config.open_neotree_on_startup then
+        if config.open_neotree_on_startup and is_git_dir and has_uncommited_changes then
             if not pcall(require, "neo-tree") then
                 print("NeoTree is not installed")
                 return
-            end
-
-            local is_git_dir = vim.fn.finddir(".git", vim.fn.expand("%:p:h") .. ";") ~= ""
-            local has_uncommited_changes = vim.fn.system("git status --porcelain") ~= ""
-
-            if is_git_dir and has_uncommited_changes then
+            else
                 require("neo-tree.command").execute({
                     action = "focus",
                     source = "git_status",
                     position = "float",
                 })
+            end
+        end
+
+        if config.open_previous_files_on_startup and not has_uncommited_changes then
+            if not pcall(require, "fzf-lua") then
+                print("Fzf-lua is not installed")
+                return
+            else
+                M.open_previous_files()
             end
         end
     end,
