@@ -36,6 +36,7 @@ M.spec = {
     dependencies = {
         "kevinhwang91/promise-async",
     },
+    enabled = false,
     event = "BufEnter",
     keys = {
         {
