@@ -194,6 +194,8 @@ end, { desc = "[C]opy" })
 set("n", "<leader>cll", lib.log.log_symbol, { desc = "[L]og" })
 set("n", "<leader>cld", lib.log.delete_logs, { desc = "[D]elete" })
 
+-- Only native Vim lsp keymaps are defined here.
+-- Lsp Mappings which are depended on a plugin are defined in the plugin spec file with the same event name.
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(ev)
@@ -204,7 +206,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local opts = { buffer = ev.buf }
 
         set("n", "K", vim.lsp.buf.hover, opts)
-        -- set("n", "gd", vim.lsp.buf.definition, opts)
         set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
         set("n", "gD", function()
