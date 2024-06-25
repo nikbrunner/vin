@@ -11,7 +11,7 @@ M.spec = {
 
         return {
             title = "Vinpad",
-            border = "double",
+            border = "rounded",
             dir = dir .. "/gitpad",
             on_attach = function(bufnr)
                 vim.api.nvim_buf_set_keymap(bufnr, "n", "q", "<Cmd>wq<CR>", { noremap = true, silent = true })
