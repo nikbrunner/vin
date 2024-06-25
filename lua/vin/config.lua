@@ -26,8 +26,8 @@ M.config = {
         ["catppuccin-machiato"] = { wezterm = "catppuccin-machiato" },
         ["catppuccin-latte"] = { wezterm = "catppuccin-latte" },
     },
-    open_previous_files_on_startup = false,
-    open_neotree_on_startup = false,
+    open_previous_files_on_startup = true,
+    open_neotree_on_startup = true,
     pathes = {
         repos = vim.fn.expand("~/repos"),
         config = {
