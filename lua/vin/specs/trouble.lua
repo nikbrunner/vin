@@ -71,15 +71,12 @@ M.spec = {
         },
     },
     keys = {
-        { "gd", "<cmd>Trouble lsp_definitions<cr>", desc = "LSP Definitions (Trouble)" },
-        { "gr", "<cmd>Trouble lsp_references<cr>", desc = "LSP References (Trouble)" },
-        { "<leader>dq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
         { "<leader>di", "<cmd>Trouble lsp toggle<cr>", desc = "LSP Definitions / references / ... (Trouble)" },
         { "<leader>dci", "<cmd>Trouble lsp_incoming_calls<cr>", desc = "[C]alls [I]ncoming" },
         { "<leader>dco", "<cmd>Trouble lsp_outgoing_calls<cr>", desc = "[C]alls [O]utgoing" },
         { "<leader>dD", "<cmd>Trouble diagnostics toggle  filter.buf=0<cr>", desc = "Diagnostics [D]ocument" },
         { "<leader>dW", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics [W]orkspace" },
-        -- { "<leader>es", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (Trouble)" },
+        { "<leader>dt", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (Trouble)" },
         {
             "[q",
             function()
