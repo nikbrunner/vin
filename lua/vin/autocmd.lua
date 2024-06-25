@@ -6,6 +6,14 @@ function M.augroup(name)
     return vim.api.nvim_create_augroup("vin_" .. name, { clear = true })
 end
 
+function M.open_git_status()
+    require("fzf-lua").git_status({
+        winopts = {
+            fullscreen = true,
+        },
+    })
+end
+
 function M.open_previous_files()
     local filetype = vim.bo.filetype
     local excluded_filetypes = { "gitcommit" }
@@ -17,7 +25,7 @@ function M.open_previous_files()
                 row = 0.85,
                 col = 0.5,
                 height = 0.35,
-                width = 0.75,
+                width = 0.65,
                 preview = { hidden = "hidden" },
             },
         })
@@ -47,12 +55,16 @@ auto("UIEnter", {
             end
         end
 
-        if config.open_previous_files_on_startup and not has_uncommited_changes then
+        if config.open_previous_files_on_startup then
             if not pcall(require, "fzf-lua") then
                 print("Fzf-lua is not installed")
                 return
             else
-                M.open_previous_files()
+                if has_uncommited_changes then
+                    M.open_git_status()
+                else
+                    M.open_previous_files()
+                end
             end
         end
     end,
