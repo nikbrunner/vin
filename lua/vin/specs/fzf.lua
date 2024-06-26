@@ -192,7 +192,18 @@ M.keys = {
     -- [G]it Group
     {
         "<leader>gs",
-        M.fzf("git_status", M.use_win_preset(M.win_preset.fullscreen.vertical)),
+        function()
+            require("fzf-lua").git_status({
+                winopts = {
+                    height = 0.95,
+                    width = 0.95,
+                    preview = {
+                        layout = "vertical",
+                        vertical = "up:65%",
+                    },
+                },
+            })
+        end,
         desc = "[S]tatus",
     },
     {
@@ -336,10 +347,9 @@ M.spec = {
                 ["--keep-right"] = "",
                 ["--reverse"] = "",
                 ["--border"] = false,
-                ["--preview-window"] = "border-sharp",
                 ["--highlight-line"] = true,
                 ["--border-label"] = "[ Vin ]",
-                ["--padding"] = "1,6",
+                ["--padding"] = "1,3",
                 ["--no-scrollbar"] = "",
                 ["--nth"] = "..",
             },
@@ -381,18 +391,6 @@ M.spec = {
                     cmd = "head",
                     args = nil,
                 },
-                git_diff = {
-                    cmd_deleted = "git diff --color HEAD --",
-                    cmd_modified = "git diff --color HEAD",
-                    cmd_untracked = "git diff --color --no-index /dev/null",
-                    pager = "delta --width $FZF_PREVIEW_COLUMNS",
-                },
-                codeaction_native = {
-                    cmd_deleted = "git diff --color HEAD --",
-                    cmd_modified = "git diff --color HEAD",
-                    cmd_untracked = "git diff --color --no-index /dev/null",
-                    pager = "delta --width $FZF_PREVIEW_COLUMNS",
-                },
                 man = {
                     cmd = "man -c %s | col -bx",
                 },
@@ -417,24 +415,11 @@ M.spec = {
 
             git = {
                 files = {
-                    prompt = "Git Files❯ ",
-                    cmd = "git ls-files --exclude-standard",
-                    multiprocess = false, -- run command in a separate process
+                    prompt = "Git Files  ",
                 },
 
                 status = {
-                    prompt = "Modified Files❯ ",
-                    cmd = "git status -su",
-                    previewer = "git_diff",
-                    actions = {
-                        ["default"] = actions.file_edit_or_qf,
-                        ["ctrl-s"] = actions.file_split,
-                        ["ctrl-v"] = actions.file_vsplit,
-                        ["ctrl-t"] = actions.file_tabedit,
-                        ["ctrl-q"] = actions.file_sel_to_qf,
-                        ["right"] = { actions.git_unstage, actions.resume },
-                        ["left"] = { actions.git_stage, actions.resume },
-                    },
+                    prompt = "Git Status  ",
                 },
 
                 commits = {
