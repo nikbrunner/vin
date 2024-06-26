@@ -25,7 +25,7 @@ end
 ---@type LazyPluginSpec
 M.spec = {
     "numToStr/FTerm.nvim",
-    enabled = false,
+    enabled = true,
     keys = function()
         local fterm = require("FTerm")
 
@@ -33,14 +33,16 @@ M.spec = {
             border = "solid",
             hl = "NormalFloat",
             blend = 10,
-            dimensions = { height = 0.9, width = 0.9 },
+            dimensions = { height = 0.95, width = 0.95 },
         }
 
         -- TODO:  add ability to edit picked file in neovim
         local lazygit_term = fterm:new(vim.tbl_extend("force", win_opts, {
             ft = "ftterm_lazygit",
             cmd = "lazygit",
-            on_exit = M.refresh_neotree,
+            on_exit = function()
+                -- M.refresh_neotree()
+            end,
         }))
 
         local gh_dash_term = fterm:new(vim.tbl_extend("force", win_opts, {
