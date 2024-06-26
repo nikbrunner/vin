@@ -2,7 +2,7 @@ local M = {}
 
 ---@class VinConfig
 M.config = {
-    colorscheme = "black-atom-engineering",
+    colorscheme = "black-atom-operations",
     ---@type "dark" | "light"
     background = "dark",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
@@ -26,7 +26,7 @@ M.config = {
         ["catppuccin-machiato"] = { wezterm = "catppuccin-machiato" },
         ["catppuccin-latte"] = { wezterm = "catppuccin-latte" },
     },
-    open_previous_files_on_startup = true,
+    open_previous_files_on_startup = false,
     open_neotree_on_startup = false,
     pathes = {
         repos = vim.fn.expand("~/repos"),
