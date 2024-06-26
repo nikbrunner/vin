@@ -42,6 +42,7 @@ auto("UIEnter", {
 
         require("vin.lib.ui").handle_colors(config, config.colorscheme, config.background)
 
+        -- TODO:  check if the lazy window is open. If yes - abort.
         if config.open_neotree_on_startup and is_git_dir and has_uncommited_changes then
             if not pcall(require, "neo-tree") then
                 print("NeoTree is not installed")
