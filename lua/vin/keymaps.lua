@@ -34,6 +34,9 @@ set("n", "J", "mzJ`z", { desc = "Join Lines" })
 -- Resize splits with shift + arrow
 set({ "n", "v", "x" }, "<S-Down>", "<cmd>resize -2<cr>", { desc = "Resize Split Down" })
 set({ "n", "v", "x" }, "<S-Up>", "<cmd>resize +2<cr>", { desc = "Resize Split Up" })
+
+set("n", "M", lib.ui.maximize_window, { desc = "Maximize Window" })
+
 set({ "n", "v", "x" }, "<S-Left>", "<cmd>vertical resize -2<cr>", { desc = "Resize Split Left" })
 set({ "n", "v", "x" }, "<S-Right>", "<cmd>vertical resize +2<cr>", { desc = "Resize Split Right" })
 
