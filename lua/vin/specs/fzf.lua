@@ -1,6 +1,6 @@
 local M = {}
 
-M.win_preset = {
+M.winopts = {
     sm = {
         no_preview = {
             row = 0.85,
@@ -68,500 +68,169 @@ M.win_preset = {
     },
 }
 
-M.use_win_preset = function(winopts, opts)
-    return vim.tbl_deep_extend("force", { winopts = winopts }, opts or {})
-end
-
-M.fzf = function(cmd, opts)
-    opts = opts or {}
-    return function()
-        local is_neotree_installed = pcall(require, "neo-tree")
-        if is_neotree_installed then
-            require("neo-tree.command").execute({
-                action = "close",
-                position = "float",
-            })
-        end
-
-        require("fzf-lua")[cmd](opts)
-    end
-end
-
----@type LazyKeysSpec[]
+-- stylua: ignore start
 M.keys = {
-    -- Root layer
-    {
-        "<leader><space>",
-        M.fzf("files", M.use_win_preset(M.win_preset.lg.flex)),
-        desc = "Find Files",
-    },
-    {
-        "<leader>/",
-        M.fzf("lgrep_curbuf", M.use_win_preset(M.win_preset.lg.vertical)),
-        desc = "Grep Current File",
-    },
-    {
-        "<leader>:",
-        M.fzf("commands", M.use_win_preset(M.win_preset.sm.no_preview)),
-        desc = "Commands",
-    },
-    {
-        "<leader>r",
-        M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = true })),
-        desc = "[R]ecent Files",
-    },
-    {
-        "<leader>R",
-        M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = false })),
-        desc = "[R]ecent Files (Everywhere)",
-    },
-
-    -- [C]ode Group
-    {
-        "<leader>ca",
-        mode = { "n", "v" },
-        M.fzf("lsp_code_actions"),
-        desc = "Code [A]ction",
-    },
-
-    -- [S]earch Group
-    {
-        "<leader>s.",
-        M.fzf("resume"),
-        desc = "[.] Resume",
-    },
-    {
-        "<leader>s:",
-        M.fzf("commands", M.use_win_preset(M.win_preset.sm.no_preview)),
-        desc = "[C]ommands",
-    },
-    {
-        "<leader>sh",
-        M.fzf("help_tags"),
-        desc = "[H]elp Tags",
-    },
-    {
-        "<leader>sH",
-        M.fzf("highlights"),
-        desc = "[H]ighlights",
-    },
-    {
-        "<leader>sk",
-        M.fzf("keymaps"),
-        desc = "[K]eymaps",
-    },
-    {
-        "<leader>sw",
-        M.fzf("grep_cword"),
-        mode = { "n", "v" },
-        desc = "[W]ord",
-    },
-    -- TODO: search visual selection
-    {
-        "<leader>sm",
-        M.fzf("marks"),
-        desc = "[M]arks",
-    },
-    {
-        "<leader>sM",
-        M.fzf("man_pages"),
-        desc = "[M]an Pages",
-    },
-    {
-        "<leader>sg",
-        M.fzf("live_grep_native", M.use_win_preset(M.win_preset.lg.vertical)),
-        desc = "[G]rep",
-    },
-    {
-        "<leader>sG",
-        M.fzf("live_grep_resume"),
-        desc = "[G]rep Resume",
-    },
-    {
-        "<leader>s'",
-        M.fzf("registers", M.use_win_preset(M.win_preset.lg.vertical)),
-        mode = { "n", "v" },
-        desc = "[R]egisters",
-    },
-    {
-        "<leader>s<Tab>",
-        M.fzf("tabs"),
-        desc = "[Tab]s",
-    },
-
-    -- [G]it Group
-    {
-        "<leader>gs",
-        function()
-            require("fzf-lua").git_status({
-                winopts = {
-                    height = 0.95,
-                    width = 0.95,
-                    preview = {
-                        layout = "vertical",
-                        vertical = "up:65%",
-                    },
-                },
-            })
-        end,
-        desc = "[S]tatus",
-    },
-    {
-        "<leader>gc",
-        M.fzf("changes"),
-        desc = "[C]hanges",
-    },
-    {
-        "<leader>gB",
-        M.fzf("git_branches"),
-        desc = "[B]ranches",
-    },
-    {
-        "<leader>gC",
-        M.fzf("git_commits"),
-        desc = "[C]ommits",
-    },
-
-    -- [U]I Group
-    {
-        "<leader>ut",
-        M.fzf("colorschemes"),
-        desc = "Toggle [T]themes",
-    },
-    {
-        "<leader>uT",
-        M.fzf("awesome_colorschemes"),
-        desc = "Toggle 'Awesome' [T]hemes",
-    },
-
-    -- [D]iagnostics Group - Currently handled by Trouble
-    {
-        "<leader>dd",
-        M.fzf("lsp_document_diagnostics", M.use_win_preset(M.win_preset.lg.vertical)),
-        desc = "Document Diagnostics",
-    },
-    {
-        "<leader>dw",
-        M.fzf("lsp_workspace_diagnostics", M.use_win_preset(M.win_preset.lg.vertical)),
-        desc = "Workspace Diagnostics",
-    },
-
-    -- No leader key
-    {
-        "gs",
-        M.fzf("lsp_document_symbols", M.use_win_preset(M.win_preset.lg.vertical)),
-        desc = "Document [S]ymbols",
-    },
-    {
-        "gS",
-        M.fzf("lsp_live_workspace_symbols", M.use_win_preset(M.win_preset.lg.vertical)),
-        desc = "Workspace [S]ymbols",
-    },
-
-    -- Insert Mode
-    -- { "<C-r>",               M.fzf("registers", M.use_win_preset( M.win_preset.sm.no_preview)), mode = { "i" }, desc = "Registers" }
+    { "<leader><space>", function() require("fzf-lua").files({ winopts = M.winopts.lg.flex }) end, desc = "Find Files" },
+    { "<leader>/", function() require("fzf-lua").lgrep_curbuf({ winopts = M.winopts.lg.vertical }) end, desc = "Grep Current File" },
+    { "<leader>:", function() require("fzf-lua").commands({ winopts = M.winopts.sm.no_preview }) end, desc = "Commands" },
+    { "<leader>r", function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "[R]ecent Files" },
+    { "<leader>R", function() require("fzf-lua").oldfiles({ cwd_only = false, winopts = M.winopts.sm.no_preview }) end, desc = "[R]ecent Files (Everywhere)" },
+    { "<leader>s.", function() require("fzf-lua").resume() end, desc = "[.] Resume" },
+    { "<leader>sh", function() require("fzf-lua").help_tags() end, desc = "[H]elp Tags" },
+    { "<leader>sH", function() require("fzf-lua").highlights() end, desc = "[H]ighlights" },
+    { "<leader>sk", function() require("fzf-lua").keymaps() end, desc = "[K]eymaps" },
+    { "<leader>sw", function() require("fzf-lua").grep_cword() end, mode = { "n", "v" }, desc = "[W]ord" },
+    { "<leader>sm", function() require("fzf-lua").marks() end, desc = "[M]arks" },
+    { "<leader>sM", function() require("fzf-lua").man_pages() end, desc = "[M]an Pages" },
+    { "<leader>sg", function() require("fzf-lua").live_grep_native({ winopts = M.winopts.lg.vertical }) end, desc = "[G]rep" },
+    { "<leader>sG", function() require("fzf-lua").live_grep_resume() end, desc = "[G]rep Resume" },
+    { "<leader>s'", function() require("fzf-lua").registers({ winopts = M.winopts.lg.vertical }) end, mode = { "n", "v" }, desc = "[R]egisters" },
+    { "<leader>s<Tab>", function() require("fzf-lua").tabs() end, desc = "[Tab]s" },
+    { "<leader>gs", function() require("fzf-lua").git_status({ winopts = M.winopts.lg.vertical }) end, desc = "[S]tatus" },
+    { "<leader>gc", function() require("fzf-lua").changes() end, desc = "[C]hanges" },
+    { "<leader>gB", function() require("fzf-lua").git_branches() end, desc = "[B]ranches" },
+    { "<leader>gC", function() require("fzf-lua").git_commits() end, desc = "[C]ommits" },
+    { "<leader>ut", function() require("fzf-lua").colorschemes() end, desc = "Toggle [T]themes" },
+    { "<leader>uT", function() require("fzf-lua").awesome_colorschemes() end, desc = "Toggle 'Awesome' [T]hemes" },
+    { "<leader>dd", function() require("fzf-lua").lsp_document_diagnostics({ winopts = M.winopts.lg.vertical }) end, desc = "Document Diagnostics" },
+    { "<leader>dw", function() require("fzf-lua").lsp_workspace_diagnostics({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace Diagnostics" },
+    { "gs", function() require("fzf-lua").lsp_document_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Document [S]ymbols" },
+    { "gS", function() require("fzf-lua").lsp_live_workspace_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace [S]ymbols" },
 }
+-- stylua: ignore end
 
--- NOTE: handover `search=<searchTerm>` to prefill the fzf picker
+M.lsp_attach = function()
+    vim.keymap.set("n", "gd", function()
+        require("fzf-lua").lsp_definitions({
+            jump_to_single_result = true,
+            jump_type = "vsplit",
+            winopts = M.winopts.lg.vertical,
+        })
+    end, { desc = "Go to [D]efinition" })
 
----@type LazyPluginSpec
+    vim.keymap.set("n", "gr", function()
+        require("fzf-lua").lsp_references({
+            jump_to_single_result = true,
+            jump_type = "vsplit",
+            multiline = 2,
+            winopts = M.winopts.lg.vertical,
+        })
+    end, { desc = "Go to [R]eferences" })
+
+    vim.keymap.set("n", "<leader>ca", function()
+        require("fzf-lua").lsp_code_actions({
+            previewer = false,
+            winopts = M.winopts.sm.no_preview,
+        })
+    end, { desc = "Code [A]ction" })
+end
+
 M.spec = {
     "ibhagwan/fzf-lua",
     keys = M.keys,
-    -- authors repo: https://github.com/ibhagwan/nvim-lua/blob/main/lua/plugins/fzf-lua/setup.lua
-    opts = function()
-        local actions = require("fzf-lua.actions")
-        return {
-            global_resume = true, -- enable global `resume`?
-            global_resume_query = true, -- include typed query in `resume`?
-            file_icon_padding = " ",
-
-            -- ❤️ https://github.com/ibhagwan/fzf-lua/issues/1051#issuecomment-2094803850
-            defaults = {
-                formatter = "path.filename_first",
-                git_icons = true, -- show git icons?
-                file_icons = true, -- show file icons?
-                color_icons = true, -- colorize file|git icons
-                -- multiline = 2,
-            },
-
-            winopts = {
-                height = 0.85,
-                width = 0.85,
-                row = 0.35,
-                col = 0.50,
-                border = "none",
-                preview = {
-                    border = "border", -- border|noborder, applies only to
-                    wrap = "nowrap", -- wrap|nowrap
-                    hidden = "nohidden", -- hidden|nohidden
-                    vertical = "up:65%", -- up|down:size
-                    horizontal = "right:60%", -- right|left:size
-                    layout = "flex", -- horizontal|vertical|flex
-                    flip_columns = 200, -- #cols to switch to horizontal on flex
-                    title = true, -- preview border title (file/buf)?
-                    delay = 100, -- delay(ms) displaying the preview
-                    winopts = { -- builtin previewer window options
-                        number = false,
-                        relativenumber = false,
-                        cursorline = true,
-                        cursorlineopt = "both",
-                        cursorcolumn = false,
-                        signcolumn = "no",
-                        list = false,
-                        foldenable = false,
-                        foldmethod = "manual",
-                    },
-                },
-
-                on_create = function()
-                    vim.keymap.set("t", "<C-j>", "<Down>", { silent = true, buffer = true })
-                    vim.keymap.set("t", "<C-k>", "<Up>", { silent = true, buffer = true })
-                end,
-            },
-
-            keymap = {
-                builtin = {
-                    ["<C-d>"] = "preview-page-down",
-                    ["<C-u>"] = "preview-page-up",
-                },
-                fzf = {
-                    ["ctrl-c"] = "abort",
-                    ["ctrl-a"] = "toggle-all",
-
-                    ["f3"] = "toggle-preview-wrap",
-                    ["f4"] = "toggle-preview",
-
-                    ["ctrl-d"] = "preview-page-down",
-                    ["ctrl-u"] = "preview-page-up",
-
-                    ["ctrl-q"] = "select-all+accept",
+    opts = {
+        global_resume = true,
+        global_resume_query = true,
+        defaults = {
+            formatter = "path.filename_first",
+            git_icons = true, -- show git icons?
+            file_icons = true, -- show file icons?
+            color_icons = true, -- colorize file|git icons
+        },
+        winopts = {
+            height = 0.85,
+            width = 0.85,
+            row = 0.35,
+            col = 0.50,
+            border = "none",
+            preview = {
+                border = "border", -- border|noborder, applies only to
+                wrap = "nowrap", -- wrap|nowrap
+                hidden = "nohidden", -- hidden|nohidden
+                vertical = "up:65%", -- up|down:size
+                horizontal = "right:60%", -- right|left:size
+                layout = "flex", -- horizontal|vertical|flex
+                flip_columns = 200, -- #cols to switch to horizontal on flex
+                title = true, -- preview border title (file/buf)?
+                delay = 100, -- delay(ms) displaying the preview
+                winopts = { -- builtin previewer window options
+                    number = false,
+                    relativenumber = false,
+                    cursorline = true,
+                    cursorlineopt = "both",
+                    cursorcolumn = false,
+                    signcolumn = "no",
+                    list = false,
+                    foldenable = false,
+                    foldmethod = "manual",
                 },
             },
-
-            fzf_opts = {
-                ["--ansi"] = "",
-                ["--prompt"] = "  ",
-                ["--height"] = "100%",
-                ["--layout"] = "reverse",
-                ["--keep-right"] = "",
-                ["--reverse"] = "",
-                ["--border"] = false,
-                ["--highlight-line"] = true,
-                ["--border-label"] = "[ Vin ]",
-                ["--padding"] = "1,3",
-                ["--no-scrollbar"] = "",
-                ["--nth"] = "..",
+        },
+        keymap = {
+            builtin = {
+                ["<C-d>"] = "preview-page-down",
+                ["<C-u>"] = "preview-page-up",
             },
-
-            fzf_colors = {
-                ["fg"] = { "fg", "Normal" },
-                ["fg+"] = { "fg", "CursorLineNr" },
-                ["bg"] = { "bg", "NormalFloat" },
-                ["hl"] = { "fg", "Comment" },
-                ["hl+"] = { "fg", "Statement" },
-                ["bg+"] = { "bg", "Visual" },
-                ["border"] = { "fg", "CursorLineNr" },
-                ["query"] = { "fg", "Statement" },
-                ["info"] = { "fg", "PreProc" },
-                ["label"] = { "fg", "CursorLineNr" },
-                ["prompt"] = { "fg", "Conditional" },
-                ["pointer"] = { "fg", "CursorLineNr" },
-                ["marker"] = { "fg", "Keyword" },
-                ["spinner"] = { "fg", "Label" },
-                ["header"] = { "fg", "Comment" },
-                ["gutter"] = { "bg", "NormalFloat" },
+            fzf = {
+                ["ctrl-c"] = "abort",
+                ["ctrl-a"] = "toggle-all",
+                ["f3"] = "toggle-preview-wrap",
+                ["f4"] = "toggle-preview",
+                ["ctrl-d"] = "preview-page-down",
+                ["ctrl-u"] = "preview-page-up",
+                ["ctrl-q"] = "select-all+accept",
             },
-
-            previewers = {
-                builtin = {
-                    syntax = true,
-                    treesitter = { enable = true },
-                },
-                cat = {
-                    cmd = "cat",
-                    args = "--number",
-                },
-                bat = {
-                    cmd = "bat",
-                    args = "--style=numbers,changes --color always",
-                    theme = "base16",
-                },
-                head = {
-                    cmd = "head",
-                    args = nil,
-                },
-                man = {
-                    cmd = "man -c %s | col -bx",
-                },
+        },
+        fzf_opts = {
+            ["--prompt"] = "   ",
+            ["--keep-right"] = "",
+            ["--border-label"] = "[ Vin ]",
+            ["--padding"] = "1,3",
+        },
+        fzf_colors = {
+            ["fg"] = { "fg", "Normal" },
+            ["fg+"] = { "fg", "CursorLineNr" },
+            ["bg"] = { "bg", "NormalFloat" },
+            ["hl"] = { "fg", "Comment" },
+            ["hl+"] = { "fg", "Statement" },
+            ["bg+"] = { "bg", "Visual" },
+            ["border"] = { "fg", "CursorLineNr" },
+            ["query"] = { "fg", "Statement" },
+            ["info"] = { "fg", "PreProc" },
+            ["label"] = { "fg", "CursorLineNr" },
+            ["prompt"] = { "fg", "Conditional" },
+            ["pointer"] = { "fg", "CursorLineNr" },
+            ["marker"] = { "fg", "Keyword" },
+            ["spinner"] = { "fg", "Label" },
+            ["header"] = { "fg", "Comment" },
+            ["gutter"] = { "bg", "NormalFloat" },
+        },
+        previewers = {
+            builtin = {
+                treesitter = { enable = true },
             },
-
-            files = {
-                prompt = "  ",
-                multiprocess = true, -- run command in a separate process
-                header = false,
-                multiline = 2,
-                find_opts = [[-type f -not -path '*/\.git/*' -not -name '.DS_Store' -printf '%P\n']],
-                rg_opts = "--color=never --files --hidden --follow -g '!.git' -g '!.DS_Store'",
-                fd_opts = "--color=never --type f --hidden --follow --exclude .git --exclude .DS_Store",
-                -- by default, cwd appears in the header only if {opts} contain a cwd
-                -- parameter to a different folder than the current working directory
-                -- uncomment if you wish to force display of the cwd as part of the
-                -- query prompt string (fzf.vim style), header line or both
-                cwd_prompt = false,
-                cwd_prompt_shorten_len = 32, -- shorten prompt beyond this length
-                cwd_prompt_shorten_val = 1, -- shortened path parts length
-            },
-
-            git = {
-                files = {
-                    prompt = "Git Files  ",
-                },
-
-                status = {
-                    prompt = "Git Status  ",
-                },
-
-                commits = {
-                    prompt = "Commits❯ ",
-                    cmd = "git log --pretty=oneline --abbrev-commit --color",
-                    preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1} | delta --width $FZF_PREVIEW_COLUMNS",
-                    actions = {
-                        ["default"] = actions.git_checkout,
-                    },
-                },
-
-                bcommits = {
-                    prompt = "BCommits❯ ",
-                    cmd = "git log --pretty=oneline --abbrev-commit --color",
-                    preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1} | delta --width $FZF_PREVIEW_COLUMNS",
-                    actions = {
-                        ["default"] = actions.git_buf_edit,
-                        ["ctrl-s"] = actions.git_buf_split,
-                        ["ctrl-v"] = actions.git_buf_vsplit,
-                        ["ctrl-t"] = actions.git_buf_tabedit,
-                    },
-                },
-
-                branches = {
-                    prompt = "Branches❯ ",
-                    cmd = "git branch --all --color",
-                    preview = "git log --graph --pretty=oneline --abbrev-commit --color {1}",
-                    actions = {
-                        ["default"] = actions.git_switch,
-                    },
-                },
-
-                icons = {
-                    ["M"] = { icon = "M", color = "yellow" },
-                    ["D"] = { icon = "D", color = "red" },
-                    ["A"] = { icon = "A", color = "green" },
-                    ["R"] = { icon = "R", color = "yellow" },
-                    ["C"] = { icon = "C", color = "yellow" },
-                    ["?"] = { icon = "?", color = "magenta" },
-                },
-            },
-
-            grep = {
-                prompt = "Grep Text❯ ",
-                input_prompt = "Grep For❯ ",
-                -- multiline = 2,
-                multiprocess = true, -- run command in a separate process
-                rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512",
-                grep_opts = "--binary-files=without-match --line-number --recursive --color=auto",
-                -- 'live_grep_glob' options:
-                glob_flag = "--iglob", -- for case sensitive globs use '--glob'
-                glob_separator = "%s%-%-", -- query separator pattern (lua): ' --'
-                -- actions = {
-                --     ["ctrl-q"] = "select-all+accept",
-                -- },
-            },
-
-            oldfiles = {
-                prompt = "History❯ ",
-                cwd_only = true,
-                stat_file = true,
-                include_current_session = true, -- include bufs from current session
-            },
-
-            buffers = {
-                prompt = "Buffers❯ ",
-                sort_lastused = true, -- sort buffers() by last used
-                cwd_only = true, -- buffers for the cwd only
-                cwd = nil, -- buffers list for a given dir
-                actions = {
-                    ["ctrl-x"] = { actions.buf_del, actions.resume },
-                },
-            },
-
-            lsp = {
-                prompt_postfix = "❯ ", -- will be appended to the LSP label
-                cwd_only = true, -- LSP/diagnostics for cwd only?
-                async_or_timeout = 5000, -- timeout(ms) or 'true' for async calls
-                symbols = {
-                    async_or_timeout = true, -- symbols are async by default
-                    symbol_style = 1, -- style for document/workspace symbols
-                    symbol_hl_prefix = "CmpItemKind",
-                    symbol_fmt = function(s)
-                        return "[" .. s .. "]"
-                    end,
-                },
-
-                code_actions = {
-                    prompt = "Code Actions> ",
-                    async_or_timeout = 5000,
-                    previewer = false,
-                    winopts = {
-                        row = 0.5,
-                        col = 0.5,
-                        height = 0.35,
-                        width = 0.60,
-                    },
-                },
-            },
-        }
-    end,
+        },
+        files = {
+            prompt = "Files  ",
+        },
+        git = {
+            files = { prompt = "Git Files  " },
+            status = { prompt = "Git Status  " },
+        },
+        grep = {
+            rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512",
+        },
+    },
     config = function(_, opts)
         require("fzf-lua").setup(opts)
 
-        -- https://github.com/folke/trouble.nvim?tab=readme-ov-file#fzf-lua
         local config = require("fzf-lua.config")
         local actions = require("trouble.sources.fzf").actions
         config.defaults.actions.files["ctrl-t"] = actions.open
 
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("FzfLuaLspAttachGroup", { clear = true }),
-            callback = function()
-                vim.keymap.set("n", "gd", function()
-                    require("fzf-lua").lsp_definitions({
-                        jump_to_single_result = true,
-                        jump_type = "vsplit",
-                        winopts = {
-                            height = 0.95,
-                            width = 0.75,
-                            preview = {
-                                layout = "vertical",
-                                vertical = "up:65%",
-                            },
-                        },
-                    })
-                end, { desc = "Go to [D]efinition" })
-
-                vim.keymap.set("n", "gr", function()
-                    require("fzf-lua").lsp_references({
-                        jump_to_single_result = true,
-                        jump_type = "vsplit",
-                        winopts = {
-                            height = 0.95,
-                            width = 0.75,
-                            preview = {
-                                layout = "vertical",
-                                vertical = "up:65%",
-                            },
-                        },
-                    })
-                end, { desc = "Go to [R]eferences" })
-            end,
+            callback = M.lsp_attach,
         })
     end,
 }
