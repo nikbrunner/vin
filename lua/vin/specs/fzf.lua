@@ -106,12 +106,12 @@ M.keys = {
         desc = "Commands",
     },
     {
-        "<C-r>",
+        "<leader>r",
         M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = true })),
         desc = "[R]ecent Files",
     },
     {
-        "<leader>sr",
+        "<leader>R",
         M.fzf("oldfiles", M.use_win_preset(M.win_preset.sm.no_preview, { cwd_only = false })),
         desc = "[R]ecent Files (Everywhere)",
     },
@@ -122,12 +122,6 @@ M.keys = {
         mode = { "n", "v" },
         M.fzf("lsp_code_actions"),
         desc = "Code [A]ction",
-    },
-    {
-        "g.",
-        mode = { "n", "v" },
-        M.fzf("lsp_code_actions"),
-        desc = "Code [R]efator",
     },
 
     -- [S]earch Group

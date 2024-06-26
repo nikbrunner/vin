@@ -9,7 +9,7 @@ M.spec = {
         { "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" } },
 
         {
-            "<C-p>",
+            "<C-r>",
             "<cmd>YankyRingHistory<cr>",
             desc = "[Y]ank History",
             mode = { "i", "n", "x" },
