@@ -25,6 +25,7 @@ end
 ---@type LazyPluginSpec
 M.spec = {
     "numToStr/FTerm.nvim",
+    enabled = false,
     keys = function()
         local fterm = require("FTerm")
 
