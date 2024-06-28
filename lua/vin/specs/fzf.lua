@@ -113,6 +113,7 @@ M.lsp_attach = function()
             jump_to_single_result = true,
             jump_type = "vsplit",
             multiline = 2,
+
             winopts = M.winopts.lg.vertical,
         })
     end, { desc = "Go to [R]eferences" })
@@ -120,7 +121,13 @@ M.lsp_attach = function()
     vim.keymap.set("n", "<leader>ca", function()
         require("fzf-lua").lsp_code_actions({
             previewer = false,
-            winopts = M.winopts.sm.no_preview,
+            winopts = {
+                row = 0.85,
+                col = 0.5,
+                height = 0.35,
+                width = 0.5,
+                preview = { hidden = "hidden" },
+            },
         })
     end, { desc = "Code [A]ction" })
 end
@@ -212,6 +219,12 @@ M.spec = {
         },
         files = {
             prompt = "Files  ",
+        },
+        oldfiles = {
+            prompt = "History❯ ",
+            cwd_only = true,
+            stat_file = true,
+            include_current_session = true, -- include bufs from current session
         },
         git = {
             files = { prompt = "Git Files  " },
