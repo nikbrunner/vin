@@ -126,7 +126,8 @@ M.specs = {
 
                             "%<", -- Mark general truncate point
 
-                            { hl = "Comment", strings = { location, diagnostics } },
+                            { hl = "Comment", strings = { location } },
+                            { hl = "DiagnosticError", strings = { diagnostics } },
 
                             "%=", -- End left alignment
 
