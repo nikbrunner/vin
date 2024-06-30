@@ -86,9 +86,10 @@ M.specs = {
 
             vim.diagnostic.config({
                 underline = false,
-                virtual_text = {
-                    prefix = " " .. require("vin.icons").misc.circle,
-                },
+                -- virtual_text = {
+                --     prefix = " " .. require("vin.icons").misc.circle,
+                -- },
+                virtual_text = false,
                 signs = true,
                 update_in_insert = false,
                 float = {
@@ -131,6 +132,15 @@ M.specs = {
                     end)
                 end,
             })
+        end,
+    },
+
+    {
+        "rachartier/tiny-inline-diagnostic.nvim",
+        event = "VeryLazy",
+        config = function()
+            vim.opt.updatetime = 100
+            require("tiny-inline-diagnostic").setup()
         end,
     },
 }
