@@ -52,7 +52,6 @@
   "trouble.nvim": { "branch": "main", "commit": "e5d0e04121c662ce29190a57dd03655d43c59d44" },
   "ts-comments.nvim": { "branch": "main", "commit": "c075b4ee00f6e111b44bf99a8cfd5a4cfce9258a" },
   "vim-illuminate": { "branch": "master", "commit": "5eeb7951fc630682c322e88a9bbdae5c224ff0aa" },
-  "vscode.nvim": { "branch": "main", "commit": "46212834b32866ce45479f885ca82d2259044f46" },
   "whatthejump.nvim": { "branch": "main", "commit": "d05b93eca173d374d603e2b8709f18ae6dd4b7af" },
   "which-key.nvim": { "branch": "main", "commit": "0099511294f16b81c696004fa6a403b0ae61f7a0" },
   "wtf.nvim": { "branch": "main", "commit": "8e7bec4d3cb2ea2e3d078b9af8c4cc68d1066c33" },
