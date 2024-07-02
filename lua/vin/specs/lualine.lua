@@ -29,7 +29,12 @@ M.spec = {
 
             sections = {
                 lualine_a = {
-                    { "fancy_mode", padding = 2, width = 1 },
+                    {
+                        "fancy_mode",
+                        padding = 2,
+                        width = 1,
+                        separator = { left = "", right = "" },
+                    },
                 },
                 lualine_b = {
                     { "fancy_cwd", substitute_home = true, padding = 2 },
@@ -92,6 +97,7 @@ M.spec = {
                             local ms = (math.floor(lazy_stats.startuptime * 100 + 0.5) / 100)
                             return " " .. ms .. "ms"
                         end,
+                        separator = { left = "", right = "" },
                     },
                 },
             },
