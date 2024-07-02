@@ -149,7 +149,7 @@ M.spec = {
             width = 0.85,
             row = 0.35,
             col = 0.50,
-            border = "none",
+            border = "single",
             preview = {
                 border = "border", -- border|noborder, applies only to
                 wrap = "nowrap", -- wrap|nowrap
@@ -193,6 +193,7 @@ M.spec = {
             ["--keep-right"] = "",
             ["--border-label"] = "[ Vin ]",
             ["--padding"] = "1,3",
+            ["--no-scrollbar"] = "",
         },
         fzf_colors = {
             ["fg"] = { "fg", "Normal" },
