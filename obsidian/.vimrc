@@ -20,12 +20,6 @@ nmap <C-i> :forward
 exmap reload obcommand app:reload
 exmap changelog obcommand app:show-release-notes
 
-" Workspace
-exmap previoustab obcommand workspace:previous-tab
-nmap H :previoustab
-exmap nexttab obcommand workspace:next-tab
-nmap L :nexttab
-
 " Split
 exmap vs obcommand workspace:split-vertical
 exmap sp obcommand workspace:split-horizontal
