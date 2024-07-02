@@ -2,7 +2,7 @@ local M = {}
 
 ---@class VinConfig
 M.config = {
-    colorscheme = "black-atom-operations",
+    colorscheme = "catppuccin-mocha",
     ---@type "dark" | "light"
     background = "dark",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
@@ -23,7 +23,7 @@ M.config = {
         ["catppuccin"] = { wezterm = "catppuccin" },
         ["catppuccin-mocha"] = { wezterm = "catppuccin-mocha" },
         ["catppuccin-frappe"] = { wezterm = "catppuccin-frappe" },
-        ["catppuccin-machiato"] = { wezterm = "catppuccin-machiato" },
+        ["catppuccin-macchiato"] = { wezterm = "catppuccin-macchiato" },
         ["catppuccin-latte"] = { wezterm = "catppuccin-latte" },
     },
     open_previous_files_on_startup = false,
