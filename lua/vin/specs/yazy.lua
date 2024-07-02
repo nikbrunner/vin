@@ -6,6 +6,7 @@ M.spec = {
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
+    enabled = false,
     event = "VeryLazy",
     keys = {
         {
