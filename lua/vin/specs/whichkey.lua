@@ -37,7 +37,7 @@ M.spec = {
                 position = "bottom",
                 margin = { 1, 0, 1, 0.65 },
                 padding = { 2, 2, 2, 2 },
-                winblend = 0,
+                winblend = 10,
             },
 
             layout = {
