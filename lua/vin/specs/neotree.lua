@@ -33,14 +33,6 @@ M.spec = {
                 desc = "[F]iles",
             },
             {
-                "<C-e>",
-                function()
-                    close_side_panels()
-                    vim.cmd("Neotree float toggle reveal")
-                end,
-                desc = "[F]iles",
-            },
-            {
                 "<leader>eg",
                 function()
                     close_side_panels()
@@ -105,19 +97,8 @@ M.spec = {
                 "git_status",
                 "document_symbols",
             },
-            -- nesting_rules = {
-            --     ["package.json"] = {
-            --         pattern = "^package%.json$", -- <-- Lua pattern
-            --         files = { "package-lock.json", "yarn*" }, -- <-- glob pattern
-            --     },
-            --     ["go"] = {
-            --         pattern = "(.*)%.go$", -- <-- Lua pattern with capture
-            --         files = { "%1_test.go" }, -- <-- glob pattern with capture
-            --     },
-            --     ["ts"] = { "spec.ts" },
-            -- },
             filesystem = {
-                hijack_netrw_behavior = "disabled",
+                -- hijack_netrw_behavior = "open",
                 use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
                 follow_current_file = {
                     enabled = true, -- This will find and focus the file in the active buffer every time the current file is changed while the tree is open.
@@ -188,7 +169,7 @@ M.spec = {
                         width = 65,
                     },
                     border = {
-                        padding = { 2, 8 },
+                        padding = { 1, 4 },
                         style = "solid",
                     },
                 },
