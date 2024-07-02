@@ -6,177 +6,17 @@ M.spec = {
     dependencies = {
         "meuter/lualine-so-fancy.nvim",
         "piersolenski/wtf.nvim",
-        "black-atom-industries/black-atom.nvim",
     },
     event = "VeryLazy",
-    enabled = false,
-    config = function()
-        local colors = require("black-atom.api").get_colors()
+    opts = function()
+        local lazy_stats = require("lazy").stats()
+        local lazy_status = require("lazy.status")
 
-        local fg = {
-            light = colors.semantics.fg.primary.light,
-            main = colors.semantics.fg.primary.main,
-            dark = colors.semantics.fg.primary.dark,
-        }
-
-        local bg = {
-            light = colors.semantics.bg.primary.light,
-            main = colors.semantics.bg.primary.main,
-            dark = colors.semantics.bg.primary.dark,
-        }
-
-        local modecolor = {
-            n = colors.palette.red,
-            i = colors.palette.cyan,
-            v = colors.palette.magenta,
-            [""] = colors.palette.magenta,
-            V = colors.palette.red,
-            c = colors.palette.yellow,
-            no = colors.palette.red,
-            s = colors.palette.yellow,
-            S = colors.palette.yellow,
-            [""] = colors.palette.yellow,
-            ic = colors.palette.yellow,
-            R = colors.palette.green,
-            Rv = colors.palette.magenta,
-            cv = colors.palette.red,
-            ce = colors.palette.red,
-            r = colors.palette.cyan,
-            rm = colors.palette.cyan,
-            ["r?"] = colors.palette.cyan,
-            ["!"] = colors.palette.dark_red,
-            t = colors.palette.red,
-        }
-
-        local space = {
-            function()
-                return " "
-            end,
-            color = { bg = bg.main, fg = colors.palette.blue },
-        }
-
-        local modes = {
-            "mode",
-            color = function()
-                local mode_color = modecolor
-                return { bg = mode_color[vim.fn.mode()], fg = bg.dark, gui = "bold" }
-            end,
-            separator = { left = "", right = "" },
-        }
-
-        local filename = {
-            "filename",
-            file_status = true, -- Displays file status (readonly status, modified status)
-            newfile_status = true, -- Display new file status (new file means no write after created)
-            path = 1, -- 0: Just the filename
-            color = { bg = colors.palette.blue, fg = bg.main, gui = "bold" },
-            separator = { left = "", right = "" },
-        }
-
-        local filetype = {
-            "filetype",
-            icons_enabled = false,
-            color = { bg = bg.light, fg = colors.semantics.fg.primary.main, gui = "italic,bold" },
-            separator = { left = "", right = "" },
-        }
-
-        local branch = {
-            "fancy_branch",
-            icon = "",
-            color = { bg = colors.palette.green, fg = bg.main, gui = "bold" },
-            separator = { left = "", right = "" },
-        }
-
-        local diff = {
-            "fancy_diff",
-            color = { bg = bg.light, fg = fg.main, gui = "bold" },
-            separator = { left = "", right = "" },
-            symbols = { added = " ", modified = " ", removed = " " },
-
-            diff_color = {
-                added = { fg = colors.palette.green },
-                modified = { fg = colors.palette.yellow },
-                removed = { fg = colors.palette.red },
-            },
-        }
-
-        local diagnostics = {
-            "fancy_diagnostics",
-            sources = { "nvim_diagnostic" },
-            symbols = { error = " ", warn = " ", info = " ", hint = " " },
-            diagnostics_color = {
-                error = { fg = colors.palette.red },
-                warn = { fg = colors.palette.yellow },
-                info = { fg = colors.palette.magenta },
-                hint = { fg = colors.palette.cyan },
-            },
-            color = { bg = colors.semantics.bg.secondary.light, fg = colors.semantics.fg.invert, gui = "bold" },
-            separator = { left = "", right = "" },
-        }
-
-        local lsp = {
-            "fancy_lsp_servers",
-            separator = { left = "", right = "" },
-            color = { bg = colors.palette.magenta, fg = bg.main, gui = "italic,bold" },
-        }
-
-        ---@diagnostic disable-next-line: unused-local
-        local last_commit_message = {
-            function()
-                local message = vim.fn.systemlist("git log -1 --pretty=%s")[1]
-                if message == nil then
-                    return ""
-                end
-                return message
-            end,
-            color = { bg = bg.light, fg = fg.main, gui = "italic,bold" },
-            separator = { left = "", right = "" },
-        }
-
-        ---@diagnostic disable-next-line: unused-local
-        local git_clean = {
-            function()
-                if vim.fn.system("git status -s") == "" then
-                    return "✔"
-                else
-                    return "✘"
-                end
-            end,
-            color = { bg = bg.light, fg = fg.main, gui = "italic,bold" },
-            separator = { left = "", right = "" },
-        }
-
-        local lazy_plug_count = {
-            function()
-                local stats = require("lazy").stats()
-                return " " .. stats.count
-            end,
-            separator = { left = "", right = "" },
-            color = { bg = colors.palette.dark_yellow, fg = colors.semantics.fg.invert, gui = "bold" },
-        }
-
-        local lazy_startup = {
-            function()
-                local stats = require("lazy").stats()
-                local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-                return " " .. ms .. "ms"
-            end,
-            separator = { left = "", right = "" },
-            color = { bg = bg.light, fg = fg.main },
-        }
-
-        local lazy_plug_updates = {
-            require("lazy.status").updates,
-            padding = 1,
-            separator = { left = "", right = "" },
-            color = { bg = bg.light, fg = fg.dark },
-        }
-
-        require("lualine").setup({
+        return {
             options = {
                 icons_enabled = true,
-                theme = "black_atom",
-                component_separators = { left = "", right = "" },
+                theme = "catppuccin",
+                component_separators = { left = "|", right = "|" },
                 section_separators = { left = "", right = "" },
                 disabled_filetypes = {
                     statusline = { "" },
@@ -189,29 +29,70 @@ M.spec = {
 
             sections = {
                 lualine_a = {
-                    modes,
+                    { "fancy_mode", padding = 2, width = 1 },
                 },
                 lualine_b = {
-                    space,
-                    branch,
-                    space,
+                    { "fancy_cwd", substitute_home = true, padding = 2 },
                 },
                 lualine_c = {
-                    filetype,
-                    filename,
-                    diff,
-                    diagnostics,
-                    space,
+                    {
+                        "fancy_branch",
+                        icon = "",
+                        padding = 3,
+                    },
+                    {
+                        "fancy_diff",
+                        symbols = { added = " ", modified = " ", removed = " " },
+                    },
+                    {
+                        "fancy_diagnostics",
+                        sources = { "nvim_diagnostic" },
+                        symbols = { error = " ", warn = " ", info = " ", hint = " " },
+                    },
                 },
                 lualine_x = {
-                    space,
+                    {
+                        function()
+                            if vim.g.vin_autoformat_enabled then
+                                return "󰉶 On"
+                            else
+                                return "󰉶 Off"
+                            end
+                        end,
+                    },
+                    "fancy_macro",
+                    "fancy_searchcount",
                 },
-                lualine_y = { lsp },
+                lualine_y = {
+                    {
+                        function()
+                            return require("wtf").get_status()
+                        end,
+                    },
+                    { "fancy_filetype", ts_icon = "", padding = 2 },
+                    { "fancy_lsp_servers" },
+                },
                 lualine_z = {
-                    space,
-                    lazy_plug_count,
-                    lazy_plug_updates,
-                    lazy_startup,
+                    {
+                        function()
+                            return vim.g.colors_name or "default"
+                        end,
+                    },
+                    {
+                        lazy_status.updates,
+                        cond = lazy_status.has_updates,
+                    },
+                    {
+                        function()
+                            return "󰑓 " .. lazy_stats.loaded .. "  " .. lazy_stats.count
+                        end,
+                    },
+                    {
+                        function()
+                            local ms = (math.floor(lazy_stats.startuptime * 100 + 0.5) / 100)
+                            return " " .. ms .. "ms"
+                        end,
+                    },
                 },
             },
             inactive_sections = {
@@ -222,7 +103,10 @@ M.spec = {
                 lualine_y = {},
                 lualine_z = {},
             },
-        })
+        }
+    end,
+    config = function(_, opts)
+        require("lualine").setup(opts)
     end,
 }
 
