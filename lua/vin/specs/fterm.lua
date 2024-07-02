@@ -40,8 +40,9 @@ M.spec = {
         local lazygit_term = fterm:new(vim.tbl_extend("force", win_opts, {
             ft = "ftterm_lazygit",
             cmd = "lazygit",
+            dimensions = { height = 1, width = 1 },
             on_exit = function()
-                -- M.refresh_neotree()
+                M.refresh_neotree()
             end,
         }))
 
