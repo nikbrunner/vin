@@ -3,7 +3,6 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "nvim-neo-tree/neo-tree.nvim",
-    enabled = false,
     branch = "v3.x",
     event = "VeryLazy",
     dependencies = {
@@ -185,18 +184,12 @@ M.spec = {
                 popup = {
                     position = "50%", -- 50% means center it
                     size = {
-                        height = 35,
+                        height = 0.65,
                         width = 65,
                     },
                     border = {
                         padding = { 2, 8 },
-                        -- style = "solid",
-                        -- text = {
-                        --     top = "[ Vin ]",
-                        --     top_align = "center",
-                        --     bottom = require("vin.icons").misc.circle,
-                        --     bottom_align = "center",
-                        -- },
+                        style = "solid",
                     },
                 },
                 mappings = {
