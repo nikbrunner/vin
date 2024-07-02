@@ -220,26 +220,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
         set("n", "gi", vim.lsp.buf.implementation, opts)
         set("n", "gy", vim.lsp.buf.type_definition, opts)
 
-        set("n", "<leader>uh", function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-        end, { desc = "Toggle Inlay [H]ints" })
+        set("n", "g.", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
 
         set("n", "<leader>cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))
+        set("n", "cd", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "[C]hange [D]efinition" }))
 
         set("n", "gl", vim.diagnostic.open_float, { desc = "Open Diagnostic" })
 
-        set("n", "[w", function()
-            vim.diagnostic.goto_prev({ severity = "WARN" })
-        end, { desc = "Warning" })
-        set("n", "]w", function()
-            vim.diagnostic.goto_next({ severity = "WARN" })
-        end, { desc = "Warning" })
-
-        set("n", "[e", function()
-            vim.diagnostic.goto_prev({ severity = "ERROR" })
-        end, { desc = "Error" })
-        set("n", "]e", function()
-            vim.diagnostic.goto_next({ severity = "ERROR" })
-        end, { desc = "Error" })
+        set("n", "<leader>uh", function()
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+        end, { desc = "Toggle Inlay [H]ints" })
     end,
 })
