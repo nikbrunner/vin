@@ -119,17 +119,8 @@ M.lsp_attach = function()
     end, { desc = "Go to [R]eferences" })
 
     vim.keymap.set("n", "<leader>ca", function()
-        require("fzf-lua").lsp_code_actions({
-            previewer = false,
-            winopts = {
-                row = 0.85,
-                col = 0.5,
-                height = 0.35,
-                width = 0.5,
-                preview = { hidden = "hidden" },
-            },
-        })
-    end, { desc = "Code [A]ction" })
+        require("fzf-lua").lsp_code_actions()
+    end, { desc = "[C]ode [A]ction" })
 end
 
 M.spec = {
@@ -144,12 +135,13 @@ M.spec = {
             file_icons = true, -- show file icons?
             color_icons = true, -- colorize file|git icons
         },
+
         winopts = {
             height = 0.85,
             width = 0.85,
             row = 0.35,
             col = 0.50,
-            border = "single",
+            border = "none",
             preview = {
                 border = "border", -- border|noborder, applies only to
                 wrap = "nowrap", -- wrap|nowrap
@@ -173,6 +165,7 @@ M.spec = {
                 },
             },
         },
+
         keymap = {
             builtin = {
                 ["<C-d>"] = "preview-page-down",
@@ -188,6 +181,7 @@ M.spec = {
                 ["ctrl-q"] = "select-all+accept",
             },
         },
+
         fzf_opts = {
             ["--prompt"] = "   ",
             ["--keep-right"] = "",
@@ -195,24 +189,9 @@ M.spec = {
             ["--padding"] = "1,3",
             ["--no-scrollbar"] = "",
         },
-        fzf_colors = {
-            ["fg"] = { "fg", "Normal" },
-            ["fg+"] = { "fg", "CursorLineNr" },
-            ["bg"] = { "bg", "NormalFloat" },
-            ["hl"] = { "fg", "Comment" },
-            ["hl+"] = { "fg", "Statement" },
-            ["bg+"] = { "bg", "Visual" },
-            ["border"] = { "fg", "CursorLineNr" },
-            ["query"] = { "fg", "Statement" },
-            ["info"] = { "fg", "PreProc" },
-            ["label"] = { "fg", "CursorLineNr" },
-            ["prompt"] = { "fg", "Conditional" },
-            ["pointer"] = { "fg", "CursorLineNr" },
-            ["marker"] = { "fg", "Keyword" },
-            ["spinner"] = { "fg", "Label" },
-            ["header"] = { "fg", "Comment" },
-            ["gutter"] = { "bg", "NormalFloat" },
-        },
+
+        fzf_colors = true,
+
         previewers = {
             builtin = {
                 treesitter = { enable = true },
@@ -233,6 +212,18 @@ M.spec = {
         },
         grep = {
             rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512",
+        },
+        lsp = {
+            code_actions = {
+                previewer = false,
+                winopts = {
+                    row = 0.85,
+                    col = 0.5,
+                    height = 0.35,
+                    width = 0.5,
+                    preview = { hidden = "hidden" },
+                },
+            },
         },
     },
     config = function(_, opts)
