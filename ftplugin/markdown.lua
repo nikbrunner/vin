@@ -40,4 +40,3 @@ map({ "n", "i" }, "<M-CR>", toggle_checkbox, { noremap = true, silent = true })
 map("i", "<CR>", smart_enter, { expr = true, noremap = true, silent = true })
 
 vim.opt.wrap = true
-vim.opt.conceallevel = 0
