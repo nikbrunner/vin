@@ -88,6 +88,9 @@ M.spec = {
                     folder_empty_open = "󰝣 ",
                     default = "",
                 },
+                file_size = {
+                    enabled = false,
+                },
             },
             add_blank_line_at_top = true,
             hide_root_node = true,
