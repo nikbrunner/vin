@@ -2,7 +2,7 @@ local M = {}
 
 ---@class VinConfig
 M.config = {
-    colorscheme = "catppuccin-mocha",
+    colorscheme = "tokyonight-night",
     ---@type "dark" | "light"
     background = "dark",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
@@ -25,6 +25,10 @@ M.config = {
         ["catppuccin-frappe"] = { wezterm = "catppuccin-frappe" },
         ["catppuccin-macchiato"] = { wezterm = "catppuccin-macchiato" },
         ["catppuccin-latte"] = { wezterm = "catppuccin-latte" },
+        ["tokyonight-moon"] = { wezterm = "Tokyo Night Moon" },
+        ["tokyonight-day"] = { wezterm = "Tokyo Night Day" },
+        ["tokyonight-storm"] = { wezterm = "Tokyo Night Storm" },
+        ["tokyonight-night"] = { wezterm = "Tokyo Night" },
     },
     open_previous_files_on_startup = false,
     open_neotree_on_startup = false,
