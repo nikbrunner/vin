@@ -1,10 +1,10 @@
 return {
     misc = {
         dots = "󰇘",
-        circle = " ",
-        smallCircle = " ",
+        circle_lg = " ",
+        circle_md = " ",
+        circle_sm = "󰧟",
         separator = " ",
-        dot = ".",
         forwardSlash = "󰿟",
         chevron_hard_right = "󰅂 ",
         chevron_hard_down = "󰅀 ",
