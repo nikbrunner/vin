@@ -56,7 +56,6 @@ M.config = {
             "jsonls",
             "lua_ls",
             "yamlls",
-            "marksman",
             "rust_analyzer",
             "tsserver",
         },
