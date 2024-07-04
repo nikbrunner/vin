@@ -1,12 +1,17 @@
 local M = {}
 
+---@type "web-devicons" | "mini.icons"
+M.enabled_icons = "web-devicons"
+
 ---@type LazyPluginSpec[]
 M.specs = {
     {
         "nvim-tree/nvim-web-devicons",
+        enabled = M.enabled_icons == "web-devicons",
         dependencies = {
             {
                 "projekt0n/circles.nvim",
+                enabled = M.enabled_icons == "web-devicons",
                 event = "VeryLazy",
                 opts = function()
                     local icons = require("vin.icons")
@@ -42,6 +47,24 @@ M.specs = {
         end,
         config = function(_, opts)
             require("nvim-web-devicons").setup(opts)
+        end,
+    },
+
+    {
+        "echasnovski/mini.icons",
+        enabled = M.enabled_icons == "mini.icons",
+        opts = {},
+        lazy = true,
+        specs = {
+            { "nvim-tree/nvim-web-devicons", enabled = M.enabled_icons == "web-devicons", optional = true },
+        },
+        init = function()
+            package.preload["nvim-web-devicons"] = function()
+                -- needed since it will be false when loading and mini will fail
+                package.loaded["nvim-web-devicons"] = {}
+                require("mini.icons").mock_nvim_web_devicons()
+                return package.loaded["nvim-web-devicons"]
+            end
         end,
     },
 }
