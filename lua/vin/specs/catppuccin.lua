@@ -11,6 +11,7 @@ M.spec = {
         term_colors = true,
         custom_highlights = function(colors)
             return {
+                YaziFloat = { link = "NormalFloat" },
                 FzfLuaNormal = { link = "NormalFloat" },
                 FzfLuaBorder = { link = "FloatBorder" },
                 FzfLuaPreviewBorder = { link = "FloatBorder" },
