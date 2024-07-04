@@ -8,6 +8,7 @@ M.spec = {
     ---@module "catppuccin"
     ---@type CatppuccinOptions
     opts = {
+        term_colors = true,
         custom_highlights = function(colors)
             return {
                 FzfLuaNormal = { link = "NormalFloat" },
