@@ -157,6 +157,19 @@ auto({ "VimResized" }, {
     end,
 })
 
+-- Set a color column, hard wrap, and other sensible options for gitcommit buffers
+auto({ "BufEnter" }, {
+    group = M.augroup("gitcommit"),
+    callback = function()
+        local max_line_width = 72 -- Git recommends 72 characters for commit messages
+        if vim.bo.filetype == "gitcommit" then
+            vim.opt_local.colorcolumn = tostring(max_line_width)
+            vim.opt_local.textwidth = max_line_width
+            vim.opt_local.wrap = true
+            vim.opt_local.spell = true
+        end
+    end,
+})
 -- Close buffers when they are no longer valid
 auto("FocusGained", {
     callback = function()
