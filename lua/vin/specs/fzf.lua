@@ -68,6 +68,19 @@ M.winopts = {
     },
 }
 
+function M.search_selection_with_fzf()
+    -- Save the current selection to the unnamed register
+    vim.cmd('normal! "vy')
+
+    -- Get the content of the unnamed register
+    local selection = vim.fn.getreg("v")
+
+    -- Remove any leading/trailing whitespace
+    selection = selection:gsub("^%s*(.-)%s*$", "%1")
+
+    require("fzf-lua").live_grep_native({ search = selection, winopts = M.winopts.lg.vertical })
+end
+
 -- stylua: ignore start
 M.keys = {
     { "<leader><space>", function() require("fzf-lua").files({ winopts = M.winopts.lg.flex }) end, desc = "Find Files" },
@@ -81,6 +94,7 @@ M.keys = {
     { "<leader>sk", function() require("fzf-lua").keymaps() end, desc = "[K]eymaps" },
     { "<leader>sw", function() require("fzf-lua").grep_cword() end, mode = { "n", "v" }, desc = "[W]ord" },
     { "<leader>sm", function() require("fzf-lua").marks() end, desc = "[M]arks" },
+    { "<leader>ss", function() M.search_selection_with_fzf() end, mode = "v", desc = "[S]election" },
     { "<leader>sM", function() require("fzf-lua").man_pages() end, desc = "[M]an Pages" },
     { "<leader>sg", function() require("fzf-lua").live_grep_native({ winopts = M.winopts.lg.vertical }) end, desc = "[G]rep" },
     { "<leader>sG", function() require("fzf-lua").live_grep_resume() end, desc = "[G]rep Resume" },
