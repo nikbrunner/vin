@@ -28,6 +28,18 @@ M.specs = {
                     require("circles").setup(opts)
                 end,
             },
+
+            {
+                "rachartier/tiny-devicons-auto-colors.nvim",
+                enabled = M.enabled_icons == "web-devicons",
+                dependencies = {
+                    "nvim-tree/nvim-web-devicons",
+                },
+                event = "VeryLazy",
+                config = function()
+                    require("tiny-devicons-auto-colors").setup()
+                end,
+            },
         },
         event = "VeryLazy",
         opts = function()
