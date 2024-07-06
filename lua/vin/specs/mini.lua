@@ -154,6 +154,17 @@ M.specs = {
         config = function(_, opts)
             require("mini.statusline").setup(opts)
             vim.opt.laststatus = 3
+        "echasnovski/mini.icons",
+        event = "VeryLazy",
+        opts = {},
+        init = function()
+            -- QUESTION: why, and how long is this needed?
+            package.preload["nvim-web-devicons"] = function()
+                -- needed since it will be false when loading and mini will fail
+                package.loaded["nvim-web-devicons"] = {}
+                require("mini.icons").mock_nvim_web_devicons()
+                return package.loaded["nvim-web-devicons"]
+            end
         end,
     },
 }

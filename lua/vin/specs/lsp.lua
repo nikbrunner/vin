@@ -86,14 +86,13 @@ M.specs = {
 
             vim.diagnostic.config({
                 underline = false,
-                -- virtual_text = {
-                --     prefix = " " .. require("vin.icons").misc.circle_lg,
-                -- },
-                virtual_text = false,
+                virtual_text = {
+                    prefix = " " .. require("vin.icons").misc.circle_lg,
+                },
                 signs = true,
                 update_in_insert = false,
                 float = {
-                    border = "solid",
+                    border = "single",
                 },
             })
 
@@ -132,21 +131,6 @@ M.specs = {
                     end)
                 end,
             })
-        end,
-    },
-
-    {
-        "rachartier/tiny-inline-diagnostic.nvim",
-        event = "VeryLazy",
-        opts = {
-            options = {
-                --- When overflow="wrap", when the message is too long, it is then displayed on multiple lines.
-                overflow = false,
-            },
-        },
-        config = function()
-            vim.opt.updatetime = 100
-            require("tiny-inline-diagnostic").setup()
         end,
     },
 }
