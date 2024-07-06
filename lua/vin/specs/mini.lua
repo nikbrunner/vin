@@ -58,6 +58,21 @@ M.specs = {
             vim.notify = require("mini.notify").make_notify()
         end,
     },
+
+    {
+        "echasnovski/mini.icons",
+        event = "VeryLazy",
+        opts = {},
+        init = function()
+            -- QUESTION: why, and how long is this needed?
+            package.preload["nvim-web-devicons"] = function()
+                -- needed since it will be false when loading and mini will fail
+                package.loaded["nvim-web-devicons"] = {}
+                require("mini.icons").mock_nvim_web_devicons()
+                return package.loaded["nvim-web-devicons"]
+            end
+        end,
+    },
 }
 
 return M.specs
