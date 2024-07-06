@@ -40,7 +40,12 @@ M.spec = {
                     },
                 },
                 lualine_b = {
-                    { "fancy_cwd", substitute_home = true, padding = 2 },
+                    {
+                        "fancy_cwd",
+                        substitute_home = true,
+                        padding = 2,
+                        cond = hide_in_width,
+                    },
                 },
                 lualine_c = {
                     {
