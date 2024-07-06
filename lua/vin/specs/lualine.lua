@@ -13,7 +13,7 @@ M.spec = {
         local lazy_status = require("lazy.status")
 
         local hide_in_width = function()
-            return vim.fn.winwidth(0) > 120
+            return vim.fn.winwidth(0) > 150
         end
 
         return {
