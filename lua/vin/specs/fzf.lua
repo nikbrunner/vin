@@ -227,6 +227,15 @@ M.spec = {
         grep = {
             rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512",
         },
+        highlights = {
+            actions = {
+                ["default"] = function(entry)
+                    local hl_group = entry[1]
+                    vim.fn.setreg("+", hl_group)
+                    vim.notify("Copied " .. hl_group .. " to the clipboard!", vim.log.levels.INFO)
+                end,
+            },
+        },
         lsp = {
             code_actions = {
                 previewer = false,
