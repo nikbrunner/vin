@@ -1,6 +1,6 @@
 local M = {}
 
-M.toggle_inline_ai = function()
+M.toggle_inline_completion = function()
     local suggestion = require("supermaven-nvim.completion_preview")
     local message = "Inline AI autocompletion "
 
@@ -17,20 +17,21 @@ end
 M.spec = {
     "supermaven-inc/supermaven-nvim",
     event = "InsertEnter",
-    enabled = true,
     opts = {
         keymaps = {
             accept_suggestion = "<Tab>",
-            clear_suggestion = "<C-]>",
-            accept_word = "<C-j>",
+            clear_suggestion = "<C-e>",
+            accept_word = "<S-Tab>",
         },
-        ignore_filetypes = {},
-        disable_inline_completion = false, -- disables inline completion for use with cmp
-        disable_keymaps = false, -- disables built in keymaps for more manual control
     },
     keys = {
-        { "<leader>cia", M.toggle_inline_ai, desc = "[C]ode [I]ntelligence [A]utocompletion" },
+        { "<leader>cia", M.toggle_inline_completion, desc = "[C]ode [I]ntelligence [A]utocompletion" },
+        { "<C-a>", mode = "i", M.toggle_inline_completion, desc = "Toggle [A]utocompletion" },
     },
+    init = function()
+        -- Disable inline completion by default
+        require("supermaven-nvim.completion_preview").disable_inline_completion = true
+    end,
     config = function(_, opts)
         require("supermaven-nvim").setup(opts)
     end,
