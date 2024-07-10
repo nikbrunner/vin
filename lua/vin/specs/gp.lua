@@ -17,11 +17,22 @@ M.spec = {
         },
     },
     opts = {
-        openai_api_key = os.getenv("OPENAI_API_KEY"),
-        openai_api_endpoint = "https://api.openai.com/v1/chat/completions",
-
+        ---@diagnostic disable-next-line: param-type-mismatch
         state_dir = vim.fn.stdpath("config"):gsub("/$", "") .. "/gp/persisted",
+        ---@diagnostic disable-next-line: param-type-mismatch
         chat_dir = vim.fn.stdpath("config"):gsub("/$", "") .. "/gp/chats",
+
+        providers = {
+            openai = {
+                endpoint = "https://api.openai.com/v1/chat/completions",
+                secret = os.getenv("OPENAI_API_KEY"),
+            },
+            -- TODO: Setup Claude
+            anthropic = {
+                endpoint = "https://api.anthropic.com/v1/complete",
+                secret = os.getenv("ANTHROPIC_API_KEY"),
+            },
+        },
 
         -- default command agents (model + persona)
         -- name, model and system_prompt are mandatory fields
