@@ -1,85 +1,52 @@
 local M = {}
 
+---@module "which-key"
 ---@type LazyPluginSpec
 M.spec = {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    enabled = true,
-    opts = function(_, default_opts)
-        return vim.tbl_deep_extend("force", default_opts, {
-            plugins = {
-                marks = true, -- shows a list of your marks on ' and `
-                registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-                spelling = true,
-            },
-
-            key_labels = {
-                ["<SPACE>"] = "SPC",
-                ["<space>"] = "SPC",
-                ["<CR>"] = "RET",
-                ["<cr>"] = "RET",
-                ["<TAB>"] = "TAB",
-                ["<tab>"] = "TAB",
-            },
-
-            icons = {
-                breadcrumb = "/",
-                separator = "",
-            },
-
-            popup_mappings = {
-                scroll_down = "<c-d>",
-                scroll_up = "<c-u>",
-            },
-
-            window = {
-                border = "none",
-                position = "bottom",
-                margin = { 1, 0, 1, 0.65 },
-                padding = { 2, 2, 2, 2 },
+    opts = {
+        preset = "helix",
+        win = {
+            border = "solid",
+            wo = {
                 winblend = 10,
             },
-
-            layout = {
-                height = { min = 5, max = 65 },
-                width = { min = 20, max = 65 },
-                spacing = 5,
-                align = "center",
-            },
-
-            defaults = {
+        },
+        ---@type wk.Spec
+        spec = {
+            {
                 mode = { "n", "v" },
-                ["g"] = { name = "GoTo" },
-                ["S"] = { name = "Surround" },
-
-                ["]"] = { name = "Next" },
-                ["["] = { name = "Prev" },
-
-                ["<leader>c"] = { name = "[C]ode" },
-                ["<leader>cl"] = { name = "[L]og" },
-                ["<leader>e"] = { name = "[E]xplorer" },
-                ["<leader>g"] = { name = "[G]it" },
-                ["<leader>gb"] = { name = "[B]uffer" },
-                ["<leader>gh"] = { name = "[H]unks" },
-                ["<leader>v"] = { name = "[V]in" },
-                ["<leader>s"] = { name = "[S]earch" },
-                ["<leader>p"] = { name = "[P]ad" },
-                ["<leader>t"] = { name = "[T]MUX" },
-                ["<leader>i"] = { name = "[I]ntelligence" },
-                ["<leader>ic"] = { name = "[C]opilot" },
-                ["<leader>u"] = { name = "[U]I" },
-                ["<leader>d"] = { name = "[D]iagnostics" },
-                ["<leader>dc"] = { name = "[C]alls" },
-                ["<leader>m"] = { name = "[M]arks" },
-                ["<leader>w"] = { name = "[W]indows" },
+                { "<leader>c", group = "[C]ode", icon = "" },
+                { "<leader>cl", group = "[L]og" },
+                { "<leader>d", group = "[D]iagnostics" },
+                { "<leader>dc", group = "[C]alls" },
+                { "<leader>e", group = "[E]xplorer" },
+                { "<leader>g", group = "[G]it" },
+                { "<leader>gb", group = "[B]uffer" },
+                { "<leader>gh", group = "[H]unks" },
+                { "<leader>i", group = "[I]ntelligence" },
+                { "<leader>ic", group = "[C]opilot" },
+                { "<leader>m", group = "[M]arks" },
+                { "<leader>p", group = "[P]ad" },
+                { "<leader>s", group = "[S]earch" },
+                { "<leader>t", group = "[T]MUX" },
+                { "<leader>u", group = "[U]I" },
+                { "<leader>v", group = "[V]in" },
+                { "<leader>w", group = "[W]indows" },
+                { "S", group = "Surround" },
+                { "[", group = "Prev" },
+                { "]", group = "Next" },
+                { "g", group = "GoTo" },
             },
-        })
-    end,
-    config = function(_, opts)
-        local wk = require("which-key")
-        wk.setup(opts)
-        wk.register(opts.defaults)
-    end,
+        },
+        icons = {
+            rules = {
+                { plugin = "yazi.nvim", icon = " ", hl = "@constant" },
+                { plugin = "gitpad.nvim", icon = "󰠮 ", hl = "@character" },
+            },
+        },
+    },
 }
 
 return M.spec

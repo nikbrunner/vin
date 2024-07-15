@@ -20,7 +20,7 @@ M.spec = {
             function()
                 require("yazi").yazi(nil, vim.fn.getcwd())
             end,
-            desc = "[E]xplorer (CWD)",
+            desc = "[F]iles (from CWD)",
         },
     },
     -- TODO: Image Preview does not work: https://github.com/mikavilpas/yazi.nvim/issues/112

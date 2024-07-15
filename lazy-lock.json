@@ -20,7 +20,7 @@
   "gitsigns.nvim": { "branch": "main", "commit": "375c44bdfdde25585466a966f00c2e291db74f2d" },
   "gp.nvim": { "branch": "main", "commit": "98c538ace2ece7966e5f17c80e83756b27bd1fc5" },
   "grapple.nvim": { "branch": "main", "commit": "7aedc261b05a6c030397c4bc26416efbe746ebf1" },
-  "lazy.nvim": { "branch": "main", "commit": "d1de92dffab5a862332fdd1892889d362369c12f" },
+  "lazy.nvim": { "branch": "main", "commit": "9d445ebbd89401544a538c6af080e4d2785abb49" },
   "lazydev.nvim": { "branch": "main", "commit": "cea5d0fb556cdc35122d9cae772e7e0ed65b4505" },
   "lspkind.nvim": { "branch": "master", "commit": "1735dd5a5054c1fb7feaf8e8658dbab925f4f0cf" },
   "lualine-so-fancy.nvim": { "branch": "main", "commit": "45197358e5274d301d98638bf079f3437d6eacf8" },
@@ -55,7 +55,7 @@
   "ts-comments.nvim": { "branch": "main", "commit": "c1f3168f90c8442eec2f62e572ac86b25ca854ff" },
   "vim-illuminate": { "branch": "master", "commit": "5eeb7951fc630682c322e88a9bbdae5c224ff0aa" },
   "whatthejump.nvim": { "branch": "main", "commit": "d05b93eca173d374d603e2b8709f18ae6dd4b7af" },
-  "which-key.nvim": { "branch": "main", "commit": "af4ded85542d40e190014c732fa051bdbf88be3d" },
+  "which-key.nvim": { "branch": "main", "commit": "33f1aae584e1b2f27b7f33d8aef9f9ab8902c99a" },
   "wtf.nvim": { "branch": "main", "commit": "7aefcc970ea56dc0a89dafdf9f5eb0de7b1ee58c" },
   "yanky.nvim": { "branch": "main", "commit": "73215b77d22ebb179cef98e7e1235825431d10e4" },
   "yazi.nvim": { "branch": "master", "commit": "b9f393f6b76b68d8a55ed3a8d57419437f84e060" }
