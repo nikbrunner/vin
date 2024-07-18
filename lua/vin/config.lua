@@ -40,6 +40,7 @@ M.config = {
         },
         notes = {
             personal = vim.fn.expand("~/repos") .. "/nikbrunner/notes",
+            pangea_proxima = vim.fn.expand("~/repos") .. "/nikbrunner/pangea-proxima",
             work = {
                 dcd = vim.fn.expand("~/repos") .. "/nikbrunner/dcd-notes",
             },
