@@ -21,6 +21,8 @@ M.spec = {
             "BufNewFile " .. config.pathes.notes.personal .. "/**.md",
             "BufReadPre " .. config.pathes.notes.work.dcd .. "/**.md",
             "BufNewFile " .. config.pathes.notes.work.dcd .. "/**.md",
+            "BufNewFile " .. config.pathes.notes.pangea_proxima .. "/**.md",
+            "BufReadPre " .. config.pathes.notes.pangea_proxima .. "/**.md",
         }
     end,
     keys = {
@@ -57,19 +59,15 @@ M.spec = {
                     name = "Work [DCD]",
                     path = config.pathes.notes.work.dcd,
                 },
+                {
+                    name = "Pangea Proxima",
+                    path = config.pathes.notes.pangea_proxima,
+                },
             },
 
             -- Optional, boolean or a function that takes a filename and returns a boolean.
             -- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
             disable_frontmatter = true,
-
-            templates = {
-                folder = "templates",
-                date_format = "%Y-%m-%d",
-                time_format = "%H:%M",
-                -- A map for custom variables, the key should be the variable and the value a function
-                substitutions = {},
-            },
 
             mappings = {
                 ["gd"] = {
@@ -112,6 +110,7 @@ M.spec = {
     end,
 
     config = function(_, opts)
+        print("loaded")
         require("obsidian").setup(opts)
     end,
 }
