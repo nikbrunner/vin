@@ -81,10 +81,10 @@ nmap gs :goToSymbol
 
 " Actions
 exmap renameHeading obcommand editor:rename-heading
-nmap <Space>an :renameHeading
+nmap <Space>cn :renameHeading
 
 exmap moveFile obcommand file-explorer:move-file
-nmap <Space>am :moveFile
+nmap <Space>cm :moveFile
 
 " Daily Notes
 exmap dd obcommand daily-notes
