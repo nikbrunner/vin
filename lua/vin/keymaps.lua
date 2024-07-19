@@ -222,8 +222,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         set("n", "g.", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
 
+        set("n", "cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "[C]hange [N]ame" }))
         set("n", "<leader>cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))
-        set("n", "cd", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "[C]hange [D]efinition" }))
 
         set("n", "gl", vim.diagnostic.open_float, { desc = "Open Diagnostic" })
 
