@@ -1,4 +1,3 @@
----@diagnostic disable: inject-field
 local M = {}
 
 ---@type LazyPluginSpec
@@ -9,7 +8,7 @@ M.spec = {
     ---@module "tokyonight"
     ---@type tokyonight.Config
     opts = {
-        on_highlights = function(highlights, colors)
+        on_highlights = function(highlights)
             highlights.YaziFloat = { link = "NormalFloat" }
         end,
     },
