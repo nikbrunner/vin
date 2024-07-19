@@ -254,7 +254,7 @@ M.spec = {
 
         local config = require("fzf-lua.config")
         local actions = require("trouble.sources.fzf").actions
-        config.defaults.actions.files["ctrl-t"] = actions.open
+        config.defaults.actions.files["alt-t"] = actions.open
 
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("FzfLuaLspAttachGroup", { clear = true }),
