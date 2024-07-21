@@ -8,7 +8,7 @@ M.spec = {
         { "<leader>z", "<CMD>NoNeckPain<CR>", desc = "[Z]en" },
     },
     opts = {
-        width = 200,
+        width = 165,
     },
 }
 
