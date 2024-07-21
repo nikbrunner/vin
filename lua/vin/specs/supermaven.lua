@@ -25,7 +25,7 @@ M.spec = {
         },
     },
     keys = {
-        { "<leader>cia", M.toggle_inline_completion, desc = "[C]ode [I]ntelligence [A]utocompletion" },
+        { "<leader>ia", M.toggle_inline_completion, desc = "[C]ode [I]ntelligence [A]utocompletion" },
         { "<C-a>", mode = "i", M.toggle_inline_completion, desc = "Toggle [A]utocompletion" },
     },
     init = function()
