@@ -29,4 +29,41 @@ function M.maximize_window()
     end
 end
 
+M.backdrop_buf = nil
+M.backdrop_win = nil
+
+function M.create_backdrop()
+    M.backdrop_buf = vim.api.nvim_create_buf(false, true)
+    M.backdrop_win = vim.api.nvim_open_win(M.backdrop_buf, false, {
+        relative = "editor",
+        width = vim.o.columns,
+        height = vim.o.lines,
+        row = 0,
+        col = 0,
+        style = "minimal",
+        focusable = false,
+        zindex = 1,
+    })
+
+    local set_backdrop_win_opt = function(k, v)
+        vim.api.nvim_set_option_value(k, v, {
+            scope = "local",
+            win = M.backdrop_win,
+        })
+    end
+
+    vim.api.nvim_set_hl(0, "LazyBackdrop", { bg = "#000000", default = true })
+    set_backdrop_win_opt("winhighlight", "Normal:LazyBackdrop")
+    set_backdrop_win_opt("winblend", 60)
+    vim.bo[M.backdrop_buf].buftype = "nofile"
+    vim.bo[M.backdrop_buf].filetype = "lazy_backdrop"
+end
+
+function M.close_backdrop()
+    if M.backdrop_win then
+        vim.api.nvim_win_close(M.backdrop_win, true)
+        M.backdrop_win = nil
+    end
+end
+
 return M

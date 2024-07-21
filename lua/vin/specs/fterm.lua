@@ -36,11 +36,14 @@ M.spec = {
             dimensions = { height = 0.95, width = 0.95 },
         }
 
+        local ui = require("vin.lib.ui")
+
         -- TODO:  add ability to edit picked file in neovim
         local lazygit_term = fterm:new(vim.tbl_extend("force", win_opts, {
             ft = "ftterm_lazygit",
             cmd = "lazygit",
             on_exit = function()
+                ui.close_backdrop()
                 M.refresh_neotree()
             end,
         }))
@@ -69,6 +72,7 @@ M.spec = {
                 "<leader>gg",
                 mode = "n",
                 function()
+                    ui.create_backdrop()
                     lazygit_term:toggle()
                     M.restore_ctrl_hjkl(lazygit_term)
                 end,
@@ -78,6 +82,7 @@ M.spec = {
                 "<leader>gp",
                 mode = "n",
                 function()
+                    ui.create_backdrop()
                     gh_dash_term:toggle()
                     M.restore_ctrl_hjkl(gh_dash_term)
                 end,
