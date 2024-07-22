@@ -11,6 +11,7 @@ M.spec = {
         {
             "<leader>f",
             function()
+                vim.cmd("Neotree close")
                 require("yazi").yazi()
             end,
             desc = "[E]xplorer",
@@ -18,6 +19,7 @@ M.spec = {
         {
             "<leader>F",
             function()
+                vim.cmd("Neotree close")
                 require("yazi").yazi(nil, vim.fn.getcwd())
             end,
             desc = "[F]iles (from CWD)",
