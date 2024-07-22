@@ -41,7 +41,7 @@ M.spec = {
             "<leader>cf",
             function()
                 require("conform").format({
-                    async = false,
+                    async = true,
                     timeout_ms = 500,
                     lsp_fallback = true,
                 })
