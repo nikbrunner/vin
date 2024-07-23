@@ -9,6 +9,15 @@ M.spec = {
     ---@type CatppuccinOptions
     opts = {
         term_colors = true,
+        color_overrides = {
+            all = {
+                mantle = "#0e1313",
+                base = "#121818",
+                crust = "#1c2424",
+                -- mauve = "#9dafa6",
+                -- blue = "#8fa7bc",
+            },
+        },
         custom_highlights = function(colors)
             return {
                 YaziFloat = { link = "NormalFloat" },
