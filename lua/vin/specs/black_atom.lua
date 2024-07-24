@@ -15,7 +15,6 @@ M.spec = {
     ---@module "black-atom"
     ---@type BlackAtom.Config
     opts = {
-        debug = false,
         theme = require("vin.config").colorscheme,
         styles = {
             dark_sidebars = true,
