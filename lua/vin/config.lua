@@ -2,12 +2,12 @@ local M = {}
 
 ---@class VinConfig
 M.config = {
-    colorscheme = "black-atom-engineering",
+    colorscheme = "default",
     ---@type "dark" | "light"
     background = "dark",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
     colorscheme_config_map = {
-        ["default"] = { wezterm = "neovim" },
+        ["default"] = { wezterm = "nvim_default_dark" },
         ["terra-spring-night"] = { wezterm = "Black Atom - Terra Spring Night" },
         ["terra-spring-day"] = { wezterm = "Black Atom - Terra Spring Day" },
         ["terra-summer-night"] = { wezterm = "Black Atom - Terra Summer Night" },
