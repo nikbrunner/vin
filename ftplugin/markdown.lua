@@ -36,7 +36,7 @@ map({ "n", "o", "x" }, "j", "gj", {})
 map({ "n", "o", "x" }, "k", "gk", {})
 map({ "n", "o", "x" }, "0", "g0", {})
 map({ "n", "o", "x" }, "$", "g$", {})
-map("n", "<C-k>", toggle_checkbox, { noremap = true, silent = true })
+-- map("n", "<C-k>", toggle_checkbox, { noremap = true, silent = true })
 map("i", "<CR>", smart_enter, { expr = true, noremap = true, silent = true })
 
 vim.opt.wrap = true
