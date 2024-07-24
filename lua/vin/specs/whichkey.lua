@@ -35,7 +35,7 @@ M.spec = {
                 { "S", group = "Surround", icon = "󰅩 " },
                 { "[", group = "Prev", icon = "󰒮 " },
                 { "]", group = "Next", icon = "󰒭 " },
-                { "g", group = "GoTo", icon = "👉 " },
+                { "g", group = "G", icon = "󱡓 " },
             },
         },
         icons = {
