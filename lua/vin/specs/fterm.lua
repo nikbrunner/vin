@@ -32,7 +32,7 @@ M.spec = {
         local win_opts = {
             border = "solid",
             hl = "NormalFloat",
-            blend = 10,
+            -- blend = 10,
             dimensions = { height = 0.95, width = 0.95 },
         }
 
