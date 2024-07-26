@@ -146,9 +146,9 @@ M.spec = {
         global_resume_query = true,
         defaults = {
             formatter = "path.filename_first",
-            git_icons = true, -- show git icons?
-            file_icons = true, -- show file icons?
-            color_icons = true, -- colorize file|git icons
+            git_icons = true,
+            file_icons = "mini",
+            color_icons = true,
         },
 
         winopts = {
