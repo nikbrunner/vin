@@ -155,6 +155,7 @@ M.specs = {
             require("mini.statusline").setup(opts)
             vim.opt.laststatus = 3
         "echasnovski/mini.icons",
+        enabled = false,
         event = "VeryLazy",
         opts = {},
         init = function()
