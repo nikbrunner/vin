@@ -61,6 +61,7 @@ M.specs = {
 
     {
         "echasnovski/mini.icons",
+        enabled = false,
         event = "VeryLazy",
         opts = {},
         init = function()
