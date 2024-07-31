@@ -5,6 +5,7 @@ M.spec = {
     "cbochs/grapple.nvim",
     opts = {
         scope = "git_branch", -- also try out "git_branch"
+        icons = false,
     },
     event = { "BufReadPost", "BufNewFile" },
     cmd = "Grapple",
