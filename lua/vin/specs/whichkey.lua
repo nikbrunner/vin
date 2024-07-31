@@ -32,6 +32,7 @@ M.spec = {
                 { "<leader>v", group = "[V]in", icon = " " },
                 { "<leader>n", group = "[N]otes", icon = " " },
                 { "<leader>o", group = "[O]bsidian", icon = " " },
+                { "<leader>.", group = "TMUX", icon = "󱂬 " },
                 { "S", group = "Surround", icon = "󰅩 " },
                 { "[", group = "Prev", icon = "󰒮 " },
                 { "]", group = "Next", icon = "󰒭 " },
