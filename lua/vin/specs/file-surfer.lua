@@ -11,6 +11,10 @@ M.spec = {
     ---@type file-surfer.Config
     opts = {
         change_dir = true,
+        tmux = {
+            enable = true,
+            default_mappings = true,
+        },
         paths = {
             static = {
                 ["~/.scripts"] = vim.fn.expand("$HOME") .. "/.scripts",
