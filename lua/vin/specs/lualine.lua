@@ -13,7 +13,7 @@ M.spec = {
         local lazy_status = require("lazy.status")
 
         local hide_in_width = function()
-            return vim.fn.winwidth(0) > 150
+            return vim.fn.winwidth(0) > 175
         end
 
         return {
@@ -89,7 +89,10 @@ M.spec = {
                         padding = 2,
                         cond = hide_in_width,
                     },
-                    { "fancy_lsp_servers" },
+                    {
+                        "fancy_lsp_servers",
+                        cond = hide_in_width,
+                    },
                 },
                 lualine_z = {
                     {
