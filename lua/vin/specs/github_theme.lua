@@ -5,9 +5,29 @@ M.spec = {
     "projekt0n/github-nvim-theme",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
-    opts = {},
+    ---@type GhTheme.Config
+    opts = {
+        options = {
+            hide_end_of_buffer = true,
+            darken = {
+                floats = true,
+                sidebars = {
+                    enable = true,
+                },
+            },
+        },
+    },
     config = function(_, opts)
         require("github-theme").setup(opts)
+
+        local override = require("github-theme.override")
+
+        override.groups = {
+            all = {
+                CursorLine = { bg = "#09090d" },
+                NeoTreeNormal = { bg = "#09090d" },
+            },
+        }
     end,
 }
 
