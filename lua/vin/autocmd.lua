@@ -86,6 +86,7 @@ auto("ColorScheme", {
 auto("FileType", {
     group = M.augroup("quit_mapping"),
     pattern = {
+        "nofile",
         "qf",
         "help",
         "man",
