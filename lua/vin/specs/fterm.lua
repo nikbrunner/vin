@@ -43,7 +43,7 @@ M.spec = {
             ft = "ftterm_lazygit",
             cmd = "lazygit",
             on_exit = function()
-                ui.close_backdrop()
+                -- ui.close_backdrop()
                 M.refresh_neotree()
             end,
         }))
@@ -72,7 +72,7 @@ M.spec = {
                 "<leader>gg",
                 mode = "n",
                 function()
-                    ui.create_backdrop()
+                    -- ui.create_backdrop()
                     lazygit_term:toggle()
                     M.restore_ctrl_hjkl(lazygit_term)
                 end,
