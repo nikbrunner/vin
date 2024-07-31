@@ -67,7 +67,7 @@ set({ "n", "i", "c" }, "<C-d>", "<C-d>zz", { desc = "Scroll Down" })
 set("n", "n", "nzzzv")
 set("n", "N", "Nzzzv")
 
-set("n", "<leader>.", function()
+set("n", "<leader>g.", function()
     local git_root = require("vin.lib.git").find_git_root()
     if git_root then
         vim.cmd("cd " .. git_root)
