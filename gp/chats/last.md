@@ -1,1 +1,0 @@
-/Users/nbr/.config/nvim/gp/chats/2024-06-14.16-14-08.581.md
