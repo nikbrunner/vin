@@ -94,14 +94,14 @@ M.keys = {
     { "<leader>sH", function() require("fzf-lua").highlights() end, desc = "[H]ighlights" },
     { "<leader>sk", function() require("fzf-lua").keymaps() end, desc = "[K]eymaps" },
     { "<leader>sw", function() require("fzf-lua").grep_cword() end, mode = { "n", "v" }, desc = "[W]ord" },
-    { "<leader>sm", function() require("fzf-lua").marks() end, desc = "[M]arks" },
+    { "<leader>sm", function() require("fzf-lua").marks({ winopts = M.winopts.lg.vertical }) end, desc = "[M]arks" },
     { "<leader>ss", function() M.search_selection_with_fzf() end, mode = "v", desc = "[S]election" },
     { "<leader>sM", function() require("fzf-lua").man_pages() end, desc = "[M]an Pages" },
     { "<leader>sg", function() require("fzf-lua").live_grep_native({ winopts = M.winopts.lg.vertical }) end, desc = "[G]rep" },
     { "<leader>sG", function() require("fzf-lua").live_grep_resume() end, desc = "[G]rep Resume" },
     { "<leader>s'", function() require("fzf-lua").registers({ winopts = M.winopts.lg.vertical }) end, mode = { "n", "v" }, desc = "[R]egisters" },
     { "<leader>s<Tab>", function() require("fzf-lua").tabs() end, desc = "[Tab]s" },
-    { "<leader>gs", function() require("fzf-lua").git_status({ winopts = M.winopts.lg.vertical }) end, desc = "[S]tatus" },
+    { "<leader>gs", function() require("fzf-lua").git_status({ winopts = M.winopts.lg.flex }) end, desc = "[S]tatus" },
     { "<leader>gc", function() require("fzf-lua").changes() end, desc = "[C]hanges" },
     { "<leader>gB", function() require("fzf-lua").git_branches() end, desc = "[B]ranches" },
     { "<leader>gC", function() require("fzf-lua").git_commits() end, desc = "[C]ommits" },
@@ -203,6 +203,7 @@ M.spec = {
             ["--border-label"] = "[ Vin ]",
             ["--padding"] = "1,3",
             ["--no-scrollbar"] = "",
+            ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
         },
 
         fzf_colors = true,
@@ -212,6 +213,7 @@ M.spec = {
                 treesitter = { enable = true },
             },
         },
+        -- TODO: Try to make headers work: https://github.com/ibhagwan/fzf-lua/issues/1351#issuecomment-2265742596
         files = {
             prompt = "Files  ",
         },
