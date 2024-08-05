@@ -7,3 +7,9 @@ cp ~/.config/nvim/obsidian/.vimrc ~/repos/nikbrunner/pangea-proxima/.obsidian.vi
 cp ~/.config/nvim/obsidian/.vimrc ~/repos/nikbrunner/dcd-notes/.obsidian.vimrc
 
 echo "Synced Obsidian .vimrc to vaults."
+
+# Copy key keybindings from the personal notes vault to all other vaults
+cp ~/repos/nikbrunner/notes/.obsidian/hotkeys.json ~/repos/nikbrunner/pangea-proxima/.obsidian/hotkeys.json
+cp ~/repos/nikbrunner/notes/.obsidian/hotkeys.json ~/repos/nikbrunner/dcd-notes/.obsidian/hotkeys.json
+
+echo "Synced Obsidian hotkeys to vaults."
