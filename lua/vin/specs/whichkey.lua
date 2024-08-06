@@ -27,7 +27,6 @@ M.spec = {
                 { "<leader>i", group = "[I]ntelligence", icon = "󰧑 " },
                 { "<leader>m", group = "[M]arks", icon = "󰍐 " },
                 { "<leader>s", group = "[S]earch", icon = " " },
-                { "<leader>t", group = "[T]MUX", icon = "" },
                 { "<leader>u", group = "[U]I", icon = "󰙵 " },
                 { "<leader>v", group = "[V]in", icon = " " },
                 { "<leader>n", group = "[N]otes", icon = " " },
