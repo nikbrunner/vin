@@ -75,8 +75,8 @@ M.spec = {
         { "<leader>di", "<cmd>Trouble lsp toggle<cr>", desc = "LSP Definitions / references / ... (Trouble)" },
         { "<leader>dci", "<cmd>Trouble lsp_incoming_calls<cr>", desc = "[C]alls [I]ncoming" },
         { "<leader>dco", "<cmd>Trouble lsp_outgoing_calls<cr>", desc = "[C]alls [O]utgoing" },
-        { "<leader>dD", "<cmd>Trouble diagnostics toggle  filter.buf=0<cr>", desc = "Diagnostics [D]ocument" },
-        { "<leader>dW", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics [W]orkspace" },
+        { "<leader>dD", "<cmd>Trouble diagnostics toggle  filter.buf=0<cr>", desc = "Diagnostics [D]ocument (trouble)" },
+        { "<leader>dW", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics [W]orkspace (trouble)" },
         { "<leader>dt", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (Trouble)" },
         {
             "[q",
