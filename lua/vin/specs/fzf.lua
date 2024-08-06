@@ -84,9 +84,8 @@ end
 -- stylua: ignore start
 M.keys = {
     { "<leader><leader>", function() require("fzf-lua").files({ winopts = M.winopts.lg.flex }) end, desc = "Find Files" },
-    { "<leader>/", function() require("fzf-lua").lgrep_curbuf({ winopts = M.winopts.lg.vertical }) end, desc = "Grep Current File" },
+    { "<leader>/", function() require("fzf-lua").lgrep_curbuf({ winopts = M.winopts.md.flex }) end, desc = "Grep Current File" },
     { "<leader>:", function() require("fzf-lua").commands({ winopts = M.winopts.sm.no_preview }) end, desc = "Commands" },
-    { "<C-r>", function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "[R]ecent Files" },
     { "<leader>r", function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "[R]ecent Files" },
     { "<leader>R", function() require("fzf-lua").oldfiles({ cwd_only = false, winopts = M.winopts.sm.no_preview }) end, desc = "[R]ecent Files (Everywhere)" },
     { "<leader>s.", function() require("fzf-lua").resume() end, desc = "[.] Resume" },
@@ -107,8 +106,8 @@ M.keys = {
     { "<leader>gC", function() require("fzf-lua").git_commits() end, desc = "[C]ommits" },
     { "<leader>ut", function() require("fzf-lua").colorschemes() end, desc = "Toggle [T]themes" },
     { "<leader>uT", function() require("fzf-lua").awesome_colorschemes() end, desc = "Toggle 'Awesome' [T]hemes" },
-    { "<leader>dd", function() require("fzf-lua").lsp_document_diagnostics({ winopts = M.winopts.lg.vertical }) end, desc = "Document Diagnostics" },
-    { "<leader>dw", function() require("fzf-lua").lsp_workspace_diagnostics({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace Diagnostics" },
+    { "<leader>dd", function() require("fzf-lua").lsp_document_diagnostics({ winopts = M.winopts.lg.vertical }) end, desc = "Diagnostics [D]ocument (fzf)" },
+    { "<leader>dw", function() require("fzf-lua").lsp_workspace_diagnostics({ winopts = M.winopts.lg.vertical }) end, desc = "Diagnostics [W]orkspace (fzf)" },
     { "gs", function() require("fzf-lua").lsp_document_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Document [S]ymbols" },
     { "gS", function() require("fzf-lua").lsp_live_workspace_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace [S]ymbols" },
 }
