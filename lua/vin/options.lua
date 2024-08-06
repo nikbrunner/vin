@@ -1,7 +1,7 @@
 WhichKeyIgnoreLabel = "which_key_ignore"
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 
 vim.opt.mouse = "a"
 
