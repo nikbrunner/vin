@@ -18,13 +18,6 @@ M.spec = {
 
         return {
             {
-                "<leader>ee",
-                function()
-                    vim.cmd("Neotree left toggle reveal")
-                end,
-                desc = "[E]xplorer",
-            },
-            {
                 "<leader>ef",
                 function()
                     close_side_panels()
