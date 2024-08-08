@@ -85,7 +85,8 @@ end
 M.keys = {
     { "<leader><leader>", function() require("fzf-lua").files({ winopts = M.winopts.lg.flex }) end, desc = "Find Files" },
     { "<leader>/", function() require("fzf-lua").lgrep_curbuf({ winopts = M.winopts.md.flex }) end, desc = "Grep Current File" },
-    { "<leader>:", function() require("fzf-lua").commands({ winopts = M.winopts.sm.no_preview }) end, desc = "Commands" },
+    { "<leader>;", function() require("fzf-lua").commands({ winopts = M.winopts.sm.no_preview }) end, desc = "Commands" },
+    { "<leader>j", function() require("fzf-lua").jumps({ winopts = M.winopts.md.flex }) end, desc = "Jumps" },
     { "<leader>r", function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "[R]ecent Files" },
     { "<leader>R", function() require("fzf-lua").oldfiles({ cwd_only = false, winopts = M.winopts.sm.no_preview }) end, desc = "[R]ecent Files (Everywhere)" },
     { "<leader>s.", function() require("fzf-lua").resume() end, desc = "[.] Resume" },
