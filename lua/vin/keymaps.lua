@@ -46,7 +46,7 @@ set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent =
 set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
-set("n", "go", "<cmd>e #<cr>", { desc = "Alternate File" })
+set("n", "go", "<cmd>e #<cr>", { desc = "[G]o to [O]ther File" })
 
 -- Clear search with <esc>
 set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
