@@ -16,15 +16,7 @@ M.spec = {
                 vim.cmd("Neotree close")
                 require("yazi").yazi()
             end,
-            desc = "[E]xplorer",
-        },
-        {
-            "<leader>F",
-            function()
-                vim.cmd("Neotree close")
-                require("yazi").yazi(nil, vim.fn.getcwd())
-            end,
-            desc = "[F]iles (from CWD)",
+            desc = "Finder",
         },
     },
     -- TODO: Image Preview does not work: https://github.com/mikavilpas/yazi.nvim/issues/112

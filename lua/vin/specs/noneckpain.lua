@@ -11,7 +11,7 @@ M.spec = {
                 vim.cmd("Neotree close")
                 vim.cmd("NoNeckPain")
             end,
-            desc = "[Z]en",
+            desc = "Zen",
         },
     },
     opts = {
