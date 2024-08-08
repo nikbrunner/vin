@@ -5,33 +5,49 @@ local M = {}
 M.spec = {
     "folke/which-key.nvim",
     event = "VeryLazy",
+    ---@type wk.Opts
     opts = {
-        preset = "helix",
         win = {
+            width = { min = 15, max = 0.5 },
+            height = { min = 4, max = 25 },
+            col = 0.5,
+            row = 0.9,
+            padding = { 3, 10 },
+            title = "",
             border = "solid",
             wo = {
                 winblend = 10,
             },
         },
+
+        layout = {
+            width = { min = 80 }, -- min and max width of the columns
+            spacing = 5, -- spacing between columns
+        },
+
         ---@type wk.Spec
         spec = {
             {
                 mode = { "n", "v" },
-                { "<leader>c", group = "[C]ode", icon = " " },
-                { "<leader>cl", group = "[L]og", icon = " " },
-                { "<leader>d", group = "[D]iagnostics", icon = " " },
-                { "<leader>dc", group = "[C]alls", icon = " " },
-                { "<leader>e", group = "[E]xplorer", icon = "󰙅" },
-                { "<leader>g", group = "[G]it", icon = " " },
-                { "<leader>gh", group = "[H]unks", icon = "" },
-                { "<leader>i", group = "[I]ntelligence", icon = "󰧑 " },
-                { "<leader>m", group = "[M]arks", icon = "󰍐 " },
-                { "<leader>s", group = "[S]earch", icon = " " },
-                { "<leader>u", group = "[U]I", icon = "󰙵 " },
-                { "<leader>v", group = "[V]in", icon = " " },
-                { "<leader>n", group = "[N]otes", icon = " " },
-                { "<leader>o", group = "[O]bsidian", icon = " " },
                 { "<leader>.", group = "TMUX", icon = "󱂬 " },
+                { "<leader>;", icon = " " },
+                { "<leader>R", icon = " " },
+                { "<leader>c", group = "Code", icon = " " },
+                { "<leader>cl", group = "Log", icon = " " },
+                { "<leader>d", group = "Diagnostics", icon = " " },
+                { "<leader>dc", group = "Calls", icon = " " },
+                { "<leader>e", group = "Explorer", icon = "󰙅" },
+                { "<leader>g", group = "Git", icon = " " },
+                { "<leader>gh", group = "Hunks", icon = "" },
+                { "<leader>i", group = "Intelligence", icon = "󰧑 " },
+                { "<leader>j", group = "Jumps", icon = "󰴪 " },
+                { "<leader>m", group = "Marks", icon = "󰍐 " },
+                { "<leader>n", group = "Notes", icon = " " },
+                { "<leader>o", group = "Obsidian", icon = " " },
+                { "<leader>r", icon = "󰼥 " },
+                { "<leader>s", group = "Search", icon = " " },
+                { "<leader>u", group = "UI", icon = "󰙵 " },
+                { "<leader>v", group = "Vin", icon = " " },
                 { "S", group = "Surround", icon = "󰅩 " },
                 { "[", group = "Prev", icon = "󰒮 " },
                 { "]", group = "Next", icon = "󰒭 " },
@@ -39,14 +55,17 @@ M.spec = {
             },
         },
         icons = {
+            group = "󰉒 ", -- symbol prepended to a group
             rules = {
-                { plugin = "yazi.nvim", icon = " ", hl = "@constant" },
-                { plugin = "file-surfer.nvim", icon = " ", hl = "@function" },
-                { plugin = "gitpad.nvim", icon = "󰠮 ", hl = "@character" },
-                { plugin = "no-neck-pain.nvim", icon = "󰈈 ", hl = "@annotation" },
-                { plugin = "supermaven-nvim", icon = "󰧑 ", hl = "@boolean" },
+                { plugin = "yazi.nvim", icon = " " },
+                { plugin = "file-surfer.nvim", icon = " " },
+                { plugin = "gitpad.nvim", icon = "󰠮 " },
+                { plugin = "no-neck-pain.nvim", icon = "󰈈 " },
+                { plugin = "supermaven-nvim", icon = "󰧑 " },
             },
         },
+        show_help = false, -- show a help message in the command line for using WhichKey
+        show_keys = false, -- show the currently pressed key and its label as a message in the command line
     },
 }
 
