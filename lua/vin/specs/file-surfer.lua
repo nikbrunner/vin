@@ -38,7 +38,7 @@ M.spec = {
             function()
                 require("file-surfer").find()
             end,
-            desc = "[P]roject Files",
+            desc = "Projects",
         },
     },
 }
