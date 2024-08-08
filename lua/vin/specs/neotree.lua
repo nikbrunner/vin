@@ -18,7 +18,7 @@ M.spec = {
 
         return {
             {
-                "<leader>ef",
+                "<leader>ee",
                 function()
                     close_side_panels()
                     vim.cmd("Neotree float toggle reveal")
@@ -94,7 +94,7 @@ M.spec = {
                 "document_symbols",
             },
             filesystem = {
-                -- hijack_netrw_behavior = "open",
+                hijack_netrw_behavior = "disabled",
                 use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
                 follow_current_file = {
                     enabled = true, -- This will find and focus the file in the active buffer every time the current file is changed while the tree is open.
