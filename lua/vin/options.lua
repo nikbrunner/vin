@@ -9,7 +9,7 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.spelllang = "en_us,de_de"
 
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.cursorcolumn = false
 
 -- preview for substitution
@@ -79,8 +79,6 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-
-vim.opt.shortmess:append("I")
 
 -- Abbreviations
 vim.cmd("cabbrev Wqa wqa")
