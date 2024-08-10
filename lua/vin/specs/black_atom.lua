@@ -17,7 +17,6 @@ M.spec = {
     opts = {
         theme = require("vin.config").colorscheme,
         styles = {
-            dark_sidebars = true,
             transparency = "none",
             cmp_kind_color_mode = "bg",
             diagnostics = {
