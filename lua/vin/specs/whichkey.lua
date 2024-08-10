@@ -8,12 +8,11 @@ M.spec = {
     ---@type wk.Opts
     opts = {
         win = {
-            width = { min = 15, max = 0.5 },
-            height = { min = 4, max = 25 },
+            width = { min = 35, max = 75 },
+            height = { min = 5, max = 15 },
             col = 0.5,
             row = 0.9,
-            padding = { 3, 10 },
-            title = "",
+            title = "Vin",
             border = "solid",
             wo = {
                 winblend = 10,
@@ -21,7 +20,6 @@ M.spec = {
         },
 
         layout = {
-            width = { min = 80 }, -- min and max width of the columns
             spacing = 5, -- spacing between columns
         },
 
@@ -55,7 +53,7 @@ M.spec = {
             },
         },
         icons = {
-            group = "󰉒 ", -- symbol prepended to a group
+            separator = "", -- symbol used between a key and it's label
             rules = {
                 { plugin = "yazi.nvim", icon = " " },
                 { plugin = "file-surfer.nvim", icon = " " },
