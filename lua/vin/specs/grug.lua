@@ -5,34 +5,19 @@ M.spec = {
     "MagicDuck/grug-far.nvim",
     opts = {},
     keys = {
-        -- TODO: It would be better I think if we would introduce a [D]ocument/[F]ile Group and a [W]orkspace Group
         {
-            "<leader>cr",
-            function()
-                require("grug-far").grug_far({ prefills = { paths = vim.fn.expand("%") } })
-            end,
-            desc = "Search & [R]eplace",
-        },
-        {
-            "<leader>cr",
-            mode = "x",
-            function()
-                require("grug-far").grug_far({ prefills = { paths = vim.fn.expand("%") } })
-            end,
-            desc = "Search & [R]eplace",
-        },
-        {
-            "<leader>cR",
+            "<leader>f",
+            mode = { "n", "x" },
             function()
                 require("grug-far").grug_far()
             end,
-            desc = "Search & [R]eplace (Workspace)",
+            desc = "Find",
         },
         {
-            "<leader>cR",
+            "<leader>F",
             mode = "x",
             function()
-                require("grug-far").grug_far({ prefills = { search = vim.fn.expand("<cword>") } })
+                require("grug-far").grug_far({ prefills = { paths = vim.fn.expand("%") } })
             end,
             desc = "Search & [R]eplace (Workspace)",
         },
