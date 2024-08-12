@@ -25,8 +25,8 @@ M.spec = {
         },
     },
     keys = {
-        { "<leader>ia", M.toggle_inline_completion, desc = "[C]ode [I]ntelligence [A]utocompletion" },
-        { "<C-a>", mode = "i", M.toggle_inline_completion, desc = "Toggle [A]utocompletion" },
+        { "<leader>ia", M.toggle_inline_completion, desc = "Autocompletion" },
+        { "<C-a>", mode = "i", M.toggle_inline_completion, desc = "Toggle Autocompletion" },
     },
     init = function()
         -- Disable inline completion by default
