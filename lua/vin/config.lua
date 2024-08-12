@@ -1,8 +1,13 @@
 local M = {}
 
+M.something_else = {
+    one = "one",
+    two = "two",
+}
+
 ---@class VinConfig
 M.config = {
-    colorscheme = "black-atom-operations",
+    colorscheme = "black-atom-engineering",
     ---@type "dark" | "light"
     background = "dark",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
