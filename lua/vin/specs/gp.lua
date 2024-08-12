@@ -8,12 +8,17 @@ M.spec = {
         {
             "<leader>in",
             "<cmd>GpChatNew vsplit<cr>",
-            desc = "[N]ew Chat",
+            desc = "New Chat",
         },
         {
             "<leader>it",
             "<cmd>GpChatToggle vsplit<cr>",
-            desc = "[T]oggle Last Chat",
+            desc = "Toggle Last Chat",
+        },
+        {
+            "<leader>if",
+            "<cmd>GpChatFinder<cr>",
+            desc = "Find Chat",
         },
     },
     opts = {
