@@ -86,6 +86,7 @@ vim.cmd("cabbrev Wq wq")
 vim.cmd("cabbrev Wa wa")
 
 vim.filetype.add({
+    http = "http",
     -- I only needed this because barbecue vomits if i vist this file, because it thinks its lua
     filename = {
         [".luacheckrc"] = ".luacheckrc",

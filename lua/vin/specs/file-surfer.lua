@@ -18,6 +18,7 @@ M.spec = {
         paths = {
             static = {
                 ["~/.scripts"] = vim.fn.expand("$HOME") .. "/.scripts",
+                ["dcd-rest"] = vim.fn.expand("$HOME") .. "/repos/nikbrunner/dcd-notes/http",
             },
             dynamic = {
                 {

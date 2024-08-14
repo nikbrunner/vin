@@ -35,6 +35,7 @@ M.specs = {
                 "vim",
                 "vimdoc",
                 "yaml",
+                "http",
             },
             incremental_selection = {
                 enable = true,
