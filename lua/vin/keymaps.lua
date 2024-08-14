@@ -49,7 +49,11 @@ set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = t
 set("n", "go", "<cmd>e #<cr>", { desc = "[G]o to [O]ther File" })
 
 -- Clear search with <esc>
-set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+set("n", "<esc>", function()
+    vim.cmd.nohlsearch()
+    vim.cmd.wa()
+    require("mini.notify").clear()
+end, { desc = "Escape and clear hlsearch" })
 
 -- indenting and reselect
 set("v", "<", "<gv")
