@@ -34,6 +34,33 @@ M.spec = {
                 desc = "[G]it Status",
             },
             {
+                "<leader>eh",
+                function()
+                    close_side_panels()
+                    vim.cmd("Neotree float toggle reveal git_status origin/HEAD")
+                end,
+                desc = "[G]it Status (HEAD)",
+            },
+            {
+                "<leader>eH",
+                function()
+                    close_side_panels()
+                    local all_branches = vim.fn.system("git branch -a")
+                    local branches = vim.split(all_branches, "\n")
+
+                    vim.ui.select(branches, {
+                        prompt = "Select a branch: ",
+                    }, function(selected)
+                        if selected == nil then
+                            return
+                        else
+                            vim.cmd("Neotree float toggle reveal git_status " .. selected)
+                        end
+                    end)
+                end,
+                desc = "[G]it Status (Choose HEAD)",
+            },
+            {
                 "<leader>er",
                 function()
                     close_side_panels()
@@ -171,18 +198,18 @@ M.spec = {
                 },
                 mappings = {
                     ["<space>"] = false,
-                    ["l"] = "toggle_node",
                     ["<2-LeftMouse>"] = "open",
                     ["<cr>"] = "open",
                     ["L"] = "open",
                     ["<esc>"] = "revert_preview",
                     ["P"] = { "toggle_preview", config = { use_float = true } },
-                    ["s"] = "open_split",
-                    ["S"] = "split_with_window_picker",
-                    ["v"] = "open_vsplit",
-                    ["V"] = "vsplit_with_window_picker",
-                    ["t"] = "open_tabnew",
-                    ["w"] = "open_with_window_picker",
+                    ["<C-s>"] = "open_split",
+                    ["<C-v>"] = "open_vsplit",
+                    ["<C-t>"] = "open_tabnew",
+                    ["<C-d>"] = { "scroll_preview", config = { direction = 10 } },
+                    ["<C-u>"] = { "scroll_preview", config = { direction = -10 } },
+                    ["/"] = "noop",
+                    ["l"] = "focus_preview",
                     ["O"] = function(state)
                         local node = state.tree:get_node()
                         local path = node:get_id()
