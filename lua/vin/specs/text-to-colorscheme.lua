@@ -35,37 +35,6 @@ M.spec = {
                     "#d4c4a6",
                 },
             },
-            {
-                name = "a dark night in the mountain forrest",
-                background_mode = "dark",
-                background = "#0b1a1e",
-                foreground = "#d0e7e9",
-                accents = {
-                    "#437051",
-                    "#5a8566",
-                    "#75a282",
-                    "#8bb896",
-                    "#a4c4b1",
-                    "#c4cec6",
-                    "#f2c94c",
-                },
-            },
-
-            {
-                name = "misty forrest in the twilight evening sun",
-                background_mode = "dark",
-                background = "#212c30",
-                foreground = "#e0e6e9",
-                accents = {
-                    "#8bab8f",
-                    "#f4a261",
-                    "#e76f51",
-                    "#268c80",
-                    "#e9c46a",
-                    "#4c8ba5",
-                    "#f77f00",
-                },
-            },
         },
     },
     keys = {
