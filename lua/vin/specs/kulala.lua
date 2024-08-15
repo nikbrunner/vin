@@ -2,7 +2,10 @@
 return {
     "mistweaverco/kulala.nvim",
     ft = "http",
-    opts = {},
+    ---@doc: [Setup Options | Kulala.nvim](https://kulala.mwco.app/docs/getting-started/setup-options/)
+    opts = {
+        winbar = true,
+    },
     keys = function()
         local kulala = require("kulala")
 
