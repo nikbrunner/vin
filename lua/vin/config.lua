@@ -1,10 +1,5 @@
 local M = {}
 
-M.something_else = {
-    one = "one",
-    two = "two",
-}
-
 ---@class VinConfig
 M.config = {
     colorscheme = "black-atom-operations",
