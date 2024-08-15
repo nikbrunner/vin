@@ -61,7 +61,7 @@ vim.opt.pumblend = 10
 vim.opt.showmode = false
 vim.opt.laststatus = 3
 
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 0
 vim.opt.wrap = false
 
 vim.opt.encoding = "utf-8"
