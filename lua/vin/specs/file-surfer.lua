@@ -10,7 +10,7 @@ M.spec = {
     ---@module "file-surfer"
     ---@type file-surfer.Config
     opts = {
-        change_dir = true,
+        change_dir = false,
         tmux = {
             enable = true,
             default_mappings = true,
