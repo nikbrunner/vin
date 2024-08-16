@@ -206,20 +206,3 @@ auto("FocusGained", {
         end
     end,
 })
-
--- Source: https://www.reddit.com/r/neovim/comments/1ehidxy/you_can_remove_padding_around_neovim_instance/
-auto({ "UIEnter", "ColorScheme" }, {
-    callback = function()
-        local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
-        if not normal.bg then
-            return
-        end
-        io.write(string.format("\027]11;#%06x\027\\", normal.bg))
-    end,
-})
-
-auto("UILeave", {
-    callback = function()
-        io.write("\027]111\027\\")
-    end,
-})
