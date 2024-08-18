@@ -20,6 +20,13 @@ M.specs = {
     },
 
     {
+        "echasnovski/mini.ai",
+        version = "*",
+        event = "VeryLazy",
+        opts = {},
+    },
+
+    {
         "echasnovski/mini.notify",
         version = "*",
         lazy = false,
