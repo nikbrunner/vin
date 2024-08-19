@@ -23,10 +23,10 @@ M.spec = {
             clear_suggestion = "<C-e>",
             accept_word = "<S-Tab>",
         },
+        log_level = "off",
     },
     keys = {
         { "<leader>ia", M.toggle_inline_completion, desc = "Autocompletion" },
-        { "<C-a>", mode = "i", M.toggle_inline_completion, desc = "Toggle Autocompletion" },
     },
     init = function()
         -- Disable inline completion by default
