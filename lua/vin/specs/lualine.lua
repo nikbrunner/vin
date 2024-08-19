@@ -7,7 +7,7 @@ M.spec = {
         "meuter/lualine-so-fancy.nvim",
         "piersolenski/wtf.nvim",
     },
-    event = "VeryLazy",
+    lazy = false,
     opts = function()
         local lazy_stats = require("lazy").stats()
         local lazy_status = require("lazy.status")

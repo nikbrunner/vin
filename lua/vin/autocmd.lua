@@ -61,11 +61,7 @@ auto("UIEnter", {
                 print("Fzf-lua is not installed")
                 return
             else
-                if has_uncommited_changes then
-                    M.open_git_status()
-                else
-                    M.open_previous_files()
-                end
+                M.open_previous_files()
             end
         end
     end,

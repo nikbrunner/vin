@@ -52,10 +52,10 @@ M.specs = {
                     anchor = "SE",
                     col = vim.o.columns,
                     row = vim.o.lines - 2,
-                    width = math.floor(vim.o.columns * 0.5),
+                    width = math.floor(vim.o.columns * 0.35),
                     border = "solid",
                 },
-                winblend = 10,
+                winblend = 30,
             },
         },
         config = function(_, opts)
