@@ -3,7 +3,6 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "folke/zen-mode.nvim",
-    enabled = false,
     keys = {
         { "<leader>z", "<CMD>ZenMode<CR>", desc = "Zen" },
     },
@@ -18,8 +17,7 @@ M.spec = {
         },
         plugins = {
             tmux = {
-                -- Causing too much issues
-                enabled = true,
+                enabled = false, -- Causing too much issues
             },
             options = {
                 laststatus = 0,
