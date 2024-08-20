@@ -3,7 +3,11 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "MagicDuck/grug-far.nvim",
-    opts = {},
+    ---@type GrugFarOptions
+    ---@diagnostic disable-next-line: missing-fields
+    opts = {
+        windowCreationCommand = "split",
+    },
     keys = {
         {
             "<leader>f",
@@ -15,7 +19,7 @@ M.spec = {
         },
         {
             "<leader>F",
-            mode = "x",
+            mode = { "n", "x" },
             function()
                 require("grug-far").grug_far({ prefills = { paths = vim.fn.expand("%") } })
             end,
