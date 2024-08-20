@@ -167,6 +167,7 @@ M.spec = {
             row = 0.35,
             col = 0.50,
             border = "none",
+            backdrop = 90,
             preview = {
                 border = "border", -- border|noborder, applies only to
                 wrap = "nowrap", -- wrap|nowrap
