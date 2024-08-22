@@ -3,6 +3,7 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "robitx/gp.nvim",
+    enabled = false,
     event = "VeryLazy",
     keys = {
         {
