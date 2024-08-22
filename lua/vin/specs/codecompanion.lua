@@ -1,14 +1,13 @@
-return {
+local M = {}
+
+---@type LazyPluginSpec
+M.spec = {
     "olimorris/codecompanion.nvim",
     event = "VeryLazy",
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
-        "nvim-telescope/telescope.nvim", -- Optional
-        {
-            "stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
-            opts = {},
-        },
+        { "stevearc/dressing.nvim", opts = {} },
     },
     -- Source: https://github.com/olimorris/codecompanion.nvim?tab=readme-ov-file#hammer_and_wrench-defaults
     opts = {
@@ -20,9 +19,26 @@ return {
                 adapter = "openai",
             },
         },
+        keymaps = {
+            send = {
+                modes = {
+                    n = "<C-s>",
+                    i = "<C-s>",
+                },
+                index = 1,
+                callback = "keymaps.send",
+                description = "Send",
+            },
+        },
         opts = {
+            silence_notifications = true,
             saved_chats_dir = vim.fn.stdpath("config") .. "/codecompanion/chats",
         },
     },
-    config = true,
+    keys = {
+        { "<leader>ic", "<cmd>CodeCompanionChat<CR>", desc = "AI Chat" },
+        { "<leader>ia", "<cmd>CodeCompanionActions<CR>", desc = "AI Actions" },
+    },
 }
+
+return M.spec
