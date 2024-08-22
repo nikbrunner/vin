@@ -6,7 +6,7 @@ M.spec = {
     ---@type GrugFarOptions
     ---@diagnostic disable-next-line: missing-fields
     opts = {
-        windowCreationCommand = "split",
+        windowCreationCommand = "vsplit",
     },
     keys = {
         {
