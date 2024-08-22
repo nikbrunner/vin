@@ -2,7 +2,7 @@ local M = {}
 
 M.toggle_inline_completion = function()
     local suggestion = require("supermaven-nvim.completion_preview")
-    local message = "Inline AI autocompletion "
+    local message = "AI Auto-Completion "
 
     if suggestion.disable_inline_completion then
         suggestion.disable_inline_completion = false
@@ -26,7 +26,7 @@ M.spec = {
         log_level = "off",
     },
     keys = {
-        { "<leader>ia", M.toggle_inline_completion, desc = "Autocompletion" },
+        { "<leader>ic", M.toggle_inline_completion, desc = "Autocompletion" },
     },
     init = function()
         -- Disable inline completion by default

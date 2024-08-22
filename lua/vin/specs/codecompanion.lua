@@ -32,13 +32,18 @@ M.spec = {
         },
         opts = {
             silence_notifications = true,
+            auto_save_chats = true,
             saved_chats_dir = vim.fn.stdpath("config") .. "/codecompanion/chats",
         },
     },
     keys = {
-        { "<leader>ic", "<cmd>CodeCompanionChat<CR>", desc = "AI Chat" },
         { "<leader>ia", "<cmd>CodeCompanionActions<CR>", desc = "AI Actions" },
+        { "<leader>it", "<cmd>CodeCompanionToggle<CR>", desc = "AI Actions" },
+        { "ga", "<cmd>CodeCompanionAdd<CR>", desc = "Add Selection", mode = { "v" } },
     },
+    init = function()
+        vim.cmd([[cab cc CodeCompanion]])
+    end,
 }
 
 return M.spec
