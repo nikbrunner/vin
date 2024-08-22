@@ -30,6 +30,31 @@ M.spec = {
                 description = "Send",
             },
         },
+        default_prompts = {
+            ["Generate a Commit Message"] = {
+                strategy = "chat",
+                description = "Generate a commit message",
+                opts = {
+                    index = 5,
+                    default_prompt = true,
+                    mapping = "<LocalLeader>cm",
+                    slash_cmd = "commit",
+                    auto_submit = true,
+                },
+                prompts = {
+                    {
+                        role = "${user}",
+                        contains_code = true,
+                        content = function()
+                            return "You are an expert at following the Conventional Commit specification. Given the git diff listed below, without detailed explanation, please generate a commit message for me:"
+                                .. "\n\n```\n"
+                                .. vim.fn.system("git diff")
+                                .. "\n```"
+                        end,
+                    },
+                },
+            },
+        },
         opts = {
             silence_notifications = true,
             auto_save_chats = true,
