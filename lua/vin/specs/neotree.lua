@@ -20,7 +20,6 @@ M.spec = {
             {
                 "<leader>ee",
                 function()
-                    close_side_panels()
                     vim.cmd("Neotree float toggle reveal")
                 end,
                 desc = "[F]iles",
@@ -28,7 +27,6 @@ M.spec = {
             {
                 "<leader>eg",
                 function()
-                    close_side_panels()
                     vim.cmd("Neotree float git_status toggle reveal")
                 end,
                 desc = "[G]it Status",
@@ -36,7 +34,6 @@ M.spec = {
             {
                 "<leader>eh",
                 function()
-                    close_side_panels()
                     vim.cmd("Neotree float toggle reveal git_status origin/HEAD")
                 end,
                 desc = "[G]it Status (HEAD)",
@@ -44,17 +41,31 @@ M.spec = {
             {
                 "<leader>eH",
                 function()
-                    close_side_panels()
+                    -- close_side_panels()
                     local all_branches = vim.fn.system("git branch -a")
                     local branches = vim.split(all_branches, "\n")
 
                     vim.ui.select(branches, {
                         prompt = "Select a branch: ",
-                    }, function(selected)
-                        if selected == nil then
+                    }, function(branch)
+                        if branch == nil then
                             return
                         else
-                            vim.cmd("Neotree float toggle reveal git_status " .. selected)
+                            vim.ui.select({
+                                "float",
+                                "top",
+                                "right",
+                                "bottom",
+                                "left",
+                            }, {
+                                prompt = "Select a Neotree position: ",
+                            }, function(position)
+                                if position == nil then
+                                    return
+                                else
+                                    vim.cmd("Neotree " .. position .. " toggle reveal git_status " .. branch)
+                                end
+                            end)
                         end
                     end)
                 end,
@@ -63,10 +74,18 @@ M.spec = {
             {
                 "<leader>er",
                 function()
-                    close_side_panels()
+                    -- close_side_panels()
                     vim.cmd("Neotree float buffers toggle reveal")
                 end,
                 desc = "[R]ecents",
+            },
+            {
+                "<leader>es",
+                function()
+                    -- close_side_panels()
+                    vim.cmd("Neotree right document_symbols toggle reveal")
+                end,
+                desc = "[S]ymbols",
             },
         }
     end,
