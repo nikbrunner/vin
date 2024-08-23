@@ -3,6 +3,7 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "OXY2DEV/markview.nvim",
+    enabled = false,
     ft = "markdown",
     keys = {
         {
