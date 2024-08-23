@@ -4,23 +4,6 @@ local M = {}
 M.spec = {
     "robitx/gp.nvim",
     event = "VeryLazy",
-    keys = {
-        {
-            "<leader>in",
-            "<cmd>GpChatNew vsplit<cr>",
-            desc = "New Chat",
-        },
-        {
-            "<leader>it",
-            "<cmd>GpChatToggle vsplit<cr>",
-            desc = "Toggle Last Chat",
-        },
-        {
-            "<leader>if",
-            "<cmd>GpChatFinder<cr>",
-            desc = "Find Chat",
-        },
-    },
     opts = {
         ---@diagnostic disable-next-line: param-type-mismatch
         state_dir = vim.fn.stdpath("config"):gsub("/$", "") .. "/gp/persisted",
@@ -51,14 +34,33 @@ M.spec = {
                 gp.Prompt(params, gp.Target.vnew, agent, template)
             end,
             CommitMessage = function(gp, params)
-                local template = "You are an expert at following the Conventional Commit specification."
+                local base_template = "You are an expert at following the Conventional Commit specification."
                     .. "Given the git diff listed below, please generate a detailed commit message for me and return it to me directly without explanation:"
                     .. "Use the summary line to describe the overall change, followed by an empty line, and then a more detailed, consice description of the change in the body in bullet points."
+                    .. "If the commit only affects a single file, or one file has the main role in the change, please use the following format:"
+                    .. "- feat|fix|docs|style|refactor|test|chore|revert(<affected-file or scope>): description"
                     .. "In the bullet points, use the following format:"
-                    .. "- feat|fix|docs|style|refactor|test|chore|revert(scope<affected-file or area>): short description"
+                    .. "- feat|fix|docs|style|refactor|test|chore|revert(<affected-file or scope>): description"
                     .. "\n\n```\n"
                     .. vim.fn.system("git diff")
                     .. "\n```"
+
+                local template = base_template
+
+                -- If the branch name includes an issue ticket number, we use it to prefix the commit message.
+                -- Example: bcd-1234-some-new-feature -> BCD-1234 feat: some new feature
+                local current_branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
+                local issue_id = string.match(current_branch, "^bcd-%d+-")
+                local prefix = issue_id and "BCD-" .. issue_id .. " " or ""
+
+                if issue_id then
+                    template = base_template
+                        .. "\n\n"
+                        .. "Please prefix the summary line with the following issue ID: "
+                        .. prefix
+                        .. "\n\n"
+                        .. "Example: BCD-1234 feat: some new feature"
+                end
 
                 local agent = gp.get_command_agent()
                 gp.Prompt(params, gp.Target.vnew, agent, template)
@@ -114,6 +116,28 @@ M.spec = {
                     .. "- When coding is required, provide complete code without omissions.\n"
                     .. "- Approach each task confidently - you've got this!",
             },
+        },
+    },
+    keys = {
+        {
+            "<leader>in",
+            "<cmd>GpChatNew vsplit<cr>",
+            desc = "New Chat",
+        },
+        {
+            "<leader>it",
+            "<cmd>GpChatToggle vsplit<cr>",
+            desc = "Toggle Last Chat",
+        },
+        {
+            "<leader>if",
+            "<cmd>GpChatFinder<cr>",
+            desc = "Find Chat",
+        },
+        {
+            "<leader>im",
+            "<cmd>GpCommitMessage<cr>",
+            desc = "Generate Commit Message",
         },
     },
     config = function(_, opts)
