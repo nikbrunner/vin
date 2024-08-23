@@ -3,7 +3,6 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "robitx/gp.nvim",
-    enabled = false,
     event = "VeryLazy",
     keys = {
         {
@@ -41,6 +40,43 @@ M.spec = {
 
         default_command_agent = "ChatClaude-3-5-Sonnet",
         default_chat_agent = "ChatClaude-3-5-Sonnet",
+
+        hooks = {
+            -- example of adding command which writes unit tests for the selected code
+            UnitTests = function(gp, params)
+                local template = "I have the following code from {{filename}}:\n\n"
+                    .. "```{{filetype}}\n{{selection}}\n```\n\n"
+                    .. "Please respond by writing table driven unit tests for the code above."
+                local agent = gp.get_command_agent()
+                gp.Prompt(params, gp.Target.vnew, agent, template)
+            end,
+            CommitMessage = function(gp, params)
+                local template = "You are an expert at following the Conventional Commit specification."
+                    .. "Given the git diff listed below, please generate a detailed commit message for me and return it to me directly without explanation:"
+                    .. "Use the summary line to describe the overall change, followed by an empty line, and then a more detailed, consice description of the change in the body in bullet points."
+                    .. "In the bullet points, use the following format:"
+                    .. "- feat|fix|docs|style|refactor|test|chore|revert(scope<affected-file or area>): short description"
+                    .. "\n\n```\n"
+                    .. vim.fn.system("git diff")
+                    .. "\n```"
+
+                local agent = gp.get_command_agent()
+                gp.Prompt(params, gp.Target.vnew, agent, template)
+            end,
+            Explain = function(gp, params)
+                local template = "I have the following code from {{filename}}:\n\n"
+                    .. "```{{filetype}}\n{{selection}}\n```\n\n"
+                    .. "Please respond by explaining the code above."
+                local agent = gp.get_chat_agent()
+                gp.Prompt(params, gp.Target.popup, agent, template)
+            end,
+            -- example of making :%GpChatNew a dedicated command which
+            -- opens new chat with the entire current buffer as a context
+            BufferChatNew = function(gp, _)
+                -- call GpChatNew command in range mode on whole buffer
+                vim.api.nvim_command("%" .. gp.config.cmd_prefix .. "ChatNew")
+            end,
+        },
 
         agents = {
             {

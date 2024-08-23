@@ -21,8 +21,8 @@ M.spec = {
             "BufNewFile " .. config.pathes.notes.personal .. "/**.md",
             "BufReadPre " .. config.pathes.notes.work.dcd .. "/**.md",
             "BufNewFile " .. config.pathes.notes.work.dcd .. "/**.md",
-            "BufNewFile " .. config.pathes.notes.pangea_proxima .. "/**.md",
-            "BufReadPre " .. config.pathes.notes.pangea_proxima .. "/**.md",
+            "BufNewFile " .. config.pathes.notes.the_black_atom .. "/**.md",
+            "BufReadPre " .. config.pathes.notes.the_black_atom .. "/**.md",
         }
     end,
     keys = {
@@ -61,7 +61,7 @@ M.spec = {
                 },
                 {
                     name = "Pangea Proxima",
-                    path = config.pathes.notes.pangea_proxima,
+                    path = config.pathes.notes.the_black_atom,
                 },
             },
 
