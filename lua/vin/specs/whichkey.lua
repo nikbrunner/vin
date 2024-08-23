@@ -8,7 +8,7 @@ M.spec = {
     ---@type wk.Opts
     opts = {
         win = {
-            width = { min = 35, max = 75 },
+            width = { min = 35, max = 125 },
             height = { min = 5, max = 15 },
             col = 0.5,
             row = 0.9,
