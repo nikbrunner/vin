@@ -33,6 +33,7 @@ M.spec = {
                 local agent = gp.get_command_agent()
                 gp.Prompt(params, gp.Target.vnew, agent, template)
             end,
+
             CommitMessage = function(gp, params)
                 local base_template = "You are an expert at following the Conventional Commit specification."
                     .. "Given the git diff listed below, please generate a detailed commit message for me and return it to me directly without explanation:"
@@ -42,7 +43,7 @@ M.spec = {
                     .. "In the bullet points, use the following format:"
                     .. "- feat|fix|docs|style|refactor|test|chore|revert(<affected-file or scope>): description"
                     .. "\n\n```\n"
-                    .. vim.fn.system("git diff")
+                    .. vim.fn.system("git diff --cached")
                     .. "\n```"
 
                 local template = base_template
@@ -50,7 +51,7 @@ M.spec = {
                 -- If the branch name includes an issue ticket number, we use it to prefix the commit message.
                 -- Example: bcd-1234-some-new-feature -> BCD-1234 feat: some new feature
                 local current_branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
-                local issue_id = string.match(current_branch, "^bcd-%d+-")
+                local issue_id = string.match(current_branch, "^bcd%-(%d%d%d%d)")
                 local prefix = issue_id and "BCD-" .. issue_id .. " " or ""
 
                 if issue_id then
@@ -65,6 +66,17 @@ M.spec = {
                 local agent = gp.get_command_agent()
                 gp.Prompt(params, gp.Target.vnew, agent, template)
             end,
+
+            -- TODO: This does not work yet
+            -- example of usig enew as a function specifying type for the new buffer
+            CodeReview = function(gp, params)
+                local template = "I have the following code from {{filename}}:\n\n"
+                    .. "```{{filetype}}\n{{selection}}\n```\n\n"
+                    .. "Please analyze for code smells and suggest improvements."
+                local agent = gp.get_chat_agent()
+                gp.Prompt(params, gp.Target.vnew("markdown"), agent, template)
+            end,
+
             Explain = function(gp, params)
                 local template = "I have the following code from {{filename}}:\n\n"
                     .. "```{{filetype}}\n{{selection}}\n```\n\n"
@@ -72,10 +84,12 @@ M.spec = {
                 local agent = gp.get_chat_agent()
                 gp.Prompt(params, gp.Target.popup, agent, template)
             end,
+
             -- example of making :%GpChatNew a dedicated command which
             -- opens new chat with the entire current buffer as a context
             BufferChatNew = function(gp, _)
                 -- call GpChatNew command in range mode on whole buffer
+                vim.cmd.vsplit()
                 vim.api.nvim_command("%" .. gp.config.cmd_prefix .. "ChatNew")
             end,
         },
@@ -125,6 +139,11 @@ M.spec = {
             desc = "New Chat",
         },
         {
+            "<leader>iN",
+            "<cmd>GpBufferChatNew vsplit<cr>",
+            desc = "New Chat with Buffer",
+        },
+        {
             "<leader>it",
             "<cmd>GpChatToggle vsplit<cr>",
             desc = "Toggle Last Chat",
@@ -138,6 +157,23 @@ M.spec = {
             "<leader>im",
             "<cmd>GpCommitMessage<cr>",
             desc = "Generate Commit Message",
+        },
+        {
+            "<leader>ie",
+            "<cmd>GpExplain<cr>",
+            desc = "Explain Code",
+        },
+        {
+            "<leader>ir",
+            ":<C-u>'<,'>GpCodeReview<cr>",
+            desc = "Code Review",
+            mode = "x",
+        },
+        {
+            "<leader>ip",
+            ":<C-u>'<,'>GpChatPaste<cr>",
+            desc = "Pase selection to chat",
+            mode = "x",
         },
     },
     config = function(_, opts)
