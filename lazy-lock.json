@@ -22,7 +22,7 @@
   "gitpad.nvim": { "branch": "main", "commit": "1e0f6fa335c72c05d1d3635120c572e198e5ae0d" },
   "gitsigns.nvim": { "branch": "main", "commit": "562dc47189ad3c8696dbf460d38603a74d544849" },
   "gp.nvim": { "branch": "main", "commit": "861ed5240214dc76b00edeaec15e71370a7a5046" },
-  "grug-far.nvim": { "branch": "main", "commit": "85cadf849bdb22540c36da2034d21de0b37c0952" },
+  "grug-far.nvim": { "branch": "main", "commit": "ebab68b2150079732ae8074eefb261a124824139" },
   "helpview.nvim": { "branch": "main", "commit": "b2cd2ab53472e69aa8e3439540b31df56b9393ff" },
   "kulala.nvim": { "branch": "main", "commit": "7649576ca459146658b4c415d1a320bbedc3f564" },
   "lazy.nvim": { "branch": "main", "commit": "077102c5bfc578693f12377846d427f49bc50076" },
