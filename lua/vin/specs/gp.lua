@@ -76,7 +76,10 @@ M.spec = {
                 end
 
                 local agent = gp.get_command_agent()
-                gp.Prompt(params, gp.Target.vnew, agent, template)
+                -- create horizontal split window with 30 height
+                vim.api.nvim_command("split")
+                vim.api.nvim_command("resize 20")
+                gp.Prompt(params, gp.Target.enew, agent, template)
             end,
 
             -- TODO: This does not work yet
