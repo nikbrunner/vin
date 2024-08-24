@@ -35,6 +35,18 @@ M.spec = {
             end,
 
             CommitMessage = function(gp, params)
+                local has_staged_changes = vim.fn.system("git diff --staged") ~= ""
+
+                if not has_staged_changes then
+                    vim.notify(
+                        "Error while generating commit message: No staged changes found"
+                            .. "\n\n"
+                            .. "Please stage your changes before running this command.",
+                        vim.log.levels.ERROR
+                    )
+                    return
+                end
+
                 local base_template = "You are an expert at following the Conventional Commit specification."
                     .. "Given the git diff listed below, please generate a detailed commit message for me and return it to me directly without explanation:"
                     .. "Use the summary line to describe the overall change, followed by an empty line, and then a more detailed, consice description of the change in the body in bullet points."
