@@ -6,7 +6,6 @@ local M = {}
 function M.handle_colors(config, colorscheme, background)
     vim.opt.background = background
     vim.cmd.colorscheme(colorscheme)
-    require("lualine").setup({ theme = "auto" })
 
     require("vin.lib.files").sync_vin_colorscheme(config, colorscheme, background)
     require("vin.lib.files").sync_wezterm_colorscheme(config, colorscheme)

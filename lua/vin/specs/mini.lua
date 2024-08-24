@@ -68,8 +68,7 @@ M.specs = {
 
     {
         "echasnovski/mini.statusline",
-        event = "VeryLazy",
-        enabled = true,
+        lazy = false,
         opts = function()
             return {
                 content = {
@@ -99,60 +98,39 @@ M.specs = {
                             return require("lazy.status").updates()
                         end
 
-                        local wtf = function()
-                            return require("wtf").get_status()
-                        end
-
-                        local auto_format_indicator = function()
-                            if vim.g.vin_autoformat_enabled then
-                                return "󰉶 On"
-                            else
-                                return "󰉶 Off"
-                            end
-                        end
-
                         local mode, mode_hl = m.section_mode({ trunc_width = 120 })
 
-                        local spell = vim.wo.spell and (m.is_truncated(120) and "S" or "SPELL") or ""
-                        local wrap = vim.wo.wrap and (m.is_truncated(120) and "W" or "WRAP") or ""
                         local git = m.section_git({ trunc_width = 75 })
                         local diagnostics = m.section_diagnostics({ trunc_width = 75 })
-                        local searchcount = m.section_searchcount({ trunc_width = 75 })
-                        local location = m.section_location({ trunc_width = 120 })
-                        local fileinfo = m.section_fileinfo({ trunc_width = 125 })
-                        local filename = m.section_filename({ trunc_width = 140 })
                         local colorscheme_name = vim.g.colors_name or "default"
                         local colorscheme = m.is_truncated(200) and "" or " " .. colorscheme_name
 
                         return m.combine_groups({
                             { hl = mode_hl, strings = { mode } },
                             {
-                                hl = "Function",
-                                strings = (m.is_truncated(250) and { git } or { project_name(), git }),
+                                hl = "@function",
+                                strings = { project_name() },
+                            },
+                            {
+                                hl = "@variable.member",
+                                strings = { git },
                             },
 
                             "%<", -- Mark general truncate point
 
-                            { hl = "Comment", strings = { location } },
                             { hl = "DiagnosticError", strings = { diagnostics } },
 
                             "%=", -- End left alignment
 
-                            { hl = "Comment", strings = { searchcount } },
                             {
                                 hl = "Comment",
-                                strings = (m.is_truncated(120) and {} or {
-                                    wtf(),
-                                    wrap,
-                                    spell,
-                                    auto_format_indicator(),
+                                strings = (m.is_truncated(250) and {} or {
                                     lazy_plug_count(),
                                     lazy_updates(),
                                     lazy_startup(),
                                     colorscheme,
                                 }),
                             },
-                            { hl = mode_hl, strings = { fileinfo } },
                         })
                     end,
                 },
@@ -161,6 +139,9 @@ M.specs = {
         config = function(_, opts)
             require("mini.statusline").setup(opts)
             vim.opt.laststatus = 3
+        end,
+    },
+    {
         "echasnovski/mini.icons",
         enabled = false,
         event = "VeryLazy",

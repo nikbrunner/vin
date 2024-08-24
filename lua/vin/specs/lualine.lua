@@ -3,6 +3,7 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "hoob3rt/lualine.nvim",
+    enabled = false,
     dependencies = {
         "meuter/lualine-so-fancy.nvim",
         "piersolenski/wtf.nvim",
