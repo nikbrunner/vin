@@ -51,9 +51,9 @@ M.spec = {
                     .. "Given the git diff listed below, please generate a detailed commit message for me and return it to me directly without explanation:"
                     .. "Use the summary line to describe the overall change, followed by an empty line, and then a more detailed, consice description of the change in the body in bullet points."
                     .. "If the commit only affects a single file, or one file has the main role in the change, please use the following format:"
-                    .. "- feat|fix|docs|style|refactor|test|chore|revert(<affected-file or scope>): description"
+                    .. "- feat|fix|docs|style|refactor|test|chore|revert(<affected-file (without file-extension) or scope>): description"
                     .. "In the bullet points, use the following format:"
-                    .. "- feat|fix|docs|style|refactor|test|chore|revert(<affected-file or scope>): description"
+                    .. "- feat|fix|docs|style|refactor|test|chore|revert(<affected-file (without file-extension) or scope>): description"
                     .. "\n\n```\n"
                     .. vim.fn.system("git diff --cached")
                     .. "\n```"
