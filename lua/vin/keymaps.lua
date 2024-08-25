@@ -191,7 +191,10 @@ end
 set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "[P]lugin Manager - [LazyVim]" })
 set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "[P]ackage Manager - [Mason]" })
 set("n", "<leader>vl", "<cmd>LspInfo<CR>", { desc = "[L]SP Info" })
-set("n", "<leader>vL", "<cmd>LspRestart<CR>", { desc = "Restart [L]SP " })
+set("n", "<leader>vL", function()
+    vim.notify("Restarting LSP Servers", vim.log.levels.INFO, { title = "LSP" })
+    vim.cmd("LspRestart")
+end, { desc = "Restart [L]SP " })
 
 -- [C] Action Group
 set({ "n", "v" }, "<leader>cc", function()

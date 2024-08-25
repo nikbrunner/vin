@@ -1,5 +1,6 @@
 return {
     misc = {
+        dot = "⋅",
         dots = "󰇘",
         circle_lg = " ",
         circle_md = " ",
