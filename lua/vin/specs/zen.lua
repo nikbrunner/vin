@@ -12,12 +12,13 @@ M.spec = {
             width = 0.65, -- width of the Zen window
             height = 1, -- height of the Zen window
             options = {
-                relativenumber = true,
+                relativenumber = false,
+                number = false,
             },
         },
         plugins = {
             tmux = {
-                enabled = false, -- Causing too much issues
+                enabled = true, -- Causing too much issues
             },
             options = {
                 laststatus = 0,

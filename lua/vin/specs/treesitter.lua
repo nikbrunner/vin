@@ -146,9 +146,11 @@ M.specs = {
         event = "VeryLazy",
         enabled = true,
         ---@type TSContext.Config
+        ---@diagnostic disable-next-line: missing-fields
         opts = {
+            line_numbers = true,
             enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-            max_lines = 1, -- How many lines the window should span. Values <= 0 mean no limit.
+            max_lines = 3, -- How many lines the window should span. Values <= 0 mean no limit.
             multiline_threshold = 20, -- Maximum number of lines to show for a single context
             trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
             zindex = 20, -- The Z-index of the context window

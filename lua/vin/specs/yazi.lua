@@ -22,19 +22,19 @@ M.spec = {
     -- TODO: Image Preview does not work: https://github.com/mikavilpas/yazi.nvim/issues/112
     ---@type YaziConfig
     opts = {
-        yazi_floating_window_winblend = 10,
+        yazi_floating_window_winblend = 0,
         floating_window_scaling_factor = 0.8,
         yazi_floating_window_border = "solid",
         ---@diagnostic disable-next-line: missing-fields
         hooks = {
             ---@diagnostic disable-next-line: unused-local
             yazi_opened = function(preselected_path, buffer, config)
-                ui.create_backdrop()
+                -- ui.create_backdrop()
                 vim.cmd("Neotree close")
             end,
             ---@diagnostic disable-next-line: unused-local
             yazi_closed_successfully = function(chosen_file, config, state)
-                ui.close_backdrop()
+                -- ui.close_backdrop()
             end,
         },
     },

@@ -15,7 +15,7 @@ M.spec = {
             title = "Vin",
             border = "solid",
             wo = {
-                winblend = 10,
+                winblend = 0,
             },
         },
 
