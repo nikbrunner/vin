@@ -254,10 +254,11 @@ M.spec = {
             code_actions = {
                 previewer = false,
                 winopts = {
+                    relative = "cursor",
                     row = 0.85,
                     col = 0.5,
                     height = 0.35,
-                    width = 0.5,
+                    width = 0.35,
                     preview = { hidden = "hidden" },
                 },
             },
