@@ -2,9 +2,9 @@ local M = {}
 
 ---@type LazyPluginSpec
 M.spec = {
-    "black-atom-industries/black-atom.nvim",
-    dir = require("vin.config").pathes.repos .. "/black-atom-industries/black-atom.nvim",
-    pin = true,
+    "black-atom-industries/nvim",
+    name = "black-atom",
+    dir = require("vin.config").pathes.repos .. "/black-atom-industries/nvim",
     lazy = false,
     priority = 1000,
     ---@module "black-atom"
