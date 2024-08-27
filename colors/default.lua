@@ -86,25 +86,28 @@ hl("WinSeparator", { fg = colors.fg.dark })
 hl("Comment", { fg = hls.comment.fg, italic = true })
 
 -- Lualine
-require("lualine").setup({
-    options = {
-        theme = {
-            normal = {
-                a = { bg = colors.active.bg, fg = colors.active.fg },
-                b = { bg = colors.bg.dark, fg = dec_to_hex(hls.normal.fg) },
-                c = { bg = colors.bg.main, fg = dec_to_hex(hls.normal.fg) },
-            },
-            insert = { a = { bg = colors.fg.light, fg = colors.bg.dark } },
-            visual = { a = { bg = colors.fg.dark, fg = colors.bg.light } },
-            replace = { a = { bg = colors.bg.dark, fg = colors.bg.light } },
-            inactive = {
-                a = { bg = colors.bg.dark, fg = colors.fg.dark },
-                b = { bg = colors.bg.dark, fg = colors.fg.dark },
-                c = { bg = colors.bg.dark, fg = colors.fg.dark },
+local lualine_present = pcall(require, "lualine")
+if lualine_present then
+    require("lualine").setup({
+        options = {
+            theme = {
+                normal = {
+                    a = { bg = colors.active.bg, fg = colors.active.fg },
+                    b = { bg = colors.bg.dark, fg = dec_to_hex(hls.normal.fg) },
+                    c = { bg = colors.bg.main, fg = dec_to_hex(hls.normal.fg) },
+                },
+                insert = { a = { bg = colors.fg.light, fg = colors.bg.dark } },
+                visual = { a = { bg = colors.fg.dark, fg = colors.bg.light } },
+                replace = { a = { bg = colors.bg.dark, fg = colors.bg.light } },
+                inactive = {
+                    a = { bg = colors.bg.dark, fg = colors.fg.dark },
+                    b = { bg = colors.bg.dark, fg = colors.fg.dark },
+                    c = { bg = colors.bg.dark, fg = colors.fg.dark },
+                },
             },
         },
-    },
-})
+    })
+end
 
 -- Set terminal colors for embedded terminals
 vim.g.terminal_color_0 = colors.palette.ansi[1]
