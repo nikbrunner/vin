@@ -3,6 +3,7 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "robitx/gp.nvim",
+    enabled = true,
     event = "VeryLazy",
     opts = {
         ---@diagnostic disable-next-line: param-type-mismatch
@@ -170,6 +171,12 @@ M.spec = {
             "<leader>if",
             "<cmd>GpChatFinder<cr>",
             desc = "Find Chat",
+        },
+        {
+            "<leader>ii",
+            ":<C-u>'<,'>GpRewrite<cr>",
+            desc = "Inline Rewrite",
+            mode = "x",
         },
         {
             "<leader>im",
