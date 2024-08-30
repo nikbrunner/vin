@@ -53,6 +53,7 @@ M.spec = {
                     .. "Use the summary line to describe the overall change, followed by an empty line, and then a more detailed, consice description of the change in the body in bullet points."
                     .. "Use as litte bullet points as possible. We want to keep the commit message short and concise."
                     .. "When asserting the scope, consider if it makes most sense to include the file name or the folder scope by looking at the pathes of the files changed."
+                    .. "In most cases, the summary is enough to describe the overall change. Use the body only if the summary is not enough to describe the change."
                     .. "If the commit affects multiple files, consider the pathes of the files changed for the scope."
                     .. "If the commit only affects a single file, or one file has the main role in the change, please use the following format:"
                     .. "- feat|fix|docs|style|refactor|test|chore|revert(<affected-file (without file-extension) or scope>): description"
