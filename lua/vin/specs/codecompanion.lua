@@ -3,7 +3,7 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "olimorris/codecompanion.nvim",
-    enabled = false,
+    enabled = true,
     event = "VeryLazy",
     dependencies = {
         "nvim-lua/plenary.nvim",
