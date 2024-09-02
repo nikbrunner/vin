@@ -23,7 +23,6 @@ M.spec = {
             clear_suggestion = "<C-e>",
             accept_word = "<S-Tab>",
         },
-        log_level = "off",
     },
     keys = {
         { "<leader>ic", M.toggle_inline_completion, desc = "Autocompletion" },
