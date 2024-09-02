@@ -11,7 +11,7 @@ M.spec = {
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
-    enabled = true,
+    enabled = false,
     version = "*",
     event = function()
         local config = require("vin.config")
