@@ -4,9 +4,10 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "otavioschwanck/arrow.nvim",
+    event = "BufEnter",
     opts = {
-        leader_key = nil,
-        buffer_leader_key = "m",
+        leader_key = "M", -- Recommended to be a single key
+        buffer_leader_key = "m", -- Per Buffer Mappings
         show_icons = false,
         always_show_path = true,
         separate_by_branch = true,
@@ -23,15 +24,15 @@ M.spec = {
             border = "solid",
         },
     },
-    keys = {
-        {
-            "<leader>m",
-            function()
-                require("arrow.ui").openMenu()
-            end,
-            desc = "[M]arks",
-        },
-    },
+    -- keys = {
+    --     {
+    --         "<leader>m",
+    --         function()
+    --             require("arrow.ui").openMenu()
+    --         end,
+    --         desc = "[M]arks",
+    --     },
+    -- },
 }
 
 return M.spec
