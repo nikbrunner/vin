@@ -111,7 +111,7 @@ M.keys = {
     { "<leader>sG", function() require("fzf-lua").live_grep_resume() end, desc = "Grep Resume" },
     { "<leader>s'", function() require("fzf-lua").registers({ winopts = M.winopts.lg.vertical }) end, mode = { "n", "v" }, desc = "Registers" },
     { "<leader>s<Tab>", function() require("fzf-lua").tabs() end, desc = "Tabs" },
-    { "<leader>gs", function() require("fzf-lua").git_status({ winopts = M.winopts.lg.flex }) end, desc = "Status" },
+    { "<leader>gs", function() require("fzf-lua").git_status({ winopts = M.winopts.lg.vertical }) end, desc = "Git Status" },
     { "<leader>gc", function() require("fzf-lua").changes() end, desc = "Changes" },
     { "<leader>gB", function() require("fzf-lua").git_branches() end, desc = "Branches" },
     { "<leader>gC", function() require("fzf-lua").git_commits() end, desc = "Commits" },
