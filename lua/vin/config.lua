@@ -59,7 +59,8 @@ M.config = {
             "lua_ls",
             "yamlls",
             "rust_analyzer",
-            "tsserver",
+            "ts_ls",
+            "vtsls",
         },
         -- :h mason-tool-installer
         tools = {
