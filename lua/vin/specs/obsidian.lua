@@ -8,10 +8,10 @@ local M = {}
 ---@type LazySpec
 M.spec = {
     "epwalsh/obsidian.nvim",
+    enabled = false,
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
-    enabled = false,
     version = "*",
     event = function()
         local config = require("vin.config")
@@ -50,6 +50,9 @@ M.spec = {
         local config = require("vin.config")
 
         return {
+            ui = {
+                enable = false, -- set to false because of conflics with `markdown.nvim`
+            },
             workspaces = {
                 {
                     name = "Personal",
@@ -110,7 +113,6 @@ M.spec = {
     end,
 
     config = function(_, opts)
-        print("loaded")
         require("obsidian").setup(opts)
     end,
 }
