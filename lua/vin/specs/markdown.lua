@@ -3,9 +3,8 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "MeanderingProgrammer/markdown.nvim",
-    enabled = false,
     ft = "markdown",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
     opts = {
         -- Characters that will replace the # at the start of markdown headings
         headings = { "󰲡 ", "󰲣  ", "󰲥  ", "󰲧  ", "󰲩  ", "󰲫  " },
@@ -33,6 +32,11 @@ M.spec = {
                 row = "Normal",
             },
         },
+    },
+    keys = {
+        "<leader>um",
+        "<cmd>RenderMarkdown toggle<CR>",
+        desc = "Toggle Markdown Rendering",
     },
     config = function(_, opts)
         require("render-markdown").setup(opts)
