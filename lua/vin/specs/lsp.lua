@@ -54,6 +54,10 @@ M.specs = {
                         capabilities = capabilities,
                     })
                 end,
+                ts_ls = function()
+                    -- Disable ts_ls because I use `vtsls` instead. (See `lua/vin/specs/vtsls.lua`)
+                    return nil
+                end,
                 -- Much is handled by `lazydev` here
                 -- https://luals.github.io/wiki/settings/#settings
                 ["lua_ls"] = function()
