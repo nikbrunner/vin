@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 local M = {}
 
 ---@type LazyPluginSpec
@@ -7,13 +8,24 @@ M.spec = {
     ---@diagnostic disable-next-line: missing-fields
     opts = {
         windowCreationCommand = "vsplit",
+        engines = {
+            ripgrep = {
+                placeholders = {
+                    search = "ex: foo    foo([a-z0-9]*)    fun\\(",
+                    replacement = "ex: bar    ${1}_foo    $$MY_ENV_VAR ",
+                    filesFilter = "ex: *.lua     *.{css,js}    **/docs/*.md",
+                    flags = "ex: --help, Ignore Case (-i), Match Whole World (-w), --replace= (empty replace) --multiline (-U)",
+                    paths = "ex: /foo/bar   ../   ./hello\\ world/   ./src/foo.lua",
+                },
+            },
+        },
     },
     keys = {
         {
             "<leader>f",
             mode = { "n", "x" },
             function()
-                require("grug-far").grug_far()
+                require("grug-far").open()
             end,
             desc = "Find",
         },
@@ -21,7 +33,7 @@ M.spec = {
             "<leader>F",
             mode = { "n", "x" },
             function()
-                require("grug-far").grug_far({ prefills = { paths = vim.fn.expand("%") } })
+                require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
             end,
             desc = "Search & [R]eplace (Workspace)",
         },
