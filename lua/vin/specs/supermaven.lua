@@ -23,6 +23,7 @@ M.spec = {
             clear_suggestion = "<C-e>",
             accept_word = "<S-Tab>",
         },
+        log_level = "off", -- set to "off" to disable logging completely
     },
     keys = {
         { "<leader>ic", M.toggle_inline_completion, desc = "Autocompletion" },
