@@ -2,7 +2,7 @@ local M = {}
 
 ---@class VinConfig
 M.config = {
-    colorscheme = "black-atom-operations",
+    colorscheme = "black-atom-jpn-koyo-yoru",
     ---@type "dark" | "light"
     background = "dark",
     ---see for wezterm themes: https://wezfurlong.org/wezterm/colorschemes/index.html
@@ -18,6 +18,7 @@ M.config = {
         ["black-atom-operations"] = { wezterm = "Black Atom - Operations" },
         ["black-atom-medical"] = { wezterm = "Black Atom - Medical" },
         ["black-atom-research"] = { wezterm = "Black Atom - Research" },
+        ["black-atom-jpn-koyo-yoru"] = { wezterm = "Black Atom - JPN Koyo Yoru" },
         ["github_dark_default"] = { wezterm = "github_dark_default" },
         ["github_dark_dimmed"] = { wezterm = "github_dark_dimmed" },
         ["github_light_default"] = { wezterm = "Google Light (Gogh)" },
