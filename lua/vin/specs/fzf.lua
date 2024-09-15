@@ -133,7 +133,7 @@ M.lsp_attach = function()
         })
     end, { desc = "Go to [D]efinition" })
 
-    vim.keymap.set("n", "gr", function()
+    vim.keymap.set("n", "gR", function()
         require("fzf-lua").lsp_references({
             jump_to_single_result = true,
             jump_type = "vsplit",
