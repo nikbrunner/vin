@@ -6,6 +6,7 @@ M.spec = {
     name = "black-atom",
     dir = require("vin.config").pathes.repos .. "/black-atom-industries/nvim",
     lazy = false,
+    pin = true,
     priority = 1000,
     ---@module "black-atom"
     ---@type BlackAtom.Config
