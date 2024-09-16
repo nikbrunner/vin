@@ -20,6 +20,13 @@ M.spec = {
             {
                 "<leader>ee",
                 function()
+                    vim.cmd("Neotree left toggle reveal")
+                end,
+                desc = "[F]iles",
+            },
+            {
+                "<leader>ef",
+                function()
                     vim.cmd("Neotree float toggle reveal")
                 end,
                 desc = "[F]iles",
@@ -27,7 +34,7 @@ M.spec = {
             {
                 "<leader>eg",
                 function()
-                    vim.cmd("Neotree float git_status toggle reveal")
+                    vim.cmd("Neotree right git_status toggle reveal")
                 end,
                 desc = "[G]it Status",
             },

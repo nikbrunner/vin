@@ -11,9 +11,9 @@ M.spec = {
     event = "VeryLazy",
     keys = {
         {
-            "<leader>ef",
+            "-",
             function()
-                vim.cmd("Neotree close")
+                -- vim.cmd("Neotree close")
                 require("yazi").yazi()
             end,
             desc = "Finder",
