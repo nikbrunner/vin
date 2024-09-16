@@ -117,8 +117,8 @@ M.keys = {
     { "<leader>gC", function() require("fzf-lua").git_commits() end, desc = "Commits" },
     { "<leader>ut", function() require("fzf-lua").colorschemes() end, desc = "Toggle Tthemes" },
     { "<leader>uT", function() require("fzf-lua").awesome_colorschemes() end, desc = "Toggle 'Awesome' Themes" },
-    { "<leader>dd", function() require("fzf-lua").lsp_document_diagnostics({ winopts = M.winopts.lg.vertical }) end, desc = "Diagnostics Document (fzf)" },
-    { "<leader>dw", function() require("fzf-lua").lsp_workspace_diagnostics({ winopts = M.winopts.lg.vertical }) end, desc = "Diagnostics Workspace (fzf)" },
+    { "<leader>dD", function() require("fzf-lua").lsp_document_diagnostics({ winopts = M.winopts.lg.vertical }) end, desc = "Diagnostics Document (fzf)" },
+    { "<leader>dW", function() require("fzf-lua").lsp_workspace_diagnostics({ winopts = M.winopts.lg.vertical }) end, desc = "Diagnostics Workspace (fzf)" },
     { "gs", function() require("fzf-lua").lsp_document_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Document Symbols" },
     { "gS", function() require("fzf-lua").lsp_live_workspace_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace Symbols" },
 }
