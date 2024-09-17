@@ -89,6 +89,12 @@ function M.search_selection_with_fzf()
     require("fzf-lua").live_grep_native({ search = selection, winopts = M.winopts.lg.vertical })
 end
 
+function M.grep_over_changed_files()
+    require("fzf-lua").grep({
+        raw_cmd = [[git status -su | rg "^\s*M" | cut -d ' ' -f3 | xargs rg --hidden --column --line-number --no-heading --color=always  --with-filename -e '']],
+    })
+end
+
 -- stylua: ignore start
 M.keys = {
     { "<leader><leader>", function() require("fzf-lua").files({ winopts = M.winopts.lg.flex }) end, desc = "Find Files" },
@@ -108,7 +114,7 @@ M.keys = {
     { "<leader>ss", function() M.search_selection_with_fzf() end, mode = "v", desc = "Selection" },
     { "<leader>sM", function() require("fzf-lua").man_pages() end, desc = "Man Pages" },
     { "<leader>sg", function() require("fzf-lua").live_grep_native({ winopts = M.winopts.lg.vertical }) end, desc = "Grep" },
-    { "<leader>sG", function() require("fzf-lua").live_grep_resume() end, desc = "Grep Resume" },
+    { "<leader>sG", function() M.grep_over_changed_files() end, desc = "Grep [Changed Files]" },
     { "<leader>s'", function() require("fzf-lua").registers({ winopts = M.winopts.lg.vertical }) end, mode = { "n", "v" }, desc = "Registers" },
     { "<leader>s<Tab>", function() require("fzf-lua").tabs() end, desc = "Tabs" },
     { "<leader>gs", function() require("fzf-lua").git_status({ winopts = M.winopts.lg.vertical }) end, desc = "Git Status" },
