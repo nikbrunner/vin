@@ -38,26 +38,24 @@ M.spec = {
 
                             if not has_staged_changes then
                                 vim.notify(
-                                    "Error while generating commit message: No staged changes found"
-                                        .. "\n\n"
-                                        .. "Please stage your changes before running this command.",
-                                    vim.log.levels.ERROR
+                                    "No staged changes found" .. "\n\n" .. "Staging all changes...",
+                                    vim.log.levels.WARN
                                 )
-                                return
+                                vim.fn.system("git add -A")
                             end
 
                             local base_template = "You are an expert at following the Conventional Commit specification."
-                                .. "Given the git diff listed below, please generate a detailed commit message for me and return it to me directly without explanation:"
-                                .. "Use the summary line to describe the overall change, followed by an empty line, and then a more detailed, consice description of the change in the body in bullet points."
-                                .. "Use as litte bullet points as possible. We want to keep the commit message short and concise."
-                                .. "If you encounter variable names or other code elements, please wrap them in backticks. (e.g. `<var-name>`)"
-                                .. "When asserting the scope, consider if it makes most sense to include the file name or the folder scope by looking at the pathes of the files changed."
-                                .. "In most cases, the summary is enough to describe the overall change. Use the body only if the summary is not enough to describe the change."
-                                .. "If the commit affects multiple files, consider the pathes of the files changed for the scope."
-                                .. "If the commit only affects a single file, or one file has the main role in the change, please use the following format:"
-                                .. "- feat|fix|docs|style|refactor|test|chore|revert(<affected-file (without file-extension) or scope>): description"
-                                .. "In the bullet points, use the following format:"
-                                .. "- feat|fix|docs|style|refactor|test|chore|revert(<affected-file (without file-extension) or scope>): description"
+                                .. "\nGiven the git diff listed below, please generate a detailed commit message for me and return it to me directly without explanation:"
+                                .. "\nUse the summary line to describe the overall change, followed by an empty line, and then a more detailed, concise description of the change in the body in bullet points."
+                                .. "\nUse as little bullet points as possible. We want to keep the commit message short and concise."
+                                .. "\nIf you encounter variable names or other code elements, please wrap them in backticks. (e.g. `<var-name>`)"
+                                .. "\nWhen asserting the scope, consider if it makes most sense to include the file name or the folder scope by looking at the paths of the files changed."
+                                .. "\nIn most cases, the summary is enough to describe the overall change. Use the body only if the summary is not enough to describe the change."
+                                .. "\nIf the commit affects multiple files, consider the paths of the files changed for the scope."
+                                .. "\nIf the commit only affects a single file, or one file has the main role in the change, please use the following format:"
+                                .. "\n- feat|fix|docs|style|refactor|test|chore|revert(<affected-file (without file-extension) or scope>): description"
+                                .. "\nIn the bullet points, use the following format:"
+                                .. "\n- feat|fix|docs|style|refactor|test|chore|revert(<affected-file (without file-extension) or scope>): description"
 
                             local template = base_template
 
