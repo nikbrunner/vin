@@ -4,6 +4,9 @@ local M = {}
 M.spec = {
     "olimorris/codecompanion.nvim",
     event = "VeryLazy",
+    -- Disabled because of missing feature of saving chats
+    -- See: https://github.com/olimorris/codecompanion.nvim/discussions/139
+    enabled = false,
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
@@ -18,6 +21,14 @@ M.spec = {
             },
             inline = {
                 adapter = "openai",
+            },
+        },
+        display = {
+            diff = {
+                provider = "default", -- default|mini_diff
+            },
+            chat = {
+                show_settings = true, -- Show LLM settings at the top of the chat buffer?
             },
         },
         pre_defined_prompts = {
@@ -96,7 +107,7 @@ M.spec = {
         },
     },
     keys = {
-        { "<leader>ia", "<cmd>CodeCompanionActions<CR>", desc = "Actions" },
+        { "<C-g>", mode = { "n", "v" }, "<cmd>CodeCompanionActions<CR>", desc = "Actions" },
         { "<leader>it", "<cmd>CodeCompanionToggle<CR>", desc = "Toggle" },
         { "ga", "<cmd>CodeCompanionAdd<CR>", desc = "Add Selection", mode = { "v" } },
     },
