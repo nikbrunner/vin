@@ -3,7 +3,7 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "robitx/gp.nvim",
-    enabled = true,
+    enabled = false,
     event = "VeryLazy",
     opts = {
         ---@diagnostic disable-next-line: param-type-mismatch

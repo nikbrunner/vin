@@ -93,7 +93,6 @@ M.spec = {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     event = "VeryLazy",
-    enabled = false,
     dependencies = {
         {
             "nvim-telescope/telescope-fzf-native.nvim",
