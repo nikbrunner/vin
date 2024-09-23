@@ -13,7 +13,6 @@ M.spec = {
         {
             "-",
             function()
-                -- vim.cmd("Neotree close")
                 require("yazi").yazi()
             end,
             desc = "Finder",
@@ -29,12 +28,11 @@ M.spec = {
         hooks = {
             ---@diagnostic disable-next-line: unused-local
             yazi_opened = function(preselected_path, buffer, config)
-                -- ui.create_backdrop()
-                vim.cmd("Neotree close")
+                ui.create_backdrop()
             end,
             ---@diagnostic disable-next-line: unused-local
             yazi_closed_successfully = function(chosen_file, config, state)
-                -- ui.close_backdrop()
+                ui.close_backdrop()
             end,
         },
     },
