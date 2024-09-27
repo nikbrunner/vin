@@ -18,7 +18,7 @@ M.spec = {
         },
         plugins = {
             tmux = {
-                enabled = true, -- Causing too much issues
+                enabled = false, -- Causing too much issues
             },
             options = {
                 laststatus = 0,
