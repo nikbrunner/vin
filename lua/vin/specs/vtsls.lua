@@ -20,6 +20,7 @@ M.spec = {
                 },
             },
             typescript = {
+                tsserver = { maxTsServerMemory = 25000 },
                 updateImportsOnFileMove = { enabled = "always" },
                 suggest = {
                     completeFunctionCalls = true,
