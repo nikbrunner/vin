@@ -90,10 +90,9 @@ M.specs = {
 
             vim.diagnostic.config({
                 underline = false,
-                -- virtual_text = {
-                --     prefix = " " .. require("vin.icons").misc.circle_lg,
-                -- },
-                virtual_text = false, -- Controlled by `corn.nvim`
+                virtual_text = {
+                    prefix = " " .. require("vin.icons").misc.circle_lg,
+                },
                 signs = true,
                 update_in_insert = false,
                 float = {
