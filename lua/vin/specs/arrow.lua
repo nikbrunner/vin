@@ -24,15 +24,15 @@ M.spec = {
             border = "solid",
         },
     },
-    -- keys = {
-    --     {
-    --         "<leader>m",
-    --         function()
-    --             require("arrow.ui").openMenu()
-    --         end,
-    --         desc = "[M]arks",
-    --     },
-    -- },
+    keys = {
+        {
+            "<leader>m",
+            function()
+                require("arrow.ui").openMenu()
+            end,
+            desc = "[M]arks",
+        },
+    },
 }
 
 return M.spec
