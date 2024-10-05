@@ -24,6 +24,7 @@ vim.opt.smartindent = true
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "indent"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = ""
 
 vim.opt.wildmode = "longest:full,full"
 
