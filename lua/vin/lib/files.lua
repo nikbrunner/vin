@@ -20,22 +20,22 @@ end
 ---@param config VinConfig
 ---@param colorscheme string
 function M.sync_wezterm_colorscheme(config, colorscheme)
-    local pathes = config.pathes
+    local wezterm_ui_file = config.pathes.config.wezterm .. "/ui.lua"
     local bg_normal = require("vin.lib.colors").get_hex_color("Normal").bg
     local bg_normal_float = require("vin.lib.colors").get_hex_color("NormalFloat").bg
 
     local colorscheme_config = config.colorscheme_config_map[colorscheme]
 
     if bg_normal then
-        M.update_line_in_file(pathes.config.wezterm, "background", '"' .. bg_normal .. '"')
+        M.update_line_in_file(wezterm_ui_file, "background", '"' .. bg_normal .. '"')
     elseif bg_normal_float then
-        M.update_line_in_file(pathes.config.wezterm, "background", '"' .. bg_normal_float .. '"')
+        M.update_line_in_file(wezterm_ui_file, "background", '"' .. bg_normal_float .. '"')
     else
         print("Could not find background color.")
     end
 
     if colorscheme_config and colorscheme_config.wezterm then
-        M.update_line_in_file(pathes.config.wezterm, "color_scheme", '"' .. colorscheme_config.wezterm .. '"')
+        M.update_line_in_file(wezterm_ui_file, "color_scheme", '"' .. colorscheme_config.wezterm .. '"')
     end
 end
 
