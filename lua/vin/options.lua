@@ -38,14 +38,6 @@ vim.opt.fillchars = {
     diff = "╱",
 }
 
---  See :help 'list' and :help 'listchars'
-vim.opt.list = true
-vim.opt.listchars = {
-    tab = "» ",
-    trail = "·",
-    nbsp = "␣",
-}
-
 vim.opt.number = true
 vim.opt.relativenumber = true
 
