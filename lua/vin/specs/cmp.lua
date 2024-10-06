@@ -3,7 +3,7 @@ local M = {}
 ---@type LazyPluginSpec[]
 M.specs = {
     {
-        "hrsh7th/nvim-cmp",
+        "iguanacucumber/magazine.nvim",
         dependencies = {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
