@@ -32,6 +32,7 @@ M.spec = {
                 { "<leader>R", icon = " " },
                 { "<leader>c", group = "Code", icon = " " },
                 { "<leader>cl", group = "Log", icon = " " },
+                { "<leader>cp", group = "Picker", icon = "󱥚 " },
                 { "<leader>d", group = "Diagnostics", icon = " " },
                 { "<leader>dc", group = "Calls", icon = " " },
                 { "<leader>e", group = "Explorer", icon = "󰙅" },
