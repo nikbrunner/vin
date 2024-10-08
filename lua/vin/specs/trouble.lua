@@ -71,13 +71,13 @@ M.spec = {
         },
     },
     keys = {
-        { "gr", "<cmd>Trouble lsp_references<cr>", desc = "LSP References (Trouble)" },
-        { "<leader>di", "<cmd>Trouble lsp toggle<cr>", desc = "LSP Definitions / references / ... (Trouble)" },
+        { "gr", "<cmd>Trouble lsp_references<cr>", desc = "Symbol [R]eferences" },
+        { "<leader>di", "<cmd>Trouble lsp toggle<cr>", desc = "Symbol [I]nformation" },
         { "<leader>dci", "<cmd>Trouble lsp_incoming_calls<cr>", desc = "[C]alls [I]ncoming" },
         { "<leader>dco", "<cmd>Trouble lsp_outgoing_calls<cr>", desc = "[C]alls [O]utgoing" },
-        { "<leader>dd", "<cmd>Trouble diagnostics toggle  filter.buf=0<cr>", desc = "Diagnostics [D]ocument (trouble)" },
-        { "<leader>dw", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics [W]orkspace (trouble)" },
-        { "<leader>dt", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (Trouble)" },
+        { "<leader>dd", "<cmd>Trouble diagnostics toggle  filter.buf=0<cr>", desc = "[D]ocument" },
+        { "<leader>dw", "<cmd>Trouble diagnostics toggle<cr>", desc = "[W]orkspace" },
+        { "<leader>dt", "<cmd>Trouble symbols toggle<cr>", desc = "[S]ymbols" },
         {
             "[q",
             function()

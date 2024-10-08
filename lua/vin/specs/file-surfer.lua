@@ -13,7 +13,7 @@ M.spec = {
         change_dir = false,
         tmux = {
             enable = true,
-            default_mappings = true,
+            default_mappings = false,
         },
         paths = {
             static = {

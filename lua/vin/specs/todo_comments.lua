@@ -2,9 +2,6 @@ local lib = require("vin.lib")
 
 local M = {}
 
--- TODO: add binding to add a new todo comment
--- TODO: prefill with parsed issue number?
-
 ---@type LazyPluginSpec
 M.spec = {
     "folke/todo-comments.nvim",
@@ -12,9 +9,9 @@ M.spec = {
     event = "BufReadPre",
     keys = {
         {
-            "<leader>st",
+            "<leader>sx",
             "<cmd>TodoTrouble<CR>",
-            desc = "[T]odos",
+            desc = "[x]odos",
         },
         {
             "<leader>ct",
@@ -39,7 +36,7 @@ M.spec = {
                     end)
                 end
             end,
-            desc = "Add todo (/w parsing from branch issue",
+            desc = "Add todo",
         },
         {
             "]t",

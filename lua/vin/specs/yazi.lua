@@ -11,11 +11,18 @@ M.spec = {
     event = "VeryLazy",
     keys = {
         {
-            "-",
+            "<leader>fm",
             function()
                 require("yazi").yazi()
             end,
-            desc = "Finder",
+            desc = "[M]anager",
+        },
+        {
+            "<leader>fM",
+            function()
+                require("yazi").yazi(nil, vim.fn.getcwd())
+            end,
+            desc = "[M]anager [CWD]",
         },
     },
     -- TODO: Image Preview does not work: https://github.com/mikavilpas/yazi.nvim/issues/112

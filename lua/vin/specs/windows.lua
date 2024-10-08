@@ -29,7 +29,7 @@ M.spec = {
         },
         ignore = {
             buftype = { "quickfix" },
-            filetype = { "NvimTree", "neo-tree", "undotree", "gundo" },
+            filetype = { "NvimTree", "neo-tree", "undotree", "gundo", "grug-far" },
         },
     },
     config = function(_, opts)
