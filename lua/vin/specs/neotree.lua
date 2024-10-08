@@ -18,42 +18,50 @@ M.spec = {
 
         return {
             {
-                "<leader>ee",
+                "<leader>fr",
                 function()
-                    vim.cmd("Neotree left toggle reveal")
+                    -- close_side_panels()
+                    vim.cmd("Neotree float buffers toggle reveal")
                 end,
-                desc = "[F]iles",
+                desc = "[R]ecents",
             },
             {
-                "<leader>ef",
+                "<leader>fe",
                 function()
                     vim.cmd("Neotree float toggle reveal")
                 end,
-                desc = "[F]iles",
+                desc = "[E]xplorer",
             },
             {
-                "<leader>eg",
+                "<leader>fE",
+                function()
+                    vim.cmd("Neotree left toggle reveal")
+                end,
+                desc = "[E]xplorer (Left)",
+            },
+            {
+                "<leader>fg",
                 function()
                     vim.cmd("Neotree float git_status toggle reveal")
                 end,
                 desc = "[G]it Status",
             },
             {
-                "<leader>eG",
+                "<leader>fG",
                 function()
                     vim.cmd("Neotree right git_status toggle reveal")
                 end,
-                desc = "[G]it Status",
+                desc = "[G]it Status (Right)",
             },
             {
-                "<leader>eh",
+                "<leader>fh",
                 function()
                     vim.cmd("Neotree float toggle reveal git_status origin/HEAD")
                 end,
-                desc = "[G]it Status (HEAD)",
+                desc = "[H]ead Status",
             },
             {
-                "<leader>eH",
+                "<leader>fH",
                 function()
                     -- close_side_panels()
                     local all_branches = vim.fn.system("git branch -a")
@@ -83,23 +91,7 @@ M.spec = {
                         end
                     end)
                 end,
-                desc = "[G]it Status (Choose HEAD)",
-            },
-            {
-                "<leader>er",
-                function()
-                    -- close_side_panels()
-                    vim.cmd("Neotree float buffers toggle reveal")
-                end,
-                desc = "[R]ecents",
-            },
-            {
-                "<leader>es",
-                function()
-                    -- close_side_panels()
-                    vim.cmd("Neotree right document_symbols toggle reveal")
-                end,
-                desc = "[S]ymbols",
+                desc = "[H]ead Status (Choose)",
             },
         }
     end,
