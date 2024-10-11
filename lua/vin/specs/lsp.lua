@@ -31,6 +31,7 @@ M.specs = {
             "williamboman/mason.nvim",
             "neovim/nvim-lspconfig",
             "folke/lazydev.nvim",
+            "yioneko/nvim-vtsls",
         },
         opts = {
             ensure_installed = config.ensure_installed.servers,
@@ -41,22 +42,46 @@ M.specs = {
                 -- The first entry (without a key) will be the default handler
                 -- and will be called for each installed server that doesn't have a dedicated handler.
                 function(server_name) -- default handler (optional)
-                    -- TypeScript tools is used for setup @see `lua/vin/specs/typescript_tools.lua`
-                    if server_name == "tsserver" then
-                        return nil
-                    end
-
                     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-                    ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+                    ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
                     -- For a list of lsp-configurations see here: `:h lspconfig-all`
                     require("lspconfig")[server_name].setup({
                         capabilities = capabilities,
                     })
                 end,
-                ts_ls = function()
-                    -- Disable ts_ls because I use `vtsls` instead. (See `lua/vin/specs/vtsls.lua`)
-                    return nil
+                vtsls = function()
+                    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+                    -- [LazyVim/lua/lazyvim/plugins/extras/lang/typescript.lua at main · LazyVim/LazyVim](https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/typescript.lua)
+                    -- [vtsls/packages/service/configuration.schema.json at main · yioneko/vtsls](https://github.com/yioneko/vtsls/blob/main/packages/service/configuration.schema.json)
+                    require("lspconfig").vtsls.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            typescript = {
+                                tsserver = {
+                                    maxTsServerMemory = 4000,
+                                },
+                                updateImportsOnFileMove = {
+                                    enabled = "always",
+                                },
+                                suggest = {
+                                    completeFunctionCalls = true,
+                                },
+                                inlayHints = {
+                                    enumMemberValues = { enabled = true },
+                                    functionLikeReturnTypes = { enabled = true },
+                                    parameterNames = { enabled = "literals" },
+                                    parameterTypes = { enabled = true },
+                                    propertyDeclarationTypes = { enabled = true },
+                                    variableTypes = { enabled = false },
+                                },
+                                preferences = {
+                                    importModuleSpecifier = "relative",
+                                },
+                            },
+                        },
+                    })
                 end,
                 -- Much is handled by `lazydev` here
                 -- https://luals.github.io/wiki/settings/#settings
