@@ -144,7 +144,19 @@ M.specs = {
     {
         "echasnovski/mini.icons",
         event = "VeryLazy",
-        opts = {},
+        opts = {
+            file = {
+                [".eslintrc.js"] = { glyph = "󰱺", hl = "MiniIconsYellow" },
+                [".node-version"] = { glyph = "", hl = "MiniIconsGreen" },
+                [".prettierrc"] = { glyph = "", hl = "MiniIconsPurple" },
+                [".yarnrc.yml"] = { glyph = "", hl = "MiniIconsBlue" },
+                ["eslint.config.js"] = { glyph = "󰱺", hl = "MiniIconsYellow" },
+                ["package.json"] = { glyph = "", hl = "MiniIconsGreen" },
+                ["tsconfig.json"] = { glyph = "", hl = "MiniIconsAzure" },
+                ["tsconfig.build.json"] = { glyph = "", hl = "MiniIconsAzure" },
+                ["yarn.lock"] = { glyph = "", hl = "MiniIconsBlue" },
+            },
+        },
         init = function()
             -- QUESTION: why, and how long is this needed?
             package.preload["nvim-web-devicons"] = function()
