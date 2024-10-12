@@ -33,78 +33,84 @@ M.specs = {
             "folke/lazydev.nvim",
             "yioneko/nvim-vtsls",
         },
-        opts = {
-            ensure_installed = config.ensure_installed.servers,
+        opts = function()
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            -- `:h mason-lspconfig-automatic-server-setup`
-            -- `:h mason-lspconfig.setup_handlers`
-            handlers = {
-                -- The first entry (without a key) will be the default handler
-                -- and will be called for each installed server that doesn't have a dedicated handler.
-                function(server_name) -- default handler (optional)
-                    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            local function setup_server(server_name, extra_opts)
+                local opts = vim.tbl_extend("force", {
+                    capabilities = capabilities,
+                }, extra_opts or {})
 
-                    ---@see https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
-                    -- For a list of lsp-configurations see here: `:h lspconfig-all`
-                    require("lspconfig")[server_name].setup({
-                        capabilities = capabilities,
-                    })
-                end,
-                vtsls = function()
-                    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+                require("lspconfig")[server_name].setup(opts)
+            end
 
-                    -- [LazyVim/lua/lazyvim/plugins/extras/lang/typescript.lua at main · LazyVim/LazyVim](https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/typescript.lua)
-                    -- [vtsls/packages/service/configuration.schema.json at main · yioneko/vtsls](https://github.com/yioneko/vtsls/blob/main/packages/service/configuration.schema.json)
-                    require("lspconfig").vtsls.setup({
-                        capabilities = capabilities,
-                        settings = {
-                            typescript = {
-                                tsserver = {
-                                    maxTsServerMemory = 4000,
-                                },
-                                updateImportsOnFileMove = {
-                                    enabled = "always",
-                                },
-                                suggest = {
-                                    completeFunctionCalls = true,
-                                },
-                                inlayHints = {
-                                    enumMemberValues = { enabled = true },
-                                    functionLikeReturnTypes = { enabled = true },
-                                    parameterNames = { enabled = "literals" },
-                                    parameterTypes = { enabled = true },
-                                    propertyDeclarationTypes = { enabled = true },
-                                    variableTypes = { enabled = false },
-                                },
-                                preferences = {
-                                    importModuleSpecifier = "relative",
+            return {
+                ensure_installed = config.ensure_installed.servers,
+
+                handlers = {
+                    function(server_name)
+                        setup_server(server_name)
+                    end,
+
+                    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#vtsls
+                    vtsls = function()
+                        setup_server("vtsls", {
+                            root_dir = require("lspconfig.util").root_pattern("package.json"),
+                            single_file_support = false,
+                            settings = {
+                                typescript = {
+                                    tsserver = {
+                                        maxTsServerMemory = 4000,
+                                    },
+                                    updateImportsOnFileMove = {
+                                        enabled = "always",
+                                    },
+                                    suggest = {
+                                        completeFunctionCalls = true,
+                                    },
+                                    inlayHints = {
+                                        enumMemberValues = { enabled = true },
+                                        functionLikeReturnTypes = { enabled = true },
+                                        parameterNames = { enabled = "literals" },
+                                        parameterTypes = { enabled = true },
+                                        propertyDeclarationTypes = { enabled = true },
+                                        variableTypes = { enabled = false },
+                                    },
+                                    preferences = {
+                                        importModuleSpecifier = "relative",
+                                    },
                                 },
                             },
-                        },
-                    })
-                end,
-                -- Much is handled by `lazydev` here
-                -- https://luals.github.io/wiki/settings/#settings
-                ["lua_ls"] = function()
-                    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+                        })
+                    end,
 
-                    require("lspconfig").lua_ls.setup({
-                        capabilities = capabilities,
-                        settings = {
-                            Lua = {
-                                workspace = {
-                                    checkThirdParty = false,
+                    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#denols
+                    denols = function()
+                        setup_server("denols", {
+                            root_dir = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc"),
+                            single_file_support = false,
+                        })
+                    end,
+
+                    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls
+                    ["lua_ls"] = function()
+                        setup_server("lua_ls", {
+                            settings = {
+                                Lua = {
+                                    workspace = {
+                                        checkThirdParty = false,
+                                    },
+                                    telemetry = { enable = false },
+                                    hint = { enable = true },
+                                    codeLens = { enable = true },
+                                    completion = { callSnippet = "Replace" },
                                 },
-                                telemetry = { enable = false },
-                                hint = { enable = true },
-                                codeLens = { enable = true },
-                                completion = { callSnippet = "Replace" },
                             },
-                        },
-                    })
-                end,
-            },
-        },
+                        })
+                    end,
+                },
+            }
+        end,
         config = function(_, opts)
             local icons = require("vin.icons")
 
