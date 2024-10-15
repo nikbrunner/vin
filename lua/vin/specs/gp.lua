@@ -197,7 +197,7 @@ M.spec = {
             mode = "x",
         },
         {
-            "<leader>ip",
+            "ga",
             ":<C-u>'<,'>GpChatPaste<cr>",
             desc = "Pase selection to chat",
             mode = "x",
