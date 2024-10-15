@@ -22,6 +22,22 @@ M.spec = {
     },
     keys = {
         {
+            "<leader>f",
+            mode = { "n", "x" },
+            function()
+                require("grug-far").open()
+            end,
+            desc = "[T]ext (Workspace)",
+        },
+        {
+            "<leader>cr",
+            mode = { "n", "x" },
+            function()
+                require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
+            end,
+            desc = "[R]eplace",
+        },
+        {
             "<leader>st",
             mode = { "n", "x" },
             function()

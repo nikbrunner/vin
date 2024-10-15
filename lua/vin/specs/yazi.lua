@@ -11,14 +11,14 @@ M.spec = {
     event = "VeryLazy",
     keys = {
         {
-            "<leader>fm",
+            "<leader>em",
             function()
                 require("yazi").yazi()
             end,
             desc = "[M]anager",
         },
         {
-            "<leader>fM",
+            "<leader>eM",
             function()
                 require("yazi").yazi(nil, vim.fn.getcwd())
             end,

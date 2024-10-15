@@ -14,14 +14,14 @@ M.spec = {
     },
     keys = {
         {
-            "gw",
+            "iw",
             function()
                 require("wtf").ai()
             end,
             desc = "Debug diagnostic with AI",
         },
         {
-            "gW",
+            "iW",
             function()
                 require("wtf").search()
             end,
