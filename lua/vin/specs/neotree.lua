@@ -18,50 +18,49 @@ M.spec = {
 
         return {
             {
-                "<leader>fr",
-                function()
-                    -- close_side_panels()
-                    vim.cmd("Neotree float buffers toggle reveal")
-                end,
-                desc = "[R]ecents",
-            },
-            {
-                "<leader>fe",
-                function()
-                    vim.cmd("Neotree float toggle reveal")
-                end,
-                desc = "[E]xplorer",
-            },
-            {
-                "<leader>fE",
+                "<M-[>",
                 function()
                     vim.cmd("Neotree left toggle reveal")
                 end,
                 desc = "[E]xplorer (Left)",
             },
             {
-                "<leader>fg",
-                function()
-                    vim.cmd("Neotree float git_status toggle reveal")
-                end,
-                desc = "[G]it Status",
-            },
-            {
-                "<leader>fG",
+                "<M-]>",
                 function()
                     vim.cmd("Neotree right git_status toggle reveal")
                 end,
                 desc = "[G]it Status (Right)",
             },
             {
-                "<leader>fh",
+                "<leader>ee",
+                function()
+                    vim.cmd("Neotree float toggle reveal")
+                end,
+                desc = "[E]xplorer",
+            },
+            {
+                "<leader>eg",
+                function()
+                    vim.cmd("Neotree float git_status toggle reveal")
+                end,
+                desc = "[G]it Status",
+            },
+            {
+                "<leader>er",
+                function()
+                    vim.cmd("Neotree float buffers toggle reveal")
+                end,
+                desc = "[R]ecents",
+            },
+            {
+                "<leader>eh",
                 function()
                     vim.cmd("Neotree float toggle reveal git_status origin/HEAD")
                 end,
                 desc = "[H]ead Status",
             },
             {
-                "<leader>fH",
+                "<leader>eH",
                 function()
                     -- close_side_panels()
                     local all_branches = vim.fn.system("git branch -a")
