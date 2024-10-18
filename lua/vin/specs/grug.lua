@@ -7,7 +7,7 @@ M.spec = {
     ---@type GrugFarOptions
     ---@diagnostic disable-next-line: missing-fields
     opts = {
-        windowCreationCommand = "topleft vsplit 30",
+        windowCreationCommand = "topleft vsplit | vertical resize 100",
         engines = {
             ripgrep = {
                 placeholders = {
@@ -27,7 +27,7 @@ M.spec = {
             function()
                 require("grug-far").open()
             end,
-            desc = "[T]ext (Workspace)",
+            desc = "Find " .. require("vin.icons").git.project,
         },
         {
             "<leader>cr",
@@ -51,7 +51,7 @@ M.spec = {
             function()
                 require("grug-far").open()
             end,
-            desc = "[T]ext (Workspace)",
+            desc = "[T]ext " .. require("vin.icons").git.project,
         },
     },
 }
