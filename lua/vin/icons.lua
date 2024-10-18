@@ -11,6 +11,7 @@ return {
         chevron_hard_down = "󰅀 ",
         chevron_small_right = " ",
         chevron_small_down = " ",
+        globe = " ",
     },
     dap = {
         Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
@@ -26,6 +27,7 @@ return {
         Info = " ",
     },
     git = {
+        project = " ",
         added = " ",
         modified = " ",
         removed = " ",
