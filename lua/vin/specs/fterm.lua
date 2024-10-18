@@ -32,7 +32,7 @@ M.spec = {
         local win_opts = {
             border = "solid",
             hl = "NormalFloat",
-            -- blend = 10,
+            blend = 5,
             dimensions = { height = 0.95, width = 0.95 },
         }
 
@@ -43,7 +43,7 @@ M.spec = {
             ft = "ftterm_lazygit",
             cmd = "lazygit",
             on_exit = function()
-                -- ui.close_backdrop()
+                ui.close_backdrop()
                 M.refresh_neotree()
             end,
         }))
@@ -72,14 +72,14 @@ M.spec = {
                 "<leader>gg",
                 mode = "n",
                 function()
-                    -- ui.create_backdrop()
+                    ui.create_backdrop()
                     lazygit_term:toggle()
                     M.restore_ctrl_hjkl(lazygit_term)
                 end,
                 desc = "LazyGit",
             },
             {
-                "<leader>gp",
+                "<leader>gpd",
                 mode = "n",
                 function()
                     ui.create_backdrop()
