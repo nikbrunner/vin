@@ -1,24 +1,32 @@
+---Issue to watch for labels:
+---[Feature Request: Add Label Details (Display Source) on Autocomplete · Issue #97 · Saghen/blink.cmp](https://github.com/Saghen/blink.cmp/issues/97)
+---@type LazyPluginSpec
 return {
     "saghen/blink.cmp",
-    enabled = false,
+    enabled = true,
     event = "BufRead",
     dependencies = "rafamadriz/friendly-snippets",
     version = "v0.*",
     opts = {
         keymap = {
-            show = "<C-space>",
+            show = "<C-l>",
             hide = "<C-e>",
             accept = "<CR>",
-            select_prev = { "<Up>", "<C-j>" },
-            select_next = { "<Down>", "<C-k>" },
+            select_prev = { "<Up>" },
+            select_next = { "<Down>" },
 
-            show_documentation = {},
-            hide_documentation = {},
+            show_documentation = "<C-k>",
+            hide_documentation = "<C-k>",
             scroll_documentation_up = "<C-b>",
             scroll_documentation_down = "<C-f>",
 
-            snippet_forward = "<Tab>",
-            snippet_backward = "<S-Tab>",
+            snippet_forward = {},
+            snippet_backward = {},
+        },
+        trigger = {
+            signature_help = {
+                enabled = true,
+            },
         },
     },
 }

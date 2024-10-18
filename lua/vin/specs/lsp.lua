@@ -34,11 +34,11 @@ M.specs = {
             "yioneko/nvim-vtsls",
         },
         opts = function()
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             local function setup_server(server_name, extra_opts)
                 local opts = vim.tbl_extend("force", {
-                    capabilities = capabilities,
+                    -- capabilities = capabilities,
                 }, extra_opts or {})
 
                 require("lspconfig")[server_name].setup(opts)

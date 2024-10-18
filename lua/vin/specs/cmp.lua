@@ -4,6 +4,7 @@ local M = {}
 M.specs = {
     {
         "iguanacucumber/magazine.nvim",
+        enabled = false,
         dependencies = {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
