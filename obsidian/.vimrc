@@ -4,8 +4,6 @@ set clipboard=unnamed
 nmap j gj
 nmap k gk
 
-nmap <Esc> :nohl
-
 " Quickly remove search highlights
 " Note: This does not remove the highlight when jumping to a link header.
 nmap <Esc> :nohl
