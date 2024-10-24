@@ -79,7 +79,7 @@ M.spec = {
                 desc = "LazyGit",
             },
             {
-                "<leader>gpd",
+                "<leader>gP",
                 mode = "n",
                 function()
                     ui.create_backdrop()
