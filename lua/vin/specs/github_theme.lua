@@ -19,15 +19,6 @@ M.spec = {
     },
     config = function(_, opts)
         require("github-theme").setup(opts)
-
-        local override = require("github-theme.override")
-
-        override.groups = {
-            all = {
-                CursorLine = { bg = "#09090d" },
-                NeoTreeNormal = { bg = "#09090d" },
-            },
-        }
     end,
 }
 
