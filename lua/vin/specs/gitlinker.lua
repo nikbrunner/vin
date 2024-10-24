@@ -6,6 +6,8 @@ M.spec = {
     event = "BufEnter",
     requires = "nvim-lua/plenary.nvim",
     opts = {
+        -- FIX: This doesn't disable the mapping.
+        -- See here: https://github.com/ruifm/gitlinker.nvim/blob/master/lua/gitlinker/mappings.lua
         mappings = nil,
     },
 }
