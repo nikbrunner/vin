@@ -18,7 +18,7 @@ M.spec = {
         vim.api.nvim_create_autocmd({ "BufRead", "BufWritePost", "InsertLeave" }, {
             group = vim.api.nvim_create_augroup("vin_lint", { clear = true }),
             callback = function()
-                require("lint").try_lint()
+                pcall(require, "lint.try_lint")
             end,
         })
     end,
