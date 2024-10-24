@@ -6,8 +6,8 @@ M.spec = {
     "otavioschwanck/arrow.nvim",
     event = "BufEnter",
     opts = {
-        leader_key = "M", -- Recommended to be a single key
-        buffer_leader_key = "m", -- Per Buffer Mappings
+        leader_key = "<leader>m", -- Recommended to be a single key
+        buffer_leader_key = "gm", -- Per Buffer Mappings
         show_icons = false,
         always_show_path = true,
         separate_by_branch = true,
