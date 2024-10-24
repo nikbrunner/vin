@@ -3,7 +3,6 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "nanozuki/tabby.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
     event = "VimEnter",
     config = function()
         vim.opt.showtabline = 2
