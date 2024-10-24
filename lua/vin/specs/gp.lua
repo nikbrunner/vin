@@ -106,6 +106,15 @@ M.spec = {
                 gp.Prompt(params, gp.Target.popup, agent, template)
             end,
 
+            WriteTests = function(gp, params)
+                local template = "I have the following code from {{filename}}:\n\n"
+                    .. "```{{filetype}}\n{{selection}}\n```\n\n"
+                    .. "Please respond by writing unit tests for the code above."
+                    .. "Put negative tests first, then positive tests."
+                local agent = gp.get_command_agent()
+                gp.Prompt(params, gp.Target.vnew("markdown"), agent, template)
+            end,
+
             -- example of making :%GpChatNew a dedicated command which
             -- opens new chat with the entire current buffer as a context
             BufferChatNew = function(gp, _)
@@ -139,7 +148,7 @@ M.spec = {
                 name = "ChatClaude-3-5-Sonnet",
                 chat = true,
                 command = false,
-                model = { model = "claude-3-5-sonnet-20240620", temperature = 0.8, top_p = 1 },
+                model = { model = "claude-3-5-sonnet-20241022", temperature = 0.8, top_p = 1 },
                 system_prompt = "You are a general AI assistant with expertise in coding.\n\n"
                     .. "Your main coding stack includes TypeScript, SCSS, CSS, JavaScript, HTML, and some Go.\n\n"
                     .. "Please adhere to these guidelines when responding:\n\n"
@@ -163,6 +172,11 @@ M.spec = {
             "<leader>iN",
             "<cmd>GpBufferChatNew vsplit<cr>",
             desc = "New Chat with Buffer",
+        },
+        {
+            "<leader>ii",
+            "<cmd>GpChatToggle vsplit<cr>",
+            desc = "Toggle Last Chat",
         },
         {
             "<leader>it",
@@ -194,6 +208,12 @@ M.spec = {
             "<leader>ir",
             ":<C-u>'<,'>GpCodeReview<cr>",
             desc = "Code Review",
+            mode = "x",
+        },
+        {
+            "<leader>it",
+            ":<C-u>'<,'>GpWriteTests<cr>",
+            desc = "Write Tests",
             mode = "x",
         },
         {
