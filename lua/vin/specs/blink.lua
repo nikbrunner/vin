@@ -10,8 +10,8 @@ return {
     opts = {
         keymap = {
             show = "<C-l>",
-            hide = "<C-e>",
-            accept = "<CR>",
+            hide = { "<S-CR>", "<Left>" },
+            accept = { "<CR>", "<Right>" },
             select_prev = { "<Up>" },
             select_next = { "<Down>" },
 
@@ -27,6 +27,9 @@ return {
             signature_help = {
                 enabled = true,
             },
+        },
+        highlight = {
+            use_nvim_cmp_as_default = true,
         },
     },
 }
