@@ -6,14 +6,14 @@ nmap k gk
 
 " Quickly remove search highlights
 " Note: This does not remove the highlight when jumping to a link header.
-nmap <Esc> :nohl
+nmap <Esc> :nohl<CR>
 
 " App
 exmap back obcommand app:go-back
-nmap <C-o> :back
+nmap <C-o> :back<CR>
 
 exmap forward obcommand app:go-forward
-nmap <C-i> :forward
+nmap <C-i> :forward<CR>
 
 exmap reload obcommand app:reload
 exmap changelog obcommand app:show-release-notes
@@ -25,7 +25,7 @@ exmap sp obcommand workspace:split-horizontal
 " Save
 exmap w obcommand editor:save-file
 exmap wa obcommand editor:save-file
-nmap <CR> :wa
+nmap <CR> :wa<CR>
 
 " Close and Quit
 exmap q obcommand workspace:close
@@ -40,49 +40,49 @@ exmap dark obcommand theme:use-dark
 
 " Folding
 exmap togglefold obcommand editor:toggle-fold
-nmap zo :togglefold
-nmap zc :togglefold
-nmap za :togglefold
+nmap zo :togglefold<CR>
+nmap zc :togglefold<CR>
+nmap za :togglefold<CR>
 
 exmap foldall obcommand editor:fold-all
-nmap zM :foldall
+nmap zM :foldall<CR>
 
 exmap foldmore obcommand creases:decrease-fold-level
-nmap zm :foldmore
+nmap zm :foldmore<CR>
 
 exmap unfoldall obcommand editor:unfold-all
-nmap zR :unfoldall
+nmap zR :unfoldall<CR>
 
 exmap foldless obcommand creases:increase-fold-level
-nmap zr :foldless
+nmap zr :foldless<CR>
 
 " Files
 unmap <Space> " We need this, otherwise the following mappings will not work.
 
 exmap searchCommands obcommand obsidian-better-command-palette:open-better-commmand-palette
-nmap <Space>: :searchCommands
+nmap <Space>: :searchCommands<CR>
 
 exmap findFiles obcommand obsidian-better-command-palette:open-better-commmand-palette-file-search
-nmap <Space><Space> :findFiles
+nmap <Space><Space> :findFiles<CR>
 
 exmap fileExplorer obcommand quick-explorer:browse-current
-nmap <Space>e :fileExplorer
+nmap <Space>e :fileExplorer<CR>
 
 " Go
 exmap followlink obcommand editor:follow-link
-nmap gd :followlink
+nmap gd :followlink<CR>
 exmap followlinkinnewpane obcommand editor:open-link-in-new-leaf
-nmap gD :followlinkinnewpane
+nmap gD :followlinkinnewpane<CR>
 
 exmap goToSymbol obcommand darlal-switcher-plus:switcher-plus:open-symbols
-nmap gs :goToSymbol
+nmap gs :goToSymbol<CR>
 
 " Actions
 exmap renameHeading obcommand editor:rename-heading
-nmap <Space>cn :renameHeading
+nmap <Space>cn :renameHeading<CR>
 
 exmap moveFile obcommand file-explorer:move-file
-nmap <Space>cm :moveFile
+nmap <Space>cm :moveFile<CR>
 
 " Daily Notes
 exmap dd obcommand daily-notes
@@ -99,22 +99,21 @@ exmap surround_square_brackets surround [ ]
 exmap surround_curly_brackets surround { }
 
 " NOTE: must use 'map' and not 'nmap'
-map [[ :surround_wiki
+map [[ :surround_wiki<CR>
 nunmap s
 vunmap s
-map s" :surround_double_quotes
-map s' :surround_single_quotes
-map s` :surround_backticks
-map sb :surround_brackets
-map s( :surround_brackets
-map s) :surround_brackets
-map s[ :surround_square_brackets
-map s[ :surround_square_brackets
-map s{ :surround_curly_brackets
-map s} :surround_curly_brackets
+map s" :surround_double_quotes<CR>
+map s' :surround_single_quotes<CR>
+map s` :surround_backticks<CR>
+map sb :surround_brackets<CR>
+map s( :surround_brackets<CR>
+map s) :surround_brackets<CR>
+map s[ :surround_square_brackets<CR>
+map s[ :surround_square_brackets<CR>
+map s{ :surround_curly_brackets<CR>
+map s} :surround_curly_brackets<CR>
 
 exmap jumpToLink obcommand mrj-jump-to-link:activate-jump-to-link
-exmap jumpAnywhere obcommand mrj-jump-to-link:activate-jump-to-anywhere
+exmap jumpAnywhere obcommand mrj-jump-to-link:activate-jump-to-link
 
-" nmap s :jumpToLink
-nmap s :jumpAnywhere
+nmap s :jumpAnywhere<CR>
