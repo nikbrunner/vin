@@ -97,7 +97,7 @@ end
 
 -- stylua: ignore start
 M.keys = {
-    { "<leader><leader>", function() require("fzf-lua").files({ winopts = M.winopts.sm.no_preview }) end, desc = "Find Files" },
+    { "<leader><leader>", function() require("fzf-lua").files({ winopts = M.winopts.md.flex }) end, desc = "Find Files" },
     { "<leader>/", function() require("fzf-lua").lgrep_curbuf({ winopts = M.winopts.md.flex }) end, desc = "Text in File" },
     { "<leader>;", function() require("fzf-lua").commands({ winopts = M.winopts.sm.no_preview }) end, desc = "Commands" },
     { "<leader>j", function() require("fzf-lua").jumps({ winopts = M.winopts.md.vertical }) end, desc = "Jumps" },
