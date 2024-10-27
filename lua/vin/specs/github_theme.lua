@@ -1,9 +1,8 @@
-local M = {}
-
 ---@type LazyPluginSpec
-M.spec = {
+return {
     "projekt0n/github-nvim-theme",
-    lazy = true,
+    lazy = false,
+    priority = 1000,
     ---@type GhTheme.Config
     opts = {
         options = {
@@ -15,18 +14,17 @@ M.spec = {
                 },
             },
         },
+        groups = {
+            all = {
+                FzfLuaNormal = { bg = "bg0" },
+                FzfLuaBorder = { bg = "bg0" },
+                NormalFloat = { bg = "bg0" },
+                FloatTitle = { bg = "bg0" },
+                FloatBorder = { bg = "bg0" },
+            },
+        },
     },
     config = function(_, opts)
         require("github-theme").setup(opts)
-
-        local override = require("github-theme.override")
-
-        override.groups = {
-            all = {
-                FzfLuaNormal = { link = "NeoTreeNormal" },
-            },
-        }
     end,
 }
-
-return M.spec

@@ -47,7 +47,11 @@ function M.blend(fg, bg, alpha)
     return string.format("#%02X%02X%02X", blendChannel(1), blendChannel(2), blendChannel(3))
 end
 
--- Darken a color by blending it with black or a custom color
+---Darken a color by blending it with black or a custom color
+---@example
+---```lua
+---darken("#2E3440", 0.8) -- Darkens this color by 20% aka reduces its brightness to 80%
+---```
 ---@param hex_string string
 ---@param amount number
 ---@param bg? string
@@ -57,7 +61,11 @@ function M.darken(hex_string, amount, bg)
     return M.blend(hex_string, bg, math.abs(amount))
 end
 
--- Lighten a color by blending it with white or a custom color
+---Lighten a color by blending it with white or a custom color
+---@example
+---```lua
+---lighten("#E5E9F0", 0.8) -- Lightens this color by 20% aka increases its brightness to 80%
+---```
 ---@param hex_string string
 ---@param amount number
 ---@param fg? string
