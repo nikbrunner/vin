@@ -32,6 +32,7 @@ M.config = {
         ["tokyonight-day"] = { wezterm = "Tokyo Night Day" },
         ["tokyonight-storm"] = { wezterm = "Tokyo Night Storm" },
         ["tokyonight-night"] = { wezterm = "Tokyo Night" },
+        ["nord"] = { wezterm = "nord" },
     },
     open_previous_files_on_startup = false,
     open_neotree_on_startup = false,
