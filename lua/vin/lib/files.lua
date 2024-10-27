@@ -21,8 +21,10 @@ end
 ---@param colorscheme string
 function M.sync_wezterm_colorscheme(config, colorscheme)
     local wezterm_ui_file = config.pathes.config.wezterm .. "/ui.lua"
-    local bg_normal = require("vin.lib.colors").get_hex_color("Normal").bg
-    local bg_normal_float = require("vin.lib.colors").get_hex_color("NormalFloat").bg
+    local get_hex_color = require("vin.lib.colors").get_hex_color
+
+    local bg_normal = get_hex_color("Normal").bg
+    local bg_normal_float = get_hex_color("NormalFloat").bg
 
     local colorscheme_config = config.colorscheme_config_map[colorscheme]
 
