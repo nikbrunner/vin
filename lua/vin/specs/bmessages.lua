@@ -7,13 +7,8 @@ M.spec = {
     keys = {
         {
             "<leader>vm",
-            "<CMD>Bmessagessp<CR>",
-            desc = "[M]essages",
-        },
-        {
-            "<leader>vM",
             "<CMD>Bmessagesvs<CR>",
-            desc = "[M]essages (VS)",
+            desc = "[M]essages",
         },
     },
     opts = {},
