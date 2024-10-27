@@ -59,7 +59,7 @@ local colors = {
     },
     bg = {
         ---@diagnostic disable-next-line: undefined-field
-        dark = darken(dec_to_hex(hls.normal.bg), vim.opt.background:get() == "dark" and 0.75 or 0.95),
+        dark = darken(dec_to_hex(hls.normal.bg), vim.opt.background:get() == "dark" and 0.85 or 0.95),
         main = dec_to_hex(hls.normal.bg),
         light = lighten(dec_to_hex(hls.normal.bg), 0.75),
     },
@@ -77,13 +77,17 @@ local colors = {
 hl("Pmenu", { fg = hls.pmenu.fg, bg = colors.bg.dark })
 hl("NormalFloat", { link = "Pmenu" })
 hl("FloatBorder", { link = "Pmenu" })
-hl("YaziFloat", { link = "Pmenu" })
-hl("FzfLuaNormal", { link = "Pmenu" })
-hl("NeoTreeNormal", { link = "Pmenu" })
-hl("NeoTreeNormalNC", { link = "Pmenu" })
-hl("EndOfBuffer", { fg = hls.normal.bg }) -- Hide the ~ at the end of the buffer
+hl("EndOfBuffer", { fg = hls.normal.bg })
 hl("WinSeparator", { fg = colors.fg.dark })
 hl("Comment", { fg = hls.comment.fg, italic = true })
+
+hl("YaziFloat", { link = "Pmenu" })
+
+hl("FzfLuaNormal", { link = "Pmenu" })
+hl("FzfLuaBorder", { link = "FzfLuaNormal" })
+
+hl("NeoTreeNormal", { link = "Pmenu" })
+hl("NeoTreeNormalNC", { link = "Pmenu" })
 
 -- Lualine
 local lualine_present = pcall(require, "lualine")
