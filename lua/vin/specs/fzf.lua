@@ -102,6 +102,7 @@ M.keys = {
     { "<leader>;", function() require("fzf-lua").commands({ winopts = M.winopts.sm.no_preview }) end, desc = "Commands" },
     { "<leader>j", function() require("fzf-lua").jumps({ winopts = M.winopts.md.vertical }) end, desc = "Jumps" },
     { "<C-r>", function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent " .. require("vin.icons").git.project },
+    { "gt", function() require("fzf-lua").tabs() end, desc = "[T]abs" },
     { "<leader>r", function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent " .. require("vin.icons").git.project },
     { "<leader>R", function() require("fzf-lua").oldfiles({ cwd_only = false, winopts = M.winopts.sm.no_preview }) end, desc = "Recent " .. require("vin.icons").misc.globe },
     { "<leader>s.", function() require("fzf-lua").resume() end, desc = "Resume" },
@@ -115,7 +116,6 @@ M.keys = {
     -- { "<leader>sg", function() require("fzf-lua").live_grep_native({ winopts = M.winopts.lg.vertical }) end, desc = "Grep" },
     -- { "<leader>sG", function() M.grep_over_changed_files() end, desc = "Grep [Changed Files]" },
     { "<leader>s'", function() require("fzf-lua").registers({ winopts = M.winopts.lg.vertical }) end, mode = { "n", "v" }, desc = "[R]egisters" },
-    { "<leader>s<Tab>", function() require("fzf-lua").tabs() end, desc = "[T]abs" },
     { "<leader>gs", function() require("fzf-lua").git_status({ winopts = M.winopts.lg.vertical }) end, desc = "[G]it Status" },
     { "<leader>gc", function() require("fzf-lua").changes() end, desc = "[C]hanges" },
     { "<leader>gB", function() require("fzf-lua").git_branches() end, desc = "[B]ranches" },
@@ -172,7 +172,7 @@ M.spec = {
             row = 0.35,
             col = 0.50,
             border = "none",
-            backdrop = 100,
+            backdrop = 90,
             preview = {
                 border = "border", -- border|noborder, applies only to
                 wrap = "nowrap", -- wrap|nowrap
