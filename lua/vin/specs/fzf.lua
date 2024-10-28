@@ -98,11 +98,11 @@ end
 -- stylua: ignore start
 M.keys = {
     { "<leader><leader>", function() require("fzf-lua").files({ winopts = M.winopts.md.flex }) end, desc = "Find Files" },
+    { "<space><space>", function() require("fzf-lua").tabs() end, desc = "Tab Fuzzy Find" },
     { "<leader>/", function() require("fzf-lua").lgrep_curbuf({ winopts = M.winopts.md.flex }) end, desc = "Text in File" },
     { "<leader>;", function() require("fzf-lua").commands({ winopts = M.winopts.sm.no_preview }) end, desc = "Commands" },
     { "<leader>j", function() require("fzf-lua").jumps({ winopts = M.winopts.md.vertical }) end, desc = "Jumps" },
     { "<C-r>", function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent " .. require("vin.icons").git.project },
-    { "gt", function() require("fzf-lua").tabs() end, desc = "[T]abs" },
     { "<leader>r", function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent " .. require("vin.icons").git.project },
     { "<leader>R", function() require("fzf-lua").oldfiles({ cwd_only = false, winopts = M.winopts.sm.no_preview }) end, desc = "Recent " .. require("vin.icons").misc.globe },
     { "<leader>s.", function() require("fzf-lua").resume() end, desc = "Resume" },
