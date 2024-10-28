@@ -7,7 +7,7 @@ M.spec = {
     ---@type GrugFarOptions
     ---@diagnostic disable-next-line: missing-fields
     opts = {
-        windowCreationCommand = "topleft vsplit | vertical resize 100",
+        windowCreationCommand = "topleft vsplit",
         engines = {
             ripgrep = {
                 placeholders = {
@@ -18,6 +18,27 @@ M.spec = {
                     paths = "ex: /foo/bar   ../   ./hello\\ world/   ./src/foo.lua",
                 },
             },
+        },
+        keymaps = {
+            replace = { n = "<localleader>r" },
+            qflist = { n = "<localleader>q" },
+            syncLocations = { n = "<localleader>a" },
+            syncLine = { n = "<localleader>l" },
+            close = { n = "<localleader>c" },
+            historyOpen = { n = "<localleader>h" },
+            historyAdd = { n = "<localleader>H" },
+            refresh = { n = "<localleader>R" },
+            openLocation = { n = "<localleader>o" },
+            openNextLocation = { n = "<down>" },
+            openPrevLocation = { n = "<up>" },
+            gotoLocation = { n = "<enter>" },
+            pickHistoryEntry = { n = "<enter>" },
+            abort = { n = "<localleader>b" },
+            help = { n = "g?" },
+            toggleShowCommand = { n = "<localleader>p" },
+            swapEngine = { n = "<localleader>e" },
+            previewLocation = { n = "<localleader>i" },
+            swapReplacementInterpreter = { n = "<localleader>x" },
         },
     },
     keys = {
