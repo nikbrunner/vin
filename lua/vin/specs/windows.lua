@@ -3,6 +3,7 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "anuvyklack/windows.nvim",
+    enabled = false,
     event = "VeryLazy",
     dependencies = {
         "anuvyklack/middleclass",
