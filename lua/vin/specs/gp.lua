@@ -47,6 +47,20 @@ M.spec = {
                     return
                 end
 
+                -- First, get the current branch name
+                local current_branch = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("%s+", "")
+                -- Get the default branch (trying both main and master)
+                local base_branch = vim.fn.system("git rev-parse --verify main 2>/dev/null") ~= "" and "main" or "master"
+
+                -- Get commits since branching off
+                local commit_messages =
+                    vim.fn.system(string.format("git log --format='%%s%%n%%b' %s..HEAD 2>/dev/null", base_branch))
+
+                -- If the above failed, try getting just the last few commits
+                if commit_messages:match("fatal") then
+                    commit_messages = vim.fn.system("git log -3 --format='%s%n%b' 2>/dev/null")
+                end
+
                 local base_template = "You are an expert at following the Conventional Commit specification."
                     .. "Given the git diff listed below, please generate a detailed commit message for me and return it to me directly without explanation:"
                     .. "Use the summary line to describe the overall change, followed by an empty line, and then a more detailed, consice description of the change in the body in bullet points."
@@ -60,7 +74,19 @@ M.spec = {
                     .. "- feat|fix|docs|style|refactor|test|chore|revert(<affected-file (without file-extension) or scope>): description"
                     .. "In the bullet points, use the following format:"
                     .. "- feat|fix|docs|style|refactor|test|chore|revert(<affected-file (without file-extension) or scope>): description"
-                    .. "\n\n```\n"
+
+                if commit_messages ~= "" and not commit_messages:match("fatal") then
+                    base_template = base_template
+                        .. "\n\nPrevious commits in this feature branch (most recent first):"
+                        .. "\n```\n"
+                        .. commit_messages
+                        .. "\n```"
+                        .. "\nPlease ensure the new commit message is consistent with and builds upon these previous commits."
+                end
+
+                base_template = base_template
+                    .. "\n\nChanges to commit:"
+                    .. "\n```\n"
                     .. vim.fn.system("git diff --cached")
                     .. "\n```"
 
@@ -68,7 +94,6 @@ M.spec = {
 
                 -- If the branch name includes an issue ticket number, we use it to prefix the commit message.
                 -- Example: bcd-1234-some-new-feature -> BCD-1234 feat: some new feature
-                local current_branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
                 local issue_id = string.match(current_branch, "^bcd%-(%d%d%d%d)")
                 local prefix = issue_id and "BCD-" .. issue_id .. " " or ""
 
