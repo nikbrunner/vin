@@ -20,6 +20,12 @@ return {
             title = "Select one of:",
         },
         priority = {
+            javascript = {
+                { pattern = "add braces", key = "a", order = 1 },
+            },
+            javascriptreact = {
+                { pattern = "add braces", key = "a", order = 1 },
+            },
             typescript = {
                 { pattern = "add braces", key = "a", order = 1 },
             },
@@ -27,6 +33,22 @@ return {
                 { pattern = "add braces", key = "a", order = 1 },
             },
         },
-        register_ui_select = true,
+    },
+    keys = {
+        {
+            "g.",
+            function()
+                require("fastaction").code_action()
+            end,
+            desc = "Code Action",
+        },
+        {
+            "g.",
+            mode = "v",
+            function()
+                require("fastaction").range_code_action()
+            end,
+            desc = "Code Action",
+        },
     },
 }

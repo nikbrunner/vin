@@ -227,7 +227,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         set("n", "gi", vim.lsp.buf.implementation, opts)
         set("n", "gy", vim.lsp.buf.type_definition, opts)
 
-        set("n", "g.", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
+        -- set("n", "g.", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
 
         set("n", "cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "[C]hange [N]ame" }))
         set("n", "<leader>cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))

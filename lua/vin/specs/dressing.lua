@@ -22,7 +22,7 @@ M.spec = {
             },
         },
         select = {
-            enabled = false,
+            enabled = true,
             -- Priority list of preferred vim.select implementations
             backend = { "telescope", "fzf_lua" },
             fzf_lua = {
