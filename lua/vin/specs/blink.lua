@@ -8,21 +8,6 @@ return {
     dependencies = "rafamadriz/friendly-snippets",
     version = "v0.*",
     opts = {
-        keymap = {
-            show = "<C-l>",
-            hide = { "<S-CR>", "<C-e>", "<Left>" },
-            accept = { "<CR>", "<C-y>", "<Right>" },
-            select_prev = { "<Up>" },
-            select_next = { "<Down>" },
-
-            show_documentation = "<C-k>",
-            hide_documentation = "<C-k>",
-            scroll_documentation_up = "<C-b>",
-            scroll_documentation_down = "<C-f>",
-
-            snippet_forward = {},
-            snippet_backward = {},
-        },
         trigger = {
             signature_help = {
                 enabled = true,
