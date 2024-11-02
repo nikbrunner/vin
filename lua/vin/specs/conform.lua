@@ -33,7 +33,7 @@ M.spec = {
             toml = { "taplo" },
             go = { "gofmt" },
             sh = { "shfmt" },
-            c = { "clang-format" },
+            -- c = { "clang-format" },
         },
     },
     keys = {
