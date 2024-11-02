@@ -11,6 +11,9 @@ end
 
 set("n", "Q", "<nop>")
 
+set({ "n", "v" }, "gh", "^", { desc = "Beginning of line" })
+set({ "n", "v" }, "gl", "$", { desc = "End of line" })
+
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -232,7 +235,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
         set("n", "cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "[C]hange [N]ame" }))
         set("n", "<leader>cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))
 
-        set("n", "gl", vim.diagnostic.open_float, { desc = "Open Diagnostic" })
+        set("n", "dh", vim.diagnostic.open_float, { desc = "[D]iagnostics [H]over" })
+        set("n", "<leader>dh", vim.diagnostic.open_float, { desc = "[H]over" })
 
         set("n", "<leader>uh", function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
