@@ -12,6 +12,9 @@ M.spec = {
                 KC_TRANSPARENT = " ",
                 ["SS_TILD_SLSH"] = "~/",
                 ["SS_FATARROW"] = "=>",
+                ["SS_VIM_WA"] = ":wa",
+                ["SS_TODO"] = "TODO",
+                ["SS_BCD"] = "BCD-",
             },
         },
     },
@@ -43,7 +46,7 @@ M.spec = {
         vim.api.nvim_create_autocmd("BufEnter", {
             desc = "Format Moonlander koyo keymap",
             group = group,
-            pattern = "*nikbrunner/koyo-oryx-qmk/EM5en/keymap.c",
+            pattern = "*nikbrunner/koyo/qmk/moonlander/src/keymap.c",
             callback = function()
                 setup({
                     name = "LAYOUT_moonlander",
