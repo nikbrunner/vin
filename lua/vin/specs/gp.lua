@@ -226,8 +226,9 @@ M.spec = {
         },
         {
             "<leader>ie",
-            "<cmd>GpExplain<cr>",
+            ":<C-u>'<,'>GpExplain<cr>",
             desc = "Explain Code",
+            mode = { "n", "x" },
         },
         {
             "<leader>ir",
