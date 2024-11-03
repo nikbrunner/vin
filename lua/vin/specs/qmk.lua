@@ -29,7 +29,7 @@ M.spec = {
         vim.api.nvim_create_autocmd("BufEnter", {
             desc = "Format CRKBD koyo keymap",
             group = group,
-            pattern = "*nikbrunner/qmk_firmware/keyboards/crkbd/keymaps/koyo/keymap.c",
+            pattern = "*nikbrunner/koyo/qmk/crkbd/src/keymap.c",
             callback = function()
                 setup({
                     name = "LAYOUT_split_3x5_3",
