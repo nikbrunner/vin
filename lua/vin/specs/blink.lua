@@ -1,12 +1,14 @@
----Issue to watch for labels:
+---TODO: This should work now, but it doesn't show as a column. Triggering the documentation with <C-space> does show the source.
+---Maybe this can be improved in the future.
 ---[Feature Request: Add Label Details (Display Source) on Autocomplete · Issue #97 · Saghen/blink.cmp](https://github.com/Saghen/blink.cmp/issues/97)
+
 ---@type LazyPluginSpec
 return {
     "saghen/blink.cmp",
-    enabled = true,
     event = "BufRead",
     dependencies = "rafamadriz/friendly-snippets",
     version = "v0.*",
+    ---@type blink.cmp.Config
     opts = {
         sources = {
             -- add lazydev to your completion providers
@@ -26,14 +28,9 @@ return {
         },
         windows = {
             autocomplete = {
-                min_width = 15,
-                max_height = 10,
                 border = "solid",
                 selection = "auto_insert",
             },
-        },
-        highlight = {
-            use_nvim_cmp_as_default = false,
         },
     },
 }
