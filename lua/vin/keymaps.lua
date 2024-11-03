@@ -13,6 +13,8 @@ set("n", "Q", "<nop>")
 
 set({ "n", "v" }, "gh", "^", { desc = "Beginning of line" })
 set({ "n", "v" }, "gl", "$", { desc = "End of line" })
+set({ "n", "v" }, "gk", "gg", { desc = "Beginning of file" })
+set({ "n", "v" }, "gj", "G", { desc = "End of file" })
 
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
