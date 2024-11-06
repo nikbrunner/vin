@@ -24,6 +24,11 @@ M.spec = {
         default_command_agent = "ChatClaude-3-5-Sonnet",
         default_chat_agent = "ChatClaude-3-5-Sonnet",
 
+        chat_shortcut_respond = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e><C-e>" },
+        chat_shortcut_delete = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e>d" },
+        chat_shortcut_stop = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e>s" },
+        chat_shortcut_new = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e>c" },
+
         hooks = {
             -- example of adding command which writes unit tests for the selected code
             UnitTests = function(gp, params)
@@ -214,7 +219,7 @@ M.spec = {
             desc = "Find Chat",
         },
         {
-            "<C-g>",
+            "<C-e>",
             ":<C-u>'<,'>GpRewrite<cr>",
             desc = "Inline Rewrite",
             mode = { "n", "x" },
