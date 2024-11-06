@@ -79,6 +79,13 @@ M.specs = {
                             "%<", -- Mark general truncate point
 
                             { hl = "DiagnosticError", strings = { diagnostics } },
+                            {
+                                hl = "DiagnosticWarn",
+                                strings = {
+                                    require("noice").api.statusline.mode.has and require("noice").api.statusline.mode.get()
+                                        or "",
+                                },
+                            },
 
                             "%=", -- End left alignment
 
