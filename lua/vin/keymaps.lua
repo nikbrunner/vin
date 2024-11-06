@@ -93,21 +93,6 @@ set("n", "<leader>ur", function()
     vim.cmd("norm zz:e!<CR>zz")
 end, { desc = "[R]edraw" })
 
-set("n", "<leader>ub", function()
-    local background = vim.opt.background:get()
-    local colorscheme = vim.g.colors_name or "default"
-
-    if background == "dark" then
-        vim.opt.background = "light"
-        require("vin.lib.ui").handle_colors(config, colorscheme, "light")
-        vim.notify("Background set to light", vim.log.levels.INFO, { title = "Background" })
-    else
-        vim.opt.background = "dark"
-        require("vin.lib.ui").handle_colors(config, colorscheme, "dark")
-        vim.notify("Background set to dark", vim.log.levels.INFO, { title = "Background" })
-    end
-end, { desc = "Toggle [B]ackground" })
-
 set("n", "<leader>ui", vim.show_pos, { desc = "[I]nspect Position" })
 
 set("n", "<leader>uc", function()
@@ -130,48 +115,9 @@ set("n", "<leader>uC", function()
     end)
 end, { desc = "Toggle Specific [C]onceal Level" })
 
-set("n", "<leader>ud", function()
-    vim.diagnostic.enable(not vim.diagnostic.is_enabled({}))
-end, { desc = "Toggle [D]iagnostics" })
-
-set("n", "<leader>us", function()
-    if vim.o.spell then
-        vim.o.spell = false
-        vim.notify("Spell check disabled", vim.log.levels.WARN, { title = "Spell Check" })
-    else
-        vim.o.spell = true
-        vim.notify("Spell check enabled", vim.log.levels.INFO, { title = "Spell Check" })
-    end
-end, { desc = "Toggle [S]pell" })
-
 set("n", "z=", function()
     require("fzf-lua").spell_suggest({ winopts = { height = 0.35, width = 0.65 } })
 end, { desc = "[S]pelling Suggestions" })
-
-set("n", "<leader>uw", function()
-    if vim.o.wrap then
-        vim.o.wrap = false
-        vim.notify("Text wrapping disabled", vim.log.levels.WARN, { title = "Text Wrapping" })
-    else
-        vim.o.wrap = true
-        vim.notify("Text wrapping enabled", vim.log.levels.INFO, { title = "Text Wrapping" })
-    end
-end, { desc = "Toggle Text [W]rapping" })
-
-set("n", "<leader>ul", function()
-    local areNumbersEnabled = vim.opt.number:get()
-    local areRelativeNumbersEnabled = vim.opt.relativenumber:get()
-
-    if areRelativeNumbersEnabled then
-        vim.opt.relativenumber = false
-        vim.opt.number = true
-        vim.notify("Normal line numbers enabled", vim.log.levels.INFO, { title = "Line Numbers" })
-    elseif areNumbersEnabled then
-        vim.opt.number = false
-        vim.opt.relativenumber = true
-        vim.notify("Relative line numbers enabled", vim.log.levels.INFO, { title = "Line Numbers" })
-    end
-end, { desc = "Toggle [L]ine Numbers" })
 
 -- prev/next
 set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
@@ -239,9 +185,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         set("n", "dh", vim.diagnostic.open_float, { desc = "[D]iagnostics [H]over" })
         set("n", "<leader>dh", vim.diagnostic.open_float, { desc = "[H]over" })
-
-        set("n", "<leader>uh", function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-        end, { desc = "Toggle Inlay [H]ints" })
     end,
 })

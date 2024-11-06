@@ -97,6 +97,13 @@ M.spec = {
     --- https://github.com/nvim-neo-tree/neo-tree.nvim/blob/v3.x/lua/neo-tree/defaults.lua
     opts = function()
         local icons = require("vin.icons")
+        local events = require("neo-tree.events")
+        local Snacks = require("snacks")
+
+        local function on_move(data)
+            Snacks.rename.on_rename_file(data.source, data.destination)
+        end
+
         return {
             default_component_configs = {
                 indent = {
@@ -190,6 +197,8 @@ M.spec = {
             },
 
             event_handlers = {
+                { event = events.FILE_MOVED, handler = on_move },
+                { event = events.FILE_RENAMED, handler = on_move },
                 {
                     event = "neo_tree_window_after_open",
                     handler = function()
