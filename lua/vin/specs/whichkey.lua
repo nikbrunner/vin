@@ -19,6 +19,8 @@ M.spec = {
             },
         },
 
+        sort = { "local", "order", "group", "case", "alphanum", "mod" },
+
         layout = {
             spacing = 5, -- spacing between columns
         },
@@ -63,6 +65,7 @@ M.spec = {
             },
         },
         icons = {
+            mappings = false, -- Disable all icons
             separator = "", -- symbol used between a key and it's label
             rules = {
                 { plugin = "yazi.nvim", icon = " " },
