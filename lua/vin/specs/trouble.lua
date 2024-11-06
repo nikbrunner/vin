@@ -20,7 +20,7 @@ M.spec = {
                 ---@type trouble.Window.opts
                 win = {
                     position = "bottom",
-                    size = { height = 0.35 },
+                    size = { height = 0.25 },
                 },
             },
             lsp = {
@@ -28,7 +28,7 @@ M.spec = {
                 ---@type trouble.Window.opts
                 win = {
                     position = "bottom",
-                    size = { height = 0.35 },
+                    size = { height = 0.25 },
                 },
             },
             symbols = {
@@ -36,7 +36,7 @@ M.spec = {
                 ---@type trouble.Window.opts
                 win = {
                     position = "right",
-                    size = { width = 0.35 },
+                    size = { width = 0.25 },
                 },
             },
             lsp_defnitions = {
@@ -49,7 +49,7 @@ M.spec = {
                     position = "bottom",
                     title = "LSP Definitions",
                     padding = { 1, 4 },
-                    size = { height = 0.35 },
+                    size = { height = 0.25 },
                 },
             },
 
@@ -65,7 +65,7 @@ M.spec = {
                     position = "bottom",
                     title = "LSP References",
                     padding = { 1, 4 },
-                    size = { height = 0.35 },
+                    size = { height = 0.25 },
                 },
             },
         },
