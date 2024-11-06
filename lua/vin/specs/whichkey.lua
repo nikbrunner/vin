@@ -9,7 +9,7 @@ M.spec = {
     opts = {
         win = {
             width = { min = 25, max = 40 },
-            height = { min = 25, max = 75 },
+            height = { min = 10, max = 75 },
             col = 0.95,
             row = 0.95,
             title = "Vin",

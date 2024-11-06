@@ -71,13 +71,13 @@ M.spec = {
         },
     },
     keys = {
-        { "gr", "<cmd>Trouble lsp_references<cr>", desc = "Symbol [R]eferences" },
-        { "<leader>di", "<cmd>Trouble lsp toggle<cr>", desc = "Symbol [I]nformation" },
-        { "<leader>dci", "<cmd>Trouble lsp_incoming_calls<cr>", desc = "[C]alls [I]ncoming" },
-        { "<leader>dco", "<cmd>Trouble lsp_outgoing_calls<cr>", desc = "[C]alls [O]utgoing" },
-        { "<leader>dd", "<cmd>Trouble diagnostics toggle  filter.buf=0<cr>", desc = "[D]ocument" },
-        { "<leader>dw", "<cmd>Trouble diagnostics toggle<cr>", desc = "[W]orkspace" },
-        { "<leader>dt", "<cmd>Trouble symbols toggle<cr>", desc = "[S]ymbols" },
+        { "gr", "<cmd>Trouble lsp_references<cr>", desc = "Symbol References" },
+        { "<leader>di", "<cmd>Trouble lsp toggle<cr>", desc = "Symbol Information" },
+        { "<leader>dci", "<cmd>Trouble lsp_incoming_calls<cr>", desc = "Calls Incoming" },
+        { "<leader>dco", "<cmd>Trouble lsp_outgoing_calls<cr>", desc = "Calls Outgoing" },
+        { "<leader>dd", "<cmd>Trouble diagnostics toggle  filter.buf=0<cr>", desc = "Document" },
+        { "<leader>dw", "<cmd>Trouble diagnostics toggle<cr>", desc = "Workspace" },
+        { "<leader>dt", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols" },
         {
             "[q",
             function()

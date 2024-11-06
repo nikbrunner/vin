@@ -16,7 +16,7 @@ M.spec = {
             function()
                 require("telescope").extensions.yank_history.yank_history({})
             end,
-            desc = "[Y]ank History",
+            desc = "Yank History",
             mode = { "i", "n", "x" },
         },
     },

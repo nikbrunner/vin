@@ -38,8 +38,8 @@ M.spec = {
         },
     },
     keys = {
-        { "<leader>ug", ":T2CGenerate ", desc = "[G]enerate a colorschme" },
-        { "<leader>uG", "<CMD>T2CSave<CR>", desc = "Save a [g]enerated colorscheme" },
+        { "<leader>ug", ":T2CGenerate ", desc = "Generate a colorschme" },
+        { "<leader>uG", "<CMD>T2CSave<CR>", desc = "Save a generated colorscheme" },
         { "<f8>", ":T2CShuffleAccents<cr>", desc = "Shuffle accents" },
         { "<f9>", ":T2CAddContrast -0.1<cr>", desc = "Decrease contrast" },
         { "<f10>", ":T2CAddContrast 0.1<cr>", desc = "Increase contrast" },

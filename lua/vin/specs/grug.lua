@@ -48,7 +48,7 @@ M.spec = {
             function()
                 require("grug-far").open()
             end,
-            desc = "Find " .. require("vin.icons").git.project,
+            desc = "Find",
         },
         {
             "<leader>cr",
@@ -56,7 +56,7 @@ M.spec = {
             function()
                 require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
             end,
-            desc = "[R]eplace",
+            desc = "Replace",
         },
         {
             "<leader>st",
@@ -64,7 +64,7 @@ M.spec = {
             function()
                 require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
             end,
-            desc = "[T]ext (File)",
+            desc = "Text (File)",
         },
         {
             "<leader>sT",
@@ -72,7 +72,7 @@ M.spec = {
             function()
                 require("grug-far").open()
             end,
-            desc = "[T]ext " .. require("vin.icons").git.project,
+            desc = "Text",
         },
     },
 }

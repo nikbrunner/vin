@@ -47,7 +47,7 @@ M.spec = {
                     lsp_fallback = true,
                 })
             end,
-            desc = "[F]ormat",
+            desc = "Format",
         },
         {
             "<leader>cF",
@@ -64,12 +64,12 @@ M.spec = {
                     vim.notify("Autoformat disabled", vim.log.levels.INFO, { title = "Conform" })
                 end
             end,
-            desc = "[F]ormat (Toggle)",
+            desc = "Format (Toggle)",
         },
         {
             "<leader>vf",
             "<cmd>ConformInfo<CR>",
-            desc = "[F]ormat Info",
+            desc = "Conform Info",
         },
     },
 }

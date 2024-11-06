@@ -20,7 +20,7 @@ M.spec = {
                 vim.cmd("WindowsToggleAutowidth")
                 vim.notify("Windows Autowidth Toggled")
             end,
-            desc = "[A]utowidth Windows",
+            desc = "Autowidth Windows",
         },
     },
     opts = {

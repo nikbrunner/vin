@@ -15,14 +15,14 @@ M.spec = {
             function()
                 require("yazi").yazi()
             end,
-            desc = "[M]anager",
+            desc = "Manager",
         },
         {
             "<leader>eM",
             function()
                 require("yazi").yazi(nil, vim.fn.getcwd())
             end,
-            desc = "[M]anager (CWD)",
+            desc = "Manager (CWD)",
         },
     },
     -- TODO: Image Preview does not work: https://github.com/mikavilpas/yazi.nvim/issues/112

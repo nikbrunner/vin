@@ -191,11 +191,11 @@ end
 function M.setup()
     vim.keymap.set("n", "<leader>sc", function()
         M.find_and_open_files(M.config)
-    end, { desc = "[C]omponent" })
+    end, { desc = "Component" })
 
     vim.keymap.set("n", "gC", function()
         M.find_and_open_component_file(M.config)
-    end, { desc = "[C]omponent under cursor" })
+    end, { desc = "Component under cursor" })
 end
 
 M.setup()

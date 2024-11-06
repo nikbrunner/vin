@@ -51,7 +51,7 @@ set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent =
 set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
-set("n", "go", "<cmd>e #<cr>", { desc = "[G]o to [O]ther File" })
+set("n", "go", "<cmd>e #<cr>", { desc = "Go to Other File" })
 
 -- Clear search with <esc>
 set("n", "<esc>", function()
@@ -91,9 +91,9 @@ set("n", "<leader>ur", function()
     package.loaded["vin.config"] = nil
     vim.cmd.colorscheme(require("vin.config").colorscheme)
     vim.cmd("norm zz:e!<CR>zz")
-end, { desc = "[R]edraw" })
+end, { desc = "Redraw" })
 
-set("n", "<leader>ui", vim.show_pos, { desc = "[I]nspect Position" })
+set("n", "<leader>ui", vim.show_pos, { desc = "Inspect Position" })
 
 set("n", "<leader>uc", function()
     local defaultLevel = 0
@@ -117,7 +117,7 @@ end, { desc = "Toggle Specific [C]onceal Level" })
 
 set("n", "z=", function()
     require("fzf-lua").spell_suggest({ winopts = { height = 0.35, width = 0.65 } })
-end, { desc = "[S]pelling Suggestions" })
+end, { desc = "Spelling Suggestions" })
 
 -- prev/next
 set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
@@ -139,21 +139,21 @@ for i = 1, 9 do
 end
 
 -- Vin Group
-set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "[P]lugin Manager - [LazyVim]" })
-set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "[P]ackage Manager - [Mason]" })
-set("n", "<leader>vl", "<cmd>LspInfo<CR>", { desc = "[L]SP Info" })
+set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager (LazyVim)" })
+set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "Package Manager (Mason)" })
+set("n", "<leader>vl", "<cmd>LspInfo<CR>", { desc = "LSP Info" })
 set("n", "<leader>vL", function()
     vim.notify("Restarting LSP Servers", vim.log.levels.INFO, { title = "LSP" })
     vim.cmd("LspRestart")
-end, { desc = "[L]SP  (Restart)" })
+end, { desc = "LSP  (Restart)" })
 
 -- [C] Action Group
 set({ "n", "v" }, "<leader>cc", function()
     lib.copy.list_paths()
-end, { desc = "[C]opy" })
+end, { desc = "Copy" })
 
-set("n", "<leader>cll", lib.log.log_symbol, { desc = "[L]og" })
-set("n", "<leader>cld", lib.log.delete_logs, { desc = "[D]elete" })
+set("n", "<leader>cll", lib.log.log_symbol, { desc = "Log" })
+set("n", "<leader>cld", lib.log.delete_logs, { desc = "Delete" })
 
 -- Only native Vim lsp keymaps are defined here.
 -- Lsp Mappings which are depended on a plugin are defined in the plugin spec file with the same event name.
@@ -180,10 +180,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         -- set("n", "g.", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
 
-        set("n", "cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "[C]hange [N]ame" }))
-        set("n", "<leader>cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Re[n]ame" }))
+        set("n", "cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Change Name" }))
+        set("n", "<leader>cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
 
-        set("n", "dh", vim.diagnostic.open_float, { desc = "[D]iagnostics [H]over" })
-        set("n", "<leader>dh", vim.diagnostic.open_float, { desc = "[H]over" })
+        set("n", "dh", vim.diagnostic.open_float, { desc = "Diagnostics Hover" })
+        set("n", "<leader>dh", vim.diagnostic.open_float, { desc = "Hover" })
     end,
 })

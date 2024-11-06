@@ -27,14 +27,14 @@ M.spec = {
             function()
                 require("gitpad").toggle_gitpad()
             end,
-            desc = "[P]roject",
+            desc = "Project",
         },
         {
             "<leader>nb",
             function()
                 require("gitpad").toggle_gitpad_branch()
             end,
-            desc = "[B]ranch",
+            desc = "Branch",
         },
         {
             "<leader>nd",
@@ -42,7 +42,7 @@ M.spec = {
                 local date_filename = "daily-" .. os.date("%Y-%m-%d.md")
                 require("gitpad").toggle_gitpad({ filename = date_filename })
             end,
-            desc = "[D]aily",
+            desc = "Daily",
         },
         {
             "<leader>nf",
@@ -55,7 +55,7 @@ M.spec = {
                 filename = vim.fn.pathshorten(filename, 2) .. ".md"
                 require("gitpad").toggle_gitpad({ filename = filename })
             end,
-            desc = "[F]ile",
+            desc = "File",
         },
     },
 }

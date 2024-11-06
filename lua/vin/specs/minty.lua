@@ -24,14 +24,14 @@ return {
             function()
                 require("minty.huefy").open()
             end,
-            desc = "[H]ue Picker",
+            desc = "Hue Picker",
         },
         {
             "<leader>cps",
             function()
                 require("minty.shades").open()
             end,
-            desc = "[S]hade Picker",
+            desc = "Shade Picker",
         },
     },
 }

@@ -22,42 +22,42 @@ M.spec = {
                 function()
                     vim.cmd("Neotree left toggle reveal")
                 end,
-                desc = "[E]xplorer (Left)",
+                desc = "Explorer (Left)",
             },
             {
                 "<M-]>",
                 function()
                     vim.cmd("Neotree right git_status toggle reveal")
                 end,
-                desc = "[G]it Status (Right)",
+                desc = "Git Status (Right)",
             },
             {
                 "<leader>ee",
                 function()
                     vim.cmd("Neotree float toggle reveal")
                 end,
-                desc = "[E]xplorer",
+                desc = "Explorer",
             },
             {
                 "<leader>eg",
                 function()
                     vim.cmd("Neotree float git_status toggle reveal")
                 end,
-                desc = "[G]it Status",
+                desc = "Git Status",
             },
             {
                 "<leader>er",
                 function()
                     vim.cmd("Neotree float buffers toggle reveal")
                 end,
-                desc = "[R]ecents",
+                desc = "Recents",
             },
             {
                 "<leader>eh",
                 function()
                     vim.cmd("Neotree float toggle reveal git_status origin/HEAD")
                 end,
-                desc = "[H]ead Status",
+                desc = "Head Status",
             },
             {
                 "<leader>eH",
@@ -90,7 +90,7 @@ M.spec = {
                         end
                     end)
                 end,
-                desc = "[H]ead Status (Choose)",
+                desc = "Head Status (Choose)",
             },
         }
     end,

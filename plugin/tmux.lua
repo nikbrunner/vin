@@ -210,10 +210,10 @@ end
 
 function M.setup(options)
     if options.enable_bindings then
-        vim.keymap.set("n", "<leader>tc", M.start_custom_tmux_session, { desc = "[C]reate Session" })
-        vim.keymap.set("n", "<leader>ts", M.switch_tmux_session, { desc = "Switch [S]ession" })
-        vim.keymap.set("n", "<leader>tw", M.switch_tmux_window, { desc = "Switch [W]indows" })
-        vim.keymap.set("n", "<leader>tt", M.switch_nvim_instance, { desc = "Switch Neovim [I]nstance" })
+        vim.keymap.set("n", "<leader>tc", M.start_custom_tmux_session, { desc = "Create Session" })
+        vim.keymap.set("n", "<leader>ts", M.switch_tmux_session, { desc = "Switch Session" })
+        vim.keymap.set("n", "<leader>tw", M.switch_tmux_window, { desc = "Switch Windows" })
+        vim.keymap.set("n", "<leader>tt", M.switch_nvim_instance, { desc = "Switch Neovim Instance" })
     end
 end
 

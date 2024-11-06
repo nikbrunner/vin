@@ -8,7 +8,7 @@ M.spec = {
         {
             "<leader>vm",
             "<CMD>Bmessagesvs<CR>",
-            desc = "[M]essages",
+            desc = "Messages",
         },
     },
     opts = {},

@@ -97,31 +97,31 @@ end
 
 -- stylua: ignore start
 M.keys = {
-    { "gs",               function() require("fzf-lua").lsp_document_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Document [S]ymbols" },
-    { "gS",               function() require("fzf-lua").lsp_live_workspace_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace [S]ymbols" },
-    { "<C-r>",            function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent " .. require("vin.icons").git.project },
+    { "gs",               function() require("fzf-lua").lsp_document_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Document Symbols" },
+    { "gS",               function() require("fzf-lua").lsp_live_workspace_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace Symbols" },
+    { "<C-r>",            function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
     { "<leader><leader>", function() require("fzf-lua").files({ winopts = M.winopts.md.flex }) end, desc = "Find Files" },
     { "<space><space>",   function() require("fzf-lua").tabs() end, desc = "Tab Fuzzy Find" },
     { "<leader>/",        function() require("fzf-lua").lgrep_curbuf({ winopts = M.winopts.md.flex }) end, desc = "Text in File" },
     { "<leader>;",        function() require("fzf-lua").commands({ winopts = M.winopts.sm.no_preview }) end, desc = "Commands" },
     { "<leader>j",        function() require("fzf-lua").jumps({ winopts = M.winopts.md.vertical }) end, desc = "Jumps" },
-    { "<leader>r",        function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent " .. require("vin.icons").git.project },
-    { "<leader>R",        function() require("fzf-lua").oldfiles({ cwd_only = false, winopts = M.winopts.sm.no_preview }) end, desc = "Recent " .. require("vin.icons").misc.globe },
+    { "<leader>r",        function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
+    { "<leader>R",        function() require("fzf-lua").oldfiles({ cwd_only = false, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
     { "<leader>s.",       function() require("fzf-lua").resume() end, desc = "Resume" },
-    { "<leader>sh",       function() require("fzf-lua").help_tags() end, desc = "[H]elp Tags" },
-    { "<leader>sH",       function() require("fzf-lua").highlights() end, desc = "[H]ighlights" },
-    { "<leader>sk",       function() require("fzf-lua").keymaps() end, desc = "[K]eymaps" },
-    { "<leader>sw",       function() require("fzf-lua").grep_cword() end, mode = { "n", "v" }, desc = "[W]ord" },
-    { "<leader>sm",       function() require("fzf-lua").marks({ winopts = M.winopts.lg.vertical }) end, desc = "[M]arks" },
-    { "<leader>sM",       function() require("fzf-lua").man_pages() end, desc = "[M]an Pages" },
-    { "<leader>s'",       function() require("fzf-lua").registers({ winopts = M.winopts.lg.vertical }) end, mode = { "n", "v" }, desc = "[R]egisters" },
-    { "<leader>gs",       function() require("fzf-lua").git_status({ winopts = M.winopts.lg.vertical }) end, desc = "[G]it Status" },
+    { "<leader>sh",       function() require("fzf-lua").help_tags() end, desc = "Help Tags" },
+    { "<leader>sH",       function() require("fzf-lua").highlights() end, desc = "Highlights" },
+    { "<leader>sk",       function() require("fzf-lua").keymaps() end, desc = "Keymaps" },
+    { "<leader>sw",       function() require("fzf-lua").grep_cword() end, mode = { "n", "v" }, desc = "Word" },
+    { "<leader>sm",       function() require("fzf-lua").marks({ winopts = M.winopts.lg.vertical }) end, desc = "Marks" },
+    { "<leader>sM",       function() require("fzf-lua").man_pages() end, desc = "Man Pages" },
+    { "<leader>s'",       function() require("fzf-lua").registers({ winopts = M.winopts.lg.vertical }) end, mode = { "n", "v" }, desc = "Registers" },
+    { "<leader>gs",       function() require("fzf-lua").git_status({ winopts = M.winopts.lg.vertical }) end, desc = "Git Status" },
     { "<leader>gc",       function() require("fzf-lua").changes() end, desc = "Changes" },
-    { "<leader>gCb",      function() require("fzf-lua").git_branches() end, desc = "[B]ranches" },
-    { "<leader>gCc",      function() require("fzf-lua").git_commits() end, desc = "[C]ommits" },
-    { "<leader>gCt",      function() require("fzf-lua").git_tags() end, desc = "[T]ags" },
-    { "<leader>ut",       function() require("fzf-lua").colorschemes() end, desc = "[T]hemes" },
-    { "<leader>uT",       function() require("fzf-lua").awesome_colorschemes() end, desc = "[T]hemes (Awesome)" },
+    { "<leader>gCb",      function() require("fzf-lua").git_branches() end, desc = "Branches" },
+    { "<leader>gCc",      function() require("fzf-lua").git_commits() end, desc = "Commits" },
+    { "<leader>gCt",      function() require("fzf-lua").git_tags() end, desc = "Tags" },
+    { "<leader>ut",       function() require("fzf-lua").colorschemes() end, desc = "Themes" },
+    { "<leader>uT",       function() require("fzf-lua").awesome_colorschemes() end, desc = "Themes (Awesome)" },
 }
 -- stylua: ignore end
 
@@ -132,7 +132,7 @@ M.lsp_attach = function()
             jump_type = "vsplit",
             winopts = M.winopts.lg.vertical,
         })
-    end, { desc = "Go to [D]efinition" })
+    end, { desc = "Go to Definition" })
 
     vim.keymap.set("n", "gR", function()
         require("fzf-lua").lsp_references({
@@ -142,11 +142,11 @@ M.lsp_attach = function()
 
             winopts = M.winopts.lg.vertical,
         })
-    end, { desc = "Go to [R]eferences" })
+    end, { desc = "Go to References" })
 
     vim.keymap.set("n", "<leader>ca", function()
         require("fzf-lua").lsp_code_actions()
-    end, { desc = "[C]ode [A]ction" })
+    end, { desc = "Code Action" })
 end
 
 M.spec = {

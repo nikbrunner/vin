@@ -11,7 +11,14 @@ M.spec = {
         {
             "<leader>sx",
             "<cmd>TodoTrouble<CR>",
-            desc = "[x]odos",
+            desc = "Todos",
+        },
+        {
+            "<leader>sX",
+            function()
+                vim.notify("list all todos for the current branch or via input")
+            end,
+            desc = "Special Todo",
         },
         {
             "<leader>ct",
