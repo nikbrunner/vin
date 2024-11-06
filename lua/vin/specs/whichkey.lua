@@ -41,6 +41,7 @@ M.spec = {
                 { "<leader>gs", group = "Stage" },
                 { "<leader>gu", group = "Unstage" },
                 { "<leader>gp", group = "Preview" },
+                { "<leader>gC", group = "Checkout", icon = " " },
                 { "<leader>h", group = "HTTP", icon = "󰿘 " },
                 { "<leader>i", group = "Intelligence", icon = "󰧑 " },
                 { "<leader>j", group = "Jumps", icon = "󰴪 " },
