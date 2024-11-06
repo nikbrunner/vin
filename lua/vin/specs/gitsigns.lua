@@ -16,23 +16,21 @@ M.spec = {
         on_attach = function(buffer)
             local gs = package.loaded.gitsigns
 
-            local function map(mode, l, r, desc)
+            function M.map(mode, l, r, desc)
                 vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
             end
 
            -- stylua: ignore start
-            map("n", "]g", gs.next_hunk, "Next Hunk")
-            map("n", "[g", gs.prev_hunk, "Prev Hunk")
+            M.map("n", "]g", gs.next_hunk, "Next Hunk")
+            M.map("n", "[g", gs.prev_hunk, "Prev Hunk")
 
-            map({ "n", "v" }, "<leader>gsh", gs.stage_hunk, "Stage Hunk")
-            map({ "n", "v" }, "<leader>grh", gs.reset_hunk, "Reset Hunk")
-            map({ "n", "v" }, "<leader>gl", gs.toggle_current_line_blame, "Current Line Blame")
-            map({ "n", "v" }, "<leader>guh", gs.undo_stage_hunk, "Undo Stage Hunk")
-            map({ "n", "v" }, "<leader>gdh", gs.preview_hunk, "Diff (Hunk)")
+            M.map({ "n", "v" }, "<leader>gsh", gs.stage_hunk, "Stage Hunk")
+            M.map({ "n", "v" }, "<leader>grh", gs.reset_hunk, "Reset Hunk")
+            M.map({ "n", "v" }, "<leader>guh", gs.undo_stage_hunk, "Undo Stage Hunk")
+            M.map({ "n", "v" }, "<leader>gdh", gs.preview_hunk, "Diff (Hunk)")
 
-            map("n", "<leader>grb", gs.reset_buffer, "Reset Buffer")
-            map("n", "<leader>gsb", gs.stage_buffer, "Stage Buffer")
-
+            M.map("n", "<leader>grb", gs.reset_buffer, "Reset Buffer")
+            M.map("n", "<leader>gsb", gs.stage_buffer, "Stage Buffer")
             -- stylua: ignore end
         end,
     },
