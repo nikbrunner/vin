@@ -39,6 +39,7 @@ M.spec = {
     keys = {
         {
             "<leader>cf",
+            mode = { "n", "x" },
             function()
                 require("conform").format({
                     async = true,
