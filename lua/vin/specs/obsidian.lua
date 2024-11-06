@@ -8,7 +8,6 @@ local M = {}
 ---@type LazySpec
 M.spec = {
     "epwalsh/obsidian.nvim",
-    enabled = false,
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
@@ -27,8 +26,8 @@ M.spec = {
     end,
     keys = {
         { "<leader>oj", "<CMD>ObsidianToday<CR>", desc = "Open Today's Note" },
-        { "<leader>oh", "<CMD>ObsidianYesterday<CR>", desc = "Open Yesterday's Note" },
-        { "<leader>ol", "<CMD>ObsidianTomorrow<CR>", desc = "Open Tomorrow's Note" },
+        { "<leader>oh", "<CMD>ObsidianToday -1<CR>", desc = "Open Prev Daily Note" },
+        { "<leader>ol", "<CMD>ObsidianToday +1<CR>", desc = "Open Next Daily Note" },
         { "<leader>oo", "<CMD>ObsidianQuickSwitch<CR>", desc = "Quick Switch Note" },
         {
             "<leader>on",
@@ -51,7 +50,7 @@ M.spec = {
 
         return {
             ui = {
-                enable = false, -- set to false because of conflics with `markdown.nvim`
+                enable = true, -- set to false because of conflics with `markdown.nvim`
             },
             workspaces = {
                 {
@@ -79,7 +78,13 @@ M.spec = {
                     end,
                     opts = { noremap = false, expr = true, buffer = true, desc = "Go to file" },
                 },
-                ["<leader>oc"] = {
+                ["<cr>"] = {
+                    action = function()
+                        return require("obsidian").util.smart_action()
+                    end,
+                    opts = { buffer = true, expr = true },
+                },
+                ["<C-CR>"] = {
                     action = function()
                         return require("obsidian").util.toggle_checkbox()
                     end,
@@ -93,13 +98,9 @@ M.spec = {
             },
 
             daily_notes = {
-                -- Optional, if you keep daily notes in a separate directory.
                 folder = "Log/2024",
-                -- Optional, if you want to change the date format for the ID of daily notes.
-                -- Confige os.date that it results in this format: 20.11.07 — Saturday
                 date_format = "%y.%m.%d - %A",
-                -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-                template = "Templates/Daily Note - Templater.md",
+                template = "Templates/Daily Note.md",
             },
 
             picker = {
