@@ -57,7 +57,7 @@ set("n", "go", "<cmd>e #<cr>", { desc = "Go to Other File" })
 set("n", "<esc>", function()
     vim.cmd.nohlsearch()
     vim.cmd.wa()
-    require("mini.notify").clear()
+    require("snacks.notifier").hide()
 end, { desc = "Escape and clear hlsearch" })
 
 -- indenting and reselect
