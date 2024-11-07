@@ -1,5 +1,7 @@
 local M = {}
 
+M.daily_note_index = 0
+
 -- ISSUE: Daily Note functions does not create notes when it does not exist.
 -- ISSUE: It should respect existing frontmatter.
 --        I think this is handled in here: /Users/nikolausbrunner/.local/share/vin/lazy/obsidian.nvim/lua/obsidian/note.lua
@@ -25,10 +27,17 @@ M.spec = {
         }
     end,
     keys = {
-        { "<leader>oj", "<CMD>ObsidianToday<CR>", desc = "Open Today's Note" },
-        { "<leader>oh", "<CMD>ObsidianToday -1<CR>", desc = "Open Prev Daily Note" },
-        { "<leader>ol", "<CMD>ObsidianToday +1<CR>", desc = "Open Next Daily Note" },
         { "<leader>oo", "<CMD>ObsidianQuickSwitch<CR>", desc = "Quick Switch Note" },
+
+        {
+            "<leader>oj",
+            function()
+                M.daily_note_index = 0
+                vim.notify("Today's Note: " .. M.daily_note_index)
+                vim.cmd("ObsidianToday " .. M.daily_note_index)
+            end,
+            desc = "Open Today's Note",
+        },
         {
             "<leader>on",
             function()
@@ -89,6 +98,22 @@ M.spec = {
                         return require("obsidian").util.toggle_checkbox()
                     end,
                     opts = { buffer = true, desc = "Toggle Checkbox" },
+                },
+                ["<leader>oh"] = {
+                    action = function()
+                        M.daily_note_index = M.daily_note_index - 1
+                        vim.notify("Prev Daily Note: " .. M.daily_note_index)
+                        vim.cmd("ObsidianToday " .. M.daily_note_index)
+                    end,
+                    opts = { buffer = true, expr = true },
+                },
+                ["<leader>ol"] = {
+                    action = function()
+                        M.daily_note_index = M.daily_note_index + 1
+                        vim.notify("Next Daily Note: " .. M.daily_note_index)
+                        vim.cmd("ObsidianToday " .. M.daily_note_index)
+                    end,
+                    opts = { buffer = true, expr = true },
                 },
             },
 
