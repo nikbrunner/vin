@@ -10,6 +10,11 @@ return {
         debug = { enabled = true },
         notifier = { enabled = true },
         toggle = { enabled = true },
+        terminal = {
+            win = {
+                border = "solid",
+            },
+        },
         lazygit = {
             configure = true,
             win = {
