@@ -1,5 +1,7 @@
 local M = {}
 
+--- IDEA: Automatically append/sync the branch note to the PR description and YouTrack issue on every push.
+
 ---@type LazyPluginSpec
 M.spec = {
     "yujinyuz/gitpad.nvim",
