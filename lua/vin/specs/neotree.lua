@@ -32,6 +32,13 @@ M.spec = {
                 desc = "Git Status (Right)",
             },
             {
+                "<C-e>",
+                function()
+                    vim.cmd("Neotree float toggle reveal")
+                end,
+                desc = "Explorer",
+            },
+            {
                 "<leader>ee",
                 function()
                     vim.cmd("Neotree float toggle reveal")

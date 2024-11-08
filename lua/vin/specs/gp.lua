@@ -24,10 +24,10 @@ M.spec = {
         default_command_agent = "ChatClaude-3-5-Sonnet",
         default_chat_agent = "ChatClaude-3-5-Sonnet",
 
-        chat_shortcut_respond = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e><C-e>" },
-        chat_shortcut_delete = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e>d" },
-        chat_shortcut_stop = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e>s" },
-        chat_shortcut_new = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e>c" },
+        -- chat_shortcut_respond = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e><C-e>" },
+        -- chat_shortcut_delete = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e>d" },
+        -- chat_shortcut_stop = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e>s" },
+        -- chat_shortcut_new = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e>c" },
 
         hooks = {
             -- example of adding command which writes unit tests for the selected code
