@@ -3,9 +3,6 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim" },
-    keys = {
-        { "<leader>vn", "<cmd>Noice log<CR>", desc = "Notifications" },
-    },
     opts = {
         cmdline = {
             format = {
