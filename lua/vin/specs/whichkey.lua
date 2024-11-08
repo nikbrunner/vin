@@ -8,16 +8,18 @@ M.spec = {
     ---@type wk.Opts
     opts = {
         win = {
-            width = { min = 25, max = 40 },
-            height = { min = 10, max = 75 },
-            col = 0.95,
-            row = 0.95,
+            width = { min = 35, max = 125 },
+            height = { min = 5, max = 15 },
+            col = 0.5,
+            row = 0.9,
             title = "Vin",
             border = "solid",
             wo = {
                 winblend = 0,
             },
         },
+
+        delay = 0,
 
         sort = { "local", "order", "group", "case", "alphanum", "mod" },
 
