@@ -18,6 +18,7 @@ return {
         },
         notify = {
             enabled = false,
+            backend = { "snacks" },
         },
         lsp = {
             documentation = {
