@@ -21,6 +21,12 @@ return {
                 border = "solid",
             },
         },
+        styles = {
+            ["notification.history"] = {
+                border = "solid",
+                wo = { winhighlight = "Normal:NormalFloat" },
+            },
+        },
     },
     keys = function()
         local Snacks = require("snacks")
