@@ -6,8 +6,8 @@ M.spec = {
     "otavioschwanck/arrow.nvim",
     event = "BufEnter",
     opts = {
-        leader_key = "<leader>m", -- Recommended to be a single key
-        buffer_leader_key = "gm", -- Per Buffer Mappings
+        leader_key = ";",
+        buffer_leader_key = "gm",
         show_icons = false,
         always_show_path = true,
         separate_by_branch = true,
@@ -22,6 +22,22 @@ M.spec = {
         },
         window = {
             border = "solid",
+        },
+    },
+    keys = {
+        {
+            "<M-k>",
+            function()
+                require("arrow.persist").previous()
+            end,
+            desc = "Previous Bookmark",
+        },
+        {
+            "<M-j>",
+            function()
+                require("arrow.persist").next()
+            end,
+            desc = "Next Bookmark",
         },
     },
 }
