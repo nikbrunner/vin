@@ -19,7 +19,7 @@ M.spec = {
             },
         },
 
-        delay = 0,
+        delay = 150,
 
         sort = { "local", "order", "group", "case", "alphanum", "mod" },
 
