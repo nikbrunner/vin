@@ -93,12 +93,7 @@ M.spec = {
                     end,
                     opts = { buffer = true, expr = true },
                 },
-                ["<C-CR>"] = {
-                    action = function()
-                        return require("obsidian").util.toggle_checkbox()
-                    end,
-                    opts = { buffer = true, desc = "Toggle Checkbox" },
-                },
+                -- NOTE: Toggle checkboxes is handled by `ftplugin/markdown`
                 ["<leader>oh"] = {
                     action = function()
                         M.daily_note_index = M.daily_note_index - 1
