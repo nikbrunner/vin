@@ -28,6 +28,8 @@ return {
                 },
             },
         },
+        ---@module "noice"
+        ---@type NoiceConfigViews
         views = {
             cmdline_popup = {
                 border = {
@@ -45,6 +47,12 @@ return {
                 filter_options = {},
                 win_options = {
                     winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+                },
+            },
+            hover = {
+                border = {
+                    style = "solid",
+                    padding = { 1, 6 },
                 },
             },
         },
