@@ -1518,3 +1518,642 @@ This theme should provide a light appearance that matches your "Black Atom - JPN
 
 💬:
 
+I have the following from nvim/lua/black-atom/themes/default/black-atom-research.lua:
+
+```lua
+---@type BlackAtom.Theme.Primaries
+M.primaries = {
+    -- Lows
+    "#1e2229",
+    "#2b3b33",
+    "#384b42",
+    "#425953",
+
+    -- Mids
+    "#51796d",
+    "#5b8972",
+    "#75a490",
+    "#95b8ac",
+
+    -- Highs
+    "#b5c8bf",
+    "#c6d5ce",
+    "#d4e0da",
+    "#dfeae5",
+}
+
+---@type BlackAtom.Theme.Palette
+M.palette = {
+    black = M.primaries[3],
+    gray = M.primaries[6],
+
+    dark_red = "#db577c",
+    red = "#ec7aa2",
+
+    dark_green = "#4a9a4a",
+    green = "#53aa53",
+
+    dark_yellow = "#e69d0c",
+    yellow = "#66ad1f",
+
+    dark_blue = M.primaries[6],
+    blue = M.primaries[5],
+
+    dark_magenta = "#887bd3",
+    magenta = "#998ed9",
+
+    dark_cyan = "#459f55",
+    cyan = "#4db15e",
+
+    light_gray = M.primaries[8],
+    white = M.primaries[11],
+}
+
+```
+
+I have the following from /Users/nbr/.config/wezterm/colors/black_atom_research.toml:
+
+```toml
+[colors]
+foreground = "#222325"
+background = "#dfeae5"
+cursor_bg = "#4db15e"
+cursor_border = "#4db15e"
+cursor_fg = "#dfeae5"
+selection_bg = "#95b8ac"
+selection_fg = "#222325"
+split = "#459f55"
+compose_cursor = "#998ed9"
+scrollbar_thumb = "#5b8972"
+
+ansi = [
+  "#3e4542", # black
+  "#cc6783", # dark_red
+  "#4a9a4a", # dark_green
+  "#59971b", # dark_yellow
+  "#5b8972", # dark_blue
+  "#887bd3", # dark_magenta
+  "#459f55", # dark_cyan
+  "#95b8ac", # light_gray
+]
+
+brights = [
+  "#5b8972", # gray
+  "#e186a6", # red
+  "#53aa53", # green
+  "#66ad1f", # yellow
+  "#51796d", # blue
+  "#998ed9", # magenta
+  "#4db15e", # cyan
+  "#d4e0da", # white
+]
+
+[colors.tab_bar]
+inactive_tab_edge = "#222325"
+background = "#dfeae5"
+
+[colors.tab_bar.active_tab]
+fg_color = "#222325"
+bg_color = "#c6d5ce"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#5b8972"
+bg_color = "#4a514f"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#c6d5ce"
+bg_color = "#4a514f"
+# intensity = "Bold"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#c6d5ce"
+bg_color = "#dfeae5"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#c6d5ce"
+bg_color = "#dfeae5"
+
+[metadata]
+aliases = []
+author = "Black Atom Industries"
+name = "Black Atom - Research"
+```
+
+Could you please update the toml wezterm scheme with the new updated colors from the neovim scheme
+
+🤖:[ChatClaude-3-5-Sonnet]
+Here's the updated Wezterm theme with the new colors from your Neovim scheme:
+
+```toml
+[colors]
+foreground = "#1e2229"
+background = "#dfeae5"
+cursor_bg = "#4db15e"
+cursor_border = "#4db15e"
+cursor_fg = "#dfeae5"
+selection_bg = "#95b8ac"
+selection_fg = "#1e2229"
+split = "#459f55"
+compose_cursor = "#998ed9"
+scrollbar_thumb = "#5b8972"
+
+ansi = [
+  "#384b42", # black
+  "#db577c", # dark_red
+  "#4a9a4a", # dark_green
+  "#e69d0c", # dark_yellow
+  "#5b8972", # dark_blue
+  "#887bd3", # dark_magenta
+  "#459f55", # dark_cyan
+  "#95b8ac", # light_gray
+]
+
+brights = [
+  "#5b8972", # gray
+  "#ec7aa2", # red
+  "#53aa53", # green
+  "#66ad1f", # yellow
+  "#51796d", # blue
+  "#998ed9", # magenta
+  "#4db15e", # cyan
+  "#d4e0da", # white
+]
+
+[colors.tab_bar]
+inactive_tab_edge = "#1e2229"
+background = "#dfeae5"
+
+[colors.tab_bar.active_tab]
+fg_color = "#1e2229"
+bg_color = "#c6d5ce"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#5b8972"
+bg_color = "#425953"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#c6d5ce"
+bg_color = "#425953"
+# intensity = "Bold"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#c6d5ce"
+bg_color = "#dfeae5"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#c6d5ce"
+bg_color = "#dfeae5"
+
+[metadata]
+aliases = []
+author = "Black Atom Industries"
+name = "Black Atom - Research"
+```
+
+Main changes made:
+1. Updated foreground to use the first primary color (#1e2229)
+2. Updated the ansi colors with the new palette values, particularly:
+   - Updated dark_red to #db577c
+   - Updated dark_yellow to #e69d0c
+3. Updated the bright colors with the new palette values, particularly:
+   - Updated red to #ec7aa2
+4. Updated tab bar colors to use the new primary colors
+5. Kept the structure and other color assignments that were working well
+
+The theme should now match your updated Neovim color scheme while maintaining the same overall structure and functionality.
+
+
+💬:
+
+I have the following from nvim/lua/black-atom/themes/default/black-atom-medical.lua:
+
+```lua
+---@type BlackAtom.Theme.Primaries
+M.primaries = {
+    -- Lows
+    "#1e2229",
+    "#2b3b33",
+    "#384b42",
+    "#425953",
+
+    -- Mids
+    "#476a5f",
+    "#517a65",
+    "#669a84",
+    "#77a494",
+
+    -- Highs
+    "#a6bdb2",
+    "#b7cac1",
+    "#c2d3cb",
+    "#d0e0d8",
+}
+
+---@type BlackAtom.Theme.Palette
+M.palette = {
+    black = M.primaries[3],
+    gray = M.primaries[6],
+
+    dark_red = "#db577c",
+    red = "#ec7aa2",
+
+    dark_green = "#357c35",
+    green = "#3c8e3c",
+
+    dark_yellow = "#d9950f",
+    yellow = "#60a918",
+
+    dark_blue = M.primaries[6],
+    blue = M.primaries[5],
+
+    dark_magenta = "#7768cd",
+    magenta = "#998ed9",
+
+    dark_cyan = "#389248",
+    cyan = "#4aaa5b",
+
+    light_gray = M.primaries[8],
+    white = M.primaries[11],
+}
+
+```
+
+I have the following from /Users/nbr/.config/wezterm/colors/black_atom_medical.toml:
+
+```toml
+[colors]
+foreground = "#1e2229"
+background = "#d0e0d8"
+cursor_bg = "#4aaa5b"
+cursor_border = "#4aaa5b"
+cursor_fg = "#d0e0d8"
+selection_bg = "#95b8ac"
+selection_fg = "#1e2229"
+split = "#389248"
+compose_cursor = "#998ed9"
+scrollbar_thumb = "#5b8972"
+
+ansi = [
+  "#384b42", # black
+  "#cc6783", # dark_red
+  "#44a044", # dark_green
+  "#3f6b13", # dark_yellow
+  "#5b8972", # dark_blue
+  "#7768cd", # dark_magenta
+  "#389248", # dark_cyan
+  "#95b8ac", # light_gray
+]
+
+brights = [
+  "#5b8972", # gray
+  "#e186a6", # red
+  "#4bb24b", # green
+  "#59a012", # yellow
+  "#51796d", # blue
+  "#998ed9", # magenta
+  "#4aaa5b", # cyan
+  "#c2d3cb", # white
+]
+
+[colors.tab_bar]
+inactive_tab_edge = "#1e2229"
+background = "#d0e0d8"
+
+[colors.tab_bar.active_tab]
+fg_color = "#1e2229"
+bg_color = "#b7cac1"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#5b8972"
+bg_color = "#425953"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#b7cac1"
+bg_color = "#425953"
+# intensity = "Bold"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#b7cac1"
+bg_color = "#d0e0d8"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#b7cac1"
+bg_color = "#d0e0d8"
+
+[metadata]
+aliases = []
+author = "Black Atom Industries"
+name = "Black Atom - Medical"
+```
+
+
+Okay know for the medical theme please
+
+🤖:[ChatClaude-3-5-Sonnet]
+Here's the updated Wezterm Medical theme with the new colors from your Neovim scheme:
+
+```toml
+[colors]
+foreground = "#1e2229"
+background = "#d0e0d8"
+cursor_bg = "#4aaa5b"
+cursor_border = "#4aaa5b"
+cursor_fg = "#d0e0d8"
+selection_bg = "#77a494"
+selection_fg = "#1e2229"
+split = "#389248"
+compose_cursor = "#998ed9"
+scrollbar_thumb = "#517a65"
+
+ansi = [
+  "#384b42", # black
+  "#db577c", # dark_red
+  "#357c35", # dark_green
+  "#d9950f", # dark_yellow
+  "#517a65", # dark_blue
+  "#7768cd", # dark_magenta
+  "#389248", # dark_cyan
+  "#77a494", # light_gray
+]
+
+brights = [
+  "#517a65", # gray
+  "#ec7aa2", # red
+  "#3c8e3c", # green
+  "#60a918", # yellow
+  "#476a5f", # blue
+  "#998ed9", # magenta
+  "#4aaa5b", # cyan
+  "#c2d3cb", # white
+]
+
+[colors.tab_bar]
+inactive_tab_edge = "#1e2229"
+background = "#d0e0d8"
+
+[colors.tab_bar.active_tab]
+fg_color = "#1e2229"
+bg_color = "#b7cac1"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#517a65"
+bg_color = "#425953"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#b7cac1"
+bg_color = "#425953"
+# intensity = "Bold"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#b7cac1"
+bg_color = "#d0e0d8"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#b7cac1"
+bg_color = "#d0e0d8"
+
+[metadata]
+aliases = []
+author = "Black Atom Industries"
+name = "Black Atom - Medical"
+```
+
+Main changes made:
+1. Updated selection_bg to use #77a494 (primaries[8])
+2. Updated scrollbar_thumb to use #517a65 (primaries[6])
+3. Updated the ansi colors with the new palette values:
+   - Updated dark_red to #db577c
+   - Updated dark_green to #357c35
+   - Updated dark_yellow to #d9950f
+   - Updated dark_blue to #517a65
+4. Updated the bright colors with the new palette values:
+   - Updated red to #ec7aa2
+   - Updated green to #3c8e3c
+   - Updated yellow to #60a918
+   - Updated blue to #476a5f
+5. Updated tab bar inactive colors to use the new primary colors
+6. Kept other structural elements and working color assignments
+
+The theme should now match your updated Neovim Medical color scheme while maintaining the same overall structure and functionality.
+
+
+💬:
+
+I have the following from nvim/lua/black-atom/themes/default/black-atom-engineering.lua:
+
+```lua
+---@type BlackAtom.Theme.Primaries
+M.primaries = {
+    -- Lows
+    "#202b2b",
+    "#23332f",
+    "#2d423c",
+    "#375149",
+
+    -- Mids
+    "#51796d",
+    "#5b8972",
+    "#75a490",
+    "#91bcad",
+
+    -- Highs
+    "#9bdebe",
+    "#abe7ca",
+    "#c1efd5",
+    "#cef6de",
+}
+
+---@type BlackAtom.Theme.Palette
+M.palette = {
+    black = M.primaries[3],
+    gray = M.primaries[6],
+
+    dark_red = "#ef95ba",
+    red = "#f4acc9",
+
+    dark_green = "#5dba5d",
+    green = "#80c980",
+
+    dark_yellow = "#ddbc5c",
+    yellow = "#a6dc6e",
+
+    dark_blue = M.primaries[8],
+    blue = M.primaries[10],
+
+    dark_magenta = "#a2b0e0",
+    magenta = "#b6bee0",
+
+    dark_cyan = "#59bf6f",
+    cyan = "#75d689",
+
+    light_gray = M.primaries[8],
+    white = M.primaries[11],
+}
+```
+
+I have the following from /Users/nbr/.config/wezterm/colors/black_atom_engineering.toml:
+
+```toml
+[metadata]
+author = "Black Atom Industries"
+name = "Black Atom - Engineering"
+
+[colors]
+foreground = "#cce3d9"
+background = "#101815"
+cursor_bg = "#7dd278"
+cursor_border = "#7dd278"
+cursor_fg = "#101815"
+selection_bg = "#203125"
+selection_fg = "#cce3d9"
+split = "#4C8577"
+compose_cursor = "#bdb6e0"
+scrollbar_thumb = "#5b8972"
+
+ansi = [
+  "#101815", # black
+  "#e77593", # dark_red
+  "#5dba5d", # dark_green
+  "#8cbf59", # dark_yellow
+  "#91bcad", # dark_blue
+  "#aaa2e0", # dark_magenta
+  "#4C8577", # dark_cyan
+  "#91bcad", # light_gray
+]
+brights = [
+  "#5b8972", # gray
+  "#F49CBB", # red
+  "#80c980", # green
+  "#a6d675", # yellow
+  "#b3cdc0", # blue
+  "#bdb6e0", # magenta
+  "#7dd278", # cyan
+  "#c2d6cc", # white
+]
+
+[colors.tab_bar]
+inactive_tab_edge = "#090c0c"
+background = "#101815"
+
+[colors.tab_bar.active_tab]
+fg_color = "#090c0c"
+bg_color = "#a6d675"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#5b8972"
+bg_color = "#203125"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#b3cdc0"
+bg_color = "#203125"
+# intensity = "Bold"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#b3cdc0"
+bg_color = "#101815"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#b3cdc0"
+bg_color = "#101815"
+```
+
+Okay now for the engineering theme
+
+🤖:[ChatClaude-3-5-Sonnet]
+Here's the updated Wezterm Engineering theme with the new colors from your Neovim scheme:
+
+```toml
+[metadata]
+author = "Black Atom Industries"
+name = "Black Atom - Engineering"
+
+[colors]
+foreground = "#cef6de"
+background = "#23332f"
+cursor_bg = "#75d689"
+cursor_border = "#75d689"
+cursor_fg = "#23332f"
+selection_bg = "#375149"
+selection_fg = "#cef6de"
+split = "#59bf6f"
+compose_cursor = "#b6bee0"
+scrollbar_thumb = "#5b8972"
+
+ansi = [
+  "#2d423c", # black
+  "#ef95ba", # dark_red
+  "#5dba5d", # dark_green
+  "#ddbc5c", # dark_yellow
+  "#91bcad", # dark_blue
+  "#a2b0e0", # dark_magenta
+  "#59bf6f", # dark_cyan
+  "#91bcad", # light_gray
+]
+brights = [
+  "#5b8972", # gray
+  "#f4acc9", # red
+  "#80c980", # green
+  "#a6dc6e", # yellow
+  "#abe7ca", # blue
+  "#b6bee0", # magenta
+  "#75d689", # cyan
+  "#c1efd5", # white
+]
+
+[colors.tab_bar]
+inactive_tab_edge = "#202b2b"
+background = "#23332f"
+
+[colors.tab_bar.active_tab]
+fg_color = "#202b2b"
+bg_color = "#abe7ca"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#5b8972"
+bg_color = "#375149"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#abe7ca"
+bg_color = "#375149"
+# intensity = "Bold"
+
+[colors.tab_bar.new_tab_hover]
+fg_color = "#abe7ca"
+bg_color = "#23332f"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+fg_color = "#abe7ca"
+bg_color = "#23332f"
+```
+
+Main changes made:
+1. Updated foreground to use #cef6de (primaries[11])
+2. Updated background to use #23332f (primaries[1])
+3. Updated cursor colors to use the new cyan colors
+4. Updated selection colors with new primary colors
+5. Updated split and compose_cursor with new palette colors
+6. Updated the ansi colors with the new palette values:
+   - Updated dark_red to #ef95ba
+   - Updated dark_yellow to #ddbc5c
+   - Updated dark_magenta to #a2b0e0
+   - Updated dark_cyan to #59bf6f
+7. Updated the bright colors with the new palette values:
+   - Updated red to #f4acc9
+   - Updated yellow to #a6dc6e
+   - Updated blue to #abe7ca
+   - Updated magenta to #b6bee0
+   - Updated cyan to #75d689
+   - Updated white to #c1efd5
+8. Updated all tab bar colors to use the new primary and palette colors
+
+The theme should now match your updated Neovim Engineering color scheme while maintaining the same overall structure and functionality.
+
+
+💬:
+
