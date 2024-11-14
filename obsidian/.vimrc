@@ -114,6 +114,6 @@ map s{ :surround_curly_brackets<CR>
 map s} :surround_curly_brackets<CR>
 
 exmap jumpToLink obcommand mrj-jump-to-link:activate-jump-to-link
-exmap jumpAnywhere obcommand mrj-jump-to-link:activate-jump-to-link
+exmap jumpAnywhere obcommand mrj-jump-to-link:activate-jump-to-anywhere
 
 nmap s :jumpAnywhere<CR>
