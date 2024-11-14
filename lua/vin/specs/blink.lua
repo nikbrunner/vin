@@ -5,11 +5,13 @@
 ---@type LazyPluginSpec
 return {
     "saghen/blink.cmp",
-    event = "BufRead",
+    lazy = false, -- lazy loading handled internally
     dependencies = "rafamadriz/friendly-snippets",
     version = "v0.*",
+    ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
+        keymap = { preset = "enter" },
         sources = {
             -- add lazydev to your completion providers
             completion = {
