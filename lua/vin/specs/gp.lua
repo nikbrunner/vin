@@ -24,6 +24,8 @@ M.spec = {
         default_command_agent = "ChatClaude-3-5-Sonnet",
         default_chat_agent = "ChatClaude-3-5-Sonnet",
 
+        style_popup_border = "solid",
+
         -- chat_shortcut_respond = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e><C-e>" },
         -- chat_shortcut_delete = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e>d" },
         -- chat_shortcut_stop = { modes = { "n", "i", "v", "x" }, shortcut = "<C-e>s" },
@@ -219,7 +221,7 @@ M.spec = {
             desc = "Find Chat",
         },
         {
-            "<C-e>",
+            "<C-g>",
             ":<C-u>'<,'>GpRewrite<cr>",
             desc = "Inline Rewrite",
             mode = { "n", "x" },
