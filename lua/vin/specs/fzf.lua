@@ -5,7 +5,7 @@ M.winopts = {
         no_preview = {
             row = 0.85,
             col = 0.5,
-            height = 0.35,
+            height = 0.20,
             width = 0.5,
             preview = { hidden = "hidden" },
         },
@@ -20,8 +20,11 @@ M.winopts = {
             },
         },
         vertical = {
-            height = 0.65,
+            row = 0.65,
+            col = 0.5,
+            height = 0.85,
             width = 0.65,
+            backdrop = 65,
             preview = {
                 layout = "vertical",
                 vertical = "up:65%", -- up|down:size
@@ -100,7 +103,7 @@ M.keys = {
     { "gs",               function() require("fzf-lua").lsp_document_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Document Symbols" },
     { "gS",               function() require("fzf-lua").lsp_live_workspace_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace Symbols" },
     { "<C-r>",            function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
-    { "<leader><leader>", function() require("fzf-lua").files({ winopts = M.winopts.md.flex }) end, desc = "Find Files" },
+    { "<leader><leader>", function() require("fzf-lua").files({ winopts = M.winopts.md.vertical }) end, desc = "Find Files" },
     { "<space><space>",   function() require("fzf-lua").tabs() end, desc = "Tab Fuzzy Find" },
     { "<leader>/",        function() require("fzf-lua").lgrep_curbuf({ winopts = M.winopts.md.flex }) end, desc = "Text in File" },
     { "<leader>;",        function() require("fzf-lua").commands({ winopts = M.winopts.sm.no_preview }) end, desc = "Commands" },
