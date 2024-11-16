@@ -31,7 +31,7 @@ return {
         windows = {
             autocomplete = {
                 border = "solid",
-                selection = "auto_insert",
+                selection = "preselect",
             },
         },
     },
