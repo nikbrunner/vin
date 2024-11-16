@@ -202,4 +202,98 @@ Which version do you prefer?
 
 
 💬:
+Can you formulate a consice reasoning for the PR description in german?
+Why we set the `staleTime` to `Infitiy` instead of implementing custom logic to compare the the contents of active brands
+
+🤖:[ChatClaude-3-5-Sonnet]
+Here's a concise PR description in German:
+
+```
+Active Brands ändern sich während der Laufzeit nicht (Gerät startet bei Änderungen neu). 
+Statt einer komplexen Implementierung von Deep-Comparison-Logik setzen wir `staleTime: Infinity`, 
+was die unnötigen Refetches verhindert und die Business-Logik präzise abbildet.
+```
+
+Alternative, even more concise:
+
+```
+`staleTime: Infinity` ist die eleganteste Lösung für Active Brands, da diese sich zur 
+Laufzeit nicht ändern. Dies vermeidet unnötige Refetches und ist der Deep-Comparison-Logik 
+vorzuziehen, da es die tatsächliche Business-Logik widerspiegelt.
+```
+
+Which version do you prefer, or would you like a different formulation?
+
+
+💬:
+
+I like the first more, but go into more detail about, that the reference of `data` would change on every refetch, so `useMemo` doesnt help use here and the slides are refetching on every reference change.
+
+🤖:[ChatClaude-3-5-Sonnet]
+Here's the enhanced PR description in German:
+
+```
+Active Brands ändern sich während der Laufzeit nicht (Gerät startet bei Änderungen neu). 
+
+Das Problem: React Query erzeugt bei jedem Refetch eine neue Referenz für `data`, auch wenn 
+der Inhalt identisch ist. Dadurch wird `useMemo` nicht wie erwartet die Referenz stabil 
+halten, was zu unnötigen Refetches der Slides führt.
+
+Statt einer komplexen Implementierung von Deep-Comparison-Logik setzen wir `staleTime: Infinity`, 
+was die unnötigen Refetches verhindert und die Business-Logik präzise abbildet. Dies ist 
+die eleganteste Lösung, da sie sowohl das technische Problem löst als auch dem tatsächlichen 
+Geschäftsverhalten entspricht.
+```
+
+How's that? It now explains the technical issue with references and `useMemo` before presenting the solution.
+
+
+💬:
+
+Ich habe es mal versucht ein bisschen zu verbessern
+
+### Ursache fuer das Problem
+
+- `AppLifecycles` mounted `useFetchCustomerWorldSlides`
+- `useFetchCustomerWorldSlides` hat `activeTools` & `activeBrandKeys` in den Dependencies
+	- Merke: Bei Komplexen Datentypen wird die Referenz verglichen - Nicht die Inhalte der Variablen
+- Wir betreten die `CustomerWorld`
+- `CustomerWorld` mounted `useActiveBrands`
+- `useActiveBrands` führt einen neuen Fetch aus, weil `staleTime: 0` gesetzt ist
+- Die Referenz von `query.data` wird erneuert weil es ein Refetch ist (Auch wenn das gleiche Ergebniss zurück kommt)
+- `useFetchCustomerWorldSlides` fetched die Slides neu, weil sich die Referenz von `activeBrandKeys` geändert hat. (Inhalte werden nicht verglichen)
+- Nun werden die Slides neu gefetched sortiert und gesetzt, obwohl wir schon in der Customer World sind.
+- Dadurch geraten die angezeigten Elemente und die Meta Information zu jeder Slide durcheinander
+	- Das an sich sollte vielleicht auch garnicht möglich sein, ist aber vielleicht ein eigenes Fehlverhalten das wir noch untersuchen können.
+
+### Reasoning
+
+Das Problem: React Query erzeugt bei jedem Refetch eine neue Referenz für `data`, auch wenn 
+der Inhalt identisch ist. Dadurch wird `useMemo` nicht die Referenz stabil 
+halten, was zu unnötigen Refetches der Slides führt.
+
+Statt einer komplexen Implementierung von Deep-Comparison-Logik setzen wir `staleTime: Infinity`,  was die unnötigen Refetches verhindert. Dies ist die eleganteste Lösung, da sie sowohl das technische Problem löst als auch dem echten Anwendungsfall entspricht.
+
+🤖:[ChatClaude-3-5-Sonnet]
+Das ist eine sehr gute und strukturierte Beschreibung! Die Aufteilung in "Ursache für das Problem" und "Reasoning" macht es sehr klar nachvollziehbar. Besonders gut finde ich:
+
+1. Die step-by-step Erklärung des Problems
+2. Den wichtigen Hinweis zu Referenzvergleichen bei komplexen Datentypen
+3. Die Beschreibung der konkreten Auswirkungen (durcheinander geratene Slides)
+4. Den Ausblick auf mögliche weitere Probleme die untersucht werden könnten
+
+Kleine Vorschläge zur Verfeinerung:
+
+```diff
+- Merke: Bei Komplexen Datentypen wird die Referenz verglichen - Nicht die Inhalte der Variablen
++ Merke: Bei komplexen Datentypen wird die Referenz verglichen - nicht die Inhalte der Variablen
+
+- useActiveBrands führt einen neuen Fetch aus, weil staleTime: 0 gesetzt ist
++ useActiveBrands führt einen neuen Fetch aus, weil `staleTime: 0` gesetzt ist
+```
+
+Soll ich noch weitere Verbesserungsvorschläge machen oder findest du die Beschreibung so gut wie sie ist?
+
+
+💬:
 
