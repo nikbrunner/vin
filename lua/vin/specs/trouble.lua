@@ -10,68 +10,49 @@ M.spec = {
         follow = false, -- Follow the current item
         ---@type trouble.Window.opts
         win = {
-            border = "double",
-            position = "bottom",
-            padding = { 1, 4 },
+            type = "float",
+            position = { 0.85, 0.5 },
+            size = { width = 0.5, height = 0.20 },
+            padding = { top = 1, left = 4 },
+            border = "solid",
+            title = "",
         },
         ---@type table<string, trouble.Mode>
         modes = {
-            diagnostics = {
-                ---@type trouble.Window.opts
-                win = {
-                    position = "bottom",
-                    size = { height = 0.25 },
-                },
-            },
+            diagnostics = {},
             lsp = {
                 pinned = true,
-                ---@type trouble.Window.opts
-                win = {
-                    position = "bottom",
-                    size = { height = 0.25 },
-                },
             },
             symbols = {
-                focus = false,
+                focus = true,
                 ---@type trouble.Window.opts
                 win = {
-                    position = "right",
-                    size = { width = 0.25 },
+                    type = "float",
+                    position = { 0.85, 0.65 },
+                    size = { width = 0.35, height = 0.5 },
+                    padding = { top = 1, left = 4 },
+                    border = "solid",
+                    title = "",
                 },
             },
             lsp_defnitions = {
                 focus = true,
                 auto_jump = true, -- auto jump to the item when there's only one
                 auto_close = true,
-                ---@type trouble.Window.opts
-                win = {
-                    border = "single",
-                    position = "bottom",
-                    title = "LSP Definitions",
-                    padding = { 1, 4 },
-                    size = { height = 0.25 },
-                },
             },
 
             lsp_references = {
                 focus = true,
                 auto_refresh = false, -- auto refresh when open
-                title = "LSP References",
                 params = {
                     include_declaration = false,
-                },
-                ---@type trouble.Window.opts
-                win = {
-                    position = "bottom",
-                    title = "LSP References",
-                    padding = { 1, 4 },
-                    size = { height = 0.25 },
                 },
             },
         },
     },
     keys = {
         { "gr", "<cmd>Trouble lsp_references<cr>", desc = "Symbol References" },
+        { "<leader>dr", "<cmd>Trouble lsp_references<cr>", desc = "Symbol References" },
         { "<leader>di", "<cmd>Trouble lsp toggle<cr>", desc = "Symbol Information" },
         { "<leader>dci", "<cmd>Trouble lsp_incoming_calls<cr>", desc = "Calls Incoming" },
         { "<leader>dco", "<cmd>Trouble lsp_outgoing_calls<cr>", desc = "Calls Outgoing" },
