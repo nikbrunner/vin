@@ -51,7 +51,7 @@ M.spec = {
         },
     },
     keys = {
-        { "gr", "<cmd>Trouble lsp_references<cr>", desc = "Symbol References" },
+        -- { "gr", "<cmd>Trouble lsp_references<cr>", desc = "Symbol References" },
         { "<leader>dr", "<cmd>Trouble lsp_references<cr>", desc = "Symbol References" },
         { "<leader>di", "<cmd>Trouble lsp toggle<cr>", desc = "Symbol Information" },
         { "<leader>dci", "<cmd>Trouble lsp_incoming_calls<cr>", desc = "Calls Incoming" },

@@ -98,8 +98,25 @@ function M.grep_over_changed_files()
     })
 end
 
--- stylua: ignore start
+function M.find_related_files()
+    local current_filename = vim.fn.expand("%:t:r")
+    local relative_filepath = vim.fn.fnamemodify(vim.fn.expand("%"), ":~:.") -- Get path relative to cwd
+
+    require("fzf-lua").files({
+        query = current_filename,
+        winopts = M.winopts.sm.no_preview,
+        fd_opts = string.format("--color=never --type f --hidden --follow --exclude .git --exclude %q", relative_filepath),
+        fzf_opts = {
+            ["--tiebreak"] = "chunk",
+            ["--no-info"] = "",
+        },
+    })
+end
+
 M.keys = {
+
+    -- stylua: ignore start
+    { "gr",               M.find_related_files, desc = "Related Files", },
     { "gs",               function() require("fzf-lua").lsp_document_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Document Symbols" },
     { "gS",               function() require("fzf-lua").lsp_live_workspace_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace Symbols" },
     { "<C-r>",            function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
