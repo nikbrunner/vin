@@ -171,7 +171,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         -- set("n", "g.", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
 
-        set("n", "cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Change Name" }))
         set("n", "<leader>cn", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
 
         set("n", "dh", vim.diagnostic.open_float, { desc = "Diagnostics Hover" })
