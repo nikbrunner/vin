@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 return {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -6,6 +7,12 @@ return {
         modes = {
             char = {
                 jump_labels = true,
+            },
+
+            search = {
+                -- when `true`, flash will be activated during regular search by default.
+                enabled = true,
+                highlight = { backdrop = true },
             },
         },
     },
