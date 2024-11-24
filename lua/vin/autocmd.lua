@@ -105,7 +105,6 @@ auto("FileType", {
     callback = function(event)
         vim.bo[event.buf].buflisted = false
         vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = event.buf, silent = true })
-        vim.keymap.set("n", "<ESC>", "<cmd>close<CR>", { buffer = event.buf, silent = true })
     end,
 })
 
