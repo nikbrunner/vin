@@ -77,6 +77,14 @@ To have a backup, a SSOT and standalone capabilities, I have a little script, wh
 sh ./obsidian/sync.sh
 ```
 
+## TODO
+
+- [ ] Improve mapping structure & fix inconsitencies
+    - Group mappings by ..
+      - Scope ? (e.g. [W]orkspace & [F]ile)
+      - Frequency
+    - Inconsistencies: For code actions I sometimes use leader, and sometimes not (see rename)
+
 ## Links
 
 ### General
