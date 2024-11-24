@@ -31,7 +31,11 @@ return {
         windows = {
             autocomplete = {
                 border = "solid",
-                selection = "preselect",
+                -- Controls how the completion items are selected
+                -- 'preselect' will automatically select the first item in the completion list
+                -- 'manual' will not select any item by default
+                -- 'auto_insert' will not select any item by default, and insert the completion items automatically when selecting them
+                selection = "auto_insert",
             },
         },
     },
