@@ -11,13 +11,6 @@ M.spec = {
     event = "VeryLazy",
     keys = {
         {
-            "<C-e>",
-            function()
-                require("yazi").yazi()
-            end,
-            desc = "Manager",
-        },
-        {
             "<leader>em",
             function()
                 require("yazi").yazi()

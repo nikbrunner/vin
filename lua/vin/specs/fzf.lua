@@ -113,37 +113,40 @@ function M.find_related_files()
     })
 end
 
-M.keys = {
+M.keys = function()
+    local fzfLua = require("fzf-lua")
 
-    -- stylua: ignore start
-    { "gr",               M.find_related_files, desc = "Related Files", },
-    { "gs",               function() require("fzf-lua").lsp_document_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Document Symbols" },
-    { "gS",               function() require("fzf-lua").lsp_live_workspace_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace Symbols" },
-    { "<C-r>",            function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
-    { "<leader><leader>", function() require("fzf-lua").files({ winopts = M.winopts.md.vertical }) end, desc = "Find Files" },
-    { "<space><space>",   function() require("fzf-lua").tabs() end, desc = "Tab Fuzzy Find" },
-    { "<leader>/",        function() require("fzf-lua").lgrep_curbuf({ winopts = M.winopts.md.flex }) end, desc = "Text in File" },
-    { "<leader>;",        function() require("fzf-lua").commands({ winopts = M.winopts.sm.no_preview }) end, desc = "Commands" },
-    { "<leader>j",        function() require("fzf-lua").jumps({ winopts = M.winopts.md.vertical }) end, desc = "Jumps" },
-    { "<leader>r",        function() require("fzf-lua").oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
-    { "<leader>R",        function() require("fzf-lua").oldfiles({ cwd_only = false, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
-    { "<leader>s.",       function() require("fzf-lua").resume() end, desc = "Resume" },
-    { "<leader>sh",       function() require("fzf-lua").help_tags() end, desc = "Help Tags" },
-    { "<leader>sH",       function() require("fzf-lua").highlights() end, desc = "Highlights" },
-    { "<leader>sk",       function() require("fzf-lua").keymaps() end, desc = "Keymaps" },
-    { "<leader>sw",       function() require("fzf-lua").grep_cword() end, mode = { "n", "v" }, desc = "Word" },
-    { "<leader>sm",       function() require("fzf-lua").marks({ winopts = M.winopts.lg.vertical }) end, desc = "Marks" },
-    { "<leader>sM",       function() require("fzf-lua").man_pages() end, desc = "Man Pages" },
-    { "<leader>s'",       function() require("fzf-lua").registers({ winopts = M.winopts.lg.vertical }) end, mode = { "n", "v" }, desc = "Registers" },
-    { "<leader>gs",       function() require("fzf-lua").git_status({ winopts = M.winopts.lg.vertical }) end, desc = "Git Status" },
-    { "<leader>gc",       function() require("fzf-lua").changes() end, desc = "Changes" },
-    { "<leader>gCb",      function() require("fzf-lua").git_branches() end, desc = "Branches" },
-    { "<leader>gCc",      function() require("fzf-lua").git_commits() end, desc = "Commits" },
-    { "<leader>gCt",      function() require("fzf-lua").git_tags() end, desc = "Tags" },
-    { "<leader>ut",       function() require("fzf-lua").colorschemes() end, desc = "Themes" },
-    { "<leader>uT",       function() require("fzf-lua").awesome_colorschemes() end, desc = "Themes (Awesome)" },
-}
--- stylua: ignore end
+    return {
+        -- stylua: ignore start
+        { "<C-r>",            M.find_related_files, desc = "Related Files", },
+        { "<C-e>",            function() fzfLua.oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent Files" },
+        { "gs",               function() fzfLua.lsp_document_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Document Symbols" },
+        { "gS",               function() fzfLua.lsp_live_workspace_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace Symbols" },
+        { "<leader><leader>", function() fzfLua.files({ winopts = M.winopts.md.vertical }) end, desc = "Find Files" },
+        { "<leader>/",        function() fzfLua.lgrep_curbuf({ winopts = M.winopts.md.flex }) end, desc = "Text in File" },
+        { "<leader>;",        function() fzfLua.commands({ winopts = M.winopts.md.vertical }) end, desc = "Commands" },
+        { "<leader><tab>",    function() fzfLua.tabs() end, desc = "Tab Fuzzy Find" },
+        { "<leader>j",        function() fzfLua.jumps({ winopts = M.winopts.md.vertical }) end, desc = "Jumps" },
+        { "<leader>r",        function() fzfLua.oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
+        { "<leader>R",        function() fzfLua.oldfiles({ cwd_only = false, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
+        { "<leader>s.",       function() fzfLua.resume() end, desc = "Resume" },
+        { "<leader>sh",       function() fzfLua.help_tags() end, desc = "Help Tags" },
+        { "<leader>sH",       function() fzfLua.highlights() end, desc = "Highlights" },
+        { "<leader>sk",       function() fzfLua.keymaps() end, desc = "Keymaps" },
+        { "<leader>sw",       function() fzfLua.grep_cword() end, mode = { "n", "v" }, desc = "Word" },
+        { "<leader>sm",       function() fzfLua.marks({ winopts = M.winopts.lg.vertical }) end, desc = "Marks" },
+        { "<leader>sM",       function() fzfLua.man_pages() end, desc = "Man Pages" },
+        { "<leader>s'",       function() fzfLua.registers({ winopts = M.winopts.lg.vertical }) end, mode = { "n", "v" }, desc = "Registers" },
+        { "<leader>gs",       function() fzfLua.git_status({ winopts = M.winopts.lg.vertical }) end, desc = "Git Status" },
+        { "<leader>gc",       function() fzfLua.changes() end, desc = "Changes" },
+        { "<leader>gCb",      function() fzfLua.git_branches() end, desc = "Branches" },
+        { "<leader>gCc",      function() fzfLua.git_commits() end, desc = "Commits" },
+        { "<leader>gCt",      function() fzfLua.git_tags() end, desc = "Tags" },
+        { "<leader>ut",       function() fzfLua.colorschemes() end, desc = "Themes" },
+        { "<leader>uT",       function() fzfLua.awesome_colorschemes() end, desc = "Themes (Awesome)" },
+        -- stylua: ignore end
+    }
+end
 
 M.lsp_attach = function()
     vim.keymap.set("n", "gd", function()
