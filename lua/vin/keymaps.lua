@@ -1,6 +1,5 @@
 ---@diagnostic disable: undefined-field
 local lib = require("vin.lib")
-local config = require("vin.config")
 
 local function set(mode, lhs, rhs, opts)
     opts = opts or {}
@@ -10,11 +9,6 @@ local function set(mode, lhs, rhs, opts)
 end
 
 set("n", "Q", "<nop>")
-
-set({ "n", "v" }, "gh", "^", { desc = "Beginning of line" })
-set({ "n", "v" }, "gl", "$", { desc = "End of line" })
-set({ "n", "v" }, "gk", "gg", { desc = "Beginning of file" })
-set({ "n", "v" }, "gj", "G", { desc = "End of file" })
 
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
@@ -151,9 +145,6 @@ end, { desc = "LSP  (Restart)" })
 set({ "n", "v" }, "<leader>cc", function()
     lib.copy.list_paths()
 end, { desc = "Copy" })
-
-set("n", "<leader>cll", lib.log.log_symbol, { desc = "Log" })
-set("n", "<leader>cld", lib.log.delete_logs, { desc = "Delete" })
 
 -- Only native Vim lsp keymaps are defined here.
 -- Lsp Mappings which are depended on a plugin are defined in the plugin spec file with the same event name.
