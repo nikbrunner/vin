@@ -3,7 +3,7 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "ariel-frischer/bmessages.nvim",
-    event = "VeryLazy",
+    lazy = false,
     keys = {
         {
             "<leader>vm",
