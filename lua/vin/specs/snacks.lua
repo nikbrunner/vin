@@ -29,6 +29,11 @@ M.spec = {
         debug = { enabled = true },
         notifier = { enabled = true },
         toggle = { enabled = true },
+        gitbrowse = { enabled = true },
+        words = {
+            enabled = true,
+            debounce = 100,
+        },
         dashboard = {
             preset = {
                 -- Defaults to a picker that supports `fzf-lua`, `telescope.nvim` and `mini.pick`
@@ -39,7 +44,12 @@ M.spec = {
                 -- When using a function, the `items` argument are the default keymaps.
                 ---@type snacks.dashboard.Item[]
                 keys = {
-                    { icon = " ", key = ",", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+                    {
+                        icon = " ",
+                        key = "<leader><leader>",
+                        desc = "Find File",
+                        action = ":lua Snacks.dashboard.pick('files')",
+                    },
                     { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
                     { icon = " ", key = "f", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
                     { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
@@ -106,7 +116,7 @@ M.spec = {
             { "<leader>vn",          function() Snacks.notifier.show_history() end, desc = "Notification History" },
             { "<leader>gg",          function() Snacks.lazygit() end, desc = "Lazygit" },
             { "<leader>gb",          function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
-            { "<leader>gB",          function() Snacks.gitbrowse() end, desc = "Git Browse" },
+            { "<leader>gR",          function() Snacks.gitbrowse() end, desc = "Open File on Remote" },
             { "<leader>gf",          function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
             { "<leader>gl",          function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)" },
             {
