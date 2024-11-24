@@ -113,7 +113,7 @@ M.spec = {
                         .. "Example: BCD-1234 feat: some new feature"
                 end
 
-                local agent = gp.get_command_agent("CodeGPT4o-mini")
+                local agent = gp.get_command_agent("CodeClaude-3-Haiku")
                 -- create horizontal split window with 30 height
                 vim.api.nvim_command("split")
                 vim.api.nvim_command("resize 20")
