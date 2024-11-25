@@ -109,10 +109,6 @@ set("n", "<leader>uC", function()
     end)
 end, { desc = "Toggle Specific [C]onceal Level" })
 
-set("n", "z=", function()
-    require("fzf-lua").spell_suggest({ winopts = { height = 0.35, width = 0.65 } })
-end, { desc = "Spelling Suggestions" })
-
 -- prev/next
 set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
 set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })

@@ -144,6 +144,7 @@ M.keys = function()
         { "<leader>gCt",      function() fzfLua.git_tags() end, desc = "Tags" },
         { "<leader>ut",       function() fzfLua.colorschemes() end, desc = "Themes" },
         { "<leader>uT",       function() fzfLua.awesome_colorschemes() end, desc = "Themes (Awesome)" },
+        { "z=",       function() fzfLua.spell_suggest({ winopts = { height = 0.35, width = 0.65 } }) end, desc = "Spelling Suggestions" },
         -- stylua: ignore end
     }
 end
