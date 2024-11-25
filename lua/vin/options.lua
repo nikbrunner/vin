@@ -39,7 +39,7 @@ vim.opt.fillchars = {
 }
 
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 vim.opt.autoread = true
 vim.opt.backup = false
@@ -47,7 +47,7 @@ vim.opt.swapfile = false
 vim.opt.writebackup = false
 vim.opt.undofile = true
 
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 vim.opt.pumheight = 30
 vim.opt.pumblend = 10
 
