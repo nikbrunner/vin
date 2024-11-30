@@ -8,8 +8,8 @@ M.spec = {
     opts = function()
         local cwd = vim.fn.getcwd()
         local does_include = string.find(cwd, "dealercenter-digital", 1, true)
-        local dir = does_include and require("vin.config").pathes.notes.work.dcd
-            or require("vin.config").pathes.notes.personal
+        local dir = does_include and require("nbr.config").pathes.notes.work.dcd
+            or require("nbr.config").pathes.notes.personal
 
         return {
             title = "Vinpad",

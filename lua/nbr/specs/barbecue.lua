@@ -30,12 +30,12 @@ M.spec = {
         context_follow_icon_color = false,
 
         symbols = {
-            modified = require("vin.icons").git.modified,
-            ellipsis = require("vin.icons").misc.dots,
-            separator = require("vin.icons").misc.forwardSlash,
+            modified = require("nbr.icons").git.modified,
+            ellipsis = require("nbr.icons").misc.dots,
+            separator = require("nbr.icons").misc.forwardSlash,
         },
 
-        kinds = require("vin.icons").kinds,
+        kinds = require("nbr.icons").kinds,
     },
     config = function(_, opts)
         require("barbecue").setup(opts)

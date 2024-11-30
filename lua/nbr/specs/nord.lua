@@ -5,7 +5,7 @@ return {
     priority = 1000,
     opts = {
         on_highlights = function(highlights, colors)
-            local darken = require("vin.lib.colors").darken
+            local darken = require("nbr.lib.colors").darken
             local dark_bg = darken(colors.polar_night.origin, 0.8)
 
             highlights.NeoTreeNormal = { bg = dark_bg }

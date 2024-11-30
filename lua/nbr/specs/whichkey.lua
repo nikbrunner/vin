@@ -12,7 +12,7 @@ M.spec = {
             height = { min = 5, max = 15 },
             col = 0.5,
             row = 0.9,
-            title = "Vin",
+            title = "nbr.nvim",
             border = "solid",
             wo = {
                 winblend = 0,
@@ -65,7 +65,7 @@ M.spec = {
                 { "<leader>m", group = "Marks", icon = "󰍐 " },
                 { "<leader>n", group = "Notes", icon = " " },
                 { "<leader>u", group = "UI", icon = "󰙵 " },
-                { "<leader>v", group = "Vin", icon = " " },
+                { "<leader>v", group = "nbr.nvim", icon = " " },
                 { "[", group = "Prev", icon = "󰒮 " },
                 { "]", group = "Next", icon = "󰒭 " },
                 { "g", group = "G", icon = "󱡓 " },

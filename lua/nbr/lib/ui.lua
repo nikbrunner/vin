@@ -7,8 +7,8 @@ function M.handle_colors(config, colorscheme, background)
     vim.opt.background = background
     vim.cmd.colorscheme(colorscheme)
 
-    require("vin.lib.files").sync_vin_colorscheme(config, colorscheme, background)
-    require("vin.lib.files").sync_wezterm_colorscheme(config, colorscheme)
+    require("nbr.lib.files").sync_vin_colorscheme(config, colorscheme, background)
+    require("nbr.lib.files").sync_wezterm_colorscheme(config, colorscheme)
 end
 
 M._maximized_window = nil

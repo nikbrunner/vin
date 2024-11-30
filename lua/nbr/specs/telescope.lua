@@ -32,7 +32,7 @@ function M.delta_previewer()
             }
         end,
         teardown = function(self)
-            -- Close the terminal buffer (~/.local/share/vin/lazy/telescope.nvim/lua/telescope/previewers/term_previewer.lua)
+            -- Close the terminal buffer (~/.local/share/nbr/lazy/telescope.nvim/lua/telescope/previewers/term_previewer.lua)
             self.state.termopen_bufnr = nil
             self.state.termopen_id = nil
         end,
@@ -58,11 +58,11 @@ function M.git_commits()
 end
 
 M.folder_presets = {
-    vin = "~/.config/vin",
+    nbr = "~/.config/nbr",
     lazyvin = "~/.config/lazyvin",
     config = "~/.config",
-    personal_notes = require("vin.config").pathes.notes.personal,
-    dcd_notes = require("vin.config").pathes.notes.work.dcd,
+    personal_notes = require("nbr.config").pathes.notes.personal,
+    dcd_notes = require("nbr.config").pathes.notes.work.dcd,
 }
 
 function M.search_preset_folder()

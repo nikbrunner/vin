@@ -3,7 +3,7 @@ local M = {}
 ---@type LazyPluginSpec
 M.spec = {
     "nikbrunner/file-surfer.nvim",
-    dir = require("vin.config").pathes.repos .. "/nikbrunner/file-surfer.nvim",
+    dir = require("nbr.config").pathes.repos .. "/nikbrunner/file-surfer.nvim",
     pin = true,
     dependencies = { "ibhagwan/fzf-lua" },
     event = "VeryLazy",

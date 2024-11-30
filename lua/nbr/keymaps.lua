@@ -1,5 +1,5 @@
 ---@diagnostic disable: undefined-field
-local lib = require("vin.lib")
+local lib = require("nbr.lib")
 
 local function set(mode, lhs, rhs, opts)
     opts = opts or {}
@@ -79,7 +79,7 @@ set("n", "n", "nzzzv")
 set("n", "N", "Nzzzv")
 
 set("n", "<leader>g.", function()
-    local git_root = require("vin.lib.git").find_git_root()
+    local git_root = require("nbr.lib.git").find_git_root()
     if git_root then
         vim.cmd("cd " .. git_root)
         vim.notify("Changed directory to " .. git_root, vim.log.levels.INFO, { title = "Git Root" })
@@ -90,8 +90,8 @@ end, { desc = "CD Git Root" })
 
 set("n", "<leader>ur", function()
     -- Reload the config file and colorscheme
-    package.loaded["vin.config"] = nil
-    vim.cmd.colorscheme(require("vin.config").colorscheme)
+    package.loaded["nbr.config"] = nil
+    vim.cmd.colorscheme(require("nbr.config").colorscheme)
     vim.cmd("norm zz:e!<CR>zz")
 end, { desc = "Redraw" })
 
@@ -136,7 +136,7 @@ for i = 1, 9 do
     end, { desc = WhichKeyIgnoreLabel })
 end
 
--- Vin Group
+-- nbr.nvim Group
 set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager (LazyVim)" })
 set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "Package Manager (Mason)" })
 set("n", "<leader>vl", "<cmd>LspInfo<CR>", { desc = "LSP Info" })
