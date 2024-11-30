@@ -122,7 +122,7 @@ M.keys = function()
         { "<C-e>",            function() fzfLua.oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent Files" },
         { "gs",               function() fzfLua.lsp_document_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Document Symbols" },
         { "gS",               function() fzfLua.lsp_live_workspace_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace Symbols" },
-        { "<leader><leader>", function() fzfLua.files({ winopts = M.winopts.md.vertical }) end, desc = "Find Files" },
+        { "<leader>wd", function() fzfLua.files({ winopts = M.winopts.md.vertical }) end, desc = "[W]orkspace [D]ocument" },
         { "<leader>/",        function() fzfLua.lgrep_curbuf({ winopts = M.winopts.md.flex }) end, desc = "Text in File" },
         { "<leader>;",        function() fzfLua.commands({ winopts = M.winopts.md.vertical }) end, desc = "Commands" },
         { "<leader><tab>",    function() fzfLua.tabs() end, desc = "Tab Fuzzy Find" },

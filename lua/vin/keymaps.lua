@@ -13,7 +13,9 @@ set("n", "Q", "<nop>")
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
-set("n", "<space><space>", ":")
+set({ "n", "x" }, "<leader><leader>", function()
+    vim.api.nvim_feedkeys(":", "n", true)
+end, { desc = "Enter Command Mode" })
 
 set("n", "<C-o>", "<C-o>zz", { desc = "Move back in jump list" })
 set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
