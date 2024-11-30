@@ -17,14 +17,18 @@ set({ "n", "x" }, "<leader><leader>", function()
     vim.api.nvim_feedkeys(":", "n", true)
 end, { desc = "Enter Command Mode" })
 
+set("n", "<leader>wq", function()
+    vim.cmd.wqa({ bang = true })
+end, { desc = "[W]orkspace [Q]uit" })
+
+set("n", "<leader>dq", function()
+    vim.cmd.wq({ bang = true })
+end, { desc = "[D]ocument [Q]uit" })
+
+set({ "n", "i" }, "<C-s>", "<ESC>:wa<CR>", { desc = "Save" })
+
 set("n", "<C-o>", "<C-o>zz", { desc = "Move back in jump list" })
 set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
-
-set("n", "<C-s>", vim.cmd.wa, { desc = "Save" })
-set("n", "<C-q>", function()
-    vim.cmd.q({ bang = true })
-end, { desc = "Quit" })
-set("i", "<C-s>", "<ESC>:wa<CR>", { desc = "Save and Escape" })
 
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
