@@ -13,19 +13,9 @@ set("n", "Q", "<nop>")
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
-set({ "n", "x" }, "<leader><leader>", function()
+set({ "n", "x" }, "<space><space>", function()
     vim.api.nvim_feedkeys(":", "n", true)
 end, { desc = "Enter Command Mode" })
-
-set("n", "<leader>wq", function()
-    vim.cmd.wqa({ bang = true })
-end, { desc = "[W]orkspace [Q]uit" })
-
-set("n", "<leader>dq", function()
-    vim.cmd.wq({ bang = true })
-end, { desc = "[D]ocument [Q]uit" })
-
-set({ "n", "i" }, "<C-s>", "<ESC>:wa<CR>", { desc = "Save" })
 
 set("n", "<C-o>", "<C-o>zz", { desc = "Move back in jump list" })
 set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
