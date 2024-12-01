@@ -35,12 +35,12 @@ end
 auto("UIEnter", {
     group = M.augroup("ui_enter"),
     callback = function()
-        local config = require("vin.config")
+        local config = require("nbr.config")
 
         local is_git_dir = vim.fn.finddir(".git", vim.fn.expand("%:p:h") .. ";") ~= ""
         local has_uncommited_changes = vim.fn.system("git status --porcelain") ~= ""
 
-        require("vin.lib.ui").handle_colors(config, config.colorscheme, config.background)
+        require("nbr.lib.ui").handle_colors(config, config.colorscheme, config.background)
 
         -- TODO:  check if the lazy window is open. If yes - abort.
         if config.open_neotree_on_startup and is_git_dir and has_uncommited_changes then
@@ -70,11 +70,11 @@ auto("UIEnter", {
 auto("ColorScheme", {
     group = M.augroup("colorscheme_sync"),
     callback = function(args)
-        local config = require("vin.config")
+        local config = require("nbr.config")
         local colorscheme = args.match
         ---@diagnostic disable-next-line: undefined-field
         local background = vim.opt.background:get()
-        require("vin.lib.ui").handle_colors(config, colorscheme, background)
+        require("nbr.lib.ui").handle_colors(config, colorscheme, background)
     end,
 })
 

@@ -12,7 +12,7 @@ M.spec = {
             height = { min = 5, max = 15 },
             col = 0.5,
             row = 0.9,
-            title = "Vin",
+            title = "nbr.nvim",
             border = "solid",
             wo = {
                 winblend = 0,
@@ -31,6 +31,12 @@ M.spec = {
         spec = {
             {
                 mode = { "n", "v" },
+                -- v3
+                { "<leader>w", group = "[W]orkspace", icon = "󰲃 " },
+                { "<leader>d", group = "[D]ocument", icon = "󱔘 " },
+
+                -- v2
+                { "<leader>c", group = "Code", icon = " " },
                 { "<leader>.", group = "TMUX", icon = "󱂬 " },
                 { "<leader>;", icon = " " },
                 { "<leader>N", icon = "󱀂 " },
@@ -38,8 +44,8 @@ M.spec = {
                 { "<leader>c", group = "Code", icon = " " },
                 { "<leader>cl", group = "Log", icon = " " },
                 { "<leader>cp", group = "Picker", icon = "󱥚 " },
-                { "<leader>d", group = "Diagnostics", icon = " " },
-                { "<leader>dc", group = "Calls", icon = " " },
+                -- { "<leader>d", group = "Diagnostics", icon = " " },
+                -- { "<leader>dc", group = "Calls", icon = " " },
                 { "<leader>e", group = "Explorer", icon = "󰙅" },
                 { "<leader>g", group = "Git", icon = " " },
                 { "<leader>gd", group = "Diff", icon = "" },
@@ -59,7 +65,7 @@ M.spec = {
                 { "<leader>m", group = "Marks", icon = "󰍐 " },
                 { "<leader>n", group = "Notes", icon = " " },
                 { "<leader>u", group = "UI", icon = "󰙵 " },
-                { "<leader>v", group = "Vin", icon = " " },
+                { "<leader>a", group = "[A]pp", icon = " " },
                 { "[", group = "Prev", icon = "󰒮 " },
                 { "]", group = "Next", icon = "󰒭 " },
                 { "g", group = "G", icon = "󱡓 " },

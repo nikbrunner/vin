@@ -1,4 +1,4 @@
-local ui = require("vin.lib.ui")
+local ui = require("nbr.lib.ui")
 
 local M = {}
 

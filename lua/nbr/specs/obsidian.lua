@@ -4,7 +4,7 @@ M.daily_note_index = 0
 
 -- ISSUE: Daily Note functions does not create notes when it does not exist.
 -- ISSUE: It should respect existing frontmatter.
---        I think this is handled in here: /Users/nikolausbrunner/.local/share/vin/lazy/obsidian.nvim/lua/obsidian/note.lua
+--        I think this is handled in here: /Users/nikolausbrunner/.local/share/nbr/lazy/obsidian.nvim/lua/obsidian/note.lua
 --        `note.metadata` seems to be nil when i edit a note which was not seen before by obsidian.nvim
 
 ---@type LazySpec
@@ -15,7 +15,7 @@ M.spec = {
     },
     version = "*",
     event = function()
-        local config = require("vin.config")
+        local config = require("nbr.config")
 
         return {
             "BufReadPre " .. config.pathes.notes.personal .. "/**.md",
@@ -55,7 +55,7 @@ M.spec = {
         },
     },
     opts = function()
-        local config = require("vin.config")
+        local config = require("nbr.config")
 
         return {
             ui = {

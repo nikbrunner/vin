@@ -96,7 +96,7 @@ M.spec = {
     end,
     --- https://github.com/nvim-neo-tree/neo-tree.nvim/blob/v3.x/lua/neo-tree/defaults.lua
     opts = function()
-        local icons = require("vin.icons")
+        local icons = require("nbr.icons")
         local events = require("neo-tree.events")
         local Snacks = require("snacks")
 

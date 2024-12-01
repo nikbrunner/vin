@@ -1,4 +1,4 @@
-local config = require("vin.config")
+local config = require("nbr.config")
 
 local M = {}
 
@@ -116,7 +116,7 @@ M.specs = {
             }
         end,
         config = function(_, opts)
-            local icons = require("vin.icons")
+            local icons = require("nbr.icons")
 
             vim.fn.sign_define("DiagnosticSignError", { text = icons.diagnostics.Error, texthl = "DiagnosticSignError" })
             vim.fn.sign_define("DiagnosticSignWarn", { text = icons.diagnostics.Warn, texthl = "DiagnosticSignWarn" })
@@ -126,7 +126,7 @@ M.specs = {
             vim.diagnostic.config({
                 underline = false,
                 virtual_text = {
-                    prefix = " " .. require("vin.icons").misc.circle_lg,
+                    prefix = " " .. require("nbr.icons").misc.circle_lg,
                 },
                 signs = true,
                 update_in_insert = false,

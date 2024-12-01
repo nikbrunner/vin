@@ -39,7 +39,7 @@ M.config = {
     pathes = {
         repos = vim.fn.expand("~/repos"),
         config = {
-            vin = vim.fn.expand("$XDG_CONFIG_HOME") .. "/nvim/lua/vin/config.lua",
+            nbr = vim.fn.expand("$XDG_CONFIG_HOME") .. "/nvim/lua/nbr/config.lua",
             wezterm = vim.fn.expand("$XDG_CONFIG_HOME") .. "/wezterm",
         },
         notes = {

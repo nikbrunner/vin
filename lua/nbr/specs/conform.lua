@@ -67,7 +67,7 @@ M.spec = {
             desc = "Format (Toggle)",
         },
         {
-            "<leader>vf",
+            "<leader>aif",
             "<cmd>ConformInfo<CR>",
             desc = "Conform Info",
         },

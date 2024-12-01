@@ -1,5 +1,5 @@
 ---@diagnostic disable: undefined-field
-local lib = require("vin.lib")
+local lib = require("nbr.lib")
 
 local function set(mode, lhs, rhs, opts)
     opts = opts or {}
@@ -13,16 +13,12 @@ set("n", "Q", "<nop>")
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
-set("n", "<space><space>", ":")
+set({ "n", "x" }, "<space><space>", function()
+    vim.api.nvim_feedkeys(":", "n", true)
+end, { desc = "Enter Command Mode" })
 
 set("n", "<C-o>", "<C-o>zz", { desc = "Move back in jump list" })
 set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
-
-set("n", "<C-s>", vim.cmd.wa, { desc = "Save" })
-set("n", "<C-q>", function()
-    vim.cmd.q({ bang = true })
-end, { desc = "Quit" })
-set("i", "<C-s>", "<ESC>:wa<CR>", { desc = "Save and Escape" })
 
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
@@ -73,7 +69,7 @@ set("n", "n", "nzzzv")
 set("n", "N", "Nzzzv")
 
 set("n", "<leader>g.", function()
-    local git_root = require("vin.lib.git").find_git_root()
+    local git_root = require("nbr.lib.git").find_git_root()
     if git_root then
         vim.cmd("cd " .. git_root)
         vim.notify("Changed directory to " .. git_root, vim.log.levels.INFO, { title = "Git Root" })
@@ -84,8 +80,8 @@ end, { desc = "CD Git Root" })
 
 set("n", "<leader>ur", function()
     -- Reload the config file and colorscheme
-    package.loaded["vin.config"] = nil
-    vim.cmd.colorscheme(require("vin.config").colorscheme)
+    package.loaded["nbr.config"] = nil
+    vim.cmd.colorscheme(require("nbr.config").colorscheme)
     vim.cmd("norm zz:e!<CR>zz")
 end, { desc = "Redraw" })
 
@@ -130,14 +126,14 @@ for i = 1, 9 do
     end, { desc = WhichKeyIgnoreLabel })
 end
 
--- Vin Group
-set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager (LazyVim)" })
-set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "Package Manager (Mason)" })
-set("n", "<leader>vl", "<cmd>LspInfo<CR>", { desc = "LSP Info" })
-set("n", "<leader>vL", function()
+-- nbr.nvim Group
+set("n", "<leader>ap", "<cmd>Lazy<CR>", { desc = "Manage plugins" })
+set("n", "<leader>al", "<cmd>Mason<CR>", { desc = "Manage language servers" })
+set("n", "<leader>ail", "<cmd>LspInfo<CR>", { desc = "Language server information" })
+set("n", "<leader>aL", function()
     vim.notify("Restarting LSP Servers", vim.log.levels.INFO, { title = "LSP" })
     vim.cmd("LspRestart")
-end, { desc = "LSP  (Restart)" })
+end, { desc = "Restart language servers" })
 
 -- [C] Action Group
 set({ "n", "v" }, "<leader>cc", function()
