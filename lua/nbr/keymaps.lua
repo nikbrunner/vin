@@ -127,13 +127,13 @@ for i = 1, 9 do
 end
 
 -- nbr.nvim Group
-set("n", "<leader>vp", "<cmd>Lazy<CR>", { desc = "Plugin Manager (LazyVim)" })
-set("n", "<leader>vP", "<cmd>Mason<CR>", { desc = "Package Manager (Mason)" })
-set("n", "<leader>vl", "<cmd>LspInfo<CR>", { desc = "LSP Info" })
-set("n", "<leader>vL", function()
+set("n", "<leader>ap", "<cmd>Lazy<CR>", { desc = "Manage plugins" })
+set("n", "<leader>al", "<cmd>Mason<CR>", { desc = "Manage language servers" })
+set("n", "<leader>ail", "<cmd>LspInfo<CR>", { desc = "Language server information" })
+set("n", "<leader>aL", function()
     vim.notify("Restarting LSP Servers", vim.log.levels.INFO, { title = "LSP" })
     vim.cmd("LspRestart")
-end, { desc = "LSP  (Restart)" })
+end, { desc = "Restart language servers" })
 
 -- [C] Action Group
 set({ "n", "v" }, "<leader>cc", function()

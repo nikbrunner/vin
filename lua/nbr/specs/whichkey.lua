@@ -65,7 +65,7 @@ M.spec = {
                 { "<leader>m", group = "Marks", icon = "󰍐 " },
                 { "<leader>n", group = "Notes", icon = " " },
                 { "<leader>u", group = "UI", icon = "󰙵 " },
-                { "<leader>v", group = "nbr.nvim", icon = " " },
+                { "<leader>a", group = "[A]pp", icon = " " },
                 { "[", group = "Prev", icon = "󰒮 " },
                 { "]", group = "Next", icon = "󰒭 " },
                 { "g", group = "G", icon = "󱡓 " },

@@ -6,9 +6,9 @@ M.spec = {
     lazy = false,
     keys = {
         {
-            "<leader>vm",
+            "<leader>am",
             "<CMD>Bmessagesvs<CR>",
-            desc = "Messages",
+            desc = "Show messages",
         },
     },
     opts = {},
