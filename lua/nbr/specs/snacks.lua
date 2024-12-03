@@ -29,7 +29,7 @@ M.spec = {
                 keys = {
                     {
                         icon = " ",
-                        key = "<leader><leader>",
+                        key = "<space><space>",
                         desc = "Find File",
                         action = ":lua Snacks.dashboard.pick('files')",
                     },
