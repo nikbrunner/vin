@@ -118,20 +118,17 @@ M.keys = function()
 
     return {
         -- stylua: ignore start
-        { "<C-r>",            M.find_related_files, desc = "Related Files", },
-        { "<C-e>",            function() fzfLua.oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent Files" },
+        { "<CR>",             function() fzfLua.oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent Files" },
+        { "<S-CR>",           function() fzfLua.oldfiles({ cwd_only = false, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
+        { "<C-CR>",           function() fzfLua.files({ winopts = M.winopts.md.vertical }) end, desc = "[W]orkspace [D]ocument" },
         { "gs",               function() fzfLua.lsp_document_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Document Symbols" },
         { "gS",               function() fzfLua.lsp_live_workspace_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace Symbols" },
-        { "<space><space>", function() fzfLua.files({ winopts = M.winopts.md.vertical }) end, desc = "[W]orkspace [D]ocument" },
         { "<leader>/",        function() fzfLua.lgrep_curbuf({ winopts = M.winopts.md.flex }) end, desc = "Text in File" },
         { "<leader>;",        function() fzfLua.commands({ winopts = M.winopts.md.vertical }) end, desc = "Commands" },
         { "<leader><tab>",    function() fzfLua.tabs() end, desc = "Tab Fuzzy Find" },
         { "<leader>j",        function() fzfLua.jumps({ winopts = M.winopts.md.vertical }) end, desc = "Jumps" },
-        { "<leader>r",        function() fzfLua.oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
-        { "<leader>R",        function() fzfLua.oldfiles({ cwd_only = false, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
         { "<leader>s.",       function() fzfLua.resume() end, desc = "Resume" },
-        { "<leader>??",       function() fzfLua.help_tags() end, desc = "Help Tags" },
-        { "<leader>?m",       function() fzfLua.man_pages() end, desc = "Man Pages" },
+        { "<leader>sr",       M.find_related_files, desc = "Related Files", },
         { "<leader>sH",       function() fzfLua.highlights() end, desc = "Highlights" },
         { "<leader>sk",       function() fzfLua.keymaps() end, desc = "Keymaps" },
         { "<leader>sw",       function() fzfLua.grep_cword() end, mode = { "n", "v" }, desc = "Word" },
@@ -142,9 +139,11 @@ M.keys = function()
         { "<leader>gCb",      function() fzfLua.git_branches() end, desc = "Branches" },
         { "<leader>gCc",      function() fzfLua.git_commits() end, desc = "Commits" },
         { "<leader>gCt",      function() fzfLua.git_tags() end, desc = "Tags" },
+        { "<leader>??",       function() fzfLua.help_tags() end, desc = "Help Tags" },
+        { "<leader>?m",       function() fzfLua.man_pages() end, desc = "Man Pages" },
         { "<leader>ut",       function() fzfLua.colorschemes() end, desc = "Themes" },
         { "<leader>uT",       function() fzfLua.awesome_colorschemes() end, desc = "Themes (Awesome)" },
-        { "z=",       function() fzfLua.spell_suggest({ winopts = { height = 0.35, width = 0.65 } }) end, desc = "Spelling Suggestions" },
+        { "z=",               function() fzfLua.spell_suggest({ winopts = { height = 0.35, width = 0.65 } }) end, desc = "Spelling Suggestions" },
         -- stylua: ignore end
     }
 end
