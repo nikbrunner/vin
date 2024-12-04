@@ -119,8 +119,9 @@ M.keys = function()
     return {
         -- stylua: ignore start
         { "<CR>",             function() fzfLua.oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent Files" },
-        { "<S-CR>",           function() fzfLua.oldfiles({ cwd_only = false, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
-        { "<C-CR>",           function() fzfLua.files({ winopts = M.winopts.md.vertical }) end, desc = "[W]orkspace [D]ocument" },
+        { "<A-CR>",           M.find_related_files, desc = "Related Files", },
+        { "<S-CR>",           function() fzfLua.files({ winopts = M.winopts.md.vertical }) end, desc = "[W]orkspace [D]ocument" },
+        { "<C-S-CR>",         function() fzfLua.oldfiles({ cwd_only = false, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
         { "gs",               function() fzfLua.lsp_document_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Document Symbols" },
         { "gS",               function() fzfLua.lsp_live_workspace_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace Symbols" },
         { "<leader>/",        function() fzfLua.lgrep_curbuf({ winopts = M.winopts.md.flex }) end, desc = "Text in File" },
@@ -128,7 +129,6 @@ M.keys = function()
         { "<leader><tab>",    function() fzfLua.tabs() end, desc = "Tab Fuzzy Find" },
         { "<leader>j",        function() fzfLua.jumps({ winopts = M.winopts.md.vertical }) end, desc = "Jumps" },
         { "<leader>s.",       function() fzfLua.resume() end, desc = "Resume" },
-        { "<leader>sr",       M.find_related_files, desc = "Related Files", },
         { "<leader>sH",       function() fzfLua.highlights() end, desc = "Highlights" },
         { "<leader>sk",       function() fzfLua.keymaps() end, desc = "Keymaps" },
         { "<leader>sw",       function() fzfLua.grep_cword() end, mode = { "n", "v" }, desc = "Word" },
@@ -253,7 +253,7 @@ M.spec = {
             prompt = "Files  ",
         },
         oldfiles = {
-            prompt = "History❯ ",
+            prompt = "Recent Files❯ ",
             cwd_only = true,
             stat_file = true,
             include_current_session = true, -- include bufs from current session
