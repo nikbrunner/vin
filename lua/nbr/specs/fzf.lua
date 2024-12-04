@@ -118,10 +118,10 @@ M.keys = function()
 
     return {
         -- stylua: ignore start
-        { "<CR>",             function() fzfLua.oldfiles({ cwd_only = true, winopts = M.winopts.sm.no_preview }) end, desc = "Recent Files" },
+        { "<CR>",             function() fzfLua.oldfiles({ cwd_only = true, prompt = "Recent Files (CWD): ", winopts = M.winopts.sm.no_preview }) end, desc = "Recent Files" },
         { "<A-CR>",           M.find_related_files, desc = "Related Files", },
         { "<S-CR>",           function() fzfLua.files({ winopts = M.winopts.md.vertical }) end, desc = "[W]orkspace [D]ocument" },
-        { "<C-S-CR>",         function() fzfLua.oldfiles({ cwd_only = false, winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
+        { "<C-S-CR>",         function() fzfLua.oldfiles({ cwd_only = false, prompt = "Recent Files (Anywhere): ", winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
         { "gs",               function() fzfLua.lsp_document_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Document Symbols" },
         { "gS",               function() fzfLua.lsp_live_workspace_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace Symbols" },
         { "<leader>/",        function() fzfLua.lgrep_curbuf({ winopts = M.winopts.md.flex }) end, desc = "Text in File" },
