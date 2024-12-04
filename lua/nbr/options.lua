@@ -59,7 +59,7 @@ vim.opt.wrap = false
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 
-vim.opt.guifont = "JetBrains Mono:h16"
+vim.opt.guifont = "JetBrainsMono Nerd Font:h16"
 
 vim.opt.scrolloff = 4
 
