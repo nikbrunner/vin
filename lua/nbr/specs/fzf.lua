@@ -167,7 +167,7 @@ M.lsp_attach = function()
         })
     end, { desc = "Go to References" })
 
-    vim.keymap.set("n", "<leader>ca", function()
+    vim.keymap.set("n", "g.", function()
         require("fzf-lua").lsp_code_actions()
     end, { desc = "Code Action" })
 end
@@ -281,7 +281,7 @@ M.spec = {
                     relative = "cursor",
                     row = 0.85,
                     col = 0.5,
-                    height = 0.35,
+                    height = 0.15,
                     width = 0.35,
                     preview = { hidden = "hidden" },
                 },
