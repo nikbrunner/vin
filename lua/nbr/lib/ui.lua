@@ -65,4 +65,18 @@ function M.close_backdrop()
     end
 end
 
+function M.close_all_floating_windows()
+    -- Get all windows
+    local wins = vim.api.nvim_list_wins()
+
+    -- Iterate through windows and close floating ones
+    for _, win in ipairs(wins) do
+        -- Check if window is floating
+        local config = vim.api.nvim_win_get_config(win)
+        if config.relative ~= "" then -- If relative is not empty, it's a floating window
+            vim.api.nvim_win_close(win, true)
+        end
+    end
+end
+
 return M

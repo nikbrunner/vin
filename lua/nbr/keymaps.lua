@@ -17,6 +17,17 @@ set({ "n", "x" }, "<leader><leader>", function()
     vim.api.nvim_feedkeys(":", "n", true)
 end, { desc = "Enter Command Mode" })
 
+set("n", "<Esc>", function()
+    vim.cmd.nohlsearch()
+    vim.cmd.wa()
+    require("snacks.notifier").hide()
+end, { desc = "Escape and clear hlsearch" })
+
+set("n", "<S-Esc>", function()
+    require("snacks.notifier").hide()
+    lib.ui.close_all_floating_windows()
+end, { desc = "Clear Notifier and Trouble" })
+
 set("n", "<C-o>", "<C-o>zz", { desc = "Move back in jump list" })
 set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
 
@@ -44,13 +55,6 @@ set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true
 set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 set("n", "go", "<cmd>e #<cr>", { desc = "Go to Other File" })
-
--- Clear search with <esc>
-set("n", "<esc>", function()
-    vim.cmd.nohlsearch()
-    vim.cmd.wa()
-    require("snacks.notifier").hide()
-end, { desc = "Escape and clear hlsearch" })
 
 -- indenting and reselect
 set("v", "<", "<gv")
