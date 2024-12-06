@@ -31,6 +31,8 @@ end, { desc = "Clear Notifier and Trouble" })
 set("n", "<C-o>", "<C-o>zz", { desc = "Move back in jump list" })
 set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
 
+set("n", "yc", "yy<cmd>normal gcc<CR>p", { desc = "Duplicate line" })
+
 set("n", "vA", "ggVG", { desc = "Select All" })
 set("n", "yA", "ggVGy", { desc = "Copy All" })
 
