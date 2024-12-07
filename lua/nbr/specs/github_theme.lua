@@ -7,6 +7,9 @@ return {
     opts = {
         options = {
             hide_end_of_buffer = true,
+            styles = {
+                comments = "italic",
+            },
             darken = {
                 floats = true,
                 sidebars = {
