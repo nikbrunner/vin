@@ -1,7 +1,3 @@
----TODO: This should work now, but it doesn't show as a column. Triggering the documentation with <C-space> does show the source.
----Maybe this can be improved in the future.
----[Feature Request: Add Label Details (Display Source) on Autocomplete · Issue #97 · Saghen/blink.cmp](https://github.com/Saghen/blink.cmp/issues/97)
-
 ---@type LazyPluginSpec
 return {
     "saghen/blink.cmp",
@@ -11,7 +7,7 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-        keymap = { preset = "enter" },
+        -- keymap = { preset = "enter" },
         sources = {
             -- add lazydev to your completion providers
             completion = {
@@ -35,7 +31,7 @@ return {
                 -- 'preselect' will automatically select the first item in the completion list
                 -- 'manual' will not select any item by default
                 -- 'auto_insert' will not select any item by default, and insert the completion items automatically when selecting them
-                selection = "auto_insert",
+                selection = "manual",
             },
         },
     },
