@@ -93,3 +93,7 @@ sh ./obsidian/sync.sh
 - [GitHub - alex35mil/dotfiles: My dotfiles](https://github.com/alex35mil/dotfiles)
 - [loctvl842/nvim](https://github.com/loctvl842/nvim?search=1)
 - [JoosepAlviste/dotfiles](https://github.com/joosepalviste/dotfiles/)
+
+### Videos
+
+- [(1000) LSP in Neovim (with like 3 lines of code) - YouTube](https://www.youtube.com/watch?v=bTWWFQZqzyI&list=WL&index=2)
