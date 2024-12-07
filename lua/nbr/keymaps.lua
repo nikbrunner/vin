@@ -41,6 +41,8 @@ set("n", "x", '"_x', { desc = "Delete without yanking" })
 -- Join lines while keeping position
 set("n", "J", "mzJ`z", { desc = "Join Lines" })
 
+set("n", "<C-c>", "ciw")
+
 -- Resize splits with shift + arrow
 set({ "n", "v", "x" }, "<S-Down>", "<cmd>resize -2<cr>", { desc = "Resize Split Down" })
 set({ "n", "v", "x" }, "<S-Up>", "<cmd>resize +2<cr>", { desc = "Resize Split Up" })
