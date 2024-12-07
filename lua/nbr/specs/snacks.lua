@@ -28,11 +28,12 @@ M.spec = {
                 ---@type snacks.dashboard.Item[]
                 keys = {
                     {
-                        icon = " ",
-                        key = "<space><space>",
-                        desc = "Find File",
-                        action = ":lua Snacks.dashboard.pick('files')",
+                        icon = "󰋚 ",
+                        key = "<CR>",
+                        desc = "Recent Filse",
+                        action = ":lua require('fzf-lua').oldfiles({ cwd_only = true, prompt = 'Recent Files (CWD): '})",
                     },
+                    { icon = " ", key = "<S-CR>", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
                     { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
                     { icon = " ", key = "f", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
                     { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
