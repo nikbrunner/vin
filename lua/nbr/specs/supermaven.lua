@@ -19,9 +19,9 @@ M.spec = {
     event = "InsertEnter",
     opts = {
         keymaps = {
-            accept_suggestion = "<Tab>",
-            clear_suggestion = "<C-e>",
-            accept_word = "<S-Tab>",
+            accept_suggestion = "<Right>",
+            clear_suggestion = "<Left>",
+            accept_word = "<C-Right>",
         },
         log_level = "off", -- set to "off" to disable logging completely
     },
