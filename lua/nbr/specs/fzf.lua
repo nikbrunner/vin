@@ -248,6 +248,26 @@ M.spec = {
                 treesitter = { enable = true },
             },
         },
+
+        builtin = {
+            -- previewer treesitter options:
+            -- enable specific filetypes with: `{ enable = { "lua" } }
+            -- exclude specific filetypes with: `{ disable = { "lua" } }
+            -- enable `nvim-treesitter-context` with `context = true`
+            -- disable fully with: `{ enable = false }`
+            treesitter = { enable = true, context = true, disable = {} },
+            -- By default, the main window dimensions are calculated as if the
+            -- preview is visible, when hidden the main window will extend to
+            -- full size. Set the below to "extend" to prevent the main window
+            -- from being modified when toggling the preview.
+            toggle_behavior = "default",
+            -- Custom filetype autocmds aren't triggered on
+            -- the preview buffer, define them here instead
+            -- ext_ft_override = { ["ksql"] = "sql", ... },
+            -- render_markdown.nvim integration, enabled by default for markdown
+            render_markdown = { enable = true, filetypes = { ["markdown"] = true } },
+        },
+
         -- TODO: Try to make headers work: https://github.com/ibhagwan/fzf-lua/issues/1351#issuecomment-2265742596
         files = {
             prompt = "Files  ",
