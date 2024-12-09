@@ -10,7 +10,7 @@ return {
                 typescript = [[console.log("DEBUG: %identifier", %identifier)]],
                 jsx = [[console.log("DEBUG: %identifier", %identifier)]],
                 tsx = [[console.log("DEBUG: %identifier", %identifier)]],
-                lua = [[print("DEBUG: %identifier", %identifier)]],
+                lua = [[print("DEBUG: %identifier", vim.inspect(%identifier))]],
             },
         },
         batch_log_templates = {
