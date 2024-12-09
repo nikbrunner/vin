@@ -23,8 +23,7 @@ return {
             },
         },
         keymaps = {
-            insert_log_below = "<leader>clj",
-            insert_log_above = "<leader>clk",
+            insert_log_below = "<leader>cll",
             insert_batch_log = "<leader>clb",
             add_log_targets_to_batch = "<leader>cla",
             insert_log_below_operator = "<leader>c<S-l>j",
