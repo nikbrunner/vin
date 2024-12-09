@@ -118,7 +118,7 @@ M.keys = function()
 
     return {
         -- stylua: ignore start
-        { "<CR>",             function() fzfLua.files({ winopts = M.winopts.md.vertical }) end, desc = "[W]orkspace [D]ocument" },
+        { "<CR>",             function() fzfLua.files({ winopts = M.winopts.md.flex }) end, desc = "[W]orkspace [D]ocument" },
         { "<C-CR>",           function() fzfLua.oldfiles({ cwd_only = true, prompt = "Recent Files (CWD): ", winopts = M.winopts.sm.no_preview }) end, desc = "Recent Files" },
         { "<A-CR>",           M.find_related_files, desc = "Related Files", },
         { "<C-S-CR>",         function() fzfLua.oldfiles({ cwd_only = false, prompt = "Recent Files (Anywhere): ", winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
