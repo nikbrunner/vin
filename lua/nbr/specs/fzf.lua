@@ -118,9 +118,9 @@ M.keys = function()
 
     return {
         -- stylua: ignore start
-        { "<CR>",             function() fzfLua.oldfiles({ cwd_only = true, prompt = "Recent Files (CWD): ", winopts = M.winopts.sm.no_preview }) end, desc = "Recent Files" },
+        { "<CR>",             function() fzfLua.files({ winopts = M.winopts.md.vertical }) end, desc = "[W]orkspace [D]ocument" },
+        { "<C-CR>",           function() fzfLua.oldfiles({ cwd_only = true, prompt = "Recent Files (CWD): ", winopts = M.winopts.sm.no_preview }) end, desc = "Recent Files" },
         { "<A-CR>",           M.find_related_files, desc = "Related Files", },
-        { "<S-CR>",           function() fzfLua.files({ winopts = M.winopts.md.vertical }) end, desc = "[W]orkspace [D]ocument" },
         { "<C-S-CR>",         function() fzfLua.oldfiles({ cwd_only = false, prompt = "Recent Files (Anywhere): ", winopts = M.winopts.sm.no_preview }) end, desc = "Recent" },
         { "gs",               function() fzfLua.lsp_document_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Document Symbols" },
         { "gS",               function() fzfLua.lsp_live_workspace_symbols({ winopts = M.winopts.lg.vertical }) end, desc = "Workspace Symbols" },
@@ -129,6 +129,7 @@ M.keys = function()
         { "<leader><tab>",    function() fzfLua.tabs() end, desc = "Tab Fuzzy Find" },
         { "<leader>j",        function() fzfLua.jumps({ winopts = M.winopts.md.vertical }) end, desc = "Jumps" },
         { "<leader>s.",       function() fzfLua.resume() end, desc = "Resume" },
+        { "<leader>wt",        function() fzfLua.live_grep({ winopts = M.winopts.md.vertical }) end, desc = "[W]orkspace [T]ext" },
         { "<leader>sH",       function() fzfLua.highlights() end, desc = "Highlights" },
         { "<leader>sk",       function() fzfLua.keymaps() end, desc = "Keymaps" },
         { "<leader>sw",       function() fzfLua.grep_cword() end, mode = { "n", "v" }, desc = "Word" },
@@ -243,25 +244,13 @@ M.spec = {
 
         fzf_colors = true,
 
-        -- previewers = {
-        --     builtin = {
-        --         treesitter = { enable = true },
-        --     },
-        -- },
-
-        builtin = {
-            treesitter = { enable = true, context = true, disable = {} },
-            title_fnamemodify = function(s)
-                vim.fn.fnamemodify(s, ":~")
-            end,
-        },
-
         -- TODO: Try to make headers work: https://github.com/ibhagwan/fzf-lua/issues/1351#issuecomment-2265742596
         files = {
             prompt = "Files  ",
-            cwd_prompt_shorten_len = 48, -- shorten prompt beyond this length
+            cwd_prompt_shorten_len = 32, -- shorten prompt beyond this length
             cwd_prompt_shorten_val = 4, -- shortened path parts length
         },
+
         oldfiles = {
             prompt = "Recent Files  ",
             cwd_only = true,
