@@ -13,6 +13,7 @@ M.spec = {
         notifier = { enabled = true },
         toggle = { enabled = true },
         gitbrowse = { enabled = true },
+        zen = { enabled = true },
         words = {
             enabled = true,
             debounce = 100,
@@ -90,6 +91,14 @@ M.spec = {
                 border = "solid",
                 wo = { winhighlight = "Normal:NormalFloat" },
             },
+            zen = {
+                width = 200,
+                keys = {
+                    q = function(self)
+                        self:close()
+                    end,
+                },
+            },
         },
     },
     keys = function()
@@ -101,6 +110,8 @@ M.spec = {
             { "]]",                  function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
             { "[[",                  function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
             { "<leader>un",          function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
+            { "<leader>z",           function() Snacks.zen.zen() end, desc = "Zen Mode" },
+            { "<leader>Z",           function() Snacks.zen.zoom() end, desc = "Zoom Mode" },
             { "<leader>an",          function() Snacks.notifier.show_history() end, desc = "Show notifications" },
             { "<leader>gg",          function() Snacks.lazygit() end, desc = "Lazygit" },
             { "<leader>gb",          function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
