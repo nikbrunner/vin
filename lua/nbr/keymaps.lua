@@ -77,14 +77,14 @@ set("n", "n", "nzzzv")
 set("n", "N", "Nzzzv")
 
 set("n", "<leader>g.", function()
-    local git_root = require("nbr.lib.git").find_git_root()
+    local git_root = require("snacks").git.get_root()
     if git_root then
         vim.cmd("cd " .. git_root)
         vim.notify("Changed directory to " .. git_root, vim.log.levels.INFO, { title = "Git Root" })
     else
         vim.notify("No Git root found", vim.log.levels.ERROR, { title = "Git Root" })
     end
-end, { desc = "CD Git Root" })
+end, { desc = "[.] Root" })
 
 set("n", "<leader>ur", function()
     -- Reload the config file and colorscheme
@@ -135,13 +135,13 @@ for i = 1, 9 do
 end
 
 -- nbr.nvim Group
-set("n", "<leader>ap", "<cmd>Lazy<CR>", { desc = "Manage plugins" })
-set("n", "<leader>al", "<cmd>Mason<CR>", { desc = "Manage language servers" })
-set("n", "<leader>ail", "<cmd>LspInfo<CR>", { desc = "Language server information" })
-set("n", "<leader>aL", function()
+set("n", "<leader>ax", "<cmd>Lazy<CR>", { desc = "[X]tensions" })
+set("n", "<leader>al", "<cmd>Mason<CR>", { desc = "[L]anguage Servers" })
+set("n", "<leader>ail", "<cmd>LspInfo<CR>", { desc = "[L]anague server information" })
+set("n", "<leader>aR", function()
     vim.notify("Restarting LSP Servers", vim.log.levels.INFO, { title = "LSP" })
     vim.cmd("LspRestart")
-end, { desc = "Restart language servers" })
+end, { desc = "[R]estart language servers" })
 
 -- [C] Action Group
 set({ "n", "v" }, "<leader>cc", function()

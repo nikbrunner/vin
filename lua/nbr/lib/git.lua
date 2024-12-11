@@ -47,33 +47,4 @@ function M.parse_issue_id_from_branch(branch_name)
     return issue_id and string.upper(issue_id) or nil
 end
 
-function M.find_git_root()
-    local function is_git_repo(path)
-        local git_path = path .. "/.git"
-        local f = io.open(git_path, "r")
-        if f ~= nil then
-            io.close(f)
-            return true
-        else
-            return false
-        end
-    end
-
-    local function get_parent_dir(path)
-        return path:match("^(.*)/")
-    end
-
-    local current_path = vim.fn.expand("%:p:h")
-
-    while current_path do
-        if is_git_repo(current_path) then
-            return current_path
-        end
-        current_path = get_parent_dir(current_path)
-    end
-
-    vim.notify("No .git directory found", vim.log.levels.ERROR)
-    return nil
-end
-
 return M

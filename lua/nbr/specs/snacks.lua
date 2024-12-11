@@ -14,10 +14,11 @@ M.spec = {
         toggle = { enabled = true },
         gitbrowse = { enabled = true },
         zen = { enabled = true },
-        words = {
-            enabled = true,
-            debounce = 100,
-        },
+
+        ---@type snacks.words.Config
+        words = { debounce = 100 },
+
+        ---@type snacks.dashboard.Config
         dashboard = {
             preset = {
                 -- Defaults to a picker that supports `fzf-lua`, `telescope.nvim` and `mini.pick`
@@ -75,24 +76,27 @@ M.spec = {
                 { section = "startup" },
             },
         },
+
         terminal = {
             win = {
                 border = "solid",
             },
         },
+
         lazygit = {
             configure = true,
             win = {
                 border = "solid",
             },
         },
+
         styles = {
             ["notification.history"] = {
                 border = "solid",
                 wo = { winhighlight = "Normal:NormalFloat" },
             },
             zen = {
-                width = 200,
+                width = 0.65,
                 keys = {
                     q = function(self)
                         self:close()
@@ -101,45 +105,7 @@ M.spec = {
             },
         },
     },
-    keys = function()
-        local Snacks = require("snacks")
 
-        return {
-        -- stylua: ignore start
-            { "<C-/>",               function() Snacks.terminal() end, desc = "Toggle Terminal" },
-            { "]]",                  function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
-            { "[[",                  function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
-            { "<leader>un",          function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
-            { "<leader>z",           function() Snacks.zen.zen() end, desc = "Zen Mode" },
-            { "<leader>Z",           function() Snacks.zen.zoom() end, desc = "Zoom Mode" },
-            { "<leader>an",          function() Snacks.notifier.show_history() end, desc = "Show notifications" },
-            { "<leader>gg",          function() Snacks.lazygit() end, desc = "Lazygit" },
-            { "<leader>gb",          function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
-            { "<leader>gR",          function() Snacks.gitbrowse() end, desc = "Open File on Remote" },
-            { "<leader>gf",          function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
-            { "<leader>gl",          function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)" },
-            {
-                "<leader>N",
-                desc = "Neovim News",
-                function()
-                    Snacks.win({
-                        file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
-                        width = 0.6,
-                        height = 0.6,
-                        wo = {
-                            border = "solid",
-                            spell = false,
-                            wrap = false,
-                            signcolumn = "yes",
-                            statuscolumn = " ",
-                            conceallevel = 3,
-                        },
-                    })
-                end,
-            },
-        }
-        -- stylua: ignore end
-    end,
     init = function()
         local Snacks = require("snacks")
 
@@ -159,6 +125,45 @@ M.spec = {
                 -- stylua: ignore end
             end,
         })
+    end,
+
+    keys = function()
+        local Snacks = require("snacks")
+
+        return {
+        -- stylua: ignore start
+            { "<C-/>",               function() Snacks.terminal() end, desc = "Toggle Terminal" },
+            { "]]",                  function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
+            { "[[",                  function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
+            { "<leader>gg",          function() Snacks.lazygit() end, desc = "[G]raph" },
+            { "<leader>gb",          function() Snacks.git.blame_line() end, desc = "[B]lame" },
+            { "<leader>gR",          function() Snacks.gitbrowse() end, desc = "[R]emote" },
+            { "<leader>gf",          function() Snacks.lazygit.log_file() end, desc = "[F]ile" },
+            { "<leader>gl",          function() Snacks.lazygit.log() end, desc = "[L]og" },
+            { "<leader>af",          function() Snacks.zen.zen() end, desc = "[F]ocus Mode" },
+            { "<leader>az",          function() Snacks.zen.zoom() end, desc = "[Z]oom Mode" },
+            { "<leader>an",          function() Snacks.notifier.show_history() end, desc = "[N]otifications" },
+            {
+                "<leader>aN",
+                desc = "[N]ews",
+                function()
+                    Snacks.win({
+                        file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
+                        width = 0.6,
+                        height = 0.6,
+                        wo = {
+                            border = "solid",
+                            spell = false,
+                            wrap = false,
+                            signcolumn = "yes",
+                            statuscolumn = " ",
+                            conceallevel = 3,
+                        },
+                    })
+                end,
+            },
+        }
+        -- stylua: ignore end
     end,
 }
 

@@ -13,11 +13,11 @@ return {
         return {
             { "[h", kulala.jump_prev, desc = "Previous request" },
             { "]h", kulala.jump_next, desc = "Next request" },
-            { "<leader>hh", kulala.run, desc = "Run request" },
-            { "<leader>h.", kulala.replay, desc = "Re-Run request" },
-            { "<leader>he", kulala.set_selected_env, desc = "Select env" },
-            { "<leader>hs", kulala.search, desc = "Search" },
-            { "<leader>hc", kulala.copy, desc = "Copy request" },
+            { "<leader>rr", kulala.run, desc = "Run request" },
+            { "<leader>r.", kulala.replay, desc = "Re-Run request" },
+            { "<leader>re", kulala.set_selected_env, desc = "Select env" },
+            { "<leader>rs", kulala.search, desc = "Search" },
+            { "<leader>rc", kulala.copy, desc = "Copy request" },
         }
     end,
 }

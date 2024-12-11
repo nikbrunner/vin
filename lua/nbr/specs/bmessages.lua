@@ -8,7 +8,7 @@ M.spec = {
         {
             "<leader>am",
             "<CMD>Bmessagesvs<CR>",
-            desc = "Show messages",
+            desc = "[M]essages",
         },
     },
     opts = {},

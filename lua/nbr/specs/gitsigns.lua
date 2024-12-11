@@ -4,35 +4,77 @@ local M = {}
 M.spec = {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },
+    keys = {
+        {
+            "]g",
+            function()
+                require("gitsigns").nav_hunk("next")
+            end,
+            desc = "Next Hunk",
+        },
+        {
+            "[g",
+            function()
+                require("gitsigns").nav_hunk("prev")
+            end,
+            desc = "Prev Hunk",
+        },
+        {
+            "<leader>hs",
+            function()
+                require("gitsigns").stage_hunk()
+            end,
+            desc = "Stage Hunk",
+            mode = { "n", "v" },
+        },
+        {
+            "<leader>hr",
+            function()
+                require("gitsigns").reset_hunk()
+            end,
+            desc = "Reset Hunk",
+            mode = { "n", "v" },
+        },
+        {
+            "<leader>hu",
+            function()
+                require("gitsigns").undo_stage_hunk()
+            end,
+            desc = "Undo Stage Hunk",
+            mode = { "n", "v" },
+        },
+        {
+            "<leader>hd",
+            function()
+                require("gitsigns").preview_hunk()
+            end,
+            desc = "Diff (Hunk)",
+            mode = { "n", "v" },
+        },
+        {
+            "<leader>dvr",
+            function()
+                require("gitsigns").reset_buffer()
+            end,
+            desc = "[R]evert changes",
+        },
+        {
+            "<leader>dvs",
+            function()
+                require("gitsigns").stage_buffer()
+            end,
+            desc = "[S]tage document",
+        },
+    },
     opts = {
         signs = {
             add = { text = "▎" },
             change = { text = "▎" },
-            delete = { text = "" },
-            topdelete = { text = "" },
+            delete = { text = "" },
+            topdelete = { text = "" },
             changedelete = { text = "▎" },
             untracked = { text = "▎" },
         },
-        on_attach = function(buffer)
-            local gs = package.loaded.gitsigns
-
-            function M.map(mode, l, r, desc)
-                vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
-            end
-
-           -- stylua: ignore start
-            M.map("n", "]g", gs.next_hunk, "Next Hunk")
-            M.map("n", "[g", gs.prev_hunk, "Prev Hunk")
-
-            M.map({ "n", "v" }, "<leader>gsh", gs.stage_hunk, "Stage Hunk")
-            M.map({ "n", "v" }, "<leader>grh", gs.reset_hunk, "Reset Hunk")
-            M.map({ "n", "v" }, "<leader>guh", gs.undo_stage_hunk, "Undo Stage Hunk")
-            M.map({ "n", "v" }, "<leader>gdh", gs.preview_hunk, "Diff (Hunk)")
-
-            M.map("n", "<leader>grb", gs.reset_buffer, "Reset Buffer")
-            M.map("n", "<leader>gsb", gs.stage_buffer, "Stage Buffer")
-            -- stylua: ignore end
-        end,
     },
 }
 
