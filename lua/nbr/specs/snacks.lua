@@ -14,6 +14,7 @@ M.spec = {
         toggle = { enabled = true },
         gitbrowse = { enabled = true },
         zen = { enabled = true },
+        scroll = { enabled = false },
 
         ---@type snacks.words.Config
         words = { debounce = 100 },
@@ -101,6 +102,9 @@ M.spec = {
                     q = function(self)
                         self:close()
                     end,
+                    -- d = function(self)
+                    --     require("snacks").toggle.dim()
+                    -- end,
                 },
             },
         },
@@ -113,6 +117,7 @@ M.spec = {
             pattern = "VeryLazy",
             callback = function()
                 -- stylua: ignore start
+                Snacks.toggle.dim():map("<leader>ad")
                 Snacks.toggle.diagnostics():map("<leader>ud")
                 Snacks.toggle.line_number():map("<leader>ul")
                 Snacks.toggle.inlay_hints():map("<leader>uh")
@@ -135,7 +140,7 @@ M.spec = {
             { "<C-/>",               function() Snacks.terminal() end, desc = "Toggle Terminal" },
             { "]]",                  function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
             { "[[",                  function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
-            { "<leader>gg",          function() Snacks.lazygit() end, desc = "[G]raph" },
+            { "<leader>wh",          function() Snacks.lazygit() end, desc = "[H]istory" },
             { "<leader>gb",          function() Snacks.git.blame_line() end, desc = "[B]lame" },
             { "<leader>gR",          function() Snacks.gitbrowse() end, desc = "[R]emote" },
             { "<leader>gf",          function() Snacks.lazygit.log_file() end, desc = "[F]ile" },
