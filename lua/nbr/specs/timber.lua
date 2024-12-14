@@ -6,20 +6,20 @@ return {
     opts = {
         log_templates = {
             default = {
-                javascript = [[console.log("DEBUG: %identifier", %identifier)]],
-                typescript = [[console.log("DEBUG: %identifier", %identifier)]],
-                jsx = [[console.log("DEBUG: %identifier", %identifier)]],
-                tsx = [[console.log("DEBUG: %identifier", %identifier)]],
-                lua = [[print("DEBUG: %identifier", vim.inspect(%identifier))]],
+                javascript = [[console.log("DEBUG: %log_target", %log_target)]],
+                typescript = [[console.log("DEBUG: %log_target", %log_target)]],
+                jsx = [[console.log("DEBUG: %log_target", %log_target)]],
+                tsx = [[console.log("DEBUG: %log_target", %log_target)]],
+                lua = [[print("DEBUG: %log_target", vim.inspect(%log_target))]],
             },
         },
         batch_log_templates = {
             default = {
-                javascript = [[console.log("DEBUG:", { %repeat<"%identifier": %identifier><, > })]],
-                typescript = [[console.log("DEBUG:", { %repeat<"%identifier": %identifier><, > })]],
-                jsx = [[console.log("DEBUG:", { %repeat<"%identifier": %identifier><, > })]],
-                tsx = [[console.log("DEBUG:", { %repeat<"%identifier": %identifier><, > })]],
-                lua = [[print(string.format("DEBUG: %repeat<%identifier=%s><, >", %repeat<%identifier><, >))]],
+                javascript = [[console.log("DEBUG:", { %repeat<"%log_target": %log_target><, > })]],
+                typescript = [[console.log("DEBUG:", { %repeat<"%log_target": %log_target><, > })]],
+                jsx = [[console.log("DEBUG:", { %repeat<"%log_target": %log_target><, > })]],
+                tsx = [[console.log("DEBUG:", { %repeat<"%log_target": %log_target><, > })]],
+                lua = [[print(string.format("DEBUG: %repeat<%log_target=%s><, >", %repeat<%log_target><, >))]],
             },
         },
         keymaps = {
