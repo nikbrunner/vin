@@ -96,6 +96,9 @@ M.spec = {
                 border = "solid",
                 wo = { winhighlight = "Normal:NormalFloat" },
             },
+            notification = {
+                border = "single",
+            },
             zen = {
                 width = 0.65,
                 keys = {
