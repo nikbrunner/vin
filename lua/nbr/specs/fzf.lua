@@ -240,6 +240,7 @@ M.spec = {
             ["--border-label"] = "[ nbr.nvim ]",
             ["--padding"] = "1,3",
             ["--no-scrollbar"] = "",
+            ["--tiebreak"] = "index",
             ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
         },
 
