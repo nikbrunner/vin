@@ -92,7 +92,7 @@ M.spec = {
         },
 
         styles = {
-            ["notification.history"] = {
+            notification_history = {
                 border = "solid",
                 wo = { winhighlight = "Normal:NormalFloat" },
             },
