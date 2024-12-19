@@ -28,6 +28,9 @@ set("n", "<S-Esc>", function()
     lib.ui.close_all_floating_windows()
 end, { desc = "Clear Notifier and Trouble" })
 
+-- exit terminal to normal mode with esc
+set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal" })
+
 set("n", "<C-o>", "<C-o>zz", { desc = "Move back in jump list" })
 set("n", "<C-i>", "<C-i>zz", { desc = "Move forward in jump list" })
 
