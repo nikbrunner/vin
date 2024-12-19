@@ -132,6 +132,7 @@ M.keys = function()
         { "<leader>wt",       function() fzfLua.live_grep({ winopts = M.winopts.md.vertical }) end, desc = "[T]ext in Workspace" },
         { "<leader>sH",       function() fzfLua.highlights() end, desc = "Highlights" },
         { "<leader>sk",       function() fzfLua.keymaps() end, desc = "Keymaps" },
+        { "<leader>sg",       function() fzfLua.live_grep() end, desc = "Grep" },
         { "<leader>sw",       function() fzfLua.grep_cword() end, mode = { "n", "v" }, desc = "Word" },
         { "<leader>sm",       function() fzfLua.marks({ winopts = M.winopts.lg.vertical }) end, desc = "Marks" },
         { "<leader>s'",       function() fzfLua.registers({ winopts = M.winopts.lg.vertical }) end, mode = { "n", "v" }, desc = "Registers" },
