@@ -25,6 +25,6 @@ map({ "n", "o", "x" }, "j", "gj", {})
 map({ "n", "o", "x" }, "k", "gk", {})
 map({ "n", "o", "x" }, "0", "g0", {})
 map({ "n", "o", "x" }, "$", "g$", {})
-map({ "n", "i" }, "<C-CR>", toggle_checkbox, { noremap = true, silent = true })
+map("n", "K", toggle_checkbox, { noremap = true, silent = true })
 
 vim.opt.wrap = true
